@@ -1,0 +1,21 @@
+/* Shared journey navigation without changing the established workbench layout. */
+main.flow-enabled { display:grid; grid-template-rows:auto minmax(0,1fr); }
+.flow-content { min-width:0; min-height:0; overflow:hidden; }
+.flow-bar { display:flex; align-items:center; gap:12px; min-height:40px; padding:4px 24px; border-bottom:1px solid var(--ui-border); background:var(--ui-surface); }
+.flow-bar .btn { font-size:12px; }
+.flow-bar-label { margin-left:auto; font-size:12px; color:var(--ui-text-muted); }
+.flow-page { display:grid; grid-template-rows:auto minmax(0,1fr); }
+.flow-scroll { overflow:auto; min-height:0; padding:20px 24px 24px; }
+.flow-context { display:flex; gap:16px; flex-wrap:wrap; align-items:center; font-size:12px; padding-bottom:20px; border-bottom:1px solid var(--ui-border); }
+.flow-context span,.flow-context code { color:var(--ui-text-muted); }
+.flow-context code { overflow-wrap:anywhere; }
+.flow-steps { list-style:none; padding:0; margin:0 0 24px; }
+.flow-steps li { display:flex; align-items:center; gap:16px; padding:20px 0; border-bottom:1px solid var(--ui-border-muted); }
+.flow-number { display:flex; flex:0 0 28px; width:28px; height:28px; align-items:center; justify-content:center; border:1px solid var(--ui-border); border-radius:var(--ui-control-radius); font:12px var(--ui-mono); color:var(--ui-text-muted); }
+.flow-number .icon { width:16px; height:16px; }
+.flow-steps .is-done .flow-number { color:var(--ui-accent); background:var(--ui-surface-muted); }
+.flow-steps h2 { display:flex; flex-wrap:wrap; align-items:center; gap:12px; font-size:14px; margin:0 0 8px; }
+.flow-steps h2 span { font-weight:400; }
+.flow-steps p { font-size:12px; line-height:1.7; margin:0; color:var(--ui-text-muted); }
+.flow-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+@media(max-width:760px) { .flow-scroll { padding:16px; } .flow-bar { padding:4px 12px; gap:8px; flex-wrap:wrap; } .flow-steps li { flex-wrap:wrap; } .flow-steps .grow { flex-basis:calc(100% - 48px); } .flow-actions { margin-left:44px; } .flow-bar-label { display:none; } }

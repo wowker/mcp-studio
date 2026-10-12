@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-13",
+  "scope": "planning documents only; not implementation verification",
+  "work_packages": 36,
+  "leaf_tasks": 72,
+  "checkpoints": 12,
+  "dependency_graph": "all references exist; earlier-only; acyclic",
+  "acceptance_items": 60,
+  "acceptance_status": "all pending; source register unchanged",
+  "primary_stage_counts": {
+    "M1": 14,
+    "M2": 10,
+    "M5": 5,
+    "M3": 18,
+    "M6": 8,
+    "M4": 5
+  },
+  "local_links_checked": 41,
+  "broken_local_links": 0,
+  "existing_design_zip_sha256": "7509332251b6a8b4e2caa0bcbcefce841c33b8caffac44c349a1746e0c24207a",
+  "existing_design_zip_unchanged": true,
+  "production_tests_run": false,
+  "prototype_tests_rerun": false
+}

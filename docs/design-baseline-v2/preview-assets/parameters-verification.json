@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-10",
+  "checks": [
+    "Shared application validator distinguishes missing, empty, null, zero, false and empty collections",
+    "Fields follow Schema, compact control sizes, two columns and all four controls fit the default pane",
+    "New drafts omit optional defaults; unskip and focus without edits defer visible validation",
+    "Skip disables but retains optional fields in Form and omits them from Raw JSON",
+    "The exact omitted payload is saved and recorded in scoped history",
+    "Cleared required strings and number null show local errors and prevent execution",
+    "Numeric constraints and boolean false are validated without treating false as empty",
+    "Optional empty string is validated until skipped; re-enable initializes by schema type",
+    "Raw omissions reappear as skipped fields; enum values respect their schema",
+    "Skip state and validation remain isolated by tab and project and survive theme and locale changes",
+    "Arrays keep invalid drafts, validate type and item constraints and block mode changes only for parse errors",
+    "No-input tools show an empty state and disable Raw JSON mode",
+    "Both themes and locales remain within their scroll containers across desktop and mobile widths"
+  ],
+  "errors": [],
+  "unexpectedRequests": [],
+  "screenshots": [
+    "parameters-refined",
+    "parameters-skipped",
+    "parameters-errors",
+    "parameters-dark-en",
+    "parameters-array"
+  ]
+}

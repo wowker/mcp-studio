@@ -1,0 +1,35 @@
+{
+  "scope": "design prototype only",
+  "assetVersion": "20261012-debugger-8",
+  "browser": "Codex in-app browser",
+  "checks": [
+    "Nested optional fields start skipped",
+    "Unskip then focus/blur after a prior run shows aria-invalid=false",
+    "Null, zero and false remain explicit",
+    "Malformed JSON is retained and execution is blocked",
+    "Cancelling keeps the frozen request in tool-scoped history",
+    "History restoration opens an unexecuted tab",
+    "Upload retry fails offline, then succeeds after simulated reconnect with the same run ID",
+    "协议错误 displayed with its own recovery guidance",
+    "授权失效 displayed with its own recovery guidance",
+    "连接中断 displayed with its own recovery guidance",
+    "调用超时 displayed with its own recovery guidance",
+    "Saved request/response snapshot still uses the page editor",
+    "Queued fixture uploads through history detail without calling the tool",
+    "Light Chinese / dark English preserve arguments and state",
+    "1440, 1024 and 390 viewports have no document horizontal overflow",
+    "Sidebar collapses and expands with debugger state intact",
+    "Array disclosure remains collapsed when another field is edited"
+  ],
+  "screenshots": [
+    "debugger-complex-validation.jpg",
+    "debugger-running.jpg",
+    "debugger-cancelled.jpg",
+    "debugger-history-detail.jpg",
+    "debugger-history-restored.jpg",
+    "debugger-upload-failure.jpg",
+    "debugger-english-dark.jpg",
+    "debugger-mobile.jpg"
+  ],
+  "currentVersionRuntimeErrors": []
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-10",
+  "scope": "Standalone design prototype: scoped tool history, tab actions, themes, sidebar, account and shared components",
+  "checks": [
+    "Account is top-right; language and theme belong to bottom sidebar",
+    "Authentication label opens active connection settings and preserves private draft",
+    "Tool history stays in workspace and filters exact tool and connection",
+    "Scoped detail deep links cannot access another tool or project run",
+    "Restoring scoped history creates an unexecuted independent draft",
+    "All seven screenshot menu actions, clipboard and keyboard focus work",
+    "Duplicating a non-active tab preserves its own invalid JSON but starts without result",
+    "Fixed tabs form a protected leading group; movement preserves active draft identity",
+    "Batch closing touches only current connection; same-URL personal connection stays isolated",
+    "A running tab is excluded from batch close and single close",
+    "Theme and collapse preserve unsaved form, DOM and draft identity",
+    "Dark theme applies to scoped history and Secret editor with visible actions",
+    "Both themes and locales keep primary controls and menu visible at four widths",
+    "Theme preference persists only an enum; invalid preference is discarded"
+  ],
+  "errors": [],
+  "requests": [],
+  "screenshots": [
+    "tool-history",
+    "tool-history-detail",
+    "tool-tab-menu",
+    "tools-dark",
+    "tools-light",
+    "sidebar-collapsed",
+    "tool-history-dark",
+    "secret-editor-dark"
+  ]
+}

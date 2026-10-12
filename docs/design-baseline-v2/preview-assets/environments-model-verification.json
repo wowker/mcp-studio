@@ -1,0 +1,33 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    "Chinese and English keys match",
+    "Four-level inheritance resolves once per name with server scope taking precedence",
+    "Different environments and same-URL server identities isolate overrides",
+    "References resolve to the effective override, while zero and false remain valid",
+    "Secret values never enter resolution or rendered output",
+    "Derived secrets are redacted in table and redacted snapshot",
+    "Missing secret blocks resolution without falling back to lower-priority values",
+    "Secret edits retain original scope and profile, cancel leaves definition untouched",
+    "Agent is required for local secret storage, session storage remains available",
+    "Backup confirmation, failure, retry and removal do not remove local value",
+    "An available personal backup can restore a removed fixture, without sharing it",
+    "Projects cannot share a secret availability flag for the same variable ID",
+    "Duplicate definitions are rejected per environment, scope and server",
+    "Typed zero is accepted, invalid number and malformed JSON produce inline errors",
+    "Required empty strings are missing but optional empty strings are valid",
+    "Nested JSON references resolve and sensitive dependencies redact the entire derived value",
+    "A missing authorization definition opens a required secret draft by default",
+    "Missing references and cycles are detected without recursion failure",
+    "Deleting an override reveals the next candidate only after confirmation",
+    "Base edits keep the base profile; scope changes do not silently rehome a definition",
+    "Drafts persist across translation but stay isolated by project, server and environment",
+    "Read-only roles cannot save, delete or reveal personal fixtures",
+    "Developers can manage personal secrets without changing shared definitions",
+    "Environment browsing does not apply it; connected, dirty or invalid sessions cannot switch",
+    "Valid apply updates both the session profile and saved connection snapshot",
+    "Connection preflight prevents connecting when environment validation fails",
+    "Untrusted values are escaped in table, editor, chain and snapshot",
+    "Clearing empty search results preserves definitions and environment context"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "prototype only",
+  "checks": [
+    {
+      "name": "Normal content is not replaced",
+      "passed": true
+    },
+    {
+      "name": "Failed reload enters pending; cancelling returns to the error",
+      "passed": true
+    },
+    {
+      "name": "Success and repeated failure are separate explicit outcomes",
+      "passed": true
+    },
+    {
+      "name": "Invalid states cannot affect view",
+      "passed": true
+    },
+    {
+      "name": "Project, server and nested view identities remain isolated",
+      "passed": true
+    },
+    {
+      "name": "Forbidden view contains no editable fixture body and offers navigation",
+      "passed": true
+    },
+    {
+      "name": "Empty creation action respects role",
+      "passed": true
+    },
+    {
+      "name": "Read-only notice explains available actions",
+      "passed": true
+    },
+    {
+      "name": "Both locales cover every page resource and presentation state",
+      "passed": true
+    },
+    {
+      "name": "State review never mutates source context",
+      "passed": true
+    },
+    {
+      "name": "Locale keys match",
+      "passed": true
+    },
+    {
+      "name": "Context labels escape markup",
+      "passed": true
+    }
+  ]
+}

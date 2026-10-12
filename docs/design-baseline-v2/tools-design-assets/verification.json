@@ -1,0 +1,28 @@
+{
+  "passed": 21,
+  "checks": [
+    "A Studio initial example clearly labeled",
+    "B discovery hierarchy and group / description search",
+    "C sequential notebook and independent context inspector",
+    "Variants preserve draft; form and JSON synchronize",
+    "Invalid input blocks execution and keeps draft",
+    "Execution snapshot stays fixed while draft changes",
+    "Cancellation records a terminal simulated run",
+    "Server-declared Tool errors are distinct and do not auto-retry",
+    "History details read captured inputs; restore is unexecuted",
+    "Tool discovery selection loads matching schema and sample",
+    "Keyboard comparison and editable arrow keys",
+    "A layout at 1024px",
+    "B layout at 1024px",
+    "C layout at 1024px",
+    "A layout at 820px",
+    "B layout at 820px",
+    "C layout at 820px",
+    "A layout at 390px",
+    "B layout at 390px",
+    "C layout at 390px",
+    "No runtime errors, remote requests or browser persistence"
+  ],
+  "errors": [],
+  "unexpectedRequests": []
+}

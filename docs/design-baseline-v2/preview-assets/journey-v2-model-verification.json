@@ -1,0 +1,61 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    {
+      "name": "Changing projects loads that project role and returning restores its own preview",
+      "passed": true
+    },
+    {
+      "name": "Uploads use the record project role while another project is displayed",
+      "passed": true
+    },
+    {
+      "name": "Owner takeover of another project does not change the current project role",
+      "passed": true
+    },
+    {
+      "name": "Nonmember directory pages remove the service context",
+      "passed": true
+    },
+    {
+      "name": "Editing redaction record A after B never edits B’s pending revision",
+      "passed": true
+    },
+    {
+      "name": "Missing references link to the environment repair page",
+      "passed": true
+    },
+    {
+      "name": "Fixing referenced variables clears the obsolete connection error",
+      "passed": true
+    },
+    {
+      "name": "Credential selector uses current environment names without another project’s fixtures",
+      "passed": true
+    },
+    {
+      "name": "Saving a call creates its own upload snapshot identity and browser queue",
+      "passed": true
+    },
+    {
+      "name": "Editing metadata creates a new snapshot while keeping the saved record identity",
+      "passed": true
+    },
+    {
+      "name": "Saving and editing preserve the source invocation snapshot and link",
+      "passed": true
+    },
+    {
+      "name": "Translation additions exist in both languages",
+      "passed": true
+    },
+    {
+      "name": "A nonmember project maintainer cannot reach member management, while an Admin can",
+      "passed": true
+    },
+    {
+      "name": "Project management actions stop after membership loss even when the previous role was Maintainer",
+      "passed": true
+    }
+  ]
+}

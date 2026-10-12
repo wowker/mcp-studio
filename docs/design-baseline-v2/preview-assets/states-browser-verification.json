@@ -1,0 +1,278 @@
+{
+  "scope": "design prototype only",
+  "views": [
+    {
+      "page": "projects",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "projects",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "projects",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "projects",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "projects",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "members",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "members",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "members",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "members",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "members",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "servers",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "servers",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "servers",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "servers",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "servers",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "environment",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "environment",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "environment",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "environment",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "environment",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "tools",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "tools",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "tools",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "tools",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "tools",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "history",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "history",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "history",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "history",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "history",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "page=history&collection=saved",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "page=history&collection=saved",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "page=history&collection=saved",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "page=history&collection=saved",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "page=history&collection=saved",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "page=history-detail&run=commerce-run-01",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "page=history-detail&run=commerce-run-01",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "page=history-detail&run=commerce-run-01",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "page=history-detail&run=commerce-run-01",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "page=history-detail&run=commerce-run-01",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "page=saved-detail&record=commerce-saved-fixture-01",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "page=saved-detail&record=commerce-saved-fixture-01",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "page=saved-detail&record=commerce-saved-fixture-01",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "page=saved-detail&record=commerce-saved-fixture-01",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "page=saved-detail&record=commerce-saved-fixture-01",
+      "state": "missing",
+      "passed": true
+    },
+    {
+      "page": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "state": "empty",
+      "passed": true
+    },
+    {
+      "page": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "state": "loading",
+      "passed": true
+    },
+    {
+      "page": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "state": "error",
+      "passed": true
+    },
+    {
+      "page": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "state": "forbidden",
+      "passed": true
+    },
+    {
+      "page": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "state": "missing",
+      "passed": true
+    }
+  ],
+  "interactions": [
+    "reload -> loading -> cancel returns prior error",
+    "reload -> explicit success restores content",
+    "reload -> explicit failure retains retry",
+    "permission guide and switch-project actions",
+    "Viewer banner and disabled variable editing",
+    "empty saved records opens debugger",
+    "tool and environment search clear restores results",
+    "history search preserved after failure",
+    "saved-detail returns to saved collection",
+    "invitation-detail returns to members",
+    "hidden debugger shortcut does not execute"
+  ],
+  "responsive": {
+    "width": 390,
+    "documentScrollWidth": 390
+  },
+  "themes": [
+    "zh-CN light",
+    "en-US dark"
+  ],
+  "consoleErrors": [],
+  "defaultSettingsRestored": true
+}

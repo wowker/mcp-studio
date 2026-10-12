@@ -1,0 +1,77 @@
+{
+  "scope": "Design prototype only",
+  "checks": [
+    {
+      "name": "Empty project starts at invitation and gates environment/debug/records",
+      "passed": true
+    },
+    {
+      "name": "Pending invite remains waiting; acceptance completes actual membership step",
+      "passed": true
+    },
+    {
+      "name": "Invite later is explicit and does not fabricate membership",
+      "passed": true
+    },
+    {
+      "name": "Unsaved service does not complete configuration",
+      "passed": true
+    },
+    {
+      "name": "Missing variables block environment completion even after no-variable choice",
+      "passed": true
+    },
+    {
+      "name": "Only applicable environment and server variables contribute readiness",
+      "passed": true
+    },
+    {
+      "name": "No-variable acknowledgement is scoped to connection identity",
+      "passed": true
+    },
+    {
+      "name": "New reference invalidates a prior no-variable acknowledgement",
+      "passed": true
+    },
+    {
+      "name": "Historical invocation and saved snapshot must match the selected connection",
+      "passed": true
+    },
+    {
+      "name": "Latest failed call never silently falls back to older successful call",
+      "passed": true
+    },
+    {
+      "name": "History completion requires reviewing the same invocation",
+      "passed": true
+    },
+    {
+      "name": "Unrelated saved requests never complete the response snapshot step",
+      "passed": true
+    },
+    {
+      "name": "Failed/pending record upload is incomplete; retry success completes workflow",
+      "passed": true
+    },
+    {
+      "name": "Another project remains untouched by journey evaluation",
+      "passed": true
+    },
+    {
+      "name": "Both languages render overview and continuation labels without missing keys",
+      "passed": true
+    },
+    {
+      "name": "Flow language dictionaries have equal keys",
+      "passed": true
+    },
+    {
+      "name": "Continuing the same server preserves the currently restored draft tab",
+      "passed": true
+    },
+    {
+      "name": "No-server navigation cannot create an orphan tool tab",
+      "passed": true
+    }
+  ]
+}

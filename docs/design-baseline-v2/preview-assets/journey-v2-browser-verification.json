@@ -1,0 +1,83 @@
+{
+  "scope": "Static design prototype only; no production system exercised",
+  "date": "2026-10-12",
+  "tool": "Existing in-app browser via CUA",
+  "journeys": [
+    {
+      "project": "V2 流程验收",
+      "steps": [
+        "login",
+        "empty-name validation",
+        "create empty project",
+        "create invite",
+        "signed-out accept blocked",
+        "login returns to same invite",
+        "explicit accept",
+        "create HTTP service",
+        "missing variable blocks connect",
+        "create service variable",
+        "network failure",
+        "retry connection",
+        "required parameter validation",
+        "running",
+        "cancel",
+        "new call succeeds but history upload fails",
+        "history retry",
+        "save snapshot upload failure",
+        "saved snapshot retry",
+        "7/7 completed",
+        "restore to unexecuted new tab"
+      ],
+      "completed": true
+    },
+    {
+      "project": "V2 联调复验",
+      "steps": [
+        "reauth failure and success",
+        "create empty project",
+        "invite expires",
+        "expired accept blocked",
+        "resend creates new invite",
+        "accept",
+        "create HTTP service",
+        "missing-variable diagnostic opens environment validation",
+        "save variable",
+        "obsolete error cleared",
+        "connect",
+        "execute",
+        "same-run history",
+        "save snapshot",
+        "rename saved snapshot",
+        "7/7 completed"
+      ],
+      "completed": true
+    }
+  ],
+  "permissions": [
+    "Viewer execute/save/add-server disabled",
+    "Developer execute enabled",
+    "project switch uses target role; return restores role",
+    "nonmember Member blocked from member management",
+    "nonmember service selector hidden",
+    "Admin can manage member directory",
+    "Owner takeover requires reason",
+    "takeover restores access"
+  ],
+  "otherChecks": [
+    "session expired page hides service context and progress",
+    "current-environment credential selector contains sensitive references only",
+    "English dark authorization page has no document horizontal overflow at 1226px",
+    "no missing connection/baseline translation keys on checked English view"
+  ],
+  "consoleErrors": [],
+  "screenshots": [
+    "v2-journey-complete.png",
+    "v2-journey-authorization-dark.png"
+  ],
+  "limitations": [
+    "All business state is in memory and resets on real reload",
+    "Earlier 120-layout matrix not rerun this turn",
+    "Full journeys verified before final permission and reference-filter refinements; those refinements separately browser-verified",
+    "No real emails, credentials, MCP requests, Agent process or uploads"
+  ]
+}

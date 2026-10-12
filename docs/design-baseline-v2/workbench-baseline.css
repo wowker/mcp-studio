@@ -1,0 +1,19 @@
+/* Baseline 2: retain existing tokens and shell; new page-oriented states. */
+body {font-size:14px}
+.small,small,.description,.muted,.page-heading p,.baseline-notice{font-size:12px}
+.statusbar,.tag,.sidebar-caption,.line-number,.brand-edition,.list-caption{font-size:11px}
+.page-heading h1{font-size:24px}.tool-heading h1,.baseline-section h2{font-size:16px}
+.baseline-page{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);overflow:hidden}
+.baseline-scroll{overflow:auto;padding:16px 24px 28px;min-height:0;scrollbar-gutter:stable}
+.baseline-auth{max-width:480px;margin:24px auto;display:grid;gap:18px}
+.baseline-section{padding:24px 0;border-bottom:1px solid var(--ui-border);min-width:0}
+.baseline-section:first-child{padding-top:8px}.baseline-section h2{margin:0 0 16px}
+.baseline-section>.field{max-width:480px;margin:16px 0}.baseline-section .toolbar{margin-top:16px;flex-wrap:wrap}
+.baseline-section .btn,.baseline-auth .btn{white-space:normal;min-height:36px;max-width:100%;text-align:center}
+.baseline-section input,.baseline-section select,.baseline-auth input,.baseline-auth select{height:36px;max-width:100%;width:100%;min-width:0}
+.baseline-notice{margin:12px 0;align-items:flex-start;line-height:1.65}.baseline-notice>div{min-width:0}
+.baseline-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.baseline-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}.baseline-compare>div{min-width:0;border:1px solid var(--ui-border);border-radius:var(--ui-panel-radius);padding:16px}
+.baseline-section pre{overflow:auto;max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.baseline-section td{overflow-wrap:anywhere}
+.baseline-section h3{font-size:14px}.baseline-section code{overflow-wrap:anywhere}
+@media(max-width:760px){.baseline-compare{grid-template-columns:1fr}.baseline-auth{margin:8px 0}.baseline-scroll{padding:12px 16px 24px}.baseline-section{padding:16px 0}.baseline-section .toolbar>.btn{flex:1 1 140px}.baseline-heading{flex-wrap:wrap}.baseline-section .btn,.baseline-auth .btn{min-height:40px}}

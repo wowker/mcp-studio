@@ -1,0 +1,125 @@
+{
+  "scope": "Prototype only",
+  "checks": [
+    {
+      "name": "Locale parity and nonempty messages",
+      "passed": true
+    },
+    {
+      "name": "Project role membership is isolated by project",
+      "passed": true
+    },
+    {
+      "name": "Empty and duplicate project names validate only on save",
+      "passed": true
+    },
+    {
+      "name": "Project save failure retains draft and creates no project; retry opens empty project",
+      "passed": true
+    },
+    {
+      "name": "Switching projects preserves independent existing drafts and records",
+      "passed": true
+    },
+    {
+      "name": "Project navigation cancels pending job and prevents late creation",
+      "passed": true
+    },
+    {
+      "name": "Project maintainer cannot create projects or alter team roles",
+      "passed": true
+    },
+    {
+      "name": "Viewer mutations are denied and invitation action is disabled",
+      "passed": true
+    },
+    {
+      "name": "Member role changes keep other project membership unchanged",
+      "passed": true
+    },
+    {
+      "name": "Last maintainer cannot be demoted or removed from project or team",
+      "passed": true
+    },
+    {
+      "name": "Owner/self and peer admins are protected",
+      "passed": true
+    },
+    {
+      "name": "Project removal needs inline confirmation and preserves other project access/history",
+      "passed": true
+    },
+    {
+      "name": "Team removal revokes pending invites but preserves history",
+      "passed": true
+    },
+    {
+      "name": "Invalid email, existing member and duplicate active invitation are rejected",
+      "passed": true
+    },
+    {
+      "name": "Invitation creation freezes scope, normalizes email and blocks duplicate submission",
+      "passed": true
+    },
+    {
+      "name": "Invitation save failure creates no invite and keeps email for retry",
+      "passed": true
+    },
+    {
+      "name": "Unverified, wrong and signed-out recipients cannot accept",
+      "passed": true
+    },
+    {
+      "name": "Accept failure and retry are independent of email delivery",
+      "passed": true
+    },
+    {
+      "name": "Expired and revoked invitations cannot be accepted",
+      "passed": true
+    },
+    {
+      "name": "Expiry during acceptance prevents late membership",
+      "passed": true
+    },
+    {
+      "name": "Replacement invalidates old invitation and maintains only one active invite",
+      "passed": true
+    },
+    {
+      "name": "Acceptance adds project access to existing team member without overwriting team role",
+      "passed": true
+    },
+    {
+      "name": "Invitation does not overwrite a membership added before acceptance",
+      "passed": true
+    },
+    {
+      "name": "Project maintainer cannot invite into another project or grant team admin",
+      "passed": true
+    },
+    {
+      "name": "Drafts survive language switch and are scoped by project",
+      "passed": true
+    },
+    {
+      "name": "Rendered labels are escaped and all invitation statuses have translated messages",
+      "passed": true
+    },
+    {
+      "name": "Role selection cannot bypass removal confirmation",
+      "passed": true
+    },
+    {
+      "name": "Failed member removal retains access and permits explicit retry",
+      "passed": true
+    },
+    {
+      "name": "Project maintainer cannot revoke or replace another project invitation",
+      "passed": true
+    },
+    {
+      "name": "Project maintainer cannot replace an invitation granting team administrator access",
+      "passed": true
+    }
+  ]
+}

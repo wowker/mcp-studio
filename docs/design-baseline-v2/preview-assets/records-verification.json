@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "checks": [
+    "Chinese and English resources match",
+    "Platform history and saved records are pages under the existing four navigation entries",
+    "Saving a request takes a frozen draft snapshot, preserves fields across locale changes and omits stale response",
+    "Saving a call captures executed arguments and response rather than later edits",
+    "Invalid raw JSON stays in debugger; empty save name preserves page and shows a local error",
+    "Named record details are scoped by project, exact connection and tool, including deep links",
+    "Loading a saved request creates an independent unexecuted tab; original response remains read-only",
+    "Global call details can save a failed response with its source identity",
+    "Sensitive request fields and HTML names remain masked or inert in saved snapshots",
+    "Retrying history upload changes only its recording state and does not repeat the tool call",
+    "Viewer cannot save, edit or load; Developer saves privately without sharing rights",
+    "Source navigation and cancelling a save stay within the original tool history page",
+    "Saved snapshots survive clearing their unpinned source history",
+    "Both languages and themes keep core record actions reachable at four widths"
+  ],
+  "errors": [],
+  "externalRequests": []
+}

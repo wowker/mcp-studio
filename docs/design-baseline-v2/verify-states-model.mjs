@@ -1,0 +1,18 @@
+import {readFile,writeFile} from 'node:fs/promises';import vm from 'node:vm';import assert from 'node:assert/strict';
+const box={window:{}};for(const name of ['preview-locales.js','state-locales.js','workbench-states.js'])vm.runInNewContext(await readFile(new URL(name,import.meta.url),'utf8'),box);
+const checks=[];const check=(name,fn)=>{fn();checks.push({name,passed:true});};let c={identity:['p','servers','s'],resource:'servers',project:'Sample',editable:true,emptyAction:'connection-new',emptyLabel:'configure',emptyHint:'serverEmpty'},locale='zh-CN';
+const t=(k,args={})=>Object.entries(args).reduce((s,[a,b])=>s.replaceAll('{{'+a+'}}',b),box.window.previewLocales[locale][k]||k),e=s=>String(s??'').replaceAll('<','&lt;').replaceAll('"','&quot;');
+const v=box.window.workbenchStates.create({t,escape:e,icon:()=>'',button:(a,l,g,v,x)=>`<button data-action="${a}" ${x||''}>${l}</button>`,ui:{pageHeading:({title,description})=>title+e(description)},context:()=>c});
+check('Normal content is not replaced',()=>assert.equal(v.render(),''));
+check('Failed reload enters pending; cancelling returns to the error',()=>{v.set('error');v.action('state-retry');assert.equal(v.get().kind,'loading');v.action('state-cancel');assert.equal(v.get().kind,'error');});
+check('Success and repeated failure are separate explicit outcomes',()=>{v.action('state-retry');v.action('state-fail');assert.equal(v.get().kind,'error');v.action('state-retry');v.action('state-success');assert.equal(v.get().kind,'ready');});
+check('Invalid states cannot affect view',()=>{v.set('attack');assert.equal(v.get().kind,'ready');});
+check('Project, server and nested view identities remain isolated',()=>{v.set('forbidden');const first=c.identity;for(const id of [['other','servers','s'],['p','servers','other'],['p','tools','s','tab2','saved']]){c.identity=id;assert.equal(v.get().kind,'ready');}c.identity=first;assert.equal(v.get().kind,'forbidden');});
+check('Forbidden view contains no editable fixture body and offers navigation',()=>{assert.match(v.render(),/state-projects/);assert.doesNotMatch(v.render(),/connection-new/);v.action('state-guide');assert.match(v.render(),/state-role-guide/);});
+check('Empty creation action respects role',()=>{v.set('empty');c.editable=false;assert.match(v.render(),/disabled title=/);c.editable=true;assert.doesNotMatch(v.render(),/disabled title=/);});
+check('Read-only notice explains available actions',()=>{c.readOnly=true;assert.match(v.readonly(),/不能修改配置/);c.readOnly=false;assert.equal(v.readonly(),'');});
+check('Both locales cover every page resource and presentation state',()=>{for(locale of ['zh-CN','en-US'])for(const resource of ['projects','servers','environment','tools','history','saved','members']){c.resource=resource;for(const kind of box.window.workbenchStates.kinds){v.set(kind);assert.doesNotMatch(v.render()+v.toolbar(),/states\.[a-zA-Z]/);}}});
+check('State review never mutates source context',()=>{const original=JSON.stringify(c);for(const kind of box.window.workbenchStates.kinds){v.set(kind);v.render();}assert.equal(JSON.stringify(c),original);});
+check('Locale keys match',()=>assert.deepEqual(Object.keys(box.window.previewLocales['zh-CN']).filter(x=>x.startsWith('states.')),Object.keys(box.window.previewLocales['en-US']).filter(x=>x.startsWith('states.'))));
+check('Context labels escape markup',()=>{c.project='<img src=x>';v.set('error');assert.doesNotMatch(v.render(),/<img/);});
+await writeFile(new URL('preview-assets/states-model-verification.json',import.meta.url),JSON.stringify({scope:'prototype only',checks},null,2));console.log(`${checks.length} state prototype checks passed`);

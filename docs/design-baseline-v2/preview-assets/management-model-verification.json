@@ -1,0 +1,15 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    "Chinese and English copy have matching nonempty keys",
+    "Changing project access retains email and updates the access preview",
+    "Language changes preserve the invitation draft and selected role",
+    "Draft capture uses the rendered form project, isolating projects",
+    "Cancel removes a draft; an old form cannot resurrect it",
+    "Variable editing retains its original environment and connection, including false values",
+    "Stored secret values never populate the editor; connection identity is retained",
+    "Validation errors survive rendering and remain associated with the input",
+    "Read-only pages disable both editing and submission",
+    "Draft text is escaped before rendering"
+  ]
+}

@@ -1,0 +1,3872 @@
+{
+  "scope": "prototype only",
+  "before": [
+    {
+      "pageQuery": "page=projects",
+      "issues": []
+    },
+    {
+      "pageQuery": "page=members",
+      "issues": []
+    },
+    {
+      "pageQuery": "page=environment",
+      "issues": [
+        {
+          "class": "",
+          "clippedBy": "master-detail",
+          "text": "Development"
+        },
+        {
+          "class": "btn ",
+          "clippedBy": "master-detail",
+          "text": "Use for my session"
+        },
+        {
+          "class": "",
+          "clippedBy": "master-detail",
+          "text": "Server variables"
+        },
+        {
+          "class": "",
+          "clippedBy": "master-detail",
+          "text": "Check references"
+        },
+        {
+          "class": "",
+          "clippedBy": "master-detail",
+          "text": "All statesMissing onlySecrets onlyWith overrides"
+        }
+      ]
+    },
+    {
+      "pageQuery": "page=history",
+      "issues": [
+        {
+          "class": "",
+          "clippedBy": "page management-page history-design",
+          "text": "History"
+        },
+        {
+          "class": "btn quiet",
+          "clippedBy": "page management-page history-design",
+          "text": "Clear uploaded, unpinned history"
+        },
+        {
+          "class": "",
+          "clippedBy": "page management-page history-design",
+          "text": ""
+        },
+        {
+          "class": "",
+          "clippedBy": "page management-page history-design",
+          "text": "AllRecordedQueuedUploading · simulatedUpload failed"
+        },
+        {
+          "class": "",
+          "clippedBy": "page management-page history-design",
+          "text": "AllDevelopmentStaging"
+        },
+        {
+          "class": "",
+          "clippedBy": "page management-page history-design",
+          "text": ""
+        },
+        {
+          "class": "btn quiet",
+          "clippedBy": "page management-page history-design",
+          "text": "Next"
+        }
+      ]
+    },
+    {
+      "pageQuery": "page=history-detail&run=commerce-run-redaction",
+      "issues": []
+    },
+    {
+      "pageQuery": "page=saved-detail&record=commerce-saved-fixture-01",
+      "issues": []
+    },
+    {
+      "pageQuery": "page=project-flow",
+      "issues": []
+    },
+    {
+      "pageQuery": "page=tools",
+      "issues": [
+        {
+          "class": "btn quiet",
+          "clippedBy": "workspace",
+          "text": "Save record"
+        },
+        {
+          "class": "btn quiet icon-only",
+          "clippedBy": "pane result-pane",
+          "text": ""
+        },
+        {
+          "class": "btn quiet icon-only",
+          "clippedBy": "pane result-pane",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "pageQuery": "page=servers&config=execution",
+      "issues": []
+    }
+  ],
+  "matrix": [
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 500,
+          "scrollHeight": 838
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 564,
+          "scrollHeight": 774
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 500,
+          "scrollHeight": 956
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 527,
+          "scrollHeight": 1123
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 527,
+          "scrollHeight": 1065
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 133,
+          "scrollHeight": 1998
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 175,
+          "scrollHeight": 1842
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 133,
+          "scrollHeight": 1391
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 274,
+          "scrollHeight": 1532
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 631,
+          "scrollHeight": 631
+        },
+        {
+          "class": "pane-scroll",
+          "height": 488,
+          "scrollHeight": 488
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 463,
+          "scrollHeight": 1704
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 509,
+          "scrollHeight": 1497
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 318,
+          "scrollHeight": 1072
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 620
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 720
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 1013
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 929
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 405,
+          "scrollHeight": 1520
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 431,
+          "scrollHeight": 1447
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 431,
+          "scrollHeight": 1027
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 502,
+          "scrollHeight": 1340
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 233,
+          "scrollHeight": 395
+        },
+        {
+          "class": "pane-scroll",
+          "height": 143,
+          "scrollHeight": 481
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 583,
+          "scrollHeight": 1264
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 602,
+          "scrollHeight": 925
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 505,
+          "scrollHeight": 980
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 534
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 720
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 1013
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 929
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 167,
+          "scrollHeight": 1465
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 167,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 167,
+          "scrollHeight": 972
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 256,
+          "scrollHeight": 1284
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 126,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 86,
+          "scrollHeight": 481
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 319,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 338,
+          "scrollHeight": 906
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 265,
+          "scrollHeight": 847
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 667
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 674
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1331
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 954
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 516,
+          "scrollHeight": 1080
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 226,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 137,
+          "scrollHeight": 489
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 838
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 525,
+          "scrollHeight": 525
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 500,
+          "scrollHeight": 838
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 564,
+          "scrollHeight": 774
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 500,
+          "scrollHeight": 956
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 527,
+          "scrollHeight": 1123
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 527,
+          "scrollHeight": 1065
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 133,
+          "scrollHeight": 1998
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 175,
+          "scrollHeight": 1842
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 133,
+          "scrollHeight": 1391
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 274,
+          "scrollHeight": 1532
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 631,
+          "scrollHeight": 631
+        },
+        {
+          "class": "pane-scroll",
+          "height": 488,
+          "scrollHeight": 488
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 463,
+          "scrollHeight": 1704
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 509,
+          "scrollHeight": 1497
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 318,
+          "scrollHeight": 1072
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 620
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 720
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 1013
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 620,
+          "scrollHeight": 929
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 405,
+          "scrollHeight": 1520
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 431,
+          "scrollHeight": 1447
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 431,
+          "scrollHeight": 1027
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 502,
+          "scrollHeight": 1340
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 233,
+          "scrollHeight": 395
+        },
+        {
+          "class": "pane-scroll",
+          "height": 143,
+          "scrollHeight": 481
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 583,
+          "scrollHeight": 1264
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 602,
+          "scrollHeight": 925
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 505,
+          "scrollHeight": 980
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 534
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 720
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 1013
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 929
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 167,
+          "scrollHeight": 1465
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 167,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 167,
+          "scrollHeight": 972
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 256,
+          "scrollHeight": 1284
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 126,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 86,
+          "scrollHeight": 481
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 319,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 338,
+          "scrollHeight": 906
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 265,
+          "scrollHeight": 847
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=projects",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=members",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 667
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 674
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1331
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 954
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=environment",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 516,
+          "scrollHeight": 1080
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 226,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 137,
+          "scrollHeight": 489
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=history",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 838
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 525,
+          "scrollHeight": 525
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "en-US",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 536,
+          "scrollHeight": 801
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 582,
+          "scrollHeight": 759
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 536,
+          "scrollHeight": 919
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 582,
+          "scrollHeight": 1067
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 582,
+          "scrollHeight": 978
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 247,
+          "scrollHeight": 1714
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 247,
+          "scrollHeight": 1583
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 247,
+          "scrollHeight": 1173
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 324,
+          "scrollHeight": 1469
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 593,
+          "scrollHeight": 593
+        },
+        {
+          "class": "pane-scroll",
+          "height": 489,
+          "scrollHeight": 489
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 499,
+          "scrollHeight": 1667
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 545,
+          "scrollHeight": 1327
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 361,
+          "scrollHeight": 941
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 641
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 992
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 908
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 450,
+          "scrollHeight": 1429
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 450,
+          "scrollHeight": 1313
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 450,
+          "scrollHeight": 936
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 520,
+          "scrollHeight": 1275
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 233,
+          "scrollHeight": 378
+        },
+        {
+          "class": "pane-scroll",
+          "height": 143,
+          "scrollHeight": 482
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 602,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 602,
+          "scrollHeight": 906
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 529,
+          "scrollHeight": 772
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 534
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 992
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 908
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 186,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 186,
+          "scrollHeight": 1294
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 186,
+          "scrollHeight": 936
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 256,
+          "scrollHeight": 1245
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 126,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 86,
+          "scrollHeight": 482
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 338,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 338,
+          "scrollHeight": 906
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 265,
+          "scrollHeight": 753
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 667
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 674
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1294
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 936
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 516,
+          "scrollHeight": 1080
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 226,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 137,
+          "scrollHeight": 490
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 838
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 525,
+          "scrollHeight": 525
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "dark",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 536,
+          "scrollHeight": 801
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 582,
+          "scrollHeight": 759
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 536,
+          "scrollHeight": 919
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 582,
+          "scrollHeight": 1067
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 582,
+          "scrollHeight": 978
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 247,
+          "scrollHeight": 1714
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 247,
+          "scrollHeight": 1583
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 247,
+          "scrollHeight": 1173
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 324,
+          "scrollHeight": 1469
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 593,
+          "scrollHeight": 593
+        },
+        {
+          "class": "pane-scroll",
+          "height": 489,
+          "scrollHeight": 489
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 499,
+          "scrollHeight": 1667
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 545,
+          "scrollHeight": 1327
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 361,
+          "scrollHeight": 941
+        }
+      ],
+      "width": 390
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 390,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 390
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 641
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 992
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 641,
+          "scrollHeight": 908
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 450,
+          "scrollHeight": 1429
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 450,
+          "scrollHeight": 1313
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 450,
+          "scrollHeight": 936
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 520,
+          "scrollHeight": 1275
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 233,
+          "scrollHeight": 378
+        },
+        {
+          "class": "pane-scroll",
+          "height": 143,
+          "scrollHeight": 482
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 602,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 602,
+          "scrollHeight": 906
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 529,
+          "scrollHeight": 772
+        }
+      ],
+      "width": 820
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 820,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 820
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 534
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 704
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 992
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 377,
+          "scrollHeight": 908
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 186,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 186,
+          "scrollHeight": 1294
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 186,
+          "scrollHeight": 936
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 256,
+          "scrollHeight": 1245
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 126,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 86,
+          "scrollHeight": 482
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 338,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 338,
+          "scrollHeight": 906
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 265,
+          "scrollHeight": 753
+        }
+      ],
+      "width": 1024
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1024,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1024
+    },
+    {
+      "query": "page=projects",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-editor",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 637
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=members",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 699
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 667
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=invitation-detail&entry=team-invite-1&mode=accept",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "team-scroll",
+          "height": 637,
+          "scrollHeight": 674
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1411
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=authorization&server=commerce-personal",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 1294
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=servers&config=execution",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "execution-scroll",
+          "height": 446,
+          "scrollHeight": 936
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=environment",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "environment-scroll",
+          "height": 516,
+          "scrollHeight": 1080
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "pane-scroll",
+          "height": 226,
+          "scrollHeight": 356
+        },
+        {
+          "class": "pane-scroll",
+          "height": 137,
+          "scrollHeight": 490
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=tools&view=definition",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    },
+    {
+      "query": "page=history",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 1246
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history&collection=saved",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "history-design-scroll",
+          "height": 598,
+          "scrollHeight": 838
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=history-detail&run=commerce-run-redaction",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [
+        {
+          "class": "run-page-scroll",
+          "height": 525,
+          "scrollHeight": 525
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "query": "page=project-flow",
+      "locale": "zh-CN",
+      "theme": "light",
+      "clipped": [],
+      "documentWidth": 1440,
+      "pageFits": true,
+      "scrollAreas": [],
+      "width": 1440
+    }
+  ],
+  "interactions": {
+    "tableKeyboardScroll": true,
+    "tableScrollPreserved": {
+      "before": {
+        "x": 80,
+        "y": 883
+      },
+      "after": {
+        "x": 80,
+        "y": 883
+      }
+    },
+    "debugScrollPreserved": {
+      "before": 629,
+      "after": 629
+    },
+    "longProjectNameWrap": true,
+    "mobileResultActionsReachable": true
+  },
+  "consoleErrors": [],
+  "defaultViewportRestored": true,
+  "finalLocale": "zh-CN",
+  "finalTheme": "light"
+}

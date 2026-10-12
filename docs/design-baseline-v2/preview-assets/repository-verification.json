@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-10",
+  "command": "npm run verify",
+  "execution": "local host; re-run after parameter editor design and skip/validation update",
+  "status": "passed",
+  "typecheck": "passed",
+  "build": "passed",
+  "releaseTests": {
+    "filesPassed": 196,
+    "testsPassed": 1328,
+    "testsFailed": 0
+  },
+  "endToEnd": {
+    "passed": 11,
+    "failed": 0
+  },
+  "prototypeChecks": {
+    "passed": 77,
+    "failed": 0,
+    "suites": {
+      "verification.json": 22,
+      "locale-verification.json": 15,
+      "controls-verification.json": 14,
+      "records-verification.json": 14,
+      "parameters-verification.json": 12
+    }
+  },
+  "note": "This task changes docs/redesign only. The current full repository gate passed, including all 11 production browser tests. Preview execution and platform persistence remain simulated; the preview bundles the existing shared JSON Schema validator."
+}

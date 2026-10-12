@@ -1,0 +1,32 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    "Both locale dictionaries have matching keys",
+    "Redaction covers nested credentials, email, phone, echoed values, URL query and JSON text",
+    "Redaction preserves zero, false and JSON null without mutating source snapshots",
+    "Restore removes entire affected top-level parameters and never inserts redaction markers",
+    "Filters combine status, server, environment, actor, upload state and date range",
+    "Invalid date ranges show an error and no results; reset restores the collection",
+    "Pagination and sort do not modify source order, and queries reset page index",
+    "Tool collections constrain both connection ID and tool name",
+    "Project filters and detail state cannot bleed between projects",
+    "Empty collection offers debugging while filtered results offer filter reset",
+    "Request, response, protocol, and copy preview never reveal known fixture secrets",
+    "Custom rules validate JSON pointers and can only increase masking",
+    "Retries upload the same ID and redacted payload without creating calls",
+    "Recovery only changes platform availability, then retry succeeds and leaves execution success untouched",
+    "Upload jobs are isolated for identical record IDs in different projects",
+    "Request-only, missing responses and valid null responses remain distinguishable",
+    "Request-only snapshot with a deleted source does not imply a cancelled call",
+    "Save freezes its source; empty names are rejected and no request is queued",
+    "Saved upload failures retain an independent, redacted snapshot and retry does not duplicate it",
+    "Editing metadata preserves snapshots and blocks a second edit while upload is pending",
+    "Loading saved snapshots uses the redacted restore path without returning old response",
+    "Private records from another owner stay hidden, including direct details and copying",
+    "Viewer role cannot upload, modify masks, clear history, save or delete records",
+    "Metadata editors and filters preserve their values across locale changes",
+    "Clearing uploaded unpinned history preserves pinned calls, pending uploads and saved records",
+    "Deleting a saved record requires a manageable record and leaves source history untouched",
+    "Untrusted record labels and notes are escaped"
+  ]
+}

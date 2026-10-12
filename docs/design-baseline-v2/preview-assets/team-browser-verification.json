@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-12",
+  "scope": "Design prototype only; CUA browser UI checks",
+  "checks": [
+    {
+      "case": "邀请空邮箱、重复邮箱校验，创建失败保留表单后重试成功",
+      "passed": true
+    },
+    {
+      "case": "账号不匹配、未验证、未登录状态，接受失败可重试，成功后禁止重复接受",
+      "passed": true
+    },
+    {
+      "case": "接受后新增成员，角色修改生效；从项目移除后团队身份保留",
+      "passed": true
+    },
+    {
+      "case": "团队移除生效；所有者/本人保护；查看者邀请操作禁用",
+      "passed": true
+    },
+    {
+      "case": "过期邀请不能接受；重发使用新身份；撤销后接受禁用",
+      "passed": true
+    },
+    {
+      "case": "项目名称必填及重名校验，失败重试后进入独立空项目",
+      "passed": true
+    },
+    {
+      "case": "新项目首个服务入口可达；切换项目再返回保留调试参数草稿",
+      "passed": true
+    },
+    {
+      "case": "英文暗色切换保留创建草稿；权限矩阵入口可达",
+      "passed": true
+    },
+    {
+      "case": "1024/390宽度无页面级溢出，窄屏邀请可编辑并换语言保留输入",
+      "passed": true
+    },
+    {
+      "case": "移除失败保留访问，切换成功结果后明确重试完成移除",
+      "passed": true
+    },
+    {
+      "case": "邀请过期状态筛选与重置正常",
+      "passed": true
+    }
+  ],
+  "viewports": [
+    1024,
+    390
+  ],
+  "consoleErrors": [],
+  "notes": [
+    "Default viewport restored; Chinese and light theme restored.",
+    "No real accounts, permissions, invitations or emails were changed."
+  ]
+}

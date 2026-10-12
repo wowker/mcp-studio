@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-12",
+  "scope": "Design prototype only; CUA browser UI checks",
+  "checks": [
+    {
+      "case": "调用上传失败、重试失败、平台恢复后重试成功；复制按钮显示成功反馈（脱敏内容另由模型验证）",
+      "passed": true
+    },
+    {
+      "case": "自定义脱敏路径缺失报错；有效路径生效；恢复新草稿移除敏感参数且无旧响应",
+      "passed": true
+    },
+    {
+      "case": "工具历史保留工具工作区，限定工具与连接",
+      "passed": true
+    },
+    {
+      "case": "空名称校验、独立保存 ID、上传中禁改、失败后重试成功",
+      "passed": true
+    },
+    {
+      "case": "已保存记录编辑备注后快照不变，来源链接返回原调用",
+      "passed": true
+    },
+    {
+      "case": "执行与上传组合筛选、详情返回保留筛选、倒置日期错误",
+      "passed": true
+    },
+    {
+      "case": "分页返回保留第二页；已移除工具禁止恢复但快照可读",
+      "passed": true
+    },
+    {
+      "case": "无来源的请求快照准确显示仅请求，详情页签支持键盘方向键",
+      "passed": true
+    },
+    {
+      "case": "仅请求筛选保留于英文暗色切换，已移除服务仍可筛选",
+      "passed": true
+    },
+    {
+      "case": "1024与390宽度无页面横向溢出；窄屏可编辑且换语言保留备注草稿",
+      "passed": true
+    },
+    {
+      "case": "删除保存记录采用页内确认，取消保留快照",
+      "passed": true
+    },
+    {
+      "case": "取消调用明确标注无响应及远端结果未知",
+      "passed": true
+    }
+  ],
+  "consoleErrors": [],
+  "viewports": [
+    1440,
+    1024,
+    390
+  ],
+  "notes": [
+    "Default viewport restored.",
+    "Clipboard bridge returned no text; copied serialization is covered by model checks, not asserted through OS clipboard.",
+    "No real MCP calls or uploads."
+  ]
+}

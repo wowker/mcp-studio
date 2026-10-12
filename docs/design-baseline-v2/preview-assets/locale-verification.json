@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-10",
+  "scope": "Standalone bilingual design preview; no production verification",
+  "checks": [
+    "Locale catalogs match and all static keys exist",
+    "Chinese default, single-language headings and language control at sidebar bottom",
+    "Language switch preserves tab, connection, draft, result, scroll and focus",
+    "Array errors, counts and drafts translate without modifying raw inputs",
+    "Changing language during execution does not restart or duplicate a call",
+    "English configuration labels preserve canonical environment values and unsaved edits",
+    "Locale preference persists; invalid values fall back to Chinese; no business data stored",
+    "zh-CN controls remain reachable at 1440px",
+    "zh-CN controls remain reachable at 1024px",
+    "zh-CN controls remain reachable at 820px",
+    "zh-CN controls remain reachable at 390px",
+    "en-US controls remain reachable at 1440px",
+    "en-US controls remain reachable at 1024px",
+    "en-US controls remain reachable at 820px",
+    "en-US controls remain reachable at 390px"
+  ],
+  "errors": [],
+  "unexpectedRequests": []
+}

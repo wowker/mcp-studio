@@ -1,0 +1,59 @@
+{
+  "scope": "design prototype only",
+  "revision": "20261012-servers-8",
+  "method": "actual Codex in-app browser interaction through cua_repl",
+  "checks": [
+    "Agent readiness blocks the MCP connection and exposes a page action",
+    "Pair denial remains disconnected and retryable",
+    "HTTP localhost configuration saves independently; browser CORS failure keeps the selected route",
+    "Connecting can be cancelled without losing configuration",
+    "stdio hides HTTP fields, forces Agent, and validates command and JSON string-array arguments inline",
+    "stdio initialization reports executable failures with an actionable diagnostic",
+    "Opening tools preserves the stdio server identity and call details display stdio rather than HTTP",
+    "Agent offline stops its MCP session and reports AGENT_OFFLINE in the same page",
+    "OAuth waiting and denial are page states with identity, endpoint and scope summaries",
+    "OAuth success and vault failure are distinct; failed saves retain a retryable example draft",
+    "Backup requires explicit scope confirmation and fails independently of the saved local credential",
+    "Backup retry completes without re-authorizing or connecting",
+    "Invalid OAuth callbacks remain unusable and offer reauthorization",
+    "Expired OAuth attempts remain unusable and retryable",
+    "OAuth cancellation retains the connection configuration",
+    "Credential removal requires an inline confirmation and can be cancelled",
+    "English and dark theme retain credentials and authorization state without mixed-language section titles",
+    "1024px layout keeps the three view tabs and footer actions accessible without document overflow",
+    "390px layout keeps the view tabs, language switch and connection actions reachable without document overflow",
+    "Arrow-key navigation switches the page view and retains focus",
+    "Agent loss during a pending tool call produces a connection failure and preserves its record",
+    "CORS recovery switches only the draft route and requires saving before a new connection",
+    "New servers are page-based; invalid URLs are focused inline; saved browser routes can enter the connecting state",
+    "Page and top-bar cancellation act on the displayed server; fresh final-revision browser reports no JavaScript errors",
+    "Latest revision disables connect while authorization is pending and uses the shared error badge for failed backup"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "freshBrowserJavaScriptErrors": [],
+  "screenshots": [
+    "server-agent-pairing.jpg",
+    "server-http-failure.jpg",
+    "server-connecting.jpg",
+    "server-stdio-config.jpg",
+    "server-stdio-failure.jpg",
+    "server-oauth-waiting.jpg",
+    "server-credential-failure.jpg",
+    "server-backup-failure.jpg",
+    "server-english-dark.jpg",
+    "server-mobile.jpg"
+  ]
+}

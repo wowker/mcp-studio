@@ -1,0 +1,774 @@
+{
+  "scope": "Design baseline 2 static prototype",
+  "productionDevelopment": false,
+  "localLinks": [
+    {
+      "source": "01-pages-and-navigation.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "01-pages-and-navigation.md",
+      "link": "./02-core-flows.md",
+      "exists": true
+    },
+    {
+      "source": "01-pages-and-navigation.md",
+      "link": "./04-states-and-data.md",
+      "exists": true
+    },
+    {
+      "source": "01-pages-and-navigation.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "02-core-flows.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "02-core-flows.md",
+      "link": "./01-pages-and-navigation.md",
+      "exists": true
+    },
+    {
+      "source": "02-core-flows.md",
+      "link": "./05-permissions-and-collaboration.md",
+      "exists": true
+    },
+    {
+      "source": "02-core-flows.md",
+      "link": "./04-states-and-data.md",
+      "exists": true
+    },
+    {
+      "source": "02-core-flows.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "02-core-flows.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "03-components-and-visual-spec.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "03-components-and-visual-spec.md",
+      "link": "../COMPONENTS.md",
+      "exists": true
+    },
+    {
+      "source": "04-states-and-data.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "04-states-and-data.md",
+      "link": "./05-permissions-and-collaboration.md",
+      "exists": true
+    },
+    {
+      "source": "04-states-and-data.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "05-permissions-and-collaboration.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "05-permissions-and-collaboration.md",
+      "link": "./04-states-and-data.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "./07-source-and-evidence.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "06-handoff-and-acceptance.md",
+      "link": "../../FRONTEND-DEVELOPMENT-STANDARDS.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "./README.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../README.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-responsive-polish.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../workbench-preview.html",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../COMPONENTS.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-management-design.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-10-local-first-mcp-architecture.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-server-authorization-states.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-environment-states.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-tools-debugger-states.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-10-schema-argument-editor.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-history-saved-states.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-10-platform-history-and-saved-records.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-project-team-states.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-complete-workflow.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-12-shared-states.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-09-service-workbench-design.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-10-mcp-execution-decision.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-10-tools-workspace-design.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../tools-designs.html",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../2026-10-10-implementation-plan.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../../UPGRADE-2.0.0.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/states-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/flow-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/team-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/history-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/debugger-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/connections-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/environments-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/management-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/layout-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/states-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/flow-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/team-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/history-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/connections-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/environments-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/debugger-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/layout-workbench-light.png",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/layout-tools-mobile-dark.png",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/debugger-complex-validation.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/debugger-running.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/debugger-history-restored.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/server-oauth-waiting.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/server-http-failure.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/server-stdio-failure.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/server-backup-failure.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/environment-overrides.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/environment-missing.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/environment-backup-failure.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/history-detail-light.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/history-saved-light.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/history-saved-dark-en.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/team-projects-light.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/team-member-removal.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/team-invite-accepted.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/team-invite-expired.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/states-permission-light.png",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "../preview-assets/flow-complete-light.jpg",
+      "exists": true
+    },
+    {
+      "source": "07-source-and-evidence.md",
+      "link": "./delivery-check.json",
+      "exists": true
+    },
+    {
+      "source": "08-decision-proposals.md",
+      "link": "./06-handoff-and-acceptance.md",
+      "exists": true
+    },
+    {
+      "source": "08-decision-proposals.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "09-baseline-v2-prototype-sync.md",
+      "link": "../preview-assets/baseline-v2-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "09-baseline-v2-prototype-sync.md",
+      "link": "../preview-assets/baseline-v2-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "09-baseline-v2-prototype-sync.md",
+      "link": "./10-baseline-v2-journey-review.md",
+      "exists": true
+    },
+    {
+      "source": "10-baseline-v2-journey-review.md",
+      "link": "../preview-assets/v2-journey-complete.png",
+      "exists": true
+    },
+    {
+      "source": "10-baseline-v2-journey-review.md",
+      "link": "../preview-assets/journey-v2-browser-verification.json",
+      "exists": true
+    },
+    {
+      "source": "10-baseline-v2-journey-review.md",
+      "link": "../preview-assets/journey-v2-model-verification.json",
+      "exists": true
+    },
+    {
+      "source": "10-baseline-v2-journey-review.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./09-baseline-v2-prototype-sync.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./10-baseline-v2-journey-review.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./01-pages-and-navigation.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./02-core-flows.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./03-components-and-visual-spec.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./04-states-and-data.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./05-permissions-and-collaboration.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./06-handoff-and-acceptance.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./07-source-and-evidence.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./08-decision-proposals.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../COMPONENTS.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=account&project=commerce",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=operations&project=commerce",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=access&project=commerce",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=tools&project=commerce&tab=tab-11",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=project-flow&project=commerce",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=servers&project=commerce&config=authorization&server=commerce-personal",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=environment&project=commerce",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=history-detail&project=commerce&run=commerce-run-redaction",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../workbench-preview.html?page=members&project=commerce&section=invitations",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "../preview-assets/layout-workbench-light.png",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "link": "./06-handoff-and-acceptance.md",
+      "exists": true
+    }
+  ],
+  "dependencies": [
+    {
+      "file": "workbench-preview.css",
+      "exists": true
+    },
+    {
+      "file": "reference-workbench.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-components.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-parameters.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-execution.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-management.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-debugger.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-connections.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-environments.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-history.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-team.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-flow.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-states.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-layout.css",
+      "exists": true
+    },
+    {
+      "file": "workbench-baseline.css",
+      "exists": true
+    },
+    {
+      "file": "preview-icons.js",
+      "exists": true
+    },
+    {
+      "file": "vendor/i18next.min.js",
+      "exists": true
+    },
+    {
+      "file": "preview-locales.js",
+      "exists": true
+    },
+    {
+      "file": "execution-locales.js",
+      "exists": true
+    },
+    {
+      "file": "connection-locales.js",
+      "exists": true
+    },
+    {
+      "file": "environment-locales.js",
+      "exists": true
+    },
+    {
+      "file": "management-locales.js",
+      "exists": true
+    },
+    {
+      "file": "debugger-locales.js",
+      "exists": true
+    },
+    {
+      "file": "history-locales.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-redaction.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-history.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-debugger.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-components.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-records.js",
+      "exists": true
+    },
+    {
+      "file": "vendor/preview-schema.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-parameters.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-connections.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-environments.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-management.js",
+      "exists": true
+    },
+    {
+      "file": "team-locales.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-team.js",
+      "exists": true
+    },
+    {
+      "file": "flow-locales.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-flow.js",
+      "exists": true
+    },
+    {
+      "file": "state-locales.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-states.js",
+      "exists": true
+    },
+    {
+      "file": "baseline-locales.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-baseline.js",
+      "exists": true
+    },
+    {
+      "file": "workbench-preview.js",
+      "exists": true
+    }
+  ],
+  "modelChecks": 209,
+  "continuousBrowserJourneys": 2,
+  "priorLayoutChecks": 120,
+  "priorLayoutChecksRerun": false
+}

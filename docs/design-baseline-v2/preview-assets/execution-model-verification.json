@@ -1,0 +1,14 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    "Both locales have identical, nonempty keys",
+    "Fresh settings have backups off and honest unpaired state",
+    "Browser route uses session credentials without a local vault option",
+    "stdio requires the local agent and disables browser execution",
+    "Command and string-array validation preserve invalid drafts and gate save",
+    "Pairing and offline states are explicitly simulated",
+    "Project and connection drafts remain isolated",
+    "Viewer and connected-session settings cannot mutate",
+    "User text is escaped"
+  ]
+}

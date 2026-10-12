@@ -1,0 +1,1327 @@
+{
+  "package": "mcp-studio-handoff-2026-10-13-v2",
+  "design_baseline": 2,
+  "target_directory": "/Users/wuwei/code/github/mcp-studio",
+  "status": "handoff only; implementation not started",
+  "excludes_from_manifest": [
+    "docs/handoff/MANIFEST.json"
+  ],
+  "file_count": 263,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3525,
+      "sha256": "921a865d352a6760dd1cd3162bd920562424c36b5db07fef473111760cf86d06"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3215,
+      "sha256": "c931e7d281622330e4399cd4470b90e7d46f8f46c5c8d3093e606cce9db039b2"
+    },
+    {
+      "path": "START-DEVELOPMENT.md",
+      "bytes": 3953,
+      "sha256": "ab6185c55cbddacb915f2b614865f2957d4f349a8101ff48e2b6456c1635833b"
+    },
+    {
+      "path": "docs/AUTOMATED-TESTING-1.5.0.md",
+      "bytes": 40681,
+      "sha256": "50d03ece22c9709a45ec93f1339d31e791aed3de745d6376c496aca5c28e161d"
+    },
+    {
+      "path": "docs/FRONTEND-DEVELOPMENT-STANDARDS.md",
+      "bytes": 31505,
+      "sha256": "243b1424eaa7bf2c99350dcc3606e6712411f87b2ec14a03f6464c0ce9487451"
+    },
+    {
+      "path": "docs/UPGRADE-2.0.0.md",
+      "bytes": 14794,
+      "sha256": "592daea55b7ad4fc87d12614d42ac38a0ea68732a2ea6d63b13b6d568abf65b1"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-09-service-workbench-design.md",
+      "bytes": 25842,
+      "sha256": "076b6297acc578a6f9cd0afb5eaa300f26f5dc90f09d969c4768e924eda3c8a3"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-implementation-plan.md",
+      "bytes": 3582,
+      "sha256": "420e0740ccf3d3eafdc66548ebc4f8dc2bbb7e62ff453059f1ea9cbf21444c07"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-local-first-mcp-architecture.md",
+      "bytes": 12767,
+      "sha256": "054e139e101a846613b74b24263c6507cccb1a14b07b6e526c1b060267360e93"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-mcp-execution-decision.md",
+      "bytes": 8801,
+      "sha256": "a60e6dd546db34b2f87e28c32ffdd7812bf7292cb26236d66d6f9eabc796291f"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-organized-workbench.md",
+      "bytes": 3393,
+      "sha256": "9a8262daeb829010e34ede061f06573ab76c596120429d0269b76e2dd5a1f703"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-original-layout-refinement.md",
+      "bytes": 4335,
+      "sha256": "6dc5f953fde82ff4fd0951ff933d4dbbfb95e14b14b2407377384c57d34f9d6c"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-platform-history-and-saved-records.md",
+      "bytes": 7650,
+      "sha256": "128fc55de127556da0bd225d59edef3f1ccf73db759e75ab7782e4ecd389fae5"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-reference-ui-redesign.md",
+      "bytes": 7263,
+      "sha256": "c73618ac888c46555b18e5e8ac5752630074c0e3476a75539d76cdc4264e760d"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-schema-argument-editor.md",
+      "bytes": 5099,
+      "sha256": "b3aa5becba96d1f14dde305d59ccb92a092d3accc1419187a5eec772df40e3eb"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-tools-workspace-design.md",
+      "bytes": 13492,
+      "sha256": "25fb94c3618df28512cd78b112c894941ce8852df9ae7d47f927dc9621abe4bb"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-10-workbench-interactions.md",
+      "bytes": 4520,
+      "sha256": "e675e0e5f4aca91fb4e33a0ce78d1619e1cb0af6cc035e4db02950d4620a1eab"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-complete-workflow.md",
+      "bytes": 6232,
+      "sha256": "b7756a8506693b9fc6ce26b80d132a853acc8395b1a1a2bccca288cef902e896"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-design-review.md",
+      "bytes": 4126,
+      "sha256": "fa181970fedba38fc6f1ad72f627059bddace0919c48e39e22ff7da092046877"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-environment-states.md",
+      "bytes": 6400,
+      "sha256": "8c7cb157d53da683f99c6360c3bb85b29e91f0cb1df0b385ea3ed9dd0bfaeede"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-history-saved-states.md",
+      "bytes": 7198,
+      "sha256": "41aec4c6679cb867d416ec0fe4d841add6ca51ec6075ee702a9f28acb1d2e349"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-management-design.md",
+      "bytes": 6548,
+      "sha256": "487b45a1a3c16068b4f82760c9fd80604f8d7d0af5cd1cab3ebae9187a9957fd"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-project-team-states.md",
+      "bytes": 8269,
+      "sha256": "99178ac367bc230ad79801114817dc3de5d177da3d679f7d706b21ae9dd060dd"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-responsive-polish.md",
+      "bytes": 2873,
+      "sha256": "ce206a12d38dc5b70cb4146369dcf408923d69c549efa8e53397d6a749d1a492"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-server-authorization-states.md",
+      "bytes": 9705,
+      "sha256": "22d125d8ac472911c323e4ac979b58086d15567fedd9a2896104a905dec308da"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-shared-states.md",
+      "bytes": 3776,
+      "sha256": "9a3e62ccd3da715b190cf2dc179eb01d6ff88017468cfa661b68459dd4f2e10a"
+    },
+    {
+      "path": "docs/design-baseline-v2/2026-10-12-tools-debugger-states.md",
+      "bytes": 7879,
+      "sha256": "5af6dc52a82a77201cb935c53117fb48db7c81ac17a7996f32570855dcf038b9"
+    },
+    {
+      "path": "docs/design-baseline-v2/COMPONENTS.md",
+      "bytes": 20988,
+      "sha256": "c3dff5f5d4b3712c87e5d8d09650466a1bf59dfec694b4a6b06ebef87b57d4dd"
+    },
+    {
+      "path": "docs/design-baseline-v2/README.md",
+      "bytes": 18500,
+      "sha256": "650f33e1f97a5924563d2026ac7dc975fcb1f94c97d11e72a60208c6eb2a6c5e"
+    },
+    {
+      "path": "docs/design-baseline-v2/baseline-locales.js",
+      "bytes": 15638,
+      "sha256": "f380075c27bf8df21e991632cdc833bd935455319012ef1b37fdfde63da9546a"
+    },
+    {
+      "path": "docs/design-baseline-v2/build-preview-icons.mjs",
+      "bytes": 1175,
+      "sha256": "9397b312aa9fe8ebc77283892ea468c32b42b2e45a77a41a588cd4f38b6c139f"
+    },
+    {
+      "path": "docs/design-baseline-v2/build-preview-schema.mjs",
+      "bytes": 429,
+      "sha256": "23846a4ff3ea4988d4dc413ef88136a2aed9d83e132f7815eb45782617141dbf"
+    },
+    {
+      "path": "docs/design-baseline-v2/connection-locales.js",
+      "bytes": 26412,
+      "sha256": "2468fbbe956aeeb206a14e3193c4ce3f8a8247502a0d057f11d1f9db3dee8020"
+    },
+    {
+      "path": "docs/design-baseline-v2/debugger-locales.js",
+      "bytes": 5858,
+      "sha256": "21ecd31117a66b95686b928368a8c7c00b722f38b7940f59263f335e9f547ba8"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/01-pages-and-navigation.md",
+      "bytes": 11083,
+      "sha256": "463865a066db41a42369e5ee42b80903f4d36773b22b2f5277c0b487190baae2"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/02-core-flows.md",
+      "bytes": 15771,
+      "sha256": "6a1bc5ad1a6bda78d229b459ca2db4c721082c56d69987ae554b14b36c744249"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/03-components-and-visual-spec.md",
+      "bytes": 12079,
+      "sha256": "d26a07aa3e15e03884ae454dd27219569643b6d86714c0be3fea67dbaed5d5a9"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/04-states-and-data.md",
+      "bytes": 14290,
+      "sha256": "19bb4476866e06f13b84cb1dc4c735146e0a59db9218b112b05591f71c69b540"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/05-permissions-and-collaboration.md",
+      "bytes": 8405,
+      "sha256": "aad0a95c4eb5e3cc66801fe01b53381c37fe26cbf112612b643971d9affc6439"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+      "bytes": 18251,
+      "sha256": "07fc8f2fc50afde491e6d1ef0bed28d566585fd52a9fd422e81bb07442749e19"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/07-source-and-evidence.md",
+      "bytes": 9361,
+      "sha256": "8916cf093becffafb3ef1749552a341721eb7fc79a1277ccea9e733cfd1a2dd0"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/08-decision-proposals.md",
+      "bytes": 21633,
+      "sha256": "8e497df9476c2f0be60d5d90d270eadcb2804a2ea9cc456fe9299e98e6c2f4e7"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/09-baseline-v2-prototype-sync.md",
+      "bytes": 5851,
+      "sha256": "a445248c18e5c8e980318aad2fc64a1f4dc7553d8baf9185696df73e7538877c"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/10-baseline-v2-journey-review.md",
+      "bytes": 5285,
+      "sha256": "8e9260e7edc8502f458d6bc39eed4f4603c2101230565c4e554cbc31618d03a8"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/11-final-delivery-checklist.md",
+      "bytes": 13450,
+      "sha256": "8d755d83e0b4a13a56c0e025f4d3b9d045c443c7ca8c032c9c5d14589b8a832f"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/README.md",
+      "bytes": 10016,
+      "sha256": "f249ea2fd934422529b3829bed8f88d4c3225e62dfaa2c0dc5f022ecdbae2e40"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/acceptance-register-v2.csv",
+      "bytes": 14209,
+      "sha256": "76a223268acb03ee183ad1fb44e4475e53bfa240c81de5056573f3c5f00f5e40"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/delivery-check-baseline-v2.json",
+      "bytes": 18067,
+      "sha256": "e47de4b05f85113ffde7f8fbc4ab154852f42e82340bd0bf981f7f1e5a2fc423"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/delivery-check-v2-final.json",
+      "bytes": 24274,
+      "sha256": "f9cb127220ccf1753d2ec8e0b1f5f9ac59aff12f31ac31c28e1566b3e1231c2e"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/delivery-check-v2-journey.json",
+      "bytes": 18983,
+      "sha256": "260e214251012052e3219f3ef7a2a6653216e8585ddcc003b4b06548ed2dccbd"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/delivery-check.json",
+      "bytes": 885,
+      "sha256": "a6ae1d308b21ee909df57b7d1eb9065a900dbdda95fec05c77b27dabd9af259d"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/tasks/acceptance-schedule.csv",
+      "bytes": 11265,
+      "sha256": "dcbd867fc6c3d31ef506b7a7b32d4a9f8773085df65c1ecd3bc039b0f275403f"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/tasks/plan.md",
+      "bytes": 19053,
+      "sha256": "2849a8000a288edba176d9f0d782d02b981857470fa04a5eb7088ea21f36ef6e"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/tasks/planning-check.json",
+      "bytes": 699,
+      "sha256": "6b1e2d3a4df5de753b25680cc540e5659c549acea016bcbd613e36f21fe591d9"
+    },
+    {
+      "path": "docs/design-baseline-v2/design-handoff/tasks/todo.md",
+      "bytes": 31264,
+      "sha256": "249341d8e5a9468dec4625779fa6e2b25eec37dcf04a895f976d5a6997306f7d"
+    },
+    {
+      "path": "docs/design-baseline-v2/environment-locales.js",
+      "bytes": 10843,
+      "sha256": "b2ff28161145c5ab165bd746909ebb111107fee8be787c127832bf2eec25fed7"
+    },
+    {
+      "path": "docs/design-baseline-v2/execution-locales.js",
+      "bytes": 9024,
+      "sha256": "41701ec234dfd7cf1664a1b0b45f755baba0830487d8764ac1e60f6f8e8dd4c6"
+    },
+    {
+      "path": "docs/design-baseline-v2/flow-locales.js",
+      "bytes": 3792,
+      "sha256": "ce0156f4d30e42f20743320cec9819f6003c96f6d3dcad8b3d187928576a48af"
+    },
+    {
+      "path": "docs/design-baseline-v2/history-locales.js",
+      "bytes": 9084,
+      "sha256": "c1870017595c45be9b4bedebdf1ae8bc9bab9b77dc41e4d3e39c901329f99de1"
+    },
+    {
+      "path": "docs/design-baseline-v2/layout-browser-audit.js",
+      "bytes": 1203,
+      "sha256": "e6b91ccadc9f88b64b381eb23252a06701f2ca4e96671ee12053fafbc502a653"
+    },
+    {
+      "path": "docs/design-baseline-v2/management-locales.js",
+      "bytes": 7680,
+      "sha256": "76fb413869280692d5e57978ad159aa8f7bbbd1aa0144763e225f251c46e3fa8"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/accept-invite.png",
+      "bytes": 81601,
+      "sha256": "480d3539f9eb7c21ba9c045e74f6704e7b86e47ad85ae915a921f83ac3c8e443"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/baseline-v2-browser-verification.json",
+      "bytes": 22540,
+      "sha256": "2a1a1a5007edb65099e08520096e9532e44f23b7dff02d76a97cbcbb4f45592a"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/baseline-v2-mobile-dark.png",
+      "bytes": 40492,
+      "sha256": "687289edcb4ba13bf3f7a452b0f281191887f4a38da98096e4184883f3c50009"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/baseline-v2-model-verification.json",
+      "bytes": 3088,
+      "sha256": "0087ca8a2ed115df7869ef653dfa4f2f7e49e89b9e2575bad81c015920d736f3"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/baseline-v2-records-light.png",
+      "bytes": 77055,
+      "sha256": "7b10d3525aa67074efadccf82efce191f45ce45c8f296ae1c1c30b7e542945bf"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/complex-parameters.png",
+      "bytes": 134511,
+      "sha256": "4da81fefbc1ff033ad76a0baf7ed63fa7927a994e1932c42d229049b12cd92b4"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/connections-browser-verification.json",
+      "bytes": 2998,
+      "sha256": "22ef74c82156dff623cfeee8b84119f7988e61b763ba04647f4515b42dea0d4d"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/connections-model-verification.json",
+      "bytes": 2097,
+      "sha256": "2f3ec6e8d086b1b701bf0b9cdfff6933cf185f39caf19f05be17af5fb56a5073"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/controls-verification.json",
+      "bytes": 1535,
+      "sha256": "42b28b60b9d83a3413536573a565290d35fa29d795348b6d434527cebca6109b"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-browser-verification.json",
+      "bytes": 1553,
+      "sha256": "055169d1adf3aac088659a43aa83b929c0146e2585ce812cddbed190dc2987f7"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-cancelled.jpg",
+      "bytes": 91111,
+      "sha256": "5fa3a6aba0aaad60b63ce00d6dc34741a97cf50f1007651a28ab1363d4cb8778"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-complex-validation.jpg",
+      "bytes": 85776,
+      "sha256": "31d6706d86d0a1dd7320c0b4bbe1668d5b59329b98fc807417ab8a6b734cb6f5"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-english-dark.jpg",
+      "bytes": 71920,
+      "sha256": "043b1e6ddb4cea93698b44b40bc0a3bd58b04cff011d7c7275841a9044e14e92"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-history-detail.jpg",
+      "bytes": 95065,
+      "sha256": "7585a773d778fb7d76999ebff8714bf09fdc6f8dfdc799ec80249d444765a4ee"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-history-restored.jpg",
+      "bytes": 88762,
+      "sha256": "53254713ca73cb7fe93878096059b9ebf1c3698d637108e3b6e04c2d9f74145e"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-mobile.jpg",
+      "bytes": 38242,
+      "sha256": "fd7cf43150c38cf79cafe428b82f6cb3e833d0d699ec5c9b2d53cf0c3872bf42"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-model-verification.json",
+      "bytes": 1423,
+      "sha256": "29cc8eb2a4f79284f36c3fa3cbd39b408d32bf31365793a0403e8f84c577b028"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-running.jpg",
+      "bytes": 89195,
+      "sha256": "ef1cd9439b96eb66aebdec3374c6fb6ee2b00a6f4b82ab5b4c3f653d752bd5ed"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/debugger-upload-failure.jpg",
+      "bytes": 98026,
+      "sha256": "6a080fe320defd9eba9d265cb0cf120f43ac9e462024ae7a082a981e4065e262"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/design-review-tools.jpg",
+      "bytes": 75092,
+      "sha256": "d47d40af4c4b0f07e0ff20af4a225aece4b7b9dd7aa332a389b504d91e93c5d8"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment-backup-failure.jpg",
+      "bytes": 83114,
+      "sha256": "c057d63fd829b6336543158100ef448164e8f905ced3df422ee3c7a1c3978fce"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment-english-dark-editor.jpg",
+      "bytes": 76711,
+      "sha256": "87530f145abec186c4109abe3f4b78e57b9ce3248797a27cd5ee5cf91b2326e0"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment-missing.jpg",
+      "bytes": 76659,
+      "sha256": "dc4d859dd1b4cb1b382e9ef6ed7a290754ec3b9cf83be1a3264064e36655703b"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment-mobile-editor.jpg",
+      "bytes": 30774,
+      "sha256": "2e16fcccb0a2fbd887d7055d18206d3a2d6c52048d8290314a7f57c358fc477d"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment-mobile.jpg",
+      "bytes": 35825,
+      "sha256": "5bf4aba9f79cf9e7063dc04ce4fb10d0abfe11498fa06256073e75e9f36aaa19"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment-overrides.jpg",
+      "bytes": 80806,
+      "sha256": "3510720a42bc9ef4f6881f2c9b97d914ebe11354d190e4ac0a463da99949498e"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environment.png",
+      "bytes": 121295,
+      "sha256": "371131adb039106e7033a54e39753edfba07b2aa5b87642c578fcc889d4a3809"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environments-browser-verification.json",
+      "bytes": 2494,
+      "sha256": "e998f1c68bdb39ab789560b2dcdc704c96de3d3c04fa827dd610f03f5c3f0926"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/environments-model-verification.json",
+      "bytes": 2322,
+      "sha256": "8fba665806427c8dbceeb3ad639c533a254e460e210b98b9b5ec97ed9ed55eb5"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-390.jpg",
+      "bytes": 36650,
+      "sha256": "3ae3cfb0fd6473c02b68a03660421a7e0a5b8107a55729325b3b858e4685a871"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-browser-review.json",
+      "bytes": 1445,
+      "sha256": "c6adb9188949535b819d5f8bf9f799b4dce0f7e36bc294dd153cae65735965cd"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-dark-en.jpg",
+      "bytes": 78908,
+      "sha256": "3d02a4325c4facf0a24c3332c29f447e8ee32121eade0b17595a250a90f7d4c7"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-model-verification.json",
+      "bytes": 596,
+      "sha256": "bc371dbf86441fbf41e6cd712f8218344f7d3a557336b798b77273d3177bf0d8"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-review.jpg",
+      "bytes": 72385,
+      "sha256": "2d4fa997794dab9f95886af9e105fa635816df35d34961a79a11db2748708418"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-storage-en.jpg",
+      "bytes": 80174,
+      "sha256": "627b2800027b3413dfb77fed52c7ccd491699f201f65a2540f81140e4a08f96b"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/execution-storage-zh.jpg",
+      "bytes": 69722,
+      "sha256": "ed543b5a04c23d97e2005a754f982aed8b2856b251887f4544c48f27df60b16a"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/flow-browser-verification.json",
+      "bytes": 1645,
+      "sha256": "d13aad60ddc726f3767ecf82b84a24b6703996bfa2dbfb9ad44fa3fc815af1ce"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/flow-complete-dark-en.jpg",
+      "bytes": 87086,
+      "sha256": "d13cd2495c3b07a13da7a66f31561efe6247ad1d61e578a06232f72279601499"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/flow-complete-light.jpg",
+      "bytes": 72420,
+      "sha256": "a7de94300c03902b27d563b3f4960c093b0d1f559fc343522e3b34a6d9500d2f"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/flow-mobile.jpg",
+      "bytes": 38901,
+      "sha256": "9d2c8793a83f6a9320b2475b28cadbde5defc3051d5b745a614b61ab9fb1cc75"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/flow-model-verification.json",
+      "bytes": 2145,
+      "sha256": "cdcf944a9ffcfc45e0e70c3dd5b5fccd0f58e265d77fae5dd06c51b0a81cdbc1"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/flow-tools-navigation.jpg",
+      "bytes": 64393,
+      "sha256": "c83c34a4cab1c92d7a07b935c8898380f8c7e18eaff15d090e92c017e729fb0d"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-browser-verification.json",
+      "bytes": 1951,
+      "sha256": "57f40a6b06e148e8531a642a38a0c331c71d3a1e55e0333502033f94951aafc1"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-detail-en.png",
+      "bytes": 141056,
+      "sha256": "5cd20e28ac9fb630e4bd8608fc45c00e65a3f97b7d7d4099151779156b218b2f"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-detail-light.jpg",
+      "bytes": 75833,
+      "sha256": "579b0db274193569a461e027077d457b847180325427a87850af63096ce891e8"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-detail-mobile.jpg",
+      "bytes": 41006,
+      "sha256": "1ec7e584db6e9de142821ffe90bb98b4881e5cded1740cf74f293c1f4c476d67"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-detail.png",
+      "bytes": 125682,
+      "sha256": "7d0f24acf397241092c4adfbb69ba4e695ccc6dbf290c46e5656e0682e18ab13"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-final-preview.jpg",
+      "bytes": 80854,
+      "sha256": "f0c48c16431fb3014aef09e73042af4fb3f6767a428e7b28ab2606fe38b4c4e8"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-model-verification.json",
+      "bytes": 2342,
+      "sha256": "b08898f615004ca8deac22f65d4fad95265141b4ec3d009cab2b922a648e4421"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-saved-dark-en.jpg",
+      "bytes": 82149,
+      "sha256": "41c2d8693ea89e01659320d690a9ec2a234d656a6b61137b5b3f8f7a1eb1b221"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history-saved-light.jpg",
+      "bytes": 79674,
+      "sha256": "cf248d1e06d0b275b7849a6a801abdec98c7a773237b9ae7032418fef0397f30"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/history.png",
+      "bytes": 160822,
+      "sha256": "ab8aa841cf09709a3153bb93a2f526f3b3dd8df7304f01ab966a962cdf38f3c7"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/invite.png",
+      "bytes": 130808,
+      "sha256": "563c98c00fd71c096e691d36fb4a31e391dab6a79437e432d145f51c1ce61749"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/journey-v2-browser-verification.json",
+      "bytes": 2696,
+      "sha256": "cb57278567769b4c50697b8186854850572c14263ad4f53080aa5df6fe350e17"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/journey-v2-model-verification.json",
+      "bytes": 1775,
+      "sha256": "5c9a32c1912ca791fe7e23fed53b67dc46309e396029c68bc1f59c0e8410f625"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/layout-browser-verification.json",
+      "bytes": 83530,
+      "sha256": "e477e12e2acd70bff7a657c11c71780d0a4ebf317c9557c10a9a7449db9dd647"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/layout-tools-mobile-dark.png",
+      "bytes": 35994,
+      "sha256": "a6b78864673fe8de02809a2e63c17ebd40ff4f922f3ec029a478c9608550d729"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/layout-workbench-light.png",
+      "bytes": 90549,
+      "sha256": "5939b19907c7fb82dae58a4d441c838e3a4998f1b4a9756a8874e78964fab816"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/locale-verification.json",
+      "bytes": 1124,
+      "sha256": "222c1a368fb74963bf1b01b79ea37d880486e7eac94ddab133eb11b5c99dcd6f"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/login.png",
+      "bytes": 71195,
+      "sha256": "44106cb9795ec7a4eb874627d820f3c83a535c5bf30b3e521fe3586a8d79cf77"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-call-detail.jpg",
+      "bytes": 75081,
+      "sha256": "d585f3b98416f5e009396a976bd5e41b1b40b769e025349ff66cc2ef021e77e9"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-environment.jpg",
+      "bytes": 77115,
+      "sha256": "f7337126dc72e5d085f1017a9211519281a888956ee5fda083edb8e97af7a707"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-history.jpg",
+      "bytes": 77723,
+      "sha256": "3fd5e240ce30c6a61e2c375b87fd9f839274f874884cf924f1462964035cbaac"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-invitation-dark-en.jpg",
+      "bytes": 77598,
+      "sha256": "22bd8ed1e67dbe96c7bb46f519835cefce3041c7d4bb38acc71ad5f2a7b7e460"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-invitation-mobile-en.jpg",
+      "bytes": 34844,
+      "sha256": "d96d873f789a8dde0241fc0ceeefecb3e38cf1989a40ce125cdb2d483517ba1f"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-invitation.jpg",
+      "bytes": 66746,
+      "sha256": "f46a4db8261370c13c4b1f4631d0b91b14412668b0013bde54af8c291f3bd535"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-members.jpg",
+      "bytes": 67311,
+      "sha256": "a82514708e4e0830a01493205e55f1b2b3a09321c45dc291d28d5de1550ad78e"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-model-verification.json",
+      "bytes": 768,
+      "sha256": "7ca2cd98709a1dcfc607314fb4e7db582b9db8a7b21d8c5f38b3a07ca7410c16"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/management-servers.jpg",
+      "bytes": 81296,
+      "sha256": "70ac869d99e7026dd41b64b8156808e823198bc7a4c14ffde7ac9f48f7e547f6"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/members.png",
+      "bytes": 103189,
+      "sha256": "ad418a1f62fb5ea6202c1706d193fb97bcb7d61b5914487e108d448e228dce80"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/parameters-array.png",
+      "bytes": 134872,
+      "sha256": "5f3fb9322f51f5f33b9144135c5a11807643820dfd9a84daa786fe08cd582699"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/parameters-dark-en.png",
+      "bytes": 142156,
+      "sha256": "7c4fde8e19c76741781da5c12a931894ba735701c46185115c33e3df8bcdd312"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/parameters-errors.png",
+      "bytes": 144443,
+      "sha256": "d3884797a64563d9311a783aa176ba9566203169c963baf511f28c7b30523b35"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/parameters-refined.png",
+      "bytes": 143948,
+      "sha256": "1bfd8f303899b84a15c724311b8df6528313bc0f610c164cd13b284dbb69239e"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/parameters-skipped.png",
+      "bytes": 143948,
+      "sha256": "1bfd8f303899b84a15c724311b8df6528313bc0f610c164cd13b284dbb69239e"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/parameters-verification.json",
+      "bytes": 1454,
+      "sha256": "a9541b9c2e6856a635414d7a31e19878f320b46d8ee6e211ab91405242dd3775"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/projects.png",
+      "bytes": 89748,
+      "sha256": "c9f32a8f8c230eb2445347ca1f865d40a230728ab99a0f05dc7ade4073479602"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/records-verification.json",
+      "bytes": 1327,
+      "sha256": "bad843130246695d58ca84919ddaa4e84c5e52a5d6772303cee3542bc12cc44f"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/repository-verification.json",
+      "bytes": 903,
+      "sha256": "cc4841bf5fdfc118cc407d83b15c68767e24cce06b0b89c6d31d08a3ae307452"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/save-request.png",
+      "bytes": 139388,
+      "sha256": "ba515640fe100121c9d115ebc2a68891ad286cf6a64eb75c3b345bab23c8adfb"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/saved-record-detail.png",
+      "bytes": 153867,
+      "sha256": "2b035c741a6162b1627c7bab2ee2d7d12e476c2f08436c4b8f9ebd6f37cd951a"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/saved-records-dark-en.png",
+      "bytes": 118826,
+      "sha256": "8a79ec5839cfe098c59f5296278412f706456488915a8f1500f9307648d643ee"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/saved-records.png",
+      "bytes": 96905,
+      "sha256": "97c90ce2b6681d143a1acb9b8b6c5a8a3a97645876233ae9074b778d296edbfb"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/secret-editor-dark.png",
+      "bytes": 124305,
+      "sha256": "05f44cd32e571eccbffe02d4506502617647cac00c503f74f2619586e5a75fec"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-agent-pairing.jpg",
+      "bytes": 67742,
+      "sha256": "9fff1a5f4442ad8bd0a719d7f8a7318cd7c0bc26b6aad879eb1e7d7a73036a74"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-backup-failure.jpg",
+      "bytes": 64389,
+      "sha256": "d02843e36f28498601440424770135ce548a96f51c793e0831cbfe2cdb11d319"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-connecting.jpg",
+      "bytes": 70955,
+      "sha256": "dbf80fda468e59e7c91c5c4aaab3872f7b96ee27819b7b38ff7a8c31a0976236"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-credential-failure.jpg",
+      "bytes": 66658,
+      "sha256": "8ab7823b7696cb93e80f5fee6a71ee9da3d5771ef4c2fb77edde13de86abf7fe"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-english-dark.jpg",
+      "bytes": 91524,
+      "sha256": "e8a2e63c4ff1046f6217e7ac85cf36753af8206a6195834a8c64341a8badefbf"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-http-failure.jpg",
+      "bytes": 67979,
+      "sha256": "af7b28083438b11b5198fb74b466b463207f70b96b4f11aafa3dd5c54597cd89"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-mobile.jpg",
+      "bytes": 36641,
+      "sha256": "2cc68fcc61748710fea5572b6819c297b4e6e4a20d5be9de8eca88f285dddd8b"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-oauth-waiting.jpg",
+      "bytes": 66908,
+      "sha256": "936949c636841b9eba40b787bce796a2d8f5096ac177f6ab93531d927dde6fb3"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-stdio-config.jpg",
+      "bytes": 81853,
+      "sha256": "b2d7a2f1acc43828f41a3029cfb2e571e8952d3b265fe473a35b1e5835b5fac2"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/server-stdio-failure.jpg",
+      "bytes": 78891,
+      "sha256": "590d9631c27a81d8be2b3e9f7c48a602f523b49281fce22ebcd9d7c6f6e516d5"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/servers.png",
+      "bytes": 124186,
+      "sha256": "0495265ed20c7c2694083b9f0bdfe90cec2cb9f88942edc9bd667451e04f8587"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/sidebar-collapsed.png",
+      "bytes": 127428,
+      "sha256": "1c75fac367a8a6df8ab0f31fb13744160ffa6f25c84f340dea83a386dbde1cbb"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/states-browser-verification.json",
+      "bytes": 5772,
+      "sha256": "5cf03f834ac7713a8d688e3c5fdc1772be719ffd552154b5e9074d6c6920a586"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/states-model-verification.json",
+      "bytes": 1209,
+      "sha256": "8ed3d8561e455cbfac6b83e35cb7786ca340b58e864932fe35bde224139bc0b5"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/states-permission-light.png",
+      "bytes": 51613,
+      "sha256": "e870e0394b49109b04f57838156bfdc39425b2faafa6a38346e9be07092723f2"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-browser-verification.json",
+      "bytes": 1707,
+      "sha256": "d3453db9e524cf08044fd8a14a5bb5f49b9e543355ad2c341a048694272c89a1"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-final-preview.jpg",
+      "bytes": 67047,
+      "sha256": "76c16fbd9ef99844b876114947aeeb8d6d1335dad3de2fcf9c91175892b20a53"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-invite-accepted.jpg",
+      "bytes": 68908,
+      "sha256": "e0e59975d67ae1341e3d5332bcff48a2de28980bfadece4bd38d5700fe7b12b3"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-invite-expired.jpg",
+      "bytes": 65523,
+      "sha256": "e27ecde369756a8e0525aef55720ef0b22973a3ac852b471f9dcccb950a066b9"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-member-removal.jpg",
+      "bytes": 60004,
+      "sha256": "28c6adb0c9369f2c6cb83e05a07522efed9ea9be7e7dfa5365f1215454b1158a"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-model-verification.json",
+      "bytes": 3527,
+      "sha256": "47b91f92358bf67201a82947f454cadfcbd6196772edadd01163363b794328f7"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-permissions-mobile.jpg",
+      "bytes": 34912,
+      "sha256": "207651dcbd0735e8b570a88447cdf5227214b3cf81bcf643e50c03669f50f6aa"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-project-editor-dark-en.jpg",
+      "bytes": 58843,
+      "sha256": "77b440ad0ba4cc0b73dee395c36e2b72738256b191b0a9ee233b8952409b1fc9"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/team-projects-light.jpg",
+      "bytes": 62600,
+      "sha256": "c139d2715478cef61dc6f8a7fff95a064268282be3f6f2d6d4588aa14f8e0da0"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tool-definition-en.png",
+      "bytes": 145551,
+      "sha256": "964fa125d6a58f286dc80c6be7df27c6f37b7e383da89d570ece3ca974079431"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tool-definition.png",
+      "bytes": 146735,
+      "sha256": "21e05ae134b57b16107c266935735d2017c7345d3a04b144649d0eb481c2d6e1"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tool-history-dark.png",
+      "bytes": 127471,
+      "sha256": "d8706783b87461346d434a072aefaeba5887faef906b2c95ae14b627e81bc004"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tool-history-detail.png",
+      "bytes": 152597,
+      "sha256": "90c6d48c65c9eb2e0902531813ac398fa2aec17c4d9e728571f0c4efc2a343e2"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tool-history.png",
+      "bytes": 126835,
+      "sha256": "0b4bafea0018b04d80b49deb02dc8b11d402327cc430941bd60555f6192ec1e3"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tool-tab-menu.png",
+      "bytes": 152908,
+      "sha256": "7636958afb8852e9917e9908a060227f0dee59fa71cdfb7a04205f8654ea7a11"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-1024.png",
+      "bytes": 131289,
+      "sha256": "251718ec886ced9d007b4c41b11ddfd2e36315bd0d42a3210c08e027e5ad5cba"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-390.png",
+      "bytes": 62203,
+      "sha256": "3f1e663e631c1d723f83c021632643a9c5b081161e6b2083d827e5a357dc0b01"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-dark.png",
+      "bytes": 143575,
+      "sha256": "1313c8d8ab821a72e90a23eed5f48f0ab7f6396bf107d7c5ef34118071358598"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-en-1024.png",
+      "bytes": 126889,
+      "sha256": "080da5f599d2dca9f8f1c91bccb524c4bddd14aaba15a964c7bf9033b37149cb"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-en-390.png",
+      "bytes": 59730,
+      "sha256": "76d3c499fac9701302324c60251d21955f5bac7c904ca51f4f6a3e3f08346f0a"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-en.png",
+      "bytes": 137290,
+      "sha256": "857881cc9de18b84bcd64a4aa92d40775e82dbf025afc7789314c2c45ecce885"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools-light.png",
+      "bytes": 141505,
+      "sha256": "985aee3fbba052ce7d0fe78c9a9476f2c0646512e917abc67d603d64cc90228d"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/tools.png",
+      "bytes": 141892,
+      "sha256": "c1c6bd1907e33af5daf65b0cffe3cf76b9be1d4b3803ec742d470bfebf381f46"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/v2-journey-authorization-dark.png",
+      "bytes": 106270,
+      "sha256": "47d07da20536ddd0f86c84883c04d8ae5bf374a6d9762a5af85aade85e3ca58a"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/v2-journey-complete.png",
+      "bytes": 78185,
+      "sha256": "0a941dd5a498c7ed11d49c5750fa02096a2293f908ac26fad9a6bb09448d98cc"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-assets/verification.json",
+      "bytes": 1978,
+      "sha256": "62fcadf4ece7f3e4e7e56e321f3f7f0555bda53b97c86896e6bd1c5bb172d326"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-icons.js",
+      "bytes": 22346,
+      "sha256": "82c79459857336ebc9b3daa9cf31403b59c321ba46c59b969be3ab8f07849c09"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-locales.js",
+      "bytes": 68290,
+      "sha256": "19b3954e7a5060a527f50e2a2011b74f69cb9fe79568f59a0dc5585bc8d97ae4"
+    },
+    {
+      "path": "docs/design-baseline-v2/preview-schema-entry.ts",
+      "bytes": 256,
+      "sha256": "827e01961f9b1bec70b1d1b3923530a015cdd948b814d4c93a5b2c4ac378f93b"
+    },
+    {
+      "path": "docs/design-baseline-v2/reference-workbench.css",
+      "bytes": 21042,
+      "sha256": "ddd6d96f98ec8cea1b6a5ec3aea7182ef4684e38ae05da7dcf60da92fdb85a55"
+    },
+    {
+      "path": "docs/design-baseline-v2/state-locales.js",
+      "bytes": 5946,
+      "sha256": "c26f2880fbad75238896558396ef3a32ec2832c4509d6c4ba858cf26d5276b15"
+    },
+    {
+      "path": "docs/design-baseline-v2/team-locales.js",
+      "bytes": 11078,
+      "sha256": "5fc98a1fcf8d1875e31acc3485a06454e1679c3201cf7c3ea6d149b950c089ba"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/a-1024.png",
+      "bytes": 132990,
+      "sha256": "cf519216640d72518e10fccc05d201bf23967a8125ce39e190c677844e6c5dea"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/a-390.png",
+      "bytes": 59480,
+      "sha256": "40077cb02701e461d19e427cded3bf9663a07a9d0f390fc48035364ec1ee5594"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/b-1024.png",
+      "bytes": 148002,
+      "sha256": "b440c47ba00bfdaef017fad9b1faea47ef114a5de6e4fc99382de241ff8db490"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/b-390.png",
+      "bytes": 63388,
+      "sha256": "35d8e4a696549f622826afb6f3191de8202f13d98cbbe11232bcb8764778afda"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/c-1024.png",
+      "bytes": 114323,
+      "sha256": "4fddd13c33bbaa9273150b23f1b43a870d6a0b137701595a633494013de80c6f"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/c-390.png",
+      "bytes": 61584,
+      "sha256": "d37dfb44b28ab3bc12ce51a1df8c63387370bb23802a5b3691b15c3bcf9d16b4"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/catalog.png",
+      "bytes": 168504,
+      "sha256": "24e2729a05b9396cdbcae0ac2225e710be6405a56e241f6e22771eb85bea3080"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/notebook.png",
+      "bytes": 133711,
+      "sha256": "733ae5cc53e758d88346bf3b9652e0ecf1fed110874603b57c5eed1f308e53f5"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/snapshot.png",
+      "bytes": 129916,
+      "sha256": "f3b3f8db15d8366dd789878f1292825634919dcdcb654adb4500debb07cb40ce"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/studio.png",
+      "bytes": 151852,
+      "sha256": "0d6d11c0679db773549964652dc6c84ae00d066d5e45548f709c41d34a9d2736"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/tool-error.png",
+      "bytes": 127682,
+      "sha256": "021e4fb6292d40729e487017b65e7f35f38faa6ee77d5b503cb257da15ed82c8"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-design-assets/verification.json",
+      "bytes": 1020,
+      "sha256": "4dcd87c011f9ec8375b68719f01da1037808b2c2dde9dae032906936c85d2fa2"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-designs.css",
+      "bytes": 27709,
+      "sha256": "84e1a697b5d7cf0a977d65fd991ddc5338331094608d2dd3b4fb8fe99728aeb7"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-designs.html",
+      "bytes": 744,
+      "sha256": "a660468a01ac2a8d74bcdc0693cb1226d882d2a11a04a124e5d1136bc0ca52ee"
+    },
+    {
+      "path": "docs/design-baseline-v2/tools-designs.js",
+      "bytes": 35574,
+      "sha256": "43a31cc21220d814f1d569442a423be766460b592a2389bd88d09a1be188d85f"
+    },
+    {
+      "path": "docs/design-baseline-v2/vendor/LICENSE",
+      "bytes": 1082,
+      "sha256": "1cd0a2b02a6cc40ef8ee16310d13eeffdd7b5de4a562fd3ee7c921d8eb54f60a"
+    },
+    {
+      "path": "docs/design-baseline-v2/vendor/i18next.min.js",
+      "bytes": 43696,
+      "sha256": "10e96317f02244bebf0140a7268675ee550426f5dcdd9e30a02d293001c08eb4"
+    },
+    {
+      "path": "docs/design-baseline-v2/vendor/preview-schema.js",
+      "bytes": 281588,
+      "sha256": "a84025b77f3e3e8eeb6f2e5f86809d47e92c01a92f0b68657396304fd0c8b7e3"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-baseline-model.mjs",
+      "bytes": 12523,
+      "sha256": "918ab101bb0f2b25899c7fb2c8d00503761622a6269411c8254115ff16871115"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-connections-model.mjs",
+      "bytes": 12153,
+      "sha256": "5df324e429c61e9a48f7d6f5d027c5c574f8350eb699861388726365e5a3d63c"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-debugger-model.mjs",
+      "bytes": 11073,
+      "sha256": "9cb04dfe81512807333fda86db1ed0d45dae71e7fafa7d33764a6517a4d7252a"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-environments-model.mjs",
+      "bytes": 12706,
+      "sha256": "cda5bc0f3ea0572e01dc7cbfb4f5790f13010b80e10c1a468d93609b26fa34f0"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-execution-model.mjs",
+      "bytes": 4048,
+      "sha256": "05aa3f4d2fe7c2dadb00ab939b694435379271240be88279a23ca2cff1ac7e72"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-flow-model.mjs",
+      "bytes": 7000,
+      "sha256": "2f8e816a1b3400d5d8abfbaa9a4c21290c0eaec8a3cd46d740a406d52c9b83cf"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-history-model.mjs",
+      "bytes": 15084,
+      "sha256": "6d320aef5ad5a2acbfa7f6e25844c90cb3ee04441dcf69a773193c9464db6473"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-journey-v2-model.mjs",
+      "bytes": 6895,
+      "sha256": "ec5b63e85e359e5b99a5e26390119e02553839f9b1b361b416588e36054a18b0"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-management-model.mjs",
+      "bytes": 5834,
+      "sha256": "4e65557a527459a84087f5df197701c6d3aff29ee6265f58f83191ca507d1148"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-preview-locales.mjs",
+      "bytes": 10169,
+      "sha256": "a7823699b51100dd192d3d34bbeca46f41a76a51889e1831c0c0bb69fd9dbb10"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-preview.mjs",
+      "bytes": 17813,
+      "sha256": "60d827c1e4c9cb0d302c2889b02971c3354472ea407fd4ac1faefa89596e2a5d"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-states-model.mjs",
+      "bytes": 3655,
+      "sha256": "8957f59192bcdfaef305d61c53980191ece7bc4946c3365bd58dba1b43c24db8"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-team-model.mjs",
+      "bytes": 13908,
+      "sha256": "5b6c10b67a5cf48371cc66cccdd732111b0671b4a58341c226372ba714cea7d1"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-tools-designs.mjs",
+      "bytes": 8699,
+      "sha256": "877513226881bddd6da95006e1a672e588af129370caed65ac266b648d809285"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-workbench-controls.mjs",
+      "bytes": 19868,
+      "sha256": "a1f4e800b478004934dfb75802e57944f3cbe8bcc07a20b9023b2874f8e8bfd6"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-workbench-parameters.mjs",
+      "bytes": 15926,
+      "sha256": "f9d31aceca0b9216eaf2c863782a66b49f3c2776ba29c77d05f2e75366a6cd20"
+    },
+    {
+      "path": "docs/design-baseline-v2/verify-workbench-records.mjs",
+      "bytes": 15768,
+      "sha256": "57056dc50ab6a7b84edddd0a295aef856771cf001f6b86d0a3055029b07b1982"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-baseline.css",
+      "bytes": 2091,
+      "sha256": "c72eb1951403f0dfddaa708fb66253232df7ba24475338fddb63f58ab7fdfa7c"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-baseline.js",
+      "bytes": 21269,
+      "sha256": "78bb48a35c759c31184cb43c1367409aa83b0aee72e79c0532bf73f6889fad55"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-components.css",
+      "bytes": 11512,
+      "sha256": "5f288f783cbbba3d7f84972d07a11405846d6d92238f002c4d42c9df1bfb32fc"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-components.js",
+      "bytes": 8042,
+      "sha256": "5e4b09e66485695702cab9b4fa866274c1a555d9dc9af39eb520ac37352312ae"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-connections.css",
+      "bytes": 4238,
+      "sha256": "c9e19e62737494f169230a21a8c6e0943cc53616f228f42ec5498354d9aa540f"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-connections.js",
+      "bytes": 30764,
+      "sha256": "aa56139dfb07a2968f2b9618facf42c6b2321af65b758fde9bee340d7f013058"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-debugger.css",
+      "bytes": 5204,
+      "sha256": "57184048ba4b5cbc32e6c0adaafd4ec0b0be0d93792a140f25b70ae1af323e87"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-debugger.js",
+      "bytes": 8769,
+      "sha256": "7d4252929e7d5d46cd06a01b3e639f22d46ce5477bb47224fbdb0355f939d9e4"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-environments.css",
+      "bytes": 6369,
+      "sha256": "81e6a4328401b83a686483aa4576d32eb19e9bf18a9c9594ce0929898dd45d80"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-environments.js",
+      "bytes": 26963,
+      "sha256": "38e10073f5ac404153ebf71022a5d1d9feb8741521fe7e0393101216a35c5a7c"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-execution.css",
+      "bytes": 5457,
+      "sha256": "03e9c10913605c6477d13121eac6121d31c4e0a905858b629973c4613e54b9ce"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-execution.js",
+      "bytes": 10137,
+      "sha256": "f0ad709e34503115aff0014b818b8aed99344e0045e676b64316bdb79e0351fa"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-flow.css",
+      "bytes": 2089,
+      "sha256": "42d531bf14b3ddb594a18982bd37f595fa267d51bd9a37ec352e0d3f7f9c13c8"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-flow.js",
+      "bytes": 4117,
+      "sha256": "368d7f281c986ef9c600d7a4643d13799cc6e3036741d0586fc252b36715411c"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-history.css",
+      "bytes": 8104,
+      "sha256": "61d4d3698fcb87e48be8f6bc046a73c0b5c1d3aa98a1eda9fc42b2bad260a966"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-history.js",
+      "bytes": 19805,
+      "sha256": "9f29eb778e18426622a70f956a1b64393c0b53d02713b8463c1b65f6e852a310"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-layout.css",
+      "bytes": 4584,
+      "sha256": "4181d82d783c19ef49b0ca5ed853f6942acedc4f4809ac80aaa4f0bf86cc8169"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-management.css",
+      "bytes": 12727,
+      "sha256": "c4eb895b383e197dab828f9b9cf163fe15a37198f6955e995b8c04dadfacd852"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-management.js",
+      "bytes": 9147,
+      "sha256": "a9e26546967dadbcdc5bf0272dfdcf5e0e42d66075c0d2fd1b775a8fb7f71f22"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-parameters.css",
+      "bytes": 4820,
+      "sha256": "4f436786bad703c63765cac7e2e779611876fc5d089cd22dab9b69dbf7f579e0"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-parameters.js",
+      "bytes": 27484,
+      "sha256": "aa8245cb81beac3f272e0a815eb9cb903b8b68c631a782560447985dbbeddeda"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-preview.css",
+      "bytes": 34565,
+      "sha256": "d12a317c5c88a42414c410c77287f262668afc3b27d79fc8a1834ae90c9a635e"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-preview.html",
+      "bytes": 3697,
+      "sha256": "2c2b8af1de765adff8c9253d4f8faff865639f525060c95df7fb23327169b1a9"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-preview.js",
+      "bytes": 120829,
+      "sha256": "acb4fa6f3d56f0e59f0b79163d83b94438b3fcd114a59c4a68c3d5ab126d1851"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-records.js",
+      "bytes": 11610,
+      "sha256": "5afb6b6be39ffbb74d91aaf0e17c6c23d21ada58493da59f12453473a6a9ded5"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-redaction.js",
+      "bytes": 3606,
+      "sha256": "4a3c1c47fc057c93bf6a3fecfb3ad629efe90187f46c0826688dc6b2c4a813df"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-states.css",
+      "bytes": 2387,
+      "sha256": "1311d421e97d808ed49a16ea747c1c558498b73b4eda7c462d047b7c35b5ecf2"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-states.js",
+      "bytes": 3898,
+      "sha256": "4c1ac92fea1569677eb82b0a9012bae9d60c7498de6e45f9f61a9d1172641f0b"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-team.css",
+      "bytes": 5009,
+      "sha256": "9654acf7a9b0965c347cc3fd6d0e3c2dce08f3537ad99de9a400e8f158bad19b"
+    },
+    {
+      "path": "docs/design-baseline-v2/workbench-team.js",
+      "bytes": 22451,
+      "sha256": "1477bcdd80e77195ee9a85c2ba87858b99d264bfa99f4dcf11bb3adb31802faf"
+    },
+    {
+      "path": "docs/handoff/REFERENCE-NOTES.md",
+      "bytes": 2829,
+      "sha256": "c7c7e8df2b5644c77787ab272af55da3673ec471d5c7e1be7dd5bed9d2060553"
+    },
+    {
+      "path": "docs/handoff/verification.json",
+      "bytes": 891,
+      "sha256": "3ea270c4ce1b40bdbd2438fb3588891a3c58da5b7c9913f5a74d3ccf016e3e34"
+    },
+    {
+      "path": "docs/tasks/README.md",
+      "bytes": 990,
+      "sha256": "db4776d0a02f35566cbc7d493fb04ffa4a493f5cca70445af4390c877186c721"
+    },
+    {
+      "path": "docs/tasks/acceptance-schedule.csv",
+      "bytes": 13305,
+      "sha256": "186f2b71f23775b08f7389c1ee2e7ca40921646bd3c3857508147281967e58cc"
+    },
+    {
+      "path": "docs/tasks/plan.md",
+      "bytes": 19370,
+      "sha256": "93b742e226b06137312dd7f6cf9a65277c6e7d266f1eb7a506f98bb0e3784558"
+    },
+    {
+      "path": "docs/tasks/todo.md",
+      "bytes": 31298,
+      "sha256": "d307f8d6dde43736b9c5387894326491a781a2265d5bf62ad61b4b7c45930b5f"
+    }
+  ]
+}

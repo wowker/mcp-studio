@@ -1,0 +1,32 @@
+{
+  "scope": "Design documentation and static prototype only",
+  "date": "2026-10-12",
+  "baseline": 2,
+  "confirmedDecisions": 15,
+  "acceptanceScenarios": 50,
+  "prototypeFilesVerifiedUnchanged": 64,
+  "modifiedPrototypeFiles": [],
+  "stalePendingDecisionDocuments": [],
+  "documents": [
+    "01-pages-and-navigation.md",
+    "02-core-flows.md",
+    "03-components-and-visual-spec.md",
+    "04-states-and-data.md",
+    "05-permissions-and-collaboration.md",
+    "06-handoff-and-acceptance.md",
+    "07-source-and-evidence.md",
+    "08-decision-proposals.md",
+    "README.md"
+  ],
+  "localLinksChecked": 100,
+  "missingLinks": [],
+  "htmlRuntimeDependencies": 40,
+  "missingDependencies": [],
+  "existingEvidence": {
+    "modelChecks": 169,
+    "browserLayoutCombinations": 240,
+    "rerunThisTurn": false
+  },
+  "productionCodeChanged": false,
+  "productionVerificationRun": false
+}

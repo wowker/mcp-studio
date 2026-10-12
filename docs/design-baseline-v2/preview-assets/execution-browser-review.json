@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-12",
+  "scope": "UI prototype only",
+  "method": "CUA browser interactions and observed DOM states; no production verification",
+  "checks": [
+    "Runtime view is a page and has a direct URL",
+    "Connected session locks route controls until disconnect",
+    "stdio disables browser route",
+    "Invalid argument array blocks preview save",
+    "Valid string-array arguments retain the saved preview state",
+    "Language and theme changes preserve command arguments",
+    "Connection draft survives switching settings views",
+    "Distinct connection starts with independent runtime settings",
+    "Pairing is explicitly simulated and displayed inline",
+    "Browser route offers session-only credential storage",
+    "Backup defaults off and displays a separate scope notice",
+    "Changing backup checkbox preserves execution-pane scroll position",
+    "1024px desktop layout keeps controls available",
+    "390px layout has 350px editable pane and no horizontal page overflow",
+    "Fresh tool draft has all optional parameters skipped",
+    "Unskip and focus without editing show no error and aria-invalid=false",
+    "Execute reveals the schema error and keeps the call unstarted",
+    "Main Tools page restored; browser error log empty"
+  ],
+  "screenshots": [
+    "design-review-tools.jpg",
+    "execution-dark-en.jpg",
+    "execution-storage-en.jpg",
+    "execution-storage-zh.jpg",
+    "execution-390.jpg"
+  ]
+}

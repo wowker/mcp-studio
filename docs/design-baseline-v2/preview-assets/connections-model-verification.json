@@ -1,0 +1,32 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    "Both languages have identical nonempty keys",
+    "Fresh HTTP localhost configuration has backups off and Agent unpaired",
+    "Agent readiness gates MCP initialization",
+    "Pair rejection, expiry, incompatibility and cancellation remain retryable",
+    "Editing does not change saved configuration or connect before saving",
+    "Successful initialization completes separately from save",
+    "Connected sessions freeze shared and personal edits",
+    "Cancellation invalidates late callbacks, including a following attempt",
+    "Network, auth, timeout and MCP protocol failures have distinct diagnostics",
+    "A connecting snapshot and outcome cannot be modified",
+    "Browser CORS failure never silently switches to Agent",
+    "Endpoint credentials, query tokens, invalid timeouts and header literals are rejected",
+    "stdio forces Agent and removes HTTP auth, URL and headers from the presentation",
+    "stdio command, argument types and working directory validate inline",
+    "stdio launch requires explicit approval for the current configuration",
+    "stdio executable failures preserve settings and remain retryable",
+    "Agent loss stops the MCP session and cancels pending initialization",
+    "Credential save failure preserves a fixture draft; retry can save in session",
+    "Backup starts only after explicit scope confirmation and local success",
+    "Backup retries neither authorization nor MCP initialization",
+    "OAuth denial, expiry and callback validation never produce usable credentials",
+    "OAuth success saves separately; expired grants lose availability",
+    "Storage migration preserves an authorized grant while requiring a fresh save",
+    "Same-URL connections and different projects never inherit auth or Agent state",
+    "Credential removal is scoped and requires inline confirmation",
+    "Members can change personal credentials but cannot modify shared config; Viewers cannot act",
+    "New service validation, safe exports and text escaping do not accept empty or injected config"
+  ]
+}

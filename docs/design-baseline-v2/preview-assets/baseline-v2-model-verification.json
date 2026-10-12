@@ -1,0 +1,105 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    {
+      "name": "Both languages cover the same baseline labels",
+      "passed": true
+    },
+    {
+      "name": "Only own queue can retry and Viewer cannot retry",
+      "passed": true
+    },
+    {
+      "name": "Offline blocks new calls and uploads but preserves pending snapshots",
+      "passed": true
+    },
+    {
+      "name": "Queue, project and request limits have separate execution gates",
+      "passed": true
+    },
+    {
+      "name": "Session expiry masks content and pauses uploads; wrong account cannot resume",
+      "passed": true
+    },
+    {
+      "name": "Logout waits for an explicit decision about pending records",
+      "passed": true
+    },
+    {
+      "name": "Admin cannot self-join; Owner requires a nonempty audited reason",
+      "passed": true
+    },
+    {
+      "name": "Initialization consumes one-time bootstrap state; registration requires email verification",
+      "passed": true
+    },
+    {
+      "name": "Credential recovery requires an existing backup and reauthentication",
+      "passed": true
+    },
+    {
+      "name": "Deleting a backup does not erase local credentials or revoke the grant",
+      "passed": true
+    },
+    {
+      "name": "Public URL queries save; credentials, fragments and sensitive references do not",
+      "passed": true
+    },
+    {
+      "name": "Server conflict retains draft and requires explicit save after reapply",
+      "passed": true
+    },
+    {
+      "name": "Environment conflict retains local value and can load remote explicitly",
+      "passed": true
+    },
+    {
+      "name": "stdio confirmation is required again after execution config changes",
+      "passed": true
+    },
+    {
+      "name": "Incomplete valid JSON draft cannot publish even as Maintainer; metadata survives save",
+      "passed": true
+    },
+    {
+      "name": "allOf, anyOf and local references are validated without coercion",
+      "passed": true
+    },
+    {
+      "name": "Unresolved remote references block execution instead of passing with a warning",
+      "passed": true
+    },
+    {
+      "name": "Simulated browser recovery keeps only a redacted queue snapshot",
+      "passed": true
+    },
+    {
+      "name": "Uploaded redaction uses an explicit revision, preserves linked metadata, and strips originals",
+      "passed": true
+    },
+    {
+      "name": "Expired history cleanup preserves pinned, saved and pending records",
+      "passed": true
+    },
+    {
+      "name": "Developer cannot toggle a project retention pin, Maintainer can",
+      "passed": true
+    },
+    {
+      "name": "Another user’s upload queue cannot be retried through history actions",
+      "passed": true
+    },
+    {
+      "name": "Uploaded rule preview does not mutate the committed snapshot",
+      "passed": true
+    },
+    {
+      "name": "oneOf selected branch still requires its fields and rejects invalid branch values",
+      "passed": true
+    },
+    {
+      "name": "Browser refresh cannot leave an apparently running resumable request",
+      "passed": true
+    }
+  ]
+}

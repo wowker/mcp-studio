@@ -1,0 +1,36 @@
+{
+  "scope": "design prototype only; actual browser interactions through CUA",
+  "date": "2026-10-12",
+  "checks": [
+    "Resolved REGION shows four ordered sources with only the server development definition effective.",
+    "Deleting an override requires inline confirmation and updates REGION_LABEL to the inherited server base value.",
+    "Creating an override opens a page editor scoped to the current environment and server, and saves the new effective value.",
+    "Secret backup requires confirmation, exposes pending and failure states, and preserves the available local secret.",
+    "Removing a personal secret keeps its definition and surfaces one authorization issue with a direct repair action.",
+    "Repairing a secret clears missing-reference validation; replacing it marks a previous backup stale.",
+    "Staging preview leaves the active Development session unchanged; Apply routes missing authorization and header references to the repair list.",
+    "After repairing both staging references, Apply updates the top-bar environment and session badge together without connecting.",
+    "Invalid number focuses its input; changing to English and dark theme retains PAGE_SIZE, its invalid value and localized error.",
+    "Connection preflight stays disconnected, displays an actionable missing-reference notice and switches to validation.",
+    "Reveal displays only a labeled dummy value; restoring a removed secret from its personal backup requires confirmation and clears the issue.",
+    "Project and server tabs show scoped definitions; search has a clear empty state and retains input focus.",
+    "Developer role cannot edit shared definitions but can open a personal secret editor with shared metadata locked.",
+    "At 390 × 844 the page has no horizontal overflow, the variable table scrolls locally, and page-editor footer actions remain visible.",
+    "Nested JSON missing references expose both the missing name and its consumer; defining the missing value clears both errors.",
+    "Final desktop layout retains the existing workbench style, correct focused row, scoped table scrolling and an inline four-level resolution chain."
+  ],
+  "viewports": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "screenshots": [
+    "environment-overrides.jpg",
+    "environment-backup-failure.jpg",
+    "environment-missing.jpg",
+    "environment-english-dark-editor.jpg",
+    "environment-mobile.jpg",
+    "environment-mobile-editor.jpg"
+  ],
+  "consoleErrors": []
+}

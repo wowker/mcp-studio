@@ -1,0 +1,23 @@
+{
+  "scope": "design prototype only",
+  "checks": [
+    "Chinese and English copy have matching nonempty keys",
+    "Fresh optional fields are omitted at every object depth",
+    "Unskip initializes a field without showing an untouched error",
+    "Zero and false remain explicit valid values",
+    "Nested range violations retain an exact parameter path",
+    "Null and omission remain distinct for nullable nested fields",
+    "Array add/remove preserves drafts and enforces required/minItems/maxItems",
+    "Invalid JSON text is preserved and gates switching to structure",
+    "Unskip after a submitted run stays quiet until editing or submitting again",
+    "New array rows start awaiting input while submit still validates every leaf",
+    "Missing complex roots can be edited from the structure form after Raw omission",
+    "Run identity and arguments freeze at start; duplicate execution is blocked",
+    "Cancel keeps the same run ID and ignores a late response after a new run",
+    "Tool, RPC, authorization, transport and timeout failures have distinct snapshots",
+    "Controlled running state persists until simulate-response or cancel",
+    "Async completion records into the captured project and connection only",
+    "Upload failure preserves success and retries never call the tool or duplicate runs",
+    "Agent loss settles a pending call as a connection failure, retaining the frozen arguments"
+  ]
+}

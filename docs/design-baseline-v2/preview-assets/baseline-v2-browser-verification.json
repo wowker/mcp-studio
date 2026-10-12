@@ -1,0 +1,1099 @@
+{
+  "scope": "static prototype only",
+  "results": [
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "light",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "zh-CN",
+      "theme": "dark",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "light",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=account",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=operations",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=access",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=login",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=servers&config=authorization&server=commerce-personal",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=servers&config=execution",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=environment",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=history",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=projects",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lang": "en-US",
+      "theme": "dark",
+      "route": "page=tools",
+      "main": true,
+      "missing": [],
+      "overflow": false
+    }
+  ],
+  "flows": [
+    "session expiry and same-account recovery",
+    "Owner project takeover with reason",
+    "offline execution blocked",
+    "incomplete private draft publication disabled",
+    "public endpoint query and config conflict",
+    "stdio launch confirmation",
+    "backup expiry and restoration",
+    "environment conflict and reapply",
+    "advanced Schema errors and remote ref blocked",
+    "redaction revision failure and retry",
+    "invitation email verification returns to invitation without auto-accept"
+  ],
+  "consoleErrors": []
+}

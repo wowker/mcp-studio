@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-12",
+  "scope": "Prototype workflow only; browser UI via CUA",
+  "checks": [
+    {
+      "case": "创建空项目→邀请→接受，概览实际进度2/7",
+      "passed": true
+    },
+    {
+      "case": "新服务与环境上下文一致；缺失请求头变量可直接修复，保存后4/7",
+      "passed": true
+    },
+    {
+      "case": "连接成功→工具调试→同一调用历史，参数与响应一致，进度6/7",
+      "passed": true
+    },
+    {
+      "case": "保存独立请求响应快照；上传失败停留6/7，重试成功7/7",
+      "passed": true
+    },
+    {
+      "case": "流程保存记录恢复为新草稿，参数保留、结果未执行、已有记录不变",
+      "passed": true
+    },
+    {
+      "case": "工具内历史仍限定该连接与工具，无跨项目示例记录混入",
+      "passed": true
+    },
+    {
+      "case": "英文暗色仍保留完整进度，390宽度无页面级横向溢出",
+      "passed": true
+    },
+    {
+      "case": "最新版主流程再走通；保存表单重复点击下一步不清空名称；恢复页结果区明确显示未执行",
+      "passed": true
+    },
+    {
+      "case": "1024宽度下工具分栏与流程导航无页面横向溢出",
+      "passed": true
+    }
+  ],
+  "consoleErrors": [],
+  "viewports": [
+    1024,
+    390
+  ],
+  "notes": [
+    "No real MCP calls, invitations or uploads.",
+    "Prototype business state resets on reload.",
+    "Default viewport, Chinese and light theme restored.",
+    "Active restored-tab preservation additionally tested against the actual chooseServer function in the model suite."
+  ]
+}

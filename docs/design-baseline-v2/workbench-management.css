@@ -1,0 +1,161 @@
+/* Shared management surfaces for the review prototype. Uses the workbench tokens. */
+.management-heading { padding: 22px 24px; gap: 14px; min-height: 96px; }
+.management-heading h1 { font-size: 20px; line-height: 1.4; font-weight: 600; letter-spacing: -.4px; }
+.management-heading p { margin-top: 5px; line-height: 1.6; max-width: 640px; }
+.page-symbol { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; color: var(--ui-accent); background: var(--ui-accent-muted); border-radius: var(--ui-control-radius); }
+.page-symbol .icon { width: 20px; height: 20px; }
+.page-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.page-actions .btn { min-height: 36px; }
+.page-context { color: var(--ui-text-subtle); display: block; font-size: 11px; margin-top: 8px; }
+.management-page .master-detail, .execution-page .master-detail { grid-template-columns: 240px minmax(0,1fr); }
+.management-page .master, .execution-page .master { padding: 18px 12px; background: var(--ui-surface-muted); }
+.management-page .master .list-caption, .execution-page .master .list-caption { padding: 0 12px 14px; }
+.management-page .master-row, .execution-page .master-row { border-left: 0; padding: 12px; margin-bottom: 6px; }
+.management-page .master-row.active, .execution-page .master-row.active { box-shadow: inset 2px 0 var(--ui-accent); }
+.management-page .master-row strong, .execution-page .master-row strong { font-size: 12px; }
+.master .notice, .master-footnote { background: transparent; margin-top: 24px; padding: 12px; line-height: 1.7; color: var(--ui-text-muted); font-size: 11px; }
+.master-footnote { border-top: 1px solid var(--ui-border); display: flex; align-items: start; gap: 8px; }
+.master-footnote .icon { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 2px; }
+.server-config-page .detail-form { grid-template-rows: auto minmax(0,1fr) auto; }
+.server-config-header, .execution-header, .management-detail-header { padding: 20px 24px 0; border-bottom: 1px solid var(--ui-border); background: var(--ui-surface); }
+.server-config-header .detail-title, .execution-header .detail-title, .management-detail-header .detail-title { margin: 0 0 12px; min-height: 36px; }
+.server-config-header h2, .execution-header h2, .management-detail-header h2 { font-size: 15px; line-height: 1.5; }
+.management-detail-header .detail-title p { margin-top: 4px; }
+.execution-nav { gap: 24px; }
+.execution-nav .btn { padding: 8px 0 12px; font-size: 12px; }
+.server-fields { padding: 0 24px 24px; }
+.server-fields > *, .execution-section { max-width: 720px; }
+.connection-summary { gap: 12px; padding: 16px 0; flex-wrap: wrap; border-bottom: 1px solid var(--ui-border-muted); font-size: 11px; }
+.connection-summary .btn { min-height: 28px; font-size: 11px; padding: 4px 6px; }
+.connection-summary .btn:last-child { margin-left: auto; color: var(--ui-accent); }
+.form-section { padding: 24px 0; border-bottom: 1px solid var(--ui-border-muted); }
+.form-section:last-of-type { border-bottom: 0; padding-bottom: 8px; }
+.form-section-heading { display: flex; align-items: start; gap: 12px; margin-bottom: 18px; }
+.section-index { color: var(--ui-text-subtle); font: 11px/1.7 var(--ui-mono); padding-top: 1px; }
+.form-section-heading h3 { font-size:14px; font-weight: 600; }
+.form-section-heading p { margin-top: 3px; color: var(--ui-text-muted); font-size: 11px; line-height: 1.7; }
+.form-section .fields { gap: 18px 16px; }
+.server-fields .fields { padding-left: 28px; }
+.server-fields .authentication-explanation { padding-left: 28px; margin-bottom: 16px; }
+.management-page .fixed-actions { padding: 14px 24px; margin: 0; font-size: 12px; min-height: 64px; border-top: 1px solid var(--ui-border); background: var(--ui-surface); }
+.environment-detail { min-height: 0; min-width: 0; display: grid; grid-template-rows: auto minmax(0,1fr); }
+.management-detail-header .tabnav { margin: 0; border: 0; }
+.environment-scroll { min-height: 0; min-width: 0; overflow: auto; padding: 0 24px 24px; }
+.list-toolbar { min-height: 58px; display: flex; align-items: center; gap: 16px; font-size: 12px; }
+.list-toolbar .icon { width: 14px; height: 14px; flex-basis: 14px; }
+.management-page table { font-variant-numeric: tabular-nums; }
+.management-page th { padding: 10px 12px; background: var(--ui-surface-muted); font-size: 11px; }
+.management-page td { padding: 16px 12px; }
+.management-page .tag { border-radius: 4px; font-weight: 500; }
+.variable-table td { height: 64px; }
+.variable-name { font-weight: 550; }
+.variable-value { display: inline-flex; gap: 12px; align-items: center; max-width: 280px; overflow-wrap: anywhere; font-size: 12px; }
+.variable-value .icon { color: var(--ui-text-subtle); width: 14px; height: 14px; }
+.variable-value.is-sensitive { color: var(--ui-text-muted); letter-spacing: 2px; }
+.management-inline-help { display: flex; gap: 8px; align-items: start; margin-top: 20px; color: var(--ui-text-muted); font-size: 11px; line-height: 1.7; }
+.management-inline-help .icon { width: 14px; height: 14px; flex: 0 0 14px; margin-top: 2px; }
+.environment-resolution { margin: 12px 0; border: 0; }
+.environment-resolution summary { padding: 8px 0; font-size: 11px; color: var(--ui-accent); }
+.history-page .history-list { padding: 20px 24px; overflow: auto; min-height: 0; }
+.history-filterbar { gap: 10px; margin-bottom: 20px; }
+.history-list .history-filterbar .search { flex-basis: auto; width: min(360px,100%); }
+.history-filterbar select { max-width: 240px; }
+.history-page .history-time { display: table-cell; }
+.history-page .history-table td { padding: 16px 12px; }
+.history-page .history-tool { font-weight: 550; }
+.history-page .history-context { margin-top: 6px; }
+.history-page .pagination { padding: 16px 0; margin-top: 16px; border-top: 1px solid var(--ui-border-muted); }
+.management-page-tabs, .records-global-nav { padding: 0 24px; gap: 24px; background: var(--ui-surface); }
+.management-page-tabs { margin: 0; }
+.management-page-tabs button { min-height: 44px; padding: 10px 0; }
+.members-page .settings-page { padding: 0 24px 24px; }
+.members-page .settings-page table { max-width: none; }
+.member-table .member-identity { gap: 12px; }
+.member-table .avatar { width: 34px; height: 34px; border-radius: 6px; background: var(--ui-surface-muted); }
+.member-identity strong, .invitation-table strong { font-size: 12px; font-weight: 550; }
+.member-identity p { margin-top: 3px; font-size: 11px; }
+.member-table .table-actions { width: 104px; white-space: nowrap; }
+.member-table .table-actions .btn { width: auto; padding: 4px 8px; font-size: 11px; }
+.invitation-table .table-project { display: block; margin-bottom: 4px; }
+.invitation-table .table-actions .btn { width: auto; padding: 4px 8px; font-size: 11px; }
+.management-back { padding: 12px 24px 0; }
+.management-back .btn { min-height: 28px; font-size: 11px; padding: 2px 0; }
+.management-editor .management-heading { min-height: 90px; padding-top: 12px; }
+.management-page-form { min-height: 0; display: grid; grid-template-rows: minmax(0,1fr) auto; }
+.management-editor-scroll { min-height: 0; overflow: auto; padding: 0 24px 24px; }
+.management-editor-grid { display: grid; grid-template-columns: minmax(0,640px) minmax(220px,280px); gap: 40px; max-width: 1000px; }
+.management-editor-fields { min-width: 0; }
+.management-fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
+.management-fieldset:disabled { opacity: .7; }
+.management-summary { margin: 24px 0 0; padding: 20px; align-self: start; border: 1px solid var(--ui-border); border-radius: var(--ui-panel-radius); background: var(--ui-surface-muted); }
+.management-summary header { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.management-summary header .icon { width: 16px; height: 16px; color: var(--ui-text-muted); }
+.management-summary h2 { font-size: 12px; font-weight: 600; }
+.access-role { padding: 18px 0; border-bottom: 1px solid var(--ui-border); }
+.access-role span { display: block; color: var(--ui-text-muted); font-size: 11px; margin-bottom: 4px; }
+.access-role strong { display: block; font-size:14px; font-weight: 550; }
+.access-role p { margin-top: 8px; color: var(--ui-text-muted); font-size: 11px; line-height: 1.8; }
+.management-context { margin: 16px 0; font-size: 11px; }
+.management-context > div { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 12px; padding: 6px 0; }
+.management-context dt { color: var(--ui-text-muted); }
+.management-context dd { margin: 0; overflow-wrap: anywhere; }
+.management-summary > p { font-size: 11px; line-height: 1.8; }
+.management-secret { display: flex; justify-content: space-between; gap: 16px; margin-top: 8px; padding: 14px; border: 1px solid var(--ui-border); border-radius: var(--ui-control-radius); background: var(--ui-surface-muted); cursor: pointer; }
+.management-secret strong { font-size: 12px; font-weight: 550; }
+.management-secret small { display: block; color: var(--ui-text-muted); font-size: 11px; line-height: 1.7; margin-top: 4px; }
+.management-json { min-height: 144px; line-height: 1.8; resize: vertical; }
+.management-form-error:empty { display: none; }
+.management-form-error { margin-top: 12px; }
+.management-page [aria-invalid="true"] { border-color: var(--ui-danger); }
+.page.run-page > .page-heading { padding: 20px 24px; }
+.page.run-page > .page-heading h1 { font-size: 20px; }
+.page.run-page .snapshot-panel { border-radius: var(--ui-control-radius); }
+.page.run-page .run-context { padding-top: 4px; }
+.summary-sensitive { display: flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--ui-text-muted); }
+.management-form-footer { justify-content: flex-end; gap: 12px; }
+@media (max-width:1190px) {
+  .management-page .master-detail, .execution-page .master-detail { grid-template-columns: 210px minmax(0,1fr); }
+  .management-editor-grid { grid-template-columns: minmax(0,1fr) 240px; gap: 24px; }
+  .variable-table { min-width: 650px; }
+}
+@media (max-width:900px) {
+  .management-editor-grid { grid-template-columns: minmax(0,1fr); gap: 0; }
+  .management-summary { margin-top: 16px; max-width: 640px; }
+  .history-page .history-table { min-width: 720px; }
+  .member-table, .invitation-table { min-width: 620px; }
+  .history-list .history-filterbar .search { flex-basis: 100%; width: 100%; }
+}
+@media (max-width:760px) {
+  .management-heading { padding: 16px; gap: 10px; flex-wrap: wrap; min-height: auto; }
+  .management-heading h1 { font-size: 18px; }
+  .management-heading p { font-size: 11px; }
+  .page-symbol { width: 32px; height: 32px; flex-basis: 32px; }
+  .management-heading > .grow { flex-basis: calc(100% - 50px); }
+  .page-actions { margin-left: 42px; }
+  .management-page .master-detail, .execution-page .master-detail { grid-template-columns: minmax(0,1fr); grid-template-rows: auto minmax(0,1fr); }
+  .management-page .master, .execution-page .master { display: flex; padding: 8px; gap: 8px; max-height: 96px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: 1px solid var(--ui-border); }
+  .management-page .master-row, .execution-page .master-row { flex: 0 0 180px; padding: 8px; margin: 0; }
+  .management-page .master .list-caption, .execution-page .master .list-caption, .master .notice, .master-footnote { display: none; }
+  .server-config-header, .management-detail-header { padding: 16px 16px 0; }
+  .management-detail-header .detail-title { flex-wrap: wrap; gap: 8px; }
+  .management-detail-header .detail-title .grow { flex-basis: 100%; }
+  .server-fields, .environment-scroll { padding: 0 16px 16px; }
+  .server-config-header .detail-title { flex-wrap: wrap; gap: 8px; }
+  .server-config-header .detail-title h2 { flex-basis: 100%; }
+  .server-fields .fields, .server-fields .authentication-explanation { padding-left: 0; }
+  .form-section-heading { gap: 10px; }
+  .form-section-heading > .tag, .form-section-heading > #credential-scope { margin-left: auto; }
+  .form-section .fields { grid-template-columns: minmax(0,1fr); }
+  .management-page .fixed-actions { padding: 12px 16px; flex-wrap: wrap; }
+  .server-config-page .fixed-actions > .muted { flex-basis: 100%; }
+  .environment-detail .list-toolbar { flex-wrap: wrap; gap: 8px; padding: 12px 0; }
+  .list-toolbar .push { margin-left: 0; }
+  .history-page .history-list, .members-page .settings-page { padding: 16px; }
+  .management-page-tabs, .records-global-nav { padding: 0 16px; }
+  .management-editor-scroll { padding: 0 16px 16px; }
+  .management-editor .management-heading { padding: 12px 16px 16px; }
+  .management-back { padding: 12px 16px 0; }
+  .management-editor-grid { display: block; }
+  .management-form-footer > .grow { flex-basis: 100%; }
+  .management-form-footer > .btn { min-height: 36px; }
+}

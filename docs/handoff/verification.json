@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-13",
+  "scope": "handoff documentation and prototype packaging only",
+  "source_reference_files_byte_identical": 251,
+  "markdown_local_links_checked": 396,
+  "missing_local_links": 0,
+  "html_asset_references_checked": 46,
+  "main_prototype_asset_references": 43,
+  "css_local_asset_references_checked": 0,
+  "work_packages": 36,
+  "leaf_tasks": 72,
+  "checkpoints": 12,
+  "task_dependency_graph": "valid earlier-only references; acyclic",
+  "acceptance_items": 60,
+  "acceptance_status": "all pending",
+  "formal_engineering_initialized": false,
+  "development_started": false,
+  "production_tests_run": false,
+  "prototype_behavior_tests_rerun": false,
+  "old_archives_embedded": false,
+  "source_product_files_copied": false,
+  "note": "Original docs and prototype retained byte-for-byte; existing reports are historical. This check is not production acceptance."
+}
