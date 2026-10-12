@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-12T16:56:12.781699+00:00",
+  "os": "26.6.2",
+  "arch": "arm64",
+  "node": "v24.21.0",
+  "checks": {
+    "smtp_and_runtime_guards": "4 passed",
+    "real_postgresql_schema_lifecycle": "2 passed",
+    "missing_database_gate": "exit 1 as expected"
+  },
+  "database_identity": "mcp_studio_app; PostgreSQL rolsuper=false checked; randomly isolated schemas",
+  "production_e2e": "pending; not claimed passing",
+  "sourceSHA256": {
+    "scripts/test-runtime.mjs": "e26b257545289427fb8d1448c5aa772cfb832b77eb107f4e08b44d81341b3d84",
+    "scripts/verify.mjs": "2ae4eeadb144deaf8f4f7c544846e0cf4041cd0b66c2d9c2a44ffc29d4e773bc",
+    "tests/fixtures/mail/runtime.integration.test.mjs": "3b6e3d246572bc5fbf6578edfd6e0cdba88f230ce95a64ef681560b89488fe3a",
+    "tests/fixtures/mail/runtime.test.mjs": "937c858424df3f92f8d6b36eaaff3fcafb7f8980c9144074131bc9a3b5c09bc6",
+    "tests/fixtures/mail/smtp.mjs": "36b1aa2e16f9a4ef6b42a4c1984ef4b8bb34ca7f710046b0a25cbdc3bb6625f0",
+    "tests/fixtures/mail/smtp.test.mjs": "0e2a22a627450307aa9d3585889d62c27571234a01e0bb0e0362c8f56221d822"
+  }
+}

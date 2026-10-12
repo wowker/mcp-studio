@@ -1,0 +1,12 @@
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.568833ms)
+✔ gate propagates a failing real subprocess exit status (22.632458ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (17.915791ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (5.169625ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.152042

@@ -1,0 +1,48 @@
+✖ loopback SMTP delivers captured recipient-filtered body without bypassing verification (14.80325ms)
+✖ capture API rejects foreign Host and browser Origin and clears mail on close (3.139ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57.921542
+
+✖ failing tests:
+
+test at tests/fixtures/mail/smtp.test.mjs:24:1
+✖ loopback SMTP delivers captured recipient-filtered body without bypassing verification (14.80325ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 'no-store'
+  
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/fixtures/mail/smtp.test.mjs:32:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 'no-store',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/fixtures/mail/smtp.test.mjs:41:1
+✖ capture API rejects foreign Host and browser Origin and clears mail on close (3.139ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 403
+  
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/fixtures/mail/smtp.test.mjs:47:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,1 @@
+[verify] Explicit loopback test database required: MCP_STUDIO_TEST_DATABASE_URL, database mcp_studio_test, role mcp_studio_app (non-superuser).

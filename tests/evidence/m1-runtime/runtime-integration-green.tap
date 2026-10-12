@@ -1,0 +1,13 @@
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (267.582792ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (431.912125ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 744.055667

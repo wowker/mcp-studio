@@ -1,0 +1,41 @@
+✖ runtime requires explicit loopback test database using the non-superuser test role (0.485833ms)
+✖ gate propagates a failing real subprocess exit status (0.119625ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34.101583
+
+✖ failing tests:
+
+test at tests/fixtures/mail/runtime.test.mjs:5:1
+✖ runtime requires explicit loopback test database using the non-superuser test role (0.485833ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/fixtures/mail/runtime.test.mjs:7:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /test database/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests/fixtures/mail/runtime.test.mjs:11:1
+✖ gate propagates a failing real subprocess exit status (0.119625ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/fixtures/mail/runtime.test.mjs:12:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
