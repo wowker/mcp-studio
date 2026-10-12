@@ -4,7 +4,7 @@
 
 ## 协议与版本
 
-平台REST+OpenAPI管理身份、权限、共享配置和脱敏记录；SSE只传已授权的失效通知。Agent本机API负责配对与本人本机执行。MCP transport连接独立上游服务。不得用平台上传或平台SSE当作Tool调用结果。消息声明contractVersion；v1相容新增可选字段，删除/改变身份语义需major版本。未知必需能力或major版本拒绝并显示incompatible，不降级绕过安全边界。
+平台REST+OpenAPI管理身份、权限、共享配置和脱敏记录；SSE只传已授权的失效通知。Agent本机API负责配对与本人本机执行。MCP transport连接独立上游服务。不得用平台上传或平台SSE当作Tool调用结果。M1 `GET /projects/{id}` 仅返回项目目录/访问能力元数据：未加入的Owner/Admin可取得CanRead=false的管理描述以打开接管/成员页；此响应不是内容授权，未加入普通Member拒绝。服务、历史等内容API必须另查project_members，不能用CanManage代替CanRead。消息声明contractVersion；v1相容新增可选字段，删除/改变身份语义需major版本。未知必需能力或major版本拒绝并显示incompatible，不降级绕过安全边界。
 
 [状态Schema](../../contracts/schemas/state-v1.schema.json)、[语义向量](../../contracts/fixtures/semantics-v1.json)、[Agent合同](../../contracts/agent/security-v1.json)分别版本化。schema约束结构；状态转换/所有权/权限/唯一责任端还必须由服务端应用逻辑检查。
 

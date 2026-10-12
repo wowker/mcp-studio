@@ -1,0 +1,156 @@
+{"Time":"2026-10-13T01:04:19.026355+08:00","Action":"start","Package":"mcp-studio/internal/platform"}
+{"Time":"2026-10-13T01:04:19.031575+08:00","Action":"start","Package":"mcp-studio/internal/infrastructure"}
+{"Time":"2026-10-13T01:04:19.031633+08:00","Action":"start","Package":"mcp-studio/cmd/platform"}
+{"Time":"2026-10-13T01:04:19.267572+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestInitializeConcurrentOnlyOneOwner"}
+{"Time":"2026-10-13T01:04:19.267632+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInitializeConcurrentOnlyOneOwner","Output":"=== RUN   TestInitializeConcurrentOnlyOneOwner\n"}
+{"Time":"2026-10-13T01:04:19.486053+08:00","Action":"run","Package":"mcp-studio/internal/infrastructure","Test":"TestDatabaseRequiresExplicitConfiguration"}
+{"Time":"2026-10-13T01:04:19.486126+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Test":"TestDatabaseRequiresExplicitConfiguration","Output":"=== RUN   TestDatabaseRequiresExplicitConfiguration\n"}
+{"Time":"2026-10-13T01:04:19.486157+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Test":"TestDatabaseRequiresExplicitConfiguration","Output":"--- PASS: TestDatabaseRequiresExplicitConfiguration (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.486171+08:00","Action":"pass","Package":"mcp-studio/internal/infrastructure","Test":"TestDatabaseRequiresExplicitConfiguration","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.486196+08:00","Action":"run","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRejectsHeaderInjection"}
+{"Time":"2026-10-13T01:04:19.486203+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRejectsHeaderInjection","Output":"=== RUN   TestSMTPRejectsHeaderInjection\n"}
+{"Time":"2026-10-13T01:04:19.486213+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRejectsHeaderInjection","Output":"--- PASS: TestSMTPRejectsHeaderInjection (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.486221+08:00","Action":"pass","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRejectsHeaderInjection","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.486234+08:00","Action":"run","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRequiresTLSWithoutExplicitLoopbackOptIn"}
+{"Time":"2026-10-13T01:04:19.486241+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRequiresTLSWithoutExplicitLoopbackOptIn","Output":"=== RUN   TestSMTPRequiresTLSWithoutExplicitLoopbackOptIn\n"}
+{"Time":"2026-10-13T01:04:19.486598+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRequiresTLSWithoutExplicitLoopbackOptIn","Output":"--- PASS: TestSMTPRequiresTLSWithoutExplicitLoopbackOptIn (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.486621+08:00","Action":"pass","Package":"mcp-studio/internal/infrastructure","Test":"TestSMTPRequiresTLSWithoutExplicitLoopbackOptIn","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.486633+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Output":"PASS\n"}
+{"Time":"2026-10-13T01:04:19.487342+08:00","Action":"output","Package":"mcp-studio/internal/infrastructure","Output":"ok  \tmcp-studio/internal/infrastructure\t0.456s\n"}
+{"Time":"2026-10-13T01:04:19.48738+08:00","Action":"pass","Package":"mcp-studio/internal/infrastructure","Elapsed":0.456}
+{"Time":"2026-10-13T01:04:19.585803+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInitializeConcurrentOnlyOneOwner","Output":"--- PASS: TestInitializeConcurrentOnlyOneOwner (0.32s)\n"}
+{"Time":"2026-10-13T01:04:19.585849+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestInitializeConcurrentOnlyOneOwner","Elapsed":0.32}
+{"Time":"2026-10-13T01:04:19.585858+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestLoginCookieCsrfExpirationAndLogout"}
+{"Time":"2026-10-13T01:04:19.585863+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestLoginCookieCsrfExpirationAndLogout","Output":"=== RUN   TestLoginCookieCsrfExpirationAndLogout\n"}
+{"Time":"2026-10-13T01:04:19.69123+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener"}
+{"Time":"2026-10-13T01:04:19.691258+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener\n"}
+{"Time":"2026-10-13T01:04:19.69127+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/missing"}
+{"Time":"2026-10-13T01:04:19.691273+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/missing","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener/missing\n"}
+{"Time":"2026-10-13T01:04:19.691465+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/missing","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener/missing (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691475+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/missing","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.691484+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/query"}
+{"Time":"2026-10-13T01:04:19.691488+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/query","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener/query\n"}
+{"Time":"2026-10-13T01:04:19.69157+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/query","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener/query (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691576+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/query","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.69158+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/fragment"}
+{"Time":"2026-10-13T01:04:19.691583+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/fragment","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener/fragment\n"}
+{"Time":"2026-10-13T01:04:19.691625+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/fragment","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener/fragment (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691629+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/fragment","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.691633+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/userinfo"}
+{"Time":"2026-10-13T01:04:19.691635+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/userinfo","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener/userinfo\n"}
+{"Time":"2026-10-13T01:04:19.691727+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/userinfo","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener/userinfo (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691751+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/userinfo","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.691753+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteHTTP"}
+{"Time":"2026-10-13T01:04:19.691755+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteHTTP","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener/remoteHTTP\n"}
+{"Time":"2026-10-13T01:04:19.691774+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteHTTP","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener/remoteHTTP (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691779+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteHTTP","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.691783+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteBind"}
+{"Time":"2026-10-13T01:04:19.691785+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteBind","Output":"=== RUN   TestRejectInvalidOriginAndRemoteInsecureListener/remoteBind\n"}
+{"Time":"2026-10-13T01:04:19.691839+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteBind","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener/remoteBind (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691842+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener/remoteBind","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.691845+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener","Output":"--- PASS: TestRejectInvalidOriginAndRemoteInsecureListener (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691847+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestRejectInvalidOriginAndRemoteInsecureListener","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.69185+08:00","Action":"run","Package":"mcp-studio/cmd/platform","Test":"TestSessionDurationValidation"}
+{"Time":"2026-10-13T01:04:19.691856+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestSessionDurationValidation","Output":"=== RUN   TestSessionDurationValidation\n"}
+{"Time":"2026-10-13T01:04:19.691861+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Test":"TestSessionDurationValidation","Output":"--- PASS: TestSessionDurationValidation (0.00s)\n"}
+{"Time":"2026-10-13T01:04:19.691865+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Test":"TestSessionDurationValidation","Elapsed":0}
+{"Time":"2026-10-13T01:04:19.691878+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Output":"PASS\n"}
+{"Time":"2026-10-13T01:04:19.692266+08:00","Action":"output","Package":"mcp-studio/cmd/platform","Output":"ok  \tmcp-studio/cmd/platform\t0.661s\n"}
+{"Time":"2026-10-13T01:04:19.692293+08:00","Action":"pass","Package":"mcp-studio/cmd/platform","Elapsed":0.661}
+{"Time":"2026-10-13T01:04:20.926226+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestLoginCookieCsrfExpirationAndLogout","Output":"--- PASS: TestLoginCookieCsrfExpirationAndLogout (1.34s)\n"}
+{"Time":"2026-10-13T01:04:20.926289+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestLoginCookieCsrfExpirationAndLogout","Elapsed":1.34}
+{"Time":"2026-10-13T01:04:20.926304+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestSessionAbsoluteExpiresDespiteActivity"}
+{"Time":"2026-10-13T01:04:20.926312+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestSessionAbsoluteExpiresDespiteActivity","Output":"=== RUN   TestSessionAbsoluteExpiresDespiteActivity\n"}
+{"Time":"2026-10-13T01:04:21.624663+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestSessionAbsoluteExpiresDespiteActivity","Output":"--- PASS: TestSessionAbsoluteExpiresDespiteActivity (0.70s)\n"}
+{"Time":"2026-10-13T01:04:21.624706+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestSessionAbsoluteExpiresDespiteActivity","Elapsed":0.7}
+{"Time":"2026-10-13T01:04:21.624713+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestVerificationSingleUseExpiryAndMailFailure"}
+{"Time":"2026-10-13T01:04:21.624726+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestVerificationSingleUseExpiryAndMailFailure","Output":"=== RUN   TestVerificationSingleUseExpiryAndMailFailure\n"}
+{"Time":"2026-10-13T01:04:22.310024+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestVerificationSingleUseExpiryAndMailFailure","Output":"--- PASS: TestVerificationSingleUseExpiryAndMailFailure (0.69s)\n"}
+{"Time":"2026-10-13T01:04:22.310076+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestVerificationSingleUseExpiryAndMailFailure","Elapsed":0.69}
+{"Time":"2026-10-13T01:04:22.310089+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestResetSingleUseRevokesSessions"}
+{"Time":"2026-10-13T01:04:22.310097+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestResetSingleUseRevokesSessions","Output":"=== RUN   TestResetSingleUseRevokesSessions\n"}
+{"Time":"2026-10-13T01:04:23.371561+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestResetSingleUseRevokesSessions","Output":"--- PASS: TestResetSingleUseRevokesSessions (1.06s)\n"}
+{"Time":"2026-10-13T01:04:23.371597+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestResetSingleUseRevokesSessions","Elapsed":1.06}
+{"Time":"2026-10-13T01:04:23.371604+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestPublicRegistrationAndOriginRejected"}
+{"Time":"2026-10-13T01:04:23.371607+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestPublicRegistrationAndOriginRejected","Output":"=== RUN   TestPublicRegistrationAndOriginRejected\n"}
+{"Time":"2026-10-13T01:04:23.395213+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestPublicRegistrationAndOriginRejected","Output":"--- PASS: TestPublicRegistrationAndOriginRejected (0.02s)\n"}
+{"Time":"2026-10-13T01:04:23.395251+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestPublicRegistrationAndOriginRejected","Elapsed":0.02}
+{"Time":"2026-10-13T01:04:23.395258+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestLoginWithOldCookieCreatesFreshSession"}
+{"Time":"2026-10-13T01:04:23.395261+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestLoginWithOldCookieCreatesFreshSession","Output":"=== RUN   TestLoginWithOldCookieCreatesFreshSession\n"}
+{"Time":"2026-10-13T01:04:24.232705+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestLoginWithOldCookieCreatesFreshSession","Output":"--- PASS: TestLoginWithOldCookieCreatesFreshSession (0.84s)\n"}
+{"Time":"2026-10-13T01:04:24.232736+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestLoginWithOldCookieCreatesFreshSession","Elapsed":0.84}
+{"Time":"2026-10-13T01:04:24.232743+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestMissingMailCannotVerifyBootstrapOwner"}
+{"Time":"2026-10-13T01:04:24.232752+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestMissingMailCannotVerifyBootstrapOwner","Output":"=== RUN   TestMissingMailCannotVerifyBootstrapOwner\n"}
+{"Time":"2026-10-13T01:04:24.667833+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestMissingMailCannotVerifyBootstrapOwner","Output":"--- PASS: TestMissingMailCannotVerifyBootstrapOwner (0.44s)\n"}
+{"Time":"2026-10-13T01:04:24.667867+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestMissingMailCannotVerifyBootstrapOwner","Elapsed":0.44}
+{"Time":"2026-10-13T01:04:24.667874+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically"}
+{"Time":"2026-10-13T01:04:24.667877+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically","Output":"=== RUN   TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically\n"}
+{"Time":"2026-10-13T01:04:25.91515+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically","Output":"--- PASS: TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically (1.25s)\n"}
+{"Time":"2026-10-13T01:04:25.915198+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically","Elapsed":1.25}
+{"Time":"2026-10-13T01:04:25.915223+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash"}
+{"Time":"2026-10-13T01:04:25.915227+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash","Output":"=== RUN   TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash\n"}
+{"Time":"2026-10-13T01:04:26.807629+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash","Output":"--- PASS: TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash (0.89s)\n"}
+{"Time":"2026-10-13T01:04:26.807678+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash","Elapsed":0.89}
+{"Time":"2026-10-13T01:04:26.807686+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestInvitesRequireIdentityAndExplicitAcceptance"}
+{"Time":"2026-10-13T01:04:26.80769+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInvitesRequireIdentityAndExplicitAcceptance","Output":"=== RUN   TestInvitesRequireIdentityAndExplicitAcceptance\n"}
+{"Time":"2026-10-13T01:04:27.902052+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInvitesRequireIdentityAndExplicitAcceptance","Output":"--- PASS: TestInvitesRequireIdentityAndExplicitAcceptance (1.09s)\n"}
+{"Time":"2026-10-13T01:04:27.902096+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestInvitesRequireIdentityAndExplicitAcceptance","Elapsed":1.09}
+{"Time":"2026-10-13T01:04:27.902104+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestInviteExpiryRevokeResendAndSenderRevocation"}
+{"Time":"2026-10-13T01:04:27.902108+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInviteExpiryRevokeResendAndSenderRevocation","Output":"=== RUN   TestInviteExpiryRevokeResendAndSenderRevocation\n"}
+{"Time":"2026-10-13T01:04:30.023073+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInviteExpiryRevokeResendAndSenderRevocation","Output":"--- PASS: TestInviteExpiryRevokeResendAndSenderRevocation (2.12s)\n"}
+{"Time":"2026-10-13T01:04:30.023119+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestInviteExpiryRevokeResendAndSenderRevocation","Elapsed":2.12}
+{"Time":"2026-10-13T01:04:30.023127+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite"}
+{"Time":"2026-10-13T01:04:30.023131+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite","Output":"=== RUN   TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite\n"}
+{"Time":"2026-10-13T01:04:31.471802+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite","Output":"--- PASS: TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite (1.45s)\n"}
+{"Time":"2026-10-13T01:04:31.471908+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite","Elapsed":1.45}
+{"Time":"2026-10-13T01:04:31.471917+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestAdminGrantSelfAndTeamProjectRoleBoundaries"}
+{"Time":"2026-10-13T01:04:31.471921+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestAdminGrantSelfAndTeamProjectRoleBoundaries","Output":"=== RUN   TestAdminGrantSelfAndTeamProjectRoleBoundaries\n"}
+{"Time":"2026-10-13T01:04:33.097261+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestAdminGrantSelfAndTeamProjectRoleBoundaries","Output":"--- PASS: TestAdminGrantSelfAndTeamProjectRoleBoundaries (1.63s)\n"}
+{"Time":"2026-10-13T01:04:33.097308+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestAdminGrantSelfAndTeamProjectRoleBoundaries","Elapsed":1.63}
+{"Time":"2026-10-13T01:04:33.097316+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestMemberProtectionsConcurrentAndTeamScope"}
+{"Time":"2026-10-13T01:04:33.09732+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestMemberProtectionsConcurrentAndTeamScope","Output":"=== RUN   TestMemberProtectionsConcurrentAndTeamScope\n"}
+{"Time":"2026-10-13T01:04:34.153265+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestMemberProtectionsConcurrentAndTeamScope","Output":"--- PASS: TestMemberProtectionsConcurrentAndTeamScope (1.06s)\n"}
+{"Time":"2026-10-13T01:04:34.15329+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestMemberProtectionsConcurrentAndTeamScope","Elapsed":1.06}
+{"Time":"2026-10-13T01:04:34.153297+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestTeamRemovalRevokesAllProjectsAndPendingInvites"}
+{"Time":"2026-10-13T01:04:34.1533+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestTeamRemovalRevokesAllProjectsAndPendingInvites","Output":"=== RUN   TestTeamRemovalRevokesAllProjectsAndPendingInvites\n"}
+{"Time":"2026-10-13T01:04:35.233812+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestTeamRemovalRevokesAllProjectsAndPendingInvites","Output":"--- PASS: TestTeamRemovalRevokesAllProjectsAndPendingInvites (1.08s)\n"}
+{"Time":"2026-10-13T01:04:35.233851+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestTeamRemovalRevokesAllProjectsAndPendingInvites","Elapsed":1.08}
+{"Time":"2026-10-13T01:04:35.23386+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestMailFailureAndInvalidInvitationDoNotCreateMembers"}
+{"Time":"2026-10-13T01:04:35.233864+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestMailFailureAndInvalidInvitationDoNotCreateMembers","Output":"=== RUN   TestMailFailureAndInvalidInvitationDoNotCreateMembers\n"}
+{"Time":"2026-10-13T01:04:35.875291+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestMailFailureAndInvalidInvitationDoNotCreateMembers","Output":"--- PASS: TestMailFailureAndInvalidInvitationDoNotCreateMembers (0.64s)\n"}
+{"Time":"2026-10-13T01:04:35.875329+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestMailFailureAndInvalidInvitationDoNotCreateMembers","Elapsed":0.64}
+{"Time":"2026-10-13T01:04:35.875337+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestConcurrentInvitationCreationAndAcceptance"}
+{"Time":"2026-10-13T01:04:35.875341+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestConcurrentInvitationCreationAndAcceptance","Output":"=== RUN   TestConcurrentInvitationCreationAndAcceptance\n"}
+{"Time":"2026-10-13T01:04:36.914644+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestConcurrentInvitationCreationAndAcceptance","Output":"--- PASS: TestConcurrentInvitationCreationAndAcceptance (1.04s)\n"}
+{"Time":"2026-10-13T01:04:36.914681+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestConcurrentInvitationCreationAndAcceptance","Elapsed":1.04}
+{"Time":"2026-10-13T01:04:36.914688+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly"}
+{"Time":"2026-10-13T01:04:36.914691+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly","Output":"=== RUN   TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly\n"}
+{"Time":"2026-10-13T01:04:38.338339+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly","Output":"--- PASS: TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly (1.42s)\n"}
+{"Time":"2026-10-13T01:04:38.338661+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly","Elapsed":1.42}
+{"Time":"2026-10-13T01:04:38.338685+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestOwnerAdminSelfAndLastMaintainerRoleProtection"}
+{"Time":"2026-10-13T01:04:38.338691+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestOwnerAdminSelfAndLastMaintainerRoleProtection","Output":"=== RUN   TestOwnerAdminSelfAndLastMaintainerRoleProtection\n"}
+{"Time":"2026-10-13T01:04:39.792196+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestOwnerAdminSelfAndLastMaintainerRoleProtection","Output":"--- PASS: TestOwnerAdminSelfAndLastMaintainerRoleProtection (1.45s)\n"}
+{"Time":"2026-10-13T01:04:39.792281+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestOwnerAdminSelfAndLastMaintainerRoleProtection","Elapsed":1.45}
+{"Time":"2026-10-13T01:04:39.792289+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected"}
+{"Time":"2026-10-13T01:04:39.792294+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected","Output":"=== RUN   TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected\n"}
+{"Time":"2026-10-13T01:04:40.80832+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected","Output":"--- PASS: TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected (1.02s)\n"}
+{"Time":"2026-10-13T01:04:40.808364+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected","Elapsed":1.02}
+{"Time":"2026-10-13T01:04:40.808378+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestProjectNamesAndCreatorRelationship"}
+{"Time":"2026-10-13T01:04:40.808383+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestProjectNamesAndCreatorRelationship","Output":"=== RUN   TestProjectNamesAndCreatorRelationship\n"}
+{"Time":"2026-10-13T01:04:41.439906+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestProjectNamesAndCreatorRelationship","Output":"--- PASS: TestProjectNamesAndCreatorRelationship (0.63s)\n"}
+{"Time":"2026-10-13T01:04:41.43997+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestProjectNamesAndCreatorRelationship","Elapsed":0.63}
+{"Time":"2026-10-13T01:04:41.440005+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped"}
+{"Time":"2026-10-13T01:04:41.440017+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped","Output":"=== RUN   TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped\n"}
+{"Time":"2026-10-13T01:04:42.48352+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped","Output":"--- PASS: TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped (1.04s)\n"}
+{"Time":"2026-10-13T01:04:42.483557+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped","Elapsed":1.04}
+{"Time":"2026-10-13T01:04:42.483564+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestConcurrentProjectCreationOnlyOne"}
+{"Time":"2026-10-13T01:04:42.483568+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestConcurrentProjectCreationOnlyOne","Output":"=== RUN   TestConcurrentProjectCreationOnlyOne\n"}
+{"Time":"2026-10-13T01:04:43.114505+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestConcurrentProjectCreationOnlyOne","Output":"--- PASS: TestConcurrentProjectCreationOnlyOne (0.63s)\n"}
+{"Time":"2026-10-13T01:04:43.114541+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestConcurrentProjectCreationOnlyOne","Elapsed":0.63}
+{"Time":"2026-10-13T01:04:43.114547+08:00","Action":"run","Package":"mcp-studio/internal/platform","Test":"TestDirectoryManagersReceiveAccessMetadataWithoutContent"}
+{"Time":"2026-10-13T01:04:43.114551+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestDirectoryManagersReceiveAccessMetadataWithoutContent","Output":"=== RUN   TestDirectoryManagersReceiveAccessMetadataWithoutContent\n"}
+{"Time":"2026-10-13T01:04:44.540655+08:00","Action":"output","Package":"mcp-studio/internal/platform","Test":"TestDirectoryManagersReceiveAccessMetadataWithoutContent","Output":"--- PASS: TestDirectoryManagersReceiveAccessMetadataWithoutContent (1.43s)\n"}
+{"Time":"2026-10-13T01:04:44.541043+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Test":"TestDirectoryManagersReceiveAccessMetadataWithoutContent","Elapsed":1.43}
+{"Time":"2026-10-13T01:04:44.541054+08:00","Action":"output","Package":"mcp-studio/internal/platform","Output":"PASS\n"}
+{"Time":"2026-10-13T01:04:44.541463+08:00","Action":"output","Package":"mcp-studio/internal/platform","Output":"ok  \tmcp-studio/internal/platform\t25.515s\n"}
+{"Time":"2026-10-13T01:04:44.541478+08:00","Action":"pass","Package":"mcp-studio/internal/platform","Elapsed":25.515}

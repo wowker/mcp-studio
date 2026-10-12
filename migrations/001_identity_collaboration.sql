@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS bootstrap (singleton boolean PRIMARY KEY DEFAULT true CHECK(singleton), initialized boolean NOT NULL DEFAULT false);
+INSERT INTO bootstrap(singleton) VALUES(true) ON CONFLICT DO NOTHING;
+CREATE TABLE users (id text PRIMARY KEY,email text UNIQUE NOT NULL,name text NOT NULL,password_hash bytea NOT NULL,verified boolean NOT NULL DEFAULT false);
+CREATE TABLE teams (id text PRIMARY KEY,name text NOT NULL);
+CREATE TABLE team_members (team_id text REFERENCES teams(id),user_id text REFERENCES users(id),role text NOT NULL CHECK(role IN ('owner','admin','member')),PRIMARY KEY(team_id,user_id));
+CREATE UNIQUE INDEX one_owner ON team_members(team_id) WHERE role='owner';
+CREATE TABLE projects (id text PRIMARY KEY,team_id text NOT NULL REFERENCES teams(id),name text NOT NULL CHECK(length(trim(name))>0),name_key text NOT NULL,description text NOT NULL DEFAULT '',UNIQUE(team_id,name_key));
+CREATE TABLE project_members (project_id text REFERENCES projects(id),user_id text REFERENCES users(id),role text NOT NULL CHECK(role IN ('maintainer','developer','viewer')),PRIMARY KEY(project_id,user_id));
+CREATE TABLE sessions (digest text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id),csrf text NOT NULL,created_at timestamptz NOT NULL,last_seen timestamptz NOT NULL);
+CREATE TABLE invitations (id text PRIMARY KEY,project_id text NOT NULL REFERENCES projects(id),email text NOT NULL,team_role text NOT NULL CHECK(team_role IN ('admin','member')),project_role text NOT NULL CHECK(project_role IN ('maintainer','developer','viewer')),status text NOT NULL CHECK(status IN ('pending','accepted','revoked','superseded')),expires_at timestamptz NOT NULL,digest text UNIQUE NOT NULL,created_by text NOT NULL REFERENCES users(id),accepted_by text REFERENCES users(id),delivery text NOT NULL CHECK(delivery IN ('sent','failed','disabled')));
+CREATE UNIQUE INDEX one_pending_invite ON invitations(project_id,email) WHERE status='pending';
+CREATE TABLE email_tokens (digest text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id),kind text NOT NULL CHECK(kind IN ('verify','reset')),expires_at timestamptz NOT NULL,used boolean NOT NULL DEFAULT false);
+CREATE TABLE audits (id text PRIMARY KEY,project_id text REFERENCES projects(id),team_id text NOT NULL REFERENCES teams(id),actor_id text NOT NULL REFERENCES users(id),action text NOT NULL,target_id text NOT NULL,reason text NOT NULL DEFAULT '',created_at timestamptz NOT NULL);
+CREATE TABLE auth_limits (key text PRIMARY KEY,count integer NOT NULL,reset_at timestamptz NOT NULL);
