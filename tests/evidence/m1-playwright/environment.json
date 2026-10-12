@@ -1,0 +1,14 @@
+{
+  "scope": "M1 identity/collaboration only",
+  "browser": "Playwright Chromium",
+  "browserVersion": "147.0.7727.15",
+  "playwright": "1.59.1",
+  "node": "v24.21.0",
+  "productionHashes": {
+    ".runtime/platform": "1a0b106bed7aea7e3ee56f12a27c8c4bb5ac8cabe097c6f2373abaed4845b05a",
+    "apps/web/dist/index.html": "59570aa597c426582bec782ea037c4ed7ec5ec1fd0e951604ca5dcf66aee195a",
+    "apps/web/dist/assets/index-Ce6p60WN.css": "9257587702bd86a31a441656f089ff1d75acd163438a36ba9147aadfaecd7f82",
+    "apps/web/dist/assets/index-bNPrQUmA.js": "18bfe7c8e347358f910ae89921363b1241c1e5821a138a6efd8db509b737716a"
+  },
+  "excluded": "Not Chrome/Edge target matrix or MCP transport compatibility evidence"
+}

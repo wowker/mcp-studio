@@ -1,0 +1,31 @@
+import {beforeEach,afterEach,it,expect,vi} from 'vitest';
+import {render,screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {MembersPage} from './MembersPage';
+import {PlatformClient} from '../../shared/api';
+import {i18n} from '../../shared/i18n';
+import type {Session,Project,Team} from '../../generated/platform';
+const team:Team={id:'t',name:'Team',role:'owner'};
+const session:Session={user:{id:'owner',email:'owner@example.test',name:'Owner',verified:true},teams:[team],csrf:'csrf',expiresAt:'2099-01-01T00:00:00Z'};
+const project:Project={id:'p',teamId:'t',name:'Project',description:'',role:'maintainer',canManage:true,canTakeover:false,canRead:true};
+beforeEach(async()=>{await i18n.changeLanguage('en-US');});afterEach(()=>vi.unstubAllGlobals());
+it('retains failed invitation inputs and default 7 day scope',async()=>{
+ let payload:unknown;vi.stubGlobal('fetch',async(url:string,init:RequestInit)=>{if(init?.method==='POST'){payload=JSON.parse(String(init.body));return new Response(JSON.stringify({error:{code:'mail_failed'}}),{status:503});}return new Response(JSON.stringify({data:[]}));});
+ const user=userEvent.setup();render(<MembersPage client={new PlatformClient()} session={session} team={team} project={project} refreshProject={()=>{}}/>);
+ await user.click(await screen.findByRole('button',{name:'Invite member'}));
+ await user.type(screen.getByLabelText('Email'),'invitee@example.test');
+ await user.click(screen.getByRole('button',{name:'Send invitation'}));
+ await screen.findByRole('alert');
+ expect(screen.getByLabelText('Email')).toHaveProperty('value','invitee@example.test');
+ expect(payload).toEqual({email:'invitee@example.test',teamRole:'member',projectRole:'developer',days:7});
+});
+it('requires scope confirmation before deleting another project member',async()=>{
+ let deleted='';vi.stubGlobal('fetch',async(url:string,init:RequestInit)=>{if(init?.method==='DELETE'){deleted=url;return new Response(JSON.stringify({data:{ok:true}}));}return new Response(JSON.stringify({data:url.endsWith('/members')?[{id:'other',name:'Other',email:'other@example.test',teamRole:'member',projectRole:'developer'}]:[]}));});
+ const user=userEvent.setup();render(<MembersPage client={new PlatformClient()} session={session} team={team} project={project} refreshProject={()=>{}}/>);
+ await user.click(await screen.findByRole('button',{name:'Other'}));
+ await user.click(screen.getByRole('button',{name:'Remove from project'}));
+ expect(deleted).toBe('');expect(screen.getByText(/Team and other project memberships remain/)).toBeTruthy();
+ await user.click(screen.getByRole('button',{name:'Confirm removal'}));
+ await screen.findByRole('button',{name:'Other'});
+ expect(deleted).toBe('/api/v1/projects/p/members/other');
+});

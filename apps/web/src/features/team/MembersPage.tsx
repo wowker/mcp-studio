@@ -1,0 +1,16 @@
+import {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {z} from 'zod';
+import * as wire from '../../generated/platform';
+import {PlatformClient} from '../../shared/api';
+import {Button,QueryFeedback,useQuery} from '../../shared/ui';
+import {MemberEditor} from './MemberEditor';
+import {InvitationEditor,InvitationList} from './Invitations';
+const memberList=z.array(wire.memberSchema),inviteList=z.array(wire.invitationSchema);
+export function MembersPage({client,session,team,project,refreshProject}:{client:PlatformClient;session:wire.Session;team:wire.Team;project:wire.Project;refreshProject:()=>void}){
+ const {t}=useTranslation();const [section,setSection]=useState<'projectMembers'|'teamMembers'|'invitations'|'permissions'>('projectMembers');const [selected,setSelected]=useState('');const [creating,setCreating]=useState(false);const canTeamManage=team.role==='owner'||team.role==='admin';
+ const members=useQuery(client,section==='projectMembers'?`/projects/${encodeURIComponent(project.id)}/members`:section==='teamMembers'&&canTeamManage?`/teams/${encodeURIComponent(team.id)}/members`:undefined,memberList);const invitations=useQuery(client,section==='invitations'?`/projects/${encodeURIComponent(project.id)}/invitations`:undefined,inviteList);const selectedMember=members.data?.find(member=>member.id===selected);const refresh=()=>{members.reload();refreshProject();};
+ return <section><h1>{t('members')}</h1><p className="ui-muted">{project.name} · {t('roleNotice')}</p><nav className="ui-tabs">{(['projectMembers',...(canTeamManage?['teamMembers'] as const:[]),'invitations','permissions'] as const).map(item=><Button key={item} aria-current={section===item?'page':undefined} onClick={()=>{setSection(item);setSelected('');setCreating(false);}}>{t(item)}</Button>)}</nav>
+ {section==='permissions'?<p>{t('roleNotice')}</p>:creating?<InvitationEditor client={client} team={team} project={project} onClose={()=>setCreating(false)} onDone={()=>{setCreating(false);setSection('invitations');invitations.reload();}}/>:selectedMember?<MemberEditor key={`${section}:${selectedMember.id}`} client={client} session={session} team={team} project={project} member={selectedMember} scope={section==='teamMembers'?'team':'project'} maintainers={members.data?.filter(member=>member.projectRole==='maintainer').length??0} onDone={refresh} onClose={()=>setSelected('')}/>:<>{project.canManage&&section!=='teamMembers'&&<Button variant="primary" onClick={()=>setCreating(true)}>{t('inviteMember')}</Button>}{section==='invitations'?<><QueryFeedback {...invitations} retry={invitations.reload}/>{invitations.data&&<InvitationList client={client} project={project} team={team} invitations={invitations.data} onDone={invitations.reload}/>}</>:<><QueryFeedback {...members} retry={members.reload}/>{members.data&&<div className="ui-table-scroll"><table className="ui-table"><thead><tr><th>{t('name')}</th><th>{t('email')}</th><th>{t('teamRole')}</th><th>{t('projectRole')}</th></tr></thead><tbody>{members.data.map(member=><tr key={member.id}><td><Button onClick={()=>setSelected(member.id)}>{member.name}</Button></td><td>{member.email}</td><td>{t(member.teamRole)}</td><td>{t(member.projectRole||'notJoined')}</td></tr>)}</tbody></table>{!members.data.length&&<p>{t('emptyMembers')}</p>}</div>}</>}</>}
+ </section>;
+}
