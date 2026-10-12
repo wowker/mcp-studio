@@ -1,0 +1,1646 @@
+{
+  "contractVersion": "1.0.0",
+  "purpose": "M0 isolated reference oracle; not a production implementation",
+  "cases": [
+    {
+      "id": "env-four-layer-winner",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "a"
+              }
+            ]
+          },
+          {
+            "source": "environment-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "b"
+              }
+            ]
+          },
+          {
+            "source": "base-connection",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "c"
+              }
+            ]
+          },
+          {
+            "source": "environment-connection",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "d"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "X",
+          "status": "resolved",
+          "source": "environment-connection",
+          "sensitive": false,
+          "value": "d"
+        }
+      ]
+    },
+    {
+      "id": "env-delete-highest-fallback",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "a"
+              }
+            ]
+          },
+          {
+            "source": "base-connection",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "c"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "X",
+          "status": "resolved",
+          "source": "base-connection",
+          "sensitive": false,
+          "value": "c"
+        }
+      ]
+    },
+    {
+      "id": "env-high-personal-missing-no-fallback",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "public"
+              }
+            ]
+          },
+          {
+            "source": "environment-connection",
+            "definitions": [
+              {
+                "id": "definition-secret",
+                "name": "X",
+                "type": "string",
+                "value": null,
+                "sensitive": true
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "X",
+          "status": "personal_missing",
+          "source": "environment-connection",
+          "sensitive": true
+        }
+      ]
+    },
+    {
+      "id": "env-definition-id-personal-isolation",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "secret-b",
+                "name": "X",
+                "type": "string",
+                "value": null,
+                "sensitive": true
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {
+          "secret-a": "synthetic-secret"
+        }
+      },
+      "expected": [
+        {
+          "name": "X",
+          "status": "personal_missing",
+          "source": "base-project",
+          "sensitive": true
+        }
+      ]
+    },
+    {
+      "id": "env-overridden-bad-dependency-ignored",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "{{MISSING}}"
+              }
+            ]
+          },
+          {
+            "source": "base-connection",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "ok"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "X",
+          "status": "resolved",
+          "source": "base-connection",
+          "sensitive": false,
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "id": "env-cycle",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "A",
+                "name": "A",
+                "type": "string",
+                "value": "{{B}}"
+              },
+              {
+                "id": "B",
+                "name": "B",
+                "type": "string",
+                "value": "{{A}}"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "A"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "A",
+          "status": "cycle",
+          "source": "base-project",
+          "sensitive": false
+        }
+      ]
+    },
+    {
+      "id": "env-dependency-missing",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "A",
+                "name": "A",
+                "type": "string",
+                "value": "{{MISSING}}"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "A"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "A",
+          "status": "dependency_missing",
+          "source": "base-project",
+          "sensitive": false
+        }
+      ]
+    },
+    {
+      "id": "env-required-empty-no-fallback",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "ok"
+              }
+            ]
+          },
+          {
+            "source": "base-connection",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "  ",
+                "required": true
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "X",
+          "status": "required_empty",
+          "source": "base-connection",
+          "sensitive": false
+        }
+      ]
+    },
+    {
+      "id": "env-zero-false-valid",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "N",
+                "name": "N",
+                "type": "number",
+                "value": 0,
+                "required": true
+              },
+              {
+                "id": "B",
+                "name": "B",
+                "type": "boolean",
+                "value": false,
+                "required": true
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "N",
+          "B"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "N",
+          "status": "resolved",
+          "source": "base-project",
+          "sensitive": false,
+          "value": 0
+        },
+        {
+          "name": "B",
+          "status": "resolved",
+          "source": "base-project",
+          "sensitive": false,
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "env-bool-no-coercion",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "B",
+                "name": "B",
+                "type": "boolean",
+                "value": "false"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "B"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "B",
+          "status": "type_error",
+          "source": "base-project",
+          "sensitive": false
+        }
+      ]
+    },
+    {
+      "id": "env-nested-sensitive-derivation",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "S",
+                "name": "S",
+                "type": "string",
+                "value": null,
+                "sensitive": true
+              },
+              {
+                "id": "J",
+                "name": "J",
+                "type": "json",
+                "value": {
+                  "headers": [
+                    "prefix {{S}}"
+                  ],
+                  "zero": 0
+                }
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "J"
+        ],
+        "personal": {
+          "S": "fixture-only-secret"
+        }
+      },
+      "expected": [
+        {
+          "name": "J",
+          "status": "resolved",
+          "source": "base-project",
+          "sensitive": true
+        }
+      ]
+    },
+    {
+      "id": "env-empty-optional-string",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "E",
+                "name": "E",
+                "type": "string",
+                "value": ""
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "E"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "E",
+          "status": "resolved",
+          "source": "base-project",
+          "sensitive": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "env-direct-required-ref-empty",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "E",
+                "name": "E",
+                "type": "string",
+                "value": ""
+              },
+              {
+                "id": "R",
+                "name": "R",
+                "type": "string",
+                "value": "{{E}}",
+                "required": true
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "R"
+        ],
+        "personal": {}
+      },
+      "expected": [
+        {
+          "name": "R",
+          "status": "required_empty",
+          "source": "base-project",
+          "sensitive": false
+        }
+      ]
+    },
+    {
+      "id": "env-duplicate-same-layer",
+      "kind": "environment",
+      "source": "04 环境解析; 08 D05/D13; A08/A09/A52",
+      "input": {
+        "layers": [
+          {
+            "source": "base-project",
+            "definitions": [
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "a"
+              },
+              {
+                "id": "X",
+                "name": "X",
+                "type": "string",
+                "value": "b"
+              }
+            ]
+          }
+        ],
+        "targets": [
+          "X"
+        ],
+        "personal": {}
+      },
+      "expected": {
+        "error": "duplicate_definition"
+      }
+    },
+    {
+      "id": "schema-preserve-zero-false-null",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"n\":0,\"b\":false,\"v\":null}",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "b": {
+              "type": "boolean"
+            },
+            "v": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "valid",
+        "canExecute": true,
+        "canSavePrivate": true,
+        "canPublish": true,
+        "canStructure": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "schema-optional-default-skipped",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"n\":\"stale\"}",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number",
+              "default": 9
+            }
+          }
+        },
+        "skip": [
+          "/n"
+        ]
+      },
+      "expected": {
+        "status": "valid",
+        "canExecute": true,
+        "canSavePrivate": true,
+        "canPublish": true,
+        "canStructure": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "schema-nested-skip",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"o\":{\"n\":\"stale\"}}",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "o": {
+              "type": "object",
+              "properties": {
+                "n": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "skip": [
+          "/o/n"
+        ]
+      },
+      "expected": {
+        "status": "valid",
+        "canExecute": true,
+        "canSavePrivate": true,
+        "canPublish": true,
+        "canStructure": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "schema-required-cannot-skip",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"n\":0}",
+        "schema": {
+          "type": "object",
+          "required": [
+            "n"
+          ],
+          "properties": {
+            "n": {
+              "type": "number"
+            }
+          }
+        },
+        "skip": [
+          "/n"
+        ]
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "/n#required"
+        ]
+      }
+    },
+    {
+      "id": "schema-invalid-json",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"n\":",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "b": {
+              "type": "boolean"
+            },
+            "v": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "invalid_json",
+        "canExecute": false,
+        "canSavePrivate": false,
+        "canPublish": false,
+        "canStructure": false,
+        "errors": [
+          "#json"
+        ]
+      }
+    },
+    {
+      "id": "schema-private-incomplete",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"n\":\"wrong\"}",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "n": {
+              "type": "number"
+            },
+            "b": {
+              "type": "boolean"
+            },
+            "v": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "/n#type"
+        ]
+      }
+    },
+    {
+      "id": "schema-null-not-missing",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"v\":null}",
+        "schema": {
+          "type": "object",
+          "required": [
+            "v"
+          ],
+          "properties": {
+            "v": {
+              "type": "null"
+            }
+          }
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "valid",
+        "canExecute": true,
+        "canSavePrivate": true,
+        "canPublish": true,
+        "canStructure": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "schema-empty-string-min-length",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "\"\"",
+        "schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#minLength"
+        ]
+      }
+    },
+    {
+      "id": "schema-empty-array-min-items",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "[]",
+        "schema": {
+          "type": "array",
+          "minItems": 1
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#minItems"
+        ]
+      }
+    },
+    {
+      "id": "schema-oneof-exactly-one",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "2",
+        "schema": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "minimum": 0
+            }
+          ]
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#oneOf"
+        ]
+      }
+    },
+    {
+      "id": "schema-anyof-at-least-one",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "2",
+        "schema": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "valid",
+        "canExecute": true,
+        "canSavePrivate": true,
+        "canPublish": true,
+        "canStructure": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "schema-allof-every-branch",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "-1",
+        "schema": {
+          "allOf": [
+            {
+              "type": "number"
+            },
+            {
+              "minimum": 0
+            }
+          ]
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#minimum"
+        ]
+      }
+    },
+    {
+      "id": "schema-local-ref",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "3",
+        "schema": {
+          "$defs": {
+            "n": {
+              "type": "number"
+            }
+          },
+          "$ref": "#/$defs/n"
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "valid",
+        "canExecute": true,
+        "canSavePrivate": true,
+        "canPublish": true,
+        "canStructure": true,
+        "errors": []
+      }
+    },
+    {
+      "id": "schema-remote-ref-no-fetch",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "3",
+        "schema": {
+          "$ref": "https://example.invalid/schema"
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "unsupported_schema",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#unsupported"
+        ]
+      }
+    },
+    {
+      "id": "schema-unsupported-dialect",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "3",
+        "schema": {
+          "$schema": "urn:unsupported:dialect",
+          "type": "number"
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "unsupported_schema",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#unsupported"
+        ]
+      }
+    },
+    {
+      "id": "schema-unknown-keyword-block",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "3",
+        "schema": {
+          "type": "number",
+          "format": "custom"
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "unsupported_schema",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "#unsupported"
+        ]
+      }
+    },
+    {
+      "id": "schema-exact-nested-error",
+      "kind": "schema",
+      "source": "04 参数值; 08 D09; A11/A12/A13/A44",
+      "input": {
+        "raw": "{\"items\":[{\"quantity\":\"bad\"}]}",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "quantity": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "skip": []
+      },
+      "expected": {
+        "status": "schema_error",
+        "canExecute": false,
+        "canSavePrivate": true,
+        "canPublish": false,
+        "canStructure": true,
+        "errors": [
+          "/items/0/quantity#type"
+        ]
+      }
+    },
+    {
+      "id": "red-default-nested-secrets",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": {
+          "headers": {
+            "Authorization": "Bearer fixture",
+            "Cookie": "session=fixture"
+          },
+          "email": "fixture@example.invalid",
+          "phone": "13800000000",
+          "ok": false
+        }
+      },
+      "expected": {
+        "value": {
+          "headers": {
+            "Authorization": "[REDACTED]",
+            "Cookie": "[REDACTED]"
+          },
+          "email": "[REDACTED]",
+          "phone": "[REDACTED]",
+          "ok": false
+        },
+        "paths": [
+          "/email",
+          "/headers/Authorization",
+          "/headers/Cookie",
+          "/phone"
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-derived-secret-echo",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": {
+          "safe": "x",
+          "echo": [
+            "prefix FIXTURE_SECRET suffix"
+          ]
+        },
+        "sensitiveValues": [
+          "FIXTURE_SECRET"
+        ]
+      },
+      "expected": {
+        "value": {
+          "safe": "x",
+          "echo": [
+            "[REDACTED]"
+          ]
+        },
+        "paths": [
+          "/echo/0"
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-pointer-escaped",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": {
+          "a/b": {
+            "~key": "business confidential"
+          },
+          "other": 0
+        },
+        "pointers": [
+          "/a~1b/~0key"
+        ]
+      },
+      "expected": {
+        "value": {
+          "a/b": {
+            "~key": "[REDACTED]"
+          },
+          "other": 0
+        },
+        "paths": [
+          "/a~1b/~0key"
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-invalid-pointer",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": {
+          "x": 1
+        },
+        "pointers": [
+          "/absent"
+        ]
+      },
+      "expected": {
+        "error": "invalid_pointer"
+      }
+    },
+    {
+      "id": "red-secret-url",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": {
+          "endpoint": "https://example.invalid/mcp?token=fixture",
+          "public": "https://example.invalid/mcp?workspace=demo"
+        }
+      },
+      "expected": {
+        "value": {
+          "endpoint": "[REDACTED]",
+          "public": "https://example.invalid/mcp?workspace=demo"
+        },
+        "paths": [
+          "/endpoint"
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-unparseable-content",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": null,
+        "contentKind": "binary"
+      },
+      "expected": {
+        "omitted": true,
+        "reason": "unstructured_content"
+      }
+    },
+    {
+      "id": "red-preserve-falsy",
+      "kind": "redaction",
+      "source": "08 D08/D13; 04 脱敏; A23/A46",
+      "input": {
+        "value": {
+          "n": 0,
+          "b": false,
+          "v": null,
+          "e": ""
+        }
+      },
+      "expected": {
+        "value": {
+          "n": 0,
+          "b": false,
+          "v": null,
+          "e": ""
+        },
+        "paths": [],
+        "omitted": false
+      }
+    },
+    {
+      "id": "run-cancel-late-success",
+      "kind": "run",
+      "source": "02 F08/F09; 04; A15/A16/A19",
+      "input": {
+        "start": "running",
+        "events": [
+          "cancel",
+          "success"
+        ]
+      },
+      "expected": {
+        "status": "cancelled",
+        "remoteOutcome": "unknown"
+      }
+    },
+    {
+      "id": "run-timeout-late-success",
+      "kind": "run",
+      "source": "02 F08/F09; 04; A15/A16/A19",
+      "input": {
+        "start": "running",
+        "events": [
+          "timeout",
+          "success"
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "remoteOutcome": "unknown"
+      }
+    },
+    {
+      "id": "run-tool-iserror",
+      "kind": "run",
+      "source": "02 F08/F09; 04; A15/A16/A19",
+      "input": {
+        "start": "running",
+        "events": [
+          "tool_error"
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "remoteOutcome": "known"
+      }
+    },
+    {
+      "id": "run-rpc-error",
+      "kind": "run",
+      "source": "02 F08/F09; 04; A15/A16/A19",
+      "input": {
+        "start": "running",
+        "events": [
+          "rpc_error"
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "remoteOutcome": "known"
+      }
+    },
+    {
+      "id": "run-http-401",
+      "kind": "run",
+      "source": "02 F08/F09; 04; A15/A16/A19",
+      "input": {
+        "start": "running",
+        "events": [
+          "unauthorized"
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "remoteOutcome": "known"
+      }
+    },
+    {
+      "id": "run-success-upload-failure-independent",
+      "kind": "run",
+      "source": "02 F08/F09; 04; A15/A16/A19",
+      "input": {
+        "start": "running",
+        "events": [
+          "success",
+          "upload_failed"
+        ]
+      },
+      "expected": {
+        "status": "succeeded",
+        "remoteOutcome": "known"
+      }
+    },
+    {
+      "id": "upload-identical-retry",
+      "kind": "upload",
+      "source": "08 D03/D04; 04 保存修订; A19/A40/A54/A55",
+      "input": {
+        "sameIdentity": true,
+        "storedDigest": "a",
+        "incomingDigest": "a",
+        "allowed": true
+      },
+      "expected": {
+        "status": "idempotent",
+        "executeTool": false
+      }
+    },
+    {
+      "id": "upload-digest-conflict",
+      "kind": "upload",
+      "source": "08 D03/D04; 04 保存修订; A19/A40/A54/A55",
+      "input": {
+        "sameIdentity": true,
+        "storedDigest": "a",
+        "incomingDigest": "b",
+        "allowed": true
+      },
+      "expected": {
+        "status": "digest_conflict",
+        "executeTool": false
+      }
+    },
+    {
+      "id": "upload-revocation-before-idempotency",
+      "kind": "upload",
+      "source": "08 D03/D04; 04 保存修订; A19/A40/A54/A55",
+      "input": {
+        "sameIdentity": true,
+        "storedDigest": "a",
+        "incomingDigest": "a",
+        "allowed": false
+      },
+      "expected": {
+        "status": "forbidden",
+        "executeTool": false
+      }
+    },
+    {
+      "id": "upload-other-context-not-idempotent",
+      "kind": "upload",
+      "source": "08 D03/D04; 04 保存修订; A19/A40/A54/A55",
+      "input": {
+        "sameIdentity": false,
+        "storedDigest": "a",
+        "incomingDigest": "a",
+        "allowed": true
+      },
+      "expected": {
+        "status": "identity_conflict",
+        "executeTool": false
+      }
+    },
+    {
+      "id": "upload-new-operation",
+      "kind": "upload",
+      "source": "08 D03/D04; 04 保存修订; A19/A40/A54/A55",
+      "input": {
+        "sameIdentity": true,
+        "storedDigest": null,
+        "incomingDigest": "a",
+        "allowed": true
+      },
+      "expected": {
+        "status": "accepted",
+        "executeTool": false
+      }
+    },
+    {
+      "id": "restore-falsy-new-id",
+      "kind": "restore",
+      "source": "08 D11; 04 快照恢复; A18",
+      "input": {
+        "parameters": {
+          "n": 0,
+          "b": false,
+          "v": null
+        },
+        "oldTabId": "tab-old",
+        "newTabId": "tab-new"
+      },
+      "expected": {
+        "tabId": "tab-new",
+        "status": "unexecuted",
+        "parameters": {
+          "n": 0,
+          "b": false,
+          "v": null
+        },
+        "removed": []
+      }
+    },
+    {
+      "id": "restore-remove-whole-top-level",
+      "kind": "restore",
+      "source": "08 D11; 04 快照恢复; A18",
+      "input": {
+        "parameters": {
+          "safe": 0,
+          "nested": {
+            "secret": "[REDACTED]"
+          }
+        },
+        "oldTabId": "tab-old",
+        "newTabId": "tab-new"
+      },
+      "expected": {
+        "tabId": "tab-new",
+        "status": "unexecuted",
+        "parameters": {
+          "safe": 0
+        },
+        "removed": [
+          "nested"
+        ]
+      }
+    },
+    {
+      "id": "restore-refuse-old-tab-id",
+      "kind": "restore",
+      "source": "08 D11; 04 快照恢复; A18",
+      "input": {
+        "parameters": {},
+        "oldTabId": "tab-old",
+        "newTabId": "tab-old"
+      },
+      "expected": {
+        "error": "new_tab_required"
+      }
+    },
+    {
+      "id": "permission-admin-directory-only",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "admin",
+        "projectRole": null,
+        "action": "directory.read",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": true
+      }
+    },
+    {
+      "id": "permission-admin-no-content",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "admin",
+        "projectRole": null,
+        "action": "content.read",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-owner-no-private-override",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "owner",
+        "projectRole": "maintainer",
+        "action": "private.read",
+        "self": false,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-viewer-own-private-read",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "member",
+        "projectRole": "viewer",
+        "action": "private.read",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": true
+      }
+    },
+    {
+      "id": "permission-viewer-no-upload",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "member",
+        "projectRole": "viewer",
+        "action": "upload.retry",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-developer-no-pin",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "member",
+        "projectRole": "developer",
+        "action": "history.pin",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-no-other-queue",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "owner",
+        "projectRole": "maintainer",
+        "action": "upload.retry",
+        "self": false,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-no-unheld-queue",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "member",
+        "projectRole": "developer",
+        "action": "upload.retry",
+        "self": true,
+        "held": false
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-developer-own-queue",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "member",
+        "projectRole": "developer",
+        "action": "upload.retry",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": true
+      }
+    },
+    {
+      "id": "permission-removed-no-private",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "member",
+        "projectRole": null,
+        "action": "private.read",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-admin-no-self-grant",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "admin",
+        "projectRole": null,
+        "action": "project.takeover",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "permission-owner-explicit-takeover",
+      "kind": "permission",
+      "source": "05 能力矩阵; 08 D02/D03; A22/A26/A37/A38/A55",
+      "input": {
+        "teamRole": "owner",
+        "projectRole": null,
+        "action": "project.takeover",
+        "self": true,
+        "held": true
+      },
+      "expected": {
+        "allowed": true
+      }
+    }
+  ]
+}

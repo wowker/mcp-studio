@@ -1,0 +1,12 @@
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (59.998583ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (10.944625ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (3.227541ms)
+✔ expired codes and local unpair reject new requests (1.476583ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.081209

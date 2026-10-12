@@ -1,0 +1,9 @@
+node_modules/
+apps/web/dist/
+.runtime/
+.env
+.env.*
+*.key
+*.pem
+playwright-report/
+test-results/

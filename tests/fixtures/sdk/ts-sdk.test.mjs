@@ -1,0 +1,3 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {Client} from '@modelcontextprotocol/sdk/client/index.js';import {McpServer} from '@modelcontextprotocol/sdk/server/mcp.js';import {InMemoryTransport} from '@modelcontextprotocol/sdk/inMemory.js';
+test('pinned TypeScript SDK negotiates and discovers controlled tools',async()=>{const s=new McpServer({name:'m0-fixture',version:'1'});s.registerTool('echo',{description:'controlled M0 fixture',inputSchema:{}},async()=>({content:[]}));const c=new Client({name:'m0-client',version:'1'});const [st,ct]=InMemoryTransport.createLinkedPair();try{await s.connect(st);await c.connect(ct);assert.equal((await c.listTools()).tools.length,1);}finally{await c.close();await s.close();}});

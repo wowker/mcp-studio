@@ -1,0 +1,138 @@
+{
+  "contractVersion": "1.0.0",
+  "status": "M0 normative security contract; not implemented or OS-verified",
+  "scope": {
+    "platform": [
+      "identity",
+      "project-authority",
+      "configuration",
+      "redacted-record-receipt"
+    ],
+    "agent": [
+      "protected-loopback",
+      "explicitly-selected-http",
+      "stdio",
+      "system-vault",
+      "encrypted-queue"
+    ],
+    "mcp": [
+      "upstream-protocol",
+      "upstream-authorization"
+    ]
+  },
+  "localTransport": {
+    "listen": [
+      "127.0.0.1",
+      "::1"
+    ],
+    "host": "exact loopback literal and configured port; reject arbitrary Host and forwarded Host",
+    "origin": "exact paired HTTPS workbench Origin (scheme, hostname, port); no wildcard, null Origin or substring comparison",
+    "cors": "only the validated Origin; never sole authentication",
+    "tokens": "CSPRNG bearer tokens supplied only in Authorization headers; never URLs, persistent browser storage, logs or errors",
+    "version": "major mismatch or absent required capability rejects before operation",
+    "request": "reject unexpected content types and malformed JSON; body limits; mutation needs paired channel authentication"
+  },
+  "pairing": {
+    "initialState": "unpaired",
+    "codeLifetimeSeconds": 60,
+    "oneTime": true,
+    "confirmation": "local user sees exact workbench Origin, platform userId, deviceId and requested capabilities, then explicitly confirms",
+    "proof": "pair code is not authorization; verify paired browser channel and platform identity separately",
+    "channelTokenLifetimeSeconds": 900,
+    "tokenBinding": [
+      "pairingId",
+      "origin",
+      "userId",
+      "deviceId",
+      "capabilities"
+    ],
+    "renewal": "requires existing authenticated channel, valid platform identity and same binding; revocation invalidates tokens",
+    "reject": [
+      "wrong_origin",
+      "wrong_host",
+      "wrong_user",
+      "expired",
+      "replayed_code",
+      "local_denied",
+      "incompatible"
+    ],
+    "unpair": "atomically reject new operations and invalidate channel sessions; do not claim erasure of all existing local data"
+  },
+  "execution": {
+    "identity": [
+      "userId",
+      "projectId",
+      "connectionId",
+      "runId",
+      "operationId",
+      "deviceId"
+    ],
+    "permission": "online platform check for object real project before every new execute or upload; previous check and UI role do not grant future permission",
+    "http": "only explicitly selected agent executor; never fallback silently",
+    "stdio": "absolute executable or OS-resolved explicit program plus string argument array; no implicit shell; absolute optional cwd; environment allowlist plus resolved named variables; not entire parent environment",
+    "confirmation": "first launch and any executable/args/cwd/environment-definition version change require local confirmation; compare canonical immutable configuration identity/version",
+    "cancel": "stop local waiting/process according to transport; never promise upstream rollback; terminal result not changed by late response",
+    "restart": "recover encrypted upload state or query operation status; never replay a Tool"
+  },
+  "secrets": {
+    "vault": "OS credential store holds master keys; encrypted data separate; unavailable vault reports explicit failure",
+    "credentialBinding": [
+      "userId",
+      "projectId",
+      "connectionId"
+    ],
+    "separate": [
+      "platform-proof",
+      "agent-channel-token",
+      "mcp-credential"
+    ],
+    "browser": "raw requests/responses and session MCP credentials remain memory-only; browser persistent queue redacted only",
+    "queue": "authenticated encryption with unique nonce and identity/version associated data; atomic persistence; key never colocated in plaintext; exactly one uploader per Run",
+    "backup": "off by default; explicitly selected personal platform-managed encryption, not end-to-end encryption",
+    "diagnostics": "no secrets in URL, logs, Toast, diagnostics or audit; source labels only"
+  },
+  "reservedOperations": [
+    {
+      "method": "POST",
+      "path": "/v1/pairing/challenges",
+      "purpose": "start short-lived challenge, not execute"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/pairing/confirmations",
+      "purpose": "consume one-time challenge after local confirmation"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/pairing/{pairingId}",
+      "purpose": "revoke paired channel"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/runs",
+      "purpose": "launch once after online authority check and explicit configuration confirmation"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/operations/{operationId}",
+      "purpose": "authoritative local state, never replay"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/runs/{runId}/cancel",
+      "purpose": "cancel waiting without rollback promise"
+    }
+  ],
+  "evidenceRequired": [
+    "HTTPS Chrome and Edge recent two stable majors to loopback on macOS Windows Linux",
+    "Host/Origin spoof, expired and replayed challenge, wrong identity",
+    "local confirmation denial, config changes and no shell/env inheritance",
+    "vault unavailable, encrypted queue restart and no Tool replay",
+    "permission revoked between run completion and upload"
+  ],
+  "notClaimed": [
+    "production Agent API exists",
+    "tokens encryption or key rotation implemented",
+    "cross-OS or browser compatibility passed"
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "environment": {
+    "at": "2026-10-12T16:44:32.492Z",
+    "os": "26.6.2",
+    "build": "25G83",
+    "arch": "arm64",
+    "browser": "155.0.8059.39",
+    "playwright": "1.59.1",
+    "node": "v24.21.0",
+    "secureContext": true,
+    "httpsOrigin": "https://127.0.0.1:57403",
+    "tls": "temporary self-signed test certificate; context ignoreHTTPSErrors only",
+    "sourceAddressSpace": "loopback; public-HTTPS LNA prompt remains untested"
+  },
+  "results": [
+    {
+      "name": "HTTPS secure workbench -> HTTP 127.0.0.1 with CORS",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n404 !== 200\n"
+    },
+    {
+      "name": "HTTPS secure workbench -> HTTP localhost alias",
+      "status": "failed",
+      "error": "page.evaluate: TypeError: Failed to fetch\n    at eval (eval at evaluate (:302:30), <anonymous>:1:22)\n    at UtilityScript.evaluate (<anonymous>:304:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    },
+    {
+      "name": "CORS denied path fails in browser",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\nfalse !== true\n"
+    },
+    {
+      "name": "Streamable HTTP JSON initialization + exposed session + notification + tools list",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n404 !== 200\n"
+    },
+    {
+      "name": "Streamable HTTP SSE initialization response",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n404 !== 200\n"
+    },
+    {
+      "name": "legacy HTTP+SSE POST 405 -> endpoint event -> initialize + initialized + tools/list",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n404 !== 405\n"
+    },
+    {
+      "name": "browser pairing waits for local confirmation then uses separate short session",
+      "status": "passed",
+      "outcome": "local confirmation scope checked; revoked token rejected",
+      "localConfirmation": "automated local-process simulation; human/native dialog pending M5"
+    }
+  ],
+  "diagnostics": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Access to fetch at 'http://localhost:57404/ping' from origin 'https://127.0.0.1:57403' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "GET /ping: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+  ],
+  "serverEvents": [
+    {
+      "method": "GET",
+      "path": "/ping"
+    },
+    {
+      "method": "GET",
+      "path": "/ping"
+    },
+    {
+      "method": "GET",
+      "path": "/cors-denied"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/mcp-json"
+    },
+    {
+      "method": "POST",
+      "path": "/mcp-json"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/mcp-sse"
+    },
+    {
+      "method": "POST",
+      "path": "/mcp-sse"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/legacy"
+    },
+    {
+      "method": "POST",
+      "path": "/legacy"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/pair/start"
+    },
+    {
+      "method": "POST",
+      "path": "/pair/start"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/pair/complete"
+    },
+    {
+      "method": "POST",
+      "path": "/pair/complete"
+    },
+    {
+      "method": "POST",
+      "path": "/pair/complete"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/agent/status"
+    },
+    {
+      "method": "GET",
+      "path": "/agent/status"
+    },
+    {
+      "method": "GET",
+      "path": "/agent/status"
+    }
+  ],
+  "sourceSHA256": {
+    "fixture.mjs": "0dd8bc66e8355d1b509cd343fe2b01c5d423e8efe56b44cdce4c5cd2e57f9438",
+    "browser.mjs": "b3e570574c6117ff01e169021a03046470dfaee4bc88bea975a92f932cee84c9",
+    "security.test.mjs": "f01ad0259f47ca5f9c3f6e90e63070ebec6e678b99ace737f0422fac8172877b"
+  },
+  "pending": [
+    "Chrome second stable major",
+    "Edge two stable majors",
+    "Windows",
+    "Linux",
+    "deployed public HTTPS workbench LNA permission allow/deny",
+    "native human confirmation dialog",
+    "remote HTTP/HTTPS real network topology"
+  ]
+}

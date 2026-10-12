@@ -1,0 +1,190 @@
+{
+  "environment": {
+    "at": "2026-10-12T16:49:14.943Z",
+    "os": "26.6.2",
+    "build": "25G83",
+    "arch": "arm64",
+    "browser": "155.0.8059.39",
+    "playwright": "1.59.1",
+    "node": "v24.21.0",
+    "secureContext": true,
+    "httpsOrigin": "https://127.0.0.1:60126",
+    "tls": "temporary self-signed test certificate; context ignoreHTTPSErrors only",
+    "sourceAddressSpace": "loopback; public-HTTPS LNA prompt remains untested"
+  },
+  "results": [
+    {
+      "name": "HTTPS secure workbench -> HTTP 127.0.0.1 with CORS",
+      "status": "passed",
+      "outcome": "loopback HTTP reachable"
+    },
+    {
+      "name": "HTTPS secure workbench -> HTTP localhost alias",
+      "status": "passed",
+      "outcome": "explicitly registered localhost alias reachable"
+    },
+    {
+      "name": "CORS denied path fails in browser",
+      "status": "passed",
+      "outcome": "browser rejects missing allow-origin"
+    },
+    {
+      "name": "HTTPS workbench -> controlled cross-origin HTTPS endpoint",
+      "status": "passed",
+      "outcome": "HTTPS cross-origin reachable with temporary certificate exception"
+    },
+    {
+      "name": "HTTPS workbench -> ordinary HTTP hostname blocked as mixed content",
+      "status": "passed",
+      "outcome": "mixed-content blocked before server request",
+      "topology": "test hostname maps to loopback; not a real public HTTP service"
+    },
+    {
+      "name": "Streamable HTTP JSON initialization + exposed session + notification + tools list",
+      "status": "passed",
+      "outcome": "initialize -> initialized -> tools/list",
+      "requests": 3
+    },
+    {
+      "name": "Streamable HTTP SSE initialization response",
+      "status": "passed",
+      "outcome": "POST returns event-stream InitializeResult"
+    },
+    {
+      "name": "legacy HTTP+SSE POST 405 -> endpoint event -> initialize + initialized + tools/list",
+      "status": "passed",
+      "outcome": "legacy handshake + tools discovered; no credentials in endpoint"
+    },
+    {
+      "name": "browser pairing waits for local confirmation then uses separate short session",
+      "status": "passed",
+      "outcome": "local confirmation scope checked; revoked token rejected",
+      "localConfirmation": "automated local-process simulation; human/native dialog pending M5"
+    }
+  ],
+  "diagnostics": [
+    "Access to fetch at 'http://127.0.0.1:60127/cors-denied' from origin 'https://127.0.0.1:60126' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "GET /cors-denied: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Mixed Content: The page at 'https://127.0.0.1:60126/' was loaded over HTTPS, but requested an insecure resource 'http://mcp-fixture.test:60127/ping'. This request has been blocked; the content must be served over HTTPS.",
+    "GET /ping: mixed-content",
+    "Failed to load resource: the server responded with a status of 405 (Method Not Allowed)",
+    "GET /legacy: net::ERR_ABORTED",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+  ],
+  "serverEvents": [
+    {
+      "method": "GET",
+      "path": "/ping"
+    },
+    {
+      "method": "GET",
+      "path": "/ping"
+    },
+    {
+      "method": "GET",
+      "path": "/cors-denied"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/mcp-json"
+    },
+    {
+      "method": "POST",
+      "path": "/mcp-json"
+    },
+    {
+      "method": "POST",
+      "path": "/mcp-json"
+    },
+    {
+      "method": "POST",
+      "path": "/mcp-json"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/mcp-sse"
+    },
+    {
+      "method": "POST",
+      "path": "/mcp-sse"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/legacy"
+    },
+    {
+      "method": "POST",
+      "path": "/legacy"
+    },
+    {
+      "method": "GET",
+      "path": "/legacy"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/messages"
+    },
+    {
+      "method": "POST",
+      "path": "/messages"
+    },
+    {
+      "method": "POST",
+      "path": "/messages"
+    },
+    {
+      "method": "POST",
+      "path": "/messages"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/pair/start"
+    },
+    {
+      "method": "POST",
+      "path": "/pair/start"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/pair/complete"
+    },
+    {
+      "method": "POST",
+      "path": "/pair/complete"
+    },
+    {
+      "method": "POST",
+      "path": "/pair/complete"
+    },
+    {
+      "method": "OPTIONS",
+      "path": "/agent/status"
+    },
+    {
+      "method": "GET",
+      "path": "/agent/status"
+    },
+    {
+      "method": "GET",
+      "path": "/agent/status"
+    }
+  ],
+  "sourceSHA256": {
+    "fixture.mjs": "bd6eeed81ab74159be0855ad8c7840e1c8902dc57311c38fa760958ea230028a",
+    "browser.mjs": "07c24a42a0510549255b542700c0ac8bf24b19c1e7a62fa471a032bfd9e257b4",
+    "security.test.mjs": "f01ad0259f47ca5f9c3f6e90e63070ebec6e678b99ace737f0422fac8172877b",
+    "local-confirmation.mjs": "289c0360eff58920a769dd9cf70e88525c992c517c993c0344dfaac5715ccedd",
+    "local-confirmation.test.mjs": "3e37dcf4e171594ff9f40104d1240f2b43b6f19141004e503c98741ae38bdea6"
+  },
+  "pending": [
+    "Chrome second stable major",
+    "Edge two stable majors",
+    "Windows",
+    "Linux",
+    "deployed public HTTPS workbench LNA permission allow/deny",
+    "native human confirmation dialog",
+    "remote HTTP/HTTPS real network topology"
+  ]
+}

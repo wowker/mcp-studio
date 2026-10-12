@@ -1,0 +1,380 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mcp-studio.invalid/contracts/state-v1.schema.json",
+  "title": "MCP Studio M0 state contract v1",
+  "description": "Structural contract only; authorization, state transitions and unique uploader require server checks.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Run"
+    },
+    {
+      "$ref": "#/$defs/UploadOperation"
+    },
+    {
+      "$ref": "#/$defs/RevisionOperation"
+    },
+    {
+      "$ref": "#/$defs/Event"
+    }
+  ],
+  "$defs": {
+    "ID": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "Version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "ContractVersion": {
+      "const": "1.0.0"
+    },
+    "Digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "Endpoint": {
+      "enum": [
+        "browser",
+        "agent"
+      ]
+    },
+    "Run": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "kind": {
+          "const": "run"
+        },
+        "userId": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectId": {
+          "$ref": "#/$defs/ID"
+        },
+        "connectionId": {
+          "$ref": "#/$defs/ID"
+        },
+        "runId": {
+          "$ref": "#/$defs/ID"
+        },
+        "tabId": {
+          "$ref": "#/$defs/ID"
+        },
+        "executor": {
+          "$ref": "#/$defs/Endpoint"
+        },
+        "toolName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "configurationVersion": {
+          "$ref": "#/$defs/Version"
+        },
+        "toolDefinitionVersion": {
+          "$ref": "#/$defs/Version"
+        },
+        "environmentVersion": {
+          "$ref": "#/$defs/Version"
+        },
+        "status": {
+          "enum": [
+            "running",
+            "succeeded",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "remoteOutcome": {
+          "enum": [
+            "known",
+            "unknown"
+          ]
+        },
+        "credentialSource": {
+          "enum": [
+            "none",
+            "session",
+            "agent-vault",
+            "environment-reference"
+          ]
+        },
+        "frozenRedactedRequest": {},
+        "responseRetention": {
+          "enum": [
+            "none",
+            "complete-redacted",
+            "truncated",
+            "metadata-only"
+          ]
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "userId",
+        "projectId",
+        "connectionId",
+        "runId",
+        "tabId",
+        "executor",
+        "toolName",
+        "configurationVersion",
+        "toolDefinitionVersion",
+        "environmentVersion",
+        "status",
+        "remoteOutcome",
+        "credentialSource",
+        "frozenRedactedRequest",
+        "responseRetention"
+      ]
+    },
+    "UploadOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "kind": {
+          "const": "upload"
+        },
+        "userId": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectId": {
+          "$ref": "#/$defs/ID"
+        },
+        "connectionId": {
+          "$ref": "#/$defs/ID"
+        },
+        "operationId": {
+          "$ref": "#/$defs/ID"
+        },
+        "targetId": {
+          "$ref": "#/$defs/ID"
+        },
+        "targetKind": {
+          "enum": [
+            "run",
+            "saved-record",
+            "revision"
+          ]
+        },
+        "responsibleEndpoint": {
+          "$ref": "#/$defs/Endpoint"
+        },
+        "frozenDigest": {
+          "$ref": "#/$defs/Digest"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "uploading",
+            "recorded",
+            "failed",
+            "paused"
+          ]
+        },
+        "pauseReason": {
+          "enum": [
+            "session_expired",
+            "forbidden",
+            "platform_offline"
+          ]
+        },
+        "errorCode": {
+          "enum": [
+            "unauthenticated",
+            "forbidden",
+            "identity_conflict",
+            "digest_conflict",
+            "version_conflict",
+            "capacity_exceeded",
+            "network_error"
+          ]
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "userId",
+        "projectId",
+        "connectionId",
+        "operationId",
+        "targetId",
+        "targetKind",
+        "responsibleEndpoint",
+        "frozenDigest",
+        "status"
+      ]
+    },
+    "RevisionOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "kind": {
+          "const": "revision"
+        },
+        "userId": {
+          "$ref": "#/$defs/ID"
+        },
+        "projectId": {
+          "$ref": "#/$defs/ID"
+        },
+        "connectionId": {
+          "$ref": "#/$defs/ID"
+        },
+        "operationId": {
+          "$ref": "#/$defs/ID"
+        },
+        "recordId": {
+          "$ref": "#/$defs/ID"
+        },
+        "baseVersion": {
+          "$ref": "#/$defs/Version"
+        },
+        "revisionKind": {
+          "enum": [
+            "metadata",
+            "additional-redaction"
+          ]
+        },
+        "frozenDigest": {
+          "$ref": "#/$defs/Digest"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string"
+            },
+            "visibility": {
+              "enum": [
+                "private",
+                "project"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "note",
+            "visibility"
+          ]
+        },
+        "redactionPointers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(/([^~]|~[01])*)*$"
+          },
+          "uniqueItems": true
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "userId",
+        "projectId",
+        "connectionId",
+        "operationId",
+        "recordId",
+        "baseVersion",
+        "revisionKind",
+        "frozenDigest"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "revisionKind": {
+                "const": "metadata"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "metadata"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "revisionKind": {
+                "const": "additional-redaction"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "redactionPointers",
+              "reason"
+            ]
+          }
+        }
+      ]
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": {
+          "$ref": "#/$defs/ContractVersion"
+        },
+        "kind": {
+          "enum": [
+            "configuration.changed",
+            "record.changed",
+            "membership.changed",
+            "access.changed",
+            "reset_required"
+          ]
+        },
+        "eventId": {
+          "$ref": "#/$defs/ID"
+        },
+        "sequence": {
+          "$ref": "#/$defs/Version"
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "projectId": {
+          "$ref": "#/$defs/ID"
+        },
+        "objectId": {
+          "$ref": "#/$defs/ID"
+        },
+        "version": {
+          "$ref": "#/$defs/Version"
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "eventId",
+        "sequence",
+        "occurredAt"
+      ]
+    }
+  }
+}

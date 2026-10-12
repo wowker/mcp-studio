@@ -1,0 +1,31 @@
+✖ local terminal displays exact pending identity and only issues code after explicit confirm (57.598ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 104.08675
+
+✖ failing tests:
+
+test at tests/fixtures/compat/local-confirmation.test.mjs:7:1
+✖ local terminal displays exact pending identity and only issues code after explicit confirm (57.598ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'local-pairing-code'
+  - 'review-required'
+  
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/fixtures/compat/local-confirmation.test.mjs:22:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'local-pairing-code',
+    expected: 'review-required',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
