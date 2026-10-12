@@ -1,0 +1,89 @@
+
+> mcp-studio@0.1.0 verify
+> node scripts/verify.mjs
+
+[verify] Generated contracts are current
+Platform contract v1.0.0: 25 schemas, 24 paths; generated boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Generator, SDK, loopback security and runtime guards
+✔ versioned platform contract generates stable Go and TypeScript boundaries (57.694708ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (101.519125ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (21.647041ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (5.225375ms)
+✔ expired codes and local unpair reject new requests (2.567125ms)
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (279.360125ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (385.005084ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.545958ms)
+✔ gate propagates a failing real subprocess exit status (40.70875ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (30.469292ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (9.860833ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (8.443916ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 739.196917
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/team/protection.test.ts (3 tests) 2ms
+ ✓ src/shared/i18n.test.ts (2 tests) 6ms
+ ✓ src/shared/api.test.ts (7 tests) 8ms
+ ✓ src/features/team/MembersPage.test.tsx (2 tests) 271ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 598ms
+   ✓ keeps original invitation after registration and never accepts automatically  412ms
+ ✓ src/app/App.test.tsx (9 tests) 893ms
+
+ Test Files  6 passed (6)
+      Tests  26 passed (26)
+   Start at  01:13:02
+   Duration  2.57s (transform 165ms, setup 476ms, collect 2.37s, tests 1.78s, environment 2.11s, prepare 309ms)
+
+[verify] Frontend production build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4686 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:   0.28 kB
+dist/assets/index-Ce6p60WN.css    5.64 kB │ gzip:   1.74 kB
+dist/assets/index-bNPrQUmA.js   366.81 kB │ gzip: 112.14 kB
+✓ built in 1.24s
+[verify] Go tests with real isolated PostgreSQL
+ok  	mcp-studio/cmd/platform	(cached)
+ok  	mcp-studio/internal/contracts	(cached)
+ok  	mcp-studio/internal/infrastructure	(cached)
+ok  	mcp-studio/internal/platform	25.320s
+?   	mcp-studio/internal/wire	[no test files]
+?   	mcp-studio/migrations	[no test files]
+ok  	mcp-studio/tests/fixtures/sdk	(cached)
+ok  	mcp-studio/tests/integration	0.986s
+[test-runtime] isolated schema removed
+[verify] Go vet
+[verify] Go production platform build
+[test-runtime] loopback platform + production static build + SMTP ready
+[verify] Playwright production-entry E2E
+
+Running 3 tests using 1 worker
+
+(node:75205) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75205) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m1.spec.ts:15:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (4.8s)
+  ✓  2 [chromium] › tests/e2e/m1.spec.ts:29:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (1.6s)
+  ✓  3 [chromium] › tests/e2e/m1.spec.ts:36:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (2.6s)
+
+  3 passed (9.6s)
+[test-runtime] platform and mail fixture stopped
+[test-runtime] isolated schema removed
+[verify] all gates passed

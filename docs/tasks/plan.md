@@ -1,8 +1,8 @@
 # MCP Inspector 服务版实施计划
 
-目标目录：`/Users/wuwei/code/github/mcp-studio`，现仅放置交接资料，未创建正式工程。执行状态统一维护于本目录。
+目标目录：`/Users/wuwei/code/github/mcp-studio`，已建立 M0 合同与 M1 身份协作工程；T02 完整矩阵待验。执行状态统一维护于本目录。
 
-日期：2026-10-13。状态：**计划草案，待后续开发授权；未开始实现**。计划面向一个尚未创建的独立工程目录，不在当前仓库改造产品。
+日期：2026-10-13。状态：**M0 合同与 M1 T04–T09 已验证，T02 完整矩阵待验；本次不进入 M2**。当前状态见 [执行账本](progress.md)；以下保留全程规划，后续阶段仍需授权。
 
 依据：[最终交付索引](../design-baseline-v2/design-handoff/11-final-delivery-checklist.md)、[D01–D15](../design-baseline-v2/design-handoff/08-decision-proposals.md)、[A01–A60](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md)。任务登记在 [todo.md](./todo.md)，验收分期在 [acceptance-schedule.csv](./acceptance-schedule.csv)。原仓库 `tasks/` 属于旧功能发布，不修改或覆盖。
 
@@ -14,7 +14,7 @@
 
 “前端发起”分为用户交互编排与实际 MCP 执行：浏览器直连可访问的 HTTP；用户明确选择后 Agent 执行受限 HTTP；stdio 只能由 Agent 启动。平台不是 MCP 执行代理。仅拥有前端按钮权限不构成服务端授权。
 
-本计划中的目录、模块名和任务划分是实施建议；不改写已确认产品规则。软件 / SDK 精确版本和正式 API 字段在 M0 验证后锁定，本次不安装、试跑或宣称版本兼容。
+本计划中的目录、模块名和任务划分是实施建议；不改写已确认产品规则。软件／SDK 版本和正式 API 字段已在 M0 锁定；兼容证据与尚未验证的边界见工程合同和执行账本。
 
 ## 2. 三端职责与依赖
 
@@ -85,7 +85,7 @@ flowchart LR
 
 ## 3. 建议目录结构
 
-建议采用单仓库管理三端和合同，Go 平台与 Agent 先共用一个 Go module、独立二进制。以下仅为拟建结构，**本轮不创建这些目录或文件**。`<new-root>` 是占位名称，最终路径在开始开发前指定；不默认复用当前仓库内已有的工程草案。
+建议采用单仓库管理三端和合同，Go 平台与 Agent 先共用一个 Go module、独立二进制。以下保留全程建议结构。M1 已实现的准确文件见执行账本，其余目录按后续阶段建立；`<new-root>` 对应当前独立工程目录。
 
 ```text
 <new-root>/

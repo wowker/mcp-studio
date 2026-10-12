@@ -1,15 +1,15 @@
-# MCP Studio · 开发交接包
+# MCP Studio
 
 交接日期：2026-10-13。目标目录：`/Users/wuwei/code/github/mcp-studio`。
 
-**当前仅完成设计资料交接，正式开发尚未开始。** 包内 HTML / JS / CSS 是可交互设计原型，示例状态不代表真实账号、MCP、存储、加密、邮件或 Agent 已实现。项目目录名采用 mcp-studio；参考资料中的 MCP Inspector / MCP Testpilot 是来源名称，不在本次擅自修改产品品牌。
+**已建立 M0 合同与 M1 身份／项目／团队协作工程，完整状态见 [执行账本](docs/tasks/progress.md)。T02 跨设备兼容矩阵仍待验，本次不进入 M2。** `apps/web` 与 `cmd/platform` 是正式工程入口；参考包内 HTML / JS / CSS 是设计原型，其示例状态不代表 MCP、加密或 Agent 已实现。项目目录名采用 mcp-studio；参考资料中的 MCP Inspector / MCP Testpilot 是来源名称，不在本次擅自修改产品品牌。
 
 ## 从这里开始
 
 1. 在 Codex 中打开本目录，阅读 [交接说明](docs/handoff/REFERENCE-NOTES.md)。
-2. 需要开始开发时，复制 [启动提示词](START-DEVELOPMENT.md) 中的“第一次：只执行 M0”发送给新会话。文件存在本身不构成开发授权。
+2. 正式工程按 [启动与验证](docs/operations/development.md) 配置。换会话时先读取执行账本，再按用户授权阶段继续；交接启动提示词保留为历史入口。
 3. 阅读 [设计入口](docs/design-baseline-v2/design-handoff/README.md)、[已确认规则](docs/design-baseline-v2/design-handoff/08-decision-proposals.md) 和 [最终页面与验收](docs/design-baseline-v2/design-handoff/11-final-delivery-checklist.md)。
-4. 按 [实施计划](docs/tasks/plan.md)、[工作任务](docs/tasks/todo.md) 和 [验收分期](docs/tasks/acceptance-schedule.csv) 推进。当前所有实现任务与 60 条正式验收项均未完成。
+4. 按 [实施计划](docs/tasks/plan.md)、[工作任务](docs/tasks/todo.md) 和 [验收分期](docs/tasks/acceptance-schedule.csv) 推进。叶子任务逐项登记；60 条正式 A 项仍按后续联验阶段验收。
 
 ## 预览原型
 
@@ -39,4 +39,4 @@ python3 -m http.server 8862 --bind 127.0.0.1 --directory docs/design-baseline-v2
 
 正式技术基线为 React / TypeScript / Vite、Go 平台、Go 本机 Agent、PostgreSQL。浏览器直连可访问 HTTP；受限 HTTP 显式切换 Agent；stdio 固定 Agent；平台管理身份、权限、配置、脱敏记录及可选个人加密备份，默认不代发 MCP 请求。
 
-本包未复制旧业务源码、数据库、真实配置、凭据、node_modules 或 Git 历史；未创建 go.mod、package.json、正式接口或数据库迁移。旧原型比较稿和历史实现计划不构成当前开发方案。当前工作计划以 `docs/tasks/` 为准。
+交接包未复制旧业务源码、数据库、真实配置、凭据、node_modules 或 Git 历史。新工程独立建立 go.mod、package.json、版本化合同、编号迁移及质量门禁。旧原型比较稿和历史实现计划不构成当前开发方案。当前工作计划以 `docs/tasks/` 为准。
