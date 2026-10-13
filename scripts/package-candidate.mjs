@@ -3,7 +3,7 @@ import { createReadStream, createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { createGzip } from 'node:zlib';
 import { createHash, randomBytes } from 'node:crypto';
-import { dirname, join, resolve, isAbsolute } from 'node:path';
+import { dirname, basename, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn, execFileSync } from 'node:child_process';
 import { prepareCandidateDirectory } from '../packaging/candidate-path.mjs';
@@ -67,6 +67,9 @@ async function saveImage(file) {
   // Attach both rejection handlers immediately; a failed exporter cannot be mistaken for an archive.
   await Promise.all([completed, pipeline(child.stdout, createGzip(), createWriteStream(file, { flags: 'wx', mode: 0o600 }))]);
 }
+export function archiveBundle(bundle, archive) {
+  execFileSync('tar', ['--no-acls', '--no-xattrs', '-czf', archive, '-C', dirname(bundle), basename(bundle)], { env: { ...process.env, COPYFILE_DISABLE: '1' } });
+}
 async function main() {
   const evidence = resolve(process.argv[2] ?? 'tests/evidence/m7-final');
   const location = JSON.parse(await readFile(join(evidence, 'candidate-location.json'), 'utf8'));
@@ -94,7 +97,7 @@ async function main() {
   await writeFile(join(bundle, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
   await writeFile(join(bundle, 'CHECKSUMS.sha256'), [...manifest.entries.map(x => `${x.sha256}  ${x.file}`), `${await digestFile(join(bundle, 'manifest.json'))}  manifest.json`].join('\n') + '\n', { flag: 'wx', mode: 0o600 });
   const archive = join(output, 'mcp-studio-m7-candidate.tar.gz');
-  execFileSync('tar', ['-czf', archive, '-C', output, 'mcp-studio-m7-candidate']);
+  archiveBundle(bundle, archive);
   const result = { archive, sha256: await digestFile(archive), bytes: (await lstat(archive)).size, manifest: join(bundle, 'manifest.json'), publication: 'not-authorized' };
   await writeFile(join(evidence, 'delivery.json'), JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result, null, 2));
