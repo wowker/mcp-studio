@@ -1,0 +1,30 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/shared/QueryFeedback.states.test.tsx apps/web/src/features/auth/IdentityStates.test.tsx apps/web/src/features/auth/IdentityPage.test.tsx apps/web/src/features/projects/Projects.test.tsx apps/web/src/features/team/MembersPage.test.tsx apps/web/src/features/connections/ConnectionsPage.test.tsx apps/web/src/features/connections/AgentBackupsPanel.test.tsx apps/web/src/features/environment/EnvironmentPage.test.tsx apps/web/src/features/environment/VariableEditor.test.tsx apps/web/src/features/devices/DevicesPage.test.tsx apps/web/src/features/records/RecordsPage.test.tsx apps/web/src/features/records/RecordStates.test.tsx apps/web/src/features/operations/OperationsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/shared/QueryFeedback.states.test.tsx (3 tests) 237ms
+ ✓ src/features/records/RecordsPage.test.tsx (8 tests) 1338ms
+   ✓ queries the real scoped API and preserves its connection+tool filters through pagination and detail return  436ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (11 tests) 762ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 1066ms
+   ✓ keeps original invitation after registration and never accepts automatically  597ms
+   ✓ retains typed identity when a wrong-password login returns 401  364ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (8 tests) 811ms
+ ✓ src/features/team/MembersPage.test.tsx (7 tests) 1037ms
+   ✓ retains failed invitation inputs and default 7 day scope  475ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 357ms
+ ✓ src/features/auth/IdentityStates.test.tsx (2 tests) 267ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (4 tests) 385ms
+ ✓ src/features/records/RecordStates.test.tsx (3 tests) 284ms
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 683ms
+ ✓ src/features/projects/Projects.test.tsx (1 test) 103ms
+ ✓ src/features/devices/DevicesPage.test.tsx (3 tests) 201ms
+
+ Test Files  13 passed (13)
+      Tests  69 passed (69)
+   Start at  18:04:58
+   Duration  6.14s (transform 684ms, setup 936ms, collect 7.66s, tests 7.53s, environment 4.20s, prepare 498ms)
+

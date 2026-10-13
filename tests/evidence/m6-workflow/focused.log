@@ -1,0 +1,17 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow apps/web/src/features/connections/runtimeStore.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/workflow/model.test.ts (15 tests) 4ms
+ ✓ src/features/workflow/uploads.test.ts (3 tests) 4ms
+ ✓ src/features/connections/runtimeStore.test.ts (7 tests) 77ms
+ ✓ src/features/workflow/WorkflowPage.test.tsx (12 tests) 312ms
+
+ Test Files  4 passed (4)
+      Tests  37 passed (37)
+   Start at  18:05:24
+   Duration  1.92s (transform 237ms, setup 283ms, collect 1.34s, tests 398ms, environment 1.35s, prepare 128ms)
+

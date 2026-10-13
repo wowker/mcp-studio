@@ -1,0 +1,2333 @@
+{
+  "scope": "Actual production page/subview matrix; 20 geometries per reached view; four actual axe scans per reached view. No mock product state. Human/manual/formal acceptance pending.",
+  "entries": [
+    {
+      "ids": [
+        "P11",
+        "P12"
+      ],
+      "view": "service-token-authorization-unconfigured",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "service-token-authorization-unconfigured-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P13"
+      ],
+      "view": "local-agent-unpaired",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "local-agent-unpaired-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "local-agent-unpaired-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P14"
+      ],
+      "view": "environment-resolution-table",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "environment-resolution-table-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "environment-resolution-table-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P15"
+      ],
+      "view": "variable-create",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "variable-create-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-create-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P15"
+      ],
+      "view": "variable-edit",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "variable-edit-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "variable-edit-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P16"
+      ],
+      "view": "personal-secret-editor-empty",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "personal-secret-editor-empty-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "personal-secret-editor-empty-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 12,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P26"
+      ],
+      "view": "record-device-queue-capacity",
+      "status": "automated-matrix-passed",
+      "metrics": [
+        {
+          "name": "record-device-queue-capacity-zh-CN-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-zh-CN-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-light-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-light-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-light-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-light-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-light-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-dark-390",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 310,
+              "height": 780
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-dark-820",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 644,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-dark-1024",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-dark-1440",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 1248,
+              "height": 836
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        },
+        {
+          "name": "record-device-queue-capacity-en-US-dark-short",
+          "bodySize": 14,
+          "minimumTextSize": 14,
+          "auxiliarySizes": [],
+          "pageOverflow": false,
+          "panes": [
+            {
+              "className": "workbench-content",
+              "width": 832,
+              "height": 576
+            }
+          ],
+          "sensitiveInput": false,
+          "screenshot": "captured"
+        }
+      ],
+      "humanVisual": "pending",
+      "humanKeyboard": "pending"
+    },
+    {
+      "ids": [
+        "P12",
+        "P13",
+        "P16"
+      ],
+      "view": "paired-agent-vault-backups",
+      "status": "pending",
+      "reason": "Real unpaired device, empty browser personal value and token authorization are covered. Pairing, OS vault, encrypted backup restore/delete, and media lifecycle require separate real Agent/OS setup; no paired status or backup is mocked."
+    }
+  ]
+}

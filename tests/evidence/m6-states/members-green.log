@@ -1,0 +1,14 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/team/MembersPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/team/MembersPage.test.tsx (6 tests) 1118ms
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  17:57:49
+   Duration  1.88s (transform 91ms, setup 66ms, collect 186ms, tests 1.12s, environment 332ms, prepare 39ms)
+

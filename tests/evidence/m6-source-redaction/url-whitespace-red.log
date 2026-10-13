@@ -1,0 +1,128 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/runtime/records/redaction.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/runtime/records/redaction.test.ts (36 tests | 2 failed) 27ms
+   ✓ protects nested source echoes, credentials, email, URLs and keeps explicit falsy values 6ms
+   ✓ validates escaped pointers and protects schema-free binary data with metadata only 2ms
+   ✓ restore omits marked top-level parameters and preserves literal marker-looking strings and explicit values 1ms
+   ✓ rejects inherited JSON pointer paths and safely preserves __proto__ as own data 1ms
+   ✓ shared redaction red-default-nested-secrets 0ms
+   ✓ shared redaction red-derived-secret-echo 0ms
+   ✓ shared redaction red-pointer-escaped 0ms
+   ✓ shared redaction red-invalid-pointer 0ms
+   ✓ shared redaction red-secret-url 1ms
+   ✓ shared redaction red-preserve-falsy 0ms
+   ✓ shared redaction binary-metadata-only 0ms
+   ✓ shared redaction project-path-does-not-require-unused-fields 0ms
+   ✓ shared redaction secret-URL-encoded-key 0ms
+   ✓ shared redaction public-query-kept 0ms
+   ✓ shared redaction nested-marker-literal 0ms
+   ✓ shared redaction proto-own-data 0ms
+   ✓ shared redaction inherited-pointer-rejected 0ms
+   ✓ shared redaction default-source-derived-echo 0ms
+   ✓ shared redaction project-source-derived-echo 0ms
+   ✓ shared redaction structural-marker-not-secret-bool 0ms
+   ✓ shared redaction source-numeric-phone-echo 0ms
+   ✓ shared redaction source-tainted-false-only 0ms
+   ✓ shared redaction source-number-spelling-normalized 0ms
+   ✓ shared redaction default-context-hex-digit-span 0ms
+   ✓ shared redaction default-generic-phone-text 0ms
+   ✓ shared redaction default-short-sk-text 0ms
+   ✓ shared redaction default-key-substring-and-derived-echo 0ms
+   ✓ shared redaction default-query-substring-credential 0ms
+   ✓ shared redaction browser-alias-source-protection 0ms
+   ✓ shared redaction browser-embedded-signature-url 1ms
+   ✓ shared redaction default-empty-url-userinfo 0ms
+   ✓ shared redaction default-key-boundary-union 0ms
+   × shared redaction default-bearer-whitespace-union 9ms
+     → expected { …(3) } to deeply equal { …(3) }
+   × shared redaction default-whole-http-scheme-url 1ms
+     → expected { value: { …(2) }, markers: [], …(1) } to deeply equal { …(3) }
+   ✓ collects default and project secret sources before masking derived echoes without tainting existing typed markers 0ms
+   ✓ retains pre-existing browser protection for aliases and embedded credential URLs 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/runtime/records/redaction.test.ts > shared redaction default-bearer-whitespace-union
+AssertionError: expected { …(3) } to deeply equal { …(3) }
+
+- Expected
++ Received
+
+@@ -2,20 +2,14 @@
+    "markers": [
+      {
+        "path": "/first",
+        "reason": "default",
+      },
+-     {
+-       "path": "/second",
+-       "reason": "default",
+-     },
+    ],
+    "omitted": false,
+    "value": {
+      "first": {
+-       "$redacted": true,
+-     },
+-     "second": {
+        "$redacted": true,
+      },
++     "second": "Bearer  ",
+    },
+  }
+
+ ❯ src/runtime/records/redaction.test.ts:26:36
+     24| for(const c of cases.redaction)it(`shared redaction ${c.id}`,()=>{
+     25|  if('error'in c){expect(()=>redact(c.value,c.options)).toThrow(c.error…
+     26|  expect(redact(c.value,c.options)).toEqual(c.expected);
+       |                                    ^
+     27| });
+     28| it('collects default and project secret sources before masking derived…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/runtime/records/redaction.test.ts > shared redaction default-whole-http-scheme-url
+AssertionError: expected { value: { …(2) }, markers: [], …(1) } to deeply equal { …(3) }
+
+- Expected
++ Received
+
+  {
+-   "markers": [
+-     {
+-       "path": "/first",
+-       "reason": "default",
+-     },
+-   ],
++   "markers": [],
+    "omitted": false,
+    "value": {
+-     "first": {
+-       "$redacted": true,
+-     },
++     "first": "http:opaque?api_key=opaque-fixture",
+      "public": "http:opaque?workspace=demo",
+    },
+  }
+
+ ❯ src/runtime/records/redaction.test.ts:26:36
+     24| for(const c of cases.redaction)it(`shared redaction ${c.id}`,()=>{
+     25|  if('error'in c){expect(()=>redact(c.value,c.options)).toThrow(c.error…
+     26|  expect(redact(c.value,c.options)).toEqual(c.expected);
+       |                                    ^
+     27| });
+     28| it('collects default and project secret sources before masking derived…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 34 passed (36)
+   Start at  19:26:43
+   Duration  1.28s (transform 74ms, setup 139ms, collect 52ms, tests 27ms, environment 711ms, prepare 98ms)
+

@@ -1,0 +1,18 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/app/App.test.tsx (16 tests) 4047ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  533ms
+   ✓ refreshes team permissions when forbidden changes leave the project maintainer role intact  1232ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  780ms
+   ✓ keeps another project tool document when switching through a Viewer project  419ms
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  18:29:15
+   Duration  6.32s (transform 362ms, setup 73ms, collect 1.55s, tests 4.05s, environment 453ms, prepare 54ms)
+

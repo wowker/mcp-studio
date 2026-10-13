@@ -1,0 +1,12 @@
+--- FAIL: TestSharedProductionRecording (0.00s)
+    --- FAIL: TestSharedProductionRecording/browser-alias-source-protection (0.00s)
+        fixtures_test.go:75: got {"echo":"prefix opaque-password-label suffix","mobile":"opaque-mobile-label","passwd":"opaque-password-label","plain":false} [] false want {"echo":{"$redacted":true},"mobile":{"$redacted":true},"passwd":{"$redacted":true},"plain":false} [{Path:/echo Reason:source} {Path:/mobile Reason:default} {Path:/passwd Reason:default}] false
+    --- FAIL: TestSharedProductionRecording/browser-embedded-signature-url (0.00s)
+        fixtures_test.go:75: got {"first":"Open https://example.invalid/mcp?signature=opaque-fixture now","public":"Open https://example.invalid/mcp?workspace=demo now","second":"https://example.invalid/mcp?%73ignature=opaque-fixture"} [] false want {"first":{"$redacted":true},"public":"Open https://example.invalid/mcp?workspace=demo now","second":{"$redacted":true}} [{Path:/first Reason:default} {Path:/second Reason:default}] false
+    --- FAIL: TestSharedProductionRecording/default-key-boundary-union (0.00s)
+        fixtures_test.go:75: got {"bypassName":"public-word","notMobile":"public-label","passWd":"opaque-password-label","plain":0,"suffixCredentialInfo":{"$redacted":true},"tokenizer":{"$redacted":true}} [{Path:/suffixCredentialInfo Reason:default} {Path:/tokenizer Reason:default}] false want {"bypassName":"public-word","notMobile":"public-label","passWd":{"$redacted":true},"plain":0,"suffixCredentialInfo":{"$redacted":true},"tokenizer":{"$redacted":true}} [{Path:/passWd Reason:default} {Path:/suffixCredentialInfo Reason:default} {Path:/tokenizer Reason:default}] false
+    --- FAIL: TestSharedProductionRecording/default-bearer-whitespace-union (0.00s)
+        fixtures_test.go:75: got {"first":"Bearer opaque-label","second":{"$redacted":true}} [{Path:/second Reason:default}] false want {"first":{"$redacted":true},"second":{"$redacted":true}} [{Path:/first Reason:default} {Path:/second Reason:default}] false
+FAIL
+FAIL	mcp-studio/internal/recording	0.476s
+FAIL

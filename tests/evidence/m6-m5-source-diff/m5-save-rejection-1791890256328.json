@@ -1,0 +1,15 @@
+{
+  "status": 400,
+  "code": "invalid_source",
+  "differentSnapshotFields": [
+    "environmentVersion",
+    "redactions"
+  ],
+  "historyMarkerPaths": [
+    {
+      "path": "/context/environmentVersion",
+      "reason": "default"
+    }
+  ],
+  "savedMarkerPaths": []
+}

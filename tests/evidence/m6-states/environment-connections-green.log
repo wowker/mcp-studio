@@ -1,0 +1,16 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/environment/EnvironmentPage.test.tsx apps/web/src/features/connections/ConnectionsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/environment/EnvironmentPage.test.tsx (8 tests) 895ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (11 tests) 1065ms
+   ✓ service configuration > preserves the edited local draft after a version conflict and compares latest remote config  399ms
+
+ Test Files  2 passed (2)
+      Tests  19 passed (19)
+   Start at  17:54:39
+   Duration  5.02s (transform 560ms, setup 271ms, collect 6.03s, tests 1.96s, environment 1.07s, prepare 159ms)
+

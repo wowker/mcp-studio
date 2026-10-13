@@ -1,0 +1,4 @@
+
+> mcp-studio@0.1.0 typecheck
+> tsc --noEmit -p apps/web/tsconfig.json
+

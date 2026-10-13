@@ -1,0 +1,113 @@
+{
+  "mcp": {
+    "cookieRequests": 0,
+    "initialize": 5,
+    "httpInitialize": 5,
+    "sseInitialize": 0,
+    "toolsList": 10,
+    "httpToolsList": 10,
+    "sseToolsList": 0,
+    "toolsCall": 5,
+    "httpToolsCall": 5,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "oauth": {
+    "cookieRequests": 0,
+    "initialize": 0,
+    "httpInitialize": 0,
+    "sseInitialize": 0,
+    "toolsList": 0,
+    "httpToolsList": 0,
+    "sseToolsList": 0,
+    "toolsCall": 0,
+    "httpToolsCall": 0,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "agent": {
+    "generation": 1,
+    "nativePairings": 5,
+    "nativeProcesses": 4,
+    "stdioCalls": 4,
+    "uploads": [
+      {
+        "frozenDigest": "554c054809d0eb07c80701a41f6ab6116724cbb82ebc03982230c1ad46ab6815",
+        "operationId": "3b45836b-1338-43c0-acb9-6e304acc7ef9",
+        "status": 200,
+        "targetId": "1881afc4-f857-4dcf-85d7-0546349d658a",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "96da861c6a391d74216d9aa8b3c61de68b76c45de5b5dc59cd1b03550105c769",
+        "operationId": "e625d72b-992d-483d-8acc-3d78a7b5d44a",
+        "status": 200,
+        "targetId": "7ee42452-4a4d-4c49-8de8-3a7b5a33137f",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "2ddb4ab9b1cc31c464b82b0ab3a310eb79524d42570a96997784fb5b40d8e166",
+        "operationId": "09e6176f-c9ae-4334-a302-8a2ef1e8a415",
+        "status": 200,
+        "targetId": "43228942-2a00-4bed-afd2-71e6c06072fe",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "73802f631d7172c11f6da4717a264bbfba42c67ce70ab767cb9052c19b1a6467",
+        "operationId": "b617ff5d-a848-4535-b14d-ca77394bbb6c",
+        "status": 200,
+        "targetId": "67aad2c0-63f3-435d-ac20-fb1345d9fa6c",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "1524a95a816645424b1c7e79312cf360f0165e83b5275d9b06ca9f3bcb34133d",
+        "operationId": "9078c6ed-f9bf-4069-8cdd-d0307f3a48f8",
+        "status": 200,
+        "targetId": "21a50f09-20c0-4e56-9ed3-c0256f1c3190",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "e50c3cdaf9b601ff9e5fa4eebfad378bdaa0c5d4e8443de9242241d4d61c5349",
+        "operationId": "2a0e93e5-3f5a-4ea6-ac68-889ffeb50562",
+        "status": 200,
+        "targetId": "2891c5de-9756-4f30-9f74-d63fe6dac42e",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "43690a5f827509d06c96f82344df687974d1b13fc1291f195c2bb6a8e4860039",
+        "operationId": "f3406bc3-4585-4941-bba3-578a7fcb3250",
+        "status": 200,
+        "targetId": "177b4902-ae87-43d8-b9fa-31570d63eb05",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "b0474fdcc8225a615748925bfebc869c922ca67cdacab8142fbd94c715127b4c",
+        "operationId": "0c9a5e31-1b01-4cd4-b895-fd5e9dd2498b",
+        "status": 200,
+        "targetId": "82b54739-24de-4a62-8f78-74c190ab77dd",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "5cdec42c6da049d1f45e36129fe2247e04645cf9aa5f53f322b016ff8f52fef0",
+        "operationId": "c64a860d-e887-4e83-9741-581a5f2b9c11",
+        "status": 200,
+        "targetId": "d9939f14-9ce3-4a03-ba44-9fb26226f581",
+        "type": "upload"
+      }
+    ]
+  },
+  "tls": "Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass",
+  "supportMatrix": "T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence"
+}

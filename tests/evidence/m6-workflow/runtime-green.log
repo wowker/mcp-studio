@@ -1,0 +1,14 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/runtimeStore.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/connections/runtimeStore.test.ts (7 tests) 59ms
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  17:53:12
+   Duration  569ms (transform 118ms, setup 37ms, collect 189ms, tests 59ms, environment 165ms, prepare 29ms)
+

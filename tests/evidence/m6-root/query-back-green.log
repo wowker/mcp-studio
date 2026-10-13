@@ -1,0 +1,18 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/tools/ToolsPage.test.tsx apps/web/src/features/workflow/WorkflowPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/workflow/WorkflowPage.test.tsx (13 tests) 1073ms
+   ✓ reads real configuration and makes both optional skips explicit with keyboard actions  482ms
+ ✓ src/features/tools/ToolsPage.test.tsx (9 tests) 1632ms
+   ✓ lists the real session catalog, searches it, and opens independent documents with keyboard navigation  864ms
+   ✓ tab menu targets its own document, preserves selected identity, and returns focus on Escape  353ms
+
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+   Start at  18:32:38
+   Duration  6.78s (transform 920ms, setup 573ms, collect 6.83s, tests 2.71s, environment 2.18s, prepare 190ms)
+

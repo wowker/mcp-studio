@@ -1,0 +1,1072 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/environment/EnvironmentPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/environment/EnvironmentPage.test.tsx (8 tests | 3 failed) 1692ms
+   ✓ previews a different environment without applying and applies only after explicit action 174ms
+   ✓ blocks application for missing personal required value and preserves secret only in memory 202ms
+   ✓ developer can prepare personal values but cannot edit shared definitions 44ms
+   ✓ keeps a connection draft through reference repair and blocks apply until it is saved 29ms
+   ✓ filters effective missing sensitive and overridden values and exposes lower source editing 152ms
+   × does not report an empty environment or permit edits while variable lookup fails 30ms
+     → expected <button type="button" …(1)></button> to be null
+   × distinguishes filtered variables from absent definitions and clears only filters 52ms
+     → expected <p></p> to be null
+   × never treats an unavailable explicit connection as project definitions 1009ms
+     → Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mEnvironment variables[0m
+      [36m</h1>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mBrowsing previews does not change your session. Apply explicitly while disconnected.[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-context"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEnvironment preview[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Environment preview"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mBase environment[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"dev"[39m
+            [36m>[39m
+              [0mDevelopment[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mDefinition scope[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Definition scope"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProject definitions only[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form m2-environment-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«rh»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mName[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Name"[39m
+            [33mid[39m=[32m"«rh»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mCreate environment[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«rg»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mFilter variable names[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Filter variable names"[39m
+          [33mid[39m=[32m"«rg»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly missing[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly overridden[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly sensitive[0m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-table-scroll"[39m
+      [36m>[39m
+        [36m<table[39m
+          [33mclass[39m=[32m"ui-table"[39m
+        [36m>[39m
+          [36m<thead>[39m
+            [36m<tr>[39m
+              [36m<th>[39m
+                [0mName[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mType[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mValue[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mSource[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mStatus[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mPermissions[0m
+              [36m</th>[39m
+            [36m</tr>[39m
+          [36m</thead>[39m
+          [36m<tbody>[39m
+            [36m<tr>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mREQUIRED[0m
+                [36m<span[39m
+                  [33mclass[39m=[32m"ui-required"[39m
+                [36m>[39m
+                  [0m *[0m
+                [36m</span>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mstring[0m
+              [36m</td>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0m"public"[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mBase project[0m
+                [36m<details>[39m
+                  [36m<summary>[39m
+                    [0mOverridden layers[0m
+                  [36m</summary>[39m
+                  [36m<p>[39m
+                    [0mBase project[0m
+                    [0m · [0m
+                    [0mstring[0m
+                    [0m · [0m
+                    [0mValue[0m
+                    [36m<button[39m
+                      [33maria-label[39m=[32m"Edit source Base project REQUIRED"[39m
+                      [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mEdit source[0m
+                    [36m</button>[39m
+                  [36m</p>[39m
+                [36m</details>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mAvailable[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"ui-actions"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEdit definition[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-danger "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mDelete definition[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</td>[39m
+            [36m</tr>[39m
+          [36m</tbody>[39m
+        [36m</table>[39m
+      [36m</div>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mCreate definition / override[0m
+      [36m</button>[39m
+      [36m<h2>[39m
+        [0mCheck references / repair[0m
+      [36m</h2>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mApplication requires a saved, disconnected service with all required values and references available.[0m
+      [36m</p>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mdisabled[39m=[32m""[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mUse for my session[0m
+      [36m</button>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mEnvironment variables[0m
+      [36m</h1>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mBrowsing previews does not change your session. Apply explicitly while disconnected.[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-context"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEnvironment preview[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Environment preview"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mBase environment[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"dev"[39m
+            [36m>[39m
+              [0mDevelopment[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mDefinition scope[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Definition scope"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProject definitions only[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form m2-environment-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«rh»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mName[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Name"[39m
+            [33mid[39m=[32m"«rh»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mCreate environment[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«rg»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mFilter variable names[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Filter variable names"[39m
+          [33mid[39m=[32m"«rg»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly missing[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly overridden[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly sensitive[0m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-table-scroll"[39m
+      [36m>[39m
+        [36m<table[39m
+          [33mclass[39m=[32m"ui-table"[39m
+        [36m>[39m
+          [36m<thead>[39m
+            [36m<tr>[39m
+              [36m<th>[39m
+                [0mName[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mType[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mValue[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mSource[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mStatus[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mPermissions[0m
+              [36m</th>[39m
+            [36m</tr>[39m
+          [36m</thead>[39m
+          [36m<tbody>[39m
+            [36m<tr>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mREQUIRED[0m
+                [36m<span[39m
+                  [33mclass[39m=[32m"ui-required"[39m
+                [36m>[39m
+                  [0m *[0m
+                [36m</span>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mstring[0m
+              [36m</td>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0m"public"[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mBase project[0m
+                [36m<details>[39m
+                  [36m<summary>[39m
+                    [0mOverridden layers[0m
+                  [36m</summary>[39m
+                  [36m<p>[39m
+                    [0mBase project[0m
+                    [0m · [0m
+                    [0mstring[0m
+                    [0m · [0m
+                    [0mValue[0m
+                    [36m<button[39m
+                      [33maria-label[39m=[32m"Edit source Base project REQUIRED"[39m
+                      [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mEdit source[0m
+                    [36m</button>[39m
+                  [36m</p>[39m
+                [36m</details>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mAvailable[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"ui-actions"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEdit definition[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-danger "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mDelete definition[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</td>[39m
+            [36m</tr>[39m
+          [36m</tbody>[39m
+        [36m</table>[39m
+      [36m</div>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mCreate definition / override[0m
+      [36m</button>[39m
+      [36m<h2>[39m
+        [0mCheck references / repair[0m
+      [36m</h2>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mApplication requires a saved, disconnected service with all required values and references available.[0m
+      [36m</p>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mdisabled[39m=[32m""[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mUse for my session[0m
+      [36m</button>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/environment/EnvironmentPage.test.tsx > does not report an empty environment or permit edits while variable lookup fails
+AssertionError: expected <button type="button" …(1)></button> to be null
+
+- Expected: 
+null
+
++ Received: 
+<button
+  class="ui-button ui-button-secondary "
+  type="button"
+>
+  Create definition / override
+</button>
+
+ ❯ src/features/environment/EnvironmentPage.test.tsx:25:176
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/features/environment/EnvironmentPage.test.tsx > distinguishes filtered variables from absent definitions and clears only filters
+AssertionError: expected <p></p> to be null
+
+- Expected: 
+null
+
++ Received: 
+<p>
+  No variable definitions.
+</p>
+
+ ❯ src/features/environment/EnvironmentPage.test.tsx:30:57
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/features/environment/EnvironmentPage.test.tsx > never treats an unavailable explicit connection as project definitions
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mEnvironment variables[0m
+      [36m</h1>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mBrowsing previews does not change your session. Apply explicitly while disconnected.[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-context"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEnvironment preview[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Environment preview"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mBase environment[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"dev"[39m
+            [36m>[39m
+              [0mDevelopment[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mDefinition scope[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Definition scope"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProject definitions only[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form m2-environment-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«rh»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mName[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Name"[39m
+            [33mid[39m=[32m"«rh»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mCreate environment[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«rg»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mFilter variable names[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Filter variable names"[39m
+          [33mid[39m=[32m"«rg»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly missing[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly overridden[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly sensitive[0m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-table-scroll"[39m
+      [36m>[39m
+        [36m<table[39m
+          [33mclass[39m=[32m"ui-table"[39m
+        [36m>[39m
+          [36m<thead>[39m
+            [36m<tr>[39m
+              [36m<th>[39m
+                [0mName[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mType[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mValue[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mSource[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mStatus[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mPermissions[0m
+              [36m</th>[39m
+            [36m</tr>[39m
+          [36m</thead>[39m
+          [36m<tbody>[39m
+            [36m<tr>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mREQUIRED[0m
+                [36m<span[39m
+                  [33mclass[39m=[32m"ui-required"[39m
+                [36m>[39m
+                  [0m *[0m
+                [36m</span>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mstring[0m
+              [36m</td>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0m"public"[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mBase project[0m
+                [36m<details>[39m
+                  [36m<summary>[39m
+                    [0mOverridden layers[0m
+                  [36m</summary>[39m
+                  [36m<p>[39m
+                    [0mBase project[0m
+                    [0m · [0m
+                    [0mstring[0m
+                    [0m · [0m
+                    [0mValue[0m
+                    [36m<button[39m
+                      [33maria-label[39m=[32m"Edit source Base project REQUIRED"[39m
+                      [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mEdit source[0m
+                    [36m</button>[39m
+                  [36m</p>[39m
+                [36m</details>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mAvailable[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"ui-actions"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEdit definition[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-danger "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mDelete definition[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</td>[39m
+            [36m</tr>[39m
+          [36m</tbody>[39m
+        [36m</table>[39m
+      [36m</div>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mCreate definition / override[0m
+      [36m</button>[39m
+      [36m<h2>[39m
+        [0mCheck references / repair[0m
+      [36m</h2>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mApplication requires a saved, disconnected service with all required values and references available.[0m
+      [36m</p>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mdisabled[39m=[32m""[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mUse for my session[0m
+      [36m</button>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mEnvironment variables[0m
+      [36m</h1>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mBrowsing previews does not change your session. Apply explicitly while disconnected.[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-context"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEnvironment preview[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Environment preview"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mBase environment[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"dev"[39m
+            [36m>[39m
+              [0mDevelopment[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mDefinition scope[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Definition scope"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProject definitions only[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form m2-environment-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«rh»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mName[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Name"[39m
+            [33mid[39m=[32m"«rh»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mCreate environment[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«rg»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mFilter variable names[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Filter variable names"[39m
+          [33mid[39m=[32m"«rg»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly missing[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly overridden[0m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-check"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [0mOnly sensitive[0m
+        [36m</label>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-table-scroll"[39m
+      [36m>[39m
+        [36m<table[39m
+          [33mclass[39m=[32m"ui-table"[39m
+        [36m>[39m
+          [36m<thead>[39m
+            [36m<tr>[39m
+              [36m<th>[39m
+                [0mName[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mType[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mValue[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mSource[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mStatus[0m
+              [36m</th>[39m
+              [36m<th>[39m
+                [0mPermissions[0m
+              [36m</th>[39m
+            [36m</tr>[39m
+          [36m</thead>[39m
+          [36m<tbody>[39m
+            [36m<tr>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mREQUIRED[0m
+                [36m<span[39m
+                  [33mclass[39m=[32m"ui-required"[39m
+                [36m>[39m
+                  [0m *[0m
+                [36m</span>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mstring[0m
+              [36m</td>[39m
+              [36m<td[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0m"public"[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mBase project[0m
+                [36m<details>[39m
+                  [36m<summary>[39m
+                    [0mOverridden layers[0m
+                  [36m</summary>[39m
+                  [36m<p>[39m
+                    [0mBase project[0m
+                    [0m · [0m
+                    [0mstring[0m
+                    [0m · [0m
+                    [0mValue[0m
+                    [36m<button[39m
+                      [33maria-label[39m=[32m"Edit source Base project REQUIRED"[39m
+                      [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mEdit source[0m
+                    [36m</button>[39m
+                  [36m</p>[39m
+                [36m</details>[39m
+              [36m</td>[39m
+              [36m<td>[39m
+                [0mAvailable[0m
+              [36m</td>[39m
+              [36m<td>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"ui-actions"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEdit definition[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"ui-button ui-button-danger "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mDelete definition[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</td>[39m
+            [36m</tr>[39m
+          [36m</tbody>[39m
+        [36m</table>[39m
+      [36m</div>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mCreate definition / override[0m
+      [36m</button>[39m
+      [36m<h2>[39m
+        [0mCheck references / repair[0m
+      [36m</h2>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mApplication requires a saved, disconnected service with all required values and references available.[0m
+      [36m</p>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+        [33mdisabled[39m=[32m""[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mUse for my session[0m
+      [36m</button>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/environment/EnvironmentPage.test.tsx:36:15
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 5 passed (8)
+   Start at  17:54:13
+   Duration  4.36s (transform 183ms, setup 80ms, collect 1.76s, tests 1.69s, environment 667ms, prepare 48ms)
+

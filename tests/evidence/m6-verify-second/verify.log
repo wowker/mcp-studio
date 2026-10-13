@@ -1,0 +1,287 @@
+
+> mcp-studio@0.1.0 verify
+> node scripts/verify.mjs
+
+[verify] Generated contracts are current
+Platform contract v1.4.0: 57 schemas, 47 paths; generated boundaries match.
+[verify] Generated Agent contracts are current
+Agent local contract v1.0.0: 30 schemas, 26 paths; strict boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Generator, SDK, loopback security and runtime guards
+✔ Agent local API has generated strict Go and TypeScript boundaries distinct from platform and MCP (113.906083ms)
+✔ versioned platform contract generates stable Go and TypeScript boundaries (120.1175ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (196.661625ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (37.525083ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (14.240875ms)
+✔ expired codes and local unpair reject new requests (7.618916ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (54.324834ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (9.470792ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (11.036291ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (4.658833ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (18.857583ms)
+✔ controlled call failures and barrier do not change handshake or retain payloads in counters (8.085792ms)
+✔ controlled Agent links real protected local API and restarts with guaranteed process cleanup (3095.982708ms)
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (467.994875ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (837.591292ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.751875ms)
+✔ gate propagates a failing real subprocess exit status (70.491958ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (53.057167ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (16.06175ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (13.718ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3204.013709
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/records/RecordsPage.test.tsx (9 tests) 2449ms
+   ✓ queries the real scoped API and preserves its connection+tool filters through pagination and detail return  536ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record  642ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds  676ms
+ ✓ src/features/records/RecordEditors.test.tsx (13 tests) 2538ms
+   ✓ freezes a failed metadata revision including its ETag and retries the exact operation after further editing  506ms
+   ✓ keeps additional redaction reasons isolated and retries original pointers and reason without using the edited form  307ms
+   ✓ preserves a failed metadata draft but clears all editing state after its frozen retry completes while unmounted  362ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 3607ms
+   ✓ keeps optional defaults skipped and focus or blur does not emit validation errors  416ms
+   ✓ preserves zero false null empty arrays and explicit nested input with independent optional skipping  985ms
+   ✓ error path navigation opens collapsed ancestors and focuses the nested failing field  483ms
+ ✓ src/app/App.test.tsx (19 tests) 5902ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  786ms
+   ✓ authenticated Shell > unmounts project context when session expires on a later request  428ms
+   ✓ rechecks project capability after a forbidden write without signing out  532ms
+   ✓ refreshes team permissions when forbidden changes leave the project maintainer role intact  430ms
+   ✓ keeps the old project hidden after a 401 and a different account signs in before its scope loads  409ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  1050ms
+   ✓ keeps another project tool document when switching through a Viewer project  739ms
+ ✓ src/features/team/MembersPage.test.tsx (7 tests) 1932ms
+   ✓ retains failed invitation inputs and default 7 day scope  645ms
+ ✓ src/features/tools/ToolsPage.test.tsx (9 tests) 2323ms
+   ✓ lists the real session catalog, searches it, and opens independent documents with keyboard navigation  982ms
+   ✓ tab menu targets its own document, preserves selected identity, and returns focus on Escape  432ms
+   ✓ closing a focused document returns focus to a surviving tab and the catalog after the last close  329ms
+   ✓ keeps an open saved-result editor attached to its original Tab when switching documents  364ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (14 tests) 2610ms
+   ✓ previews a different environment without applying and applies only after explicit action  352ms
+   ✓ blocks application for missing personal required value and preserves secret only in memory  471ms
+   ✓ follows same-project route changes and back navigation without applying the previous scope or losing scoped drafts  490ms
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 1725ms
+   ✓ shows only own current-project records, stale and storage failure, and real capacity summary  738ms
+   ✓ requires explicit selected discard and protects uploading records with keyboard-accessible controls  446ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 1955ms
+   ✓ keeps original invitation after registration and never accepts automatically  1401ms
+   ✓ retains typed identity when a wrong-password login returns 401  318ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 1313ms
+   ✓ performs one call and retries only the frozen redacted upload despite later draft edits  762ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (11 tests) 1869ms
+   ✓ service configuration > preserves the edited local draft after a version conflict and compares latest remote config  720ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (4 tests) 1403ms
+   ✓ does not create a backup until confirmed and keeps metadata deletion independent of local credentials and reauthentication  350ms
+   ✓ retains reauthentication input after restore request failure without a success fact  720ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 1743ms
+   ✓ accepts a shared number reference expression and preserves it for typed runtime resolution  425ms
+   ✓ preserves the original conditional version with a definition draft across navigation  635ms
+   ✓ allows real credential-shaped personal values while shared definitions reject them  607ms
+ ✓ src/features/workflow/WorkflowPage.test.tsx (13 tests) 2370ms
+   ✓ reads real configuration and makes both optional skips explicit with keyboard actions  1482ms
+ ✓ src/features/auth/IdentityStates.test.tsx (2 tests) 837ms
+   ✓ shows unavailable invitation state before sign-in and offers sign-in without that invitation  392ms
+   ✓ retains sign-in inputs while retrying the same invitation lookup  443ms
+ ✓ src/runtime/browser-session.test.ts (58 tests) 740ms
+ ✓ src/app/Shell.test.tsx (3 tests) 728ms
+   ✓ allows skipping the sidebar by keyboard and identifies collapsed navigation controls  486ms
+ ✓ src/features/records/RecordStates.test.tsx (3 tests) 397ms
+ ✓ src/features/devices/AgentQueuePanel.test.tsx (3 tests) 380ms
+ ✓ src/features/devices/DevicesPage.test.tsx (3 tests) 470ms
+   ✓ requires local approval code and never approves natively from the web  338ms
+ ✓ src/features/projects/Projects.test.tsx (2 tests) 299ms
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 462ms
+ ✓ src/features/connections/AgentCredentialsPanel.test.tsx (1 test) 312ms
+   ✓ keeps backup off by default and saves Agent token independently of browser vault  311ms
+ ✓ src/shared/ui.layout.test.tsx (2 tests) 236ms
+ ✓ src/features/connections/AgentOAuthPanel.test.tsx (1 test) 306ms
+   ✓ keeps authorization separate from saving and retries local saving without repeating authorization  305ms
+ ✓ src/shared/QueryFeedback.states.test.tsx (3 tests) 251ms
+ ✓ src/features/environment/AgentEnvironmentPanel.test.tsx (1 test) 239ms
+ ✓ src/features/tools/ToolDocumentTabs.test.tsx (2 tests) 310ms
+ ✓ src/runtime/records/queueStorage.test.ts (29 tests) 225ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 168ms
+ ✓ src/runtime/execution/index.test.ts (15 tests) 110ms
+ ✓ src/runtime/records/operations.test.ts (14 tests) 152ms
+ ✓ src/features/connections/runtimeStore.test.ts (7 tests) 141ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 76ms
+ ✓ src/features/records/SessionUploads.test.tsx (1 test) 51ms
+ ✓ src/runtime/agent-client.test.ts (8 tests) 31ms
+ ✓ src/shared/api.test.ts (10 tests) 18ms
+ ✓ src/shared/i18n.test.ts (2 tests) 22ms
+ ✓ src/features/records/restore.test.ts (8 tests) 36ms
+ ✓ src/runtime/connection.test.ts (5 tests) 11ms
+ ✓ src/features/workflow/model.test.ts (15 tests) 9ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 14ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 13ms
+ ✓ src/runtime/records/redaction.test.ts (24 tests) 16ms
+ ✓ src/runtime/vault.test.ts (8 tests) 12ms
+ ✓ src/runtime/agent-session.test.ts (2 tests) 9ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 8ms
+ ✓ src/features/workflow/uploads.test.ts (3 tests) 10ms
+ ✓ src/features/tools/workspace.test.ts (7 tests) 7ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 8ms
+ ✓ src/runtime/environment.test.ts (21 tests) 10ms
+ ✓ src/features/records/viewStore.test.ts (4 tests) 6ms
+ ✓ src/runtime/execution/protocol.test.ts (5 tests) 7ms
+ ✓ src/features/connections/session.test.ts (3 tests) 3ms
+ ✓ src/features/team/protection.test.ts (3 tests) 3ms
+ ✓ src/runtime/execution/fixture.test.ts (3 tests) 177ms
+
+ Test Files  56 passed (56)
+      Tests  576 passed (576)
+   Start at  18:47:59
+   Duration  35.76s (transform 1.77s, setup 6.10s, collect 45.81s, tests 41.06s, environment 31.48s, prepare 4.28s)
+
+[verify] Frontend production build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4974 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     0.49 kB │ gzip:   0.31 kB
+dist/assets/worker-rF_BGtny.js                     71.80 kB
+dist/assets/RecordsPage-BcUVVPNl.css                0.39 kB │ gzip:   0.24 kB
+dist/assets/WorkflowPage-Dz31IA2x.css               1.29 kB │ gzip:   0.49 kB
+dist/assets/OperationsPage-DPjr8syy.css             1.59 kB │ gzip:   0.59 kB
+dist/assets/index-D9dsatVi.css                     15.07 kB │ gzip:   3.54 kB
+dist/assets/AgentPersonalValueEditor-B5AYAJLa.js    2.50 kB │ gzip:   1.12 kB
+dist/assets/AgentBackupsPanel-BcF2BDZy.js           3.03 kB │ gzip:   1.22 kB
+dist/assets/Plug.es-C6kijhUn.js                     3.20 kB │ gzip:   1.06 kB
+dist/assets/DevicesPage-MSfDIPJ1.js                 3.29 kB │ gzip:   1.30 kB
+dist/assets/agent-DVG7g-RM.js                       3.30 kB │ gzip:   0.90 kB
+dist/assets/agent-session-B6uJBnST.js               3.40 kB │ gzip:   1.32 kB
+dist/assets/AgentEnvironmentPanel-D8jP24JC.js       4.12 kB │ gzip:   1.82 kB
+dist/assets/AgentQueuePanel-CqSEoQEO.js             4.67 kB │ gzip:   1.66 kB
+dist/assets/agent-client-By1GLL0u.js                5.08 kB │ gzip:   1.90 kB
+dist/assets/AgentToolExecution-Dl4nYRGE.js          7.26 kB │ gzip:   2.76 kB
+dist/assets/streamableHttp-DrBV1xR5.js              7.70 kB │ gzip:   2.57 kB
+dist/assets/AgentConnectionPanel-DM-jvJ88.js        7.76 kB │ gzip:   2.50 kB
+dist/assets/sse-BpbSGsP5.js                         8.82 kB │ gzip:   3.26 kB
+dist/assets/OperationsPage-BaGs1twy.js             10.22 kB │ gzip:   3.42 kB
+dist/assets/AgentFeedback-XWb3KE3g.js              13.87 kB │ gzip:   5.45 kB
+dist/assets/WorkflowPage-BRAVoh2e.js               14.51 kB │ gzip:   4.06 kB
+dist/assets/EnvironmentPage-DNF8uVmN.js            16.26 kB │ gzip:   5.02 kB
+dist/assets/ConnectionsPage-B_yjwNlS.js            18.00 kB │ gzip:   5.81 kB
+dist/assets/auth-yiANpw2l.js                       21.54 kB │ gzip:   6.76 kB
+dist/assets/browser-session-Bv1evDAQ.js            22.33 kB │ gzip:   7.53 kB
+dist/assets/RecordsPage-hs1RdZ6S.js                34.95 kB │ gzip:  10.61 kB
+dist/assets/ToolsPage-DXnJcI50.js                  43.55 kB │ gzip:  13.17 kB
+dist/assets/schema-vendor-Hd_RTo2f.js              70.35 kB │ gzip:  18.89 kB
+dist/assets/index-C_cmt7xU.js                     165.22 kB │ gzip:  50.17 kB
+dist/assets/index-DdeuG53w.js                     453.26 kB │ gzip: 139.05 kB
+✓ built in 2.55s
+[verify] Go tests with real isolated PostgreSQL
+ok  	mcp-studio/cmd/agent	1.645s
+ok  	mcp-studio/cmd/platform	0.695s
+ok  	mcp-studio/internal/agent/localapi	2.612s
+ok  	mcp-studio/internal/agent/mcp	2.257s
+ok  	mcp-studio/internal/agent/oauth	1.161s
+ok  	mcp-studio/internal/agent/pairing	3.006s
+ok  	mcp-studio/internal/agent/platformclient	3.429s
+ok  	mcp-studio/internal/agent/process	4.252s
+ok  	mcp-studio/internal/agent/queue	4.013s
+ok  	mcp-studio/internal/agent/sessions	4.969s
+ok  	mcp-studio/internal/agent/vault	4.304s
+?   	mcp-studio/internal/agent/wire	[no test files]
+ok  	mcp-studio/internal/configuration	4.356s
+ok  	mcp-studio/internal/contracts	4.320s
+ok  	mcp-studio/internal/environment	4.181s
+ok  	mcp-studio/internal/infrastructure	4.173s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	84.022s
+ok  	mcp-studio/internal/recording	4.250s
+ok  	mcp-studio/internal/schema	4.053s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	4.295s
+?   	mcp-studio/tests/fixtures/m5-agent	[no test files]
+ok  	mcp-studio/tests/fixtures/sdk	3.821s
+ok  	mcp-studio/tests/integration	4.014s
+[test-runtime] isolated schema removed
+[verify] Go vet
+[verify] Go production platform build
+[verify] Go production Agent build
+[verify] Controlled Agent integration fixture build
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 26 tests using 1 worker
+
+(node:43749) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:43749) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (6.8s)
+  ✓   2 [chromium] › tests/e2e/m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (1.7s)
+  ✓   3 [chromium] › tests/e2e/m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (2.6s)
+  ✓   4 [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (3.3s)
+  ✓   5 [chromium] › tests/e2e/m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (3.5s)
+  ✓   6 [chromium] › tests/e2e/m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (3.4s)
+  ✓   7 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (2.5s)
+  ✓   8 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (5.2s)
+  ✓   9 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (4.3s)
+  ✓  10 [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission (6.0s)
+  ✓  11 [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft (4.8s)
+  ✓  12 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (4.5s)
+  ✓  13 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (5.2s)
+  ✓  14 [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (5.5s)
+  ✓  15 [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (3.8s)
+  ✓  16 [chromium] › tests/e2e/m5.spec.ts:19:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (6.4s)
+  ✓  17 [chromium] › tests/e2e/m5.spec.ts:21:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool (7.5s)
+  ✓  18 [chromium] › tests/e2e/m5.spec.ts:23:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent (9.1s)
+  ✓  19 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (8.5s)
+  ✓  20 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (4.6s)
+  ✓  21 [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps (2.8s)
+  ✘  22 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (3.0m)
+(node:44030) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44030) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (3.0s)
+  ✓  24 [chromium] › tests/e2e/m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views (31.9s)
+  ✓  25 [chromium] › tests/e2e/m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views (15.0s)
+  ✓  26 [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor (28.7s)
+
+
+  1) [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.evaluate: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('region', { name: 'Members & invitations', exact: true })[22m
+
+
+      21 |  await page.getByRole('button',{name:'服务',exact:true}).click();await page.getByRole('button',{name:'断开',exact:true}).click();await expect(page.getByLabel('名称',{exact:true})).toBeEnabled();await page.getByLabel('名称',{exact:true}).fill('Very long unsaved service configuration name · 很长的未保存连接草稿');
+      22 |  for(const language of ['zh-CN','en-US'] as const)for(const appearance of ['light','dark'] as const){await locale(page,language);await theme(page,appearance);for(const width of [390,820,1024,1440]){await page.setViewportSize({width,height:width===390?844:640});metrics.push(await capture(page,`server-${language}-${appearance}-${width}`));await expect(page.getByLabel(language==='zh-CN'?'名称':'Name',{exact:true})).toHaveValue('Very long unsaved service configuration name · 很长的未保存连接草稿');}}
+    > 23 |  await page.getByRole('button',{name:'Members & invitations',exact:true}).click();await expect(page.locator('main table tbody tr')).toHaveCount(1);await page.setViewportSize({width:390,height:844});const tableRegion=page.locator('main .ui-table-scroll');await expect(page.getByRole('region',{name:'Members & invitations',exact:true})).toBeVisible();await tableRegion.focus();await expect(tableRegion).toBeFocused();await tableRegion.evaluate(element=>{element.scrollLeft=120;});expect(await tableRegion.evaluate(element=>element.scrollLeft)).toBe(120);await locale(page,'zh-CN');await theme(page,'light');expect(await tableRegion.evaluate(element=>element.scrollLeft)).toBe(120);metrics.push(await capture(page,'members-scrolled-zh-CN-light-390'));await scan(page,'members-scrolled-zh-CN-light-390');
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^
+      24 |  await writeFile(`${evidenceDir}/layout-metrics.json`,JSON.stringify({scope:'Production tools and service composition; screenshots require visual review; does not sign manual acceptance.',metrics,consoleErrors},null,2));expect(consoleErrors).toEqual([]);
+      25 | });
+      26 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:23:565
+
+    Error Context: test-results/m6-layout-T32a-production--84541-s-tool-drafts-and-scrolling-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling 
+  25 passed (6.0m)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+[verify] Playwright production-entry E2E: failed with exit 1

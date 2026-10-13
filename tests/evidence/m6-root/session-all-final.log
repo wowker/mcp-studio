@@ -1,0 +1,53 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/app/App.test.tsx (18 tests | 1 failed) 2255ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls 211ms
+   ✓ authenticated Shell > unmounts project context when session expires on a later request 35ms
+   ✓ authenticated Shell > does not display content capabilities from a stale project response 47ms
+   ✓ rechecks project capability after a forbidden write without signing out 122ms
+   ✓ rechecks the server idle deadline after activity instead of expiring a valid session locally 27ms
+   ✓ loads projects only after mailbox verification enables the session 79ms
+   ✓ refreshes team permissions when forbidden changes leave the project maintainer role intact 122ms
+   ✓ refreshes stale CSRF for the same user and keeps the failed project draft 85ms
+   ✓ keeps the old project hidden after a 401 and a different account signs in before its scope loads 129ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  767ms
+   ✓ keeps another project tool document when switching through a Viewer project  460ms
+   ✓ shows a bootstrap failure with a working retry instead of an endless loading state 24ms
+   ✓ provides a scoped return action for an unavailable project without showing its content 23ms
+   ✓ offers recovery while hiding expired content when bootstrap refresh fails at the session deadline 23ms
+   ✓ ignores a late initial session 401 after a successful bootstrap retry establishes a newer identity 26ms
+   ✓ ignores a late initial session success after a successful bootstrap retry establishes a newer identity 25ms
+   ✓ leaves a canonical invalid invitation path when choosing sign in without invitation 29ms
+   × renders anonymous sign in when the initial 401 arrives before the independent bootstrap response 19ms
+     → expected <span role="status" …(1)></span> to be null
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/App.test.tsx > renders anonymous sign in when the initial 401 arrives before the independent bootstrap response
+AssertionError: expected <span role="status" …(1)></span> to be null
+
+- Expected: 
+null
+
++ Received: 
+<span
+  class="ui-visually-hidden"
+  role="status"
+/>
+
+ ❯ src/app/App.test.tsx:141:451
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+   Start at  18:30:56
+   Duration  4.07s (transform 282ms, setup 62ms, collect 1.31s, tests 2.25s, environment 312ms, prepare 32ms)
+

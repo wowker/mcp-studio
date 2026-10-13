@@ -1,0 +1,20 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx apps/web/src/features/tools/ToolsPage.test.tsx apps/web/src/features/workflow/WorkflowPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/workflow/WorkflowPage.test.tsx (12 tests) 521ms
+ ✓ src/features/tools/ToolsPage.test.tsx (8 tests) 1071ms
+   ✓ lists the real session catalog, searches it, and opens independent documents with keyboard navigation  422ms
+ ✓ src/app/App.test.tsx (18 tests) 2932ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  320ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  804ms
+   ✓ keeps another project tool document when switching through a Viewer project  520ms
+
+ Test Files  3 passed (3)
+      Tests  38 passed (38)
+   Start at  18:31:48
+   Duration  5.26s (transform 439ms, setup 248ms, collect 4.72s, tests 4.52s, environment 1.29s, prepare 178ms)
+

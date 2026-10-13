@@ -272,3 +272,39 @@ Agent 本机 1.0 合同（30 schemas / 26 paths）与严格 Go / TS 生成已实
 T25a、T26a/b、T27a/b、T28b、T29a、T30a/b共9叶子完成可执行验证。T25b已实现原生TTY确认与设备状态，但人工配对/解除/恢复未验；T28a已实现原生系统key与密文、故障回归，但macOS/Windows/Linux真实系统库验收未验；T29b已验证在线备份即时删除及移除事务，但实际备份介质生命周期未验。三叶子与C09/C10整组完成项保持未勾选；门禁/登记条目独立签收。A01–A60正式状态仍待验收，相关29行只补M5部分版本和证据。
 
 T02a/b、C01继续待验：公网HTTPS LNA、目标Chrome/Edge两稳定主版本、远程网络、跨OS和人工确认未放行。受控fixture仅在测试helper注入明确确认、分离测试主密钥与临时CA，不使用生产自动批准或TLS跳过。DCR、自动OAuth refresh、主密钥轮换、物理断电、真实邮件供应商与介质生命周期未宣称支持/通过。下一阶段M6需要新的用户授权。
+
+## M6 T31–T33 执行开始 · 2026-10-13
+
+用户授权本阶段，基线cadb8b5，不进入M7。T02及既有人工/实机/介质验收待验。T31现有领域查询/旧链接/失败恢复与26页状态矩阵、T32共享布局/keyboard与真实axe扫描、T33真实七步模型与事件接线独立切片，工程约定见 [009](../decisions/009-m6-workflow-state-accessibility.md)。尚未签收叶子或A项；最终以完整门禁和真实生产旅程证据为准。
+
+## M6 · 分切片实现与验证记录（最终门禁进行中）
+
+实现提交 `5a07743`，仅 T31–T33；M7 未授权且未进入。下列是实际已完成的切片检查，叶子最终状态与完整门禁结果在后续签收中登记。
+
+| 切片 | 实际实现与验证 | 限制 |
+| --- | --- | --- |
+| T31a | `m6-state-matrix.md`逐P01–P26及适用/N/A；正式状态组件13文件69focused、环境14项、App19项；真实404/403返回动作 | 原型不抵扣；状态构造与实际服务端检查分开 |
+| T31b | bootstrap/会话freshness、deadline恢复、路径式邀请离开、环境同项目Back实际scope及迟到冲突；Runfailed双语标签10项RED/GREEN，真实失败Tool列表/上下文检查 | 原输入仅允许的内存范围；不宣称失败已回滚 |
+| T32a | 原37领域视图及一次性初始化20组合/视图；参数草稿/滚动、服务草稿、表格横滚在语言主题切换后保留；640px局部表宽与可聚焦region | 最终版本矩阵正在统一复跑；目标浏览器及实机前置待验 |
+| T32b | 真实axe，不禁用规则；导航Enter、Tab箭头、菜单Esc/Tab、分栏30–65及reset、嵌套错误定位、skip-link实际通过 | 人工仅键盘/读屏未做，不勾叶子，不把axe incomplete当通过 |
+| T33a | WorkflowProgress/Uploads真实同UID/PID/CID/Run、receipt与成功详情GET事实；不捏造未知operationId；退出/撤权清除 | 会话事实只ID/状态，不授权，不持久化原始内容 |
+| T33b | 真实SMTP邀请新账号修复后显式接受；调用→history→sameRun保存→刷新继续→显式重连→新未执行Tab；上传503重试与实际Tool业务失败 | 最后修补浏览器5/5通过；正式A60/跨OS/公网LNA/人工仍待验 |
+
+最初浏览器异常与修补证据分别保留于m6-layout、m6-flow、m6-browser、m6-browser-retry、m6-flow-final、m6-continuous、m6-verify-first、m6-verify-second；各目录results.json中实际failed明确记录，不当作最终通过。中间重复PNG仅保留代表图，最终全矩阵PNG保存于m6-final。最终完整verify包含所有M1–M5回归，结果随后追加；T02/T25b/T28a/T29b等既有待验完全保留。
+
+## M6 · 脱敏一致性回归修补
+
+完整门禁第三次发现 M5 Agent 来源的 browser 独立保存400；明确请求状态和回执后15次复跑有2次 `invalid_source`，只有 environmentVersion/redactions 不同。`fc0b161` 保留平台严格来源证明，TS/Go采用既有保护规则保守并集，实际生产recording-v1新增11条固定向量共30条，旧19预期与M0 64 oracle均不改。Agent UI验证原身份后缓存sanitizeSnapshot，原对象与Run/上传责任不改。平台固定哈希回归验证拒绝不一致来源、接受实际安全快照、继续拒绝篡改Run状态。根因与设计边界见 [010](../decisions/010-default-redaction-parity.md)。
+
+实际focused：生产records5文件89测试通过，root Snapshot/Agent/workflow4文件56测试通过，Go recording及真实隔离PG平台来源证明回归通过，TypeScript通过。Agent缓存回归在旧实现RED再GREEN；Go overlay旧默认规则在新增向量RED。连续生产复跑及最终全量门禁尚待最终结果，不以focused抵扣整组验收。
+
+## M6 最终可执行验证与待验登记 · 2026-10-13
+
+- 最终实现 `fc0b161`：M6状态/布局/真实工作流 `5a07743`，跨端脱敏一致性修补 `fc0b161`；基线cadb8b5。不进入M7。准确文件及原因见本阶段分切片表、[状态矩阵](./m6-state-matrix.md)、[审阅](./m6-review.md) 和 ADR009/010。
+- [完整verify](../../tests/evidence/m6-final/verify.log) 实际退出0：平台1.4/Agent1.0生成一致性、JS/Go64语义oracle、Node20回归、前端57文件/591测试、TypeScript与生产构建、真实隔离PostgreSQL Go `./... -count=1`、vet、平台/Agent/受控helper构建；[M1–M6浏览器](../../tests/evidence/m6-final/results.json) 26条全部通过，0失败/跳过/重试。实际生产脱敏共同向量30条，不与M0 oracle64混计。无单测包只编译，不冒称测试数。
+- 状态矩阵覆盖正式P01–P26路由/合并视图；真实浏览器37个领域子视图×20组合，另一次性初始化20组合，共760个核心几何检查；额外布局37项检查，824张PNG。真实axe 159次，0已确认violation，2份存在color-contrast incomplete，明确仍需人工确认。原子任务T32b的人工仅键盘/读屏不以自动扫描抵扣。截图遇填入密码/code/token不采集，axe只存rule摘要而非HTML/值/原URL。
+- 正常旅程实际SMTP邀请新账号身份修复后显式接受、HTTP调用→history→同Run独立saved→刷新读取继续→显式重连→新未执行Tab；上传503只重传，Tool业务失败不完成进度；实际failed中英文上下文保持调用失败语义。独立Agent来源保存重建后15/15连续复跑通过，严格POST200/receipt/同Run及调用次数断言未降低。
+- 完整门禁first/second/third失败及默认脱敏2/15拒绝、修补后首轮11通过/4超时均保留，不能当作通过。首轮超时没有invalid_source诊断文件，根因未据此冒称已证明；清理后原门槛重跑15条与最终完整26条实际通过。平台来源证明没有放宽。固定哈希/Agent安全缓存/保留并集的生产共同向量有RED/GREEN，详见ADR010与m6-root/m6-source-redaction。
+- 主包453.47kB/minified、139.19kB/gzip，schema-vendor70.35/18.89kB，未提高500kB门槛或禁用axe规则。产物/锁文件hash、实际macOS/Go/Node/PG/Chromium/axe版本与支持限制见[manifest](../../tests/evidence/m6-final/manifest.json)。runtime已停止Agent/平台/SMTP/MCP/OAuth/TLS，并删除本次schema/临时目录；[清理检查](../../tests/evidence/m6-final/cleanup.json) test_/e2e_ schema为0。M5 race/交叉编译仅历史证据，没有冒称本次重做实机。
+
+T31a/b、T32a、T33a/b共5叶子完成；T32b人工键盘/读屏保持未勾选，C11整组完成项也保持未勾选，门禁和登记条目独立签收。T02a/b、T25b、T28a、T29b及C01/C09/C10原待验不变；目标Chrome/Edge两稳定主版本、公网HTTPS LNA、远程网络、跨OS、真实邮件供应商、原生库/人工配对/介质和物理断电未宣称支持。A01–A60仍全部待验收，仅直接相关10行补M6部分版本和证据。后续M7需另行授权。

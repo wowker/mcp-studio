@@ -1,0 +1,452 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/ConnectionsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/connections/ConnectionsPage.test.tsx (11 tests | 2 failed) 2544ms
+   ✓ service configuration > preserves the edited local draft after a version conflict and compares latest remote config 225ms
+   ✓ service configuration > viewer sees configuration but cannot edit personal auth or connect 23ms
+   ✓ service configuration > retains edits when remounted for the same project and refuses connect while draft is unsaved 76ms
+   ✓ retains a deleted auth definition identity instead of borrowing a new same-name definition 20ms
+   ✓ does not allow a stale async query to populate the next project service list 9ms
+   ✓ developer can read shared config and prepare personal token but cannot save shared edits 15ms
+   ✓ retains invalid stdio argument JSON across navigation and blocks saving 48ms
+   ✓ lets keyboard input multiple OAuth scopes separated by spaces and has precise select names 68ms
+   ✓ ignores a delayed deletion after identity end and preserves the next identity draft 48ms
+   × shows an unavailable explicit service link even when no services remain and returns to the same project 1006ms
+     → Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m>[39m
+          [36m<p>[39m
+            [0mNo services yet. Create a saved configuration before connecting.[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m>[39m
+          [36m<p>[39m
+            [0mNo services yet. Create a saved configuration before connecting.[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+   × selects an existing service after a previously remembered service was removed 1005ms
+     → Unable to find a label with the text of: Name
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M237.66,66.34a8,8,0,0,0-11.32,0L192,100.69,155.31,64l34.35-34.34a8,8,0,1,0-11.32-11.32L144,52.69,117.66,26.34a8,8,0,0,0-11.32,11.32L112.69,44l-53,53a40,40,0,0,0,0,56.57l15.71,15.71L26.34,218.34a8,8,0,0,0,11.32,11.32l49.09-49.09,15.71,15.71a40,40,0,0,0,56.57,0l53-53,6.34,6.35a8,8,0,0,0,11.32-11.32L203.31,112l34.35-34.34A8,8,0,0,0,237.66,66.34ZM147.72,185a24,24,0,0,1-33.95,0L71,142.23a24,24,0,0,1,0-33.95l53-53L200.69,132Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mSaved[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m/>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M237.66,66.34a8,8,0,0,0-11.32,0L192,100.69,155.31,64l34.35-34.34a8,8,0,1,0-11.32-11.32L144,52.69,117.66,26.34a8,8,0,0,0-11.32,11.32L112.69,44l-53,53a40,40,0,0,0,0,56.57l15.71,15.71L26.34,218.34a8,8,0,0,0,11.32,11.32l49.09-49.09,15.71,15.71a40,40,0,0,0,56.57,0l53-53,6.34,6.35a8,8,0,0,0,11.32-11.32L203.31,112l34.35-34.34A8,8,0,0,0,237.66,66.34ZM147.72,185a24,24,0,0,1-33.95,0L71,142.23a24,24,0,0,1,0-33.95l53-53L200.69,132Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mSaved[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m/>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/connections/ConnectionsPage.test.tsx > shows an unavailable explicit service link even when no services remain and returns to the same project
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m>[39m
+          [36m<p>[39m
+            [0mNo services yet. Create a saved configuration before connecting.[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m>[39m
+          [36m<p>[39m
+            [0mNo services yet. Create a saved configuration before connecting.[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/connections/ConnectionsPage.test.tsx:44:15
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/connections/ConnectionsPage.test.tsx > selects an existing service after a previously remembered service was removed
+TestingLibraryElementError: Unable to find a label with the text of: Name
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M237.66,66.34a8,8,0,0,0-11.32,0L192,100.69,155.31,64l34.35-34.34a8,8,0,1,0-11.32-11.32L144,52.69,117.66,26.34a8,8,0,0,0-11.32,11.32L112.69,44l-53,53a40,40,0,0,0,0,56.57l15.71,15.71L26.34,218.34a8,8,0,0,0,11.32,11.32l49.09-49.09,15.71,15.71a40,40,0,0,0,56.57,0l53-53,6.34,6.35a8,8,0,0,0,11.32-11.32L203.31,112l34.35-34.34A8,8,0,0,0,237.66,66.34ZM147.72,185a24,24,0,0,1-33.95,0L71,142.23a24,24,0,0,1,0-33.95l53-53L200.69,132Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mSaved[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m/>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mServers[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"m2-layout"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33maria-label[39m=[32m"Servers"[39m
+          [33mclass[39m=[32m"m2-object-list"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mCreate service[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"16"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"16"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M237.66,66.34a8,8,0,0,0-11.32,0L192,100.69,155.31,64l34.35-34.34a8,8,0,1,0-11.32-11.32L144,52.69,117.66,26.34a8,8,0,0,0-11.32,11.32L112.69,44l-53,53a40,40,0,0,0,0,56.57l15.71,15.71L26.34,218.34a8,8,0,0,0,11.32,11.32l49.09-49.09,15.71,15.71a40,40,0,0,0,56.57,0l53-53,6.34,6.35a8,8,0,0,0,11.32-11.32L203.31,112l34.35-34.34A8,8,0,0,0,237.66,66.34ZM147.72,185a24,24,0,0,1-33.95,0L71,142.23a24,24,0,0,1,0-33.95l53-53L200.69,132Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mSaved[0m
+          [36m</button>[39m
+        [36m</aside>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"m2-editor"[39m
+        [36m/>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/connections/ConnectionsPage.test.tsx:51:22
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 9 passed (11)
+   Start at  17:53:17
+   Duration  4.36s (transform 186ms, setup 48ms, collect 1.15s, tests 2.54s, environment 348ms, prepare 65ms)
+

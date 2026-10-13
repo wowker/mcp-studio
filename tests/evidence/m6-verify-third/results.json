@@ -1,0 +1,1054 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m6-final/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m1.spec.ts",
+      "file": "m1.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7015,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:01:58.799Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c39409c6e78644cb110-4c415c3d143490353138",
+          "file": "m1.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:06.147Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c39409c6e78644cb110-75a82b8f8e09d395fc7f",
+          "file": "m1.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3842,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:07.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c39409c6e78644cb110-565da4e81dc2caf79163",
+          "file": "m1.spec.ts",
+          "line": 38,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m2.spec.ts",
+      "file": "m2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3978,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:11.721Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "01f49e799d3ea91d35fe-583b4ad10cce7674e5c4",
+          "file": "m2.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "M2 production: two sessions compare conflict and same URL has separate personal Token credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3628,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:15.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "01f49e799d3ea91d35fe-88b1cfa5cef4b9a05bb8",
+          "file": "m2.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3333,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:19.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "01f49e799d3ea91d35fe-bdfd7ecad00f9edcf9fd",
+          "file": "m2.spec.ts",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m3.spec.ts",
+      "file": "m3.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T15 production: real paged catalog, independent documents and protected Tab commands",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2563,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:22.694Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4a54508069b861ac02de-112521c4d39a8494d303",
+          "file": "m3.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5571,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:25.261Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4a54508069b861ac02de-fd4e01df78752b9997ca",
+          "file": "m3.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4331,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:30.837Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4a54508069b861ac02de-23585fa7c4fb5582462d",
+          "file": "m3.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5974,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:35.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4a54508069b861ac02de-979d085c73ed13e63d82",
+          "file": "m3.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4831,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:41.152Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4a54508069b861ac02de-2a2fb51afc8c0bc4e52c",
+          "file": "m3.spec.ts",
+          "line": 67,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m4.spec.ts",
+      "file": "m4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:46.002Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "72b6d4a32da9aa5eade7-6b8ebc4c9ee00694535a",
+          "file": "m4.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5239,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:51.025Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "72b6d4a32da9aa5eade7-773417432f660b995d60",
+          "file": "m4.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5008,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:02:56.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "72b6d4a32da9aa5eade7-9475fc87b857bd74074f",
+          "file": "m4.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4376,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:01.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "72b6d4a32da9aa5eade7-a2840335b0240fb3828e",
+          "file": "m4.spec.ts",
+          "line": 50,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m5.spec.ts",
+      "file": "m5.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 14089,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:19:1032",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                      "column": 1032,
+                      "line": 19
+                    },
+                    "snippet": "  17 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\\n');});\n  18 |\n> 19 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');await page.getByRole('button',{name:'Save record',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^\n  20 |\n  21 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});\n  22 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                        "column": 1032,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n  17 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\\n');});\n  18 |\n> 19 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');await page.getByRole('button',{name:'Save record',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^\n  20 |\n  21 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});\n  22 |\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:19:1032"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:05.713Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                    "column": 1032,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b59efa750bf413a3cb04",
+          "file": "m5.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7637,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:20.224Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-3f7b0611445392bbc3f4",
+          "file": "m5.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9803,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:27.991Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-83766202c30da27c61a9",
+          "file": "m5.spec.ts",
+          "line": 23,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m6-flow.spec.ts",
+      "file": "m6-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8623,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:37.844Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-4f640f40e54e7b1c5797",
+          "file": "m6-flow.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5110,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:46.472Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-2ce87aab31fa1d44574b",
+          "file": "m6-flow.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3661,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:51.588Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-bceece4d022f7ea8d118",
+          "file": "m6-flow.spec.ts",
+          "line": 33,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m6-layout.spec.ts",
+      "file": "m6-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T32a production: bilingual theme/window matrix preserves tool drafts and scrolling",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6229,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:03:55.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd1c627dcf433fa4dcc4-34999a70e5a3ea8227cd",
+          "file": "m6-layout.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2841,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:04:01.503Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd1c627dcf433fa4dcc4-2181cd939cb0312c1049",
+          "file": "m6-layout.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m6-matrix.spec.ts",
+      "file": "m6-matrix.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 900000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 34362,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:04:04.357Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afa5050ce45af3eb32c4-01368675cc218ec165bc",
+          "file": "m6-matrix.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 600000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17667,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:04:38.724Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afa5050ce45af3eb32c4-56481f27454bcbeac1b0",
+          "file": "m6-matrix.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 600000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:04:56.396Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afa5050ce45af3eb32c4-9b7b25487eb6bd3b57df",
+          "file": "m6-matrix.spec.ts",
+          "line": 36,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T11:01:58.023Z",
+    "duration": 209295.84699999998,
+    "expected": 25,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

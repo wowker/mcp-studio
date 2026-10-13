@@ -1,0 +1,235 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/projects/Projects.test.tsx apps/web/src/features/devices/DevicesPage.test.tsx apps/web/src/features/connections/AgentBackupsPanel.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/connections/AgentBackupsPanel.test.tsx (4 tests | 2 failed) 338ms
+   ✓ does not create a backup until confirmed and keeps metadata deletion independent of local credentials and reauthentication 116ms
+   ✓ restores a chosen backup after explicit reauthentication and clears password from the form 80ms
+   × retains reauthentication input after backup request failure without a success fact 67ms
+     → expected <input id="«r2»" …(4)></input> to have property "value" with value 'fixture-password'
+   × retains reauthentication input after restore request failure without a success fact 75ms
+     → expected <input id="«r3»" …(4)></input> to have property "value" with value 'fixture-password'
+ ❯ src/features/projects/Projects.test.tsx (1 test | 1 failed) 1020ms
+   × explains denied create-project entry and returns to the directory without issuing a write 1019ms
+     → Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mProjects[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m/>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«r0»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mSearch projects[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Search projects"[39m
+          [33mid[39m=[32m"«r0»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0m0[0m
+      [36m</p>[39m
+      [36m<ul[39m
+        [33mclass[39m=[32m"ui-project-list"[39m
+      [36m/>[39m
+      [36m<p>[39m
+        [0mNo projects yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mProjects[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m/>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«r0»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mSearch projects[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Search projects"[39m
+          [33mid[39m=[32m"«r0»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0m0[0m
+      [36m</p>[39m
+      [36m<ul[39m
+        [33mclass[39m=[32m"ui-project-list"[39m
+      [36m/>[39m
+      [36m<p>[39m
+        [0mNo projects yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ src/features/devices/DevicesPage.test.tsx (3 tests | 1 failed) 190ms
+   ✓ has complete Agent bilingual resources 2ms
+   ✓ requires local approval code and never approves natively from the web 122ms
+   × retains the in-memory pairing code after network failure while the same challenge remains pending 65ms
+     → expected <input id="«r3»" …(6)></input> to have property "value" with value 'fixture-code'
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/devices/DevicesPage.test.tsx > retains the in-memory pairing code after network failure while the same challenge remains pending
+AssertionError: expected <input id="«r3»" …(6)></input> to have property "value" with value 'fixture-code'
+
+- Expected
++ Received
+
+- fixture-code
+
+ ❯ src/features/devices/DevicesPage.test.tsx:17:424
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/features/projects/Projects.test.tsx > explains denied create-project entry and returns to the directory without issuing a write
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mProjects[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m/>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«r0»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mSearch projects[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Search projects"[39m
+          [33mid[39m=[32m"«r0»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0m0[0m
+      [36m</p>[39m
+      [36m<ul[39m
+        [33mclass[39m=[32m"ui-project-list"[39m
+      [36m/>[39m
+      [36m<p>[39m
+        [0mNo projects yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section>[39m
+      [36m<h1>[39m
+        [0mProjects[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m/>[39m
+      [36m<label[39m
+        [33mclass[39m=[32m"ui-field"[39m
+        [33mfor[39m=[32m"«r0»"[39m
+      [36m>[39m
+        [36m<span>[39m
+          [0mSearch projects[0m
+        [36m</span>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Search projects"[39m
+          [33mid[39m=[32m"«r0»"[39m
+          [33mtype[39m=[32m"search"[39m
+          [33mvalue[39m=[32m""[39m
+        [36m/>[39m
+      [36m</label>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0m0[0m
+      [36m</p>[39m
+      [36m<ul[39m
+        [33mclass[39m=[32m"ui-project-list"[39m
+      [36m/>[39m
+      [36m<p>[39m
+        [0mNo projects yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/projects/Projects.test.tsx:9:293
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/features/connections/AgentBackupsPanel.test.tsx > retains reauthentication input after backup request failure without a success fact
+AssertionError: expected <input id="«r2»" …(4)></input> to have property "value" with value 'fixture-password'
+
+- Expected
++ Received
+
+- fixture-password
+
+ ❯ src/features/connections/AgentBackupsPanel.test.tsx:15:956
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/features/connections/AgentBackupsPanel.test.tsx > retains reauthentication input after restore request failure without a success fact
+AssertionError: expected <input id="«r3»" …(4)></input> to have property "value" with value 'fixture-password'
+
+- Expected
++ Received
+
+- fixture-password
+
+ ❯ src/features/connections/AgentBackupsPanel.test.tsx:15:956
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  4 failed | 4 passed (8)
+   Start at  18:00:20
+   Duration  1.94s (transform 226ms, setup 210ms, collect 1.54s, tests 1.55s, environment 1.10s, prepare 123ms)
+

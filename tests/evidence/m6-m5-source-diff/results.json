@@ -1,0 +1,659 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 15,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m6-m5-source-diff/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m5.spec.ts",
+      "file": "m5.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:16:56.240Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b59efa750bf413a3cb04",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6508,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:04.139Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b478ab9ad4481c2c4268",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6512,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:11.025Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b0492c7d95b62164893e",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6476,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:17.960Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-7dfa63a5888d9d22e2be",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5111,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m400\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:2139",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                      "column": 2139,
+                      "line": 20
+                    },
+                    "snippet": "  18 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\\n');});\n  19 |\n> 20 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');const saveResponse=page.waitForResponse(response=>response.url().endsWith('/record-uploads')&&response.request().method()==='POST');await page.getByRole('button',{name:'Save record',exact:true}).click();const acceptedSave=await saveResponse,saveBody=await acceptedSave.json();if(acceptedSave.status()!==200){const error=wire.errorSchema.safeParse(saveBody);await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-save-rejection-${Date.now()}.json`,JSON.stringify({status:acceptedSave.status(),code:error.success?error.data.error.code:'unparsed',differentSnapshotFields:Object.keys(httpHistory.items[0].snapshot).filter(key=>JSON.stringify(httpHistory.items[0].snapshot[key as keyof wire.ExecutionSnapshot])!==JSON.stringify((acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot[key as keyof wire.ExecutionSnapshot])),historyMarkerPaths:httpHistory.items[0].snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason})),savedMarkerPaths:(acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason}))},null,2)+'\\n');}expect(acceptedSave.status()).toBe(200);wire.recordOperationReceiptSchema.parse(saveBody.data);await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  21 |\n  22 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});\n  23 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                        "column": 2139,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n\n  18 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\\n');});\n  19 |\n> 20 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');const saveResponse=page.waitForResponse(response=>response.url().endsWith('/record-uploads')&&response.request().method()==='POST');await page.getByRole('button',{name:'Save record',exact:true}).click();const acceptedSave=await saveResponse,saveBody=await acceptedSave.json();if(acceptedSave.status()!==200){const error=wire.errorSchema.safeParse(saveBody);await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-save-rejection-${Date.now()}.json`,JSON.stringify({status:acceptedSave.status(),code:error.success?error.data.error.code:'unparsed',differentSnapshotFields:Object.keys(httpHistory.items[0].snapshot).filter(key=>JSON.stringify(httpHistory.items[0].snapshot[key as keyof wire.ExecutionSnapshot])!==JSON.stringify((acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot[key as keyof wire.ExecutionSnapshot])),historyMarkerPaths:httpHistory.items[0].snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason})),savedMarkerPaths:(acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason}))},null,2)+'\\n');}expect(acceptedSave.status()).toBe(200);wire.recordOperationReceiptSchema.parse(saveBody.data);await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  21 |\n  22 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});\n  23 |\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:2139"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:24.818Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat4/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat4/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                    "column": 2139,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-d5fa8fb80ab7817b16ec",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5715,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m400\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:2139",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                      "column": 2139,
+                      "line": 20
+                    },
+                    "snippet": "  18 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\\n');});\n  19 |\n> 20 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');const saveResponse=page.waitForResponse(response=>response.url().endsWith('/record-uploads')&&response.request().method()==='POST');await page.getByRole('button',{name:'Save record',exact:true}).click();const acceptedSave=await saveResponse,saveBody=await acceptedSave.json();if(acceptedSave.status()!==200){const error=wire.errorSchema.safeParse(saveBody);await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-save-rejection-${Date.now()}.json`,JSON.stringify({status:acceptedSave.status(),code:error.success?error.data.error.code:'unparsed',differentSnapshotFields:Object.keys(httpHistory.items[0].snapshot).filter(key=>JSON.stringify(httpHistory.items[0].snapshot[key as keyof wire.ExecutionSnapshot])!==JSON.stringify((acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot[key as keyof wire.ExecutionSnapshot])),historyMarkerPaths:httpHistory.items[0].snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason})),savedMarkerPaths:(acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason}))},null,2)+'\\n');}expect(acceptedSave.status()).toBe(200);wire.recordOperationReceiptSchema.parse(saveBody.data);await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  21 |\n  22 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});\n  23 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                        "column": 2139,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n\n  18 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\\n');});\n  19 |\n> 20 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');const saveResponse=page.waitForResponse(response=>response.url().endsWith('/record-uploads')&&response.request().method()==='POST');await page.getByRole('button',{name:'Save record',exact:true}).click();const acceptedSave=await saveResponse,saveBody=await acceptedSave.json();if(acceptedSave.status()!==200){const error=wire.errorSchema.safeParse(saveBody);await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-save-rejection-${Date.now()}.json`,JSON.stringify({status:acceptedSave.status(),code:error.success?error.data.error.code:'unparsed',differentSnapshotFields:Object.keys(httpHistory.items[0].snapshot).filter(key=>JSON.stringify(httpHistory.items[0].snapshot[key as keyof wire.ExecutionSnapshot])!==JSON.stringify((acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot[key as keyof wire.ExecutionSnapshot])),historyMarkerPaths:httpHistory.items[0].snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason})),savedMarkerPaths:(acceptedSave.request().postDataJSON() as wire.RecordUploadInput).snapshot.redactions.map(marker=>({path:marker.path,reason:marker.reason}))},null,2)+'\\n');}expect(acceptedSave.status()).toBe(200);wire.recordOperationReceiptSchema.parse(saveBody.data);await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^\n  21 |\n  22 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});\n  23 |\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:2139"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:30.519Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat5/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat5/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                    "column": 2139,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-9a71a9c88cd15d51b504",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6719,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:36.678Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-62b8b550527fa1b4ab72",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6782,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:43.949Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-9f167b2d4c29c2ff20e8",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6434,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:51.365Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-c1efa0cf022a753a2a00",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6721,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:17:58.231Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-3a8a087ed49e9953eaaf",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:18:05.387Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-e9f21edece9e86b5160d",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:18:12.277Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-8dd0cf668f5042c8a99f",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6488,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:18:19.160Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-64b88417dc6cea1e9e1b",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6438,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:18:26.038Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-708e9389e05a7c8dbba9",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6600,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:18:32.976Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-65ecf7ca2425a28e420a",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T11:16:55.838Z",
+    "duration": 103853.984,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

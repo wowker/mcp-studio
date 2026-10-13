@@ -1,0 +1,16 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/projects/Projects.test.tsx apps/web/src/features/devices/DevicesPage.test.tsx apps/web/src/features/connections/AgentBackupsPanel.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/projects/Projects.test.tsx (1 test) 86ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (4 tests) 326ms
+ ✓ src/features/devices/DevicesPage.test.tsx (3 tests) 174ms
+
+ Test Files  3 passed (3)
+      Tests  8 passed (8)
+   Start at  18:00:56
+   Duration  1.73s (transform 215ms, setup 181ms, collect 1.43s, tests 587ms, environment 941ms, prepare 108ms)
+

@@ -1,0 +1,18 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/auth/IdentityStates.test.tsx apps/web/src/features/auth/IdentityPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/auth/IdentityStates.test.tsx (2 tests) 603ms
+   ✓ retains sign-in inputs while retrying the same invitation lookup  309ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 2313ms
+   ✓ keeps original invitation after registration and never accepts automatically  1644ms
+   ✓ retains typed identity when a wrong-password login returns 401  421ms
+
+ Test Files  2 passed (2)
+      Tests  5 passed (5)
+   Start at  17:58:35
+   Duration  7.37s (transform 600ms, setup 238ms, collect 4.33s, tests 2.92s, environment 1.24s, prepare 166ms)
+

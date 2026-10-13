@@ -1,0 +1,45 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 5 tests using 1 worker
+
+(node:39071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (17.9s)
+(node:39116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (5.4s)
+  ✓  3 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (7.8s)
+  ✓  4 [chromium] › tests/e2e/m6-layout.spec.ts:26:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (3.0s)
+  ✓  5 [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor (38.1s)
+
+
+  1) [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration 
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('tbody tr').filter({ hasText: 'echo' }).first().getByRole('button').first()[22m
+
+
+       9 | async function connect(page:Page){await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText(/已连接.*m2-controlled-fixture/)).toBeVisible();}
+      10 | async function execute(page:Page,text:string){await page.getByRole('button',{name:'工具',exact:true}).click();await page.getByRole('button',{name:'打开 echo',exact:true}).click();await page.getByRole('button',{name:'原始 JSON',exact:true}).click();await page.getByLabel('原始参数',{exact:true}).fill(JSON.stringify({text}));await page.getByRole('button',{name:'执行工具',exact:true}).click();await expect(page.getByText('成功 · 工具结果',{exact:true})).toBeVisible();}
+    > 11 | async function detail(page:Page,id:string){await page.getByRole('button',{name:'调用历史',exact:true}).click();await expect(page.getByRole('heading',{name:'调用历史',exact:true})).toBeVisible();await page.locator('tbody tr').filter({hasText:'echo'}).first().getByRole('button').first().click();await expect(page.getByRole('button',{name:'恢复为新 Tab',exact:true})).toBeVisible();expect(new URL(page.url()).searchParams.get('record')).toBe(id);}
+         |                                                                                                                                                                                                                                                                                       ^
+      12 |
+      13 | test('T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration',async({page,request,browser})=>{
+      14 |  test.setTimeout(120000);await bootstrap(page,request);const projectId=await createProject(page),current=await session(page.request);const email=`m6-invite-${Date.now()}@example.test`;
+        at detail (/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:11:279)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:23:219
+
+    Error Context: test-results/m6-flow-T33-production-rea-9e1ef--and-unexecuted-restoration-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration 
+  4 passed (1.2m)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

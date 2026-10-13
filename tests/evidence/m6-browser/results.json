@@ -1,0 +1,437 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m6-browser/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m6-flow.spec.ts",
+      "file": "m6-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13422,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('已接受', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('已接受', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('已接受', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('已接受', { exact: true })\u001b[22m\n\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:17:2021",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                      "column": 2021,
+                      "line": 17
+                    },
+                    "snippet": "  15 |  // A second real account repairs identity at this invitation; verification is not acceptance.\n  16 |  let mail='';await expect.poll(async()=>{const response=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(email)}`);mail=(await response.json() as {messages:{body:string}[]}).messages.at(-1)?.body??'';return mail;}).not.toBe('');const inviteID=new URL(mail.split(/\\r?\\n/).find(line=>line.startsWith('http'))!).pathname.split('/').at(-1)!;const inviteCode=mail.trim().split(/\\r?\\n/).at(-1)!;\n> 17 |  const context=await browser.newContext({baseURL:process.env.PLAYWRIGHT_BASE_URL,ignoreHTTPSErrors:true,locale:'zh-CN'});try{const invited=await context.newPage();await invited.goto(`/invitations/${inviteID}`);await invited.getByRole('button',{name:'创建受邀账号',exact:true}).click();await invited.getByLabel('邮箱',{exact:true}).fill(email);await invited.getByLabel('名称',{exact:true}).fill('M6 invited member');await invited.getByLabel('密码',{exact:true}).fill('Fixture-Password-12');await invited.getByLabel('邮件验证码',{exact:true}).fill(inviteCode);await invited.getByRole('button',{name:'创建账号',exact:true}).click();await expect(invited.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await invited.getByLabel('邮箱',{exact:true}).fill(email);await invited.getByLabel('密码',{exact:true}).fill('Fixture-Password-12');await invited.getByRole('button',{name:'登录',exact:true}).click();await expect(invited.getByRole('heading',{name:'邀请',exact:true})).toBeVisible();await invited.getByRole('button',{name:'验证邮箱',exact:true}).click();await expect(invited.getByRole('heading',{name:'验证邮箱',exact:true})).toBeVisible();let verification='';await expect.poll(async()=>{const response=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(email)}`);const messages=(await response.json() as {messages:{body:string}[]}).messages;verification=messages.length>1?messages.at(-1)!.body:'';return verification;}).not.toBe('');await invited.getByLabel('邮件验证码',{exact:true}).fill(verification.trim().split(/\\r?\\n/).at(-1)!);await invited.getByRole('button',{name:'验证邮箱',exact:true}).click();await expect(invited.getByRole('heading',{name:'邀请',exact:true})).toBeVisible();expect(new URL(invited.url()).searchParams.get('invite')).toBe(inviteID);await expect(invited.getByRole('button',{name:'接受邀请',exact:true})).toBeVisible();await invited.getByLabel('邮件验证码',{exact:true}).fill(inviteCode);await invited.getByRole('button',{name:'接受邀请',exact:true}).click();await expect(invited.getByText('已接受',{exact:true})).toBeVisible();}finally{await context.close();}\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^\n  18 |  await page.getByRole('button',{name:'服务',exact:true}).click();const connectionId=await createService(page,'M6 continuous HTTP',process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp');await connect(page);await workflow(page);await page.getByRole('button',{name:'无需变量，继续操作',exact:true}).click();await expect(page.locator('.workflow-steps li').nth(1)).toHaveAttribute('data-status','done');await execute(page,'M6 actual continuous call');\n  19 |  await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);const history=(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items[0];expect(history.ownerId).toBe(current.user.id);expect(history.connectionId).toBe(connectionId);\n  20 |  await workflow(page);await expect(page.locator('.workflow-steps li').nth(4)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(5)).toHaveAttribute('data-status','pending');await page.getByRole('button',{name:'打开查看调用历史',exact:true}).click();await expect(page.getByRole('button',{name:'恢复为新 Tab',exact:true})).toBeVisible();await page.getByRole('button',{name:'另存为新记录',exact:true}).click();await page.getByLabel('记录名称',{exact:true}).fill('M6 same-run reusable record');await page.getByRole('button',{name:'保存记录',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.sourceRunId).toBe(history.snapshot.runId);expect(saved.id).not.toBe(history.id);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                        "column": 2021,
+                        "line": 17
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('已接受', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('已接受', { exact: true })\u001b[22m\n\n\n  15 |  // A second real account repairs identity at this invitation; verification is not acceptance.\n  16 |  let mail='';await expect.poll(async()=>{const response=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(email)}`);mail=(await response.json() as {messages:{body:string}[]}).messages.at(-1)?.body??'';return mail;}).not.toBe('');const inviteID=new URL(mail.split(/\\r?\\n/).find(line=>line.startsWith('http'))!).pathname.split('/').at(-1)!;const inviteCode=mail.trim().split(/\\r?\\n/).at(-1)!;\n> 17 |  const context=await browser.newContext({baseURL:process.env.PLAYWRIGHT_BASE_URL,ignoreHTTPSErrors:true,locale:'zh-CN'});try{const invited=await context.newPage();await invited.goto(`/invitations/${inviteID}`);await invited.getByRole('button',{name:'创建受邀账号',exact:true}).click();await invited.getByLabel('邮箱',{exact:true}).fill(email);await invited.getByLabel('名称',{exact:true}).fill('M6 invited member');await invited.getByLabel('密码',{exact:true}).fill('Fixture-Password-12');await invited.getByLabel('邮件验证码',{exact:true}).fill(inviteCode);await invited.getByRole('button',{name:'创建账号',exact:true}).click();await expect(invited.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await invited.getByLabel('邮箱',{exact:true}).fill(email);await invited.getByLabel('密码',{exact:true}).fill('Fixture-Password-12');await invited.getByRole('button',{name:'登录',exact:true}).click();await expect(invited.getByRole('heading',{name:'邀请',exact:true})).toBeVisible();await invited.getByRole('button',{name:'验证邮箱',exact:true}).click();await expect(invited.getByRole('heading',{name:'验证邮箱',exact:true})).toBeVisible();let verification='';await expect.poll(async()=>{const response=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(email)}`);const messages=(await response.json() as {messages:{body:string}[]}).messages;verification=messages.length>1?messages.at(-1)!.body:'';return verification;}).not.toBe('');await invited.getByLabel('邮件验证码',{exact:true}).fill(verification.trim().split(/\\r?\\n/).at(-1)!);await invited.getByRole('button',{name:'验证邮箱',exact:true}).click();await expect(invited.getByRole('heading',{name:'邀请',exact:true})).toBeVisible();expect(new URL(invited.url()).searchParams.get('invite')).toBe(inviteID);await expect(invited.getByRole('button',{name:'接受邀请',exact:true})).toBeVisible();await invited.getByLabel('邮件验证码',{exact:true}).fill(inviteCode);await invited.getByRole('button',{name:'接受邀请',exact:true}).click();await expect(invited.getByText('已接受',{exact:true})).toBeVisible();}finally{await context.close();}\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^\n  18 |  await page.getByRole('button',{name:'服务',exact:true}).click();const connectionId=await createService(page,'M6 continuous HTTP',process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp');await connect(page);await workflow(page);await page.getByRole('button',{name:'无需变量，继续操作',exact:true}).click();await expect(page.locator('.workflow-steps li').nth(1)).toHaveAttribute('data-status','done');await execute(page,'M6 actual continuous call');\n  19 |  await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);const history=(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items[0];expect(history.ownerId).toBe(current.user.id);expect(history.connectionId).toBe(connectionId);\n  20 |  await workflow(page);await expect(page.locator('.workflow-steps li').nth(4)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(5)).toHaveAttribute('data-status','pending');await page.getByRole('button',{name:'打开查看调用历史',exact:true}).click();await expect(page.getByRole('button',{name:'恢复为新 Tab',exact:true})).toBeVisible();await page.getByRole('button',{name:'另存为新记录',exact:true}).click();await page.getByLabel('记录名称',{exact:true}).fill('M6 same-run reusable record');await page.getByRole('button',{name:'保存记录',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.sourceRunId).toBe(history.snapshot.runId);expect(saved.id).not.toBe(history.id);\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:17:2021"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:24:11.750Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-flow-T33-production-rea-9e1ef--and-unexecuted-restoration-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                    "column": 2021,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-4f640f40e54e7b1c5797",
+          "file": "m6-flow.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 90016,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 90000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                        "column": 914,
+                        "line": 27
+                      },
+                      "message": "Error: locator.click: Test timeout of 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '重试上传', exact: true })\u001b[22m\n\n\n  25 |\n  26 | test('T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions',async({page,request})=>{\n> 27 |  test.setTimeout(90000);await bootstrap(page,request);const pid=await createProject(page);const cid=await createService(page,'M6 interrupted upload',process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp');await connect(page);let fail=true;await page.route('**/api/v1/projects/*/record-uploads',route=>fail?route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'unavailable'}})}):route.continue());await execute(page,'M6 retained upload');await expect(page.getByRole('button',{name:'重试上传',exact:true})).toBeVisible();const before=await fixtureStats(request);await workflow(page);await expect(page.locator('.workflow-steps li').nth(5)).toHaveAttribute('data-status','upload-failed');await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toHaveCount(0);await page.getByRole('button',{name:'检查上传队列',exact:true}).click();fail=false;await page.getByRole('button',{name:'重试上传',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${pid}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^\n  28 |  await page.goto(`/?page=servers&project=${pid}&connection=missing-connection`);await expect(page.getByRole('alert')).toContainText('对象不存在');await page.getByRole('main').getByRole('button',{name:'服务',exact:true}).click();await expect(page.getByRole('button',{name:'M6 interrupted upload',exact:true})).toBeVisible();await page.goto(`/?page=tools&project=missing-project&connection=${cid}`);await expect(page.getByRole('navigation',{name:'项目导航'})).toHaveCount(0);await expect(page.getByRole('heading',{name:'项目流程'})).toHaveCount(0);await page.getByRole('button',{name:'返回项目目录',exact:true}).click();await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();\n  29 | });\n  30 |\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:27:914"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:24:25.744Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-flow-T31-T33-production-72164-copes-have-recovery-actions-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-2ce87aab31fa1d44574b",
+          "file": "m6-flow.spec.ts",
+          "line": 26,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m6-layout.spec.ts",
+      "file": "m6-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T32a production: bilingual theme/window matrix preserves tool drafts and scrolling",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 180066,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts",
+                        "column": 105,
+                        "line": 21
+                      },
+                      "message": "Error: locator.fill: Test timeout of 180000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('名称', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"«rd»\" required=\"\" aria-label=\"名称\" maxlength=\"120\" value=\"M6 long service name · workspace configuration and diagnostics · 很长的服务名称\"/>\u001b[22m\n\u001b[2m    - fill(\"Very long unsaved service configuration name · 很长的未保存连接草稿\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    349 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m        - element is not enabled\u001b[22m\n\u001b[2m      - retrying fill action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n  19 |  for(const language of ['en-US','zh-CN'] as const)for(const appearance of ['light','dark'] as const){await locale(page,language);await theme(page,appearance);for(const width of [390,820,1024,1440]){await page.setViewportSize({width,height:width===390?844:900});await expect(page.getByLabel(words[language].rawLabel,{exact:true})).toHaveValue(draft);metrics.push(await capture(page,`tools-${language}-${appearance}-${width}`));}await page.setViewportSize({width:1024,height:640});metrics.push(await capture(page,`tools-${language}-${appearance}-1024-short`));await scan(page,`tools-${language}-${appearance}`);}\n  20 |  await page.setViewportSize({width:1440,height:900});await locale(page,'en-US');const requestPane=page.locator('.ui-debugger-request');await requestPane.evaluate(element=>{element.scrollTop=60;});const before=await requestPane.evaluate(element=>element.scrollTop);expect(before).toBeGreaterThan(0);await locale(page,'zh-CN');await theme(page,'light');expect(await requestPane.evaluate(element=>element.scrollTop)).toBe(before);await expect(page.getByLabel('原始参数',{exact:true})).toHaveValue(draft);\n> 21 |  await page.getByRole('button',{name:'服务',exact:true}).click();await page.getByRole('button',{name:'断开',exact:true}).click();await expect(page.getByLabel('名称',{exact:true})).toBeEnabled();await page.getByLabel('名称',{exact:true}).fill('Very long unsaved service configuration name · 很长的未保存连接草稿');\n     |                                                                                                         ^\n  22 |  for(const language of ['zh-CN','en-US'] as const)for(const appearance of ['light','dark'] as const){await locale(page,language);await theme(page,appearance);for(const width of [390,820,1024,1440]){await page.setViewportSize({width,height:width===390?844:640});metrics.push(await capture(page,`server-${language}-${appearance}-${width}`));await expect(page.getByLabel(language==='zh-CN'?'名称':'Name',{exact:true})).toHaveValue('Very long unsaved service configuration name · 很长的未保存连接草稿');}}\n  23 |  await writeFile(`${evidenceDir}/layout-metrics.json`,JSON.stringify({scope:'Production tools and service composition; screenshots require visual review; does not sign manual acceptance.',metrics,consoleErrors},null,2));expect(consoleErrors).toEqual([]);\n  24 | });\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:21:105"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:25:56.264Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-layout-T32a-production--84541-s-tool-drafts-and-scrolling-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd1c627dcf433fa4dcc4-34999a70e5a3ea8227cd",
+          "file": "m6-layout.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3028,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:28:56.824Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd1c627dcf433fa4dcc4-2181cd939cb0312c1049",
+          "file": "m6-layout.spec.ts",
+          "line": 26,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "m6-matrix.spec.ts",
+      "file": "m6-matrix.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 900000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31251,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:28:59.986Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afa5050ce45af3eb32c4-01368675cc218ec165bc",
+          "file": "m6-matrix.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 600000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:29:31.249Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afa5050ce45af3eb32c4-56481f27454bcbeac1b0",
+          "file": "m6-matrix.spec.ts",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 600000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15857,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('成功 · 成功', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('成功 · 成功', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('成功 · 成功', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('成功 · 成功', { exact: true })\u001b[22m\n\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts:35:945",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts",
+                      "column": 945,
+                      "line": 35
+                    },
+                    "snippet": "  33 |  await route(page,projectId,'operations');await expect(page.getByRole('heading',{name:'记录与设备',exact:true})).toBeVisible();await expect(page.getByText('请连接已配对 Agent 查看队列。离线不表示队列为空。',{exact:true})).toBeVisible();await coverage.add(page,['P26'],'record-device-queue-capacity');await coverage.pending(['P12','P13','P16'],'paired-agent-vault-backups','Real unpaired device, empty browser personal value and token authorization are covered. Pairing, OS vault, encrypted backup restore/delete, and media lifecycle require separate real Agent/OS setup; no paired status or backup is mocked.');\n  34 | });\n> 35 |\n     | ^\n  36 | test('T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor',async({page,request})=>{\n  37 |  test.setTimeout(600000);const coverage=collector('records');await bootstrap(page,request);const projectId=await createProject(page),connectionId=await createService(page,'Matrix real HTTP execution',process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp');await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText(/已连接.*m2-controlled-fixture/)).toBeVisible();await page.getByRole('button',{name:'工具',exact:true}).click();await page.getByRole('button',{name:'打开 echo',exact:true}).click();await page.getByRole('button',{name:'原始 JSON',exact:true}).click();await page.getByLabel('原始参数',{exact:true}).fill('{\"text\":\"M6 public matrix run\"}');await coverage.add(page,['P17'],'tool-arguments');await page.locator('.tools-document summary').last().click();await coverage.add(page,['P18'],'tool-definition-expanded');await page.getByRole('button',{name:'执行工具',exact:true}).click();await expect(page.getByText(`${executionZh.execution_succeeded} · ${executionZh.result_success}`,{exact:true})).toBeVisible();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);const history=(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items[0];await coverage.add(page,['P17'],'tool-execution-result');\n  38 |  await page.getByRole('button',{name:'保存结果',exact:true}).click();await page.getByLabel('记录名称',{exact:true}).fill('Matrix saved record with long bilingual name · 保存副本');await coverage.add(page,['P20','P25'],'tool-save-result-editor');await page.getByRole('button',{name:'保存记录',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];await expect(page.getByRole('button',{name:`打开 ${saved.metadata.name}`,exact:true})).toBeVisible();await coverage.add(page,['P20'],'tool-saved-list');await page.locator('.tool-execution').getByRole('tab',{name:'调用历史',exact:true}).click();await expect(page.getByRole('button',{name:'打开 echo',exact:true}).last()).toBeVisible();await coverage.add(page,['P19'],'tool-history-list');await page.locator('.tool-execution').getByRole('button',{name:'打开 echo',exact:true}).click();await expect(page.getByRole('button',{name:recordsZh.restoreRecord,exact:true})).toBeVisible();await coverage.add(page,['P19'],'tool-history-detail');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts",
+                        "column": 945,
+                        "line": 35
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('成功 · 成功', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('成功 · 成功', { exact: true })\u001b[22m\n\n\n  33 |  await route(page,projectId,'operations');await expect(page.getByRole('heading',{name:'记录与设备',exact:true})).toBeVisible();await expect(page.getByText('请连接已配对 Agent 查看队列。离线不表示队列为空。',{exact:true})).toBeVisible();await coverage.add(page,['P26'],'record-device-queue-capacity');await coverage.pending(['P12','P13','P16'],'paired-agent-vault-backups','Real unpaired device, empty browser personal value and token authorization are covered. Pairing, OS vault, encrypted backup restore/delete, and media lifecycle require separate real Agent/OS setup; no paired status or backup is mocked.');\n  34 | });\n> 35 |\n     | ^\n  36 | test('T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor',async({page,request})=>{\n  37 |  test.setTimeout(600000);const coverage=collector('records');await bootstrap(page,request);const projectId=await createProject(page),connectionId=await createService(page,'Matrix real HTTP execution',process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp');await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText(/已连接.*m2-controlled-fixture/)).toBeVisible();await page.getByRole('button',{name:'工具',exact:true}).click();await page.getByRole('button',{name:'打开 echo',exact:true}).click();await page.getByRole('button',{name:'原始 JSON',exact:true}).click();await page.getByLabel('原始参数',{exact:true}).fill('{\"text\":\"M6 public matrix run\"}');await coverage.add(page,['P17'],'tool-arguments');await page.locator('.tools-document summary').last().click();await coverage.add(page,['P18'],'tool-definition-expanded');await page.getByRole('button',{name:'执行工具',exact:true}).click();await expect(page.getByText(`${executionZh.execution_succeeded} · ${executionZh.result_success}`,{exact:true})).toBeVisible();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);const history=(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items[0];await coverage.add(page,['P17'],'tool-execution-result');\n  38 |  await page.getByRole('button',{name:'保存结果',exact:true}).click();await page.getByLabel('记录名称',{exact:true}).fill('Matrix saved record with long bilingual name · 保存副本');await coverage.add(page,['P20','P25'],'tool-save-result-editor');await page.getByRole('button',{name:'保存记录',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];await expect(page.getByRole('button',{name:`打开 ${saved.metadata.name}`,exact:true})).toBeVisible();await coverage.add(page,['P20'],'tool-saved-list');await page.locator('.tool-execution').getByRole('tab',{name:'调用历史',exact:true}).click();await expect(page.getByRole('button',{name:'打开 echo',exact:true}).last()).toBeVisible();await coverage.add(page,['P19'],'tool-history-list');await page.locator('.tool-execution').getByRole('button',{name:'打开 echo',exact:true}).click();await expect(page.getByRole('button',{name:recordsZh.restoreRecord,exact:true})).toBeVisible();await coverage.add(page,['P19'],'tool-history-detail');\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts:35:945"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:29:45.877Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-matrix-T32-production-P-0ad59--detail-and-metadata-editor-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts",
+                    "column": 945,
+                    "line": 35
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "afa5050ce45af3eb32c4-9b7b25487eb6bd3b57df",
+          "file": "m6-matrix.spec.ts",
+          "line": 34,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T10:24:11.278Z",
+    "duration": 350560.599,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

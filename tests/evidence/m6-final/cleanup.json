@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-10-13T12:54:58.328Z",
+  "postgresql": "18.6 (Debian 18.6-1.pgdg13+2)",
+  "role": "mcp_studio_app:false",
+  "remainingTestSchemas": 0,
+  "runtime": "verify exit0 finally stopped Agent/platform/SMTP/MCP/OAuth/TLS and removed owned schema and temporary fixtures",
+  "database": "Isolated loopback tmpfs test database retained for reruns; no production deployment"
+}

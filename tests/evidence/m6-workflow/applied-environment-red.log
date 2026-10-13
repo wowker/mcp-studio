@@ -1,0 +1,68 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow/WorkflowPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/workflow/WorkflowPage.test.tsx (11 tests | 2 failed) 270ms
+   ✓ reads real configuration and makes both optional skips explicit with keyboard actions 138ms
+   ✓ hides all context and makes no configuration requests with no current project access or expired identity 3ms
+   ✓ does not read protected configuration when only directory management is granted 1ms
+   ✓ shows failed execution facts and failed upload without completing the journey 10ms
+   ✓ isolates progress when selecting another connection and does not create execution from navigating to tools 21ms
+   ✓ joins recorded history view and a same-run saved receipt in bilingual progress 15ms
+   ✓ does not offer an environment skip while real applicable variables need values 14ms
+   ✓ checks real Agent readiness when environment definitions arrive after variables and hides raw preview values 15ms
+   ✓ keeps an uploaded failure explicit on the seven-step page and directs retry to the owner queue 22ms
+   × uses the personal applied environment for progress while a browsed environment does not change it 17ms
+     → expected <button type="button" …(1)></button> to be null
+   × keeps a missing personal applied environment incomplete instead of using a valid shared default 15ms
+     → expected <button type="button" …(1)></button> to be null
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/workflow/WorkflowPage.test.tsx > uses the personal applied environment for progress while a browsed environment does not change it
+AssertionError: expected <button type="button" …(1)></button> to be null
+
+- Expected: 
+null
+
++ Received: 
+<button
+  class="ui-button ui-button-secondary "
+  type="button"
+>
+  Continue without variables
+</button>
+
+ ❯ src/features/workflow/WorkflowPage.test.tsx:35:747
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/workflow/WorkflowPage.test.tsx > keeps a missing personal applied environment incomplete instead of using a valid shared default
+AssertionError: expected <button type="button" …(1)></button> to be null
+
+- Expected: 
+null
+
++ Received: 
+<button
+  class="ui-button ui-button-secondary "
+  type="button"
+>
+  Continue without variables
+</button>
+
+ ❯ src/features/workflow/WorkflowPage.test.tsx:38:218
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 9 passed (11)
+   Start at  17:59:53
+   Duration  1.65s (transform 120ms, setup 38ms, collect 1.06s, tests 270ms, environment 161ms, prepare 27ms)
+

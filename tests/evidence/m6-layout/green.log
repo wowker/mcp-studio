@@ -1,0 +1,15 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/shared/ui.layout.test.tsx apps/web/src/app/Shell.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/shared/ui.layout.test.tsx (2 tests) 160ms
+ ✓ src/app/Shell.test.tsx (1 test) 134ms
+
+ Test Files  2 passed (2)
+      Tests  3 passed (3)
+   Start at  17:52:33
+   Duration  2.08s (transform 106ms, setup 143ms, collect 1.40s, tests 294ms, environment 736ms, prepare 110ms)
+

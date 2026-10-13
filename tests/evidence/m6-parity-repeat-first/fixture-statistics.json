@@ -1,0 +1,239 @@
+{
+  "mcp": {
+    "cookieRequests": 0,
+    "initialize": 14,
+    "httpInitialize": 14,
+    "sseInitialize": 0,
+    "toolsList": 28,
+    "httpToolsList": 28,
+    "sseToolsList": 0,
+    "toolsCall": 14,
+    "httpToolsCall": 14,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "oauth": {
+    "cookieRequests": 0,
+    "initialize": 0,
+    "httpInitialize": 0,
+    "sseInitialize": 0,
+    "toolsList": 0,
+    "httpToolsList": 0,
+    "sseToolsList": 0,
+    "toolsCall": 0,
+    "httpToolsCall": 0,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "agent": {
+    "generation": 1,
+    "nativePairings": 14,
+    "nativeProcesses": 13,
+    "stdioCalls": 13,
+    "uploads": [
+      {
+        "frozenDigest": "c8a3407c8966b132db79997d4cffef964776c09afa6e76b820dd699e612f00b6",
+        "operationId": "49eae59c-370a-4b10-b740-922ee3423b94",
+        "status": 200,
+        "targetId": "74b78133-2cb0-432a-8130-d3925dbdd074",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "1f663c69650dd05d5256de73ed40edfa7baa91eef1a180653c818913b90b6047",
+        "operationId": "d0c2b8a5-6fe2-4a43-999a-963afadeeaef",
+        "status": 200,
+        "targetId": "bd1e83d0-82a5-4bb1-b1d7-4a730a8fa05b",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "df141248e731f0565749a02425dbe131d65ce72ef7c6d9d7628469124dc0ff43",
+        "operationId": "b28d5b10-e414-4141-a40f-589b361b33fa",
+        "status": 200,
+        "targetId": "10d437cc-3a21-4072-a4f6-daaa077f3f59",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "d4d1706fe3c812d4c609766fd78aea8016d84dae1316ed1c63ff25b96b7c0aa8",
+        "operationId": "5149b222-231d-47f8-a1d0-329ee093f494",
+        "status": 200,
+        "targetId": "88560b52-4b0a-4aef-9ee3-8b3dca7d6b45",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "62f6f8d1d21c95ee433f43a6ac71086dcac9596a0b2f60e599a9c9e5cf4b62c2",
+        "operationId": "7fbfc4b6-53d0-4a63-a2d7-4852e1ef1c46",
+        "status": 200,
+        "targetId": "f276dcc3-fe3b-4b22-b455-8230654db63b",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "795ec7e230e210de71dc4f4403213b84e63c0998e36805638f72f0cefd2acd1c",
+        "operationId": "f04537f5-b236-409e-9a47-e3c538c9538f",
+        "status": 200,
+        "targetId": "51a5f495-2f53-4266-bb05-46c251b8b5df",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "d7e25b7d4cf7ec1e1324878a2e84c5ebc11fa44ea76e2117cd3ebbb620007819",
+        "operationId": "c1789be0-44ef-4fba-a378-f38c5944fcba",
+        "status": 200,
+        "targetId": "5f00ba7f-a347-47fc-8166-3c12f0654646",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "e4e708e2cf3d2f5d34de52d8f0c3aefdbda0b8236786e2c55c7df2c7f00af4f2",
+        "operationId": "1e555343-12b8-4b42-896d-3921d5cb779a",
+        "status": 200,
+        "targetId": "3f02c17c-972c-44c1-85e8-bc1c3789970b",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "7628d8615f947d3fac69c44263e3fe7d1bbd1088d36f677cc66fbe77c01525e1",
+        "operationId": "94986be7-097a-4e2b-9c2f-7b6d066e1d21",
+        "status": 200,
+        "targetId": "8f89fb79-72ab-4b85-9171-ff644fb67dfe",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "dcbdc4b914e24166d7a4722747feb8ebc52d94e6224563b9572419568079a91c",
+        "operationId": "dba319dc-f178-4835-b332-9a4f1ce55f27",
+        "status": 200,
+        "targetId": "79d14fdc-20f2-4c6a-b2fb-94da8b0bb06b",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "e0f0436fa500f94bfe7303a6737fb7847010276b982831cf46345f22d515f688",
+        "operationId": "2b0b742a-1fb5-4a21-add1-af628ff76f20",
+        "status": 200,
+        "targetId": "302f8312-f272-43d5-82f4-f9191aaab8d8",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "0dfd0241c6f3e9c2dc963913357f092e89fbc948e88c31c90bd39290374abf42",
+        "operationId": "50a0775d-4a26-4978-8da8-dca67db01bb0",
+        "status": 200,
+        "targetId": "4f20d65a-3a91-4d68-9e87-86347feb43ba",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "7eccf5fa110a2a48fbc0220630a62d94e32a4ed6c680121e9dad327c85820f17",
+        "operationId": "fd560e67-bb0c-4a65-b1e3-b0f7f031a001",
+        "status": 200,
+        "targetId": "75e3506e-116f-4d2a-831a-1d6f16543eea",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "d4072a75cdeaae04f625994af388a8fe1b6d5008f13aa3c8d10d31e25c416ef6",
+        "operationId": "304df2e1-70b1-43ee-a44e-d26b621bd044",
+        "status": 200,
+        "targetId": "19e8e471-3c7a-4e48-b2b1-e358bb623f02",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "c804a08c6ca2d6864d52a7a693f0dc506718230599fe144db937e8b1fb5e7d30",
+        "operationId": "d4f13779-c5a0-4b6f-85ba-b6ee33e10ebc",
+        "status": 200,
+        "targetId": "e3efecc2-e7e7-4c4d-a59c-7a26e2d035fc",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "20ce541bdd72ecf81e7a951df989631a684fc47d9a77709c45b81a6143337d52",
+        "operationId": "9a47431c-494d-46f5-9a99-ef7ae67ccfaf",
+        "status": 200,
+        "targetId": "d92d764c-2984-431e-bacb-279f7b25c02c",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "d834c72fb5e44a69ccfdd16862ffb60650a7549f1d1eb01bcb88f44fa15364d3",
+        "operationId": "6e65ddbc-9b6c-4fa1-bed5-36ea40beb3f6",
+        "status": 200,
+        "targetId": "8b963926-637d-4438-93f2-306922b83e72",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "6145eae1e85c570f0a9619becc23c2b932bf37bcb03395060e393043c47a1424",
+        "operationId": "829a1351-ab4e-403c-94c3-5f0a664cb30a",
+        "status": 200,
+        "targetId": "37fa3c18-4db3-4294-81a8-dbb4ed68173e",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "bf0f3982bded61b510d51b517e7de4c1960736613aca636f96e3af7b3f0d82c7",
+        "operationId": "2b32348e-dfaf-4d59-b16d-758db7530ccc",
+        "status": 200,
+        "targetId": "24d2af51-bee4-44f2-896f-5677384c6620",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "04533620c5f4918df9cf2be4fe2cc6a3e234754ec2180167ec40a205acdf5fd9",
+        "operationId": "9a179359-49b7-4647-ada1-bdd260111dcd",
+        "status": 200,
+        "targetId": "d9bc6194-e0d8-43ba-abd2-34622e3c2031",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "6785d05ebe7c16a80f92ceaacf295e131f48678b66f1769fa4fdbac0e68eb303",
+        "operationId": "5dffb91d-74bb-41ab-897b-2c1b0f422ead",
+        "status": 200,
+        "targetId": "6d8dc353-b736-4f87-a8c9-2da4c38aef56",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "86cab08d9c9469ebdd50656ce80eedf2fdec4f31caa2cdc0d31924841ea906f6",
+        "operationId": "e9c201e1-4f3a-47d2-9db3-dc308437b5c4",
+        "status": 200,
+        "targetId": "cd530275-75c5-47d6-b061-1ffc1df0ac05",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "6bb0da3451f13580ac7426185368a5a7b3d581e2996b5c4efedf4c871885c099",
+        "operationId": "5a3cca77-00d9-4184-9f92-21b0fabfa48e",
+        "status": 200,
+        "targetId": "1fca9026-5714-4c25-92a4-497d6877c31c",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "2ba9adb41661ec7fe8a78ca9030471e56cb7ce06ccccd574fcc0341ed25dca9a",
+        "operationId": "928f24c1-d6ee-43dd-81c3-3c3fe74f0c17",
+        "status": 200,
+        "targetId": "4e6ba702-317c-4756-8647-9ff6571e9e04",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "9172eae66385a3988ce71af42f6e25bf7835431076b27808464a3b448425177b",
+        "operationId": "d03f4838-4890-42cb-b01b-d0106624b407",
+        "status": 200,
+        "targetId": "708dad52-a8a3-4518-bb92-253bdb83c59e",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "55a2581a6486bc56c1a8515ff60aeb3a6b43ff9ae975e3b0db5841b4e294869e",
+        "operationId": "d75494c8-1de0-4630-849a-e8ee5ab6c9cb",
+        "status": 200,
+        "targetId": "465ad06b-9631-4288-bd12-ba3e9f19842e",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "86884896053a352907cc12dfb0c7f69bef34bce67e2d53ac66be72d682573a63",
+        "operationId": "8c2c4363-976a-4d49-9043-ab7548273f45",
+        "status": 200,
+        "targetId": "6b0e5106-ef79-42c3-9d97-cc23794da644",
+        "type": "upload"
+      }
+    ]
+  },
+  "tls": "Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass",
+  "supportMatrix": "T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence"
+}

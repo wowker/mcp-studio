@@ -1,0 +1,18 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 5 tests using 1 worker
+
+(node:44674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (9.5s)
+  ✓  2 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (4.5s)
+  ✓  3 [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps (3.6s)
+  ✓  4 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (5.8s)
+  ✓  5 [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (2.9s)
+
+  5 passed (27.3s)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed

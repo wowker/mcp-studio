@@ -1,0 +1,28 @@
+Listing tests:
+  [chromium] › m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认
+  [chromium] › m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝
+  [chromium] › m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话
+  [chromium] › m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary
+  [chromium] › m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials
+  [chromium] › m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial
+  [chromium] › m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands
+  [chromium] › m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration
+  [chromium] › m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP
+  [chromium] › m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission
+  [chromium] › m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft
+  [chromium] › m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+  [chromium] › m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard
+  [chromium] › m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined
+  [chromium] › m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk
+  [chromium] › m5.spec.ts:19:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record
+  [chromium] › m5.spec.ts:21:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool
+  [chromium] › m5.spec.ts:23:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent
+  [chromium] › m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration
+  [chromium] › m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions
+  [chromium] › m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps
+  [chromium] › m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling
+  [chromium] › m6-layout.spec.ts:26:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location
+  [chromium] › m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views
+  [chromium] › m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views
+  [chromium] › m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor
+Total: 26 tests in 8 files

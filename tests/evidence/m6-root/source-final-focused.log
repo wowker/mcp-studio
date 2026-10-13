@@ -1,0 +1,25 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/environment/EnvironmentPage.test.tsx apps/web/src/app/App.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/environment/EnvironmentPage.test.tsx (14 tests) 2935ms
+   ✓ blocks application for missing personal required value and preserves secret only in memory  379ms
+   ✓ filters effective missing sensitive and overridden values and exposes lower source editing  380ms
+   ✓ follows same-project route changes and back navigation without applying the previous scope or losing scoped drafts  504ms
+ ✓ src/app/App.test.tsx (18 tests) 5482ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  631ms
+   ✓ rechecks project capability after a forbidden write without signing out  601ms
+   ✓ refreshes team permissions when forbidden changes leave the project maintainer role intact  814ms
+   ✓ refreshes stale CSRF for the same user and keeps the failed project draft  321ms
+   ✓ keeps the old project hidden after a 401 and a different account signs in before its scope loads  411ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  1114ms
+   ✓ keeps another project tool document when switching through a Viewer project  572ms
+
+ Test Files  2 passed (2)
+      Tests  32 passed (32)
+   Start at  18:38:12
+   Duration  9.35s (transform 642ms, setup 333ms, collect 5.24s, tests 8.42s, environment 1.50s, prepare 173ms)
+

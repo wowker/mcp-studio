@@ -1,0 +1,508 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/app/App.test.tsx (17 tests | 1 failed) 3288ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls 226ms
+   ✓ authenticated Shell > unmounts project context when session expires on a later request 34ms
+   ✓ authenticated Shell > does not display content capabilities from a stale project response 46ms
+   ✓ rechecks project capability after a forbidden write without signing out 146ms
+   ✓ rechecks the server idle deadline after activity instead of expiring a valid session locally 35ms
+   ✓ loads projects only after mailbox verification enables the session 82ms
+   ✓ refreshes team permissions when forbidden changes leave the project maintainer role intact 122ms
+   ✓ refreshes stale CSRF for the same user and keeps the failed project draft 79ms
+   ✓ keeps the old project hidden after a 401 and a different account signs in before its scope loads 122ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  752ms
+   ✓ keeps another project tool document when switching through a Viewer project  462ms
+   ✓ shows a bootstrap failure with a working retry instead of an endless loading state 28ms
+   ✓ provides a scoped return action for an unavailable project without showing its content 32ms
+   ✓ offers recovery while hiding expired content when bootstrap refresh fails at the session deadline 42ms
+   ✓ ignores a late initial session 401 after a successful bootstrap retry establishes a newer identity 43ms
+   ✓ ignores a late initial session success after a successful bootstrap retry establishes a newer identity 29ms
+   × leaves a canonical invalid invitation path when choosing sign in without invitation 1007ms
+     → Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"ui-visually-hidden"[39m
+      [33mrole[39m=[32m"status"[39m
+    [36m/>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"ui-skip-link"[39m
+      [33mhref[39m=[32m"#main-content"[39m
+    [36m>[39m
+      [0mSkip to content[0m
+    [36m</a>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-preferences"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Toggle theme"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtitle[39m=[32m"Toggle theme"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mToggle theme[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mLanguage[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Language"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"zh-CN"[39m
+              [36m>[39m
+                [0m简体中文[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"en-US"[39m
+              [36m>[39m
+                [0mEnglish[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"workbench-header"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mtitle[39m=[32m"Projects"[39m
+        [36m>[39m
+          [0mProjects[0m
+        [36m</span>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"workbench-content"[39m
+        [33mid[39m=[32m"main-content"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [0m [0m
+          [36m<p[39m
+            [33mrole[39m=[32m"status"[39m
+          [36m>[39m
+            [0mLoading…[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"ui-visually-hidden"[39m
+      [33mrole[39m=[32m"status"[39m
+    [36m/>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"ui-skip-link"[39m
+      [33mhref[39m=[32m"#main-content"[39m
+    [36m>[39m
+      [0mSkip to content[0m
+    [36m</a>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-preferences"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Toggle theme"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtitle[39m=[32m"Toggle theme"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mToggle theme[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mLanguage[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Language"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"zh-CN"[39m
+              [36m>[39m
+                [0m简体中文[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"en-US"[39m
+              [36m>[39m
+                [0mEnglish[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"workbench-header"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mtitle[39m=[32m"Projects"[39m
+        [36m>[39m
+          [0mProjects[0m
+        [36m</span>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"workbench-content"[39m
+        [33mid[39m=[32m"main-content"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [0m [0m
+          [36m<p[39m
+            [33mrole[39m=[32m"status"[39m
+          [36m>[39m
+            [0mLoading…[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/App.test.tsx > leaves a canonical invalid invitation path when choosing sign in without invitation
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"ui-visually-hidden"[39m
+      [33mrole[39m=[32m"status"[39m
+    [36m/>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"ui-skip-link"[39m
+      [33mhref[39m=[32m"#main-content"[39m
+    [36m>[39m
+      [0mSkip to content[0m
+    [36m</a>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-preferences"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Toggle theme"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtitle[39m=[32m"Toggle theme"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mToggle theme[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mLanguage[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Language"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"zh-CN"[39m
+              [36m>[39m
+                [0m简体中文[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"en-US"[39m
+              [36m>[39m
+                [0mEnglish[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"workbench-header"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mtitle[39m=[32m"Projects"[39m
+        [36m>[39m
+          [0mProjects[0m
+        [36m</span>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"workbench-content"[39m
+        [33mid[39m=[32m"main-content"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [0m [0m
+          [36m<p[39m
+            [33mrole[39m=[32m"status"[39m
+          [36m>[39m
+            [0mLoading…[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"ui-visually-hidden"[39m
+      [33mrole[39m=[32m"status"[39m
+    [36m/>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"ui-skip-link"[39m
+      [33mhref[39m=[32m"#main-content"[39m
+    [36m>[39m
+      [0mSkip to content[0m
+    [36m</a>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-preferences"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Toggle theme"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtitle[39m=[32m"Toggle theme"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mToggle theme[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mLanguage[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Language"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"zh-CN"[39m
+              [36m>[39m
+                [0m简体中文[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"en-US"[39m
+              [36m>[39m
+                [0mEnglish[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"workbench-header"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mtitle[39m=[32m"Projects"[39m
+        [36m>[39m
+          [0mProjects[0m
+        [36m</span>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"workbench-content"[39m
+        [33mid[39m=[32m"main-content"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [0m [0m
+          [36m<p[39m
+            [33mrole[39m=[32m"status"[39m
+          [36m>[39m
+            [0mLoading…[0m
+          [36m</p>[39m
+        [36m</div>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/app/App.test.tsx:137:245
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 16 passed (17)
+   Start at  18:30:03
+   Duration  5.24s (transform 267ms, setup 69ms, collect 1.38s, tests 3.29s, environment 313ms, prepare 49ms)
+

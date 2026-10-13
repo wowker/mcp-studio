@@ -1,0 +1,28 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/tools/workspace.test.ts (7 tests | 1 failed) 5ms
+   ✓ connection scoped document commands > reuses an existing tool but explicit new and duplicate create independent unexecuted documents 1ms
+   ✓ connection scoped document commands > keeps tab identity, selection, ordering and drafts isolated by project and connection 0ms
+   ✓ connection scoped document commands > moves only within the pinned group and protects pinned and running tabs from bulk close 0ms
+   ✓ connection scoped document commands > commands targeting another tab never replace the selected draft and close selects a surviving neighbour 0ms
+   ✓ project revocation discards only target documents and preserves another project draft 0ms
+   ✓ duplicates all nested argument editing metadata without sharing mutable state 0ms
+   × retains bounded pane and scroll positions per document without copying a previous result layout 2ms
+     → scope.setLayout is not a function
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/tools/workspace.test.ts > retains bounded pane and scroll positions per document without copying a previous result layout
+TypeError: scope.setLayout is not a function
+ ❯ src/features/tools/workspace.test.ts:26:78
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  18:08:37
+   Duration  568ms (transform 28ms, setup 64ms, collect 15ms, tests 5ms, environment 321ms, prepare 42ms)
+

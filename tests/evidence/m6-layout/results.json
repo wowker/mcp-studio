@@ -1,0 +1,207 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m6-layout/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m6-layout.spec.ts",
+      "file": "m6-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T32a production: bilingual theme/window matrix preserves tool drafts and scrolling",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3807,
+                  "error": {
+                    "message": "Error: tools-en-US-light axe WCAG A/AA violations\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"aria-required-children\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"targets\": Array [\u001b[39m\n\u001b[31m+       \".tools-document-tabs\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: tools-en-US-light axe WCAG A/AA violations\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"aria-required-children\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"targets\": Array [\u001b[39m\n\u001b[31m+       \".tools-document-tabs\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at axeScan (/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts:22:194)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:19:559",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts",
+                      "column": 194,
+                      "line": 22
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlayout-helpers.ts:22\n\n  20 |  const summarize=(item:typeof result.violations[number])=>({id:item.id,impact:item.impact,targets:item.nodes.flatMap(node=>node.target.map(target=>String(target).replace(/\\[[^\\]]*\\]/gu,'[attribute]')))});\n  21 |  const report={engine:result.testEngine,timestamp:result.timestamp,scope:'WCAG 2/2.1 A/AA automatic axe scan; incomplete checks require human review.',passes:result.passes.map(item=>item.id),incomplete:result.incomplete.map(summarize),violations:result.violations.map(summarize)};\n> 22 |  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/${viewName}-axe.json`,JSON.stringify(report,null,2));expect(report.violations,`${viewName} axe WCAG A/AA violations`).toEqual([]);return report;\n     |                                                                                                                                                                                                  ^\n  23 | }\n  24 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts",
+                        "column": 194,
+                        "line": 22
+                      },
+                      "message": "Error: tools-en-US-light axe WCAG A/AA violations\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"aria-required-children\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"targets\": Array [\u001b[39m\n\u001b[31m+       \".tools-document-tabs\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n   at layout-helpers.ts:22\n\n  20 |  const summarize=(item:typeof result.violations[number])=>({id:item.id,impact:item.impact,targets:item.nodes.flatMap(node=>node.target.map(target=>String(target).replace(/\\[[^\\]]*\\]/gu,'[attribute]')))});\n  21 |  const report={engine:result.testEngine,timestamp:result.timestamp,scope:'WCAG 2/2.1 A/AA automatic axe scan; incomplete checks require human review.',passes:result.passes.map(item=>item.id),incomplete:result.incomplete.map(summarize),violations:result.violations.map(summarize)};\n> 22 |  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/${viewName}-axe.json`,JSON.stringify(report,null,2));expect(report.violations,`${viewName} axe WCAG A/AA violations`).toEqual([]);return report;\n     |                                                                                                                                                                                                  ^\n  23 | }\n  24 |\n    at axeScan (/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts:22:194)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:19:559"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:11:33.682Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-layout-T32a-production--84541-s-tool-drafts-and-scrolling-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts",
+                    "column": 194,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd1c627dcf433fa4dcc4-34999a70e5a3ea8227cd",
+          "file": "m6-layout.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3035,
+                  "error": {
+                    "message": "Error: keyboard-error-en-US-light-390 axe WCAG A/AA violations\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"aria-required-children\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"targets\": Array [\u001b[39m\n\u001b[31m+       \".tools-document-tabs\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: keyboard-error-en-US-light-390 axe WCAG A/AA violations\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"aria-required-children\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"targets\": Array [\u001b[39m\n\u001b[31m+       \".tools-document-tabs\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at axeScan (/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts:22:194)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:30:797",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts",
+                      "column": 194,
+                      "line": 22
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlayout-helpers.ts:22\n\n  20 |  const summarize=(item:typeof result.violations[number])=>({id:item.id,impact:item.impact,targets:item.nodes.flatMap(node=>node.target.map(target=>String(target).replace(/\\[[^\\]]*\\]/gu,'[attribute]')))});\n  21 |  const report={engine:result.testEngine,timestamp:result.timestamp,scope:'WCAG 2/2.1 A/AA automatic axe scan; incomplete checks require human review.',passes:result.passes.map(item=>item.id),incomplete:result.incomplete.map(summarize),violations:result.violations.map(summarize)};\n> 22 |  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/${viewName}-axe.json`,JSON.stringify(report,null,2));expect(report.violations,`${viewName} axe WCAG A/AA violations`).toEqual([]);return report;\n     |                                                                                                                                                                                                  ^\n  23 | }\n  24 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts",
+                        "column": 194,
+                        "line": 22
+                      },
+                      "message": "Error: keyboard-error-en-US-light-390 axe WCAG A/AA violations\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"aria-required-children\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"targets\": Array [\u001b[39m\n\u001b[31m+       \".tools-document-tabs\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n   at layout-helpers.ts:22\n\n  20 |  const summarize=(item:typeof result.violations[number])=>({id:item.id,impact:item.impact,targets:item.nodes.flatMap(node=>node.target.map(target=>String(target).replace(/\\[[^\\]]*\\]/gu,'[attribute]')))});\n  21 |  const report={engine:result.testEngine,timestamp:result.timestamp,scope:'WCAG 2/2.1 A/AA automatic axe scan; incomplete checks require human review.',passes:result.passes.map(item=>item.id),incomplete:result.incomplete.map(summarize),violations:result.violations.map(summarize)};\n> 22 |  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/${viewName}-axe.json`,JSON.stringify(report,null,2));expect(report.violations,`${viewName} axe WCAG A/AA violations`).toEqual([]);return report;\n     |                                                                                                                                                                                                  ^\n  23 | }\n  24 |\n    at axeScan (/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts:22:194)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:30:797"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:11:38.032Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-layout-T32b-production--d78e4-t-and-nested-error-location-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts",
+                    "column": 194,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd1c627dcf433fa4dcc4-2181cd939cb0312c1049",
+          "file": "m6-layout.spec.ts",
+          "line": 26,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T10:11:33.298Z",
+    "duration": 7887.138999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

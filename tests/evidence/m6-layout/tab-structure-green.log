@@ -1,0 +1,15 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/tools/ToolDocumentTabs.test.tsx apps/web/src/features/tools/ToolsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/tools/ToolDocumentTabs.test.tsx (2 tests) 134ms
+ ✓ src/features/tools/ToolsPage.test.tsx (8 tests) 595ms
+
+ Test Files  2 passed (2)
+      Tests  10 passed (10)
+   Start at  18:14:47
+   Duration  2.26s (transform 224ms, setup 126ms, collect 2.31s, tests 729ms, environment 574ms, prepare 67ms)
+

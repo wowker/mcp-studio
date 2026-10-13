@@ -1,0 +1,22 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/tools/workspace.test.ts (7 tests) 4ms
+ ✓ src/features/records/RecordsPage.test.tsx (8 tests) 1249ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record  343ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds  301ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 497ms
+   ✓ performs one call and retries only the frozen redacted upload despite later draft edits  302ms
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 282ms
+ ✓ src/features/tools/ToolsPage.test.tsx (8 tests) 851ms
+   ✓ lists the real session catalog, searches it, and opens independent documents with keyboard navigation  375ms
+ ✓ src/app/App.test.tsx (13 tests) 2337ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  311ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  756ms
+   ✓ keeps another project tool document when switching through a Viewer project  444ms
+
+ Test Files  6 passed (6)
+      Tests  47 passed (47)
+   Start at  18:09:10
+   Duration  4.58s (transform 476ms, setup 354ms, collect 5.20s, tests 5.22s, environment 1.90s, prepare 226ms)
+

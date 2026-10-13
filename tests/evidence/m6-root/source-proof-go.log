@@ -1,0 +1,3 @@
+[verify] go
+ok  	mcp-studio/internal/platform	1.977s
+[test-runtime] isolated schema removed

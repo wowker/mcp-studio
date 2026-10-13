@@ -1,0 +1,735 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/auth/IdentityStates.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/auth/IdentityStates.test.tsx (2 tests | 2 failed) 2082ms
+   × shows unavailable invitation state before sign-in and offers sign-in without that invitation 1072ms
+     → Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r0»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r0»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r1»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r1»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r0»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r0»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r1»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r1»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+   × retains sign-in inputs while retrying the same invitation lookup 1009ms
+     → Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r2»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r2»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r3»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r3»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r2»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r2»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r3»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r3»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/auth/IdentityStates.test.tsx > shows unavailable invitation state before sign-in and offers sign-in without that invitation
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r0»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r0»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r1»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r1»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r0»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r0»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r1»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r1»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/auth/IdentityStates.test.tsx:14:163
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/auth/IdentityStates.test.tsx > retains sign-in inputs while retrying the same invitation lookup
+TestingLibraryElementError: Unable to find role="alert"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r2»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r2»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r3»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r3»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"identity-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mSign in[0m
+      [36m</h1>[39m
+      [36m<form[39m
+        [33mclass[39m=[32m"ui-form"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r2»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mEmail[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Email"[39m
+            [33mautocomplete[39m=[32m"email"[39m
+            [33mid[39m=[32m"«r2»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"email"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+          [33mfor[39m=[32m"«r3»"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mPassword[0m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"ui-required"[39m
+            [36m>[39m
+              [0m *[0m
+            [36m</span>[39m
+          [36m</span>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"Password"[39m
+            [33mautocomplete[39m=[32m"current-password"[39m
+            [33mid[39m=[32m"«r3»"[39m
+            [33mrequired[39m=[32m""[39m
+            [33mtype[39m=[32m"password"[39m
+            [33mvalue[39m=[32m""[39m
+          [36m/>[39m
+        [36m</label>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSign in[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</form>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"ui-actions"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mForgot password[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mReset password[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/auth/IdentityStates.test.tsx:17:403
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  17:57:50
+   Duration  4.05s (transform 253ms, setup 191ms, collect 499ms, tests 2.08s, environment 923ms, prepare 102ms)
+

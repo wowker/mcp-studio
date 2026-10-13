@@ -1,0 +1,17 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/records/RecordsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/records/RecordsPage.test.tsx (9 tests) 2688ms
+   ✓ queries the real scoped API and preserves its connection+tool filters through pagination and detail return  812ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record  750ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds  524ms
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  18:22:47
+   Duration  4.88s (transform 542ms, setup 218ms, collect 1.10s, tests 2.69s, environment 627ms, prepare 75ms)
+

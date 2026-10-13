@@ -1,0 +1,205 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 15 tests using 1 worker
+
+(node:55266) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55266) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (10.5s)
+(node:55311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (11.7s)
+(node:55347) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55347) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (24.6s)
+(node:55724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (31.0s)
+(node:55881) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55881) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (12.3s)
+(node:55918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (19.4s)
+(node:55972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (19.0s)
+(node:56077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (13.5s)
+(node:56114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (10.7s)
+(node:56138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56138) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (11.0s)
+(node:56170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  11 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (2.2m)
+(node:56481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (18.1s)
+(node:56539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (15.6m)
+(node:56558) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56558) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (1.0m)
+(node:56601) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56601) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (17.6m)
+
+
+  1) [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.tool-execution > p[role="status"]').filter({ hasText: 'Succeeded' })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('.tool-execution > p[role="status"]').filter({ hasText: 'Succeeded' })[22m
+
+
+      11 | async function connect(page:Page,expected='m2-controlled-fixture'){await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(new RegExp(`Connected.*${expected}`))).toBeVisible();}
+      12 | async function openTool(page:Page,connectionId:string){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Tools',exact:true}).click();await page.getByLabel('Service',{exact:true}).selectOption(connectionId);await page.getByRole('button',{name:'Open echo',exact:true}).click();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();}
+    > 13 | async function execute(page:Page,text:string){await page.getByLabel('Raw parameters',{exact:true}).fill(JSON.stringify({text}));await page.getByRole('button',{name:'Execute tool',exact:true}).click();await expect(page.locator('.tool-execution > p[role="status"]').filter({hasText:'Succeeded'})).toBeVisible();}
+         |                                                                                                                                                                                                                                                                                                        ^
+      14 | const incidents=new WeakMap<Page,string[]>();
+      15 | test.beforeEach(async({page,request})=>{const errors:string[]=[];incidents.set(page,errors);page.on('pageerror',()=>errors.push('pageerror'));page.on('console',event=>{if(event.type()==='warning'||event.type()==='error'&&!event.text().startsWith('Failed to load resource:'))errors.push(event.type());});await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});});
+      16 | test.afterEach(async({page,request})=>{await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});expect(incidents.get(page)).toEqual([]);});
+        at execute (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:13:296)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:3097
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat10/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat10/error-context.md
+
+  2) [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: apiRequestContext.get: Test timeout of 60000ms exceeded.
+
+       at production-helpers.ts:5
+
+      3 | import * as wire from '../../apps/web/src/generated/platform';
+      4 | const ownerEmail='owner-e2e@example.test',password='Fixture-Password-12';
+    > 5 | export async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}
+        |                                                                                                                              ^
+      6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      7 | export async function bootstrap(page:Page,request:APIRequestContext){
+      8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+        at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:5:126)
+        at Object.generator (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:2238)
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat12/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat12/error-context.md
+
+  3) [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.tool-execution > p[role="status"]').filter({ hasText: 'Succeeded' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('.tool-execution > p[role="status"]').filter({ hasText: 'Succeeded' })[22m
+
+
+      11 | async function connect(page:Page,expected='m2-controlled-fixture'){await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(new RegExp(`Connected.*${expected}`))).toBeVisible();}
+      12 | async function openTool(page:Page,connectionId:string){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Tools',exact:true}).click();await page.getByLabel('Service',{exact:true}).selectOption(connectionId);await page.getByRole('button',{name:'Open echo',exact:true}).click();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();}
+    > 13 | async function execute(page:Page,text:string){await page.getByLabel('Raw parameters',{exact:true}).fill(JSON.stringify({text}));await page.getByRole('button',{name:'Execute tool',exact:true}).click();await expect(page.locator('.tool-execution > p[role="status"]').filter({hasText:'Succeeded'})).toBeVisible();}
+         |                                                                                                                                                                                                                                                                                                        ^
+      14 | const incidents=new WeakMap<Page,string[]>();
+      15 | test.beforeEach(async({page,request})=>{const errors:string[]=[];incidents.set(page,errors);page.on('pageerror',()=>errors.push('pageerror'));page.on('console',event=>{if(event.type()==='warning'||event.type()==='error'&&!event.text().startsWith('Failed to load resource:'))errors.push(event.type());});await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});});
+      16 | test.afterEach(async({page,request})=>{await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});expect(incidents.get(page)).toEqual([]);});
+        at execute (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:13:296)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:3097
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat13/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat13/error-context.md
+
+  4) [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: '服务', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('heading', { name: '服务', exact: true })[22m
+
+
+       at production-helpers.ts:14
+
+      12 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();
+      13 | }
+    > 14 | export async function createProject(page:Page){await page.getByRole('button',{name:'创建项目',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(`M2-${Date.now()}`);await page.getByRole('button',{name:'创建项目',exact:true}).click();await expect(page.getByRole('navigation',{name:'项目导航'})).toBeVisible();const id=new URL(page.url()).searchParams.get('project')!;await page.getByRole('button',{name:'服务',exact:true}).click();await expect(page.getByRole('heading',{name:'服务',exact:true})).toBeVisible();return id;}
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+      15 | export async function createService(page:Page,name:string,endpoint:string,auth:'none'|'token'|'oauth'='none'){await page.getByRole('button',{name:'创建服务',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(name);await page.getByLabel('HTTP 地址',{exact:true}).fill(endpoint);await expect(page.getByLabel('授权方式',{exact:true})).toBeVisible();await page.getByLabel('授权方式',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth 客户端 ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth 权限（空格分隔）',{exact:true}).fill('read');}const response=page.waitForResponse(res=>res.url().includes('/connections')&&res.request().method()==='POST');await page.getByRole('button',{name:'保存修改',exact:true}).click();expect((await response).status()).toBe(200);await expect(page.getByRole('button',{name:'连接',exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+      16 | export async function fixtureStats(request:APIRequestContext,oauth=false){const response=await request.get(`${oauth?process.env.PLAYWRIGHT_OAUTH_ORIGIN:process.env.PLAYWRIGHT_MCP_ORIGIN}/stats`);expect(response.status()).toBe(200);return await response.json() as {initialize:number;httpInitialize:number;sseInitialize:number;toolsCall:number;httpToolsCall:number;sseToolsCall:number;delayedCalls:number;releasedCalls:number;pkceVerified:number;resourceVerified:number;oauthExchanges:number;oauthDenials:number;cookieRequests:number};}
+      17 |
+        at createProject (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:14:496)
+        at setup (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:8:105)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:169
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat14/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat14/error-context.md
+
+  4 failed
+    [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+    [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+    [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+    [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+  11 passed (56.4m)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

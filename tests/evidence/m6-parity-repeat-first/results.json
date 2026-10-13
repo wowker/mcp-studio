@@ -1,0 +1,697 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 15,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m6-parity-repeat/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m5.spec.ts",
+      "file": "m5.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:35:58.123Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b59efa750bf413a3cb04",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11675,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:36:09.799Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b478ab9ad4481c2c4268",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24615,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:36:24.002Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-b0492c7d95b62164893e",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31034,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:36:54.500Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-7dfa63a5888d9d22e2be",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12292,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:37:29.149Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-d5fa8fb80ab7817b16ec",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19422,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:37:44.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-9a71a9c88cd15d51b504",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:38:08.068Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-62b8b550527fa1b4ab72",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13503,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:38:29.393Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-9f167b2d4c29c2ff20e8",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10741,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:38:44.705Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-c1efa0cf022a753a2a00",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:38:57.532Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-3a8a087ed49e9953eaaf",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 134565,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                        "column": 296,
+                        "line": 13
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.tool-execution > p[role=\"status\"]').filter({ hasText: 'Succeeded' })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.tool-execution > p[role=\"status\"]').filter({ hasText: 'Succeeded' })\u001b[22m\n\n\n  11 | async function connect(page:Page,expected='m2-controlled-fixture'){await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(new RegExp(`Connected.*${expected}`))).toBeVisible();}\n  12 | async function openTool(page:Page,connectionId:string){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Tools',exact:true}).click();await page.getByLabel('Service',{exact:true}).selectOption(connectionId);await page.getByRole('button',{name:'Open echo',exact:true}).click();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();}\n> 13 | async function execute(page:Page,text:string){await page.getByLabel('Raw parameters',{exact:true}).fill(JSON.stringify({text}));await page.getByRole('button',{name:'Execute tool',exact:true}).click();await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Succeeded'})).toBeVisible();}\n     |                                                                                                                                                                                                                                                                                                        ^\n  14 | const incidents=new WeakMap<Page,string[]>();\n  15 | test.beforeEach(async({page,request})=>{const errors:string[]=[];incidents.set(page,errors);page.on('pageerror',()=>errors.push('pageerror'));page.on('console',event=>{if(event.type()==='warning'||event.type()==='error'&&!event.text().startsWith('Failed to load resource:'))errors.push(event.type());});await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});});\n  16 | test.afterEach(async({page,request})=>{await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});expect(incidents.get(page)).toEqual([]);});\n    at execute (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:13:296)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:3097"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:39:12.522Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat10/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat10/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-e9f21edece9e86b5160d",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:41:28.438Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-8dd0cf668f5042c8a99f",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 936626,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts",
+                        "column": 126,
+                        "line": 5
+                      },
+                      "message": "Error: apiRequestContext.get: Test timeout of 60000ms exceeded.\n\n   at production-helpers.ts:5\n\n  3 | import * as wire from '../../apps/web/src/generated/platform';\n  4 | const ownerEmail='owner-e2e@example.test',password='Fixture-Password-12';\n> 5 | export async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}\n    |                                                                                                                              ^\n  6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}\n  7 | export async function bootstrap(page:Page,request:APIRequestContext){\n  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);\n    at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:5:126)\n    at Object.generator (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:2238)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:41:49.830Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat12/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat12/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-64b88417dc6cea1e9e1b",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60108,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts",
+                        "column": 296,
+                        "line": 13
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.tool-execution > p[role=\"status\"]').filter({ hasText: 'Succeeded' })\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.tool-execution > p[role=\"status\"]').filter({ hasText: 'Succeeded' })\u001b[22m\n\n\n  11 | async function connect(page:Page,expected='m2-controlled-fixture'){await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(new RegExp(`Connected.*${expected}`))).toBeVisible();}\n  12 | async function openTool(page:Page,connectionId:string){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Tools',exact:true}).click();await page.getByLabel('Service',{exact:true}).selectOption(connectionId);await page.getByRole('button',{name:'Open echo',exact:true}).click();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();}\n> 13 | async function execute(page:Page,text:string){await page.getByLabel('Raw parameters',{exact:true}).fill(JSON.stringify({text}));await page.getByRole('button',{name:'Execute tool',exact:true}).click();await expect(page.locator('.tool-execution > p[role=\"status\"]').filter({hasText:'Succeeded'})).toBeVisible();}\n     |                                                                                                                                                                                                                                                                                                        ^\n  14 | const incidents=new WeakMap<Page,string[]>();\n  15 | test.beforeEach(async({page,request})=>{const errors:string[]=[];incidents.set(page,errors);page.on('pageerror',()=>errors.push('pageerror'));page.on('console',event=>{if(event.type()==='warning'||event.type()==='error'&&!event.text().startsWith('Failed to load resource:'))errors.push(event.type());});await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});});\n  16 | test.afterEach(async({page,request})=>{await control(request,'/upload-failure',{enabled:false});await control(request,'/vault-unavailable',{enabled:false});expect(incidents.get(page)).toEqual([]);});\n    at execute (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:13:296)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:3097"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T11:57:28.503Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat13/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat13/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-708e9389e05a7c8dbba9",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 1057159,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts",
+                        "column": 496,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: '服务', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: '服务', exact: true })\u001b[22m\n\n\n   at production-helpers.ts:14\n\n  12 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();\n  13 | }\n> 14 | export async function createProject(page:Page){await page.getByRole('button',{name:'创建项目',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(`M2-${Date.now()}`);await page.getByRole('button',{name:'创建项目',exact:true}).click();await expect(page.getByRole('navigation',{name:'项目导航'})).toBeVisible();const id=new URL(page.url()).searchParams.get('project')!;await page.getByRole('button',{name:'服务',exact:true}).click();await expect(page.getByRole('heading',{name:'服务',exact:true})).toBeVisible();return id;}\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^\n  15 | export async function createService(page:Page,name:string,endpoint:string,auth:'none'|'token'|'oauth'='none'){await page.getByRole('button',{name:'创建服务',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(name);await page.getByLabel('HTTP 地址',{exact:true}).fill(endpoint);await expect(page.getByLabel('授权方式',{exact:true})).toBeVisible();await page.getByLabel('授权方式',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth 客户端 ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth 权限（空格分隔）',{exact:true}).fill('read');}const response=page.waitForResponse(res=>res.url().includes('/connections')&&res.request().method()==='POST');await page.getByRole('button',{name:'保存修改',exact:true}).click();expect((await response).status()).toBe(200);await expect(page.getByRole('button',{name:'连接',exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}\n  16 | export async function fixtureStats(request:APIRequestContext,oauth=false){const response=await request.get(`${oauth?process.env.PLAYWRIGHT_OAUTH_ORIGIN:process.env.PLAYWRIGHT_MCP_ORIGIN}/stats`);expect(response.status()).toBe(200);return await response.json() as {initialize:number;httpInitialize:number;sseInitialize:number;toolsCall:number;httpToolsCall:number;sseToolsCall:number;delayedCalls:number;releasedCalls:number;pkceVerified:number;resourceVerified:number;oauthExchanges:number;oauthDenials:number;cookieRequests:number};}\n  17 |\n    at createProject (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:14:496)\n    at setup (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:8:105)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:20:169"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T12:14:45.136Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat14/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium-repeat14/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2cfb71e774150c1e6fb0-65ecf7ca2425a28e420a",
+          "file": "m5.spec.ts",
+          "line": 20,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T11:35:56.973Z",
+    "duration": 3386064.869,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

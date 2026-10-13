@@ -1,0 +1,1357 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/records/RecordsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/records/RecordsPage.test.tsx (10 tests | 1 failed) 1830ms
+   ✓ queries the real scoped API and preserves its connection+tool filters through pagination and detail return 247ms
+   ✓ presents Viewer details without mutation or restore controls 31ms
+   ✓ refuses a late or mismatched detail from another connection scope 29ms
+   ✓ does not offer project-history pinning on a private history record 28ms
+   ✓ refreshes a mounted scoped list after root Run invalidation without changing its filters 53ms
+   ✓ shows only frozen failed session uploads in the exact connection+tool scope and offers retry without record mutations 25ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record 231ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds 162ms
+   ✓ observes a scoped owner history once across equivalent scope object rerenders and rejects foreign-owner facts 6ms
+   × distinguishes a failed Run from mail delivery failure in both record locales and execution context 1018ms
+     → Unable to find role="cell" and name "Failed"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"Content"[39m
+        [33mclass[39m=[32m"ui-tabs"[39m
+        [33mrole[39m=[32m"tablist"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"true"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-history"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mCall history[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"false"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-saved"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"-1"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mSaved records[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33maria-labelledby[39m=[32m"«r3g»-history"[39m
+        [33mid[39m=[32m"«r3g»-panel"[39m
+        [33mrole[39m=[32m"tabpanel"[39m
+      [36m>[39m
+        [36m<details[39m
+          [33mclass[39m=[32m"records-filters"[39m
+          [33mopen[39m=[32m""[39m
+        [36m>[39m
+          [36m<summary>[39m
+            [0mRecord filters[0m
+          [36m</summary>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"records-filter-grid"[39m
+          [36m>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3h»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mSearch records[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Search records"[39m
+                [33mid[39m=[32m"«r3h»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3i»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mConnection ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Connection ID"[39m
+                [33mid[39m=[32m"«r3i»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3j»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTool name[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Tool name"[39m
+                [33mid[39m=[32m"«r3j»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mRun status[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Run status"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"succeeded"[39m
+                [36m>[39m
+                  [0mSucceeded[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"failed"[39m
+                [36m>[39m
+                  [0mEmail delivery failed[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"cancelled"[39m
+                [36m>[39m
+                  [0mCancelled[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"idle"[39m
+                [36m>[39m
+                  [0mNot executed[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mVisibility[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Visibility"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"private"[39m
+                [36m>[39m
+                  [0mOnly me[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"project"[39m
+                [36m>[39m
+                  [0mProject[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mContent[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Content"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request"[39m
+                [36m>[39m
+                  [0mRequest only[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request-response"[39m
+                [36m>[39m
+                  [0mRequest and response[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3k»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mOwner ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Owner ID"[39m
+                [33mid[39m=[32m"«r3k»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3l»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mEnvironment ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Environment ID"[39m
+                [33mid[39m=[32m"«r3l»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3m»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mFrom date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"From date"[39m
+                [33mid[39m=[32m"«r3m»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3n»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTo date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"To date"[39m
+                [33mid[39m=[32m"«r3n»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+          [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mClear filters[0m
+          [36m</button>[39m
+        [36m</details>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"Call history"[39m
+          [33mclass[39m=[32m"ui-table-scroll"[39m
+          [33mrole[39m=[32m"region"[39m
+          [33mtabindex[39m=[32m"0"[39m
+        [36m>[39m
+          [36m<table[39m
+            [33mclass[39m=[32m"ui-table"[39m
+          [36m>[39m
+            [36m<thead>[39m
+              [36m<tr>[39m
+                [36m<th>[39m
+                  [0mRecord name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mTool name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mRun status[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mVisibility[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mOwner ID[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mContent[0m
+                [36m</th>[39m
+              [36m</tr>[39m
+            [36m</thead>[39m
+            [36m<tbody>[39m
+              [36m<tr>[39m
+                [36m<td>[39m
+                  [36m<button[39m
+                    [33maria-label[39m=[32m"Open Echo run"[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEcho run[0m
+                  [36m</button>[39m
+                [36m</td>[39m
+                [36m<td[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mecho[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mEmail delivery failed[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mProject[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mUser[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mRequest and response[0m
+                [36m</td>[39m
+              [36m</tr>[39m
+            [36m</tbody>[39m
+          [36m</table>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPrevious page[0m
+          [36m</button>[39m
+          [36m<span>[39m
+            [0mPage 1[0m
+          [36m</span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mNext page[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"Content"[39m
+        [33mclass[39m=[32m"ui-tabs"[39m
+        [33mrole[39m=[32m"tablist"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"true"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-history"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mCall history[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"false"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-saved"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"-1"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mSaved records[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33maria-labelledby[39m=[32m"«r3g»-history"[39m
+        [33mid[39m=[32m"«r3g»-panel"[39m
+        [33mrole[39m=[32m"tabpanel"[39m
+      [36m>[39m
+        [36m<details[39m
+          [33mclass[39m=[32m"records-filters"[39m
+          [33mopen[39m=[32m""[39m
+        [36m>[39m
+          [36m<summary>[39m
+            [0mRecord filters[0m
+          [36m</summary>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"records-filter-grid"[39m
+          [36m>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3h»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mSearch records[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Search records"[39m
+                [33mid[39m=[32m"«r3h»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3i»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mConnection ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Connection ID"[39m
+                [33mid[39m=[32m"«r3i»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3j»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTool name[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Tool name"[39m
+                [33mid[39m=[32m"«r3j»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mRun status[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Run status"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"succeeded"[39m
+                [36m>[39m
+                  [0mSucceeded[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"failed"[39m
+                [36m>[39m
+                  [0mEmail delivery failed[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"cancelled"[39m
+                [36m>[39m
+                  [0mCancelled[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"idle"[39m
+                [36m>[39m
+                  [0mNot executed[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mVisibility[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Visibility"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"private"[39m
+                [36m>[39m
+                  [0mOnly me[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"project"[39m
+                [36m>[39m
+                  [0mProject[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mContent[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Content"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request"[39m
+                [36m>[39m
+                  [0mRequest only[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request-response"[39m
+                [36m>[39m
+                  [0mRequest and response[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3k»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mOwner ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Owner ID"[39m
+                [33mid[39m=[32m"«r3k»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3l»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mEnvironment ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Environment ID"[39m
+                [33mid[39m=[32m"«r3l»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3m»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mFrom date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"From date"[39m
+                [33mid[39m=[32m"«r3m»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3n»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTo date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"To date"[39m
+                [33mid[39m=[32m"«r3n»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+          [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mClear filters[0m
+          [36m</button>[39m
+        [36m</details>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"Call history"[39m
+          [33mclass[39m=[32m"ui-table-scroll"[39m
+          [33mrole[39m=[32m"region"[39m
+          [33mtabindex[39m=[32m"0"[39m
+        [36m>[39m
+          [36m<table[39m
+            [33mclass[39m=[32m"ui-table"[39m
+          [36m>[39m
+            [36m<thead>[39m
+              [36m<tr>[39m
+                [36m<th>[39m
+                  [0mRecord name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mTool name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mRun status[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mVisibility[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mOwner ID[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mContent[0m
+                [36m</th>[39m
+              [36m</tr>[39m
+            [36m</thead>[39m
+            [36m<tbody>[39m
+              [36m<tr>[39m
+                [36m<td>[39m
+                  [36m<button[39m
+                    [33maria-label[39m=[32m"Open Echo run"[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEcho run[0m
+                  [36m</button>[39m
+                [36m</td>[39m
+                [36m<td[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mecho[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mEmail delivery failed[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mProject[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mUser[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mRequest and response[0m
+                [36m</td>[39m
+              [36m</tr>[39m
+            [36m</tbody>[39m
+          [36m</table>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPrevious page[0m
+          [36m</button>[39m
+          [36m<span>[39m
+            [0mPage 1[0m
+          [36m</span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mNext page[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/records/RecordsPage.test.tsx > distinguishes a failed Run from mail delivery failure in both record locales and execution context
+TestingLibraryElementError: Unable to find role="cell" and name "Failed"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"Content"[39m
+        [33mclass[39m=[32m"ui-tabs"[39m
+        [33mrole[39m=[32m"tablist"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"true"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-history"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mCall history[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"false"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-saved"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"-1"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mSaved records[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33maria-labelledby[39m=[32m"«r3g»-history"[39m
+        [33mid[39m=[32m"«r3g»-panel"[39m
+        [33mrole[39m=[32m"tabpanel"[39m
+      [36m>[39m
+        [36m<details[39m
+          [33mclass[39m=[32m"records-filters"[39m
+          [33mopen[39m=[32m""[39m
+        [36m>[39m
+          [36m<summary>[39m
+            [0mRecord filters[0m
+          [36m</summary>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"records-filter-grid"[39m
+          [36m>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3h»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mSearch records[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Search records"[39m
+                [33mid[39m=[32m"«r3h»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3i»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mConnection ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Connection ID"[39m
+                [33mid[39m=[32m"«r3i»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3j»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTool name[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Tool name"[39m
+                [33mid[39m=[32m"«r3j»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mRun status[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Run status"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"succeeded"[39m
+                [36m>[39m
+                  [0mSucceeded[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"failed"[39m
+                [36m>[39m
+                  [0mEmail delivery failed[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"cancelled"[39m
+                [36m>[39m
+                  [0mCancelled[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"idle"[39m
+                [36m>[39m
+                  [0mNot executed[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mVisibility[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Visibility"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"private"[39m
+                [36m>[39m
+                  [0mOnly me[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"project"[39m
+                [36m>[39m
+                  [0mProject[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mContent[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Content"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request"[39m
+                [36m>[39m
+                  [0mRequest only[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request-response"[39m
+                [36m>[39m
+                  [0mRequest and response[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3k»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mOwner ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Owner ID"[39m
+                [33mid[39m=[32m"«r3k»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3l»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mEnvironment ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Environment ID"[39m
+                [33mid[39m=[32m"«r3l»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3m»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mFrom date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"From date"[39m
+                [33mid[39m=[32m"«r3m»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3n»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTo date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"To date"[39m
+                [33mid[39m=[32m"«r3n»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+          [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mClear filters[0m
+          [36m</button>[39m
+        [36m</details>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"Call history"[39m
+          [33mclass[39m=[32m"ui-table-scroll"[39m
+          [33mrole[39m=[32m"region"[39m
+          [33mtabindex[39m=[32m"0"[39m
+        [36m>[39m
+          [36m<table[39m
+            [33mclass[39m=[32m"ui-table"[39m
+          [36m>[39m
+            [36m<thead>[39m
+              [36m<tr>[39m
+                [36m<th>[39m
+                  [0mRecord name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mTool name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mRun status[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mVisibility[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mOwner ID[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mContent[0m
+                [36m</th>[39m
+              [36m</tr>[39m
+            [36m</thead>[39m
+            [36m<tbody>[39m
+              [36m<tr>[39m
+                [36m<td>[39m
+                  [36m<button[39m
+                    [33maria-label[39m=[32m"Open Echo run"[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEcho run[0m
+                  [36m</button>[39m
+                [36m</td>[39m
+                [36m<td[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mecho[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mEmail delivery failed[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mProject[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mUser[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mRequest and response[0m
+                [36m</td>[39m
+              [36m</tr>[39m
+            [36m</tbody>[39m
+          [36m</table>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPrevious page[0m
+          [36m</button>[39m
+          [36m<span>[39m
+            [0mPage 1[0m
+          [36m</span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mNext page[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"Content"[39m
+        [33mclass[39m=[32m"ui-tabs"[39m
+        [33mrole[39m=[32m"tablist"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"true"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-history"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mCall history[0m
+        [36m</button>[39m
+        [36m<button[39m
+          [33maria-controls[39m=[32m"«r3g»-panel"[39m
+          [33maria-selected[39m=[32m"false"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mid[39m=[32m"«r3g»-saved"[39m
+          [33mrole[39m=[32m"tab"[39m
+          [33mtabindex[39m=[32m"-1"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mSaved records[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33maria-labelledby[39m=[32m"«r3g»-history"[39m
+        [33mid[39m=[32m"«r3g»-panel"[39m
+        [33mrole[39m=[32m"tabpanel"[39m
+      [36m>[39m
+        [36m<details[39m
+          [33mclass[39m=[32m"records-filters"[39m
+          [33mopen[39m=[32m""[39m
+        [36m>[39m
+          [36m<summary>[39m
+            [0mRecord filters[0m
+          [36m</summary>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"records-filter-grid"[39m
+          [36m>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3h»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mSearch records[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Search records"[39m
+                [33mid[39m=[32m"«r3h»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3i»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mConnection ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Connection ID"[39m
+                [33mid[39m=[32m"«r3i»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3j»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTool name[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Tool name"[39m
+                [33mid[39m=[32m"«r3j»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mRun status[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Run status"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"succeeded"[39m
+                [36m>[39m
+                  [0mSucceeded[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"failed"[39m
+                [36m>[39m
+                  [0mEmail delivery failed[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"cancelled"[39m
+                [36m>[39m
+                  [0mCancelled[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"idle"[39m
+                [36m>[39m
+                  [0mNot executed[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mVisibility[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Visibility"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"private"[39m
+                [36m>[39m
+                  [0mOnly me[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"project"[39m
+                [36m>[39m
+                  [0mProject[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mContent[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Content"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request"[39m
+                [36m>[39m
+                  [0mRequest only[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request-response"[39m
+                [36m>[39m
+                  [0mRequest and response[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3k»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mOwner ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Owner ID"[39m
+                [33mid[39m=[32m"«r3k»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3l»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mEnvironment ID[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Environment ID"[39m
+                [33mid[39m=[32m"«r3l»"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3m»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mFrom date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"From date"[39m
+                [33mid[39m=[32m"«r3m»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r3n»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mTo date[0m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"To date"[39m
+                [33mid[39m=[32m"«r3n»"[39m
+                [33mtype[39m=[32m"datetime-local"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</label>[39m
+          [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mClear filters[0m
+          [36m</button>[39m
+        [36m</details>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"Call history"[39m
+          [33mclass[39m=[32m"ui-table-scroll"[39m
+          [33mrole[39m=[32m"region"[39m
+          [33mtabindex[39m=[32m"0"[39m
+        [36m>[39m
+          [36m<table[39m
+            [33mclass[39m=[32m"ui-table"[39m
+          [36m>[39m
+            [36m<thead>[39m
+              [36m<tr>[39m
+                [36m<th>[39m
+                  [0mRecord name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mTool name[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mRun status[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mVisibility[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mOwner ID[0m
+                [36m</th>[39m
+                [36m<th>[39m
+                  [0mContent[0m
+                [36m</th>[39m
+              [36m</tr>[39m
+            [36m</thead>[39m
+            [36m<tbody>[39m
+              [36m<tr>[39m
+                [36m<td>[39m
+                  [36m<button[39m
+                    [33maria-label[39m=[32m"Open Echo run"[39m
+                    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEcho run[0m
+                  [36m</button>[39m
+                [36m</td>[39m
+                [36m<td[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mecho[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mEmail delivery failed[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mProject[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mUser[0m
+                [36m</td>[39m
+                [36m<td>[39m
+                  [0mRequest and response[0m
+                [36m</td>[39m
+              [36m</tr>[39m
+            [36m</tbody>[39m
+          [36m</table>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPrevious page[0m
+          [36m</button>[39m
+          [36m<span>[39m
+            [0mPage 1[0m
+          [36m</span>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mNext page[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/records/RecordsPage.test.tsx:78:285
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 passed (10)
+   Start at  18:52:58
+   Duration  2.59s (transform 135ms, setup 62ms, collect 230ms, tests 1.83s, environment 302ms, prepare 37ms)
+

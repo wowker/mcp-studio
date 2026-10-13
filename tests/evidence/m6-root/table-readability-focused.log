@@ -1,0 +1,17 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/team/MembersPage.test.tsx apps/web/src/features/team/Invitations.test.tsx apps/web/src/shared/ui.layout.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/shared/ui.layout.test.tsx (2 tests) 527ms
+   ✓ layout primitives > keeps the shared button class with additional caller styles  326ms
+ ✓ src/features/team/MembersPage.test.tsx (7 tests) 1620ms
+   ✓ retains failed invitation inputs and default 7 day scope  666ms
+
+ Test Files  2 passed (2)
+      Tests  9 passed (9)
+   Start at  18:36:31
+   Duration  3.91s (transform 355ms, setup 335ms, collect 949ms, tests 2.15s, environment 2.39s, prepare 214ms)
+

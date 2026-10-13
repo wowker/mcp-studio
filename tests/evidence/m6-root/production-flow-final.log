@@ -1,0 +1,48 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 2 tests using 1 worker
+
+(node:39555) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39555) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (19.4s)
+(node:39576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (5.0s)
+
+
+  1) [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText('未执行', { exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByText('未执行', { exact: true })[22m
+
+
+      22 |  await workflow(page);await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toBeVisible();await verifyLayout(page,'project-workflow-complete',{evidenceDir:evidence,screenshot:true});await axeScan(page,'project-workflow-complete',evidence);
+      23 |  const before=await fixtureStats(request);await page.reload();await expect(page.getByRole('heading',{name:'项目流程',exact:true})).toBeVisible();await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toHaveCount(0);await detail(page,history.id);await page.getByRole('button',{name:'返回记录列表',exact:true}).click();await page.getByRole('tab',{name:'已保存',exact:true}).click();await page.getByRole('button',{name:'打开 M6 same-run reusable record',exact:true}).click();await expect(page.getByRole('button',{name:'恢复为新 Tab',exact:true})).toBeVisible();await workflow(page);await expect(page.locator('.workflow-steps li').nth(4)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(5)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(6)).toHaveAttribute('data-status','done');
+    > 24 |  await page.getByRole('button',{name:'打开查看调用历史',exact:true}).click();await page.getByRole('button',{name:'恢复为新 Tab',exact:true}).click();await expect(page.getByText('未执行',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);await mkdir(evidence,{recursive:true});await writeFile(`${evidence}/continuous-journey.json`,JSON.stringify({projectId,connectionId,historyRecordId:history.id,savedRecordId:saved.id,runId:history.snapshot.runId,identityRepair:'Real new account verification returned to same invitation; explicit acceptance required',continuation:'Server-record observations preserve original Run; unknown operation ID not invented',restoration:'New unexecuted Tab; no additional MCP tools/call',formalAcceptance:'A60 and existing manual/OS/media acceptance remain pending final M7'},null,2)+'\n');
+         |                                                                                                                                                                                           ^
+      25 | });
+      26 |
+      27 | test('T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions',async({page,request})=>{
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:24:187
+
+    Error Context: test-results/m6-flow-T33-production-rea-9e1ef--and-unexecuted-restoration-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration 
+  1 passed (25.7s)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

@@ -1,0 +1,177 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m6-flow-final/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m6-flow.spec.ts",
+      "file": "m6-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19377,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('未执行', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('未执行', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('未执行', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('未执行', { exact: true })\u001b[22m\n\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:24:187",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                      "column": 187,
+                      "line": 24
+                    },
+                    "snippet": "  22 |  await workflow(page);await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toBeVisible();await verifyLayout(page,'project-workflow-complete',{evidenceDir:evidence,screenshot:true});await axeScan(page,'project-workflow-complete',evidence);\n  23 |  const before=await fixtureStats(request);await page.reload();await expect(page.getByRole('heading',{name:'项目流程',exact:true})).toBeVisible();await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toHaveCount(0);await detail(page,history.id);await page.getByRole('button',{name:'返回记录列表',exact:true}).click();await page.getByRole('tab',{name:'已保存',exact:true}).click();await page.getByRole('button',{name:'打开 M6 same-run reusable record',exact:true}).click();await expect(page.getByRole('button',{name:'恢复为新 Tab',exact:true})).toBeVisible();await workflow(page);await expect(page.locator('.workflow-steps li').nth(4)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(5)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(6)).toHaveAttribute('data-status','done');\n> 24 |  await page.getByRole('button',{name:'打开查看调用历史',exact:true}).click();await page.getByRole('button',{name:'恢复为新 Tab',exact:true}).click();await expect(page.getByText('未执行',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);await mkdir(evidence,{recursive:true});await writeFile(`${evidence}/continuous-journey.json`,JSON.stringify({projectId,connectionId,historyRecordId:history.id,savedRecordId:saved.id,runId:history.snapshot.runId,identityRepair:'Real new account verification returned to same invitation; explicit acceptance required',continuation:'Server-record observations preserve original Run; unknown operation ID not invented',restoration:'New unexecuted Tab; no additional MCP tools/call',formalAcceptance:'A60 and existing manual/OS/media acceptance remain pending final M7'},null,2)+'\\n');\n     |                                                                                                                                                                                           ^\n  25 | });\n  26 |\n  27 | test('T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions',async({page,request})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                        "column": 187,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('未执行', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('未执行', { exact: true })\u001b[22m\n\n\n  22 |  await workflow(page);await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toBeVisible();await verifyLayout(page,'project-workflow-complete',{evidenceDir:evidence,screenshot:true});await axeScan(page,'project-workflow-complete',evidence);\n  23 |  const before=await fixtureStats(request);await page.reload();await expect(page.getByRole('heading',{name:'项目流程',exact:true})).toBeVisible();await expect(page.getByText('同一 Run 的七步流程已完成。',{exact:true})).toHaveCount(0);await detail(page,history.id);await page.getByRole('button',{name:'返回记录列表',exact:true}).click();await page.getByRole('tab',{name:'已保存',exact:true}).click();await page.getByRole('button',{name:'打开 M6 same-run reusable record',exact:true}).click();await expect(page.getByRole('button',{name:'恢复为新 Tab',exact:true})).toBeVisible();await workflow(page);await expect(page.locator('.workflow-steps li').nth(4)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(5)).toHaveAttribute('data-status','done');await expect(page.locator('.workflow-steps li').nth(6)).toHaveAttribute('data-status','done');\n> 24 |  await page.getByRole('button',{name:'打开查看调用历史',exact:true}).click();await page.getByRole('button',{name:'恢复为新 Tab',exact:true}).click();await expect(page.getByText('未执行',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);await mkdir(evidence,{recursive:true});await writeFile(`${evidence}/continuous-journey.json`,JSON.stringify({projectId,connectionId,historyRecordId:history.id,savedRecordId:saved.id,runId:history.snapshot.runId,identityRepair:'Real new account verification returned to same invitation; explicit acceptance required',continuation:'Server-record observations preserve original Run; unknown operation ID not invented',restoration:'New unexecuted Tab; no additional MCP tools/call',formalAcceptance:'A60 and existing manual/OS/media acceptance remain pending final M7'},null,2)+'\\n');\n     |                                                                                                                                                                                           ^\n  25 | });\n  26 |\n  27 | test('T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions',async({page,request})=>{\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:24:187"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:34:23.166Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m6-flow-T33-production-rea-9e1ef--and-unexecuted-restoration-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts",
+                    "column": 187,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-4f640f40e54e7b1c5797",
+          "file": "m6-flow.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4984,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T10:34:43.188Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b54e3c2d116bd5b55a8c-2ce87aab31fa1d44574b",
+          "file": "m6-flow.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T10:34:22.675Z",
+    "duration": 25662.657,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

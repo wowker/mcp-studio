@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/app/App.test.tsx (13 tests | 11 skipped) 131ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 11 skipped (13)
+   Start at  18:05:13
+   Duration  1.66s (transform 149ms, setup 55ms, collect 1.09s, tests 131ms, environment 264ms, prepare 32ms)
+

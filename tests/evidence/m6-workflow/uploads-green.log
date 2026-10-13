@@ -1,0 +1,14 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow/uploads.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/workflow/uploads.test.ts (2 tests) 13ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  17:54:32
+   Duration  1.59s (transform 159ms, setup 186ms, collect 159ms, tests 13ms, environment 720ms, prepare 129ms)
+

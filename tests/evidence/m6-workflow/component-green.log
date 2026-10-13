@@ -1,0 +1,15 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow/WorkflowPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/workflow/WorkflowPage.test.tsx (9 tests) 909ms
+   ✓ reads real configuration and makes both optional skips explicit with keyboard actions  376ms
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  17:58:43
+   Duration  8.26s (transform 787ms, setup 245ms, collect 5.72s, tests 909ms, environment 826ms, prepare 149ms)
+

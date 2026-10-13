@@ -1,0 +1,16 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/Shell.test.tsx apps/web/src/features/projects/Projects.test.tsx apps/web/src/features/records/RecordsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/projects/Projects.test.tsx (2 tests) 181ms
+ ✓ src/features/records/RecordsPage.test.tsx (9 tests) 764ms
+ ✓ src/app/Shell.test.tsx (3 tests) 185ms
+
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  18:24:56
+   Duration  1.75s (transform 270ms, setup 204ms, collect 1.57s, tests 1.13s, environment 899ms, prepare 105ms)
+

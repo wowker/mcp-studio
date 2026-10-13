@@ -1,0 +1,87 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/records/RecordEditors.test.tsx (13 tests) 1255ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 721ms
+   ✓ keeps original invitation after registration and never accepts automatically  508ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1235ms
+ ✓ src/features/team/MembersPage.test.tsx (7 tests) 728ms
+ ✓ src/app/App.test.tsx (13 tests) 2307ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  780ms
+   ✓ keeps another project tool document when switching through a Viewer project  441ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (8 tests) 481ms
+ ✓ src/features/records/RecordsPage.test.tsx (9 tests) 932ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (11 tests) 590ms
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 463ms
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 251ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 386ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (4 tests) 392ms
+ ✓ src/features/tools/ToolsPage.test.tsx (8 tests) 785ms
+ ✓ src/features/records/RecordStates.test.tsx (3 tests) 162ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 388ms
+ ✓ src/shared/QueryFeedback.states.test.tsx (3 tests) 121ms
+ ✓ src/features/auth/IdentityStates.test.tsx (2 tests) 320ms
+ ✓ src/runtime/browser-session.test.ts (58 tests) 293ms
+ ✓ src/features/workflow/WorkflowPage.test.tsx (12 tests) 442ms
+ ✓ src/runtime/records/queueStorage.test.ts (29 tests) 209ms
+ ✓ src/features/projects/Projects.test.tsx (2 tests) 323ms
+ ✓ src/features/devices/AgentQueuePanel.test.tsx (3 tests) 224ms
+ ✓ src/features/devices/DevicesPage.test.tsx (3 tests) 298ms
+ ✓ src/app/Shell.test.tsx (3 tests) 302ms
+ ✓ src/features/connections/AgentCredentialsPanel.test.tsx (1 test) 230ms
+ ✓ src/runtime/records/operations.test.ts (14 tests) 134ms
+ ✓ src/features/connections/AgentOAuthPanel.test.tsx (1 test) 132ms
+ ✓ src/shared/ui.layout.test.tsx (2 tests) 134ms
+ ✓ src/features/connections/runtimeStore.test.ts (7 tests) 59ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 51ms
+ ✓ src/features/environment/AgentEnvironmentPanel.test.tsx (1 test) 112ms
+ ✓ src/features/tools/ToolDocumentTabs.test.tsx (2 tests) 168ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 31ms
+ ✓ src/runtime/execution/index.test.ts (15 tests) 44ms
+ ✓ src/features/records/SessionUploads.test.tsx (1 test) 18ms
+ ✓ src/runtime/agent-client.test.ts (8 tests) 19ms
+ ✓ src/features/records/restore.test.ts (8 tests) 11ms
+ ✓ src/runtime/agent-session.test.ts (2 tests) 6ms
+ ✓ src/shared/api.test.ts (10 tests) 9ms
+ ✓ src/shared/i18n.test.ts (2 tests) 11ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 8ms
+ ✓ src/runtime/records/redaction.test.ts (24 tests) 6ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 6ms
+ ✓ src/runtime/connection.test.ts (5 tests) 5ms
+ ✓ src/runtime/vault.test.ts (8 tests) 5ms
+ ✓ src/features/workflow/uploads.test.ts (3 tests) 8ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 5ms
+ ✓ src/features/tools/workspace.test.ts (7 tests) 7ms
+ ✓ src/features/workflow/model.test.ts (15 tests) 4ms
+ ✓ src/runtime/environment.test.ts (21 tests) 4ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 3ms
+ ✓ src/runtime/execution/protocol.test.ts (5 tests) 4ms
+ ✓ src/features/connections/session.test.ts (3 tests) 2ms
+ ✓ src/features/team/protection.test.ts (3 tests) 2ms
+ ❯ src/runtime/execution/fixture.test.ts (3 tests | 3 failed) 9ms
+   × executes actual streamable-http SDK echo and business/protocol errors without retry or platform proxy 6ms
+     → listen EPERM: operation not permitted 127.0.0.1
+   × executes actual sse SDK echo and business/protocol errors without retry or platform proxy 2ms
+     → listen EPERM: operation not permitted 127.0.0.1
+   × records a real post-handshake HTTP 401 as a known rejection with no retry 0ms
+     → listen EPERM: operation not permitted 127.0.0.1
+ ✓ src/features/records/viewStore.test.ts (4 tests) 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/runtime/execution/fixture.test.ts > executes actual streamable-http SDK echo and business/protocol errors without retry or platform proxy
+ FAIL  src/runtime/execution/fixture.test.ts > executes actual sse SDK echo and business/protocol errors without retry or platform proxy
+ FAIL  src/runtime/execution/fixture.test.ts > records a real post-handshake HTTP 401 as a known rejection with no retry
+Error: listen EPERM: operation not permitted 127.0.0.1
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed | 55 passed (56)
+      Tests  3 failed | 559 passed (562)
+   Start at  18:25:36
+   Duration  12.63s (transform 742ms, setup 2.43s, collect 14.08s, tests 14.86s, environment 12.30s, prepare 1.64s)
+

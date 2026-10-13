@@ -1,0 +1,33 @@
+{
+  "stats": {
+    "startTime": "2026-10-13T11:35:56.973Z",
+    "duration": 3386064.869,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "failed": [
+    {
+      "status": "timedOut",
+      "duration": 134565,
+      "classification": "Timeout retained as failure; no invalid_source rejection file observed; no timeout threshold increase"
+    },
+    {
+      "status": "timedOut",
+      "duration": 936626,
+      "classification": "Timeout retained as failure; no invalid_source rejection file observed; no timeout threshold increase"
+    },
+    {
+      "status": "timedOut",
+      "duration": 60108,
+      "classification": "Timeout retained as failure; no invalid_source rejection file observed; no timeout threshold increase"
+    },
+    {
+      "status": "timedOut",
+      "duration": 1057159,
+      "classification": "Timeout retained as failure; no invalid_source rejection file observed; no timeout threshold increase"
+    }
+  ],
+  "conclusion": "Not a passing repeat run. Rerun after cleanup; no claim that timeout cause has been proved."
+}

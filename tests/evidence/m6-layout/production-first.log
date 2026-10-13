@@ -1,0 +1,89 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 2 tests using 1 worker
+
+(node:28018) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28018) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (3.8s)
+(node:28036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/m6-layout.spec.ts:26:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (3.0s)
+
+
+  1) [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling 
+
+    Error: tools-en-US-light axe WCAG A/AA violations
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 9[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "id": "aria-required-children",[39m
+    [31m+     "impact": "critical",[39m
+    [31m+     "targets": Array [[39m
+    [31m+       ".tools-document-tabs",[39m
+    [31m+     ],[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+       at layout-helpers.ts:22
+
+      20 |  const summarize=(item:typeof result.violations[number])=>({id:item.id,impact:item.impact,targets:item.nodes.flatMap(node=>node.target.map(target=>String(target).replace(/\[[^\]]*\]/gu,'[attribute]')))});
+      21 |  const report={engine:result.testEngine,timestamp:result.timestamp,scope:'WCAG 2/2.1 A/AA automatic axe scan; incomplete checks require human review.',passes:result.passes.map(item=>item.id),incomplete:result.incomplete.map(summarize),violations:result.violations.map(summarize)};
+    > 22 |  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/${viewName}-axe.json`,JSON.stringify(report,null,2));expect(report.violations,`${viewName} axe WCAG A/AA violations`).toEqual([]);return report;
+         |                                                                                                                                                                                                  ^
+      23 | }
+      24 |
+        at axeScan (/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts:22:194)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:19:559
+
+    Error Context: test-results/m6-layout-T32a-production--84541-s-tool-drafts-and-scrolling-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/m6-layout.spec.ts:26:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location 
+
+    Error: keyboard-error-en-US-light-390 axe WCAG A/AA violations
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 9[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "id": "aria-required-children",[39m
+    [31m+     "impact": "critical",[39m
+    [31m+     "targets": Array [[39m
+    [31m+       ".tools-document-tabs",[39m
+    [31m+     ],[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+       at layout-helpers.ts:22
+
+      20 |  const summarize=(item:typeof result.violations[number])=>({id:item.id,impact:item.impact,targets:item.nodes.flatMap(node=>node.target.map(target=>String(target).replace(/\[[^\]]*\]/gu,'[attribute]')))});
+      21 |  const report={engine:result.testEngine,timestamp:result.timestamp,scope:'WCAG 2/2.1 A/AA automatic axe scan; incomplete checks require human review.',passes:result.passes.map(item=>item.id),incomplete:result.incomplete.map(summarize),violations:result.violations.map(summarize)};
+    > 22 |  await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/${viewName}-axe.json`,JSON.stringify(report,null,2));expect(report.violations,`${viewName} axe WCAG A/AA violations`).toEqual([]);return report;
+         |                                                                                                                                                                                                  ^
+      23 | }
+      24 |
+        at axeScan (/Users/wuwei/code/github/mcp-studio/tests/e2e/layout-helpers.ts:22:194)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:30:797
+
+    Error Context: test-results/m6-layout-T32b-production--d78e4-t-and-nested-error-location-chromium/error-context.md
+
+  2 failed
+    [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling 
+    [chromium] › tests/e2e/m6-layout.spec.ts:26:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location 
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

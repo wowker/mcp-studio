@@ -1,0 +1,683 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow/WorkflowPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/workflow/WorkflowPage.test.tsx (9 tests | 1 failed) 2291ms
+   ✓ reads real configuration and makes both optional skips explicit with keyboard actions  694ms
+   ✓ hides all context and makes no configuration requests with no current project access or expired identity 19ms
+   ✓ does not read protected configuration when only directory management is granted 10ms
+   ✓ shows failed execution facts and failed upload without completing the journey 63ms
+   ✓ isolates progress when selecting another connection and does not create execution from navigating to tools 122ms
+   ✓ joins recorded history view and a same-run saved receipt in bilingual progress 56ms
+   ✓ does not offer an environment skip while real applicable variables need values 75ms
+   × checks real Agent readiness when environment definitions arrive after variables and hides raw preview values 1116ms
+     → expected "request" to be called once, but got 0 times
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<section[39m
+        [33mclass[39m=[32m"workflow-page"[39m
+      [36m>[39m
+        [36m<h1>[39m
+          [0mProject workflow[0m
+        [36m</h1>[39m
+        [36m<p>[39m
+          [0mFollow one connection and one run from configuration to a recorded saved copy.[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mChoices and viewed-detail evidence last for this signed-in session. Reloading does not assume that you previously viewed or saved a run.[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workflow-context"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mWorkflow connection[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Workflow connection"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m""[39m
+              [36m>[39m
+                [0mChoose a connection[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"c"[39m
+              [36m>[39m
+                [0mService[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mProgress belongs to your current project, connection and run.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0mNo execution recorded in this session[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mAgent environment readiness is checked on your paired device.[0m
+        [36m</p>[39m
+        [36m<ol[39m
+          [33maria-label[39m=[32m"Project workflow"[39m
+          [33mclass[39m=[32m"workflow-steps"[39m
+        [36m>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"done"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mCreate project[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mCompleted[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"ui-muted"[39m
+              [36m>[39m
+                [0mThis project exists. Its creation was not observed in this session.[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Create project[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33maria-current[39m=[32m"step"[39m
+            [33mdata-status[39m=[32m"pending"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mInvite members[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mNot completed[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Invite members[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mContinue without inviting members[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"done"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mConfigure service[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mCompleted[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Configure service[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"pending"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mConfigure environment[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mNot completed[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Configure environment[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"pending"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mRun a tool[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mNot completed[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Run a tool[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"blocked"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mView call history[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mWaiting for this run’s earlier step[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen View call history[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"blocked"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mSave this run[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mWaiting for this run’s earlier step[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Save this run[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+        [36m</ol>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mContinue: Invite members[0m
+        [36m</button>[39m
+      [36m</section>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+   ✓ keeps an uploaded failure explicit on the seven-step page and directs retry to the owner queue 134ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/workflow/WorkflowPage.test.tsx > checks real Agent readiness when environment definitions arrive after variables and hides raw preview values
+AssertionError: expected "request" to be called once, but got 0 times
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<section[39m
+        [33mclass[39m=[32m"workflow-page"[39m
+      [36m>[39m
+        [36m<h1>[39m
+          [0mProject workflow[0m
+        [36m</h1>[39m
+        [36m<p>[39m
+          [0mFollow one connection and one run from configuration to a recorded saved copy.[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mChoices and viewed-detail evidence last for this signed-in session. Reloading does not assume that you previously viewed or saved a run.[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workflow-context"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mWorkflow connection[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Workflow connection"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m""[39m
+              [36m>[39m
+                [0mChoose a connection[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"c"[39m
+              [36m>[39m
+                [0mService[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mProgress belongs to your current project, connection and run.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0mNo execution recorded in this session[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mAgent environment readiness is checked on your paired device.[0m
+        [36m</p>[39m
+        [36m<ol[39m
+          [33maria-label[39m=[32m"Project workflow"[39m
+          [33mclass[39m=[32m"workflow-steps"[39m
+        [36m>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"done"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mCreate project[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mCompleted[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"ui-muted"[39m
+              [36m>[39m
+                [0mThis project exists. Its creation was not observed in this session.[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Create project[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33maria-current[39m=[32m"step"[39m
+            [33mdata-status[39m=[32m"pending"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mInvite members[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mNot completed[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Invite members[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mContinue without inviting members[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"done"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mConfigure service[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mCompleted[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Configure service[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"pending"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mConfigure environment[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mNot completed[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Configure environment[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"pending"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mRun a tool[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mNot completed[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Run a tool[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"blocked"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mView call history[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mWaiting for this run’s earlier step[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen View call history[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+          [36m<li[39m
+            [33mdata-status[39m=[32m"blocked"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<div>[39m
+              [36m<h2>[39m
+                [0mSave this run[0m
+              [36m</h2>[39m
+              [36m<p>[39m
+                [0mWaiting for this run’s earlier step[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mOpen Save this run[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</li>[39m
+        [36m</ol>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-primary "[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mContinue: Invite members[0m
+        [36m</button>[39m
+      [36m</section>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+ ❯ src/features/workflow/WorkflowPage.test.tsx:29:636
+
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../../node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../../node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback ../../node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  17:58:33
+   Duration  8.10s (transform 486ms, setup 171ms, collect 4.27s, tests 2.29s, environment 737ms, prepare 124ms)
+

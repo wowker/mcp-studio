@@ -1,0 +1,80 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow/model.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/workflow/model.test.ts (15 tests | 6 failed) 5ms
+   ✓ seven step progress > requires explicit skips and does not complete a zero-variable environment automatically 1ms
+   ✓ seven step progress > shows a failed or cancelled actual run without treating debug, history or saved as complete 0ms
+   ✓ seven step progress > keeps history and saved incomplete after upload failure even if details were viewed and a saved copy exists 0ms
+   ✓ seven step progress > completes only after the same Run history view and recorded saved copy 0ms
+   ✓ seven step progress > does not join facts across users, projects, connections or selected Runs 0ms
+   ✓ seven step progress > requires matching current environment before using a skip and does not skip configured invalid variables 0ms
+   ✓ seven step progress > hides every progress fact when permission is missing or identity is suspended 0ms
+   ✓ seven step progress > a newer failed run replaces a successful run and restoring a Tab does not create a run 0ms
+   ✓ seven step progress > keeps only whitelisted identity/status fields and clears a revoked project independently 1ms
+   × authority observed from successful platform detail GET after reload > recovers executed and viewed history from its authoritative record without inventing an upload operation 2ms
+     → facts.historyObserved is not a function
+   × authority observed from successful platform detail GET after reload > marks saving only from a successfully read same-user same-project same-connection saved source Run 0ms
+     → facts2.historyObserved is not a function
+   × authority observed from successful platform detail GET after reload > retains server-observed failed and cancelled execution facts without completing history or saving 0ms
+     → facts.historyObserved is not a function
+   × authority observed from successful platform detail GET after reload > does not create an execution merely from a prior view marker or a saved DTO observation 0ms
+     → facts.savedObserved is not a function
+   × authority observed from successful platform detail GET after reload > uses actual server record confirmation when the original upload receipt was lost while preserving the live operation identity 0ms
+     → facts.historyObserved is not a function
+   × authority observed from successful platform detail GET after reload > isolates, whitelists and revokes observed records without keeping their snapshot content 0ms
+     → facts.historyObserved is not a function
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/workflow/model.test.ts > authority observed from successful platform detail GET after reload > recovers executed and viewed history from its authoritative record without inventing an upload operation
+TypeError: facts.historyObserved is not a function
+ ❯ src/features/workflow/model.test.ts:23:158
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  src/features/workflow/model.test.ts > authority observed from successful platform detail GET after reload > marks saving only from a successfully read same-user same-project same-connection saved source Run
+TypeError: facts2.historyObserved is not a function
+ ❯ src/features/workflow/model.test.ts:24:274
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  src/features/workflow/model.test.ts > authority observed from successful platform detail GET after reload > retains server-observed failed and cancelled execution facts without completing history or saving
+TypeError: facts.historyObserved is not a function
+ ❯ src/features/workflow/model.test.ts:25:204
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  src/features/workflow/model.test.ts > authority observed from successful platform detail GET after reload > does not create an execution merely from a prior view marker or a saved DTO observation
+TypeError: facts.savedObserved is not a function
+ ❯ src/features/workflow/model.test.ts:26:171
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  src/features/workflow/model.test.ts > authority observed from successful platform detail GET after reload > uses actual server record confirmation when the original upload receipt was lost while preserving the live operation identity
+TypeError: facts.historyObserved is not a function
+ ❯ src/features/workflow/model.test.ts:27:203
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  src/features/workflow/model.test.ts > authority observed from successful platform detail GET after reload > isolates, whitelists and revokes observed records without keeping their snapshot content
+TypeError: facts.historyObserved is not a function
+ ❯ src/features/workflow/model.test.ts:28:142
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 9 passed (15)
+   Start at  18:04:43
+   Duration  588ms (transform 37ms, setup 59ms, collect 18ms, tests 5ms, environment 336ms, prepare 55ms)
+

@@ -1,0 +1,81 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/execution/fixture.test.ts (3 tests) 249ms
+ ✓ src/features/records/RecordEditors.test.tsx (13 tests) 1715ms
+   ✓ freezes a failed metadata revision including its ETag and retries the exact operation after further editing  332ms
+ ✓ src/features/records/RecordsPage.test.tsx (9 tests) 1429ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record  433ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds  329ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1534ms
+   ✓ preserves zero false null empty arrays and explicit nested input with independent optional skipping  334ms
+ ✓ src/features/team/MembersPage.test.tsx (7 tests) 720ms
+ ✓ src/features/tools/ToolsPage.test.tsx (8 tests) 764ms
+ ✓ src/app/App.test.tsx (13 tests) 2662ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  364ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  758ms
+   ✓ keeps another project tool document when switching through a Viewer project  476ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 863ms
+   ✓ keeps original invitation after registration and never accepts automatically  609ms
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 588ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (11 tests) 734ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (8 tests) 669ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (4 tests) 481ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 435ms
+ ✓ src/features/projects/Projects.test.tsx (2 tests) 237ms
+ ✓ src/features/workflow/WorkflowPage.test.tsx (12 tests) 816ms
+ ✓ src/features/auth/IdentityStates.test.tsx (2 tests) 605ms
+   ✓ retains sign-in inputs while retrying the same invitation lookup  444ms
+ ✓ src/runtime/browser-session.test.ts (58 tests) 626ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 1821ms
+   ✓ performs one call and retries only the frozen redacted upload despite later draft edits  813ms
+   ✓ finishes and uploads this project run after an unrelated Viewer project is revoked  363ms
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 356ms
+ ✓ src/app/Shell.test.tsx (3 tests) 386ms
+ ✓ src/features/devices/DevicesPage.test.tsx (3 tests) 396ms
+ ✓ src/features/connections/AgentCredentialsPanel.test.tsx (1 test) 345ms
+   ✓ keeps backup off by default and saves Agent token independently of browser vault  344ms
+ ✓ src/features/devices/AgentQueuePanel.test.tsx (3 tests) 220ms
+ ✓ src/runtime/records/queueStorage.test.ts (29 tests) 205ms
+ ✓ src/features/records/RecordStates.test.tsx (3 tests) 230ms
+ ✓ src/runtime/records/operations.test.ts (14 tests) 129ms
+ ✓ src/shared/ui.layout.test.tsx (2 tests) 186ms
+ ✓ src/features/connections/AgentOAuthPanel.test.tsx (1 test) 171ms
+ ✓ src/features/tools/ToolDocumentTabs.test.tsx (2 tests) 204ms
+ ✓ src/shared/QueryFeedback.states.test.tsx (3 tests) 156ms
+ ✓ src/features/environment/AgentEnvironmentPanel.test.tsx (1 test) 158ms
+ ✓ src/features/connections/runtimeStore.test.ts (7 tests) 106ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 72ms
+ ✓ src/runtime/execution/index.test.ts (15 tests) 72ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 59ms
+ ✓ src/runtime/agent-client.test.ts (8 tests) 22ms
+ ✓ src/features/records/SessionUploads.test.tsx (1 test) 35ms
+ ✓ src/shared/i18n.test.ts (2 tests) 14ms
+ ✓ src/shared/api.test.ts (10 tests) 13ms
+ ✓ src/features/records/restore.test.ts (8 tests) 18ms
+ ✓ src/features/workflow/uploads.test.ts (3 tests) 9ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 8ms
+ ✓ src/features/tools/workspace.test.ts (7 tests) 4ms
+ ✓ src/runtime/records/redaction.test.ts (24 tests) 8ms
+ ✓ src/runtime/agent-session.test.ts (2 tests) 7ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 8ms
+ ✓ src/runtime/connection.test.ts (5 tests) 8ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 7ms
+ ✓ src/runtime/vault.test.ts (8 tests) 9ms
+ ✓ src/features/workflow/model.test.ts (15 tests) 10ms
+ ✓ src/runtime/environment.test.ts (21 tests) 15ms
+ ✓ src/runtime/execution/protocol.test.ts (5 tests) 5ms
+ ✓ src/features/records/viewStore.test.ts (4 tests) 6ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 4ms
+ ✓ src/features/team/protection.test.ts (3 tests) 2ms
+ ✓ src/features/connections/session.test.ts (3 tests) 3ms
+
+ Test Files  56 passed (56)
+      Tests  562 passed (562)
+   Start at  18:26:31
+   Duration  20.07s (transform 1.05s, setup 3.53s, collect 23.88s, tests 20.62s, environment 20.59s, prepare 2.72s)
+

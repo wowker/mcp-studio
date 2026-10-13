@@ -1,0 +1,5 @@
+
+> mcp-studio@0.1.0 typecheck
+> tsc --noEmit -p apps/web/tsconfig.json
+
+apps/web/src/features/workflow/WorkflowPage.tsx(39,773): error TS18048: 'connections.data' is possibly 'undefined'.

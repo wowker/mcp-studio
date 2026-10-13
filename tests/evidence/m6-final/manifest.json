@@ -1,0 +1,205 @@
+{
+  "stage": "M6 T31–T33",
+  "implementation": "fc0b161",
+  "commits": {
+    "baseline": "cadb8b5",
+    "statesLayoutWorkflow": "5a07743",
+    "redactionSourceParity": "fc0b161"
+  },
+  "completedAt": "2026-10-13T12:54:58.415Z",
+  "environment": {
+    "os": "26.6.2",
+    "arch": "arm64",
+    "node": "v24.21.0",
+    "go": "go version go1.25.5 darwin/arm64",
+    "postgresql": "18.6 (Debian 18.6-1.pgdg13+2)",
+    "playwright": "1.59.1",
+    "chromium": "147.0.7727.15",
+    "axe": "4.13.0"
+  },
+  "gates": {
+    "verifyExit": 0,
+    "contracts": {
+      "platform": "1.4.0 / 57 schemas / 47 paths",
+      "agent": "1.0.0 / 30 schemas / 26 paths"
+    },
+    "sharedOracleJS": 64,
+    "sharedOracleGo": 64,
+    "productionRecordingRedactionVectors": 30,
+    "nodeTests": 20,
+    "frontend": {
+      "files": 57,
+      "tests": 591,
+      "typecheck": true,
+      "productionBuild": true
+    },
+    "go": {
+      "allTestsWithIsolatedRealPostgreSQL": true,
+      "vet": true,
+      "platformBuild": true,
+      "agentBuild": true,
+      "controlledFixtureBuild": true,
+      "race": "M5 historical evidence only; not rerun as M6 gate",
+      "packagesWithoutTests": "Compilation only"
+    },
+    "browser": {
+      "startTime": "2026-10-13T12:50:28.833Z",
+      "duration": 225137.619,
+      "expected": 26,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "sourceSaveRepeat": {
+      "startTime": "2026-10-13T12:44:59.163Z",
+      "duration": 104139.719,
+      "expected": 15,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "matrix": {
+    "productionSubviewCount": 37,
+    "coreGeometryChecks": 760,
+    "extraLayoutChecks": 37,
+    "reachedPageIds": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11",
+      "P12",
+      "P13",
+      "P14",
+      "P15",
+      "P16",
+      "P17",
+      "P18",
+      "P19",
+      "P20",
+      "P21",
+      "P22",
+      "P23",
+      "P24",
+      "P25",
+      "P26"
+    ],
+    "pendingContextEntries": [
+      {
+        "ids": [
+          "P01"
+        ],
+        "view": "initialize",
+        "status": "pending",
+        "reason": "The real platform was already initialized by the suite; the once-only initialization view is closed. No synthetic reset or second owner is introduced.",
+        "group": "identity-management"
+      },
+      {
+        "ids": [
+          "P02"
+        ],
+        "view": "expiry-and-pending-exit",
+        "status": "pending",
+        "reason": "Ready account matrix is covered; authenticated expiry and pending exit are exercised separately by lifecycle regressions, not forged here.",
+        "group": "identity-management"
+      },
+      {
+        "ids": [
+          "P12",
+          "P13",
+          "P16"
+        ],
+        "view": "paired-agent-vault-backups",
+        "status": "pending",
+        "reason": "Real unpaired device, empty browser personal value and token authorization are covered. Pairing, OS vault, encrypted backup restore/delete, and media lifecycle require separate real Agent/OS setup; no paired status or backup is mocked.",
+        "group": "configuration"
+      }
+    ],
+    "screenshots": 824,
+    "axeScans": 159,
+    "axeViolations": 0,
+    "axeIncompleteReports": [
+      {
+        "file": "tools-en-US-dark-axe.json",
+        "rules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "file": "tools-en-US-light-axe.json",
+        "rules": [
+          "color-contrast"
+        ]
+      }
+    ],
+    "humanKeyboardAndScreenReader": "pending"
+  },
+  "acceptance": {
+    "completedLeaves": [
+      "T31a",
+      "T31b",
+      "T32a",
+      "T33a",
+      "T33b"
+    ],
+    "pendingLeaves": [
+      "T32b",
+      "T02a",
+      "T02b",
+      "T25b",
+      "T28a",
+      "T29b"
+    ],
+    "formalA01A60": "All pending; executable evidence is partial, no formal batch sign-off",
+    "M7": "Not entered",
+    "targetBrowserOSMailAndMedia": "Existing pending matrix retained"
+  },
+  "hashes": {
+    "package.json": "0319295b8c78a8620434cec5c5cbfcf7841c9b25a495c218ec995e2e2da0a9d1",
+    "package-lock.json": "38a7972b6a56b1a489dfa8907849549b34c0b96fb043d7cf45ca7c02a81c21bf",
+    "go.mod": "a64ce14d67995db0f5f21dc529617c36f2750c48c93656f138dc797ca387a454",
+    "go.sum": "48b1cdbf88f88aa9bc0d008b1bcc5a690512581cef36b479d1883794f00e6574",
+    "contracts/fixtures/recording-v1.json": "bb3068a1225c5302ee8c17c34af78ce7bb54c53c36533bf98df171caed0dc7f4",
+    ".runtime/platform": "188feaaf261370ea0d6dfa961f05bae4795e5b805d17f314b914e540bb045e94",
+    ".runtime/agent": "0dbca78f144fad856f9fe55c7acac3083399c6905a6125ece75c468019cba0eb",
+    ".runtime/m5-agent-fixture": "5cca7a355d93e4873e2c95ac14df37d8f1d529d6106371e4118456ac027b7a0a",
+    "apps/web/dist/index.html": "28007c290fa32df9ab33c720507e02302f54d2fd11bc0eda2adc3afd25408f9d",
+    "apps/web/dist/assets/AgentBackupsPanel-BDX6on3O.js": "736f89d371e2f9f36c4eac7ddb6b7a034fc4a6ff119edb00c094a562260707a5",
+    "apps/web/dist/assets/AgentConnectionPanel-FMTTpVxg.js": "8aeb77b26fcb20f71f6573f18b32cf2cd2a7debd7df7fbd83ce8b0f33a4ff633",
+    "apps/web/dist/assets/AgentEnvironmentPanel-DaLAovcA.js": "2d60751a9fd3c153aa5f560be4fbdb1818d1a3ad9ce100b2318c229a48ec797e",
+    "apps/web/dist/assets/AgentFeedback-DxJ0brkr.js": "705ad73ec8e4f37da39834ef04f247eb0747cb90bd2962789b7daac209bc35b2",
+    "apps/web/dist/assets/AgentPersonalValueEditor-Dubr7Ohc.js": "44f397557442e47fef3b21838b6971d65a2a48f24bbbe29b0017502266564a19",
+    "apps/web/dist/assets/AgentQueuePanel-CHXr7x09.js": "dea340484cdfec6d8eaf3d630a03ab30d586bbdf4d1b51b18373a4946246a4e6",
+    "apps/web/dist/assets/AgentToolExecution-0pHVIwWg.js": "d13e4def9973c0978522481ee50cbad22a6de4775fb1fd070d69c16e96dc513b",
+    "apps/web/dist/assets/ConnectionsPage-Dh8y1_cb.js": "e1a9d17b82a078d120e062c88c515b7f2a87277004a0dd350ec4cda9b4290b54",
+    "apps/web/dist/assets/DevicesPage-BvvPpkpN.js": "59ff959bc4dd1b4f0e3499fa98584dec854abd0be107e10a99a19e9447af6fc2",
+    "apps/web/dist/assets/EnvironmentPage-Ca3k_48o.js": "ba6bb610cd21bdb803212443a01c3826675c831375347a4da7b80a5c00bb9fd8",
+    "apps/web/dist/assets/OperationsPage-C26aXFh1.js": "175d2bad64b017fff690e2c8932e59db7925f7e7214eddfd20949a2837d60cbc",
+    "apps/web/dist/assets/OperationsPage-DPjr8syy.css": "4ec3b3e31d3d3c0cea294e0abf4f62606caa27a6662ddf8102a5e79f8f19c458",
+    "apps/web/dist/assets/Plug.es-Cu5blH4u.js": "9fbe647ca1d1175491c6d10acdd243c305d45f88778865275687df3390cf9c1c",
+    "apps/web/dist/assets/RecordsPage-BcUVVPNl.css": "b47f1a91608faebd4f37691a6c79d49510c1ff7958469761be8e353029a64960",
+    "apps/web/dist/assets/RecordsPage-CGBmpnSP.js": "5b1dadff5396dea61a1b6c659080d83f02c1a889d02e666f9907f2699354f91b",
+    "apps/web/dist/assets/ToolsPage-DuJK2hJc.js": "d5acc8d5f008549703edba2d0ac452a78353e3c67b2640ba7f1458a721691f3e",
+    "apps/web/dist/assets/WorkflowPage-BfW-9gGt.js": "54510b8db88afa66f3cbb8c172d16ee598c18619cfaa8650e98f10c36c8da14f",
+    "apps/web/dist/assets/WorkflowPage-Dz31IA2x.css": "b2922342169ba8b9cb19221b0e1a0c6de6624b3e9503473558e6bfe775d7b888",
+    "apps/web/dist/assets/agent-DVG7g-RM.js": "199809c7bd17c7dd2a71f1045395cde51318f1d7b9826df1b80b28e220cc7a99",
+    "apps/web/dist/assets/agent-client-jFPkY_UH.js": "03c7cd1aad09325bae6ea0e8e05246a2b75568be96943fe6c32fb15fa73c3fab",
+    "apps/web/dist/assets/agent-session-Cv4D_0YC.js": "a8a7feecd1587dcd0cc3d5ed30225a070a3e1fed3fa39f58477b21ab80be1f36",
+    "apps/web/dist/assets/auth-DzU2Tl8d.js": "b9ae35da42acc73f23a8650aebe95d6e4faa4e587a0f96227bb46b2c7024f709",
+    "apps/web/dist/assets/browser-session-DFbFGgoc.js": "0307f5171f1021fa13dbc64abe456a0ff81368bd9860bc35973dd67a4451267a",
+    "apps/web/dist/assets/index-CTpJabbq.js": "f3259592c4a6955325c649eb4c800a385704de515a90865f9aacb884d16f3b85",
+    "apps/web/dist/assets/index-D4DY1Wza.js": "53c2c060a191597605493cc162d5dc2f0b3f37065cf0eac7667bbe7e16e7c9e7",
+    "apps/web/dist/assets/index-D9dsatVi.css": "a56cd959382bb746fa4a6569da83442ff0b28d40c0f50e63096a488ddb0b144e",
+    "apps/web/dist/assets/schema-vendor-Hd_RTo2f.js": "98b006423158c1ce398e2bae0f1261797cceb46cd5558a08713b3723a8b08f8d",
+    "apps/web/dist/assets/sse-YZtP0VgX.js": "d4da7e7c132ffd9b5fbc615306e5f5313c2daabb4464fe3e78e9544fcad6f622",
+    "apps/web/dist/assets/streamableHttp-DIgznDUw.js": "15e3c6b73e73b13d6e25dc3c0d5e8367b14bec1f775c7f1373c0ddb7a44ee514",
+    "apps/web/dist/assets/worker-rF_BGtny.js": "6dc104cbdf884414855e3d6e58f1cabb65f23e523e2658ad617597686fc73860"
+  }
+}

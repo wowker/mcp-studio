@@ -1,0 +1,36 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/workflow/WorkflowPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/workflow/WorkflowPage.test.tsx [ src/features/workflow/WorkflowPage.test.tsx ]
+Error: Failed to resolve import "./WorkflowPage" from "apps/web/src/features/workflow/WorkflowPage.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/wuwei/code/github/mcp-studio/apps/web/src/features/workflow/WorkflowPage.test.tsx:12:27
+  10 |  import { project, session, reply, snapshot, historyRecord } from "../records/testFixtures";
+  11 |  import { makeUpload } from "../../runtime/records/snapshot";
+  12 |  import { WorkflowPage } from "./WorkflowPage";
+     |                                ^
+  13 |  import { workflowEn, workflowZh } from "./translations";
+  14 |  let memory;
+ ❯ TransformPluginContext._formatLog ../../node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error ../../node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl ../../node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ ../../node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform ../../node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform ../../node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  17:55:52
+   Duration  1.93s (transform 61ms, setup 240ms, collect 0ms, tests 0ms, environment 1.11s, prepare 189ms)
+

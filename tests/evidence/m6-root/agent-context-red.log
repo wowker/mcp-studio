@@ -1,0 +1,33 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/tools/AgentToolExecution.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/tools/AgentToolExecution.test.tsx (4 tests | 1 failed) 345ms
+   ✓ lets the Agent own execution and upload, cancels only on explicit click, and keeps safe snapshot for a separate save 235ms
+   ✓ a completed Agent Run can execute again with a new identity without browser upload ownership 29ms
+   ✓ only explicit cancellation requests stop an Agent run and late results cannot write into a revoked project 65ms
+   × applies shared context redaction before caching or copying an Agent result without changing its identities 15ms
+     → expected 'aaaaaaaaaaaaaaaaaaaaaa0123456789bbbbb…' to be '[REDACTED]' // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/tools/AgentToolExecution.test.tsx > applies shared context redaction before caching or copying an Agent result without changing its identities
+AssertionError: expected 'aaaaaaaaaaaaaaaaaaaaaa0123456789bbbbb…' to be '[REDACTED]' // Object.is equality
+
+Expected: "[REDACTED]"
+Received: "aaaaaaaaaaaaaaaaaaaaaa0123456789bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+
+ ❯ src/features/tools/AgentToolExecution.test.tsx:23:1406
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  19:28:35
+   Duration  1.12s (transform 168ms, setup 60ms, collect 276ms, tests 345ms, environment 287ms, prepare 39ms)
+

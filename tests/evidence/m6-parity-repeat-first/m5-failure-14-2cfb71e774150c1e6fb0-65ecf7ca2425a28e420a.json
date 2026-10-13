@@ -1,0 +1,10 @@
+{
+  "test": "M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record",
+  "state": {
+    "saveForms": [],
+    "alerts": 0,
+    "editorPresent": false,
+    "focusedTag": "BUTTON"
+  },
+  "scope": "Boolean form validity and control state only; no values, HTML or URLs"
+}

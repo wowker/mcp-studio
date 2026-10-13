@@ -1,0 +1,32 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/runtimeStore.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/connections/runtimeStore.test.ts (7 tests | 1 failed) 98ms
+   ✓ disconnects an expired credential session while its authorization panel is not mounted 93ms
+   ✓ revokes one project credentials and documents while another project session and draft survive 1ms
+   ✓ keeps identity admission for an already issued result across project revocation but fences an account change 0ms
+   ✓ suspends uploads without cancelling an issued tool result or deleting its frozen queue 0ms
+   ✓ remembers an explicit memory-only choice for this account across reload without applying it to another account 1ms
+   ✓ keeps expiry paused when a stale hydration finishes and resumes on a later authentication 0ms
+   × retains workflow evidence through same-account expiry and removes only a revoked project then clears all on logout 2ms
+     → Cannot read properties of undefined (reading 'runCompleted')
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/connections/runtimeStore.test.ts > retains workflow evidence through same-account expiry and removes only a revoked project then clears all on logout
+TypeError: Cannot read properties of undefined (reading 'runCompleted')
+ ❯ src/features/connections/runtimeStore.test.ts:21:178
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  17:53:11
+   Duration  898ms (transform 120ms, setup 58ms, collect 182ms, tests 98ms, environment 386ms, prepare 33ms)
+

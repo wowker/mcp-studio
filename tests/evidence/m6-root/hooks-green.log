@@ -1,0 +1,15 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 317ms
+ ✓ src/features/records/RecordsPage.test.tsx (8 tests) 918ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 359ms
+ ✓ src/app/App.test.tsx (13 tests) 2168ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  748ms
+   ✓ keeps another project tool document when switching through a Viewer project  445ms
+
+ Test Files  4 passed (4)
+      Tests  32 passed (32)
+   Start at  18:06:53
+   Duration  4.11s (transform 479ms, setup 329ms, collect 3.22s, tests 3.76s, environment 1.58s, prepare 188ms)
+

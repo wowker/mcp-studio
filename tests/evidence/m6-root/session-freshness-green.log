@@ -1,0 +1,16 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/app/App.test.tsx (16 tests) 2438ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  766ms
+   ✓ keeps another project tool document when switching through a Viewer project  442ms
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  18:28:55
+   Duration  4.31s (transform 282ms, setup 56ms, collect 1.34s, tests 2.44s, environment 280ms, prepare 34ms)
+

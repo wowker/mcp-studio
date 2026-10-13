@@ -1,0 +1,41 @@
+
+> mcp-studio@0.1.0 build
+> vite build --config apps/web/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4974 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     0.49 kB │ gzip:   0.31 kB
+dist/assets/worker-rF_BGtny.js                     71.80 kB
+dist/assets/RecordsPage-BcUVVPNl.css                0.39 kB │ gzip:   0.24 kB
+dist/assets/WorkflowPage-Dz31IA2x.css               1.29 kB │ gzip:   0.49 kB
+dist/assets/OperationsPage-DPjr8syy.css             1.59 kB │ gzip:   0.59 kB
+dist/assets/index-D9dsatVi.css                     15.07 kB │ gzip:   3.54 kB
+dist/assets/AgentPersonalValueEditor-Dubr7Ohc.js    2.50 kB │ gzip:   1.12 kB
+dist/assets/AgentBackupsPanel-BDX6on3O.js           3.03 kB │ gzip:   1.22 kB
+dist/assets/Plug.es-Cu5blH4u.js                     3.20 kB │ gzip:   1.06 kB
+dist/assets/DevicesPage-BvvPpkpN.js                 3.29 kB │ gzip:   1.29 kB
+dist/assets/agent-DVG7g-RM.js                       3.30 kB │ gzip:   0.90 kB
+dist/assets/agent-session-Cv4D_0YC.js               3.40 kB │ gzip:   1.32 kB
+dist/assets/AgentEnvironmentPanel-DaLAovcA.js       4.12 kB │ gzip:   1.82 kB
+dist/assets/AgentQueuePanel-CHXr7x09.js             4.67 kB │ gzip:   1.65 kB
+dist/assets/agent-client-jFPkY_UH.js                5.08 kB │ gzip:   1.90 kB
+dist/assets/AgentToolExecution-0pHVIwWg.js          7.26 kB │ gzip:   2.76 kB
+dist/assets/streamableHttp-DIgznDUw.js              7.70 kB │ gzip:   2.57 kB
+dist/assets/AgentConnectionPanel-FMTTpVxg.js        7.76 kB │ gzip:   2.50 kB
+dist/assets/sse-YZtP0VgX.js                         8.82 kB │ gzip:   3.26 kB
+dist/assets/OperationsPage-C26aXFh1.js             10.22 kB │ gzip:   3.42 kB
+dist/assets/AgentFeedback-DxJ0brkr.js              13.87 kB │ gzip:   5.45 kB
+dist/assets/WorkflowPage-BfW-9gGt.js               14.51 kB │ gzip:   4.06 kB
+dist/assets/EnvironmentPage-Ca3k_48o.js            16.26 kB │ gzip:   5.02 kB
+dist/assets/ConnectionsPage-Dh8y1_cb.js            18.00 kB │ gzip:   5.81 kB
+dist/assets/auth-DzU2Tl8d.js                       21.54 kB │ gzip:   6.76 kB
+dist/assets/browser-session-DFbFGgoc.js            22.33 kB │ gzip:   7.53 kB
+dist/assets/RecordsPage-CGBmpnSP.js                35.03 kB │ gzip:  10.64 kB
+dist/assets/ToolsPage-DuJK2hJc.js                  43.55 kB │ gzip:  13.18 kB
+dist/assets/schema-vendor-Hd_RTo2f.js              70.35 kB │ gzip:  18.89 kB
+dist/assets/index-D4DY1Wza.js                     165.22 kB │ gzip:  50.17 kB
+dist/assets/index-CTpJabbq.js                     453.47 kB │ gzip: 139.19 kB
+✓ built in 13.76s

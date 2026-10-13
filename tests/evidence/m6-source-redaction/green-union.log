@@ -1,0 +1,15 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/runtime/records/redaction.test.ts apps/web/src/runtime/records/snapshot.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/records/snapshot.test.ts (1 test) 6ms
+ ✓ src/runtime/records/redaction.test.ts (36 tests) 8ms
+
+ Test Files  2 passed (2)
+      Tests  37 passed (37)
+   Start at  19:27:07
+   Duration  479ms (transform 38ms, setup 115ms, collect 46ms, tests 13ms, environment 558ms, prepare 68ms)
+

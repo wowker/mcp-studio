@@ -1,0 +1,266 @@
+
+> mcp-studio@0.1.0 verify
+> node scripts/verify.mjs
+
+[verify] Generated contracts are current
+Platform contract v1.4.0: 57 schemas, 47 paths; generated boundaries match.
+[verify] Generated Agent contracts are current
+Agent local contract v1.0.0: 30 schemas, 26 paths; strict boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Generator, SDK, loopback security and runtime guards
+✔ Agent local API has generated strict Go and TypeScript boundaries distinct from platform and MCP (110.7775ms)
+✔ versioned platform contract generates stable Go and TypeScript boundaries (119.6605ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (190.749583ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (34.513166ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (15.33125ms)
+✔ expired codes and local unpair reject new requests (11.028ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (61.430458ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (13.0815ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (4.074375ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (3.00225ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (17.6605ms)
+✔ controlled call failures and barrier do not change handshake or retain payloads in counters (7.812333ms)
+✔ controlled Agent links real protected local API and restarts with guaranteed process cleanup (3566.291917ms)
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (442.805833ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (543.512542ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.578667ms)
+✔ gate propagates a failing real subprocess exit status (64.785208ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (41.459958ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (22.158459ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (14.222834ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3700.53325
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/records/RecordEditors.test.tsx (13 tests) 2228ms
+   ✓ freezes a failed metadata revision including its ETag and retries the exact operation after further editing  679ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (14 tests) 1623ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1913ms
+   ✓ preserves zero false null empty arrays and explicit nested input with independent optional skipping  485ms
+ ✓ src/features/workflow/WorkflowPage.test.tsx (13 tests) 560ms
+ ✓ src/app/App.test.tsx (19 tests) 3416ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  444ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  820ms
+   ✓ keeps another project tool document when switching through a Viewer project  518ms
+ ✓ src/features/tools/ToolsPage.test.tsx (9 tests) 1338ms
+   ✓ lists the real session catalog, searches it, and opens independent documents with keyboard navigation  493ms
+ ✓ src/features/team/MembersPage.test.tsx (7 tests) 1253ms
+   ✓ retains failed invitation inputs and default 7 day scope  374ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 1259ms
+   ✓ keeps original invitation after registration and never accepts automatically  869ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 558ms
+   ✓ accepts a shared number reference expression and preserves it for typed runtime resolution  302ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (4 tests) 541ms
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 696ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (11 tests) 940ms
+   ✓ service configuration > preserves the edited local draft after a version conflict and compares latest remote config  360ms
+ ✓ src/features/auth/IdentityStates.test.tsx (2 tests) 465ms
+ ✓ src/runtime/browser-session.test.ts (58 tests) 428ms
+ ✓ src/features/records/RecordsPage.test.tsx (10 tests) 1835ms
+   ✓ queries the real scoped API and preserves its connection+tool filters through pagination and detail return  435ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record  410ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds  398ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 723ms
+   ✓ performs one call and retries only the frozen redacted upload despite later draft edits  453ms
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 707ms
+   ✓ lets the Agent own execution and upload, cancels only on explicit click, and keeps safe snapshot for a separate save  510ms
+ ✓ src/features/records/RecordStates.test.tsx (3 tests) 600ms
+   ✓ offers the same tool scope as the next step for an empty history list  418ms
+ ✓ src/app/Shell.test.tsx (3 tests) 855ms
+   ✓ allows skipping the sidebar by keyboard and identifies collapsed navigation controls  539ms
+ ✓ src/features/devices/DevicesPage.test.tsx (3 tests) 689ms
+   ✓ requires local approval code and never approves natively from the web  467ms
+ ✓ src/features/connections/AgentCredentialsPanel.test.tsx (1 test) 252ms
+ ✓ src/features/devices/AgentQueuePanel.test.tsx (3 tests) 275ms
+ ✓ src/features/connections/AgentOAuthPanel.test.tsx (1 test) 204ms
+ ✓ src/shared/QueryFeedback.states.test.tsx (3 tests) 182ms
+ ✓ src/features/environment/AgentEnvironmentPanel.test.tsx (1 test) 180ms
+ ✓ src/features/projects/Projects.test.tsx (2 tests) 268ms
+ ✓ src/features/tools/ToolDocumentTabs.test.tsx (2 tests) 273ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 76ms
+ ✓ src/shared/ui.layout.test.tsx (2 tests) 196ms
+ ✓ src/runtime/records/queueStorage.test.ts (29 tests) 212ms
+ ✓ src/runtime/records/operations.test.ts (14 tests) 138ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 48ms
+ ✓ src/features/connections/runtimeStore.test.ts (7 tests) 84ms
+ ✓ src/runtime/execution/index.test.ts (15 tests) 68ms
+ ✓ src/features/records/SessionUploads.test.tsx (1 test) 38ms
+ ✓ src/runtime/agent-client.test.ts (8 tests) 31ms
+ ✓ src/features/records/restore.test.ts (8 tests) 22ms
+ ✓ src/shared/i18n.test.ts (2 tests) 20ms
+ ✓ src/shared/api.test.ts (10 tests) 23ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 24ms
+ ✓ src/runtime/records/redaction.test.ts (24 tests) 31ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 19ms
+ ✓ src/runtime/vault.test.ts (8 tests) 16ms
+ ✓ src/runtime/connection.test.ts (5 tests) 24ms
+ ✓ src/features/workflow/uploads.test.ts (3 tests) 17ms
+ ✓ src/runtime/environment.test.ts (21 tests) 11ms
+ ✓ src/runtime/agent-session.test.ts (2 tests) 13ms
+ ✓ src/features/workflow/model.test.ts (15 tests) 14ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 12ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 10ms
+ ✓ src/runtime/execution/protocol.test.ts (5 tests) 8ms
+ ✓ src/features/tools/workspace.test.ts (7 tests) 6ms
+ ✓ src/features/team/protection.test.ts (3 tests) 4ms
+ ✓ src/features/records/viewStore.test.ts (4 tests) 6ms
+ ✓ src/features/connections/session.test.ts (3 tests) 2ms
+ ✓ src/runtime/execution/fixture.test.ts (3 tests) 145ms
+
+ Test Files  56 passed (56)
+      Tests  577 passed (577)
+   Start at  18:59:41
+   Duration  24.31s (transform 1.79s, setup 4.61s, collect 26.27s, tests 25.58s, environment 26.00s, prepare 3.28s)
+
+[verify] Frontend production build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4974 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     0.49 kB │ gzip:   0.31 kB
+dist/assets/worker-rF_BGtny.js                     71.80 kB
+dist/assets/RecordsPage-BcUVVPNl.css                0.39 kB │ gzip:   0.24 kB
+dist/assets/WorkflowPage-Dz31IA2x.css               1.29 kB │ gzip:   0.49 kB
+dist/assets/OperationsPage-DPjr8syy.css             1.59 kB │ gzip:   0.59 kB
+dist/assets/index-D9dsatVi.css                     15.07 kB │ gzip:   3.54 kB
+dist/assets/AgentPersonalValueEditor-CfnJI9sI.js    2.50 kB │ gzip:   1.12 kB
+dist/assets/AgentBackupsPanel-C1y21nZA.js           3.03 kB │ gzip:   1.22 kB
+dist/assets/Plug.es-Czg3sgwM.js                     3.20 kB │ gzip:   1.06 kB
+dist/assets/DevicesPage-C_iOS9oO.js                 3.29 kB │ gzip:   1.29 kB
+dist/assets/agent-DVG7g-RM.js                       3.30 kB │ gzip:   0.90 kB
+dist/assets/agent-session-COGLnvI0.js               3.40 kB │ gzip:   1.32 kB
+dist/assets/AgentEnvironmentPanel-CI1i9890.js       4.12 kB │ gzip:   1.82 kB
+dist/assets/AgentQueuePanel-Yq_5HIpy.js             4.67 kB │ gzip:   1.65 kB
+dist/assets/agent-client-CG0iixMd.js                5.08 kB │ gzip:   1.90 kB
+dist/assets/AgentToolExecution-B1qKAwHb.js          7.26 kB │ gzip:   2.76 kB
+dist/assets/streamableHttp-BeT2iJUF.js              7.70 kB │ gzip:   2.57 kB
+dist/assets/AgentConnectionPanel-BxDPc6_f.js        7.76 kB │ gzip:   2.50 kB
+dist/assets/sse-CUv-6Zq_.js                         8.82 kB │ gzip:   3.26 kB
+dist/assets/OperationsPage-Bmhb-LEI.js             10.22 kB │ gzip:   3.42 kB
+dist/assets/AgentFeedback-jQw1pkT4.js              13.87 kB │ gzip:   5.44 kB
+dist/assets/WorkflowPage-Ck6M1KTC.js               14.51 kB │ gzip:   4.06 kB
+dist/assets/EnvironmentPage-BAvaxtgW.js            16.26 kB │ gzip:   5.02 kB
+dist/assets/ConnectionsPage-CrO2U4JG.js            18.00 kB │ gzip:   5.81 kB
+dist/assets/auth-BuEwrUIp.js                       21.54 kB │ gzip:   6.76 kB
+dist/assets/browser-session-DvH72KjZ.js            22.33 kB │ gzip:   7.53 kB
+dist/assets/RecordsPage-5HM2krD4.js                35.03 kB │ gzip:  10.64 kB
+dist/assets/ToolsPage-B5kqhV5I.js                  43.55 kB │ gzip:  13.18 kB
+dist/assets/schema-vendor-Hd_RTo2f.js              70.35 kB │ gzip:  18.89 kB
+dist/assets/index-9Em6kEIs.js                     165.22 kB │ gzip:  50.17 kB
+dist/assets/index-CfbhuayE.js                     453.31 kB │ gzip: 139.07 kB
+✓ built in 2.35s
+[verify] Go tests with real isolated PostgreSQL
+ok  	mcp-studio/cmd/agent	1.690s
+ok  	mcp-studio/cmd/platform	2.210s
+ok  	mcp-studio/internal/agent/localapi	3.992s
+ok  	mcp-studio/internal/agent/mcp	3.589s
+ok  	mcp-studio/internal/agent/oauth	0.742s
+ok  	mcp-studio/internal/agent/pairing	1.208s
+ok  	mcp-studio/internal/agent/platformclient	2.640s
+ok  	mcp-studio/internal/agent/process	3.046s
+ok  	mcp-studio/internal/agent/queue	4.625s
+ok  	mcp-studio/internal/agent/sessions	3.781s
+ok  	mcp-studio/internal/agent/vault	3.947s
+?   	mcp-studio/internal/agent/wire	[no test files]
+ok  	mcp-studio/internal/configuration	4.215s
+ok  	mcp-studio/internal/contracts	4.575s
+ok  	mcp-studio/internal/environment	4.501s
+ok  	mcp-studio/internal/infrastructure	4.536s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	96.496s
+ok  	mcp-studio/internal/recording	4.507s
+ok  	mcp-studio/internal/schema	4.540s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	4.481s
+?   	mcp-studio/tests/fixtures/m5-agent	[no test files]
+ok  	mcp-studio/tests/fixtures/sdk	4.221s
+ok  	mcp-studio/tests/integration	4.490s
+[test-runtime] isolated schema removed
+[verify] Go vet
+[verify] Go production platform build
+[verify] Go production Agent build
+[verify] Controlled Agent integration fixture build
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 26 tests using 1 worker
+
+(node:45976) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:45976) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (7.0s)
+  ✓   2 [chromium] › tests/e2e/m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (1.7s)
+  ✓   3 [chromium] › tests/e2e/m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (3.8s)
+  ✓   4 [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (4.0s)
+  ✓   5 [chromium] › tests/e2e/m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (3.6s)
+  ✓   6 [chromium] › tests/e2e/m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (3.3s)
+  ✓   7 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (2.6s)
+  ✓   8 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (5.6s)
+  ✓   9 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (4.3s)
+  ✓  10 [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission (6.0s)
+  ✓  11 [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft (4.8s)
+  ✓  12 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (5.0s)
+  ✓  13 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (5.2s)
+  ✓  14 [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (5.0s)
+  ✓  15 [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (4.4s)
+  ✘  16 [chromium] › tests/e2e/m5.spec.ts:19:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (14.1s)
+(node:46530) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:46530) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [chromium] › tests/e2e/m5.spec.ts:21:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool (7.6s)
+  ✓  18 [chromium] › tests/e2e/m5.spec.ts:23:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent (9.8s)
+  ✓  19 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (8.6s)
+  ✓  20 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (5.1s)
+  ✓  21 [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps (3.7s)
+  ✓  22 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (6.2s)
+  ✓  23 [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (2.8s)
+  ✓  24 [chromium] › tests/e2e/m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views (34.4s)
+  ✓  25 [chromium] › tests/e2e/m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views (17.7s)
+  ✓  26 [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor (30.9s)
+
+
+  1) [chromium] › tests/e2e/m5.spec.ts:19:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      17 | test.afterAll(async({browser})=>{await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m5-environment.json`,JSON.stringify({scope:'Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys',browser:browser.version(),nativeConsent:'Controlled callback injected by dedicated test helper; production CLI has no consent bypass',credentialStore:'Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store',tls:'Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture',remaining:'Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending'},null,2)+'\n');});
+      18 |
+    > 19 | test('M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const http=await service(page,'M5 Agent HTTP',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp'});const before=await fixtureStats(request);await connect(page);await openTool(page,http);await execute(page,'actual Agent HTTP');await expect(page.locator('.tool-execution > p[role="status"]').filter({hasText:'Recorded'})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const httpHistory=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(httpHistory.items[0].snapshot.executor).toBe('agent');await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Browser copy of Agent run');await page.getByRole('button',{name:'Save record',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items.length).toBe(1);const saved=(await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema)).items[0];expect(saved.id).not.toBe(httpHistory.items[0].id);expect(saved.sourceRunId).toBe(httpHistory.items[0].snapshot.runId);expect(saved.snapshot.executor).toBe('agent');const stdio=await service(page,'M5 real stdio',{stdio:true});const nativeBefore=await control(request);await connect(page,'m5-stdio-fixture');const prompt=(await control(request)).nativeProcesses.at(-1)!;expect(prompt.command).toBe(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND);expect(prompt.args).toEqual(JSON.parse(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!));expect(prompt.environmentNames).not.toContain('MCP_STUDIO_DATABASE_URL');await openTool(page,stdio);await execute(page,'actual stdio arguments');expect((await control(request)).stdioCalls).toBe(nativeBefore.stdioCalls+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(2);const stdioResult=history.items.find(item=>item.connectionId===stdio)!.snapshot;expect(stdioResult.httpStatus).toBe(0);expect(stdioResult.executor).toBe('agent');expect(JSON.parse(stdioResult.protocolJSON).source).not.toBe('http');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-stdio-en-US-light-1440.png`,fullPage:true});});
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+      20 |
+      21 | test('M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool',async({page,request})=>{const projectId=await setup(page,request);await pair(page,request);const connectionId=await service(page,'M5 encrypted queue',{endpoint:process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp',auth:'token'});await page.getByLabel('Personal Agent token',{exact:true}).fill('fixture-token');await page.getByLabel('Credential location',{exact:true}).selectOption('local');await page.getByRole('button',{name:'Save Agent credential',exact:true}).click();await expect(page.getByText(/Credential available.*Saved.*System credential store/)).toBeVisible();await connect(page);await openTool(page,connectionId);await control(request,'/upload-failure',{enabled:true});const before=await fixtureStats(request);await execute(page,'fixture-token');await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();const attempts=(await control(request)).uploads.filter(attempt=>attempt.status===503),frozen=attempts.at(-1)!;expect(frozen.operationId).toBeTruthy();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const disk=await request.get(process.env.PLAYWRIGHT_AGENT_CONTROL+'/disk');expect(disk.status()).toBe(200);const files=(await disk.json()).files as {name:string;bytes:string}[];expect(files.length).toBeGreaterThan(0);for(const file of files)expect(Buffer.from(file.bytes,'base64').toString('utf8')).not.toContain('fixture-token');await control(request,'/restart',{});await page.reload();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await pair(page,request);await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Records and device',exact:true}).click();await page.getByRole('button',{name:'Refresh Agent queue',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();await control(request,'/upload-failure',{enabled:false});await page.getByRole('button',{name:'Retry upload',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema)).items.length).toBe(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const accepted=(await control(request)).uploads.find(attempt=>attempt.operationId===frozen.operationId&&attempt.status===200)!;expect(accepted.targetId).toBe(frozen.targetId);expect(accepted.frozenDigest).toBe(frozen.frozenDigest);expect(JSON.stringify(await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema))).not.toContain('fixture-token');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m5-agent-queue-en-US-light-1440.png`,fullPage:true});});
+      22 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:19:1032
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m5.spec.ts:19:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+  25 passed (3.5m)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+[verify] Playwright production-entry E2E: failed with exit 1
