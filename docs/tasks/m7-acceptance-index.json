@@ -30,7 +30,18 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A01",
+        "formalExpected": "定位错误、保留输入、无重复项目；成功空项目且创建者为维护者",
+        "coverage": {
+          "partial": 1,
+          "assertion-backed": 3,
+          "not-found": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A02",
@@ -67,7 +78,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A02",
+        "formalExpected": "草稿各自保留，旧结果不污染新项目",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A03",
@@ -101,7 +122,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A03",
+        "formalExpected": "授权、服务变量、会话完全按连接隔离",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A04",
@@ -132,7 +163,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A04",
+        "formalExpected": "说明原因、手动换 Agent；不静默换通道或借用凭据",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A05",
@@ -163,7 +204,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A05",
+        "formalExpected": "保存前校验；不会启动无效配置；有权用户可修正",
+        "coverage": {
+          "partial": 3
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A06",
@@ -190,7 +240,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A06",
+        "formalExpected": "状态准确；配对 / 恢复不自动连接 MCP",
+        "coverage": {
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A07",
@@ -220,7 +279,16 @@
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。",
         "本机/在线删除已有自动证据；真实异地备份、物理介质淘汰、密钥托管与灾难恢复仍待验。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A07",
+        "formalExpected": "三个状态独立；重试保存 / 备份不重新调用工具",
+        "coverage": {
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A08",
@@ -252,7 +320,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A08",
+        "formalExpected": "删除回退；缺值不回退；来源链准确",
+        "coverage": {
+          "partial": 2,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A09",
@@ -285,7 +363,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A09",
+        "formalExpected": "定位依赖错误；所有敏感派生遮罩；连接和执行被一致阻断",
+        "coverage": {
+          "partial": 2,
+          "not-found": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A10",
@@ -315,7 +403,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A10",
+        "formalExpected": "浏览不影响会话；应用需满足前置条件、不自动连接",
+        "coverage": {
+          "partial": 2,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A11",
@@ -342,7 +440,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A11",
+        "formalExpected": "初始全部跳过；无编辑不误报；执行时全量校验",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A12",
@@ -371,7 +479,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A12",
+        "formalExpected": "按各自语义与 Schema 校验，不能自动省略或变 0",
+        "coverage": {
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A13",
@@ -400,7 +517,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A13",
+        "formalExpected": "原文保留；语法错不能回结构 / 执行；Schema 错可回结构纠正",
+        "coverage": {
+          "assertion-backed": 4
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A14",
@@ -430,7 +556,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "目标Chrome/Edge两稳定主版本矩阵、人工仅键盘/读屏或视觉签收未完成；T32b不勾选。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A14",
+        "formalExpected": "展开祖先、聚焦正确字段；当前 Tab 草稿不丢失",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A15",
@@ -460,7 +596,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A15",
+        "formalExpected": "快照冻结、无重复调用、取消不被改成成功",
+        "coverage": {
+          "assertion-backed": 3
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A16",
@@ -489,7 +634,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A16",
+        "formalExpected": "正确分类及协议详情；无虚构 HTTP 成功",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A17",
@@ -514,7 +669,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A17",
+        "formalExpected": "工具范围始终限定项目 + 连接 + 工具；各自筛选和分页保留",
+        "coverage": {
+          "partial": 1,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A18",
@@ -539,7 +704,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A18",
+        "formalExpected": "新未执行 Tab；显式值保留；脱敏顶层项移除并提示；不覆盖旧草稿",
+        "coverage": {
+          "assertion-backed": 4
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A19",
@@ -572,7 +746,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A19",
+        "formalExpected": "成功结果保留；仅原 ID / 原快照上传，无新 Run",
+        "coverage": {
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A20",
@@ -601,7 +784,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A20",
+        "formalExpected": "两种内容清楚；快照不变；保存与来源生命周期独立",
+        "coverage": {
+          "partial": 1,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A21",
@@ -631,7 +824,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A21",
+        "formalExpected": "不并行修改；清理跳过上传失败、待上传、固定项",
+        "coverage": {
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A22",
@@ -668,7 +870,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A22",
+        "formalExpected": "列表 / 详情 / API 同时阻止，不靠前端遮罩",
+        "coverage": {
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A23",
@@ -697,7 +908,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A23",
+        "formalExpected": "一致脱敏；自定义路径有效性校验；自动规则不可关闭",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A24",
@@ -725,7 +946,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "真实邮件供应商与目标网络连续旅程未验；当前仅受控SMTP。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A24",
+        "formalExpected": "不加入；修复身份后仍要明确接受；重复接受幂等",
+        "coverage": {
+          "partial": 1,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A25",
@@ -752,7 +983,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "真实邮件供应商与目标网络连续旅程未验；当前仅受控SMTP。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A25",
+        "formalExpected": "新 ID 与新期限；旧邀请不可用；已接受不能重发",
+        "coverage": {
+          "partial": 1,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A26",
@@ -779,7 +1020,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A26",
+        "formalExpected": "按团队能力拒绝，不能借项目角色升级",
+        "coverage": {
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A27",
@@ -805,7 +1055,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A27",
+        "formalExpected": "拒绝；团队移除也不能绕过各项目保护",
+        "coverage": {
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A28",
@@ -841,7 +1100,18 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "本机/在线删除已有自动证据；真实异地备份、物理介质淘汰、密钥托管与灾难恢复仍待验。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A28",
+        "formalExpected": "影响范围精确、署名保留、确认明确、取消无副作用",
+        "coverage": {
+          "assertion-backed": 1,
+          "not-found": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A29",
@@ -866,7 +1136,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A29",
+        "formalExpected": "不误报、不泄露、恢复动作一致；重试保留上下文",
+        "coverage": {
+          "partial": 4
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A30",
@@ -891,7 +1170,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "目标Chrome/Edge两稳定主版本矩阵、人工仅键盘/读屏或视觉签收未完成；T32b不勾选。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A30",
+        "formalExpected": "无整页横溢出、底栏裁切、零高内容；长文和操作可达",
+        "coverage": {
+          "partial": 3,
+          "environment-pending": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A31",
@@ -916,7 +1205,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "目标Chrome/Edge两稳定主版本矩阵、人工仅键盘/读屏或视觉签收未完成；T32b不勾选。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A31",
+        "formalExpected": "参数结果都可用；表格局部滚动；状态和按钮不挤出",
+        "coverage": {
+          "partial": 2,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A32",
@@ -942,7 +1241,18 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "目标Chrome/Edge两稳定主版本矩阵、人工仅键盘/读屏或视觉签收未完成；T32b不勾选。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A32",
+        "formalExpected": "草稿、运行及当前上下文滚动位置保留",
+        "coverage": {
+          "assertion-backed": 1,
+          "not-found": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A33",
@@ -967,7 +1277,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "目标Chrome/Edge两稳定主版本矩阵、人工仅键盘/读屏或视觉签收未完成；T32b不勾选。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A33",
+        "formalExpected": "顺序合理、可见焦点、Esc 返回、无焦点陷阱",
+        "coverage": {
+          "partial": 3,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A34",
@@ -994,7 +1314,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A34",
+        "formalExpected": "命令只作用目标；固定和运行项保护；复制无运行结果",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A35",
@@ -1018,7 +1348,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A35",
+        "formalExpected": "不虚构成功；历史和保存对应同一 Run；上传失败保持未完成",
+        "coverage": {
+          "assertion-backed": 3
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A36",
@@ -1055,7 +1394,17 @@
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。",
         "真实邮件供应商与目标网络连续旅程未验；当前仅受控SMTP。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A36",
+        "formalExpected": "公开注册关闭；初始化一次性；邮箱验证不可绕过；8 小时空闲 / 24 小时最长默认生效；到期暂停上传",
+        "coverage": {
+          "assertion-backed": 3,
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A37",
@@ -1086,7 +1435,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A37",
+        "formalExpected": "目录可管但内容不可读；Admin 不能自授；Owner 确认后加入并留审计；他人私人数据仍不可读",
+        "coverage": {
+          "assertion-backed": 3,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A38",
@@ -1119,7 +1478,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A38",
+        "formalExpected": "仅维护者可固定；本人执行角色仅重试本人责任端队列；Viewer 可见私有记录只读",
+        "coverage": {
+          "partial": 2,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A39",
@@ -1152,7 +1521,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A39",
+        "formalExpected": "浏览器仅恢复脱敏队列；Agent 可完成已获准调用；新项目调用受阻；每 Run 单一责任端",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 3
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A40",
@@ -1185,7 +1564,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A40",
+        "formalExpected": "冲突不覆盖；不静默丢弃；阻止新调用并给出处理入口；退出先提示",
+        "coverage": {
+          "assertion-backed": 4
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A41",
@@ -1214,7 +1602,17 @@
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。",
         "本机/在线删除已有自动证据；真实异地备份、物理介质淘汰、密钥托管与灾难恢复仍待验。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A41",
+        "formalExpected": "重新验证身份及项目权限；本机删除 / 备份删除 / 上游撤销独立；托管加密范围明确",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A42",
@@ -1242,7 +1640,18 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A42",
+        "formalExpected": "拒绝未授权来源 / 身份及失效令牌；本机确认；变更重新确认；不隐式 shell / 继承全部敏感环境",
+        "coverage": {
+          "assertion-backed": 2,
+          "environment-pending": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A43",
@@ -1270,7 +1679,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A43",
+        "formalExpected": "兼容范围明确；仅显式换 Agent；非敏感 query 可存；URL 秘密与 fragment 被阻止",
+        "coverage": {
+          "partial": 2,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A44",
@@ -1297,7 +1716,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A44",
+        "formalExpected": "合法 JSON 可存私有未完成草稿，不可发布 / 执行；不能无损表单化时用 JSON；不自动请求远程引用",
+        "coverage": {
+          "assertion-backed": 3
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A45",
@@ -1323,7 +1751,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "目标Chrome/Edge两稳定主版本矩阵、人工仅键盘/读屏或视觉签收未完成；T32b不勾选。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A45",
+        "formalExpected": "正文 14、辅助 12、最低 11、页标题 24、工作区标题 16，不复制原型过小字号",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A46",
@@ -1353,7 +1791,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A46",
+        "formalExpected": "修订权限准确、关联缓存同步；审计不存秘密原文；无法可靠脱敏时只传元数据",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A47",
@@ -1386,7 +1834,17 @@
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。",
         "本机/在线删除已有自动证据；真实异地备份、物理介质淘汰、密钥托管与灾难恢复仍待验。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A47",
+        "formalExpected": "90 天历史；固定 / 保存计容量且不自动清理；1 MiB 请求 / 10 MiB 响应标识准确；5 GiB 配额；失败队列只提醒",
+        "coverage": {
+          "assertion-backed": 3,
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A48",
@@ -1419,7 +1877,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "本机/在线删除已有自动证据；真实异地备份、物理介质淘汰、密钥托管与灾难恢复仍待验。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A48",
+        "formalExpected": "立即失去访问；私有封存 30 天；重加同身份可恢复记录但不自动恢复凭据；在线备份删除",
+        "coverage": {
+          "assertion-backed": 4,
+          "environment-pending": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A49",
@@ -1450,7 +1918,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A49",
+        "formalExpected": "版本冲突保留草稿并可比较，不静默后写覆盖；名称团队内去空白、忽略大小写唯一",
+        "coverage": {
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A50",
@@ -1488,7 +1965,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A50",
+        "formalExpected": "平台权限 / 配置 / 上传走平台 API，Tool HTTP 由浏览器或 Agent、stdio 由 Agent；平台默认不代调，租户身份不可混用",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A51",
@@ -1518,7 +2005,18 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A51",
+        "formalExpected": "目标项目 / 服务 / 生效环境准确，未保存输入保留；失效诊断清除；修复不自动连接",
+        "coverage": {
+          "partial": 1,
+          "not-found": 1,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A52",
@@ -1551,7 +2049,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A52",
+        "formalExpected": "仅显示当前作用域敏感定义；已选引用保留并标缺失；不借用另一项目变量；缺值不可冒充可用",
+        "coverage": {
+          "partial": 2,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A53",
@@ -1584,7 +2092,17 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A53",
+        "formalExpected": "新保存 ID、时间、上传快照和浏览器责任端独立；保留来源关联；不继承来源上传缓存 / 丢弃状态；原 Run 不变",
+        "coverage": {
+          "partial": 3,
+          "assertion-backed": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A54",
@@ -1615,7 +2133,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A54",
+        "formalExpected": "保存记录 ID 与请求响应不变；新修订含新元数据；该修订重试保持同操作身份 / 摘要，不上传旧名称，不制造新 Run",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A55",
@@ -1649,7 +2177,16 @@
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A55",
+        "formalExpected": "UI 加载目标项目能力，返回不丢草稿；后台按记录所属项目权限校验，不受当前屏幕角色误判",
+        "coverage": {
+          "partial": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A56",
@@ -1675,7 +2212,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A56",
+        "formalExpected": "必须填原因并确认，审计含目标；仅增加目标项目关系，不改变当前项目角色或私人数据边界",
+        "coverage": {
+          "assertion-backed": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A57",
@@ -1705,7 +2252,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A57",
+        "formalExpected": "普通成员旧页面、动作及 API 均拒绝继续管理；Admin 目录管理例外不授予内容权限；保护本人 / Owner / 最后维护者规则仍生效",
+        "coverage": {
+          "partial": 1,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A58",
@@ -1737,7 +2294,17 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A58",
+        "formalExpected": "不显示服务上下文、流程进度及内容；会话到期暂停上传，错误认证不能恢复；返回入口不绕过权限",
+        "coverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A59",
@@ -1768,7 +2335,16 @@
       "coverageMeaning": "相关回归源与本次完整门禁证据索引；不是逐条正式预期全部通过的声明。",
       "remaining": [
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A59",
+        "formalExpected": "表单按项目 + 记录隔离；失败保留对应输入；只提交目标修订，关联副本按规则更新，无另一记录原因串入",
+        "coverage": {
+          "assertion-backed": 3
+        },
+        "formalSignoff": "pending"
+      }
     },
     {
       "id": "A60",
@@ -1807,7 +2383,16 @@
         "按正式预期逐断言复核、实际目标环境联验及负责人签收未完成；本项正式状态保持待验收。",
         "T02目标浏览器/公网HTTPS本地网络权限、真实本机确认或相应三OS凭据库环境未验；受控helper不抵扣。",
         "真实邮件供应商与目标网络连续旅程未验；当前仅受控SMTP。"
-      ]
+      ],
+      "assertionAudit": {
+        "path": "docs/tasks/v01-assertion-audit.json",
+        "id": "A60",
+        "formalExpected": "邀请身份修复仍回原邀请且需手动接受；流程进度对应同一连接 / Run；上传失败未完成；恢复新 Tab 未执行；无整段刷新伪造进度",
+        "coverage": {
+          "assertion-backed": 5
+        },
+        "formalSignoff": "pending"
+      }
     }
   ],
   "implementationRevision": "3056a6b0ab771149b39435f7f2535d2bcd0881bc"

@@ -2,10 +2,10 @@ package migrations
 
 import (
 	"context"
-	"crypto/rand"
 	"crypto/sha256"
 	"fmt"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"mcp-studio/internal/testsupport"
 	"os"
 	"testing"
 )
@@ -21,10 +21,8 @@ func isolatedDatabase(t *testing.T) *pgxpool.Pool {
 	if err != nil {
 		t.Fatal(err)
 	}
-	var b [12]byte
-	rand.Read(b[:])
-	schema := fmt.Sprintf("test_migration_%x", b)
-	if _, err = admin.Exec(ctx, "CREATE SCHEMA "+schema); err != nil {
+	schema, err := testsupport.CreateSchema(ctx, admin, raw)
+	if err != nil {
 		t.Fatal(err)
 	}
 	config, err := pgxpool.ParseConfig(raw)

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"mcp-studio/internal/testsupport"
 	"mcp-studio/internal/wire"
 	"mcp-studio/migrations"
 	"net/http"
@@ -52,8 +53,8 @@ func testApp(t *testing.T) (*App, *captureMail) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	schema := "test_" + id()
-	if _, err = admin.Exec(ctx, "CREATE SCHEMA "+schema); err != nil {
+	schema, err := testsupport.CreateSchema(ctx, admin, url)
+	if err != nil {
 		t.Fatal(err)
 	}
 	cfg, err := pgxpool.ParseConfig(url)

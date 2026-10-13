@@ -20,11 +20,28 @@ export function validateTestDatabaseURL(value) {
 
 export async function runChecked(command, args, { label = command, quiet = false, env = {}, signal } = {}) {
   if (!quiet) console.log(`[verify] ${label}`);
+  if (signal?.aborted) throw Object.assign(new Error(`${label}: interrupted`), { exitCode: 130 });
   await new Promise((resolve, reject) => {
-    const child = spawn(command, args, { stdio: quiet ? 'ignore' : 'inherit', env: { ...process.env, ...env }, signal });
-    child.once('error', error => reject(Object.assign(new Error(`${label}: process could not start (${error.code ?? 'error'})`), { exitCode: signal?.aborted ? 130 : 1 })));
-    child.once('exit', (code, childSignal) => {
-      if (code === 0) resolve();
+    const group = process.platform !== 'win32';
+    const child = spawn(command, args, { detached: group, stdio: quiet ? 'ignore' : 'inherit', env: { ...process.env, ...env } });
+    let started = false, interrupted = false, failure, timer;
+    const kill = kind => { try { if (group) process.kill(-child.pid, kind); else child.kill(kind); } catch (error) { if (error.code !== 'ESRCH') failure = new Error(`${label}: process termination unavailable`); } };
+    const stop = () => {
+      interrupted = true;
+      if (!started) return;
+      kill('SIGTERM');
+      timer = setTimeout(() => kill('SIGKILL'), 5000); timer.unref();
+    };
+    signal?.addEventListener('abort', stop, { once: true });
+    child.once('spawn', () => { started = true; if (signal?.aborted) stop(); });
+    child.once('error', error => { failure = Object.assign(new Error(`${label}: process could not start (${error.code ?? 'error'})`), { exitCode: 1 }); });
+    // AbortSignal's spawn error occurs before exit. Await close instead, so DB
+    // leases cannot be removed while a Go test is still creating fixtures.
+    child.once('close', (code, childSignal) => {
+      signal?.removeEventListener('abort', stop); clearTimeout(timer);
+      if (interrupted || signal?.aborted) reject(Object.assign(new Error(`${label}: interrupted after process cleanup`), { exitCode: 130 }));
+      else if (failure) reject(failure);
+      else if (code === 0) resolve();
       else reject(Object.assign(new Error(`${label}: failed with ${childSignal ?? `exit ${code}`}`), { exitCode: code ?? 130 }));
     });
   });
@@ -48,15 +65,29 @@ export async function queryTestDatabase(value, sql) {
 
 export async function withTestSchema(value, run) {
   const url = validateTestDatabaseURL(value);
-  const role = await queryTestDatabase(url.href, "SELECT current_user || ':' || rolsuper::text FROM pg_roles WHERE rolname=current_user");
+  const role = await queryTestDatabase(url.href, "SELECT current_user || ':' || (rolsuper OR rolbypassrls)::text FROM pg_roles WHERE rolname=current_user");
   if (role !== 'mcp_studio_app:false') throw new Error('Test database role must be mcp_studio_app and non-superuser.');
   const schema = 'e2e_' + randomBytes(12).toString('hex');
-  await queryTestDatabase(url.href, `CREATE SCHEMA "${schema}"`);
+  const oid = await queryTestDatabase(url.href, `BEGIN; CREATE SCHEMA "${schema}"; COMMENT ON SCHEMA "${schema}" IS 'mcp-studio-test-run:${schema}'; COMMIT; SELECT oid FROM pg_namespace WHERE nspname='${schema}'`);
+  if (!/^[1-9]\d*$/.test(oid)) throw new Error('Test run ownership unavailable.');
   url.searchParams.set('search_path', schema);
   try { return await run(url.href); }
   finally {
-    await queryTestDatabase(value, `DROP SCHEMA "${schema}" CASCADE`);
-    console.log('[test-runtime] isolated schema removed');
+    // No prefix sweep: require the exact lease, namespace, owner and object identity.
+    await queryTestDatabase(value, `BEGIN; SELECT pg_advisory_xact_lock(hashtextextended('${schema}',0));
+DO $cleanup$ DECLARE owned record; parent_oid oid; owner_oid oid; BEGIN
+ SELECT oid INTO owner_oid FROM pg_roles WHERE rolname=current_user AND NOT rolsuper AND NOT rolbypassrls;
+ SELECT oid INTO parent_oid FROM pg_namespace WHERE nspname='${schema}' AND nspowner=owner_oid AND obj_description(oid,'pg_namespace')='mcp-studio-test-run:${schema}';
+ IF parent_oid IS DISTINCT FROM ${oid}::oid THEN RAISE EXCEPTION 'Test run ownership changed; cleanup refused'; END IF;
+ COMMENT ON SCHEMA "${schema}" IS 'mcp-studio-test-closing:${schema}';
+ FOR owned IN SELECT oid,nspname,nspowner FROM pg_namespace WHERE obj_description(oid,'pg_namespace')='mcp-studio-test-child:${schema}' LOOP
+  IF owned.nspowner IS DISTINCT FROM owner_oid OR owned.nspname !~ '^test_${schema.slice(4)}_[a-f0-9]{24}$' THEN RAISE EXCEPTION 'Test child ownership changed; cleanup refused'; END IF;
+  IF (SELECT oid FROM pg_namespace WHERE nspname=owned.nspname) IS DISTINCT FROM owned.oid THEN RAISE EXCEPTION 'Test child identity changed; cleanup refused'; END IF;
+  EXECUTE format('DROP SCHEMA %I CASCADE',owned.nspname);
+ END LOOP;
+ DROP SCHEMA "${schema}" CASCADE;
+END $cleanup$; COMMIT;`);
+    console.log('[test-runtime] exact leased test schemas removed');
   }
 }
 
