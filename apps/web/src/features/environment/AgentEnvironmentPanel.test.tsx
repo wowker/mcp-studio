@@ -1,0 +1,12 @@
+import {afterEach,it,expect,vi} from 'vitest';
+import {render,screen,waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {I18nextProvider} from 'react-i18next';
+import {i18n} from '../../shared/i18n';
+import {AgentEnvironmentPanel} from './AgentEnvironmentPanel';
+import {M2Memory} from '../connections/runtimeStore';
+import {PlatformClient} from '../../shared/api';
+import {emptyConnection} from '../connections/session';
+const connection={...emptyConnection,id:'c',projectId:'p',version:1,etag:'v1',name:'Agent',channel:'agent' as const};
+afterEach(()=>{vi.restoreAllMocks();vi.unstubAllGlobals();});
+it('previews with Agent personal values and revalidates before applying without connecting MCP',async()=>{await i18n.changeLanguage('en-US');const memory=new M2Memory(),request=vi.fn(async(_path:string)=>({projectId:'p',connectionId:'c',environmentId:'env',valid:true,diagnostic:'',previewJSON:JSON.stringify({rows:[{name:'SECRET',definitionId:'v',type:'string',sensitive:true,required:true,source:'environment-connection',status:'resolved',valueJSON:''}],error:''})}));vi.spyOn(memory,'existingAgent').mockReturnValue({getSnapshot:()=>({state:'paired'}),request} as never);vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({data:connection})));const user=userEvent.setup();render(<I18nextProvider i18n={i18n}><AgentEnvironmentPanel client={new PlatformClient()} memory={memory} connection={connection} environmentId="env" saved allowed revision="1"/></I18nextProvider>);await screen.findByText('SECRET');expect(screen.queryByText('Personal value missing')).toBeNull();expect(memory.applied.size).toBe(0);await user.click(screen.getByRole('button',{name:'Use for my session'}));await waitFor(()=>expect(memory.applied.get('p:c')).toBe('env'));expect(request).toHaveBeenCalledTimes(2);expect(request.mock.calls.every(([path])=>path==='/v1/environment/preview')).toBe(true);memory.clear();});

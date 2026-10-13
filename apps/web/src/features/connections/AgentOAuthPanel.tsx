@@ -1,0 +1,14 @@
+import '../devices/translations';
+import {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import * as wire from '../../generated/agent';
+import type {Connection} from '../../generated/platform';
+import {Button,useAction} from '../../shared/ui';
+import {ApiError} from '../../shared/api';
+import type {M2Memory} from './runtimeStore';
+import {AgentFeedback} from '../devices/AgentFeedback';
+export function AgentOAuthPanel({memory,connection,retention,saved}:{memory:M2Memory;connection:Connection;retention:'session'|'local';saved:(state:wire.AgentCredentialState)=>void}){
+ const {t}=useTranslation();const action=useAction(),agent=memory.existingAgent();const [start,setStart]=useState<wire.AgentOAuthStart>(),[state,setState]=useState<wire.AgentOAuthState>();
+ const refresh=async()=>{if(!start||!agent)return;const valid=memory.captureScope(connection.projectId),state=await agent.request(`/v1/oauth/${encodeURIComponent(start.attemptId)}`,wire.agentOAuthStateSchema);if(valid()&&state.attemptId===start.attemptId)setState(state);};
+ return <section><Button disabled={!agent||action.pending||state?.status==='authorizing'} onClick={()=>void action.run(async()=>{const valid=memory.captureScope(connection.projectId),result=await agent!.request('/v1/oauth',wire.agentOAuthStartSchema,{method:'POST',body:{projectId:connection.projectId,connectionId:connection.id,version:connection.version,environmentId:memory.applied.get(`${connection.projectId}:${connection.id}`)??connection.environmentId}});const url=new URL(result.authorizationUrl);if(url.username||url.password||url.protocol!=='https:'&&!(url.protocol==='http:'&&['127.0.0.1','localhost','[::1]'].includes(url.hostname)))throw new ApiError('agent_invalid_response');if(valid()){setStart(result);setState({attemptId:result.attemptId,status:'authorizing',saved:false,diagnostic:''});}})}>{t('agent:oauthStart')}</Button>{start&&<><Button disabled={action.pending} onClick={()=>window.open(start.authorizationUrl,'_blank','noopener,noreferrer')}>{t('agent:oauthOpen')}</Button><Button disabled={action.pending} onClick={()=>void action.run(refresh)}>{t('agent:oauthRefresh')}</Button></>}{state&&<p role="status">{t(`agent:${state.status==='callback-failed'?'callbackFailed':state.status==='denied'?'oauthDenied':state.status==='expired'?'oauthExpired':state.status}`)}</p>}<AgentFeedback error={state?.diagnostic||action.error}/>{state?.status==='authorized'&&<><p>{t('agent:saveFailureNotice')}</p><Button disabled={action.pending} onClick={()=>void action.run(async()=>{const valid=memory.captureScope(connection.projectId),result=await agent!.request(`/v1/oauth/${encodeURIComponent(state.attemptId)}/save`,wire.agentCredentialStateSchema,{method:'POST',body:{retention}});if(valid())saved(result);})}>{t('agent:oauthSave')}</Button></>}</section>;
+}

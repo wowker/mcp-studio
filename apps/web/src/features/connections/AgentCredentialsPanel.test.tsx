@@ -1,0 +1,12 @@
+import {afterEach,it,expect,vi} from 'vitest';
+import {render,screen,waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {I18nextProvider} from 'react-i18next';
+import {i18n} from '../../shared/i18n';
+import {AgentCredentialsPanel} from './AgentCredentialsPanel';
+import {emptyConnection} from './session';
+import {M2Memory} from './runtimeStore';
+const connection={...emptyConnection,id:'c',projectId:'p',name:'Server',version:1,etag:'v1',channel:'agent' as const,authMode:'token' as const};
+const project={id:'p',teamId:'team',name:'Project',description:'',role:'developer' as const,canRead:true,canManage:false,canTakeover:false};
+afterEach(()=>vi.restoreAllMocks());
+it('keeps backup off by default and saves Agent token independently of browser vault',async()=>{await i18n.changeLanguage('en-US');const memory=new M2Memory(),requests:{path:string;body:unknown}[]=[];vi.spyOn(memory,'existingAgent').mockReturnValue({request:async(path:string,_schema:unknown,options:{body:unknown})=>{requests.push({path,body:options.body});return {projectId:'p',connectionId:'c',kind:'token',referenceId:'',present:true,location:'session',status:'saved',expiresAt:'',diagnostic:''};}} as never);render(<I18nextProvider i18n={i18n}><AgentCredentialsPanel memory={memory} connection={connection} project={project}/></I18nextProvider>);expect(requests).toEqual([]);const user=userEvent.setup();await user.type(screen.getByLabelText('Personal Agent token'),'private-value');await user.click(screen.getByRole('button',{name:'Save Agent credential'}));await waitFor(()=>expect(requests).toHaveLength(1));expect(requests[0].path).toBe('/v1/credentials');expect(requests[0].body).toMatchObject({connectionId:'c',projectId:'p',retention:'session',valueJSON:'"private-value"'});expect(memory.vault.getCredential({userId:'u',projectId:'p',connectionId:'c'})).toBeUndefined();expect(requests.some(r=>r.path.includes('/backup'))).toBe(false);expect(screen.getByLabelText('Personal Agent token')).toHaveProperty('value','');memory.clear();});

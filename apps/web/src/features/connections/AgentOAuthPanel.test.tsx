@@ -1,0 +1,11 @@
+import {it,expect,vi,afterEach} from 'vitest';
+import {render,screen,waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {I18nextProvider} from 'react-i18next';
+import {i18n} from '../../shared/i18n';
+import {AgentOAuthPanel} from './AgentOAuthPanel';
+import {M2Memory} from './runtimeStore';
+import {emptyConnection} from './session';
+const connection={...emptyConnection,id:'c',projectId:'p',version:1,etag:'v1',name:'OAuth',channel:'agent' as const,authMode:'oauth' as const};
+afterEach(()=>vi.restoreAllMocks());
+it('keeps authorization separate from saving and retries local saving without repeating authorization',async()=>{await i18n.changeLanguage('en-US');const memory=new M2Memory(),saved=vi.fn();let fail=true;const request=vi.fn(async(path:string)=>{if(path==='/v1/oauth')return {attemptId:'attempt',authorizationUrl:'https://issuer.example/authorize?state=public-state',expiresAt:'2099-01-01T00:00:00Z'};if(path.endsWith('/save')){if(fail)throw Error('vault_unavailable');return {projectId:'p',connectionId:'c',kind:'oauth',referenceId:'',present:true,location:'local',status:'saved',expiresAt:'2099-01-01T00:00:00Z',diagnostic:''};}return {attemptId:'attempt',status:'authorized',saved:false,diagnostic:''};});vi.spyOn(memory,'existingAgent').mockReturnValue({request} as never);const user=userEvent.setup();render(<I18nextProvider i18n={i18n}><AgentOAuthPanel memory={memory} connection={connection} retention="local" saved={saved}/></I18nextProvider>);await user.click(screen.getByRole('button',{name:'Authorize with Agent'}));await user.click(await screen.findByRole('button',{name:'Check authorization'}));await screen.findByText('Authorized, ready to connect');expect(saved).not.toHaveBeenCalled();await user.click(screen.getByRole('button',{name:'Save authorization'}));await screen.findByRole('alert');expect(screen.getByText('Authorized, ready to connect')).toBeDefined();fail=false;await user.click(screen.getByRole('button',{name:'Save authorization'}));await waitFor(()=>expect(saved).toHaveBeenCalledOnce());expect(request.mock.calls.filter(([path])=>path==='/v1/oauth')).toHaveLength(1);expect(request.mock.calls.filter(([path])=>path.endsWith('/save'))).toHaveLength(2);expect(memory.vault.getCredential({userId:'u',projectId:'p',connectionId:'c'})).toBeUndefined();memory.clear();});

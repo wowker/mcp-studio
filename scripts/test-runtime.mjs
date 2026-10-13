@@ -3,6 +3,7 @@ import { randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { once } from 'node:events';
 import { access, mkdir, writeFile } from 'node:fs/promises';
+import { startM5Agent } from '../tests/fixtures/m5-agent/fixture.mjs';
 import { startM2Fixture } from '../tests/fixtures/m2/fixture.mjs';
 import { temporaryTLS, tlsTerminator } from '../tests/fixtures/m2/tls.mjs';
 import net from 'node:net';
@@ -93,29 +94,31 @@ export async function runRuntime(args = [], { signal } = {}) {
   await access('apps/web/dist/index.html');
   return withTestSchema(database, async scopedDatabase => {
     const mail = await startMailCapture();
-    let platform, certificate, terminator, mcp, oauth;
+    let platform, certificate, terminator, mcp, oauth, agent;
     try {
       const port = await freePort();
       certificate = await temporaryTLS();
       terminator = await tlsTerminator(certificate.options, port);
       const origin = terminator.origin;
       mcp = await startM2Fixture({ allowedOrigin: origin });
-      oauth = await startM2Fixture({ allowedOrigin: origin, tls: certificate.options, publicHostname: 'localhost' });
-      platform = spawn('.runtime/platform', [], { stdio: ['ignore', 'inherit', 'inherit'], env: { ...process.env, MCP_STUDIO_DATABASE_URL: scopedDatabase, MCP_STUDIO_ORIGIN: origin, MCP_STUDIO_LISTEN: `127.0.0.1:${port}`, MCP_STUDIO_ALLOW_INSECURE_LOOPBACK: 'true', MCP_STUDIO_INIT_CREDENTIAL: 'fixture-init', MCP_STUDIO_SMTP_ADDRESS: mail.smtpAddress, MCP_STUDIO_SMTP_FROM: 'studio@example.test', MCP_STUDIO_STATIC_DIR: 'apps/web/dist' } });
+      oauth = await startM2Fixture({ allowedOrigin: origin, tls: certificate.options, publicHostname: 'localhost', allowNativeCallback: true });
+      platform = spawn('.runtime/platform', [], { stdio: ['ignore', 'inherit', 'inherit'], env: { ...process.env, MCP_STUDIO_DATABASE_URL: scopedDatabase, MCP_STUDIO_ORIGIN: origin, MCP_STUDIO_LISTEN: `127.0.0.1:${port}`, MCP_STUDIO_ALLOW_INSECURE_LOOPBACK: 'true', MCP_STUDIO_INIT_CREDENTIAL: 'fixture-init', MCP_STUDIO_SMTP_ADDRESS: mail.smtpAddress, MCP_STUDIO_SMTP_FROM: 'studio@example.test', MCP_STUDIO_STATIC_DIR: 'apps/web/dist', MCP_STUDIO_BACKUP_KEY: randomBytes(32).toString('base64') } });
       let spawnError;
       platform.once('error', () => { spawnError = true; });
       await ready(`http://127.0.0.1:${port}`, platform, signal);
       if (spawnError) throw new Error('Test platform failed to start.');
+      agent = await startM5Agent({origin,tls:certificate.options});
       console.log('[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready');
-      await runChecked(process.execPath, ['node_modules/@playwright/test/cli.js', 'test', '--config', 'playwright.config.ts', ...args], { label: 'Playwright production-entry E2E', signal, env: { PLAYWRIGHT_BASE_URL: origin, PLAYWRIGHT_INIT_CREDENTIAL: 'fixture-init', PLAYWRIGHT_MAIL_URL: mail.url, PLAYWRIGHT_MCP_ORIGIN: mcp.origin, PLAYWRIGHT_OAUTH_ORIGIN: oauth.origin, PLAYWRIGHT_FIXTURE_TLS: 'true' } });
+      await runChecked(process.execPath, ['node_modules/@playwright/test/cli.js', 'test', '--config', 'playwright.config.ts', ...args], { label: 'Playwright production-entry E2E', signal, env: { PLAYWRIGHT_BASE_URL: origin, PLAYWRIGHT_INIT_CREDENTIAL: 'fixture-init', PLAYWRIGHT_MAIL_URL: mail.url, PLAYWRIGHT_MCP_ORIGIN: mcp.origin, PLAYWRIGHT_OAUTH_ORIGIN: oauth.origin, PLAYWRIGHT_FIXTURE_TLS: 'true', PLAYWRIGHT_AGENT_ADDRESS: agent.address, PLAYWRIGHT_AGENT_CONTROL: agent.controllerOrigin, PLAYWRIGHT_AGENT_STDIO_COMMAND: agent.stdioCommand, PLAYWRIGHT_AGENT_STDIO_ARGS: JSON.stringify(agent.stdioArgs) } });
     } finally {
       try { await stopProcess(platform); }
       finally {
         const dir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m3-playwright';
-        await mkdir(dir,{recursive:true});
-        if(mcp&&oauth)await writeFile(`${dir}/fixture-statistics.json`,JSON.stringify({mcp:mcp.stats,oauth:oauth.stats,tls:'Temporary self-signed certificate, browser ignoreHTTPSErrors only; no CORS/mixed-content/LNA bypass',supportMatrix:'T02 remains pending'},null,2)+'\n');
-        await mcp?.close(); await oauth?.close(); await terminator?.close(); await certificate?.close();
-        await mail.close(); console.log('[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped');
+        let evidenceError;try{await mkdir(dir,{recursive:true});
+        if(mcp&&oauth)await writeFile(`${dir}/fixture-statistics.json`,JSON.stringify({mcp:mcp.stats,oauth:oauth.stats,agent:agent?.stats(),tls:'Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass',supportMatrix:'T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence'},null,2)+'\n');}catch(error){evidenceError=error;}
+        const cleanup=await Promise.allSettled([agent?.close(),mcp?.close(),oauth?.close(),terminator?.close(),certificate?.close(),mail.close()]);
+        console.log('[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped');
+        const failures=cleanup.filter(result=>result.status==='rejected').map(result=>result.reason);if(evidenceError)failures.push(evidenceError);if(failures.length)throw new AggregateError(failures,'Test runtime cleanup or evidence write failed.');
       }
     }
   });

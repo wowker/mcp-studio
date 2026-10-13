@@ -2,7 +2,7 @@ import http from 'node:http';
 import https from 'node:https';
 import {randomBytes,createHash} from 'node:crypto';
 /** Synthetic local MCP + authorization-server fixture. No production proxy or credential storage. */
-export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.1'}={}) {
+export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.1',allowNativeCallback=false}={}) {
  if(!['localhost','127.0.0.1'].includes(publicHostname))throw Error('unsupported-public-hostname');
  if(!allowedOrigin)throw Error('allowed-origin-required');
  const streams=new Map(),codes=new Map(),tokens=new Set(['fixture-token']),heldCalls=new Map();
@@ -48,7 +48,8 @@ export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.
   if(path==='/release-tools'&&req.method==='POST'){for(const [held,message]of heldCalls){stats.releasedCalls++;if(!held.destroyed)reply(held,200,wireFor(message));}heldCalls.clear();return reply(res,200,{released:stats.releasedCalls});}
   if(path==='/authorize'){
    const redirect=url.searchParams.get('redirect_uri');
-   if(redirect!==allowedOrigin+'/oauth/callback'||!url.searchParams.get('client_id')||url.searchParams.get('code_challenge_method')!=='S256'||url.searchParams.get('response_type')!=='code'||![origin+'/oauth-mcp',origin+'/oauth-deny-mcp'].includes(url.searchParams.get('resource')))return reply(res,400,{error:'invalid-authorization-request'});
+   let nativeRedirect=false;if(allowNativeCallback&&redirect){try{const target=new URL(redirect);nativeRedirect=target.protocol==='http:'&&target.hostname==='127.0.0.1'&&!!target.port&&target.pathname==='/oauth/callback'&&!target.search&&!target.hash&&!target.username&&!target.password;}catch{}}
+   if(redirect!==allowedOrigin+'/oauth/callback'&&!nativeRedirect||!url.searchParams.get('client_id')||url.searchParams.get('code_challenge_method')!=='S256'||url.searchParams.get('response_type')!=='code'||![origin+'/oauth-mcp',origin+'/oauth-deny-mcp'].includes(url.searchParams.get('resource')))return reply(res,400,{error:'invalid-authorization-request'});
    const target=new URL(redirect);target.searchParams.set('state',url.searchParams.get('state')??'');target.searchParams.set('iss',origin);
    if(url.searchParams.get('scope')?.includes('deny')){stats.oauthDenials++;target.searchParams.set('error','access_denied');}
    else{const code=randomBytes(24).toString('base64url');codes.set(code,{challenge:url.searchParams.get('code_challenge'),resource:url.searchParams.get('resource'),clientId:url.searchParams.get('client_id'),redirect,expires:Date.now()+60000});target.searchParams.set('code',code);}
