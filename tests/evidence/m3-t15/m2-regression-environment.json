@@ -1,0 +1,8 @@
+{
+  "scope": "M2 T10–T14 local controlled Chromium only",
+  "browser": "147.0.7727.15",
+  "playwright": "1.59.1",
+  "fixture": "Synthetic loopback MCP HTTP / SSE and OAuth HTTPS public-client PKCE",
+  "excluded": "External service compatibility, actual Chrome/Edge target matrix, OS credential stores, Agent execution, M3 Tools and Run",
+  "tls": "Temporary self-signed fixture certificate; browser context ignores fixture TLS errors only"
+}

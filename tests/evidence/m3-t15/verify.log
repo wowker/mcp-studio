@@ -1,0 +1,123 @@
+
+> mcp-studio@0.1.0 verify
+> node scripts/verify.mjs
+
+[verify] Generated contracts are current
+Platform contract v1.1.0: 34 schemas, 31 paths; generated boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Generator, SDK, loopback security and runtime guards
+✔ versioned platform contract generates stable Go and TypeScript boundaries (92.66125ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (145.995083ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (27.145041ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (10.399958ms)
+✔ expired codes and local unpair reject new requests (9.375125ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (35.614083ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (5.79775ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (3.327917ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (2.578541ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (11.721792ms)
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (342.907ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (402.716458ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.570375ms)
+✔ gate propagates a failing real subprocess exit status (59.059375ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (35.501ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (13.699167ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (9.241916ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 839.146333
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/tools/ToolsPage.test.tsx (7 tests) 568ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (9 tests) 633ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 762ms
+   ✓ keeps original invitation after registration and never accepts automatically  534ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 361ms
+ ✓ src/features/team/MembersPage.test.tsx (2 tests) 273ms
+ ✓ src/features/connections/runtimeStore.test.ts (2 tests) 80ms
+ ✓ src/runtime/browser-session.test.ts (45 tests) 223ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (5 tests) 434ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 31ms
+ ✓ src/app/App.test.tsx (11 tests) 2412ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  778ms
+   ✓ keeps another project tool document when switching through a Viewer project  454ms
+ ✓ src/shared/api.test.ts (9 tests) 9ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 7ms
+ ✓ src/shared/i18n.test.ts (2 tests) 6ms
+ ✓ src/runtime/vault.test.ts (8 tests) 5ms
+ ✓ src/runtime/connection.test.ts (5 tests) 5ms
+ ✓ src/features/tools/workspace.test.ts (5 tests) 4ms
+ ✓ src/runtime/environment.test.ts (21 tests) 5ms
+ ✓ src/features/team/protection.test.ts (3 tests) 2ms
+ ✓ src/features/connections/session.test.ts (3 tests) 1ms
+
+ Test Files  19 passed (19)
+      Tests  187 passed (187)
+   Start at  11:50:36
+   Duration  5.00s (transform 298ms, setup 858ms, collect 6.33s, tests 5.82s, environment 4.28s, prepare 597ms)
+
+[verify] Frontend production build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4924 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                            0.40 kB │ gzip:   0.28 kB
+dist/assets/index-CxC93qr5.css             9.94 kB │ gzip:   2.57 kB
+dist/assets/streamableHttp-C9-kUI3N.js     7.66 kB │ gzip:   2.55 kB
+dist/assets/sse-Csd81YjM.js                8.79 kB │ gzip:   3.24 kB
+dist/assets/EnvironmentPage-MhfScLQg.js   13.27 kB │ gzip:   3.94 kB
+dist/assets/ToolsPage-BlgthQ5b.js         17.99 kB │ gzip:   5.65 kB
+dist/assets/ConnectionsPage-Cil3D6Y5.js   20.15 kB │ gzip:   6.39 kB
+dist/assets/browser-session-DqsS0RSh.js   20.35 kB │ gzip:   6.91 kB
+dist/assets/auth-r3AKVDUa.js              21.59 kB │ gzip:   6.78 kB
+dist/assets/index-EyP4C9sO.js            165.19 kB │ gzip:  50.15 kB
+dist/assets/index-8GKiMAEI.js            425.92 kB │ gzip: 130.12 kB
+✓ built in 1.63s
+[verify] Go tests with real isolated PostgreSQL
+ok  	mcp-studio/cmd/platform	0.403s
+ok  	mcp-studio/internal/configuration	0.557s
+ok  	mcp-studio/internal/contracts	0.971s
+ok  	mcp-studio/internal/environment	1.136s
+ok  	mcp-studio/internal/infrastructure	0.816s
+ok  	mcp-studio/internal/platform	41.320s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	1.557s
+ok  	mcp-studio/tests/fixtures/sdk	1.695s
+ok  	mcp-studio/tests/integration	1.918s
+[test-runtime] isolated schema removed
+[verify] Go vet
+[verify] Go production platform build
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 7 tests using 1 worker
+
+(node:21595) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21595) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m1.spec.ts:16:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (4.9s)
+  ✓  2 [chromium] › tests/e2e/m1.spec.ts:30:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (1.6s)
+  ✓  3 [chromium] › tests/e2e/m1.spec.ts:37:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (2.7s)
+  ✓  4 [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (3.4s)
+  ✓  5 [chromium] › tests/e2e/m2.spec.ts:35:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (3.0s)
+  ✓  6 [chromium] › tests/e2e/m2.spec.ts:42:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (3.4s)
+  ✓  7 [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands (2.5s)
+
+  7 passed (22.4s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+[verify] all gates passed

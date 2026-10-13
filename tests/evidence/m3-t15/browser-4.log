@@ -1,0 +1,42 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:20944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands (3.2s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "unexpected_http_GET_405_mcp",[39m
+    [31m+ ][39m
+
+      14 |  await context.grantPermissions(['clipboard-read','clipboard-write']);await page.getByRole('button',{name:'Tab actions for echo',exact:true}).click();await page.getByRole('menuitem',{name:'Copy tool name',exact:true}).click();expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe('echo');
+      15 |  await page.getByLabel('Search tools',{exact:true}).fill('does-not-exist');await expect(page.getByText('No matching tools.',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Clear search',exact:true}).click();await expect(page.getByRole('button',{name:'Open nested',exact:true})).toBeVisible();
+    > 16 |  expect((await fixtureStats(request)).initialize).toBe(stats.initialize);expect(errors).toEqual([]);
+         |                                                                                         ^
+      17 |  await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/t15-en-US-light-1440.png`});
+      18 |  await page.getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Disconnect',exact:true}).click();await page.getByRole('button',{name:'Tools',exact:true}).click();await expect(page.getByText('Connect this service to load its tool catalog.',{exact:true})).toBeVisible();await expect(page.getByRole('tab')).toHaveCount(2);
+      19 | });
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:16:89
+
+    Error Context: test-results/m3-T15-production-real-pag-3dfbe--and-protected-Tab-commands-chromium/error-context.md
+
+    Error Context: test-results/m3-T15-production-real-pag-3dfbe--and-protected-Tab-commands-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands 
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

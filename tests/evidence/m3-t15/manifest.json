@@ -1,0 +1,86 @@
+{
+  "implementation": "adf6622",
+  "scope": "T15 only; before M3 implementation",
+  "verification": {
+    "exitCode": 0,
+    "frontendTests": 187,
+    "nodeTests": 17,
+    "e2eTests": 7,
+    "go": "test -count=1 ./..., vet and build; isolated PostgreSQL"
+  },
+  "limitations": "T02 pending; M3 T16–T21 next; no M4",
+  "files": [
+    {
+      "path": "tests/evidence/m3-t15/verify.log",
+      "sha256": "7eacd09556906eee41ade059acd21308215ffd59cd4a2b4023156fc2b3d59895"
+    },
+    {
+      "path": "tests/evidence/m3-t15/fixture-statistics.json",
+      "sha256": "e932fa125c46151cc02642e319fe6403cf750d65dc8e6dfd528f5a27f01f353c"
+    },
+    {
+      "path": "tests/evidence/m3-t15/m1-regression-environment.json",
+      "sha256": "5cdfa404e01dbd733644929db5a4ad544fd4b0d9642c86acbec7c36c8411fb60"
+    },
+    {
+      "path": "tests/evidence/m3-t15/m2-regression-environment.json",
+      "sha256": "65e008a22e963b2c42c8078ea5d4e2b0cddb1a872f0765a8354036d49614ece9"
+    },
+    {
+      "path": "tests/evidence/m3-t15/m3-environment.json",
+      "sha256": "1037815e0f6cc892b1bded127b1b6c0427338429fa6bfa6212991d001a874b60"
+    },
+    {
+      "path": "tests/evidence/m3-t15/results.json",
+      "sha256": "f165c780fc61c0018f3914455c4b7d91cd040b5b07bd0a6da093c9748823eceb"
+    },
+    {
+      "path": "apps/web/dist/assets/ConnectionsPage-Cil3D6Y5.js",
+      "sha256": "2a2e1d95938e7b6df7a09dd5c5c8b04fb8f8eeacef07d33bdbac0e31aaaf1663"
+    },
+    {
+      "path": "apps/web/dist/assets/EnvironmentPage-MhfScLQg.js",
+      "sha256": "a790e640745f3cef66db7c00be7b95560f420a5001aead58d132c0f3ad09b4f8"
+    },
+    {
+      "path": "apps/web/dist/assets/ToolsPage-BlgthQ5b.js",
+      "sha256": "fcdf5451f0afdb0eb115a197019e39c1aa4ea3fd5481602f331869326823550d"
+    },
+    {
+      "path": "apps/web/dist/assets/auth-r3AKVDUa.js",
+      "sha256": "87906cebc836e3a16de28cce834dea3067264f8b7ac7ae8e95675d4da59152c7"
+    },
+    {
+      "path": "apps/web/dist/assets/browser-session-DqsS0RSh.js",
+      "sha256": "b01636341fe1db6f87eb612a605bca3aa15f22068cdae8a7e25f06e74834302b"
+    },
+    {
+      "path": "apps/web/dist/assets/index-8GKiMAEI.js",
+      "sha256": "f8d0c06f4002610dfb021701794b8eb3523e38799446bbe8dbcec58b77e31033"
+    },
+    {
+      "path": "apps/web/dist/assets/index-CxC93qr5.css",
+      "sha256": "61d3e912019762955d9e712e8e3f5a0c429c1cb687bcb635b66d7fde17ba2ac5"
+    },
+    {
+      "path": "apps/web/dist/assets/index-EyP4C9sO.js",
+      "sha256": "357174eaab2ce276068dbdced07f27c5ed1b86a384096ceb878f6e1f9f2fd42f"
+    },
+    {
+      "path": "apps/web/dist/assets/sse-Csd81YjM.js",
+      "sha256": "c49cf360494b32329c3eb7e0fb0aa810683cad385ef2cbe01b7b302cbf625730"
+    },
+    {
+      "path": "apps/web/dist/assets/streamableHttp-C9-kUI3N.js",
+      "sha256": "cffa17531d168fe03334bb94d55dc3f7318cbf3bba94c5a7477dea7363785bc4"
+    },
+    {
+      "path": "apps/web/dist/index.html",
+      "sha256": "7a3e43278357c568222c5b649515700dd1b3b3b6b94724b4e2f46ab98f5b2a9b"
+    },
+    {
+      "path": ".runtime/platform",
+      "sha256": "3ca1fd754f405161500b3fbf4d03fd12dd70f30e284833f008c8692f660efba9"
+    }
+  ]
+}

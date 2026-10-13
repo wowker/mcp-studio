@@ -1,0 +1,44 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:19055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands (12.4s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('button', { name: '打开 echo', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('button', { name: '打开 echo', exact: true })[22m
+
+
+       7 |  const errors:string[]=[];page.on('pageerror',()=>errors.push('pageerror'));page.on('console',m=>{if(m.type()==='error'||m.type()==='warning')errors.push(m.type());});
+       8 |  await bootstrap(page,request);await createProject(page);await createService(page,'T15 real HTTP',process.env.PLAYWRIGHT_MCP_ORIGIN+'/mcp');await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText(/已连接.*m2-controlled-fixture/)).toBeVisible();const stats=await fixtureStats(request);
+    >  9 |  await page.getByRole('button',{name:'工具',exact:true}).click();await expect(page.getByRole('button',{name:'打开 echo',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'打开 nested',exact:true})).toBeVisible();
+         |                                                                                                                                   ^
+      10 |  await page.getByRole('button',{name:'打开 echo',exact:true}).click();await expect(page.getByRole('tab')).toHaveCount(1);const first=await page.getByRole('tab').getAttribute('id');await page.getByRole('button',{name:'打开 echo',exact:true}).click();await expect(page.getByRole('tab')).toHaveCount(1);await page.getByRole('button',{name:'为 echo 新建 Tab',exact:true}).click();await expect(page.getByRole('tab')).toHaveCount(2);expect(await page.getByRole('tab').nth(1).getAttribute('id')).not.toBe(first);
+      11 |  await page.getByLabel('语言').selectOption('en-US');await page.getByRole('button',{name:'Tab actions for echo',exact:true}).nth(1).click();await page.getByRole('menuitem',{name:'Duplicate tab',exact:true}).click();await expect(page.getByRole('tab')).toHaveCount(3);await expect(page.getByText('Not executed',{exact:true})).toBeVisible();
+      12 |  await page.getByRole('button',{name:'Tab actions for echo',exact:true}).nth(0).click();await page.getByRole('menuitem',{name:'Pin tab',exact:true}).click();await page.getByRole('button',{name:'Open nested',exact:true}).click();await expect(page.getByRole('tab')).toHaveCount(4);await page.getByRole('button',{name:'Tab actions for nested',exact:true}).click();await page.getByRole('menuitem',{name:'Close other tabs',exact:true}).click();await expect(page.getByRole('tab')).toHaveCount(2);expect(await page.getByRole('tab').first().getAttribute('id')).toBe(first);
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:9:131
+
+    Error Context: test-results/m3-T15-production-real-pag-3dfbe--and-protected-Tab-commands-chromium/error-context.md
+
+    Error Context: test-results/m3-T15-production-real-pag-3dfbe--and-protected-Tab-commands-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands 
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1
