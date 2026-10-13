@@ -178,6 +178,15 @@ func (a *App) changeProjectMember(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+	if r.Method == "DELETE" {
+		err = a.archivePrivateRecords(ctx, tx, pid, target)
+	} else {
+		err = a.restorePrivateRecords(ctx, tx, pid, target)
+	}
+	if err != nil {
+		dbFailure(w, err)
+		return
+	}
 	action := "project.member.changed"
 	if r.Method == "DELETE" {
 		_, err = tx.Exec(ctx, `DELETE FROM project_members WHERE project_id=$1 AND user_id=$2`, pid, target)
@@ -250,6 +259,10 @@ func (a *App) changeTeamMember(w http.ResponseWriter, r *http.Request) {
 		}
 		if protected {
 			fail(w, 409, "last_maintainer")
+			return
+		}
+		if _, err = tx.Exec(ctx, `UPDATE records SET archived_at=$3 WHERE owner_id=$1 AND visibility='private' AND archived_at IS NULL AND project_id IN(SELECT id FROM projects WHERE team_id=$2)`, target, teamID, a.Now()); err != nil {
+			dbFailure(w, err)
 			return
 		}
 		if _, err = tx.Exec(ctx, `DELETE FROM project_members WHERE user_id=$1 AND project_id IN(SELECT id FROM projects WHERE team_id=$2)`, target, teamID); err != nil {
@@ -588,6 +601,10 @@ func (a *App) acceptInvitation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if _, err = tx.Exec(ctx, `INSERT INTO project_members VALUES($1,$2,$3) ON CONFLICT(project_id,user_id) DO NOTHING`, v.entry.ProjectID, u.ID, v.entry.ProjectRole); err != nil {
+		dbFailure(w, err)
+		return
+	}
+	if err = a.restorePrivateRecords(ctx, tx, v.entry.ProjectID, u.ID); err != nil {
 		dbFailure(w, err)
 		return
 	}

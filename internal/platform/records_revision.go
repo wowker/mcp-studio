@@ -35,13 +35,15 @@ func (a *App) reviseRecord(w http.ResponseWriter, r *http.Request) {
 		configurationFailure(w, err)
 		return
 	}
-	if !recordWritable(old, u.ID, scope.projectRole) {
-		fail(w, 403, "forbidden")
-		return
-	}
 	var input wire.RecordRevisionInput
 	sum, ok := decodeRecord(w, r, &input)
 	if !ok {
+		return
+	}
+	// A caller without edit authority cannot present another actor's
+	// revision as a receipt retry. Preserve the existing authorization denial.
+	if input.UserID != u.ID && !recordWritable(old, u.ID, scope.projectRole) {
+		fail(w, 403, "forbidden")
 		return
 	}
 	if input.ContractVersion != "1.2.0" || input.UserID != u.ID || input.ProjectID != pid || input.ConnectionID != old.ConnectionID || input.RecordID != rid || !validRecordID(input.OperationID) || input.OperationID == rid || input.BaseVersion < 1 || !oneOf(input.RevisionKind, "metadata", "additional-redaction") || len(input.Reason) > 4096 || len(input.RedactionPointers) > 128 {
@@ -53,6 +55,10 @@ func (a *App) reviseRecord(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if replayOperation(w, r, tx, input.OperationID, pid, u.ID, old.ConnectionID, rid, sum, "browser") {
+		return
+	}
+	if !recordWritable(old, u.ID, scope.projectRole) {
+		fail(w, 403, "forbidden")
 		return
 	}
 	if input.BaseVersion != old.Version {
@@ -163,7 +169,14 @@ func (a *App) reviseRecord(w http.ResponseWriter, r *http.Request) {
 				configurationFailure(w, err)
 				return
 			}
-			if record.Metadata.Visibility == "project" || record.OwnerID == u.ID {
+			// Internal secret removal also covers archived linked copies, but
+			// their identity remains hidden from all current callers.
+			var visible bool
+			if err = tx.QueryRow(ctx, `SELECT archived_at IS NULL FROM records WHERE project_id=$1 AND id=$2`, pid, record.ID).Scan(&visible); err != nil {
+				configurationFailure(w, err)
+				return
+			}
+			if visible && (record.Metadata.Visibility == "project" || record.OwnerID == u.ID) {
 				affected = append(affected, wire.AffectedRecord{ID: record.ID, Version: record.Version + 1})
 			}
 		}
@@ -183,6 +196,12 @@ func (a *App) reviseRecord(w http.ResponseWriter, r *http.Request) {
 	}
 	if err = audit(ctx, tx, scope.teamID, pid, u.ID, "record.revised", rid, ""); err != nil {
 		configurationFailure(w, err)
+		return
+	}
+	// Authorized additional redaction removes existing data and safe audit
+	// reasons. Its validated, bounded audit overhead must never undo privacy
+	// cleanup solely because an administrator lowered the capacity limit.
+	if input.RevisionKind != "additional-redaction" && !a.checkRecordCapacity(w, r, tx, false) {
 		return
 	}
 	configurationCommit(w, r, tx, receipt, receipt.Etag)
@@ -239,6 +258,9 @@ func (a *App) pinRecord(w http.ResponseWriter, r *http.Request) {
 		configurationFailure(w, err)
 		return
 	}
+	if !a.checkRecordCapacity(w, r, tx, false) {
+		return
+	}
 	configurationCommit(w, r, tx, updated, updated.Etag)
 }
 func (a *App) deleteRecord(w http.ResponseWriter, r *http.Request) {
@@ -266,7 +288,7 @@ func (a *App) deleteRecord(w http.ResponseWriter, r *http.Request) {
 		fail(w, 409, "record_pinned")
 		return
 	}
-	if _, err = tx.Exec(ctx, `DELETE FROM records WHERE project_id=$1 AND id=$2`, pid, rid); err != nil {
+	if err = a.clearRecords(ctx, tx, `project_id=$1 AND id=$2`, pid, rid); err != nil {
 		configurationFailure(w, err)
 		return
 	}

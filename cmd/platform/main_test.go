@@ -40,3 +40,20 @@ func TestSessionDurationValidation(t *testing.T) {
 		t.Fatal("default duration changed")
 	}
 }
+
+func TestRecordStorageConfigurationRejectedBeforeDatabase(t *testing.T) {
+	for _, tc := range []struct{ key, value string }{
+		{"MCP_STUDIO_RECORD_CAPACITY_BYTES", "0"}, {"MCP_STUDIO_RECORD_CAPACITY_BYTES", "-1"}, {"MCP_STUDIO_RECORD_CAPACITY_BYTES", "not-a-number"}, {"MCP_STUDIO_HISTORY_RETENTION_DAYS", "0"}, {"MCP_STUDIO_HISTORY_RETENTION_DAYS", "91"}, {"MCP_STUDIO_MAX_HISTORY_RETENTION_DAYS", "0"}, {"MCP_STUDIO_RECORD_SWEEP_INTERVAL", "0s"},
+	} {
+		t.Run(tc.key+tc.value, func(t *testing.T) {
+			t.Setenv("MCP_STUDIO_ORIGIN", "https://studio.example.test")
+			t.Setenv("MCP_STUDIO_LISTEN", "127.0.0.1:8080")
+			t.Setenv("MCP_STUDIO_DATABASE_URL", "")
+			t.Setenv(tc.key, tc.value)
+			err := run()
+			if err == nil || strings.Contains(err.Error(), "database") {
+				t.Fatalf("invalid record configuration reached database: %v", err)
+			}
+		})
+	}
+}

@@ -1,0 +1,20 @@
+import {afterEach,beforeEach,expect,it,vi} from 'vitest';
+import {render,screen} from '@testing-library/react';
+import {I18nextProvider} from 'react-i18next';
+import {i18n} from '../../shared/i18n';
+import {PlatformClient} from '../../shared/api';
+import {M2Memory} from '../connections/runtimeStore';
+import {SessionUploads} from './SessionUploads';
+import {project,session,snapshot,historyRecord} from './testFixtures';
+let memory:M2Memory;
+beforeEach(async()=>{await i18n.changeLanguage('en-US');i18n.addResourceBundle('en-US','translation',{operationPaused:'Upload paused',operationStale:'Waiting for upload for at least 7 days. Review this record; it will not be deleted automatically.',operationStorageLoss:'This record could not be kept on this device. Refreshing or closing may lose it.'},true,true);memory=new M2Memory();});
+afterEach(()=>{memory.clear();});
+it('explains paused stale records and retention failure without enabling Viewer retry',()=>{
+ const operation={input:{...historyRecord,contractVersion:'1.2.0',userId:'u',operationId:'paused',targetKind:'history',targetId:'h',responsibleEndpoint:'browser',frozenDigest:'f',sourceRunId:'',snapshot,metadata:historyRecord.metadata},status:'paused',createdAt:Date.parse('2026-10-01T00:00:00Z'),stale:true,persisted:false,storageError:'storage_unavailable',lossRisk:true,bytes:100};
+ vi.spyOn(memory.records,'list').mockReturnValue([operation] as unknown as ReturnType<typeof memory.records.list>);
+ render(<I18nextProvider i18n={i18n}><SessionUploads client={new PlatformClient()} project={{...project,role:'viewer'}} session={session} memory={memory} scope={undefined} view={memory.recordViews.list('p')}/></I18nextProvider>);
+ expect(screen.getByText('Upload paused')).toBeTruthy();
+ expect(screen.getByText(/at least 7 days/)).toBeTruthy();
+ expect(screen.getByText(/could not be kept on this device/)).toBeTruthy();
+ expect(screen.queryByRole('button',{name:'Retry frozen operation'})).toBeNull();
+});

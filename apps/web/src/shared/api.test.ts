@@ -51,3 +51,5 @@ it('sends the saved object ETag for conditional writes without altering CSRF',as
 });
 
 it('refreshes revoked content permission on a current GET without a repeated denial loop',async()=>{const changed=vi.fn();const client=new PlatformClient(undefined,changed);client.setCSRF('same-identity');vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({error:{code:'forbidden'}}),{status:403}));for(let i=0;i<2;i++)await expect(client.request('/projects/p/variables',acceptedSchema)).rejects.toMatchObject({code:'forbidden'});expect(changed).toHaveBeenCalledTimes(1);});
+
+it('identifies the denied object project so a different project run is not revoked',async()=>{const changed=vi.fn();vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({error:{code:'forbidden'}}),{status:403}));await expect(new PlatformClient(undefined,changed).request('/projects/owned/record-uploads',acceptedSchema,{method:'POST'})).rejects.toMatchObject({code:'forbidden'});expect(changed).toHaveBeenCalledWith('forbidden','/projects/owned/record-uploads');});

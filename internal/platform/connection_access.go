@@ -30,6 +30,13 @@ func (a *App) authorizeConnection(w http.ResponseWriter, r *http.Request) {
 	if !decode(w, r, &input) {
 		return
 	}
+	if input.Purpose != "" && input.Purpose != "execute" {
+		fail(w, 400, "invalid_purpose")
+		return
+	}
+	if input.Purpose == "execute" && !a.checkRecordCapacity(w, r, tx, true) {
+		return
+	}
 	if input.Version != connection.Version {
 		fail(w, 409, "version_conflict")
 		return

@@ -25,9 +25,11 @@ type Mailer interface {
 	Send(context.Context, string, string, string) error
 }
 type Config struct {
-	Origin, BootstrapCredential, StaticDir string
-	CookieSecure                           bool
-	Idle, Absolute                         time.Duration
+	Origin, BootstrapCredential, StaticDir        string
+	CookieSecure                                  bool
+	Idle, Absolute                                time.Duration
+	RecordCapacityBytes                           int64
+	HistoryRetentionDays, MaxHistoryRetentionDays int
 }
 type App struct {
 	DB                 *pgxpool.Pool

@@ -136,7 +136,7 @@ func (a *App) listRecords(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	args := []any{pid, u.ID, kind, cursor.HighWater}
-	clauses := []string{`r.project_id=$1`, `(r.visibility='project' OR r.owner_id=$2)`, `r.kind=$3`, `r.sequence<=$4`}
+	clauses := []string{`r.archived_at IS NULL`, `r.project_id=$1`, `(r.visibility='project' OR r.owner_id=$2)`, `r.kind=$3`, `r.sequence<=$4`}
 	add := func(expression string, value any) {
 		args = append(args, value)
 		clauses = append(clauses, fmt.Sprintf(expression, len(args)))

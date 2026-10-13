@@ -21,6 +21,8 @@ import (
 )
 
 func (a *App) recordRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("GET /api/v1/projects/{projectId}/record-capacity", a.getRecordCapacity)
+	mux.HandleFunc("PATCH /api/v1/projects/{projectId}/record-capacity", a.updateRecordRetention)
 	mux.HandleFunc("POST /api/v1/projects/{projectId}/record-uploads", a.uploadRecord)
 	mux.HandleFunc("POST /api/v1/projects/{projectId}/records/{recordId}/revisions", a.reviseRecord)
 	mux.HandleFunc("PATCH /api/v1/projects/{projectId}/records/{recordId}/pin", a.pinRecord)
@@ -183,7 +185,7 @@ func scanRecord(row pgx.Row) (wire.Record, error) {
 const recordColumns = `r.id,r.project_id,r.connection_id,r.owner_id,u.name,r.kind,r.version,r.created_at,r.updated_at,r.pinned,r.source_run_id,r.body`
 
 func recordValue(ctx context.Context, q queryRower, pid, rid, uid string) (wire.Record, error) {
-	return scanRecord(q.QueryRow(ctx, `SELECT `+recordColumns+` FROM records r JOIN users u ON u.id=r.owner_id WHERE r.project_id=$1 AND r.id=$2 AND (r.visibility='project' OR r.owner_id=$3)`, pid, rid, uid))
+	return scanRecord(q.QueryRow(ctx, `SELECT `+recordColumns+` FROM records r JOIN users u ON u.id=r.owner_id WHERE r.project_id=$1 AND r.id=$2 AND r.archived_at IS NULL AND (r.visibility='project' OR r.owner_id=$3)`, pid, rid, uid))
 }
 func recordBody(snapshot wire.ExecutionSnapshot, metadata wire.RecordMetadata) []byte {
 	body, _ := json.Marshal(struct {
@@ -257,15 +259,15 @@ func (a *App) uploadRecord(w http.ResponseWriter, r *http.Request) {
 		fail(w, 409, "digest_conflict")
 		return
 	}
+	if replayOperation(w, r, tx, input.OperationID, pid, u.ID, input.ConnectionID, input.TargetID, sum, input.ResponsibleEndpoint) {
+		return
+	}
 	if input.TargetKind == "saved" && input.Metadata.Visibility == "project" && scope.projectRole != "maintainer" {
 		fail(w, 403, "forbidden")
 		return
 	}
-	if replayOperation(w, r, tx, input.OperationID, pid, u.ID, input.ConnectionID, input.TargetID, sum, input.ResponsibleEndpoint) {
-		return
-	}
 	var exists bool
-	if err := tx.QueryRow(ctx, `SELECT EXISTS(SELECT 1 FROM records WHERE id=$1 OR (kind='history' AND $2='history' AND project_id=$3 AND owner_id=$4 AND connection_id=$5 AND run_id=$6))`, input.TargetID, input.TargetKind, pid, u.ID, input.ConnectionID, input.Snapshot.RunID).Scan(&exists); err != nil {
+	if err := tx.QueryRow(ctx, `SELECT EXISTS(SELECT 1 FROM record_tombstones WHERE id=$1 OR (kind='history' AND $2='history' AND project_id=$3 AND owner_id=$4 AND connection_id=$5 AND run_id=$6)) OR EXISTS(SELECT 1 FROM records WHERE id=$1 OR (kind='history' AND $2='history' AND project_id=$3 AND owner_id=$4 AND connection_id=$5 AND run_id=$6))`, input.TargetID, input.TargetKind, pid, u.ID, input.ConnectionID, input.Snapshot.RunID).Scan(&exists); err != nil {
 		configurationFailure(w, err)
 		return
 	}
@@ -286,8 +288,17 @@ func (a *App) uploadRecord(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		var sourceID string
-		sourceErr := tx.QueryRow(ctx, `SELECT id FROM records WHERE project_id=$1 AND connection_id=$2 AND kind='history' AND run_id=$3 AND (visibility='project' OR owner_id=$4)`, pid, input.ConnectionID, input.SourceRunID, u.ID).Scan(&sourceID)
+		sourceErr := tx.QueryRow(ctx, `SELECT id FROM records WHERE project_id=$1 AND connection_id=$2 AND kind='history' AND run_id=$3 AND archived_at IS NULL AND (visibility='project' OR owner_id=$4)`, pid, input.ConnectionID, input.SourceRunID, u.ID).Scan(&sourceID)
 		if sourceErr != nil {
+			var unavailable bool
+			if err := tx.QueryRow(ctx, `SELECT EXISTS(SELECT 1 FROM records WHERE project_id=$1 AND connection_id=$2 AND run_id=$3 AND kind='history' AND archived_at IS NOT NULL) OR EXISTS(SELECT 1 FROM record_tombstones WHERE project_id=$1 AND connection_id=$2 AND run_id=$3 AND kind='history')`, pid, input.ConnectionID, input.SourceRunID).Scan(&unavailable); err != nil {
+				configurationFailure(w, err)
+				return
+			}
+			if unavailable {
+				fail(w, 400, "invalid_source")
+				return
+			}
 			if !errors.Is(sourceErr, pgx.ErrNoRows) || input.Snapshot.UserID != u.ID || !configurationReference(ctx, tx, "connections", pid, input.ConnectionID) {
 				fail(w, 400, "invalid_source")
 				return
@@ -367,6 +378,9 @@ func (a *App) uploadRecord(w http.ResponseWriter, r *http.Request) {
 	}
 	if err = audit(ctx, tx, scope.teamID, pid, u.ID, "record.uploaded", input.TargetID, ""); err != nil {
 		configurationFailure(w, err)
+		return
+	}
+	if !a.checkRecordCapacity(w, r, tx, false) {
 		return
 	}
 	configurationCommit(w, r, tx, receipt, receipt.Etag)

@@ -6,12 +6,13 @@ import {copyJSON,deepFreeze,freezeEnvironment} from './environment';
 import type {ExecutionOptions,ExecutionOutcome,ExecutionState} from './types';
 export type {ExecutionOptions,ExecutionOutcome,ExecutionState} from './types';
 const idle:ExecutionState={busy:false,phase:'idle',issues:[]};
-const safeCode=(error:unknown):string=>{const code=error&&typeof error==='object'&&'code'in error?error.code:undefined;return typeof code==='string'&&['forbidden','unauthenticated','session_expired','config_conflict','version_conflict','environment_changed','connection_required','tools_unavailable','tool_removed','cancelled','timeout','rpc_error','http_error','credential_rejected','authorization_denied','network_error'].includes(code)?code:'platform_unavailable';};
+const safeCode=(error:unknown):string=>{const code=error&&typeof error==='object'&&'code'in error?error.code:undefined;return typeof code==='string'&&['queue_full','queue_loading','queue_corrupt','storage_unavailable','storage_quota','operation_paused','capacity_full','forbidden','unauthenticated','session_expired','config_conflict','version_conflict','environment_changed','connection_required','tools_unavailable','tool_removed','cancelled','timeout','rpc_error','http_error','credential_rejected','authorization_denied','network_error'].includes(code)?code:'platform_unavailable';};
 async function abortable<T>(promise:Promise<T>,signal:AbortSignal):Promise<T>{if(signal.aborted)throw new RuntimeError('cancelled');let onAbort:()=>void=()=>{};const cancelled=new Promise<never>((_,reject)=>{onAbort=()=>reject(new RuntimeError('cancelled'));signal.addEventListener('abort',onAbort,{once:true});});try{return await Promise.race([promise,cancelled]);}finally{signal.removeEventListener('abort',onAbort);}}
 export class ExecutionRunner{
  #states=new Map<string,ExecutionState>();#owners=new Map<string,string>();#resultRuns=new Map<string,string>();#active=new Map<string,{controller:AbortController;projectId:string;userId:string;generation:number}>();#listeners=new Set<()=>void>();#generation=0;#validate:typeof validateToolInput;
  constructor(options:{validate?:typeof validateToolInput}={}){this.#validate=options.validate??validateToolInput;}
  getSnapshot=(tabId:string):ExecutionState=>this.#states.get(tabId)??idle;
+ hasRunning(projectId?:string){return [...this.#active].some(([tabId,job])=>(!projectId||job.projectId===projectId)&&this.getSnapshot(tabId).phase==='running');}
  subscribe=(listener:()=>void)=>{this.#listeners.add(listener);return ()=>{this.#listeners.delete(listener);};};
  #set(tabId:string,state:ExecutionState){this.#states.set(tabId,state);for(const listener of this.#listeners)listener();}
  cancel(tabId:string){this.#active.get(tabId)?.controller.abort();}

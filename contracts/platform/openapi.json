@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "MCP Studio platform",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "servers": [
     {
@@ -3950,6 +3950,140 @@
           }
         }
       }
+    },
+    "/api/v1/projects/{projectId}/record-capacity": {
+      "get": {
+        "operationId": "getRecordCapacity",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordCapacity"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateRecordRetention",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordCapacity"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordRetentionInput"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -4853,6 +4987,12 @@
           },
           "environmentId": {
             "type": "string"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "execute"
+            ]
           }
         },
         "required": [
@@ -5501,6 +5641,62 @@
           "reason",
           "pointers",
           "version"
+        ]
+      },
+      "RecordCapacity": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "usedBytes": {
+            "type": "integer"
+          },
+          "limitBytes": {
+            "type": "integer"
+          },
+          "nearLimit": {
+            "type": "boolean"
+          },
+          "historyRetentionDays": {
+            "type": "integer"
+          },
+          "archivedBytes": {
+            "type": "integer"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "maxHistoryRetentionDays": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "projectId",
+          "usedBytes",
+          "limitBytes",
+          "nearLimit",
+          "historyRetentionDays",
+          "archivedBytes",
+          "version",
+          "etag",
+          "maxHistoryRetentionDays"
+        ]
+      },
+      "RecordRetentionInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "historyRetentionDays": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "historyRetentionDays"
         ]
       }
     },

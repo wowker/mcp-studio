@@ -202,6 +202,7 @@ type Variable struct {
 type ConnectionAccessRequest struct {
 	Version       int    `json:"version"`
 	EnvironmentID string `json:"environmentId"`
+	Purpose       string `json:"purpose,omitempty"`
 }
 type ConnectionAccess struct {
 	UserID        string `json:"userId"`
@@ -335,4 +336,18 @@ type RecordRevisionAudit struct {
 	Reason     string   `json:"reason"`
 	Pointers   []string `json:"pointers"`
 	Version    int      `json:"version"`
+}
+type RecordCapacity struct {
+	ProjectID               string `json:"projectId"`
+	UsedBytes               int    `json:"usedBytes"`
+	LimitBytes              int    `json:"limitBytes"`
+	NearLimit               bool   `json:"nearLimit"`
+	HistoryRetentionDays    int    `json:"historyRetentionDays"`
+	ArchivedBytes           int    `json:"archivedBytes"`
+	Version                 int    `json:"version"`
+	Etag                    string `json:"etag"`
+	MaxHistoryRetentionDays int    `json:"maxHistoryRetentionDays"`
+}
+type RecordRetentionInput struct {
+	HistoryRetentionDays int `json:"historyRetentionDays"`
 }
