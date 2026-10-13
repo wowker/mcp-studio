@@ -12,6 +12,26 @@ test('runtime requires explicit loopback test database using the non-superuser t
   }
 });
 
+test('abort waits for TERM-ignoring descendant after its parent exits first', {timeout:20000},async()=>{
+ const dir=await mkdtemp(join(tmpdir(),'studio-stubborn-')),ready=join(dir,'ready.json');
+ const controller=new AbortController();let ids;
+ const descendant=`const fs=require('fs');process.on('SIGTERM',()=>{});fs.writeFileSync(process.argv[1]+'.tmp',JSON.stringify({parent:process.ppid,child:process.pid}));fs.renameSync(process.argv[1]+'.tmp',process.argv[1]);setInterval(()=>{},1000);`;
+ const parent=`require('child_process').spawn(process.execPath,['-e',${JSON.stringify(descendant)},process.argv[1]],{stdio:'ignore'});setInterval(()=>{},1000);`;
+ const running=runChecked(process.execPath,['-e',parent,ready],{quiet:true,signal:controller.signal});
+ const observed=running.then(()=>null,error=>error);
+ try {
+  const deadline=Date.now()+8000;
+  while(!ids&&Date.now()<deadline){try{ids=JSON.parse(await readFile(ready,'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;await new Promise(resolve=>setTimeout(resolve,25));}}
+  assert.ok(ids,'descendant did not become ready');controller.abort();
+  assert.equal((await observed).exitCode,130);
+  assert.throws(()=>process.kill(ids.child,0),{code:'ESRCH'},'descendant remained alive when cancellation returned');
+ } finally {
+  controller.abort();await observed;
+  for(const pid of [ids?.child,ids?.parent])if(pid){try{process.kill(pid,'SIGKILL');}catch(e){if(e.code!=='ESRCH')throw e;}}
+  await rm(dir,{recursive:true,force:true});
+ }
+});
+
 test('gate propagates a failing real subprocess exit status', async () => {
   await assert.rejects(runChecked(process.execPath, ['-e', 'process.exit(7)'], { label: 'synthetic expected failure', quiet: true }), error => error.exitCode === 7);
 });

@@ -30,17 +30,32 @@ export async function runChecked(command, args, { label = command, quiet = false
       interrupted = true;
       if (!started) return;
       kill('SIGTERM');
-      timer = setTimeout(() => kill('SIGKILL'), 5000); timer.unref();
+      timer ??= setTimeout(() => kill('SIGKILL'), 5000);
     };
     signal?.addEventListener('abort', stop, { once: true });
     child.once('spawn', () => { started = true; if (signal?.aborted) stop(); });
     child.once('error', error => { failure = Object.assign(new Error(`${label}: process could not start (${error.code ?? 'error'})`), { exitCode: 1 }); });
-    // AbortSignal's spawn error occurs before exit. Await close instead, so DB
-    // leases cannot be removed while a Go test is still creating fixtures.
-    child.once('close', (code, childSignal) => {
-      signal?.removeEventListener('abort', stop); clearTimeout(timer);
-      if (interrupted || signal?.aborted) reject(Object.assign(new Error(`${label}: interrupted after process cleanup`), { exitCode: 130 }));
-      else if (failure) reject(failure);
+    // The leader may exit before its descendants. Keep escalation armed until
+    // the owned group disappears; database cleanup must not race a live child.
+    const drainGroup = async () => {
+      if (!group || !started) return;
+      const deadline = Date.now() + 10000;
+      while (true) {
+        try { process.kill(-child.pid, 0); }
+        catch (error) { if (error.code === 'ESRCH') return; throw new Error(`${label}: process cleanup could not be confirmed`); }
+        if (Date.now() >= deadline) throw new Error(`${label}: process cleanup could not be confirmed`);
+        await new Promise(done => setTimeout(done, 25));
+      }
+    };
+    child.once('close', async (code, childSignal) => {
+      signal?.removeEventListener('abort', stop);
+      if (interrupted || signal?.aborted || code !== 0) {
+        if (started && !timer) { kill('SIGTERM'); timer = setTimeout(() => kill('SIGKILL'), 5000); }
+        try { await drainGroup(); } catch (error) { failure = error; }
+      }
+      clearTimeout(timer);
+      if (failure) reject(failure);
+      else if (interrupted || signal?.aborted) reject(Object.assign(new Error(`${label}: interrupted after process cleanup`), { exitCode: 130 }));
       else if (code === 0) resolve();
       else reject(Object.assign(new Error(`${label}: failed with ${childSignal ?? `exit ${code}`}`), { exitCode: code ?? 130 }));
     });
@@ -71,10 +86,12 @@ export async function withTestSchema(value, run) {
   const oid = await queryTestDatabase(url.href, `BEGIN; CREATE SCHEMA "${schema}"; COMMENT ON SCHEMA "${schema}" IS 'mcp-studio-test-run:${schema}'; COMMIT; SELECT oid FROM pg_namespace WHERE nspname='${schema}'`);
   if (!/^[1-9]\d*$/.test(oid)) throw new Error('Test run ownership unavailable.');
   url.searchParams.set('search_path', schema);
+  let primaryError, callbackFailed = false;
   try { return await run(url.href); }
+  catch (error) { primaryError = error; callbackFailed = true; throw error; }
   finally {
     // No prefix sweep: require the exact lease, namespace, owner and object identity.
-    await queryTestDatabase(value, `BEGIN; SELECT pg_advisory_xact_lock(hashtextextended('${schema}',0));
+    try { await queryTestDatabase(value, `BEGIN; SELECT pg_advisory_xact_lock(hashtextextended('${schema}',0));
 DO $cleanup$ DECLARE owned record; parent_oid oid; owner_oid oid; BEGIN
  SELECT oid INTO owner_oid FROM pg_roles WHERE rolname=current_user AND NOT rolsuper AND NOT rolbypassrls;
  SELECT oid INTO parent_oid FROM pg_namespace WHERE nspname='${schema}' AND nspowner=owner_oid AND obj_description(oid,'pg_namespace')='mcp-studio-test-run:${schema}';
@@ -88,6 +105,16 @@ DO $cleanup$ DECLARE owned record; parent_oid oid; owner_oid oid; BEGIN
  DROP SCHEMA "${schema}" CASCADE;
 END $cleanup$; COMMIT;`);
     console.log('[test-runtime] exact leased test schemas removed');
+    } catch (error) {
+      if (!callbackFailed) throw error;
+      const detail = 'cleanup failed; owned test resources may remain';
+      if (primaryError instanceof Error) {
+        primaryError.message += `; ${detail}`;
+        primaryError.cleanupFailed = true;
+      } else throw new AggregateError([primaryError], detail);
+      // Retain the callback's failure identity and exit code. Cleanup SQL,
+      // resource names and credentials are never included in secondary detail.
+    }
   }
 }
 
