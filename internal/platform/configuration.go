@@ -32,6 +32,13 @@ func (a *App) configurationTx(w http.ResponseWriter, r *http.Request, write bool
 		dbFailure(w, err)
 		return nil, u, projectAccess{}, false
 	}
+	if agentFrom(r) != nil {
+		if _, err := a.agentValue(ctx, tx, bearer(r)); err != nil {
+			tx.Rollback(ctx)
+			fail(w, 401, "agent_session_expired")
+			return nil, u, projectAccess{}, false
+		}
+	}
 	scope, err := projectScope(ctx, tx, r.PathValue("projectId"), u.ID)
 	if err != nil {
 		tx.Rollback(ctx)

@@ -8,8 +8,8 @@ test('versioned platform contract generates stable Go and TypeScript boundaries'
  const ts=readFileSync('apps/web/src/generated/platform.ts','utf8');
  assert.match(ts,/sessionSchema/);assert.match(ts,/projectSchema/);
  const spec=JSON.parse(readFileSync('contracts/platform/openapi.json','utf8'));
- assert.equal(spec.info.version,'1.3.0');
- assert.equal(Object.keys(spec.components.schemas).length,49);assert.equal(Object.keys(spec.paths).length,40);
+ assert.equal(spec.info.version,'1.4.0');
+ assert.equal(Object.keys(spec.components.schemas).length,57);assert.equal(Object.keys(spec.paths).length,47);
  assert.equal(spec.components.schemas.RecordUploadInput.properties.contractVersion.enum[0],'1.2.0');
  assert.equal(spec.components.schemas.RecordRevisionInput.properties.contractVersion.enum[0],'1.2.0');
  assert.ok(spec.paths['/api/v1/projects/{projectId}/connections/{connectionId}'].patch.parameters.some(p=>p.name==='If-Match'&&p.required));

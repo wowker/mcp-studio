@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"strings"
 	"testing"
 	"time"
@@ -55,5 +56,24 @@ func TestRecordStorageConfigurationRejectedBeforeDatabase(t *testing.T) {
 				t.Fatalf("invalid record configuration reached database: %v", err)
 			}
 		})
+	}
+}
+
+func TestBackupKeyExplicitConfiguration(t *testing.T) {
+	t.Setenv("MCP_STUDIO_BACKUP_KEY", "")
+	key, err := backupKey()
+	if err != nil || key != nil {
+		t.Fatal("backup not off by default")
+	}
+	for _, raw := range []string{"bad-base64", base64.StdEncoding.EncodeToString(make([]byte, 16))} {
+		t.Setenv("MCP_STUDIO_BACKUP_KEY", raw)
+		if _, err := backupKey(); err == nil {
+			t.Fatal("invalid backup key accepted")
+		}
+	}
+	t.Setenv("MCP_STUDIO_BACKUP_KEY", base64.StdEncoding.EncodeToString(make([]byte, 32)))
+	key, err = backupKey()
+	if err != nil || len(key) != 32 {
+		t.Fatal("valid backup key rejected")
 	}
 }

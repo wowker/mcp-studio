@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"errors"
 	"log"
 	"mcp-studio/internal/infrastructure"
@@ -64,6 +65,17 @@ func recordStorageConfig() (int64, int, int, time.Duration, error) {
 	}
 	return limit, int(days), int(max), interval, nil
 }
+func backupKey() ([]byte, error) {
+	raw := os.Getenv("MCP_STUDIO_BACKUP_KEY")
+	if raw == "" {
+		return nil, nil
+	}
+	key, err := base64.StdEncoding.DecodeString(raw)
+	if err != nil || len(key) != 32 {
+		return nil, errors.New("invalid backup key configuration")
+	}
+	return key, nil
+}
 func run() error {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
@@ -97,6 +109,10 @@ func run() error {
 	if err != nil {
 		return err
 	}
+	key, err := backupKey()
+	if err != nil {
+		return err
+	}
 	db, err := infrastructure.Database(ctx, os.Getenv("MCP_STUDIO_DATABASE_URL"))
 	if err != nil {
 		return err
@@ -105,7 +121,7 @@ func run() error {
 	if err = migrations.Apply(ctx, db); err != nil {
 		return errors.New("database migration failed")
 	}
-	cfg := platform.Config{Origin: origin, StaticDir: os.Getenv("MCP_STUDIO_STATIC_DIR"), BootstrapCredential: os.Getenv("MCP_STUDIO_INIT_CREDENTIAL"), CookieSecure: u.Scheme == "https", Idle: idle, Absolute: absolute, RecordCapacityBytes: limit, HistoryRetentionDays: days, MaxHistoryRetentionDays: maxDays}
+	cfg := platform.Config{BackupKey: key, Origin: origin, StaticDir: os.Getenv("MCP_STUDIO_STATIC_DIR"), BootstrapCredential: os.Getenv("MCP_STUDIO_INIT_CREDENTIAL"), CookieSecure: u.Scheme == "https", Idle: idle, Absolute: absolute, RecordCapacityBytes: limit, HistoryRetentionDays: days, MaxHistoryRetentionDays: maxDays}
 	a := &platform.App{DB: db, Now: time.Now, Config: cfg}
 	if addr := os.Getenv("MCP_STUDIO_SMTP_ADDRESS"); addr != "" {
 		a.Mail = infrastructure.SMTP{Address: addr, From: os.Getenv("MCP_STUDIO_SMTP_FROM"), Username: os.Getenv("MCP_STUDIO_SMTP_USERNAME"), Password: os.Getenv("MCP_STUDIO_SMTP_PASSWORD"), AllowInsecureLoopback: allow}

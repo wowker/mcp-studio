@@ -351,3 +351,54 @@ type RecordCapacity struct {
 type RecordRetentionInput struct {
 	HistoryRetentionDays int `json:"historyRetentionDays"`
 }
+type AgentProofRequest struct {
+	DeviceID string `json:"deviceId"`
+}
+type AgentProof struct {
+	Proof     string `json:"proof"`
+	UserID    string `json:"userId"`
+	DeviceID  string `json:"deviceId"`
+	Origin    string `json:"origin"`
+	ExpiresAt string `json:"expiresAt"`
+}
+type AgentGrant struct {
+	Token     string `json:"token"`
+	UserID    string `json:"userId"`
+	DeviceID  string `json:"deviceId"`
+	Origin    string `json:"origin"`
+	ExpiresAt string `json:"expiresAt"`
+}
+type AgentSession struct {
+	UserID    string `json:"userId"`
+	DeviceID  string `json:"deviceId"`
+	Origin    string `json:"origin"`
+	ExpiresAt string `json:"expiresAt"`
+}
+type CredentialBackup struct {
+	ID           string `json:"id"`
+	Kind         string `json:"kind"`
+	ReferenceID  string `json:"referenceId"`
+	SourceDigest string `json:"sourceDigest"`
+	Version      int    `json:"version"`
+	CreatedAt    string `json:"createdAt"`
+	UpdatedAt    string `json:"updatedAt"`
+}
+type CredentialBackupInput struct {
+	Confirmed       bool   `json:"confirmed"`
+	Password        string `json:"password"`
+	Kind            string `json:"kind"`
+	ReferenceID     string `json:"referenceId"`
+	SourceDigest    string `json:"sourceDigest"`
+	ValueJSON       string `json:"valueJSON"`
+	ExpectedVersion int    `json:"expectedVersion,omitempty"`
+}
+type CredentialBackupRestoreInput struct {
+	Confirmed bool   `json:"confirmed"`
+	Password  string `json:"password"`
+}
+type CredentialBackupSecret struct {
+	Kind         string `json:"kind"`
+	ReferenceID  string `json:"referenceId"`
+	SourceDigest string `json:"sourceDigest"`
+	ValueJSON    string `json:"valueJSON"`
+}

@@ -247,7 +247,7 @@ func (a *App) uploadRecord(w http.ResponseWriter, r *http.Request) {
 	if !ok {
 		return
 	}
-	if input.ResponsibleEndpoint != "browser" || input.TargetKind == "history" && input.Snapshot.Executor != "browser" {
+	if (agentFrom(r) == nil && (input.ResponsibleEndpoint != "browser" || input.TargetKind == "history" && input.Snapshot.Executor != "browser")) || (agentFrom(r) != nil && (input.ResponsibleEndpoint != "agent" || input.TargetKind != "history" || input.Snapshot.Executor != "agent" || input.Snapshot.UserID != u.ID)) {
 		fail(w, 403, "executor_not_authenticated")
 		return
 	}

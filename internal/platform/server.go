@@ -26,6 +26,7 @@ type Mailer interface {
 }
 type Config struct {
 	Origin, BootstrapCredential, StaticDir        string
+	BackupKey                                     []byte
 	CookieSecure                                  bool
 	Idle, Absolute                                time.Duration
 	RecordCapacityBytes                           int64
@@ -114,6 +115,8 @@ func (a *App) Handler() http.Handler {
 		success(w, wire.Health{Status: "ok", Version: "0.1.0"})
 	})
 	a.identityRoutes(mux)
+	a.agentRoutes(mux)
+	a.credentialRoutes(mux)
 	a.projectRoutes(mux)
 	a.memberRoutes(mux)
 	a.configurationRoutes(mux)
@@ -154,6 +157,10 @@ func (a *App) Handler() http.Handler {
 		if strings.HasPrefix(r.URL.Path, "/api/") {
 			w.Header().Set("Cache-Control", "no-store")
 		}
+		if r.Header.Get("Authorization") != "" && r.URL.Path != "/api/v1/agent/exchange" && !agentAllowed(r) {
+			fail(w, 403, "agent_scope_rejected")
+			return
+		}
 		if r.Method != "GET" && r.Method != "HEAD" && r.Header.Get("Origin") != a.Config.Origin {
 			fail(w, 403, "origin_rejected")
 			return
@@ -166,6 +173,9 @@ func (a *App) Handler() http.Handler {
 	})
 }
 func (a *App) require(w http.ResponseWriter, r *http.Request, verified bool) (wire.User, bool) {
+	if r.Header.Get("Authorization") != "" {
+		return a.authenticateAgent(w, r)
+	}
 	s, err := a.session(r)
 	if err != nil {
 		a.cookie(w, "", true)
