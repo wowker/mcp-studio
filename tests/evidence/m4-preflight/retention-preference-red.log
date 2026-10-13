@@ -1,0 +1,29 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/runtimeStore.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/connections/runtimeStore.test.ts (5 tests | 1 failed) 63ms
+   ✓ disconnects an expired credential session while its authorization panel is not mounted 60ms
+   ✓ revokes one project credentials and documents while another project session and draft survive 1ms
+   ✓ keeps identity admission for an already issued result across project revocation but fences an account change 0ms
+   ✓ suspends uploads without cancelling an issued tool result or deleting its frozen queue 0ms
+   × remembers an explicit memory-only choice for this account across reload without applying it to another account 2ms
+     → one.chooseRecordRetention is not a function
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/connections/runtimeStore.test.ts > remembers an explicit memory-only choice for this account across reload without applying it to another account
+TypeError: one.chooseRecordRetention is not a function
+ ❯ src/features/connections/runtimeStore.test.ts:16:333
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  15:16:20
+   Duration  678ms (transform 93ms, setup 64ms, collect 131ms, tests 63ms, environment 284ms, prepare 36ms)

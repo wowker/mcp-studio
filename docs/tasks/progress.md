@@ -190,3 +190,38 @@ T16参数编辑、T17脱敏/平台接收、T18真实执行、T19历史查询详�
 T02a/b、C01完整Chrome/Edge/OS/公网HTTPS LNA/原生人工确认路径继续待验，不宣称支持。当前Chromium证据不抵扣目标Chrome155/Edge或Windows/Linux。A01–A60全部仍为待验收，只登记相关M3部分版本/证据，等待正式分期联验。
 
 协议记录仅SDK摘要，没有原始传输帧trace或虚构HTTP成功码；取消/超时不承诺回滚。平台摘要保证操作一致性，不是上游执行签名。当前浏览器失败操作只有会话内冻结重试，刷新/退出后无可靠恢复。M4 T22–T24的持久队列、容量、可靠重认证、保留与封存未开始；M5 Agent/系统凭据库/上传认证未实现，Agent来源另存仅用合成存档证明归属，不宣称Agent已支持。
+
+## M4 执行开始 · 2026-10-13
+
+用户授权基于M3执行T22–T24，不进入M5。按T22持久队列→T23身份/权限门控→T24容量/保留逐叶验证。工程细化见007-m4-queue-lifecycle.md；运行时、平台生命周期和队列界面独立文件分工，Root负责会话接入/真实浏览器/完整门禁。当前叶子尚未验证，暂不勾选；T02与全部A项正式待验状态不变。
+
+## M4 叶子 / 子切片登记 · c3fbf2e
+
+前端路径相对apps/web/src；平台/迁移/合同路径相对仓库。每叶完成标准由以下实际实现及验证对应，不以原型证据抵扣。
+
+| 叶子 / 子切片 | 实际文件 | 实现和实际验证 |
+| --- | --- | --- |
+| T22a.1 脱敏持久队列 | runtime/records/queueStorage.ts/test、operations.ts；features/connections/runtimeStore.ts/test | 原生IDB只保存冻结脱敏input/etag/状态/时间/字节和最小回执；本人项目分区；schema+digest损坏隔离；生产浏览器刷新仍为原操作/原快照，无Token回显 |
+| T22a.2 保留方式 | operations.ts、features/operations/OperationsPage.tsx/test、shared/i18n.ts | 本人显式memory/persistent，公开模式偏好按账号保存；原生IDB不可用先阻止调用，手动选内存才继续，刷新恢复模式；旧缓存删除失败明确保留未确认警告 |
+| T22b.1 幂等协调 | operations.ts、queueStorage.ts/test；internal/platform/records.go、records_revision.go | 同窗口合并/跨窗口30秒租约+10秒续租/过期可恢复；原ID/摘要/etag；回执与payload删除同IDB事务；真实接收但回执丢失后两次相同body仅建一次记录、Tool只调用一次 |
+| T22b.2 本人操作 | features/operations/{OperationsPage.tsx/test,operations.css,translations.ts}；features/records/SessionUploads.tsx/test；app/{Shell,App}.tsx | 上传/失败/滞留状态与冻结详情、选择和失败项审阅/明确丢弃；上传中禁止清理；退出取消/返回处理/明确丢弃含隐藏/损坏待办；无自动删除失败项 |
+| T23a.1 执行和到期 | features/tools/ToolExecution.tsx/test；runtime/execution/index.ts；runtimeStore.ts/test；app/App.tsx | 已发出Run可完成并保留脱敏操作，上传暂停；未准入/平台离线不发新Tool；到期隐藏上下文，旧hydration不能解除到期；两种真实执行延迟组件回归验证上传只在恢复后发生 |
+| T23a.2 账号恢复 | runtimeStore.ts/test、operations.ts/test；tests/e2e/m4.spec.ts | 同账号恢复本人队列；同一页面实际受邀Developer登录看不到Owner队列，退出不清Owner条目，Owner回登录可恢复；真实Cookie/邮件/PG，不用模拟角色授权 |
+| T23b.1 当前真实能力 | runtimeStore.ts、shared/api.ts/test；internal/platform/records.go、records_revision.go、connection_access.go | 每发送重查Cookie身份及操作所属项目；403回调附具体path，不误撤B；平台团队锁后复核权限；Viewer/移除/他人回执拒绝，Developer只能确认已接受本人原操作，新公共编辑仍拒绝 |
+| T23b.2 异步围栏 | operations.ts/queueStorage.test.ts；runtimeStore.ts/test | 到期使resumeTicket失效；模式恢复不能覆盖跨账号或同账号等待期间的新撤权；回归先失败后通过，旧项目和新增撤权项目都保持暂停 |
+| T24a.1 本机准入 | queueStorage.ts/test、operations.ts；ToolExecution.tsx | 1000条/100MiB按本人项目原子计数/UTF8字节；满时禁止新调用，已完成超预算结果留内存并告知风险；原生1k队列不重调，损坏条目不泄漏/不重试 |
+| T24a.2 平台容量 | internal/platform/record_lifecycle.go/test、records*.go；contracts/platform/openapi.json/generated；cmd/platform/main.go/test | 请求1MiB/响应10MiB正式边界继续通过；项目默认5GiB逻辑字节，归档/回执/记录审计/标记计容量；一字节与并发最后空间、GET聚合/权限、purpose=execute阻断及普通connect保留；真实PG事务/race定向 |
+| T24b.1 保留作业 | record_lifecycle.go/test、cmd/platform/main.go/test；migrations/004_record_lifecycle.sql、migrate_test.go；OperationsPage.tsx/test | 普通历史默认90d、维护者If-Match修改/实际部署上限；固定/saved不自动清理；启动/定时/停止Sweep，重复重启幂等；7d本机队列只提示；001–004编号迁移升级保留数据 |
+| T24b.2 封存与隐私 | internal/platform/membership.go、record_lifecycle.go/test、records_list.go、records_revision.go | 移出项目/团队事务封存本人private30d；期限内本人同项目重加恢复，期限后立即拒绝且清理/原回执不复活；共享保留署名/独立saved保护；追加脱敏覆盖归档关联副本，不泄漏归档身份，满容量也允许安全隐私清理 |
+
+## M4 最终签收 · c3fbf2e · 2026-10-13
+
+T22a/b、T23a/b、T24a/b逐叶完成，C08签收，本轮止于M4。迁移总数4，平台API1.3.0（49schemas/40paths）；冻结上传/修订仍为1.2.0，不改已冻结摘要。详见[审阅记录](./m4-review.md)及[工程细化](../decisions/007-m4-queue-lifecycle.md)。
+
+- [完整verify](../../tests/evidence/m4-final/verify.log)退出0：共同JS语义64、Node18；前端类型/37文件473项测试/生产构建；Go `test -count=1 ./...`、真实非超级用户隔离PG、vet和生产构建均通过。wire/jsonnumber仍无独立单测，只编译及被Schema/recording/平台回归覆盖，不虚报独立测试。
+- [浏览器结果](../../tests/evidence/m4-final/results.json)：15通过（M1三条、M2三条、T15/M3五条、M4四条），0失败/跳过/重试。生产HTTPS静态入口/Go/PG/受控SMTP与实际SDK，原生IDB刷新、回执丢失不重调、真实不同账号隔离、到期本人恢复、正常退出三动作、1000条准入、7d只提醒、损坏隔离、存储故障/显式内存模式/刷新均有实际断言。
+- 前端队列43项、操作页12项及执行后到期/同项目撤权回归全部纳入最终门禁。独立审阅所列容量合同/隐私例外/显式内存模式、跨账号/同账号/到期hydration竞态已修复。中间RED/首次通过/定位失败保留m4-preflight与m4-platform，最终签收只用m4-final；没有削弱CSP、断言、超时、测试数量或构建阈值。
+- [环境/构建摘要](../../tests/evidence/m4-final/manifest.json)：macOS26.6.2 arm64、Go1.25.5、Node24.21.0、PG18.6、Playwright1.59.1/Chromium147.0.7727.15。最大JS499.73kB/gzip151.27kB、操作页9.52/3.11kB、工具40.95/12.37kB、记录33.85/10.30kB、主CSS12.32/2.99kB，无chunk阈值告警。英文1440亮色/中文390暗色操作页已目视，无整页横溢出；完整布局矩阵待M6/M7。
+- [定向Go race](../../tests/evidence/m4-platform/focused-race.txt)真实PG容量并发/撤成员上传路径通过。额外全量race尝试在8分钟超时，日志[go-race.txt](../../tests/evidence/m4-platform/go-race.txt)保留，不报告通过；其单个孤立schema经角色与固定夹具/空项目/空记录/无会话核验后清理。最终随机test_/e2e_ schema计数0，平台/邮件/MCP/OAuth/临时TLS均停止；仅隔离回环tmpfs测试DB供复验保留。
+
+T02a/b、C01完整Chrome/Edge/OS/公网HTTPS LNA/原生人工确认矩阵继续待验，不宣称支持。A01–A60正式状态全部仍待验收，本轮只补M4部分实现版本与证据。浏览器持久性仍受OS/浏览器存储清理影响，不能保证断电绝不丢失；beforeunload仅辅助提醒，秘密与原始请求响应不进持久队列。平台容量是定义明确的逻辑预算，不是PG物理磁盘或备份大小。M5 Agent、系统凭据库、加密Agent队列、个人备份/删除联动及M7备份介质淘汰未实现，不以合成存档冒充支持。下一阶段仅在新授权后进入M5 T25–T30。

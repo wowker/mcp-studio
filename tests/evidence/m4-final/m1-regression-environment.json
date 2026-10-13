@@ -1,0 +1,27 @@
+{
+  "scope": "M1 identity/collaboration regression in current implementation",
+  "browser": "Playwright Chromium",
+  "browserVersion": "147.0.7727.15",
+  "playwright": "1.59.1",
+  "node": "v24.21.0",
+  "productionHashes": {
+    ".runtime/platform": "e8674ee2f1befc4b1e0e6d4abc8a65892a20fc3ce1061458d524992f0a1c9d11",
+    "apps/web/dist/index.html": "be699548690014ae2110ba0b82ab9ef804acd7f5c91ecfe2f14b50951017692f",
+    "apps/web/dist/assets/ConnectionsPage-CWul2V0y.js": "ac2bf18c411b29586126c33ef68901d97f9993dbf9368345e8a833670fabe821",
+    "apps/web/dist/assets/EnvironmentPage-ssY1RMhg.js": "b94af3abf9ef15ead406a29028418fd4f48521782b18fae51b1372bbecebe0a1",
+    "apps/web/dist/assets/OperationsPage-DPjr8syy.css": "4ec3b3e31d3d3c0cea294e0abf4f62606caa27a6662ddf8102a5e79f8f19c458",
+    "apps/web/dist/assets/OperationsPage-Dtr--eZm.js": "9683034f0e19487a163fb1f34d6a3e153fa76ef313ab889afcb625a1123dba34",
+    "apps/web/dist/assets/RecordsPage-BcUVVPNl.css": "b47f1a91608faebd4f37691a6c79d49510c1ff7958469761be8e353029a64960",
+    "apps/web/dist/assets/RecordsPage-D_Fb1qAa.js": "75454620bf839f497841f8ad1c019384195a758a9a7f0c7bcca1bbf12c35ec3c",
+    "apps/web/dist/assets/ToolsPage-CYylGk1K.js": "f588f1eee6fc6e4b7515b93c0a00642cfe53c203a95a85f47c2b5f71b860efe7",
+    "apps/web/dist/assets/auth-BXpXpDLU.js": "bc18d021601a001ad6178e973c0be2fd4b1955e27b4fddddd173781b52f2903f",
+    "apps/web/dist/assets/browser-session-BNnEFWWi.js": "246332748161fd91dfd50eafb64ee0d4d8e3f096005f9d062daf86b4d79e5d41",
+    "apps/web/dist/assets/index-BxcOJvaJ.js": "94f561beba8be552480f587708f146d103c8032f6d682fad23366331796fd63c",
+    "apps/web/dist/assets/index-CNlQDx-y.css": "b2addbdc07a884d6f94fe2f7e1bfaacd56b9ee49b4adaa67aa2fbc9769326e19",
+    "apps/web/dist/assets/index-CmkIOdok.js": "835fd1175768db269fae7883713be083b9eca1ac633bcaff9878fcf1ffc99f8b",
+    "apps/web/dist/assets/sse-LlWi0PI0.js": "ab634eb61ac00a15fcce78a2798d8532efab98791d3884c8513cbcc7b79e6d0d",
+    "apps/web/dist/assets/streamableHttp-D9Nc2iLI.js": "2755c8442b8733b01428081be2ae555266c231d3f215f79a25b229322eea0af6",
+    "apps/web/dist/assets/worker-rF_BGtny.js": "6dc104cbdf884414855e3d6e58f1cabb65f23e523e2658ad617597686fc73860"
+  },
+  "excluded": "Not Chrome/Edge target matrix or MCP transport compatibility evidence"
+}

@@ -1,0 +1,4 @@
+ok  	mcp-studio/internal/platform	14.779s
+ok  	mcp-studio/migrations	0.488s
+ok  	mcp-studio/cmd/platform	0.809s
+ok  	mcp-studio/tests/integration	1.029s

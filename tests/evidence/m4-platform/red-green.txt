@@ -1,0 +1,79 @@
+2026-10-13 M4 platform test-first evidence (isolated PostgreSQL)
+
+Initial RED (before endpoint/archive implementation):
+go test ./internal/platform -run 'TestRecordCapacityAdmission|TestRecordArchiveRejoin' -count=1
+--- FAIL: TestRecordCapacityAdmissionAndConditionalRetention
+    status 404 want 200: {"error":{"code":"not_found"}}
+--- FAIL: TestRecordArchiveRejoinAndExpiredTombstone
+    not archived ERROR: column "archived_at" does not exist (SQLSTATE 42703)
+
+First GREEN, same command:
+ok mcp-studio/internal/platform 3.276s
+
+Configuration RED:
+go test ./cmd/platform -run TestRecordStorageConfiguration -count=1
+All seven invalid record configuration cases reached database configuration required.
+GREEN after configuration validation:
+go test ./cmd/platform -count=1
+ok mcp-studio/cmd/platform 0.548s
+
+Resurrection RED (fresh target/op, same expired history Run):
+go test ./internal/platform -run TestRecordSweepHistory -count=1
+--- FAIL: TestRecordSweepHistorySavedPinnedAndReceiptRestart
+    status 200 want 409
+Fix: identity-only tombstones retain owner/project/connection/Run; new upload identities cannot recreate a cleared history Run.
+
+Byte boundary regression RED:
+go test ./internal/platform ./migrations -run 'TestTeamRemovalArchives|TestUpgrade003|TestRecordCapacityOneByte' -count=3
+--- FAIL: TestRecordCapacityOneByteBoundaryAndConcurrentWriters
+    both writers admitted final space: map[409:2]
+Actual diagnosis: measured audit timestamp JSON fractional digits varied, making identical logical fixtures have different byte counts.
+Fix: normalized record-domain general audit timestamps to UTC with six fractional digits for accounting.
+
+Optional Go field RED:
+node --test scripts/generate-contracts.test.mjs
+Assertion failed: Purpose json tag lacked omitempty, encoding absent purpose as an invalid enum empty string.
+GREEN after optional-property generator support:
+node --test scripts/generate-contracts.test.mjs
+1 test passed.
+
+Deployment maximum clamp RED:
+go test ./internal/platform -run TestRecordEffectiveRetention -count=1
+--- FAIL: TestRecordEffectiveRetentionClampsWhenDeploymentMaximumShrinks
+    deployment max not effective: historyRetentionDays=180 after maximum lowered to30
+
+Archived linked-copy secret removal RED:
+go test ./internal/platform -run TestAdditionalRedactionUpdatesArchived -count=1
+--- FAIL: TestAdditionalRedactionUpdatesArchivedCopiesWithoutRevealingIdentity
+    archive restored a deleted secret
+
+GREEN after both fixes:
+go test ./internal/platform -run 'TestRecordEffectiveRetention|TestAdditionalRedactionUpdatesArchived|TestRecordAdditionalRedaction' -count=1
+ok mcp-studio/internal/platform 6.498s
+
+Review-required capacity contract/privacy exception RED:
+go test ./internal/platform -run 'TestRecordCapacityAdmission|TestAdditionalRedactionPrivacy' -count=1
+--- FAIL: TestRecordCapacityAdmissionAndConditionalRetention
+    defaults returned maxHistoryRetentionDays=0 (field missing)
+--- FAIL: TestAdditionalRedactionPrivacyCleanupAllowedAboveReducedCapacity
+    status 409 want 200: {"error":{"code":"capacity_full"}}
+GREEN:
+go test ./internal/platform -run 'TestRecordCapacityAdmission|TestAdditionalRedactionPrivacy|TestRecordEffectiveRetention' -count=1
+ok mcp-studio/internal/platform 4.032s
+Authorized additional-redaction bypasses admission budget after all role, digest, snapshot, pointer and safe-metadata checks. Its bounded safe audit overhead cannot prevent removal of secrets. New uploads, metadata changes and pins continue to enforce capacity.
+
+Accepted-receipt replay after role downgrade RED:
+go test ./internal/platform -run TestAcceptedOwnProject -count=1
+--- FAIL: TestAcceptedOwnProjectSaveAndRevisionReplayAfterDeveloperDowngrade
+    status 403 want 200: {"error":{"code":"forbidden"}}
+GREEN after moving new-publication/new-edit authority checks after identical accepted-receipt lookup:
+go test ./internal/platform -run TestAcceptedOwnProject -count=1
+ok mcp-studio/internal/platform 2.498s
+Current execution role, current project membership, request identity, frozen digest and operation user/project/connection/target identity remain checked before successful replay. Fresh Developer publication/edit denied403; Viewer replay403; removed-member lookup403; foreign-member receipt lookup404.
+
+Replay ordering compatibility regression:
+Final focused gate exposed existing TestRecordAdditionalRedactionPolicyAndLinkedPrivateCopies returning invalid_revision400 instead of pre-existing forbidden403 when a Developer presents another actor's revision.
+Fix: foreign-actor input + no current edit authority is denied403 before accepted-operation lookup. Own accepted Developer retries still succeed.
+GREEN:
+go test ./internal/platform -run 'TestAcceptedOwnProject|TestRecordAdditionalRedactionPolicy' -count=1
+ok mcp-studio/internal/platform 2.873s

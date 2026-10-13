@@ -1,0 +1,1166 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/operations/OperationsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/operations/OperationsPage.test.tsx (12 tests | 1 failed) 1374ms
+   ✓ shows only own current-project records, stale and storage failure, and real capacity summary 43ms
+   ✓ does not read or display queue contents when actual project read permission is absent 2ms
+   ✓ requires explicit selected discard and protects uploading records with keyboard-accessible controls 105ms
+   ✓ keeps frozen retry unavailable to Viewer even in the presence of a failed upload 9ms
+   ✓ rechecks the captured discard set and refuses a record that began uploading after confirmation 33ms
+   ✓ shows a newly saved own operation even when its shared source snapshot belongs to another executor 5ms
+   ✓ retries the same operation without sending MCP requests 22ms
+   ✓ explains memory loss before changing retention and reports storage failure 32ms
+   ✓ describes intentional memory retention as refresh risk without claiming storage failed 5ms
+   ✓ preserves the retention draft on policy conflict and uses the latest If-Match only after explicit reload 53ms
+   ✓ allows retention up to the deployment maximum of 180 days and submits the current policy If-Match 34ms
+   × explains a competing window upload without exposing arbitrary details or discarding the queue 1032ms
+     → Unable to find an element with the text: Another window is uploading this record. Wait briefly, then retry.. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"operations-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mRecords and device[0m
+      [36m</h1>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-device-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-device-title"[39m
+        [36m>[39m
+          [0mKeep pending records on this device[0m
+        [36m</h2>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field operation-retention-select"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mKeep pending records on this device[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Keep pending records on this device"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"persistent"[39m
+            [36m>[39m
+              [0mKeep redacted records on this device[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"memory"[39m
+            [36m>[39m
+              [0mMemory only (public computer)[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mPending records are held in memory only. Refreshing or closing this page may lose them.[0m
+        [36m</p>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-queue-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-queue-title"[39m
+        [36m>[39m
+          [0mMy upload queue in this project[0m
+        [36m</h2>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOnly your records held on this device in the current project appear here. Retry sends the original frozen snapshot; it does not call the tool again.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0m1 / 1,000 records · 100 B / 100 MiB[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mdata-discard[39m=[32m"true"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDiscard selected records[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mReview failed records for discard[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<ul[39m
+          [33mclass[39m=[32m"operation-list"[39m
+        [36m>[39m
+          [36m<li>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"operation-row-heading"[39m
+            [36m>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"ui-check"[39m
+              [36m>[39m
+                [36m<input[39m
+                  [33maria-label[39m=[32m"Select operation leased"[39m
+                  [33mtype[39m=[32m"checkbox"[39m
+                [36m/>[39m
+                [36m<strong>[39m
+                  [0mEcho run[0m
+                [36m</strong>[39m
+              [36m</label>[39m
+              [36m<span[39m
+                [33mrole[39m=[32m"status"[39m
+              [36m>[39m
+                [0mUpload failed[0m
+              [36m</span>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRetry frozen operation[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<dl[39m
+              [33mclass[39m=[32m"operation-properties"[39m
+            [36m>[39m
+              [36m<dt>[39m
+                [0mOperation ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mleased[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mRecord destination[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mCall history[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mQueued at[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [36m<time[39m
+                  [33mdatetime[39m=[32m"2026-10-01T00:00:00.000Z"[39m
+                [36m>[39m
+                  [0m10/1/2026, 8:00:00 AM[0m
+                [36m</time>[39m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mDevice retention[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mHeld in memory[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"operation-warning"[39m
+            [36m>[39m
+              [0mWaiting for upload for at least 7 days. Review this record; it will not be deleted automatically.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThis record could not be kept on this device. Refreshing or closing may lose it.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThe operation could not complete. Your input is retained; retry or contact the administrator.[0m
+            [36m</p>[39m
+            [36m<details[39m
+              [33mclass[39m=[32m"operation-snapshot"[39m
+            [36m>[39m
+              [36m<summary>[39m
+                [0mRedacted snapshot details[0m
+              [36m</summary>[39m
+              [36m<pre>[39m
+                [0m{
+  "contractVersion": "1.2.0",
+  "userId": "u",
+  "projectId": "p",
+  "connectionId": "c",
+  "operationId": "leased",
+  "targetKind": "history",
+  "targetId": "record-leased",
+  "responsibleEndpoint": "browser",
+  "frozenDigest": "cd37ff6855e1d1c782c6d841fcd04d04c1adfbd1de50f874e961e3ca57cc1104",
+  "sourceRunId": "",
+  "snapshot": {
+    "userId": "u",
+    "projectId": "p",
+    "connectionId": "c",
+    "tabId": "tab",
+    "runId": "run",
+    "toolName": "echo",
+    "configurationVersion": 1,
+    "toolDefinitionVersion": "1",
+    "environmentId": "",
+    "environmentVersion": "1",
+    "executor": "browser",
+    "credentialSource": "none",
+    "requestJSON": "{\"zero\":0,\"false\":false,\"nil\":null}",
+    "inputSchemaJSON": "{\"type\":\"object\"}",
+    "responseJSON": "{\"content\":[]}",
+    "protocolJSON": "{\"method\":\"tools/call\"}",
+    "startedAt": "2026-10-13T01:00:00Z",
+    "finishedAt": "2026-10-13T01:00:01Z",
+    "runStatus": "succeeded",
+    "remoteOutcome": "known",
+    "resultKind": "success",
+    "httpStatus": 200,
+    "responseRetention": "full",
+    "omissionReason": "",
+    "schemaValid": true,
+    "redactions": []
+  },
+  "metadata": {
+    "name": "Echo run",
+    "note": "",
+    "visibility": "project",
+    "contentKind": "request-response",
+    "completeness": "complete"
+  }
+}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+          [36m</li>[39m
+        [36m</ul>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-capacity-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-capacity-title"[39m
+        [36m>[39m
+          [0mProject record capacity[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0m4.60 GiB of 5.00 GiB used[0m
+        [36m</p>[39m
+        [36m<meter[39m
+          [33maria-label[39m=[32m"Project record capacity"[39m
+          [33mmax[39m=[32m"5368709120"[39m
+          [33mmin[39m=[32m"0"[39m
+          [33mvalue[39m=[32m"4939212390"[39m
+        [36m/>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"operation-warning"[39m
+          [33mrole[39m=[32m"status"[39m
+        [36m>[39m
+          [0mProject storage is nearly full. Clean up records or ask the administrator to increase capacity.[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOrdinary history expires after 90 days. Pinned history and saved records remain until explicitly removed and still count toward capacity.[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"operation-policy"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+            [33mfor[39m=[32m"«ra»"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mOrdinary history retention (days)[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33maria-label[39m=[32m"Ordinary history retention (days)"[39m
+              [33mid[39m=[32m"«ra»"[39m
+              [33mmax[39m=[32m"90"[39m
+              [33mmin[39m=[32m"1"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"90"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave retention policy[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</section>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mAgent queue is not available yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"operations-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mRecords and device[0m
+      [36m</h1>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-device-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-device-title"[39m
+        [36m>[39m
+          [0mKeep pending records on this device[0m
+        [36m</h2>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field operation-retention-select"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mKeep pending records on this device[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Keep pending records on this device"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"persistent"[39m
+            [36m>[39m
+              [0mKeep redacted records on this device[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"memory"[39m
+            [36m>[39m
+              [0mMemory only (public computer)[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mPending records are held in memory only. Refreshing or closing this page may lose them.[0m
+        [36m</p>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-queue-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-queue-title"[39m
+        [36m>[39m
+          [0mMy upload queue in this project[0m
+        [36m</h2>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOnly your records held on this device in the current project appear here. Retry sends the original frozen snapshot; it does not call the tool again.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0m1 / 1,000 records · 100 B / 100 MiB[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mdata-discard[39m=[32m"true"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDiscard selected records[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mReview failed records for discard[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<ul[39m
+          [33mclass[39m=[32m"operation-list"[39m
+        [36m>[39m
+          [36m<li>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"operation-row-heading"[39m
+            [36m>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"ui-check"[39m
+              [36m>[39m
+                [36m<input[39m
+                  [33maria-label[39m=[32m"Select operation leased"[39m
+                  [33mtype[39m=[32m"checkbox"[39m
+                [36m/>[39m
+                [36m<strong>[39m
+                  [0mEcho run[0m
+                [36m</strong>[39m
+              [36m</label>[39m
+              [36m<span[39m
+                [33mrole[39m=[32m"status"[39m
+              [36m>[39m
+                [0mUpload failed[0m
+              [36m</span>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRetry frozen operation[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<dl[39m
+              [33mclass[39m=[32m"operation-properties"[39m
+            [36m>[39m
+              [36m<dt>[39m
+                [0mOperation ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mleased[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mRecord destination[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mCall history[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mQueued at[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [36m<time[39m
+                  [33mdatetime[39m=[32m"2026-10-01T00:00:00.000Z"[39m
+                [36m>[39m
+                  [0m10/1/2026, 8:00:00 AM[0m
+                [36m</time>[39m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mDevice retention[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mHeld in memory[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"operation-warning"[39m
+            [36m>[39m
+              [0mWaiting for upload for at least 7 days. Review this record; it will not be deleted automatically.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThis record could not be kept on this device. Refreshing or closing may lose it.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThe operation could not complete. Your input is retained; retry or contact the administrator.[0m
+            [36m</p>[39m
+            [36m<details[39m
+              [33mclass[39m=[32m"operation-snapshot"[39m
+            [36m>[39m
+              [36m<summary>[39m
+                [0mRedacted snapshot details[0m
+              [36m</summary>[39m
+              [36m<pre>[39m
+                [0m{
+  "contractVersion": "1.2.0",
+  "userId": "u",
+  "projectId": "p",
+  "connectionId": "c",
+  "operationId": "leased",
+  "targetKind": "history",
+  "targetId": "record-leased",
+  "responsibleEndpoint": "browser",
+  "frozenDigest": "cd37ff6855e1d1c782c6d841fcd04d04c1adfbd1de50f874e961e3ca57cc1104",
+  "sourceRunId": "",
+  "snapshot": {
+    "userId": "u",
+    "projectId": "p",
+    "connectionId": "c",
+    "tabId": "tab",
+    "runId": "run",
+    "toolName": "echo",
+    "configurationVersion": 1,
+    "toolDefinitionVersion": "1",
+    "environmentId": "",
+    "environmentVersion": "1",
+    "executor": "browser",
+    "credentialSource": "none",
+    "requestJSON": "{\"zero\":0,\"false\":false,\"nil\":null}",
+    "inputSchemaJSON": "{\"type\":\"object\"}",
+    "responseJSON": "{\"content\":[]}",
+    "protocolJSON": "{\"method\":\"tools/call\"}",
+    "startedAt": "2026-10-13T01:00:00Z",
+    "finishedAt": "2026-10-13T01:00:01Z",
+    "runStatus": "succeeded",
+    "remoteOutcome": "known",
+    "resultKind": "success",
+    "httpStatus": 200,
+    "responseRetention": "full",
+    "omissionReason": "",
+    "schemaValid": true,
+    "redactions": []
+  },
+  "metadata": {
+    "name": "Echo run",
+    "note": "",
+    "visibility": "project",
+    "contentKind": "request-response",
+    "completeness": "complete"
+  }
+}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+          [36m</li>[39m
+        [36m</ul>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-capacity-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-capacity-title"[39m
+        [36m>[39m
+          [0mProject record capacity[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0m4.60 GiB of 5.00 GiB used[0m
+        [36m</p>[39m
+        [36m<meter[39m
+          [33maria-label[39m=[32m"Project record capacity"[39m
+          [33mmax[39m=[32m"5368709120"[39m
+          [33mmin[39m=[32m"0"[39m
+          [33mvalue[39m=[32m"4939212390"[39m
+        [36m/>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"operation-warning"[39m
+          [33mrole[39m=[32m"status"[39m
+        [36m>[39m
+          [0mProject storage is nearly full. Clean up records or ask the administrator to increase capacity.[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOrdinary history expires after 90 days. Pinned history and saved records remain until explicitly removed and still count toward capacity.[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"operation-policy"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+            [33mfor[39m=[32m"«ra»"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mOrdinary history retention (days)[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33maria-label[39m=[32m"Ordinary history retention (days)"[39m
+              [33mid[39m=[32m"«ra»"[39m
+              [33mmax[39m=[32m"90"[39m
+              [33mmin[39m=[32m"1"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"90"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave retention policy[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</section>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mAgent queue is not available yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/operations/OperationsPage.test.tsx > explains a competing window upload without exposing arbitrary details or discarding the queue
+TestingLibraryElementError: Unable to find an element with the text: Another window is uploading this record. Wait briefly, then retry.. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"operations-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mRecords and device[0m
+      [36m</h1>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-device-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-device-title"[39m
+        [36m>[39m
+          [0mKeep pending records on this device[0m
+        [36m</h2>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field operation-retention-select"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mKeep pending records on this device[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Keep pending records on this device"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"persistent"[39m
+            [36m>[39m
+              [0mKeep redacted records on this device[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"memory"[39m
+            [36m>[39m
+              [0mMemory only (public computer)[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mPending records are held in memory only. Refreshing or closing this page may lose them.[0m
+        [36m</p>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-queue-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-queue-title"[39m
+        [36m>[39m
+          [0mMy upload queue in this project[0m
+        [36m</h2>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOnly your records held on this device in the current project appear here. Retry sends the original frozen snapshot; it does not call the tool again.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0m1 / 1,000 records · 100 B / 100 MiB[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mdata-discard[39m=[32m"true"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDiscard selected records[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mReview failed records for discard[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<ul[39m
+          [33mclass[39m=[32m"operation-list"[39m
+        [36m>[39m
+          [36m<li>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"operation-row-heading"[39m
+            [36m>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"ui-check"[39m
+              [36m>[39m
+                [36m<input[39m
+                  [33maria-label[39m=[32m"Select operation leased"[39m
+                  [33mtype[39m=[32m"checkbox"[39m
+                [36m/>[39m
+                [36m<strong>[39m
+                  [0mEcho run[0m
+                [36m</strong>[39m
+              [36m</label>[39m
+              [36m<span[39m
+                [33mrole[39m=[32m"status"[39m
+              [36m>[39m
+                [0mUpload failed[0m
+              [36m</span>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRetry frozen operation[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<dl[39m
+              [33mclass[39m=[32m"operation-properties"[39m
+            [36m>[39m
+              [36m<dt>[39m
+                [0mOperation ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mleased[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mRecord destination[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mCall history[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mQueued at[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [36m<time[39m
+                  [33mdatetime[39m=[32m"2026-10-01T00:00:00.000Z"[39m
+                [36m>[39m
+                  [0m10/1/2026, 8:00:00 AM[0m
+                [36m</time>[39m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mDevice retention[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mHeld in memory[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"operation-warning"[39m
+            [36m>[39m
+              [0mWaiting for upload for at least 7 days. Review this record; it will not be deleted automatically.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThis record could not be kept on this device. Refreshing or closing may lose it.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThe operation could not complete. Your input is retained; retry or contact the administrator.[0m
+            [36m</p>[39m
+            [36m<details[39m
+              [33mclass[39m=[32m"operation-snapshot"[39m
+            [36m>[39m
+              [36m<summary>[39m
+                [0mRedacted snapshot details[0m
+              [36m</summary>[39m
+              [36m<pre>[39m
+                [0m{
+  "contractVersion": "1.2.0",
+  "userId": "u",
+  "projectId": "p",
+  "connectionId": "c",
+  "operationId": "leased",
+  "targetKind": "history",
+  "targetId": "record-leased",
+  "responsibleEndpoint": "browser",
+  "frozenDigest": "cd37ff6855e1d1c782c6d841fcd04d04c1adfbd1de50f874e961e3ca57cc1104",
+  "sourceRunId": "",
+  "snapshot": {
+    "userId": "u",
+    "projectId": "p",
+    "connectionId": "c",
+    "tabId": "tab",
+    "runId": "run",
+    "toolName": "echo",
+    "configurationVersion": 1,
+    "toolDefinitionVersion": "1",
+    "environmentId": "",
+    "environmentVersion": "1",
+    "executor": "browser",
+    "credentialSource": "none",
+    "requestJSON": "{\"zero\":0,\"false\":false,\"nil\":null}",
+    "inputSchemaJSON": "{\"type\":\"object\"}",
+    "responseJSON": "{\"content\":[]}",
+    "protocolJSON": "{\"method\":\"tools/call\"}",
+    "startedAt": "2026-10-13T01:00:00Z",
+    "finishedAt": "2026-10-13T01:00:01Z",
+    "runStatus": "succeeded",
+    "remoteOutcome": "known",
+    "resultKind": "success",
+    "httpStatus": 200,
+    "responseRetention": "full",
+    "omissionReason": "",
+    "schemaValid": true,
+    "redactions": []
+  },
+  "metadata": {
+    "name": "Echo run",
+    "note": "",
+    "visibility": "project",
+    "contentKind": "request-response",
+    "completeness": "complete"
+  }
+}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+          [36m</li>[39m
+        [36m</ul>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-capacity-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-capacity-title"[39m
+        [36m>[39m
+          [0mProject record capacity[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0m4.60 GiB of 5.00 GiB used[0m
+        [36m</p>[39m
+        [36m<meter[39m
+          [33maria-label[39m=[32m"Project record capacity"[39m
+          [33mmax[39m=[32m"5368709120"[39m
+          [33mmin[39m=[32m"0"[39m
+          [33mvalue[39m=[32m"4939212390"[39m
+        [36m/>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"operation-warning"[39m
+          [33mrole[39m=[32m"status"[39m
+        [36m>[39m
+          [0mProject storage is nearly full. Clean up records or ask the administrator to increase capacity.[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOrdinary history expires after 90 days. Pinned history and saved records remain until explicitly removed and still count toward capacity.[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"operation-policy"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+            [33mfor[39m=[32m"«ra»"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mOrdinary history retention (days)[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33maria-label[39m=[32m"Ordinary history retention (days)"[39m
+              [33mid[39m=[32m"«ra»"[39m
+              [33mmax[39m=[32m"90"[39m
+              [33mmin[39m=[32m"1"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"90"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave retention policy[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</section>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mAgent queue is not available yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"operations-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mRecords and device[0m
+      [36m</h1>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-device-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-device-title"[39m
+        [36m>[39m
+          [0mKeep pending records on this device[0m
+        [36m</h2>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field operation-retention-select"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mKeep pending records on this device[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Keep pending records on this device"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"persistent"[39m
+            [36m>[39m
+              [0mKeep redacted records on this device[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"memory"[39m
+            [36m>[39m
+              [0mMemory only (public computer)[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mPending records are held in memory only. Refreshing or closing this page may lose them.[0m
+        [36m</p>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-queue-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-queue-title"[39m
+        [36m>[39m
+          [0mMy upload queue in this project[0m
+        [36m</h2>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOnly your records held on this device in the current project appear here. Retry sends the original frozen snapshot; it does not call the tool again.[0m
+        [36m</p>[39m
+        [36m<p>[39m
+          [0m1 / 1,000 records · 100 B / 100 MiB[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mdata-discard[39m=[32m"true"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDiscard selected records[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mReview failed records for discard[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<ul[39m
+          [33mclass[39m=[32m"operation-list"[39m
+        [36m>[39m
+          [36m<li>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"operation-row-heading"[39m
+            [36m>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"ui-check"[39m
+              [36m>[39m
+                [36m<input[39m
+                  [33maria-label[39m=[32m"Select operation leased"[39m
+                  [33mtype[39m=[32m"checkbox"[39m
+                [36m/>[39m
+                [36m<strong>[39m
+                  [0mEcho run[0m
+                [36m</strong>[39m
+              [36m</label>[39m
+              [36m<span[39m
+                [33mrole[39m=[32m"status"[39m
+              [36m>[39m
+                [0mUpload failed[0m
+              [36m</span>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRetry frozen operation[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<dl[39m
+              [33mclass[39m=[32m"operation-properties"[39m
+            [36m>[39m
+              [36m<dt>[39m
+                [0mOperation ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mleased[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mRecord destination[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mCall history[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mQueued at[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [36m<time[39m
+                  [33mdatetime[39m=[32m"2026-10-01T00:00:00.000Z"[39m
+                [36m>[39m
+                  [0m10/1/2026, 8:00:00 AM[0m
+                [36m</time>[39m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mDevice retention[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mHeld in memory[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"operation-warning"[39m
+            [36m>[39m
+              [0mWaiting for upload for at least 7 days. Review this record; it will not be deleted automatically.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThis record could not be kept on this device. Refreshing or closing may lose it.[0m
+            [36m</p>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"ui-error"[39m
+              [33mrole[39m=[32m"alert"[39m
+            [36m>[39m
+              [0mThe operation could not complete. Your input is retained; retry or contact the administrator.[0m
+            [36m</p>[39m
+            [36m<details[39m
+              [33mclass[39m=[32m"operation-snapshot"[39m
+            [36m>[39m
+              [36m<summary>[39m
+                [0mRedacted snapshot details[0m
+              [36m</summary>[39m
+              [36m<pre>[39m
+                [0m{
+  "contractVersion": "1.2.0",
+  "userId": "u",
+  "projectId": "p",
+  "connectionId": "c",
+  "operationId": "leased",
+  "targetKind": "history",
+  "targetId": "record-leased",
+  "responsibleEndpoint": "browser",
+  "frozenDigest": "cd37ff6855e1d1c782c6d841fcd04d04c1adfbd1de50f874e961e3ca57cc1104",
+  "sourceRunId": "",
+  "snapshot": {
+    "userId": "u",
+    "projectId": "p",
+    "connectionId": "c",
+    "tabId": "tab",
+    "runId": "run",
+    "toolName": "echo",
+    "configurationVersion": 1,
+    "toolDefinitionVersion": "1",
+    "environmentId": "",
+    "environmentVersion": "1",
+    "executor": "browser",
+    "credentialSource": "none",
+    "requestJSON": "{\"zero\":0,\"false\":false,\"nil\":null}",
+    "inputSchemaJSON": "{\"type\":\"object\"}",
+    "responseJSON": "{\"content\":[]}",
+    "protocolJSON": "{\"method\":\"tools/call\"}",
+    "startedAt": "2026-10-13T01:00:00Z",
+    "finishedAt": "2026-10-13T01:00:01Z",
+    "runStatus": "succeeded",
+    "remoteOutcome": "known",
+    "resultKind": "success",
+    "httpStatus": 200,
+    "responseRetention": "full",
+    "omissionReason": "",
+    "schemaValid": true,
+    "redactions": []
+  },
+  "metadata": {
+    "name": "Echo run",
+    "note": "",
+    "visibility": "project",
+    "contentKind": "request-response",
+    "completeness": "complete"
+  }
+}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+          [36m</li>[39m
+        [36m</ul>[39m
+      [36m</section>[39m
+      [36m<section[39m
+        [33maria-labelledby[39m=[32m"operation-capacity-title"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mid[39m=[32m"operation-capacity-title"[39m
+        [36m>[39m
+          [0mProject record capacity[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0m4.60 GiB of 5.00 GiB used[0m
+        [36m</p>[39m
+        [36m<meter[39m
+          [33maria-label[39m=[32m"Project record capacity"[39m
+          [33mmax[39m=[32m"5368709120"[39m
+          [33mmin[39m=[32m"0"[39m
+          [33mvalue[39m=[32m"4939212390"[39m
+        [36m/>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"operation-warning"[39m
+          [33mrole[39m=[32m"status"[39m
+        [36m>[39m
+          [0mProject storage is nearly full. Clean up records or ask the administrator to increase capacity.[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"ui-muted"[39m
+        [36m>[39m
+          [0mOrdinary history expires after 90 days. Pinned history and saved records remain until explicitly removed and still count toward capacity.[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"operation-policy"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+            [33mfor[39m=[32m"«ra»"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mOrdinary history retention (days)[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33maria-label[39m=[32m"Ordinary history retention (days)"[39m
+              [33mid[39m=[32m"«ra»"[39m
+              [33mmax[39m=[32m"90"[39m
+              [33mmin[39m=[32m"1"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"90"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave retention policy[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</section>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"ui-muted"[39m
+      [36m>[39m
+        [0mAgent queue is not available yet.[0m
+      [36m</p>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/operations/OperationsPage.test.tsx:81:456
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Start at  15:38:35
+   Duration  2.08s (transform 117ms, setup 63ms, collect 207ms, tests 1.37s, environment 288ms, prepare 32ms)

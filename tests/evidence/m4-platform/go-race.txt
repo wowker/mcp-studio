@@ -1,0 +1,77 @@
+panic: test timed out after 8m0s
+	running tests:
+		TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected (6s)
+
+goroutine 610 [running]:
+testing.(*M).startAlarm.func1()
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:2682 +0x490
+created by time.goFunc
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/time/sleep.go:215 +0x44
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001028c0, {0x102b14190, 0x38}, 0x102d37170)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:2005 +0x700
+testing.runTests.func1(0xc0001028c0)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:2477 +0x78
+testing.tRunner(0xc0001028c0, 0xc00049fad8)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1934 +0x168
+testing.runTests(0xc0001285a0, {0x103180360, 0x3d, 0x3d}, {0x52e3413c1ccd26ca?, 0x0?, 0x103186e80?})
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:2475 +0x738
+testing.(*M).Run(0xc00011b180)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:2337 +0xaf8
+main.main()
+	_testmain.go:165 +0x104
+
+goroutine 589 [select]:
+github.com/jackc/pgx/v5/pgxpool.(*Pool).backgroundHealthCheck(0xc000319ba0)
+	/Users/wuwei/go/pkg/mod/github.com/jackc/pgx/v5@v5.7.6/pgxpool/pool.go:476 +0x138
+github.com/jackc/pgx/v5/pgxpool.NewWithConfig.func5()
+	/Users/wuwei/go/pkg/mod/github.com/jackc/pgx/v5@v5.7.6/pgxpool/pool.go:329 +0x80
+created by github.com/jackc/pgx/v5/pgxpool.NewWithConfig in goroutine 588
+	/Users/wuwei/go/pkg/mod/github.com/jackc/pgx/v5@v5.7.6/pgxpool/pool.go:326 +0x91c
+
+goroutine 588 [runnable]:
+golang.org/x/crypto/blowfish.encryptBlock(0xc0f22828, 0xaf9b1eb8, 0xc0004aa600)
+	/Users/wuwei/go/pkg/mod/golang.org/x/crypto@v0.43.0/blowfish/block.go:115 +0xeec
+golang.org/x/crypto/blowfish.ExpandKey({0xc0003a2780, 0x15, 0x30?}, 0xc0004aa600)
+	/Users/wuwei/go/pkg/mod/golang.org/x/crypto@v0.43.0/blowfish/block.go:54 +0x1c8
+golang.org/x/crypto/bcrypt.expensiveBlowfishSetup({0xc0001af0ef, 0x14, 0x1030f5990?}, 0xc, {0xc0002982d0, 0x16, 0x18})
+	/Users/wuwei/go/pkg/mod/golang.org/x/crypto@v0.43.0/bcrypt/bcrypt.go:236 +0x13c
+golang.org/x/crypto/bcrypt.bcrypt({0xc0001af0ef, 0x14, 0x20}, 0xc, {0xc0002982d0, 0x16, 0x18})
+	/Users/wuwei/go/pkg/mod/golang.org/x/crypto@v0.43.0/bcrypt/bcrypt.go:200 +0xe4
+golang.org/x/crypto/bcrypt.CompareHashAndPassword({0xc00025b6c0, 0x3c, 0x3c}, {0xc0001af0ef, 0x14, 0x20})
+	/Users/wuwei/go/pkg/mod/golang.org/x/crypto@v0.43.0/bcrypt/bcrypt.go:114 +0xa0
+mcp-studio/internal/platform.(*App).login(0xc000158210, {0x102d42cb0, 0xc000032940}, 0xc0001788c0)
+	/Users/wuwei/code/github/mcp-studio/internal/platform/identity.go:179 +0x3dc
+net/http.HandlerFunc.ServeHTTP(0xc0002ff580, {0x102d42cb0, 0xc000032940}, 0xc0001788c0)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/net/http/server.go:2322 +0x4c
+net/http.(*ServeMux).ServeHTTP(0xc000444c00, {0x102d42cb0, 0xc000032940}, 0xc0001788c0)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/net/http/server.go:2861 +0x1b0
+mcp-studio/internal/platform.(*App).Handler.func4({0x102d42cb0, 0xc000032940}, 0xc0001788c0)
+	/Users/wuwei/code/github/mcp-studio/internal/platform/server.go:165 +0x650
+net/http.HandlerFunc.ServeHTTP(0xc000501908, {0x102d42cb0, 0xc000032940}, 0xc0001788c0)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/net/http/server.go:2322 +0x4c
+mcp-studio/internal/platform.request(0xc000598c40, 0xc000158210, {0x102af4b2c, 0x4}, {0x102af90b7, 0xd}, {0x102cb9520, 0xc00037e680}, 0x0, 0x0)
+	/Users/wuwei/code/github/mcp-studio/internal/platform/testutil_test.go:89 +0x4fc
+mcp-studio/internal/platform.login(0xc000598c40, 0xc000158210, {0x102afc1b3, 0x12})
+	/Users/wuwei/code/github/mcp-studio/internal/platform/testutil_test.go:121 +0xc8
+mcp-studio/internal/platform.owner(0xc000598c40, 0xc000158210, 0xc00034f290)
+	/Users/wuwei/code/github/mcp-studio/internal/platform/testutil_test.go:108 +0x100
+mcp-studio/internal/platform.TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected(0xc000598c40)
+	/Users/wuwei/code/github/mcp-studio/internal/platform/membership_test.go:349 +0x4c
+testing.tRunner(0xc000598c40, 0x102d37170)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1934 +0x168
+created by testing.(*T).Run in goroutine 1
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1997 +0x6e4
+
+goroutine 512 [select]:
+github.com/jackc/pgx/v5/pgxpool.(*Pool).backgroundHealthCheck(0xc00047cd00)
+	/Users/wuwei/go/pkg/mod/github.com/jackc/pgx/v5@v5.7.6/pgxpool/pool.go:476 +0x138
+github.com/jackc/pgx/v5/pgxpool.NewWithConfig.func5()
+	/Users/wuwei/go/pkg/mod/github.com/jackc/pgx/v5@v5.7.6/pgxpool/pool.go:329 +0x80
+created by github.com/jackc/pgx/v5/pgxpool.NewWithConfig in goroutine 588
+	/Users/wuwei/go/pkg/mod/github.com/jackc/pgx/v5@v5.7.6/pgxpool/pool.go:326 +0x91c
+FAIL	mcp-studio/internal/platform	482.437s
+ok  	mcp-studio/migrations	4.604s
+ok  	mcp-studio/cmd/platform	2.482s
+FAIL

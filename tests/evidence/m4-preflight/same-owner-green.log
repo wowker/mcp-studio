@@ -1,0 +1,18 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/runtime/records/operations.test.ts apps/web/src/runtime/records/queueStorage.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/records/operations.test.ts (14 tests) 119ms
+ ✓ src/runtime/records/queueStorage.test.ts (29 tests) 185ms
+
+ Test Files  2 passed (2)
+      Tests  43 passed (43)
+   Start at  15:37:57
+   Duration  879ms (transform 104ms, setup 122ms, collect 323ms, tests 304ms, environment 591ms, prepare 83ms)
+
+
+> mcp-studio@0.1.0 typecheck
+> tsc --noEmit -p apps/web/tsconfig.json

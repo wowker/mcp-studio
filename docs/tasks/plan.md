@@ -2,7 +2,7 @@
 
 目标目录：`/Users/wuwei/code/github/mcp-studio`，已完成 M0 合同、M1、M2 T10–T15 和 M3 T16–T21；T02 完整矩阵待验。执行状态统一维护于本目录。
 
-日期：2026-10-13。状态：**T15 与 M3 T16–T21 已逐项实现并验证；实现 cf9b6cf，T02 仍待验，本次未进入 M4**。当前状态见 [执行账本](progress.md)；以下保留全程规划，后续阶段仍需授权。
+日期：2026-10-13。状态：**M4 T22–T24 已逐项实现并验证；实现 c3fbf2e，T02 仍待验，本次未进入 M5**。当前状态见 [执行账本](progress.md)；以下保留全程规划，后续阶段仍需授权。
 
 依据：[最终交付索引](../design-baseline-v2/design-handoff/11-final-delivery-checklist.md)、[D01–D15](../design-baseline-v2/design-handoff/08-decision-proposals.md)、[A01–A60](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md)。任务登记在 [todo.md](./todo.md)，验收分期在 [acceptance-schedule.csv](./acceptance-schedule.csv)。原仓库 `tasks/` 属于旧功能发布，不修改或覆盖。
 

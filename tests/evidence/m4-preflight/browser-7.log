@@ -1,0 +1,17 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 4 tests using 1 worker
+
+(node:72251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (5.4s)
+  ✓  2 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (5.1s)
+  ✓  3 [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (4.9s)
+  ✓  4 [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (4.2s)
+
+  4 passed (20.2s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed

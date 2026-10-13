@@ -1,0 +1,62 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/runtime/records/queueStorage.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/runtime/records/queueStorage.test.ts (29 tests | 1 failed) 179ms
+   ✓ durable sanitized operation lifecycle > reloads the exact frozen body and revision etag without raw sources and retries once 6ms
+   ✓ durable sanitized operation lifecycle > suspends without deleting and binds only current identity; explicit logout discards owner 1ms
+   ✓ durable sanitized operation lifecycle > shows storage fallback and never claims recorded when receipt persistence fails 1ms
+   ✓ durable sanitized operation lifecycle > rejects corrupted hydration and never sends it 1ms
+   ✓ durable sanitized operation lifecycle > capacity blocks new admissions, preserves completed inflight as explicit loss risk, and reminders do not delete 1ms
+   ✓ durable sanitized operation lifecycle > rejects stale owner submission and pauses revoked projects without durable deletion 1ms
+   ✓ durable sanitized operation lifecycle > runs latest project authorization on retry and never posts when denied 0ms
+   ✓ durable sanitized operation lifecycle > memory retention removes durable payload only by explicit mode choice 0ms
+   ✓ durable sanitized operation lifecycle > recovered revision reuses etag and version from original save 1ms
+   ✓ durable sanitized operation lifecycle > two queue instances cannot post one operation concurrently and a completed receipt satisfies the other instance 51ms
+   ✓ durable sanitized operation lifecycle > queues an already completed run while suspended and resumes project retry only after explicit access restoration 1ms
+   ✓ durable sanitized operation lifecycle > exposes mode and read failures even when initialization has no operation 0ms
+   ✓ durable sanitized operation lifecycle > confirmed discard can remove pending frozen payloads and never discards active uploads 1ms
+   ✓ durable sanitized operation lifecycle > 100 MiB counts UTF8 bytes and accepts the exact duplicate even at the count limit 1ms
+   ✓ durable sanitized operation lifecycle > receipt extras never persist and an invalid receipt leaves the frozen queue retryable 1ms
+   ✓ durable sanitized operation lifecycle > reload preserves failed queues past seven days and a lease abandoned by a crashed tab can expire 1ms
+   ✓ durable sanitized operation lifecycle > memory mode retains completed-over-capacity results with explicit loss risk 1ms
+   ✓ durable sanitized operation lifecycle > explicit logout closes ownership so a delayed completed run cannot recreate discarded cache 0ms
+   ✓ durable sanitized operation lifecycle > memory-only identity logout also rejects late results after explicitly discarding 0ms
+   ✓ durable sanitized operation lifecycle > a recorded revision cannot reuse its original operation ID with a different etag after reload 1ms
+   ✓ durable sanitized operation lifecycle > owner-only pending count includes revoked and suspended queues without exposing other users 1ms
+   ✓ durable sanitized operation lifecycle > quarantines schema-valid digest-corrupt persisted content without revealing it or deleting its durable row 1ms
+   ✓ durable sanitized operation lifecycle > explicit memory choice permits new calls when storage cannot be read or cleared, without claiming old cache removed 1ms
+   ✓ durable sanitized operation lifecycle > failed storage cleanup preserves existing frozen memory queues and counts quarantined rows against memory-mode capacity 1ms
+   ✓ durable sanitized operation lifecycle > rehydrates persistent storage after explicit memory fallback when storage later recovers 0ms
+   ✓ durable sanitized operation lifecycle > failed explicit logout cleanup does not claim removal or lose the owner pending warning 0ms
+   ✓ durable sanitized operation lifecycle > surfaces safe local retry codes through the platform error boundary instead of a generic unknown 0ms
+   ✓ durable sanitized operation lifecycle > a delayed persistent-mode rebind cannot restore previous account project scope over the new owner 51ms
+   × durable sanitized operation lifecycle > persistent-mode rehydration preserves new revocations for the same owner while retaining earlier revoked projects 55ms
+     → promise resolved "undefined" instead of rejecting
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/runtime/records/queueStorage.test.ts > durable sanitized operation lifecycle > persistent-mode rehydration preserves new revocations for the same owner while retaining earlier revoked projects
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ src/runtime/records/queueStorage.test.ts:65:861
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 28 passed (29)
+   Start at  15:37:46
+   Duration  864ms (transform 62ms, setup 73ms, collect 97ms, tests 179ms, environment 370ms, prepare 39ms)

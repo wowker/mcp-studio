@@ -1,0 +1,638 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx apps/web/src/features/tools/ToolExecution.test.tsx apps/web/src/features/connections/runtimeStore.test.ts apps/web/src/shared/api.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/shared/api.test.ts (10 tests) 116ms
+ ✓ src/features/connections/runtimeStore.test.ts (4 tests) 1008ms
+   ✓ disconnects an expired credential session while its authorization panel is not mounted  978ms
+ ✓ src/features/tools/ToolExecution.test.tsx (6 tests) 1670ms
+   ✓ performs one call and retries only the frozen redacted upload despite later draft edits  1199ms
+ ❯ src/app/App.test.tsx (11 tests | 1 failed) 10007ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  1192ms
+   ✓ authenticated Shell > unmounts project context when session expires on a later request 165ms
+   ✓ authenticated Shell > does not display content capabilities from a stale project response 275ms
+   ✓ rechecks project capability after a forbidden write without signing out  1627ms
+   ✓ rechecks the server idle deadline after activity instead of expiring a valid session locally  329ms
+   ✓ loads projects only after mailbox verification enables the session 240ms
+   ✓ refreshes team permissions when forbidden changes leave the project maintainer role intact  1333ms
+   ✓ refreshes stale CSRF for the same user and keeps the failed project draft  612ms
+   ✓ keeps the old project hidden after a 401 and a different account signs in before its scope loads  705ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  1890ms
+   × keeps another project tool document when switching through a Viewer project 1636ms
+     → Unable to find role="button" and name "Open retained.lookup"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mTeam[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Team"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"team-one"[39m
+            [36m>[39m
+              [0mTeam one[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mProject[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Project"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProjects[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-one"[39m
+            [36m>[39m
+              [0mFirst project[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-viewer"[39m
+            [36m>[39m
+              [0mViewer project[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Projects"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [36m<span>[39m
+            [0mProjects[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<nav[39m
+          [33maria-label[39m=[32m"Project navigation"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Servers"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M149.66,138.34a8,8,0,0,0-11.32,0L120,156.69,99.31,136l18.35-18.34a8,8,0,0,0-11.32-11.32L88,124.69,69.66,106.34a8,8,0,0,0-11.32,11.32L64.69,124,41.37,147.31a32,32,0,0,0,0,45.26l5.38,5.37-28.41,28.4a8,8,0,0,0,11.32,11.32l28.4-28.41,5.37,5.38a32,32,0,0,0,45.26,0L132,191.31l6.34,6.35a8,8,0,0,0,11.32-11.32L131.31,168l18.35-18.34A8,8,0,0,0,149.66,138.34Zm-52.29,65a16,16,0,0,1-22.62,0L52.69,181.25a16,16,0,0,1,0-22.62L76,135.31,120.69,180Zm140.29-185a8,8,0,0,0-11.32,0l-28.4,28.41-5.37-5.38a32.05,32.05,0,0,0-45.26,0L124,64.69l-6.34-6.35a8,8,0,0,0-11.32,11.32l80,80a8,8,0,0,0,11.32-11.32L191.31,132l23.32-23.31a32,32,0,0,0,0-45.26l-5.38-5.37,28.41-28.4A8,8,0,0,0,237.66,18.34Zm-34.35,79L180,120.69,135.31,76l23.32-23.31a16,16,0,0,1,22.62,0l22.06,22A16,16,0,0,1,203.31,97.37Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mServers[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-current[39m=[32m"page"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Tools"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mTools[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Environment variables"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+      ...
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mTeam[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Team"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"team-one"[39m
+            [36m>[39m
+              [0mTeam one[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mProject[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Project"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProjects[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-one"[39m
+            [36m>[39m
+              [0mFirst project[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-viewer"[39m
+            [36m>[39m
+              [0mViewer project[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Projects"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [36m<span>[39m
+            [0mProjects[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<nav[39m
+          [33maria-label[39m=[32m"Project navigation"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Servers"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M149.66,138.34a8,8,0,0,0-11.32,0L120,156.69,99.31,136l18.35-18.34a8,8,0,0,0-11.32-11.32L88,124.69,69.66,106.34a8,8,0,0,0-11.32,11.32L64.69,124,41.37,147.31a32,32,0,0,0,0,45.26l5.38,5.37-28.41,28.4a8,8,0,0,0,11.32,11.32l28.4-28.41,5.37,5.38a32,32,0,0,0,45.26,0L132,191.31l6.34,6.35a8,8,0,0,0,11.32-11.32L131.31,168l18.35-18.34A8,8,0,0,0,149.66,138.34Zm-52.29,65a16,16,0,0,1-22.62,0L52.69,181.25a16,16,0,0,1,0-22.62L76,135.31,120.69,180Zm140.29-185a8,8,0,0,0-11.32,0l-28.4,28.41-5.37-5.38a32.05,32.05,0,0,0-45.26,0L124,64.69l-6.34-6.35a8,8,0,0,0-11.32,11.32l80,80a8,8,0,0,0,11.32-11.32L191.31,132l23.32-23.31a32,32,0,0,0,0-45.26l-5.38-5.37,28.41-28.4A8,8,0,0,0,237.66,18.34Zm-34.35,79L180,120.69,135.31,76l23.32-23.31a16,16,0,0,1,22.62,0l22.06,22A16,16,0,0,1,203.31,97.37Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mServers[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-current[39m=[32m"page"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Tools"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mTools[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Environment variables"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+      ...
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/App.test.tsx > keeps another project tool document when switching through a Viewer project
+TestingLibraryElementError: Unable to find role="button" and name "Open retained.lookup"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mTeam[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Team"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"team-one"[39m
+            [36m>[39m
+              [0mTeam one[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mProject[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Project"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProjects[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-one"[39m
+            [36m>[39m
+              [0mFirst project[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-viewer"[39m
+            [36m>[39m
+              [0mViewer project[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Projects"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [36m<span>[39m
+            [0mProjects[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<nav[39m
+          [33maria-label[39m=[32m"Project navigation"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Servers"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M149.66,138.34a8,8,0,0,0-11.32,0L120,156.69,99.31,136l18.35-18.34a8,8,0,0,0-11.32-11.32L88,124.69,69.66,106.34a8,8,0,0,0-11.32,11.32L64.69,124,41.37,147.31a32,32,0,0,0,0,45.26l5.38,5.37-28.41,28.4a8,8,0,0,0,11.32,11.32l28.4-28.41,5.37,5.38a32,32,0,0,0,45.26,0L132,191.31l6.34,6.35a8,8,0,0,0,11.32-11.32L131.31,168l18.35-18.34A8,8,0,0,0,149.66,138.34Zm-52.29,65a16,16,0,0,1-22.62,0L52.69,181.25a16,16,0,0,1,0-22.62L76,135.31,120.69,180Zm140.29-185a8,8,0,0,0-11.32,0l-28.4,28.41-5.37-5.38a32.05,32.05,0,0,0-45.26,0L124,64.69l-6.34-6.35a8,8,0,0,0-11.32,11.32l80,80a8,8,0,0,0,11.32-11.32L191.31,132l23.32-23.31a32,32,0,0,0,0-45.26l-5.38-5.37,28.41-28.4A8,8,0,0,0,237.66,18.34Zm-34.35,79L180,120.69,135.31,76l23.32-23.31a16,16,0,0,1,22.62,0l22.06,22A16,16,0,0,1,203.31,97.37Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mServers[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-current[39m=[32m"page"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Tools"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mTools[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Environment variables"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+      ...
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mTeam[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Team"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"team-one"[39m
+            [36m>[39m
+              [0mTeam one[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"ui-field"[39m
+        [36m>[39m
+          [36m<span>[39m
+            [0mProject[0m
+          [36m</span>[39m
+          [36m<select[39m
+            [33maria-label[39m=[32m"Project"[39m
+          [36m>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m""[39m
+            [36m>[39m
+              [0mProjects[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-one"[39m
+            [36m>[39m
+              [0mFirst project[0m
+            [36m</option>[39m
+            [36m<option[39m
+              [33mvalue[39m=[32m"project-viewer"[39m
+            [36m>[39m
+              [0mViewer project[0m
+            [36m</option>[39m
+          [36m</select>[39m
+        [36m</label>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtitle[39m=[32m"Projects"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [36m<span>[39m
+            [0mProjects[0m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<nav[39m
+          [33maria-label[39m=[32m"Project navigation"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Servers"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M149.66,138.34a8,8,0,0,0-11.32,0L120,156.69,99.31,136l18.35-18.34a8,8,0,0,0-11.32-11.32L88,124.69,69.66,106.34a8,8,0,0,0-11.32,11.32L64.69,124,41.37,147.31a32,32,0,0,0,0,45.26l5.38,5.37-28.41,28.4a8,8,0,0,0,11.32,11.32l28.4-28.41,5.37,5.38a32,32,0,0,0,45.26,0L132,191.31l6.34,6.35a8,8,0,0,0,11.32-11.32L131.31,168l18.35-18.34A8,8,0,0,0,149.66,138.34Zm-52.29,65a16,16,0,0,1-22.62,0L52.69,181.25a16,16,0,0,1,0-22.62L76,135.31,120.69,180Zm140.29-185a8,8,0,0,0-11.32,0l-28.4,28.41-5.37-5.38a32.05,32.05,0,0,0-45.26,0L124,64.69l-6.34-6.35a8,8,0,0,0-11.32,11.32l80,80a8,8,0,0,0,11.32-11.32L191.31,132l23.32-23.31a32,32,0,0,0,0-45.26l-5.38-5.37,28.41-28.4A8,8,0,0,0,237.66,18.34Zm-34.35,79L180,120.69,135.31,76l23.32-23.31a16,16,0,0,1,22.62,0l22.06,22A16,16,0,0,1,203.31,97.37Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mServers[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-current[39m=[32m"page"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Tools"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mTools[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtitle[39m=[32m"Environment variables"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+      ...
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/app/App.test.tsx:112:359
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 30 passed (31)
+   Start at  14:53:05
+   Duration  24.16s (transform 2.21s, setup 1.10s, collect 21.05s, tests 12.80s, environment 10.03s, prepare 771ms)

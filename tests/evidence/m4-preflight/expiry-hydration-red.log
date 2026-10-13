@@ -1,0 +1,37 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/runtimeStore.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/connections/runtimeStore.test.ts (6 tests | 1 failed) 66ms
+   ✓ disconnects an expired credential session while its authorization panel is not mounted 62ms
+   ✓ revokes one project credentials and documents while another project session and draft survive 1ms
+   ✓ keeps identity admission for an already issued result across project revocation but fences an account change 0ms
+   ✓ suspends uploads without cancelling an issued tool result or deleting its frozen queue 0ms
+   ✓ remembers an explicit memory-only choice for this account across reload without applying it to another account 0ms
+   × keeps expiry paused when a stale hydration finishes and resumes on a later authentication 2ms
+     → expected false to be true // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/connections/runtimeStore.test.ts > keeps expiry paused when a stale hydration finishes and resumes on a later authentication
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/features/connections/runtimeStore.test.ts:18:388
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  15:31:34
+   Duration  654ms (transform 94ms, setup 55ms, collect 125ms, tests 66ms, environment 274ms, prepare 41ms)

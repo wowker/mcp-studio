@@ -1,0 +1,14 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/app/App.test.tsx -t keeps another project tool document
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/app/App.test.tsx (11 tests | 10 skipped) 837ms
+   ✓ keeps another project tool document when switching through a Viewer project  836ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 10 skipped (11)
+   Start at  14:55:52
+   Duration  4.23s (transform 398ms, setup 114ms, collect 2.09s, tests 837ms, environment 904ms, prepare 85ms)

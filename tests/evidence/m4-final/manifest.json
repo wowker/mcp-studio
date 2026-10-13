@@ -1,0 +1,152 @@
+{
+  "stage": "M4 T22–T24",
+  "sourceCommit": "c3fbf2ee44b42a8ffd464d18b673c254a7604505",
+  "baselineM3": "cf9b6cf",
+  "contractVersion": "1.3.0",
+  "frozenOperationVersion": "1.2.0",
+  "migrations": 4,
+  "environment": {
+    "os": "macOS 26.6.2 arm64",
+    "node": "24.21.0",
+    "go": "go version go1.25.5 darwin/arm64",
+    "postgres": "18.6 (Debian 18.6-1.pgdg13+2)",
+    "playwright": "1.59.1",
+    "browser": "147.0.7727.15"
+  },
+  "verification": {
+    "exitCode": 0,
+    "generatedSchemas": 49,
+    "generatedPaths": 40,
+    "commonSemantics": 64,
+    "nodeTests": 18,
+    "frontendTestFiles": 37,
+    "frontendTests": 473,
+    "browserTests": 15,
+    "browserDurationMs": 62050.239,
+    "skipped": 0,
+    "browserRetries": 0,
+    "go": "test -count=1 ./..., vet, production build with real non-superuser isolated PostgreSQL",
+    "noStandaloneGoTests": [
+      "internal/wire",
+      "internal/jsonnumber"
+    ],
+    "focusedRace": "passed; capacity concurrent writers and membership/upload permission races, m4-platform/focused-race.txt",
+    "fullRace": "NOT PASSED: additional -race platform/migrations/cmd run timed out at 8 minutes in existing bcrypt invitation fixture; m4-platform/go-race.txt",
+    "cleanupSchemas": 0,
+    "postGateChange": "No source behavior changes. Documentation/registration only; rebuilt frontend and Go after implementation commit to attach current source version."
+  },
+  "builds": [
+    {
+      "path": ".runtime/platform",
+      "bytes": 16138050,
+      "sha256": "4b3438b5b4df22084f45f856e7eb35e0b4149fd73152f9d2eb9be1c97a860d6a"
+    },
+    {
+      "path": "apps/web/dist/assets/ConnectionsPage-CWul2V0y.js",
+      "bytes": 20145,
+      "sha256": "ac2bf18c411b29586126c33ef68901d97f9993dbf9368345e8a833670fabe821"
+    },
+    {
+      "path": "apps/web/dist/assets/EnvironmentPage-ssY1RMhg.js",
+      "bytes": 13277,
+      "sha256": "b94af3abf9ef15ead406a29028418fd4f48521782b18fae51b1372bbecebe0a1"
+    },
+    {
+      "path": "apps/web/dist/assets/OperationsPage-DPjr8syy.css",
+      "bytes": 1589,
+      "sha256": "4ec3b3e31d3d3c0cea294e0abf4f62606caa27a6662ddf8102a5e79f8f19c458"
+    },
+    {
+      "path": "apps/web/dist/assets/OperationsPage-Dtr--eZm.js",
+      "bytes": 9519,
+      "sha256": "9683034f0e19487a163fb1f34d6a3e153fa76ef313ab889afcb625a1123dba34"
+    },
+    {
+      "path": "apps/web/dist/assets/RecordsPage-BcUVVPNl.css",
+      "bytes": 387,
+      "sha256": "b47f1a91608faebd4f37691a6c79d49510c1ff7958469761be8e353029a64960"
+    },
+    {
+      "path": "apps/web/dist/assets/RecordsPage-D_Fb1qAa.js",
+      "bytes": 33854,
+      "sha256": "75454620bf839f497841f8ad1c019384195a758a9a7f0c7bcca1bbf12c35ec3c"
+    },
+    {
+      "path": "apps/web/dist/assets/ToolsPage-CYylGk1K.js",
+      "bytes": 40946,
+      "sha256": "f588f1eee6fc6e4b7515b93c0a00642cfe53c203a95a85f47c2b5f71b860efe7"
+    },
+    {
+      "path": "apps/web/dist/assets/auth-BXpXpDLU.js",
+      "bytes": 21595,
+      "sha256": "bc18d021601a001ad6178e973c0be2fd4b1955e27b4fddddd173781b52f2903f"
+    },
+    {
+      "path": "apps/web/dist/assets/browser-session-BNnEFWWi.js",
+      "bytes": 22265,
+      "sha256": "246332748161fd91dfd50eafb64ee0d4d8e3f096005f9d062daf86b4d79e5d41"
+    },
+    {
+      "path": "apps/web/dist/assets/index-BxcOJvaJ.js",
+      "bytes": 165186,
+      "sha256": "94f561beba8be552480f587708f146d103c8032f6d682fad23366331796fd63c"
+    },
+    {
+      "path": "apps/web/dist/assets/index-CNlQDx-y.css",
+      "bytes": 12319,
+      "sha256": "b2addbdc07a884d6f94fe2f7e1bfaacd56b9ee49b4adaa67aa2fbc9769326e19"
+    },
+    {
+      "path": "apps/web/dist/assets/index-CmkIOdok.js",
+      "bytes": 499730,
+      "sha256": "835fd1175768db269fae7883713be083b9eca1ac633bcaff9878fcf1ffc99f8b"
+    },
+    {
+      "path": "apps/web/dist/assets/sse-LlWi0PI0.js",
+      "bytes": 8786,
+      "sha256": "ab634eb61ac00a15fcce78a2798d8532efab98791d3884c8513cbcc7b79e6d0d"
+    },
+    {
+      "path": "apps/web/dist/assets/streamableHttp-D9Nc2iLI.js",
+      "bytes": 7664,
+      "sha256": "2755c8442b8733b01428081be2ae555266c231d3f215f79a25b229322eea0af6"
+    },
+    {
+      "path": "apps/web/dist/assets/worker-rF_BGtny.js",
+      "bytes": 71804,
+      "sha256": "6dc104cbdf884414855e3d6e58f1cabb65f23e523e2658ad617597686fc73860"
+    },
+    {
+      "path": "apps/web/dist/index.html",
+      "bytes": 404,
+      "sha256": "be699548690014ae2110ba0b82ab9ef804acd7f5c91ecfe2f14b50951017692f"
+    }
+  ],
+  "limits": {
+    "projectBytes": 5368709120,
+    "logicalAccounting": "UTF-8 JSON persisted rows +128 bytes/row; includes archives/receipts/record audits/tombstones; not physical PG disk or backup size",
+    "queueCount": 1000,
+    "queueBytes": 104857600,
+    "requestBytes": 1048576,
+    "responseRetentionBytes": 10485760,
+    "historyDays": 90,
+    "privateArchiveDays": 30,
+    "staleQueueDays": 7,
+    "leaseMs": 30000
+  },
+  "support": {
+    "T02": "pending; no Chrome/Edge/OS/public HTTPS LNA/native manual confirmation support claim",
+    "A01_A60": "all pending formal acceptance",
+    "M5": "not started; Agent, system credential vault, encrypted Agent queue, personal backups/deletion and backup-media lifecycle remain future scope",
+    "browserDurability": "may be cleared by browser/OS; beforeunload auxiliary only; explicit memory mode reports loss on reload"
+  },
+  "visualChecks": [
+    "en-US light 1440 operations",
+    "zh-CN dark 390 operations; no full-page horizontal overflow"
+  ],
+  "evidenceNormalization": {
+    "scope": "Preflight readable logs: trailing ASCII spaces and extra EOF blanks only; all original text retained losslessly in m4-preflight/raw-preflight-logs.json.gz",
+    "count": 21,
+    "rawArchiveSha256": "57608babefecc38300ed4c1f73bd09d021fa0458a73e675e04854032abe68123"
+  }
+}

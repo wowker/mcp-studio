@@ -1,0 +1,20 @@
+2026-10-13
+GOCACHE=/private/tmp/mcp-studio-go-cache go vet ./internal/platform ./migrations ./cmd/platform
+Exit 0, no diagnostics.
+GOCACHE=/private/tmp/mcp-studio-go-cache go build ./cmd/platform
+Exit 0. Generated binary removed after verification.
+
+go test ./internal/platform -run 'TestRecordCapacityOneByte|TestRecordSweepHistory|TestTeamRemovalArchives' -count=5
+ok mcp-studio/internal/platform 45.203s
+
+Final source after review corrections:
+go vet ./internal/platform ./migrations ./cmd/platform
+Exit0, no diagnostics.
+go build -o /private/tmp/mcp-studio-platform-m4 ./cmd/platform
+Exit0.
+node --test scripts/generate-contracts.test.mjs
+1 test passed, 49schemas40paths, API1.3.0; frozen upload/revision1.2.0 retained.
+git diff --check
+Exit0.
+
+Full -race attempt: NOT PASSED. Timeout after8m (platform482.437s), stack in existing TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected bcrypt.CompareHashAndPassword(cost12). No DATA RACE diagnostic appeared before timeout. See go-race.txt; never treat this timeout as pass. Focused affected concurrency tests recorded separately.

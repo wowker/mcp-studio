@@ -1,0 +1,13 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/operations/OperationsPage.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 350ms
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  15:39:54
+   Duration  1.00s (transform 115ms, setup 55ms, collect 189ms, tests 350ms, environment 278ms, prepare 36ms)

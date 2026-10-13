@@ -1,0 +1,75 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 4 tests using 1 worker
+
+(node:69502) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69502) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (14.9s)
+(node:69515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (4.0s)
+  ✓  3 [chromium] › tests/e2e/m4.spec.ts:28:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (4.8s)
+  ✘  4 [chromium] › tests/e2e/m4.spec.ts:34:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (3.3s)
+
+
+  1) [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText('No records waiting for upload on this device.', { exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByText('No records waiting for upload on this device.', { exact: true })[22m
+
+
+      17 |  const {projectId}=await setup(page,request,true),before=await fixtureStats(request),bodies=await failUpload(page,projectId);await run(page,'fixture-token');await expect.poll(async()=>(await rows(page)).length).toBe(1);const frozen=structuredClone(bodies[0]);expect(JSON.stringify(await rows(page))).not.toContain('fixture-token');expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);
+      18 |  await page.getByLabel('Raw parameters',{exact:true}).fill('{"text":"different draft"}');await page.getByRole('button',{name:'Records and device',exact:true}).click();await expect(page.getByText('Kept on this device',{exact:true})).toBeVisible();await page.reload();await expect(page.getByRole('heading',{name:'记录与设备',exact:true}).or(page.getByRole('heading',{name:'Records and device',exact:true}))).toBeVisible();await expect(page.getByRole('button',{name:'Retry frozen operation',exact:true})).toBeVisible();expect((await rows(page))[0].input).toEqual(frozen);
+    > 19 |  await page.unroute(`**/api/v1/projects/${projectId}/record-uploads`);let lose=true;const retries:wire.RecordUploadInput[]=[];await page.route(`**/api/v1/projects/${projectId}/record-uploads`,async route=>{retries.push(route.request().postDataJSON());if(lose){lose=false;await route.fetch();await route.abort('failed');}else await route.continue();});await page.getByRole('button',{name:'Retry frozen operation',exact:true}).click();await expect(page.getByText('Upload failed',{exact:true})).toBeVisible();await page.reload();await expect(page.getByRole('button',{name:'Retry frozen operation',exact:true})).toBeVisible();await page.getByRole('button',{name:'Retry frozen operation',exact:true}).click();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible();expect(retries).toHaveLength(2);expect(retries[0]).toEqual(frozen);expect(retries[1]).toEqual(frozen);expect(await rows(page)).toHaveLength(0);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(1);expect(history.items[0].id).toBe(frozen.targetId);expect(JSON.stringify(history)).not.toContain('fixture-token');
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ^
+      20 |  await page.getByLabel('Ordinary history retention (days)',{exact:true}).fill('30');await page.getByRole('button',{name:'Save retention policy',exact:true}).click();await expect(page.getByText('Ordinary history expires after 30 days. Pinned history and saved records remain until explicitly removed and still count toward capacity.',{exact:true})).toBeVisible();await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m4-operations-en-US-light-1440.png`,fullPage:true});await page.getByLabel('Language').selectOption('zh-CN');await page.getByRole('button',{name:'切换主题',exact:true}).click();await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:`${evidenceDir}/m4-operations-zh-CN-dark-390.png`,fullPage:true});
+      21 | });
+      22 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:19:796
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/m4.spec.ts:34:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk
+
+    Error: locator.selectOption: Error: strict mode violation: getByLabel('Keep pending records on this device', { exact: true }) resolved to 2 elements:
+        1) <section aria-labelledby="operation-device-title">…</section> aka getByRole('region', { name: 'Keep pending records on this' })
+        2) <select aria-label="Keep pending records on this device">…</select> aka getByRole('region', { name: 'Keep pending records on this' }).getByLabel('Keep pending records on this')
+
+    Call log:
+    [2m  - waiting for getByLabel('Keep pending records on this device', { exact: true })[22m
+
+
+      33 |
+      34 | test('M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk',async({page,request})=>{
+    > 35 |  await page.addInitScript(()=>Object.defineProperty(window,'indexedDB',{configurable:true,value:{open(){throw new DOMException('controlled storage fault','QuotaExceededError');}}}));const {projectId}=await setup(page,request),before=await fixtureStats(request);await page.getByLabel('Raw parameters',{exact:true}).fill('{"text":"storage admission"}');await page.getByRole('button',{name:'Execute tool',exact:true}).click();await expect(page.getByText('Device storage is unavailable. Choose memory-only retention explicitly to continue.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);await page.getByRole('button',{name:'Records and device',exact:true}).click();await page.getByLabel('Keep pending records on this device',{exact:true}).selectOption('memory');await page.getByRole('button',{name:'Use memory only',exact:true}).click();await expect(page.getByLabel('Keep pending records on this device',{exact:true})).toHaveValue('memory');await expect(page.getByText('Pending records are held in memory only. Refreshing or closing this page may lose them.',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Tools',exact:true}).click();const bodies=await failUpload(page,projectId);await run(page,'memory only');expect(bodies).toHaveLength(1);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);await page.getByRole('button',{name:'Records and device',exact:true}).click();await expect(page.getByText('Held in memory',{exact:true})).toBeVisible();await expect(page.getByText('Pending records are held in memory only. Refreshing or closing this page may lose them.',{exact:true}).first()).toBeVisible();
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+      36 | });
+      37 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:35:790
+
+    Error Context: test-results/m4-M4-production-unavailab-c1039-nd-reports-reload-loss-risk-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-unavailab-c1039-nd-reports-reload-loss-risk-chromium/error-context.md
+
+  2 failed
+    [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+    [chromium] › tests/e2e/m4.spec.ts:34:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk
+  2 passed (28.0s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

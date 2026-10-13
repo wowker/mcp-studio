@@ -1,0 +1,36 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:69199) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69199) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (13.3s)
+
+
+  1) [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+
+    Error: run_status_["The platform is unavailable. A new call was not sent."]
+
+      12 | async function setup(page:Page,request:Parameters<typeof bootstrap>[1],token=false){await bootstrap(page,request);const projectId=await createProject(page),connectionId=await createService(page,'M4 native queue',process.env.PLAYWRIGHT_MCP_ORIGIN+(token?'/token-mcp':'/mcp'),token?'token':'none');if(token){await page.getByLabel('个人访问 Token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'保存到本会话',exact:true}).click();}await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText(/已连接.*m2-controlled-fixture/)).toBeVisible();await page.getByRole('button',{name:'工具',exact:true}).click();await page.getByRole('button',{name:'打开 echo',exact:true}).click();await page.getByLabel('语言').selectOption('en-US');await page.getByRole('button',{name:'Raw JSON',exact:true}).click();return {projectId,connectionId};}
+      13 | async function failUpload(page:Page,projectId:string){const bodies:wire.RecordUploadInput[]=[];await page.route(`**/api/v1/projects/${projectId}/record-uploads`,async route=>{bodies.push(route.request().postDataJSON());await route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'network'}})});});return bodies;}
+    > 14 | async function run(page:Page,text:string){await page.getByLabel('Raw parameters',{exact:true}).fill(JSON.stringify({text}));await page.getByRole('button',{name:'Execute tool',exact:true}).click();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible().catch(async()=>{throw Error('run_status_'+JSON.stringify(await page.locator('.tool-execution > p').allTextContents()));});}
+         |                                                                                                                                                                                                                                                                                                                 ^
+      15 |
+      16 | test('M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool',async({page,request})=>{
+      17 |  const {projectId}=await setup(page,request,true),before=await fixtureStats(request),bodies=await failUpload(page,projectId);await run(page,'fixture-token');await expect.poll(async()=>(await rows(page)).length).toBe(1);const frozen=structuredClone(bodies[0]);expect(JSON.stringify(await rows(page))).not.toContain('fixture-token');expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:14:305
+        at run (/Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:14:197)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:17:126
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

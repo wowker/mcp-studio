@@ -1,0 +1,81 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/runtimeStore.test.ts apps/web/src/shared/api.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/shared/api.test.ts (10 tests | 1 failed) 12ms
+   ✓ platform boundary > rejects extra response fields instead of accepting wire drift 3ms
+   ✓ platform boundary > sends Cookie credentials and in-memory CSRF on authenticated writes 1ms
+   ✓ platform boundary > clears session before surfacing a 401 and masks server details 0ms
+   ✓ platform boundary > rejects invalid outbound requests before a network call 1ms
+   ✓ rechecks scope only for forbidden and refreshes CSRF without clearing protected-member input 1ms
+   ✓ does not let delayed errors from an old identity invalidate the new session or permissions 0ms
+   ✓ still invalidates a current request after refreshing the same session CSRF 0ms
+   ✓ sends the saved object ETag for conditional writes without altering CSRF 0ms
+   ✓ refreshes revoked content permission on a current GET without a repeated denial loop 0ms
+   × identifies the denied object project so a different project run is not revoked 5ms
+     → expected "spy" to be called with arguments: [ 'forbidden', …(1) ]
+
+Received:
+
+  1st spy call:
+
+  [
+    "forbidden",
+-   "/projects/owned/record-uploads",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/features/connections/runtimeStore.test.ts (4 tests | 2 failed) 72ms
+   ✓ disconnects an expired credential session while its authorization panel is not mounted 69ms
+   ✓ revokes one project credentials and documents while another project session and draft survive 1ms
+   × keeps identity admission for an already issued result across project revocation but fences an account change 1ms
+     → memory.captureIdentity is not a function
+   × suspends uploads without cancelling an issued tool result or deleting its frozen queue 0ms
+     → memory.captureIdentity is not a function
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared/api.test.ts > identifies the denied object project so a different project run is not revoked
+AssertionError: expected "spy" to be called with arguments: [ 'forbidden', …(1) ]
+
+Received:
+
+  1st spy call:
+
+  [
+    "forbidden",
+-   "/projects/owned/record-uploads",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/shared/api.test.ts:55:402
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/features/connections/runtimeStore.test.ts > keeps identity admission for an already issued result across project revocation but fences an account change
+TypeError: memory.captureIdentity is not a function
+ ❯ src/features/connections/runtimeStore.test.ts:13:164
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/features/connections/runtimeStore.test.ts > suspends uploads without cancelling an issued tool result or deleting its frozen queue
+TypeError: memory.captureIdentity is not a function
+ ❯ src/features/connections/runtimeStore.test.ts:14:266
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 11 passed (14)
+   Start at  14:47:20
+   Duration  510ms (transform 99ms, setup 78ms, collect 171ms, tests 85ms, environment 342ms, prepare 51ms)

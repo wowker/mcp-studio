@@ -1,0 +1,43 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 4 tests using 1 worker
+
+(node:70696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (15.1s)
+(node:70737) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70737) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (4.0s)
+  ✓  3 [chromium] › tests/e2e/m4.spec.ts:28:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (4.6s)
+  ✓  4 [chromium] › tests/e2e/m4.spec.ts:34:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (3.7s)
+
+
+  1) [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+
+    Error: queue_retry_status_{"errors":["The operation could not complete. Your input is retained; retry or contact the administrator."],"rows":[{"error":"operation_busy","lease":true}],"retryResponses":[],"retryCount":0}
+
+      17 |  const {projectId}=await setup(page,request,true),before=await fixtureStats(request),bodies=await failUpload(page,projectId);await run(page,'fixture-token');await expect.poll(async()=>(await rows(page)).length).toBe(1);const frozen=structuredClone(bodies[0]);expect(JSON.stringify(await rows(page))).not.toContain('fixture-token');expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);
+      18 |  await page.getByLabel('Raw parameters',{exact:true}).fill('{"text":"different draft"}');await page.getByRole('button',{name:'Records and device',exact:true}).click();await expect(page.getByText('Kept on this device',{exact:true})).toBeVisible();await page.reload();await expect(page.getByRole('heading',{name:'记录与设备',exact:true}).or(page.getByRole('heading',{name:'Records and device',exact:true}))).toBeVisible();await expect(page.getByRole('button',{name:'Retry frozen operation',exact:true})).toBeVisible();expect((await rows(page))[0].input).toEqual(frozen);
+    > 19 |  await page.unroute(`**/api/v1/projects/${projectId}/record-uploads`);let lose=true;const retryResponses:{status:number;code?:string;valid:boolean}[]=[];page.on('response',async response=>{if(response.url().endsWith('/record-uploads')){const body=await response.json().catch(()=>({})) as {data?:unknown;error?:{code?:string}};retryResponses.push({status:response.status(),code:body.error?.code,valid:wire.recordOperationReceiptSchema.safeParse(body.data).success});}});const retries:wire.RecordUploadInput[]=[];await page.route(`**/api/v1/projects/${projectId}/record-uploads`,async route=>{retries.push(route.request().postDataJSON());if(lose){lose=false;const accepted=await route.fetch();const envelope=await accepted.json() as {data?:unknown;error?:{code?:string}};expect(accepted.status(),envelope.error?.code).toBe(200);expect(wire.recordOperationReceiptSchema.safeParse(envelope.data).success).toBe(true);await route.abort('failed');}else await route.continue();});await page.getByRole('button',{name:'Retry frozen operation',exact:true}).click();await expect(page.getByText('Upload failed',{exact:true})).toBeVisible();await expect.poll(async()=>(await rows(page))[0]?.lease).toBeUndefined();await page.reload();await expect(page.getByRole('button',{name:'Retry frozen operation',exact:true})).toBeVisible();await page.getByRole('button',{name:'Retry frozen operation',exact:true}).click();await expect(page.getByText('No records waiting for upload on this device.',{exact:true})).toBeVisible().catch(async()=>{throw Error('queue_retry_status_'+JSON.stringify({errors:await page.locator('.operations-page .ui-error').allTextContents(),rows:(await rows(page)).map(row=>({error:row.error,lease:!!row.lease})),retryResponses,retryCount:retries.length}));});expect(retries).toHaveLength(2);expect(retries[0]).toEqual(frozen);expect(retries[1]).toEqual(frozen);expect(await rows(page)).toHaveLength(0);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);const history=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(history.items).toHaveLength(1);expect(history.items[0].id).toBe(frozen.targetId);expect(JSON.stringify(history)).not.toContain('fixture-token');
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+      20 |  await page.getByLabel('Ordinary history retention (days)',{exact:true}).fill('30');await page.getByRole('button',{name:'Save retention policy',exact:true}).click();await expect(page.getByText('Ordinary history expires after 30 days. Pinned history and saved records remain until explicitly removed and still count toward capacity.',{exact:true})).toBeVisible();await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m4-operations-en-US-light-1440.png`,fullPage:true});await page.getByLabel('Language').selectOption('zh-CN');await page.getByRole('button',{name:'切换主题',exact:true}).click();await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:`${evidenceDir}/m4-operations-zh-CN-dark-390.png`,fullPage:true});
+      21 | });
+      22 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:19:1526
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:19:1399
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool
+  3 passed (28.7s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1
