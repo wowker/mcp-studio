@@ -563,6 +563,359 @@
         ],
         "omitted": false
       }
+    },
+    {
+      "id": "default-context-hex-digit-span",
+      "value": {
+        "context": {
+          "environmentVersion": "ab1234567890cccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "context": {
+            "environmentVersion": {
+              "$redacted": true
+            }
+          }
+        },
+        "markers": [
+          {
+            "path": "/context/environmentVersion",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-generic-phone-text",
+      "value": {
+        "first": "Call +44 20-1234-5678",
+        "second": "Dial 202-555-0199",
+        "short": "123456789"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "first": {
+            "$redacted": true
+          },
+          "second": {
+            "$redacted": true
+          },
+          "short": "123456789"
+        },
+        "markers": [
+          {
+            "path": "/first",
+            "reason": "default"
+          },
+          {
+            "path": "/second",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-short-sk-text",
+      "value": {
+        "eight": "sk-ABCDEFGH",
+        "fifteen": "sk-ABCDEFGHIJKLMNO",
+        "seven": "sk-ABCDEFG"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "eight": {
+            "$redacted": true
+          },
+          "fifteen": {
+            "$redacted": true
+          },
+          "seven": "sk-ABCDEFG"
+        },
+        "markers": [
+          {
+            "path": "/eight",
+            "reason": "default"
+          },
+          {
+            "path": "/fifteen",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-key-substring-and-derived-echo",
+      "value": {
+        "credentialHint": "opaque-vault-label",
+        "clientSecretSuffix": "opaque-client-label",
+        "suffixAccessTokenInfo": "opaque-session-label",
+        "ordinary": "prefix opaque-vault-label suffix",
+        "plain": false
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "credentialHint": {
+            "$redacted": true
+          },
+          "clientSecretSuffix": {
+            "$redacted": true
+          },
+          "suffixAccessTokenInfo": {
+            "$redacted": true
+          },
+          "ordinary": {
+            "$redacted": true
+          },
+          "plain": false
+        },
+        "markers": [
+          {
+            "path": "/clientSecretSuffix",
+            "reason": "default"
+          },
+          {
+            "path": "/credentialHint",
+            "reason": "default"
+          },
+          {
+            "path": "/ordinary",
+            "reason": "source"
+          },
+          {
+            "path": "/suffixAccessTokenInfo",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-query-substring-credential",
+      "value": {
+        "credentialsURL": "https://example.invalid/mcp?user_credential_hint=opaque-fixture",
+        "endpoint": "https://example.invalid/mcp?prefix_api-key_suffix=opaque-fixture",
+        "public": "https://example.invalid/mcp?workspace=demo"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "credentialsURL": {
+            "$redacted": true
+          },
+          "endpoint": {
+            "$redacted": true
+          },
+          "public": "https://example.invalid/mcp?workspace=demo"
+        },
+        "markers": [
+          {
+            "path": "/credentialsURL",
+            "reason": "default"
+          },
+          {
+            "path": "/endpoint",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "browser-alias-source-protection",
+      "value": {
+        "passwd": "opaque-password-label",
+        "mobile": "opaque-mobile-label",
+        "echo": "prefix opaque-password-label suffix",
+        "plain": false
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "passwd": {
+            "$redacted": true
+          },
+          "mobile": {
+            "$redacted": true
+          },
+          "echo": {
+            "$redacted": true
+          },
+          "plain": false
+        },
+        "markers": [
+          {
+            "path": "/echo",
+            "reason": "source"
+          },
+          {
+            "path": "/mobile",
+            "reason": "default"
+          },
+          {
+            "path": "/passwd",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "browser-embedded-signature-url",
+      "value": {
+        "first": "Open https://example.invalid/mcp?signature=opaque-fixture now",
+        "second": "https://example.invalid/mcp?%73ignature=opaque-fixture",
+        "public": "Open https://example.invalid/mcp?workspace=demo now"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "first": {
+            "$redacted": true
+          },
+          "second": {
+            "$redacted": true
+          },
+          "public": "Open https://example.invalid/mcp?workspace=demo now"
+        },
+        "markers": [
+          {
+            "path": "/first",
+            "reason": "default"
+          },
+          {
+            "path": "/second",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-empty-url-userinfo",
+      "value": {
+        "endpoint": "https://@localhost/mcp",
+        "public": "https://localhost/mcp?workspace=demo"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "endpoint": {
+            "$redacted": true
+          },
+          "public": "https://localhost/mcp?workspace=demo"
+        },
+        "markers": [
+          {
+            "path": "/endpoint",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-key-boundary-union",
+      "value": {
+        "suffixCredentialInfo": "opaque-credential-label",
+        "tokenizer": "opaque-token-label",
+        "passWd": "opaque-password-label",
+        "notMobile": "public-label",
+        "bypassName": "public-word",
+        "plain": 0
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "suffixCredentialInfo": {
+            "$redacted": true
+          },
+          "tokenizer": {
+            "$redacted": true
+          },
+          "passWd": {
+            "$redacted": true
+          },
+          "notMobile": "public-label",
+          "bypassName": "public-word",
+          "plain": 0
+        },
+        "markers": [
+          {
+            "path": "/passWd",
+            "reason": "default"
+          },
+          {
+            "path": "/suffixCredentialInfo",
+            "reason": "default"
+          },
+          {
+            "path": "/tokenizer",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-bearer-whitespace-union",
+      "value": {
+        "first": "Bearer opaque-label",
+        "second": "Bearer  "
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "first": {
+            "$redacted": true
+          },
+          "second": {
+            "$redacted": true
+          }
+        },
+        "markers": [
+          {
+            "path": "/first",
+            "reason": "default"
+          },
+          {
+            "path": "/second",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "default-whole-http-scheme-url",
+      "value": {
+        "first": "http:opaque?api_key=opaque-fixture",
+        "public": "http:opaque?workspace=demo"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "first": {
+            "$redacted": true
+          },
+          "public": "http:opaque?workspace=demo"
+        },
+        "markers": [
+          {
+            "path": "/first",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
     }
   ]
 }

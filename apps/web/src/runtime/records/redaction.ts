@@ -19,13 +19,19 @@ function exists(value:unknown,pointer:string):boolean{
  }
  return true;
 }
-const secretField=/^(?:authorization|proxy[-_]?authorization|cookie|set[-_]?cookie|password|passwd|secret|token|access[-_]?token|refresh[-_]?token|id[-_]?token|api[-_]?key|client[-_]?secret|email|phone|mobile)$/iu;
+// Union with the platform/Agent defaults: substring keys remain conservative;
+// the browser's existing passwd/mobile aliases retain their exact-name boundary.
+const secretField=/(?:authorization|credential|api[_-]?key|access[_-]?token|refresh[_-]?token|token|password|secret|cookie|email|phone|^passwd$|^mobile$)/iu;
 export const sensitiveName=(name:string)=>secretField.test(name);
-const secretText=/(?:Bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{16,}|[A-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}|\b1[3-9]\d{9}\b)/iu;
+const secretText=/(?:[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}|\+?[0-9][0-9 -]{8,}[0-9]|Bearer[ \t\n\f\r]+[^ \t\n\f\r]+|Bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{8,}|[A-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}|\b1[3-9]\d{9}\b)/iu;
 function unsafeURL(text:string):boolean{
- for(const match of text.matchAll(/https?:\/\/[^\s"'<>]+/giu)){
-  try{const url=new URL(match[0]);if(url.username||url.password||Array.from(url.searchParams.keys()).some(key=>secretField.test(key)||/^(?:credential|signature)$/iu.test(key)))return true;}catch{/* arbitrary text is never followed as a URL */}
- }
+ const unsafeAddress=(address:string)=>{
+  try{const url=new URL(address);return ['http:','https:'].includes(url.protocol)&&(/^https?:\/\/[^/?#]*@/iu.test(address)||!!url.username||!!url.password||Array.from(url.searchParams.keys()).some(key=>secretField.test(key)||/^signature$/iu.test(key)));}catch{return false;}
+ };
+ // The Go receiver also accepts whole HTTP-scheme references; keep embedded
+ // browser URL protection as part of the shared conservative union.
+ if(unsafeAddress(text))return true;
+ for(const match of text.matchAll(/https?:\/\/[^\s"'<>]+/giu))if(unsafeAddress(match[0]))return true;
  return false;
 }
 /** Same engine serves snapshots, previews, default copy/export and platform upload. */

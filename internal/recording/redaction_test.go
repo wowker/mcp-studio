@@ -53,3 +53,22 @@ func TestRestoreRemovesWholeTopLevelRedactedParameters(t *testing.T) {
 		t.Fatalf("restored %+v want %+v", got, want)
 	}
 }
+
+func TestDefaultRulesRetainBothReceiverAndBrowserProtection(t *testing.T) {
+	for _, text := range []string{
+		"ab1234567890" + strings.Repeat("c", 52),
+		"Call +44 20-1234-5678",
+		"sk-ABCDEFGH",
+		"Open https://localhost/mcp?signature=opaque-fixture now",
+		"https://@localhost/mcp",
+		"Bearer\u00a0opaque-label",
+		"Bearer \u00a0",
+	} {
+		t.Run(text, func(t *testing.T) {
+			safe, err := Redact(map[string]any{"value": text}, Options{})
+			if err != nil || !IsMarker(safe.Value.(map[string]any)["value"]) {
+				t.Fatalf("shared default did not mask synthetic input: %v", err)
+			}
+		})
+	}
+}

@@ -710,3 +710,45 @@ func TestSavedSourceProofUsesCurrentPolicyAndSemanticJSON(t *testing.T) {
 		t.Fatal("originalpolicysource lostbefore receiver metadataredaction")
 	}
 }
+
+func TestSavedVersionHashSourceProofRequiresTheRecordedRedaction(t *testing.T) {
+	a, mail := testApp(t)
+	s, cookie := owner(t, a, mail)
+	p := createProject(t, a, s, cookie, "Source redaction parity")
+	base := "/api/v1/projects/" + p.ID
+	conn := configurationData[wire.Connection](t, configurationRequest(t, a, "POST", base+"/connections", httpConfiguration("one"), s, cookie, ""), 200)
+	history := frozenUpload(t, s.User.ID, p.ID, conn, "history", "project")
+	// A synthetic SHA256-shaped version contains a sequence covered by the existing default phone rule.
+	history.Snapshot.EnvironmentVersion = strings.Repeat("a", 22) + "0123456789" + strings.Repeat("b", 32)
+	freezeUpload(t, &history)
+	configurationData[wire.RecordOperationReceipt](t, configurationRequest(t, a, "POST", base+"/record-uploads", history, s, cookie, ""), 200)
+	source := configurationData[wire.Record](t, configurationRequest(t, a, "GET", base+"/records/"+history.TargetID, nil, s, cookie, ""), 200)
+	if source.Snapshot.EnvironmentVersion != "[REDACTED]" {
+		t.Fatal("recorded source did not apply its default redaction")
+	}
+	found := false
+	for _, marker := range source.Snapshot.Redactions {
+		if marker.Path == "/context/environmentVersion" && marker.Reason == "default" {
+			found = true
+		}
+	}
+	if !found {
+		t.Fatal("recorded source omitted its context redaction marker")
+	}
+	copy := history
+	copy.TargetKind, copy.TargetID, copy.OperationID, copy.SourceRunID = "saved", id(), id(), history.Snapshot.RunID
+	copy.Metadata.Name, copy.Metadata.Visibility = "Independent copy", "private"
+	freezeUpload(t, &copy)
+	configurationData[any](t, configurationRequest(t, a, "POST", base+"/record-uploads", copy, s, cookie, ""), 400)
+	copy.Snapshot = source.Snapshot
+	freezeUpload(t, &copy)
+	receipt := configurationData[wire.RecordOperationReceipt](t, configurationRequest(t, a, "POST", base+"/record-uploads", copy, s, cookie, ""), 200)
+	saved := configurationData[wire.Record](t, configurationRequest(t, a, "GET", base+"/records/"+receipt.RecordID, nil, s, cookie, ""), 200)
+	if saved.SourceRunID != source.Snapshot.RunID || saved.ID == source.ID || saved.Snapshot.EnvironmentVersion != "[REDACTED]" {
+		t.Fatal("saved copy did not preserve the recorded source identity and safe version")
+	}
+	copy.TargetID, copy.OperationID = id(), id()
+	copy.Snapshot.RunStatus = "failed"
+	freezeUpload(t, &copy)
+	configurationData[any](t, configurationRequest(t, a, "POST", base+"/record-uploads", copy, s, cookie, ""), 400)
+}

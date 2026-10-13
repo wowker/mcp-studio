@@ -30,3 +30,7 @@ it('collects default and project secret sources before masking derived echoes wi
  expect(redact({private:'opaque-other',echo:'opaque-other'},{projectPointers:['/private']}).value).toEqual({private:redactionMarker,echo:redactionMarker});
  expect(redact({token:redactionMarker,ok:true}).value).toEqual({token:redactionMarker,ok:true});
 });
+it('retains pre-existing browser protection for aliases and embedded credential URLs',()=>{
+ const input={passwd:'legacy-password-label',mobile:'legacy-mobile-label',first:'Use https://example.invalid/mcp?signature=opaque-fixture now',second:'Use https://user:opaque@example.invalid/mcp now'};
+ expect(redact(input).value).toEqual({passwd:redactionMarker,mobile:redactionMarker,first:redactionMarker,second:redactionMarker});
+});

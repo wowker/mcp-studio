@@ -22,8 +22,12 @@ type Result struct {
 	Omitted bool
 }
 
-var sensitiveKey = regexp.MustCompile(`(?i)(authorization|credential|api[_-]?key|access[_-]?token|refresh[_-]?token|token|password|secret|cookie|email|phone)`)
-var sensitiveText = regexp.MustCompile(`(?i)(bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{8,}|[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}|(?:\+?[0-9][0-9 -]{8,}[0-9]))`)
+var sensitiveKey = regexp.MustCompile(`(?i)(authorization|credential|api[_-]?key|access[_-]?token|refresh[_-]?token|token|password|secret|cookie|email|phone|^passwd$|^mobile$)`)
+
+// Keep the existing conservative defaults and the browser's email/Bearer
+// protection, including JavaScript whitespace. Neither side narrows masking.
+var sensitiveText = regexp.MustCompile(`(?i)(bearer\s+\S+|bearer[\s\p{Zs}\x{000B}\x{2028}\x{2029}\x{FEFF}]+[^\s\p{Zs}\x{000B}\x{2028}\x{2029}\x{FEFF}]+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{8,}|[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}|[A-Z0-9.!#$%&'*+/=?^_\x{0060}{|}~-]+@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}|(?:\+?[0-9][0-9 -]{8,}[0-9]))`)
+var embeddedURL = regexp.MustCompile(`(?i)https?://[^\s\p{Zs}\x{000B}\x{2028}\x{2029}\x{FEFF}"'<>]+`)
 
 func redacted() map[string]any { return map[string]any{"$redacted": true} }
 func isMarker(v any) bool {
@@ -166,6 +170,17 @@ func Redact(value any, options Options) (Result, error) {
 }
 
 func secretURL(s string) bool {
+	if secretParsedURL(s) {
+		return true
+	}
+	for _, address := range embeddedURL.FindAllString(s, -1) {
+		if secretParsedURL(address) {
+			return true
+		}
+	}
+	return false
+}
+func secretParsedURL(s string) bool {
 	u, err := url.Parse(s)
 	if err != nil || u.Scheme != "http" && u.Scheme != "https" {
 		return false
@@ -173,8 +188,12 @@ func secretURL(s string) bool {
 	if u.User != nil {
 		return true
 	}
-	for key := range u.Query() {
-		if sensitiveKey.MatchString(key) {
+	// Inspect decoded query names as URLSearchParams does; retain semicolons
+	// inside a query name instead of silently discarding that pair.
+	for _, pair := range strings.Split(u.RawQuery, "&") {
+		key, _, _ := strings.Cut(pair, "=")
+		decoded, err := url.QueryUnescape(key)
+		if err == nil && (sensitiveKey.MatchString(decoded) || strings.EqualFold(decoded, "signature")) {
 			return true
 		}
 	}
