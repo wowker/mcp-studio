@@ -1,0 +1,14 @@
+=== RUN   TestActualConnectionIdentityCheckedBeforeContact
+=== RUN   TestActualConnectionIdentityCheckedBeforeContact/database
+=== RUN   TestActualConnectionIdentityCheckedBeforeContact/user
+=== RUN   TestActualConnectionIdentityCheckedBeforeContact/host
+=== RUN   TestActualConnectionIdentityCheckedBeforeContact/fallback
+--- PASS: TestActualConnectionIdentityCheckedBeforeContact (0.00s)
+    --- PASS: TestActualConnectionIdentityCheckedBeforeContact/database (0.00s)
+    --- PASS: TestActualConnectionIdentityCheckedBeforeContact/user (0.00s)
+    --- PASS: TestActualConnectionIdentityCheckedBeforeContact/host (0.00s)
+    --- PASS: TestActualConnectionIdentityCheckedBeforeContact/fallback (0.00s)
+=== RUN   TestCancellationBetweenCreateAndClaimRollsBack
+--- PASS: TestCancellationBetweenCreateAndClaimRollsBack (0.02s)
+PASS
+ok  	mcp-studio/internal/testsupport	0.598s

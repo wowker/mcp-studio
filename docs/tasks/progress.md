@@ -344,3 +344,36 @@ Final: minor (deferred): 中止Go测试可留下内部test schema，外层e2e已
 - 成功结束实际清理：test_/e2e_ schema0，自有M7容器/网络/卷0，Agent/平台/邮件/MCP/OAuth/临时TLS进程和文件结束；原mcp-studio-m1-pg保留。证据m7-final/cleanup.json。首轮完整通过但归档失败、中止130、全部RED/失败资料独立保留，不能作最终交付。
 
 T34–T36的6叶子和C12整组完成项保持未勾选：目标部署/旧版/三OS原生/签名/人工/介质及最终设计正式签收未结束；C12门禁与登记两项已勾选。A01–A60逐项追加3056a6b与相关实际证据，正式状态60/60仍待验；T02/T32b/T25b/T28a/T29b及既有未验不变。详细裁定13项及代价、一个开发夹具回收递延Minor见m7-review.md；无未修复审阅Important。保持本地codex/m0-m1分支和候选，不推送、合并、tag、签名或发布。后续只有补齐待验环境、逐项联验/签收；发布须新授权。
+
+## 2026-10-14 · V01 / V02 已授权执行
+
+用户范围：基于M7候选逐项核对A01–A60正式预期/真实证据，修补verify中止后的测试夹具回收；不进入其他验收批次或发布。沿用M7源3056a6b和计划登记2432956，初始实现/审计提交d8ca1ea，独立审阅修补冻结9ed9292473b4902e6b4ba7bd424f7915f6ff4a02。交接快照、旧M7证据和原交付归档不修改。
+
+### V01a/b · 正式断言审计和逐项登记
+
+- 正式CSV、06正文与D01–D15逐项对应，按187条款拆解：105受控断言支持、73部分、6缺直接断言、3环境待验。每个A保留原文、具体测试名/行号、历史报告、适用版本及缺口，见[审计JSON](v01-assertion-audit.json)和[60项表](v01-assertion-audit.md)。
+- [完整性证据](../../tests/evidence/v01-v02-root/v01-integrity.json)：60有序唯一编号、正式预期逐字吻合，347源引用文件摘要与M7 inputs一致、行号范围和历史报告存在。347不是独立运行数；Go历史日志只包级，浏览器具名旅程级。源审阅不新造执行证明。
+- 直接断言缺口：A01新项目全部内容空、A09Browser/Agent连接执行一致阻断、A28移除后署名和取消无副作用、A32活动Run切语言/主题保留、A51修复后旧诊断清除。部分证据包括A04 CORS→同连接显式Agent连续旅程、A07独立备份失败、A30过滤零尺寸pane前的必要pane非零高/底栏裁切、A38 Developer固定API直拒、A45指定字号、A47精确容量边界/直接贡献、A53/A55完整组合。A21确认框状态转换仅静态风险未复现，不报告确定产品故障，不在本次越界修补。
+- acceptance-schedule.csv逐行追加计数/路径，m7-acceptance-index逐项加入assertionAudit；正式状态全为待验收，0签收。原T02/T32b/M7六叶子及既有OS/人工/介质不动。
+
+### V02a · 租期、准确所有权和事务回收
+
+平台testutil和migration两处真实Go schema创建改用internal/testsupport.CreateSchema；CREATE+COMMENT在同事务，父advisory lock串行租期创建/关闭，子schema含不可预测运行nonce，准确comment限定本次所有权。关闭后迟到创建拒绝，CREATE/COMMENT之间取消回滚。Node保存父OID，父/子名字、owner、OID及完整comment核对后逐对象DROP；无test_前缀批量删除，替换对象和同前缀未拥有对象保留。
+
+专用URI及实际Go池库/user/host/fallback均需回环mcp_studio_test/mcp_studio_app，并拒绝SUPER/BYPASSRLS。SQL秘密通过环境传输，不入argv/日志；错误稳定脱敏。真实RED中止/exit7两个内部schema均残留1→GREEN4项；错库实际配置及fallback guard移除各有RED，最后具名Go2测试/four identity subcases GREEN，详见[聚焦证据](../../tests/evidence/v01-v02-root/README.md)。独立t.Cleanup无父租期的异常自动回收不冒称已覆盖。
+
+### V02b · 取消收尾与审阅修补
+
+runChecked不使用spawn AbortSignal提前错误，而是独立POSIX进程组；TERM后5s KILL，父先退出继续有界等同组后代消失，不能确认则失败。主退出130/7在schema清理拒绝时保留，追加固定脱敏说明；readiness有界并观察提前退出，不残留持久watcher。verify先构建真实Go中止夹具，新增回归并入原基础门禁，无跳过、降阈值或绕过。
+
+独立审阅第一轮2 Important/1 Minor：TERM后父先退出/后代仍在、清理覆盖主退出码、marker前失败导致watcher等待；三条Important真实RED全失败→GREEN15，再补readiness后最终16项GREEN。限定源复核关闭原问题，审阅者未执行测试。默认sandbox的两份abort-process red/green命名日志实际均EMFILE，仅作环境失败；授权环境的behavior RED/GREEN才是真实行为验证。旧失效父组回归及原提前返回也保留失败日志，不隐藏失败。
+
+### V02c/d · 冻结源完整verify与实际CLI中止
+
+- 9ed9292 [完整门禁](../../tests/evidence/v01-v02-final/verify.log)真实exit0：32基础Node、57文件/591前端及类型/生产构建、真实隔离PG全量Go24个具测试包、vet、platform/Agent/admin/受控helper构建、四目标生产Agent/未签名候选、12运维/分发、平台镜像、隔离HTTPS/STARTTLS/权限/备份恢复/未来迁移拒绝、26浏览器。零失败/跳过/重试；无测试包只编译，race和安全依赖审计未重跑。
+- 实际环境macOS26.6.2 arm64、Go1.25.5、Node24.21.0、PG18.6、Docker29.7.2/Compose5.4.0、Playwright1.59.1/Chromium147.0.7727.15、axe4.13.0。824 PNG/159 axe、0确认违规、2份tools英文亮/暗color-contrast incomplete保持人工待验。没有据自动证据勾T32b。
+- [manifest](../../tests/evidence/v01-v02-final/manifest.json)记录实现输入SHA 5ec310a6c3fe44ddb94e46e19b44b7d25428ae9bcad5fd8ee079069ca74731ac、锁文件/实际产物摘要和本地新候选地址。源码输入在verify期间未变；dirty是登记/证据，不把HEAD替代源证明。旧M7归档未重新打包或替换。
+- 完整门禁后另[实际verify CLI](../../tests/evidence/v01-v02-interrupted/result.json)观察Go阶段一个已提交内部schema并发SIGINT；真实exit130，父与孩子都自动回收0，manualDeletion=false；未到部署阶段，这次有意中止不计完整通过。
+- [最终清理](../../tests/evidence/v01-v02-final/cleanup.json)：test_/e2e_ schema0，本次准确Compose项目的容器/网络/卷0，原mcp-studio-m1-pg保留；runtime finally结束Agent/平台/SMTP/MCP/OAuth/临时TLS。只读计数不意味着做前缀批量删除。
+
+V01/V02切片已逐项登记；A01–A60正式60/60仍待验，T02/T32b及既有实机/人工/介质不签收。Windows原生进程树、脱离组外部程序、验证器直接SIGKILL/掉电、Docker全阶段强制中止未验。当前只留本地提交和未签名候选，不推送、合并、tag、签名、公证或发布。下一软件切片可从V01明确证据缺口选A编号补证；V03/V04需要验收人员，V05/V06需要隔离Mac账号，均等待后续范围授权。

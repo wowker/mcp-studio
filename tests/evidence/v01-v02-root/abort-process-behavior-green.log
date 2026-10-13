@@ -1,0 +1,11 @@
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.4865ms)
+✔ gate propagates a failing real subprocess exit status (19.246792ms)
+✔ abort waits for real parent and inherited child cleanup before returning (67.919541ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.224292

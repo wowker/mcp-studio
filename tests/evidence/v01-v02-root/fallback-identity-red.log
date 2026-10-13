@@ -1,0 +1,6 @@
+--- FAIL: TestActualConnectionIdentityCheckedBeforeContact (0.00s)
+    --- FAIL: TestActualConnectionIdentityCheckedBeforeContact/fallback (0.00s)
+        schema_test.go:47: contacted mismatched actual connection
+FAIL
+FAIL	mcp-studio/internal/testsupport	0.631s
+FAIL

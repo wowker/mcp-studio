@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-13T16:06:50.538Z",
+  "implementationRevision": "9ed9292473b4902e6b4ba7bd424f7915f6ff4a02",
+  "entrypoint": "node scripts/verify.mjs",
+  "signal": "SIGINT",
+  "stage": "Go tests with real isolated PostgreSQL",
+  "parent": "e2e_ed1a7e544274c262cbaf0309",
+  "observedChildren": [
+    "test_ed1a7e544274c262cbaf0309_c6cb8724d9be83cafa8674bd"
+  ],
+  "exitCode": 130,
+  "remainingOwnedSchemas": 0,
+  "testSchemas": 0,
+  "manualDeletion": false,
+  "scope": "Real verifier Go-stage cancellation only; not Docker/native/media interruption acceptance"
+}

@@ -16,7 +16,10 @@
 - Node为本次随机e2e schema设置运行标记并保存OID；Go两处真正创建schema的助手共用testsupport.CreateSchema，在事务内CREATE+COMMENT。本次孩子使用不可预测的父nonce命名，评论含完整运行标记；同父advisory lock串行创建与关闭。
 - 清理只按本次完整标记选取，再验证名字/实际owner/OID；不对test_前缀做批量删除。父对象替换时fail closed，未知/其他运行资源不删除。关闭后迟到的Go创建在CREATE前拒绝。中断CREATE/COMMENT之间事务回滚。
 - 实际Go池Host/User/Database及fallback必须专用回环mcp_studio_test/mcp_studio_app，拒绝SUPER/BYPASSRLS。Node DB秘密只用环境传输，不入argv/日志；所有输出错误为稳定消息。
-- 当前macOS下受控命令使用独立进程组，中止先TERM再有界KILL，等待close才进入DB收尾；中止始终exit130，失败exit7保留，不能当通过。测试覆盖真实SIGINT/SIGTERM入口、父/继承子进程、正常失败、并发、自有schema/同前缀未拥有schema、对象替换和租期关闭。
+- 当前macOS下受控命令使用独立进程组，中止先TERM再5s KILL，父退出后继续有界等待同组后代消失，才进入DB收尾；无法确认收尾则失败，不伪报已清理。确认收尾的中止返回exit130，失败exit7保留，不能当通过。测试覆盖真实SIGINT/SIGTERM入口、父/继承子进程、父先退出/后代忽略TERM、正常失败、并发、自有schema/同前缀未拥有schema、对象替换和租期关闭。
+- 原清理异常覆盖主错误的分支已用130/7各一条真实回归修补；保留主Error身份和退出码，只追加固定脱敏清理失败说明，拒绝删除的替换schema保留。readiness有界轮询且观察子进程提前退出，避免未生成marker时持久watcher悬挂。
 - 范围是本次报告的verify Go阶段/共享runtime数据库租期与受控进程取消。Windows原生进程树、脱离进程组的外部程序、直接SIGKILL验证器或宿主掉电不由finally保证；不宣称这些支持，既有OS/介质待验继续保留。Docker部署阶段既有正常finally证据不被冒称为本次新做全阶段强制中止验收。
 
 阶段验证：focused RED/GREEN见tests/evidence/v01-v02-root；冻结修补源后跑扩展完整verify，验证新助手确实覆盖platform和migration全部Go测试，同时回归原26条浏览器旅程。旧M7证据/交付包保持原版本，本次不是发布或原包无痕替换。
+
+实际完成：9ed9292完整verify exit0，32基础Node、591前端、12运维、真实PG全量Go/vet/build及26浏览器。另真实verify CLI Go阶段存活夹具SIGINT → exit130，父/子租期schema自动回收，无手动删除；证据tests/evidence/v01-v02-interrupted。最终schema/准确部署项目资源为0，预存PG保留。正式A全待验、原T02/T32b和原生/人工/介质状态不变。

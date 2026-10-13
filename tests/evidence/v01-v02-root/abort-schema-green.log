@@ -1,0 +1,17 @@
+[test-runtime] exact leased test schemas removed
+✔ aborted real Go child cleans only its claimed inner schema (1018.003959ms)
+[test-runtime] exact leased test schemas removed
+✔ failed real Go child cleans its inner schema even without t.Cleanup (385.013ms)
+[test-runtime] exact leased test schemas removed
+✔ test database schema is created then only its own schema is dropped after failure (280.431ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent isolated schemas do not remove each other (390.274791ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1453.646292

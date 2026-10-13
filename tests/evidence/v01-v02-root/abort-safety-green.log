@@ -1,0 +1,26 @@
+[test-runtime] exact leased test schemas removed
+✔ aborted real Go child cleans only its claimed inner schema (448.967208ms)
+[test-runtime] exact leased test schemas removed
+✔ failed real Go child cleans its inner schema even without t.Cleanup (409.909417ms)
+✔ replaced parent identity is preserved and cleanup fails closed (275.353ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent Go fixture leases leave the other run untouched (538.069708ms)
+[test-runtime] exact leased test schemas removed
+✔ late Go schema creation is refused after its run closes (209.591708ms)
+[test-runtime] exact leased test schemas removed
+✔ test database schema is created then only its own schema is dropped after failure (263.814292ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent isolated schemas do not remove each other (391.366083ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.58ms)
+✔ gate propagates a failing real subprocess exit status (32.84575ms)
+✔ abort waits for real parent and inherited child cleanup before returning (68.927292ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1939.4575

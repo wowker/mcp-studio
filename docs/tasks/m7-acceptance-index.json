@@ -2395,5 +2395,14 @@
       }
     }
   ],
-  "implementationRevision": "3056a6b0ab771149b39435f7f2535d2bcd0881bc"
+  "implementationRevision": "3056a6b0ab771149b39435f7f2535d2bcd0881bc",
+  "supplementalVerification": {
+    "implementation": "9ed9292473b4902e6b4ba7bd424f7915f6ff4a02",
+    "scope": "V01 assertion audit and V02 verifier cleanup; formal acceptance pending",
+    "audit": "docs/tasks/v01-assertion-audit.json",
+    "report": "docs/tasks/v01-v02-review.md",
+    "gates": "tests/evidence/v01-v02-final/manifest.json",
+    "interruption": "tests/evidence/v01-v02-interrupted/result.json",
+    "formalPassCount": 0
+  }
 }
