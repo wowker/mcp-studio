@@ -1,0 +1,997 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "2020-unevaluated-properties",
+      "schema": {
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "a": {
+                "type": "number"
+              }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "value": {
+        "a": 1,
+        "b": 2
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/b"
+        ]
+      }
+    },
+    {
+      "id": "2020-unevaluated-allowed",
+      "schema": {
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "a": {
+                "type": "number"
+              }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "value": {
+        "a": 1
+      },
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "2020-prefix-items",
+      "schema": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "items": false
+      },
+      "value": [
+        "ok",
+        2,
+        3
+      ],
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/2"
+        ]
+      }
+    },
+    {
+      "id": "2020-contains-count",
+      "schema": {
+        "type": "array",
+        "contains": {
+          "type": "integer"
+        },
+        "minContains": 2,
+        "maxContains": 3
+      },
+      "value": [
+        1,
+        "s"
+      ],
+      "expected": {
+        "supported": true,
+        "valid": false
+      }
+    },
+    {
+      "id": "dependent-required",
+      "schema": {
+        "type": "object",
+        "dependentRequired": {
+          "a": [
+            "b"
+          ]
+        }
+      },
+      "value": {
+        "a": 1
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/b"
+        ]
+      }
+    },
+    {
+      "id": "dependent-schema",
+      "schema": {
+        "type": "object",
+        "dependentSchemas": {
+          "a": {
+            "required": [
+              "b"
+            ]
+          }
+        }
+      },
+      "value": {
+        "a": 1
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/b"
+        ]
+      }
+    },
+    {
+      "id": "conditional-branch",
+      "schema": {
+        "type": "object",
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "a"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        },
+        "then": {
+          "required": [
+            "a"
+          ]
+        },
+        "else": {
+          "required": [
+            "b"
+          ]
+        }
+      },
+      "value": {
+        "kind": "a"
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/a"
+        ]
+      }
+    },
+    {
+      "id": "embedded-relative-ref",
+      "schema": {
+        "$id": "https://schema.test/root",
+        "$defs": {
+          "n": {
+            "$id": "number",
+            "type": "integer"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "n": {
+            "$ref": "number"
+          }
+        }
+      },
+      "value": {
+        "n": "bad"
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/n"
+        ]
+      }
+    },
+    {
+      "id": "recursive-local-ref",
+      "schema": {
+        "$defs": {
+          "node": {
+            "type": "object",
+            "properties": {
+              "next": {
+                "$ref": "#/$defs/node"
+              },
+              "n": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "$ref": "#/$defs/node"
+      },
+      "value": {
+        "next": {
+          "n": "bad"
+        }
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/next/n"
+        ]
+      }
+    },
+    {
+      "id": "dynamic-recursive-ref",
+      "schema": {
+        "$dynamicAnchor": "node",
+        "type": "object",
+        "properties": {
+          "n": {
+            "type": "integer"
+          },
+          "next": {
+            "$dynamicRef": "#node"
+          }
+        }
+      },
+      "value": {
+        "next": {
+          "n": "bad"
+        }
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/next/n"
+        ]
+      }
+    },
+    {
+      "id": "anchor-local-ref",
+      "schema": {
+        "$defs": {
+          "number": {
+            "$anchor": "number",
+            "type": "integer"
+          }
+        },
+        "$ref": "#number"
+      },
+      "value": "bad",
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          ""
+        ]
+      }
+    },
+    {
+      "id": "draft07-tuple",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          }
+        ],
+        "additionalItems": false
+      },
+      "value": [
+        "s",
+        2
+      ],
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/1"
+        ]
+      }
+    },
+    {
+      "id": "draft07-dependencies",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "dependencies": {
+          "a": [
+            "b"
+          ]
+        }
+      },
+      "value": {
+        "a": 1
+      },
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/b"
+        ]
+      }
+    },
+    {
+      "id": "format-annotation",
+      "schema": {
+        "type": "string",
+        "format": "email"
+      },
+      "value": "not email",
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "unknown-format",
+      "schema": {
+        "type": "string",
+        "format": "custom"
+      },
+      "value": "ok",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "unknown-keyword",
+      "schema": {
+        "type": "number",
+        "inventedAssertion": true
+      },
+      "value": 1,
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "remote-reference",
+      "schema": {
+        "$ref": "https://remote.test/private"
+      },
+      "value": 1,
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "custom-vocabulary",
+      "schema": {
+        "$vocabulary": {
+          "https://custom.test/vocab": true
+        }
+      },
+      "value": 1,
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "unsupported-dialect",
+      "schema": {
+        "$schema": "urn:custom"
+      },
+      "value": 1,
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-lookaround",
+      "schema": {
+        "type": "string",
+        "pattern": "(?=a)a"
+      },
+      "value": "a",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-backreference",
+      "schema": {
+        "type": "string",
+        "pattern": "(a)\\1"
+      },
+      "value": "aa",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-portable",
+      "schema": {
+        "type": "string",
+        "pattern": "^[a-z]+$"
+      },
+      "value": "abc",
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "required-pointer-escaping",
+      "schema": {
+        "type": "object",
+        "required": [
+          "a/b",
+          "~x"
+        ]
+      },
+      "value": {},
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          "/a~1b",
+          "/~0x"
+        ]
+      }
+    },
+    {
+      "id": "anyof-collapse",
+      "schema": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      },
+      "value": false,
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          ""
+        ]
+      }
+    },
+    {
+      "id": "oneof-overlap",
+      "schema": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "minimum": 0
+          }
+        ]
+      },
+      "value": 1,
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          ""
+        ]
+      }
+    },
+    {
+      "id": "allof-leaf-errors",
+      "schema": {
+        "allOf": [
+          {
+            "type": "string",
+            "minLength": 3
+          },
+          {
+            "pattern": "^z"
+          }
+        ]
+      },
+      "value": "a",
+      "expected": {
+        "supported": true,
+        "valid": false,
+        "errorPaths": [
+          ""
+        ]
+      }
+    },
+    {
+      "id": "invalid-schema",
+      "schema": {
+        "type": "invalid"
+      },
+      "value": 1,
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "annotation-not-schema",
+      "schema": {
+        "type": "object",
+        "default": {
+          "inventedAssertion": 1
+        },
+        "examples": [
+          {
+            "token": "example"
+          }
+        ]
+      },
+      "value": {},
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "reference-dag-budget",
+      "schema": {
+        "$defs": {
+          "n0": {
+            "type": "number"
+          },
+          "n1": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n0"
+              },
+              {
+                "$ref": "#/$defs/n0"
+              }
+            ]
+          },
+          "n2": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n1"
+              },
+              {
+                "$ref": "#/$defs/n1"
+              }
+            ]
+          },
+          "n3": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n2"
+              },
+              {
+                "$ref": "#/$defs/n2"
+              }
+            ]
+          },
+          "n4": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n3"
+              },
+              {
+                "$ref": "#/$defs/n3"
+              }
+            ]
+          },
+          "n5": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n4"
+              },
+              {
+                "$ref": "#/$defs/n4"
+              }
+            ]
+          },
+          "n6": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n5"
+              },
+              {
+                "$ref": "#/$defs/n5"
+              }
+            ]
+          },
+          "n7": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n6"
+              },
+              {
+                "$ref": "#/$defs/n6"
+              }
+            ]
+          },
+          "n8": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n7"
+              },
+              {
+                "$ref": "#/$defs/n7"
+              }
+            ]
+          },
+          "n9": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n8"
+              },
+              {
+                "$ref": "#/$defs/n8"
+              }
+            ]
+          },
+          "n10": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n9"
+              },
+              {
+                "$ref": "#/$defs/n9"
+              }
+            ]
+          },
+          "n11": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n10"
+              },
+              {
+                "$ref": "#/$defs/n10"
+              }
+            ]
+          },
+          "n12": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n11"
+              },
+              {
+                "$ref": "#/$defs/n11"
+              }
+            ]
+          },
+          "n13": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n12"
+              },
+              {
+                "$ref": "#/$defs/n12"
+              }
+            ]
+          },
+          "n14": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n13"
+              },
+              {
+                "$ref": "#/$defs/n13"
+              }
+            ]
+          },
+          "n15": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n14"
+              },
+              {
+                "$ref": "#/$defs/n14"
+              }
+            ]
+          },
+          "n16": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n15"
+              },
+              {
+                "$ref": "#/$defs/n15"
+              }
+            ]
+          },
+          "n17": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n16"
+              },
+              {
+                "$ref": "#/$defs/n16"
+              }
+            ]
+          },
+          "n18": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/n17"
+              },
+              {
+                "$ref": "#/$defs/n17"
+              }
+            ]
+          }
+        },
+        "$ref": "#/$defs/n18"
+      },
+      "value": 1,
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "same-instance-ref-cycle",
+      "schema": {
+        "$ref": "#"
+      },
+      "value": {},
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "structural-recursion-supported",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "child": {
+            "$ref": "#"
+          }
+        }
+      },
+      "value": {
+        "child": {
+          "child": {}
+        }
+      },
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "regex-pattern-budget",
+      "schema": {
+        "type": "string",
+        "pattern": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "value": "a",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-cross-engine-escape",
+      "schema": {
+        "type": "string",
+        "pattern": "\\x41"
+      },
+      "value": "A",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "multipleof-small-false",
+      "schema": {
+        "type": "number",
+        "multipleOf": 1
+      },
+      "value": 5e-08,
+      "expected": {
+        "supported": true,
+        "valid": false
+      }
+    },
+    {
+      "id": "multipleof-decimal-exact",
+      "schema": {
+        "type": "number",
+        "multipleOf": 0.1
+      },
+      "value": 0.3,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "multipleof-negative-exact",
+      "schema": {
+        "type": "number",
+        "multipleOf": 0.1
+      },
+      "value": -0.3,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "multipleof-epsilon-below",
+      "schema": {
+        "type": "number",
+        "multipleOf": 1
+      },
+      "value": 1.19e-07,
+      "expected": {
+        "supported": true,
+        "valid": false
+      }
+    },
+    {
+      "id": "multipleof-epsilon-above",
+      "schema": {
+        "type": "number",
+        "multipleOf": 1
+      },
+      "value": 1.2e-07,
+      "expected": {
+        "supported": true,
+        "valid": false
+      }
+    },
+    {
+      "id": "multipleof-offset-false",
+      "schema": {
+        "type": "number",
+        "multipleOf": 1
+      },
+      "value": 1.00000005,
+      "expected": {
+        "supported": true,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-space-parity",
+      "schema": {
+        "type": "string",
+        "pattern": "^\\s$"
+      },
+      "value": " ",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-dot-parity",
+      "schema": {
+        "type": "string",
+        "pattern": "^.$"
+      },
+      "value": " ",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-posix-parity",
+      "schema": {
+        "type": "string",
+        "pattern": "^[[:alpha:]]$"
+      },
+      "value": "a",
+      "expected": {
+        "supported": false,
+        "valid": false
+      }
+    },
+    {
+      "id": "regex-dot-literal",
+      "schema": {
+        "type": "string",
+        "pattern": "^\\.$"
+      },
+      "value": ".",
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "2020-deprecated-annotation",
+      "schema": {
+        "type": "object",
+        "deprecated": true
+      },
+      "value": {},
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "2020-definitions-ref",
+      "schema": {
+        "definitions": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "$ref": "#/definitions/n"
+      },
+      "value": 2,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "draft07-alias-no-fragment",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema",
+        "type": "number"
+      },
+      "value": 2,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "binary64-unsafe-integer-normalized",
+      "schema": {
+        "const": 9007199254740992
+      },
+      "value": 9007199254740993,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "binary64-decimal-normalized",
+      "schema": {
+        "const": 0.1
+      },
+      "value": 0.10000000000000001,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    },
+    {
+      "id": "binary64-bounded-underflow-zero",
+      "schema": {
+        "const": 0
+      },
+      "value": 1e-324,
+      "expected": {
+        "supported": true,
+        "valid": true
+      }
+    }
+  ]
+}

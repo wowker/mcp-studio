@@ -6,13 +6,14 @@ import {i18n} from '../../shared/i18n';
 import {PlatformClient} from '../../shared/api';
 import {M2Memory} from '../connections/runtimeStore';
 import {ToolsPage} from './ToolsPage';
+import {redact} from '../../runtime/records/redaction';
 const project={id:'p',teamId:'team',name:'Project',description:'',role:'developer' as const,canRead:true,canManage:false,canTakeover:false};
 const session={user:{id:'u',email:'u@example.test',name:'User',verified:true},teams:[{id:'team',name:'Team',role:'member' as const}],csrf:'test',expiresAt:'2099-01-01T00:00:00Z'};
 const connection={id:'c',projectId:'p',version:1,etag:'"v1"',name:'Real service',transport:'streamable-http',channel:'browser',endpoint:'https://example.test/mcp',command:'',args:[],cwd:'',headers:[],env:[],timeoutMs:30000,environmentId:'',authMode:'none',authReferenceId:'',oauthClientId:'',oauthScopes:[]};
 const tool={name:'inventory.lookup',description:'Read stock',inputSchema:{type:'object' as const,properties:{count:{type:'integer'}}}};
 const snapshot={status:'connected' as const};
 let memory:M2Memory;let listTools:ReturnType<typeof vi.fn>;
-beforeEach(async()=>{await i18n.changeLanguage('en-US');memory=new M2Memory();listTools=vi.fn(async()=>[tool]);const runtime={getSnapshot:()=>memory.operationGeneration===0?snapshot:{status:'disconnected'},listTools};vi.spyOn(memory,'existingRuntime').mockReturnValue(runtime as never);vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({data:[connection]})));});
+beforeEach(async()=>{await i18n.changeLanguage('en-US');memory=new M2Memory();listTools=vi.fn(async()=>[tool]);const runtime={getSnapshot:()=>memory.operationGeneration===0?snapshot:{status:'disconnected'},listTools,captureSanitizer:()=>(value:unknown)=>redact(value)};vi.spyOn(memory,'existingRuntime').mockReturnValue(runtime as never);vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({data:[connection]})));});
 afterEach(()=>{memory.clear();vi.unstubAllGlobals();vi.restoreAllMocks();});
 function setup(role='developer'){const user=userEvent.setup();const props={client:new PlatformClient(()=>{}),project:{...project,role:role as 'developer'},session,memory,connectionId:'c',navigate:vi.fn(),scopeRevision:0};const rendered=render(<I18nextProvider i18n={i18n}><ToolsPage {...props}/></I18nextProvider>);return {user,...rendered,props};}
 it('lists the real session catalog, searches it, and opens independent documents with keyboard navigation',async()=>{
@@ -38,4 +39,9 @@ it('closing a focused document returns focus to a surviving tab and the catalog 
 });
 it('shows a deleted remembered selection as unavailable and lets the user choose a remaining connection',async()=>{
  memory.selected.set('p','deleted');const {user,rerender,props}=setup();rerender(<I18nextProvider i18n={i18n}><ToolsPage {...props} connectionId=""/></I18nextProvider>);await screen.findByRole('alert');expect(screen.queryByText('No services yet. Create a saved configuration before connecting.')).toBeNull();expect(screen.getByRole('option',{name:'Real service'})).toBeTruthy();expect(screen.getByLabelText('Service')).toHaveProperty('value','deleted');await user.selectOptions(screen.getByLabelText('Service'),'c');await screen.findByRole('button',{name:'Open inventory.lookup'});expect(memory.selected.get('p')).toBe('c');
+});
+it('keeps an open saved-result editor attached to its original Tab when switching documents',async()=>{
+ const {user}=setup();await user.click(await screen.findByRole('button',{name:'Open inventory.lookup'}));const tab=memory.tools.scope('p','c').selected!;
+ await act(async()=>{tab.lastRunId='run';tab.lastSnapshot={userId:'u',projectId:'p',connectionId:'c',tabId:tab.id,runId:'run',toolName:tool.name,configurationVersion:1,toolDefinitionVersion:'v1',environmentId:'',environmentVersion:'',executor:'browser',credentialSource:'none',requestJSON:'{}',inputSchemaJSON:JSON.stringify(tool.inputSchema),responseJSON:'null',protocolJSON:'null',startedAt:'2026-10-13T00:00:00Z',finishedAt:'2026-10-13T00:00:01Z',runStatus:'succeeded',remoteOutcome:'known',resultKind:'success',httpStatus:0,responseRetention:'full',omissionReason:'',schemaValid:true,redactions:[]};memory.touch();});
+ await user.click(screen.getByRole('button',{name:'Save result'}));await screen.findByText('Save as new record');await user.click(screen.getByRole('button',{name:'New tab for inventory.lookup'}));expect(screen.queryByText('Save as new record')).toBeNull();expect(screen.getByText('Not executed')).toBeTruthy();
 });

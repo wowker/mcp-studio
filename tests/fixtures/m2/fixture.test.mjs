@@ -14,3 +14,7 @@ test('controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs 
   assert.equal(f.stats.toolsList,4);assert.equal(f.stats.httpToolsList,2);assert.equal(f.stats.sseToolsList,2);assert.ok(Object.values(f.stats).every(v=>typeof v==='number'));
  }finally{await f.close();}
 });
+test('controlled call failures and barrier do not change handshake or retain payloads in counters',async()=>{
+ const f=await startM2Fixture({allowedOrigin:'http://localhost:3000'});const call=(text)=>fetch(f.origin+'/mcp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:4,method:'tools/call',params:{name:'echo',arguments:{text}}})});
+ try{assert.equal((await call('fixture-call-401')).status,401);const invalid=await (await call('fixture-output-invalid')).json();assert.equal(invalid.result.structuredContent.text,1);const pending=call('fixture-slow-result');while(f.stats.delayedCalls!==1)await new Promise(resolve=>setTimeout(resolve,1));assert.equal((await fetch(f.origin+'/release-tools',{method:'POST'})).status,200);assert.equal((await pending).status,200);assert.equal(f.stats.releasedCalls,1);assert.ok(Object.values(f.stats).every(value=>typeof value==='number'));}finally{await f.close();}
+});

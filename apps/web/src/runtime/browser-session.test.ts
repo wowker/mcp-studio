@@ -62,12 +62,12 @@ it.each([['version_conflict',409,'config_conflict'],['forbidden',403,'forbidden'
 });
 
 const catalogTools=[{name:'echo',title:'Echo',description:'Returns supplied text',inputSchema:{type:'object' as const,properties:{text:{type:'string'}},required:['text']},outputSchema:{type:'object' as const,properties:{text:{type:'string'}}},annotations:{readOnlyHint:true}},{name:'nested',inputSchema:{type:'object' as const,properties:{items:{type:'array',items:{type:'object',properties:{enabled:{type:'boolean'}}}}}}}];
-function catalogMCP({transport='streamable-http',tools=true,page}: {transport?:Connection['transport'];tools?:boolean;page?:(cursor:unknown)=>unknown|Promise<unknown>}={}){
+function catalogMCP({transport='streamable-http',tools=true,page,call}: {transport?:Connection['transport'];tools?:boolean;page?:(cursor:unknown)=>unknown|Promise<unknown>;call?:(params:unknown)=>unknown|Promise<unknown>}={}){
  const requests:{method:string;params?:{cursor?:string}}[]=[];let stream:ReadableStreamDefaultController<Uint8Array>|undefined;const encoder=new TextEncoder();
  const network=async(_input:string|URL|Request,init?:RequestInit)=>{
   if(init?.method!=='POST')return transport==='sse'?new Response(new ReadableStream<Uint8Array>({start(controller){stream=controller;controller.enqueue(encoder.encode('event: endpoint\ndata: /messages\n\n'));}}),{headers:{'Content-Type':'text/event-stream'}}):new Response(null,{status:405});
   const message=JSON.parse(String(init.body));requests.push(message);if(message.id===undefined)return new Response(null,{status:202});
-  const result=message.method==='initialize'?{protocolVersion:'2025-11-25',serverInfo:{name:'catalog-fixture',version:'1'},capabilities:tools?{tools:{}}:{}}:await(page?.(message.params?.cursor)??{tools:catalogTools});
+  const result=message.method==='initialize'?{protocolVersion:'2025-11-25',serverInfo:{name:'catalog-fixture',version:'1'},capabilities:tools?{tools:{}}:{}}:message.method==='tools/call'?await(call?.(message.params)??{content:[{type:'text',text:'ok'}]}):await(page?.(message.params?.cursor)??{tools:catalogTools});
   const response={jsonrpc:'2.0',id:message.id,...(result&&typeof result==='object'&&'error'in result?result:{result})};
   if(transport==='sse'){stream?.enqueue(encoder.encode(`event: message\ndata: ${JSON.stringify(response)}\n\n`));return new Response(null,{status:202});}
   return new Response(JSON.stringify(response),{headers:{'Content-Type':'application/json'}});
@@ -142,4 +142,40 @@ it.each(['streamable-http','sse'] as const)('discovers output schemas over %s wi
  const {AjvJsonSchemaValidator}=await import('@modelcontextprotocol/sdk/validation/ajv');const compile=vi.spyOn(AjvJsonSchemaValidator.prototype,'getValidator').mockImplementation(()=>{throw new EvalError('CSP blocks dynamic Function');});
  const {network}=catalogMCP({transport,page:cursor=>cursor?{tools:[catalogTools[1]]}:{tools:[catalogTools[0]],nextCursor:'second'}});vi.stubGlobal('fetch',network);const session=new BrowserSession();
  try{await session.connect({connection:{...connection,transport},userId:'u',environment,authorize:async()=>access});expect(await session.listTools()).toEqual(catalogTools);expect(compile).not.toHaveBeenCalled();}finally{await session.disconnect();compile.mockRestore();}
+});
+it.each(['streamable-http','sse'] as const)('calls a tool through real %s SDK wire validation without dynamic output compiler',async transport=>{
+ const {network,requests}=catalogMCP({transport,call:()=>({content:[{type:'text',text:'ok'}],structuredContent:{text:'ok'}})});vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection:{...connection,transport},userId:'u',environment,authorize:async()=>access});
+ expect(await session.callTool({connection:{...connection,transport},userId:'u',environment,name:'echo',arguments:{text:'hello'}})).toMatchObject({content:[{type:'text',text:'ok'}]});expect(requests.filter(r=>r.method==='tools/call')).toHaveLength(1);await session.disconnect();
+});
+it('refuses changed config and resolved environment values before any call traffic',async()=>{
+ let value='initial';const env={...environment,rows:[{name:'WORKSPACE',status:'resolved',source:'base-project',sensitive:false}],read:()=>({value,sensitive:false})};const {network,requests}=catalogMCP();vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment:env,authorize:async()=>access});
+ await expect(session.callTool({connection:{...connection,version:2},userId:'u',environment:env,name:'echo',arguments:{}})).rejects.toMatchObject({code:'config_conflict'});value='changed';await expect(session.callTool({connection,userId:'u',environment:env,name:'echo',arguments:{}})).rejects.toMatchObject({code:'environment_changed'});expect(requests.filter(r=>r.method==='tools/call')).toHaveLength(0);await session.disconnect();
+});
+it('keeps captured connection secret sanitization after current values change or session disconnects',async()=>{
+ const {network}=catalogMCP();vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection:{...connection,authMode:'token'},userId:'u',environment,credential:'old-connected-private',authorize:async()=>access});const sanitize=session.captureSanitizer();await session.disconnect();expect(JSON.stringify(sanitize({echo:'old-connected-private'}))).not.toContain('old-connected-private');
+});
+it('per-call cancellation and late response do not disconnect the session or permit late success',async()=>{
+ let release:(v:unknown)=>void=()=>{};let entered:()=>void=()=>{};const started=new Promise<void>(r=>entered=r);const {network}=catalogMCP({call:()=>{entered();return new Promise(r=>release=r);}});vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});const controller=new AbortController();const pending=session.callTool({connection,userId:'u',environment,name:'echo',arguments:{},signal:controller.signal});const rejection=expect(pending).rejects.toMatchObject({code:'cancelled'});await started;controller.abort();await rejection;release({content:[{type:'text',text:'late'}]});await new Promise(r=>setTimeout(r,0));expect(session.getSnapshot().status).toBe('connected');await session.disconnect();
+});
+it('replaces raw JSON-RPC error messages with a safe call classification',async()=>{
+ const {network}=catalogMCP({call:()=>({error:{code:-32603,message:'Bearer raw-private',data:'raw-private'}})});vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});await expect(session.callTool({connection,userId:'u',environment,name:'echo',arguments:{}})).rejects.toMatchObject({code:'rpc_error',message:'rpc_error'});await session.disconnect();
+});
+it.each([401,403])('preserves actual call HTTP %i diagnosis ahead of SDK closed-connection errors',async status=>{
+ const {network}=catalogMCP();vi.stubGlobal('fetch',async(input:string|URL|Request,init?:RequestInit)=>{const message=init?.method==='POST'?JSON.parse(String(init.body)):undefined;return message?.method==='tools/call'?new Response('raw-private',{status}):network(input,init);});const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});await expect(session.callTool({connection,userId:'u',environment,name:'echo',arguments:{}})).rejects.toMatchObject({code:status===401?'credential_rejected':'authorization_denied'});await session.disconnect();
+});
+it('checks current connection identity for restoration without reading an execution environment',async()=>{
+ const {network}=catalogMCP();vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});expect(()=>session.assertConnection(connection,'u')).not.toThrow();expect(()=>session.assertConnection({...connection,version:2},'u')).toThrow('config_conflict');expect(()=>session.assertConnection(connection,'foreign')).toThrow('forbidden');await session.disconnect();
+});
+it('freezes the actual credential used for connecting before an async authority lookup returns',async()=>{
+ const {network}=catalogMCP();vi.stubGlobal('fetch',network);let release:(value:ConnectionAccess)=>void=()=>{};const session=new BrowserSession(),options={connection:{...connection,authMode:'token' as const},userId:'u',environment,credential:'original-connect-private',authorize:()=>new Promise<ConnectionAccess>(r=>release=r)};const pending=session.connect(options);options.credential='later-private';release(access);await pending;expect(JSON.stringify(session.captureSanitizer()({echo:'original-connect-private'}))).not.toContain('original-connect-private');await session.disconnect();
+});
+it('classifies transport failure during a pending call as network error rather than RPC closed-connection error',async()=>{
+ const {network}=catalogMCP({call:()=>{throw Error('raw-network-private');}});vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});await expect(session.callTool({connection,userId:'u',environment,name:'echo',arguments:{}})).rejects.toMatchObject({code:'network_error',message:'network_error'});await session.disconnect();
+});
+it('classifies a malformed SDK tool result as a protocol failure without exposing raw payload',async()=>{
+ const {network}=catalogMCP({call:()=>({content:'raw-private-invalid-payload'})});vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});await expect(session.callTool({connection,userId:'u',environment,name:'echo',arguments:{}})).rejects.toMatchObject({code:'rpc_error',message:'rpc_error'});await session.disconnect();
+});
+it('retains actual RPC error context privately without serializing SDK message or data on the error',async()=>{
+ const {network}=catalogMCP({call:()=>({error:{code:-32603,message:'rpc-private-sentinel',data:{echo:'rpc-private-sentinel'}}})});vi.stubGlobal('fetch',network);const session=new BrowserSession();await session.connect({connection,userId:'u',environment,authorize:async()=>access});
+ try{await session.callTool({connection,userId:'u',environment,name:'echo',arguments:{text:'test'}});throw Error('expected RPC rejection');}catch(error){expect(error).toMatchObject({code:'rpc_error',message:'rpc_error'});expect(JSON.stringify(error)).not.toContain('rpc-private-sentinel');expect(error).toHaveProperty('captureSummary');const summary=(error as {captureSummary:()=>unknown}).captureSummary();expect(summary).toMatchObject({source:'sdk-error-summary',jsonrpcError:{code:-32603,sdkDiagnostic:expect.stringContaining('rpc-private-sentinel'),data:{echo:'rpc-private-sentinel'}}});}finally{await session.disconnect();}
 });

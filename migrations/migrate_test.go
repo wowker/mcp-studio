@@ -71,7 +71,7 @@ func TestUpgrade001PreservesIdentityAndVerifiesChecksums(t *testing.T) {
 	if err = db.QueryRow(ctx, `SELECT count(*) FROM users WHERE id='upgrade-user'`).Scan(&n); err != nil || n != 1 {
 		t.Fatal("upgrade lost M1 identity", err)
 	}
-	if err = db.QueryRow(ctx, `SELECT count(*) FROM schema_migrations`).Scan(&n); err != nil || n != 2 {
+	if err = db.QueryRow(ctx, `SELECT count(*) FROM schema_migrations`).Scan(&n); err != nil || n != 3 {
 		t.Fatal("upgrade failed", err, n)
 	}
 	db.Exec(ctx, `UPDATE schema_migrations SET digest='wrong' WHERE version=1`)

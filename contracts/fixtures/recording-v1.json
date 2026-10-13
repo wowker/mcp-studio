@@ -1,0 +1,568 @@
+{
+  "version": 1,
+  "purpose": "Production M3 canonical digest and typed redaction; literal expectations independent of implementations",
+  "canonical": [
+    {
+      "id": "safe-scalars",
+      "raw": "{\"z\":null,\"b\":false,\"n\":0,\"a\":[true,1,\"\"],\"frozenDigest\":\"ignored\"}",
+      "expectedCanonical": "{\"a\":[true,1,\"\"],\"b\":false,\"n\":0,\"z\":null}",
+      "expectedDigest": "ea9aea17cbb71aefd942c7c25108112887edabe3dbdeb5b2a27def4543c58536"
+    },
+    {
+      "id": "unicode-codepoint-and-no-HTML-escape",
+      "raw": "{\"😀\":1,\"\":2,\"a\":\"<>& \",\"z\":-0}",
+      "expectedCanonical": "{\"a\":\"<>& \",\"z\":0,\"\":2,\"😀\":1}",
+      "expectedDigest": "b1028319712d542be45a2094db64bc25bc6aa2ed7d87c304ad6e1ec034eed4fa"
+    },
+    {
+      "id": "encoded-decimal-payload",
+      "raw": "{\"requestJSON\":\"{\\\"n\\\":0.1}\",\"version\":1}",
+      "expectedCanonical": "{\"requestJSON\":\"{\\\"n\\\":0.1}\",\"version\":1}",
+      "expectedDigest": "884bacb256ed992a7e8855715b40622eaf232d5dbac945c551ed7db80ba34583"
+    },
+    {
+      "id": "outer-decimal-unsupported",
+      "raw": "{\"n\":0.1}",
+      "error": "unsafe_digest_value"
+    },
+    {
+      "id": "unsafe-integer",
+      "raw": "{\"n\":9007199254740992}",
+      "error": "unsafe_digest_value"
+    },
+    {
+      "id": "duplicate-key",
+      "raw": "{\"x\":1,\"x\":2}",
+      "error": "unsafe_digest_value"
+    },
+    {
+      "id": "lone-surrogate",
+      "raw": "{\"s\":\"\\ud800\"}",
+      "error": "unsafe_digest_value"
+    }
+  ],
+  "redaction": [
+    {
+      "id": "red-default-nested-secrets",
+      "value": {
+        "headers": {
+          "Authorization": "Bearer fixture",
+          "Cookie": "session=fixture"
+        },
+        "email": "fixture@example.invalid",
+        "phone": "13800000000",
+        "ok": false
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "headers": {
+            "Authorization": {
+              "$redacted": true
+            },
+            "Cookie": {
+              "$redacted": true
+            }
+          },
+          "email": {
+            "$redacted": true
+          },
+          "phone": {
+            "$redacted": true
+          },
+          "ok": false
+        },
+        "markers": [
+          {
+            "path": "/email",
+            "reason": "default"
+          },
+          {
+            "path": "/headers/Authorization",
+            "reason": "default"
+          },
+          {
+            "path": "/headers/Cookie",
+            "reason": "default"
+          },
+          {
+            "path": "/phone",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-derived-secret-echo",
+      "value": {
+        "safe": "x",
+        "echo": [
+          "prefix FIXTURE_SECRET suffix"
+        ]
+      },
+      "options": {
+        "sensitiveValues": [
+          "FIXTURE_SECRET"
+        ]
+      },
+      "expected": {
+        "value": {
+          "safe": "x",
+          "echo": [
+            {
+              "$redacted": true
+            }
+          ]
+        },
+        "markers": [
+          {
+            "path": "/echo/0",
+            "reason": "source"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-pointer-escaped",
+      "value": {
+        "a/b": {
+          "~key": "business confidential"
+        },
+        "other": 0
+      },
+      "options": {
+        "additionalPointers": [
+          "/a~1b/~0key"
+        ]
+      },
+      "expected": {
+        "value": {
+          "a/b": {
+            "~key": {
+              "$redacted": true
+            }
+          },
+          "other": 0
+        },
+        "markers": [
+          {
+            "path": "/a~1b/~0key",
+            "reason": "additional"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-invalid-pointer",
+      "value": {
+        "x": 1
+      },
+      "options": {
+        "additionalPointers": [
+          "/absent"
+        ]
+      },
+      "error": "invalid_pointer"
+    },
+    {
+      "id": "red-secret-url",
+      "value": {
+        "endpoint": "https://example.invalid/mcp?token=fixture",
+        "public": "https://example.invalid/mcp?workspace=demo"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "endpoint": {
+            "$redacted": true
+          },
+          "public": "https://example.invalid/mcp?workspace=demo"
+        },
+        "markers": [
+          {
+            "path": "/endpoint",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "red-preserve-falsy",
+      "value": {
+        "n": 0,
+        "b": false,
+        "v": null,
+        "e": ""
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "n": 0,
+          "b": false,
+          "v": null,
+          "e": ""
+        },
+        "markers": [],
+        "omitted": false
+      }
+    },
+    {
+      "id": "binary-metadata-only",
+      "value": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "data": "synthetic-base64-secret"
+          }
+        ]
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "content": [
+            {
+              "type": "image",
+              "mimeType": "image/png",
+              "omitted": "binary_content"
+            }
+          ]
+        },
+        "markers": [
+          {
+            "path": "/content/0",
+            "reason": "omitted"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "project-path-does-not-require-unused-fields",
+      "value": {
+        "ok": false
+      },
+      "options": {
+        "projectPointers": [
+          "/missing"
+        ]
+      },
+      "expected": {
+        "value": {
+          "ok": false
+        },
+        "markers": [],
+        "omitted": false
+      }
+    },
+    {
+      "id": "secret-URL-encoded-key",
+      "value": {
+        "address": "https://x.test/mcp?%74oken=private"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "address": {
+            "$redacted": true
+          }
+        },
+        "markers": [
+          {
+            "path": "/address",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "public-query-kept",
+      "value": {
+        "address": "https://x.test/mcp?workspace=demo"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "address": "https://x.test/mcp?workspace=demo"
+        },
+        "markers": [],
+        "omitted": false
+      }
+    },
+    {
+      "id": "nested-marker-literal",
+      "value": {
+        "text": "[REDACTED]"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "text": "[REDACTED]"
+        },
+        "markers": [],
+        "omitted": false
+      }
+    },
+    {
+      "id": "proto-own-data",
+      "value": {
+        "__proto__": {
+          "x": 1
+        },
+        "ok": false
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "__proto__": {
+            "x": 1
+          },
+          "ok": false
+        },
+        "markers": [],
+        "omitted": false
+      }
+    },
+    {
+      "id": "inherited-pointer-rejected",
+      "value": {
+        "ok": 1
+      },
+      "options": {
+        "additionalPointers": [
+          "/toString"
+        ]
+      },
+      "error": "invalid_pointer"
+    },
+    {
+      "id": "default-source-derived-echo",
+      "value": {
+        "password": "opaque-business",
+        "echo": "prefix opaque-business suffix"
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "password": {
+            "$redacted": true
+          },
+          "echo": {
+            "$redacted": true
+          }
+        },
+        "markers": [
+          {
+            "path": "/echo",
+            "reason": "source"
+          },
+          {
+            "path": "/password",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "project-source-derived-echo",
+      "value": {
+        "private": "opaque-other",
+        "echo": "opaque-other"
+      },
+      "options": {
+        "projectPointers": [
+          "/private"
+        ]
+      },
+      "expected": {
+        "value": {
+          "private": {
+            "$redacted": true
+          },
+          "echo": {
+            "$redacted": true
+          }
+        },
+        "markers": [
+          {
+            "path": "/echo",
+            "reason": "source"
+          },
+          {
+            "path": "/private",
+            "reason": "project"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "structural-marker-not-secret-bool",
+      "value": {
+        "token": {
+          "$redacted": true
+        },
+        "ok": true
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "token": {
+            "$redacted": true
+          },
+          "ok": true
+        },
+        "markers": [
+          {
+            "path": "/token",
+            "reason": "default"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "source-numeric-phone-echo",
+      "value": {
+        "request": {
+          "phone": 13800138000,
+          "n": 0
+        },
+        "response": {
+          "echo": 13800138000,
+          "text": "phone 13800138000"
+        }
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "request": {
+            "phone": {
+              "$redacted": true
+            },
+            "n": 0
+          },
+          "response": {
+            "echo": {
+              "$redacted": true
+            },
+            "text": {
+              "$redacted": true
+            }
+          }
+        },
+        "markers": [
+          {
+            "path": "/request/phone",
+            "reason": "default"
+          },
+          {
+            "path": "/response/echo",
+            "reason": "source"
+          },
+          {
+            "path": "/response/text",
+            "reason": "source"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "source-tainted-false-only",
+      "value": {
+        "request": {
+          "password": false,
+          "n": 0
+        },
+        "response": {
+          "echo": false,
+          "keep": 0
+        }
+      },
+      "options": {},
+      "expected": {
+        "value": {
+          "request": {
+            "password": {
+              "$redacted": true
+            },
+            "n": 0
+          },
+          "response": {
+            "echo": {
+              "$redacted": true
+            },
+            "keep": 0
+          }
+        },
+        "markers": [
+          {
+            "path": "/request/password",
+            "reason": "default"
+          },
+          {
+            "path": "/response/echo",
+            "reason": "source"
+          }
+        ],
+        "omitted": false
+      }
+    },
+    {
+      "id": "source-number-spelling-normalized",
+      "value": {
+        "request": {
+          "opaque": 2.0
+        },
+        "response": {
+          "echo": 2,
+          "text": "source 2"
+        }
+      },
+      "options": {
+        "additionalPointers": [
+          "/request/opaque"
+        ]
+      },
+      "expected": {
+        "value": {
+          "request": {
+            "opaque": {
+              "$redacted": true
+            }
+          },
+          "response": {
+            "echo": {
+              "$redacted": true
+            },
+            "text": {
+              "$redacted": true
+            }
+          }
+        },
+        "markers": [
+          {
+            "path": "/request/opaque",
+            "reason": "additional"
+          },
+          {
+            "path": "/response/echo",
+            "reason": "source"
+          },
+          {
+            "path": "/response/text",
+            "reason": "source"
+          }
+        ],
+        "omitted": false
+      }
+    }
+  ]
+}

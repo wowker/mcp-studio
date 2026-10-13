@@ -1,6 +1,6 @@
-# M1–M2 本机启动与验证
+# M1–M3 本机启动与验证
 
-正式入口包含身份协作以及 M2 T10–T14 的连接配置、环境定义、个人内存授权和浏览器 HTTP 会话。Tool 目录/Tab、执行、记录、上传及 Agent 尚未开放。
+正式入口包含身份协作、连接配置、环境定义、个人内存授权、浏览器 HTTP 会话，以及 T15/M3 的工具目录/Tab、参数编辑、实际调用、脱敏上传、历史/保存/修订和恢复。Agent 执行尚未开放；浏览器失败操作仅在当前会话保留，不支持刷新恢复。
 
 需要锁定版本 Go 1.25.5、Node 24.21.0、PostgreSQL 18；依赖使用 `go.sum` 与 `package-lock.json`。安装 `npm ci`，首次浏览器验证运行 `npx playwright install chromium`。网络受限环境需预先准备这些依赖。
 
@@ -70,7 +70,7 @@ npm run verify
 
 缺少数据库、SMTP 测试捕获器、浏览器或任一测试失败均非通过，不静默跳过。门禁包含生成合同一致性、64 个共同语义向量、SDK／回环安全／邮件／runtime 测试、前端类型／组件测试／生产构建、真实 PostgreSQL Go 测试、vet、Go 构建以及真实生产入口 Playwright 旅程。测试 SMTP 只监听回环，收件内容只在进程内，结束关闭；浏览器 trace、video、failure screenshot 关闭，避免采集验证码。
 
-当前目标设备证据见 `docs/tasks/progress.md`。T02 的跨浏览器／跨 OS／公网限制矩阵继续待验，M2 的局部受控证据不放行未验证 MCP 通道。
+当前目标设备证据见 `docs/tasks/progress.md`。T02 的跨浏览器／跨 OS／公网限制矩阵继续待验，M2/M3 的局部受控证据不放行未验证 MCP 通道。
 
 ## M2 使用与验证范围
 
@@ -81,3 +81,11 @@ npm run verify
 浏览器手动连接明确选择的 Streamable HTTP 或旧 SSE，平台只核验权限与配置。受 CORS、混合内容、本地网络限制时显示诊断和 Agent 配置入口，M2 不提供 Agent 执行。OAuth 仅支持预注册公共客户端的 HTTPS PKCE/resource/issuer 协议范围；同平台主机名授权弹窗受 Cookie 边界限制。协议范围详见 [runtime 合同](../../apps/web/src/runtime/README.md)。
 
 完整 verify 使用生产 Go 静态入口 + 临时自签 HTTPS 终止器，保证 Secure Cookie 流程；需要本机 `openssl`。MCP HTTP/SSE 和 HTTPS OAuth 夹具只绑定回环，授权主机为 localhost、平台主机为127.0.0.1。仅隔离 Playwright 上下文忽略测试 TLS 证书错误，正式应用不放宽 TLS。fixture 的邮件、Token、code 与 verifier 为临时合成值，数值统计不记录凭据；结束清理临时证书、进程和随机 schema。M2 E2E 同时回归 M1 身份协作，M1 原证据文件不覆盖。
+
+## M3 使用与验证范围
+
+连接服务后进入工具目录，打开独立Tab。可选参数默认skip；Raw JSON语法错禁止保存/执行，合法但Schema错只可保存为私有未完成请求。执行前检查当前工具、应用环境与平台权限；执行后编辑不变Run快照。取消/超时不承诺上游回滚，上传失败重试仅重发原冻结记录，不重调工具。
+
+总历史与工具历史分别保留筛选/游标。保存请求或请求响应创建新记录；元数据和追加脱敏均为独立条件修订。恢复创建新未执行Tab，采用当前连接/Schema/环境，脱敏参数需要重新填写。协议快照是SDK摘要，不是原始HTTP帧trace。
+
+当前失败上传/保存/修订只保留在会话内存，刷新、退出后不提供可靠恢复；M4的持久队列、容量/保留/封存作业未实现。Agent来源测试为合成存档，不能说明Agent执行或上传认证已经完成。完整verify同时运行M1/M2回归和M3连续旅程；最新证据与实现版本见 [执行账本](../tasks/progress.md)。

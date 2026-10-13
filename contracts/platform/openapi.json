@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "MCP Studio platform",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "servers": [
     {
@@ -3119,6 +3119,837 @@
           }
         }
       }
+    },
+    "/api/v1/projects/{projectId}/record-uploads": {
+      "post": {
+        "operationId": "uploadRecord",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordOperationReceipt"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordUploadInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/record-operations/{operationId}": {
+      "get": {
+        "operationId": "getRecordOperation",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordOperationReceipt"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/records": {
+      "get": {
+        "operationId": "listRecords",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "history",
+                "saved"
+              ]
+            }
+          },
+          {
+            "name": "connectionId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toolName",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "private",
+                "project"
+              ]
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "succeeded",
+                "failed",
+                "cancelled",
+                "idle"
+              ]
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contentKind",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "request",
+                "request-response"
+              ]
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordPage"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/records/{recordId}": {
+      "get": {
+        "operationId": "getRecord",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Record"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteRecord",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Accepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/records/{recordId}/revisions": {
+      "post": {
+        "operationId": "reviseRecord",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordOperationReceipt"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordRevisionInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/records/{recordId}/pin": {
+      "patch": {
+        "operationId": "pinRecord",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Record"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordPinInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/records/{recordId}/audits": {
+      "get": {
+        "operationId": "listRecordAudits",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/RecordRevisionAudit"
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/record-redaction-policy": {
+      "get": {
+        "operationId": "getRecordRedactionPolicy",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordRedactionPolicy"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateRecordRedactionPolicy",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/RecordRedactionPolicy"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid bounded record input or cursor"
+          },
+          "401": {
+            "description": "Current verified session required"
+          },
+          "403": {
+            "description": "Actual project and record permissions required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "digest_conflict, identity_conflict or version_conflict"
+          },
+          "428": {
+            "description": "If-Match required for conditional writes"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordRedactionPolicyInput"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -4055,6 +4886,621 @@
           "connectionId",
           "version",
           "environmentId"
+        ]
+      },
+      "RedactionMarker": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string",
+            "enum": [
+              "source",
+              "default",
+              "project",
+              "additional",
+              "omitted"
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "reason"
+        ]
+      },
+      "ExecutionSnapshot": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "tabId": {
+            "type": "string"
+          },
+          "runId": {
+            "type": "string"
+          },
+          "toolName": {
+            "type": "string"
+          },
+          "configurationVersion": {
+            "type": "integer"
+          },
+          "toolDefinitionVersion": {
+            "type": "string"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "environmentVersion": {
+            "type": "string"
+          },
+          "executor": {
+            "type": "string",
+            "enum": [
+              "browser",
+              "agent"
+            ]
+          },
+          "credentialSource": {
+            "type": "string",
+            "enum": [
+              "none",
+              "token",
+              "oauth",
+              "reference"
+            ]
+          },
+          "requestJSON": {
+            "type": "string"
+          },
+          "inputSchemaJSON": {
+            "type": "string"
+          },
+          "responseJSON": {
+            "type": "string"
+          },
+          "protocolJSON": {
+            "type": "string"
+          },
+          "startedAt": {
+            "type": "string"
+          },
+          "finishedAt": {
+            "type": "string"
+          },
+          "runStatus": {
+            "type": "string",
+            "enum": [
+              "idle",
+              "succeeded",
+              "failed",
+              "cancelled"
+            ]
+          },
+          "remoteOutcome": {
+            "type": "string",
+            "enum": [
+              "known",
+              "unknown"
+            ]
+          },
+          "resultKind": {
+            "type": "string",
+            "enum": [
+              "none",
+              "success",
+              "tool_error",
+              "rpc_error",
+              "http_error",
+              "network_error",
+              "cancelled",
+              "timeout",
+              "output_invalid"
+            ]
+          },
+          "httpStatus": {
+            "type": "integer"
+          },
+          "responseRetention": {
+            "type": "string",
+            "enum": [
+              "full",
+              "omitted"
+            ]
+          },
+          "omissionReason": {
+            "type": "string"
+          },
+          "schemaValid": {
+            "type": "boolean"
+          },
+          "redactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RedactionMarker"
+            }
+          }
+        },
+        "required": [
+          "userId",
+          "projectId",
+          "connectionId",
+          "tabId",
+          "runId",
+          "toolName",
+          "configurationVersion",
+          "toolDefinitionVersion",
+          "environmentId",
+          "environmentVersion",
+          "executor",
+          "credentialSource",
+          "requestJSON",
+          "inputSchemaJSON",
+          "responseJSON",
+          "protocolJSON",
+          "startedAt",
+          "finishedAt",
+          "runStatus",
+          "remoteOutcome",
+          "resultKind",
+          "httpStatus",
+          "responseRetention",
+          "omissionReason",
+          "schemaValid",
+          "redactions"
+        ]
+      },
+      "RecordMetadata": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "private",
+              "project"
+            ]
+          },
+          "contentKind": {
+            "type": "string",
+            "enum": [
+              "request",
+              "request-response"
+            ]
+          },
+          "completeness": {
+            "type": "string",
+            "enum": [
+              "complete",
+              "incomplete"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "note",
+          "visibility",
+          "contentKind",
+          "completeness"
+        ]
+      },
+      "Record": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "ownerId": {
+            "type": "string"
+          },
+          "ownerName": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "history",
+              "saved"
+            ]
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "sourceRunId": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RecordMetadata"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/ExecutionSnapshot"
+          }
+        },
+        "required": [
+          "id",
+          "projectId",
+          "connectionId",
+          "ownerId",
+          "ownerName",
+          "kind",
+          "version",
+          "etag",
+          "createdAt",
+          "updatedAt",
+          "pinned",
+          "sourceRunId",
+          "metadata",
+          "snapshot"
+        ]
+      },
+      "AffectedRecord": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ]
+      },
+      "RecordOperationReceipt": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "operationId": {
+            "type": "string"
+          },
+          "targetKind": {
+            "type": "string",
+            "enum": [
+              "history",
+              "saved",
+              "revision",
+              "delete",
+              "pin"
+            ]
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "frozenDigest": {
+            "type": "string"
+          },
+          "responsibleEndpoint": {
+            "type": "string",
+            "enum": [
+              "browser",
+              "agent"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "recorded"
+            ]
+          },
+          "recordId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "recordedAt": {
+            "type": "string"
+          },
+          "affectedRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AffectedRecord"
+            }
+          }
+        },
+        "required": [
+          "operationId",
+          "targetKind",
+          "targetId",
+          "frozenDigest",
+          "responsibleEndpoint",
+          "status",
+          "recordId",
+          "version",
+          "etag",
+          "recordedAt",
+          "affectedRecords"
+        ]
+      },
+      "RecordUploadInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contractVersion": {
+            "type": "string",
+            "enum": [
+              "1.2.0"
+            ]
+          },
+          "userId": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string"
+          },
+          "targetKind": {
+            "type": "string",
+            "enum": [
+              "history",
+              "saved"
+            ]
+          },
+          "targetId": {
+            "type": "string"
+          },
+          "responsibleEndpoint": {
+            "type": "string",
+            "enum": [
+              "browser",
+              "agent"
+            ]
+          },
+          "frozenDigest": {
+            "type": "string"
+          },
+          "sourceRunId": {
+            "type": "string"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/ExecutionSnapshot"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RecordMetadata"
+          }
+        },
+        "required": [
+          "contractVersion",
+          "userId",
+          "projectId",
+          "connectionId",
+          "operationId",
+          "targetKind",
+          "targetId",
+          "responsibleEndpoint",
+          "frozenDigest",
+          "sourceRunId",
+          "snapshot",
+          "metadata"
+        ]
+      },
+      "RecordRevisionInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contractVersion": {
+            "type": "string",
+            "enum": [
+              "1.2.0"
+            ]
+          },
+          "userId": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string"
+          },
+          "recordId": {
+            "type": "string"
+          },
+          "baseVersion": {
+            "type": "integer"
+          },
+          "revisionKind": {
+            "type": "string",
+            "enum": [
+              "metadata",
+              "additional-redaction"
+            ]
+          },
+          "frozenDigest": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/RecordMetadata"
+          },
+          "redactionPointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contractVersion",
+          "userId",
+          "projectId",
+          "connectionId",
+          "operationId",
+          "recordId",
+          "baseVersion",
+          "revisionKind",
+          "frozenDigest",
+          "metadata",
+          "redactionPointers",
+          "reason"
+        ]
+      },
+      "RecordPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Record"
+            }
+          },
+          "nextCursor": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ]
+      },
+      "RecordPinInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "pinned": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pinned"
+        ]
+      },
+      "RecordRedactionPolicy": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "pointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "projectId",
+          "version",
+          "etag",
+          "pointers"
+        ]
+      },
+      "RecordRedactionPolicyInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "pointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "pointers"
+        ]
+      },
+      "RecordRevisionAudit": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "recordId": {
+            "type": "string"
+          },
+          "actorId": {
+            "type": "string"
+          },
+          "actorName": {
+            "type": "string"
+          },
+          "occurredAt": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "pointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "version": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "recordId",
+          "actorId",
+          "actorName",
+          "occurredAt",
+          "reason",
+          "pointers",
+          "version"
         ]
       }
     },

@@ -18,9 +18,9 @@ T16选定 Hyperjump JSON Schema 1.18.0（浏览器AST解释器）与Go jsonschem
 
 协议错误、Tool isError、认证失败、网络未知分开。请求/响应/协议正文默认脱敏用于复制、保存、上传，原始响应只在生成会话调试。来源敏感标签+默认规则+项目规则+记录追加路径传播到嵌套/派生回显；无法可靠脱敏的二进制/大正文只留元数据和省略原因。使用结构化脱敏路径/类型，不能凭字符串“***”认定可恢复或缺失。
 
-## 平台记录接口细化（待T17实施）
+## 平台记录接口
 
-平台OpenAPI计划兼容升级1.2.0：record-uploads接收独立history/saved，record-operations/{operationId}查询本人回执，records列表/详情、revisions元数据或追加脱敏、pin和删除。请求/响应/Schema/协议正文可使用JSON编码字符串，沿用valueJSON风格；冻结字符串不再格式化。规范摘要仅含完整身份、责任端及冻结脱敏内容，外层安全整数与字符串规范化由Go/TS共同向量证明。
+平台OpenAPI已兼容升级1.2.0：record-uploads接收独立history/saved，record-operations/{operationId}查询本人回执，records列表/详情、revisions元数据或追加脱敏、pin和删除。请求/响应/Schema/协议正文使用JSON编码字符串，沿用valueJSON风格；冻结字符串不再格式化。规范摘要包含完整身份、责任端及冻结脱敏内容，外层安全整数与字符串规范化由Go/TS共同向量证明。回执status为recorded，修订targetKind为revision；摘要证明客户端操作一致性，不是上游执行的签名证明。
 
 数据与幂等回执在同事务写入。先会话与真实project_members权限，再查回执；与成员变更同团队行锁，锁后重读关系。Developer可上传本人Run、创建/修改/删除本人private saved；项目saved发布/写入、pin和清理仅Maintainer；Viewer只读共享及本人private；Owner/Admin目录权限不授权内容或他人private。相同operation同身份同摘要复用回执，异摘要/身份409；修订新operation+If-Match/baseVersion，不修改请求响应。
 
@@ -34,4 +34,16 @@ T02完整Chrome/Edge/OS/公网本地网络授权矩阵继续待验。T15及M3真
 
 依据：[MCP2025-11-25 tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools)、[Ajv Schema](https://ajv.js.org/json-schema.html)、[Go正式Schema校验器](https://pkg.go.dev/github.com/santhosh-tekuri/jsonschema/v6)。引用固定版本语义，不宣称其为最新规范。
 
-T15实现adf6622；真实发现使用SDK Client.request + ListToolsResultSchema，避免SDK listTools隐式Ajv动态编译输出Schema，同时保留边界验证。默认Ajv需要unsafe-eval，不能用于当前严格CSP的动态上游Schema。T16将用独立Worker中的Hyperjump解释器（须实际CSP浏览器验证），禁止http/https/file URI插件及跨文档引用；Worker隔离注册表并可终止超时。cfworker缺少dynamicRef语义不选作完整2020-12校验器。依据[Ajv CSP限制](https://ajv.js.org/security.html#content-security-policy)、[Hyperjump](https://github.com/hyperjump-io/json-schema)、[MCP可选GET405](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)。
+T15实现adf6622；真实发现使用SDK Client.request + ListToolsResultSchema，避免SDK listTools隐式Ajv动态编译输出Schema，同时保留边界验证。默认Ajv需要unsafe-eval，不能用于当前严格CSP的动态上游Schema。T16已用独立Worker中的Hyperjump解释器，实际生产CSP浏览器验证通过，禁止http/https/file URI插件及跨文档引用；Worker隔离注册表，1500ms超时终止。cfworker缺少dynamicRef语义，不选作完整2020-12校验器。依据[Ajv CSP限制](https://ajv.js.org/security.html#content-security-policy)、[Hyperjump](https://github.com/hyperjump-io/json-schema)、[MCP可选GET405](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)。
+
+## M3 已实施的校验范围与边界
+
+共同Schema新增49向量，并继续运行M0的17条Schema向量；记录共同7条摘要/19条脱敏向量。未声明dialect默认2020-12；draft-07仅明确URI允许。format作为annotation，不强制格式断言；未知keyword/vocabulary/format明确拒绝。支持本地资源、结构递归与dynamicRef；同实例循环/指数引用DAG拒绝。结构模式仅在可无歧义表达时使用oneOf；其余组合完整正式校验，编辑采用局部或整体JSON。便携pattern禁止通配点、\\s/\\S、POSIX、lookaround/backreference等已证明跨端不一致的表达式。
+
+Schema与输入分别1MiB、4096节点、64层；复杂度乘积100000。JSON数字先约束词法尾数128位与指数绝对值324，再按浏览器binary64语义校验，有限下溢归0；原冻结JSON字符串保留。multipleOf使用精确十进制运算，不以epsilon放宽。Go数字边界在进入有理数操作前检查，防极端指数膨胀。响应留存10MiB；超限只保留元数据，但有限结构化输出仍检查outputSchema。平台外层编码请求32MiB预算用于JSON字符串转义，解码后仍检查各正文实际大小，不等于M4项目/队列容量已实现。
+
+协议页保留SDK已解析结果/错误摘要，RPC保留实际错误码；没有伪造原始帧ID、HTTP成功状态或完整传输trace。私有诊断在克隆前限制大小、深度、节点与JSON合法性，不符合时明确省略；UI固定错误代码不携带原始诊断。run结果与upload回执两条独立状态轴。冻结上传只用其所属项目的真实权限，身份代际与项目代际独立；撤销A不丢B的已发出结果。
+
+平台来源证明使用当前项目脱敏规则生成的安全投影；允许JSON键序与binary64等价形式，拒绝篡改及未应用新规则的旧快照。来源敏感标签继续保护新元数据/原因；Schema注释与验证属性名分开，工具名称等自由上下文参与脱敏。追加脱敏同步关联副本与旧审计原因，客户端即使已离开详情也会清除该Run缓存和保存来源。
+
+Cookie客户端不能声称Agent负责history上传（executor_not_authenticated）。测试中已有Agent来源的记录仅用隔离DB合成存档验证浏览器另存的原执行者身份；Agent运行、上传认证与系统凭据库均未实现，留M5。原始凭据与未脱敏正文不进入浏览器持久存储，平台接收也不意味着记录来源经过可信执行端签名。

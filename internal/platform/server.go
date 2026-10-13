@@ -17,6 +17,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -29,10 +30,12 @@ type Config struct {
 	Idle, Absolute                         time.Duration
 }
 type App struct {
-	DB     *pgxpool.Pool
-	Now    func() time.Time
-	Config Config
-	Mail   Mailer
+	DB                 *pgxpool.Pool
+	Now                func() time.Time
+	Config             Config
+	Mail               Mailer
+	recordCursorOnce   sync.Once
+	recordCursorSecret [32]byte
 }
 
 func id() string {
@@ -112,6 +115,7 @@ func (a *App) Handler() http.Handler {
 	a.projectRoutes(mux)
 	a.memberRoutes(mux)
 	a.configurationRoutes(mux)
+	a.recordRoutes(mux)
 	mux.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) { fail(w, 404, "not_found") })
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != "GET" && r.Method != "HEAD" {
