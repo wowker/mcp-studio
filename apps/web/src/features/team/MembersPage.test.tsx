@@ -1,5 +1,5 @@
 import {beforeEach,afterEach,it,expect,vi} from 'vitest';
-import {act,render,screen,waitFor} from '@testing-library/react';
+import {act,render,screen,waitFor,within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {MembersPage} from './MembersPage';
 import {PlatformClient} from '../../shared/api';
@@ -28,6 +28,33 @@ it('requires scope confirmation before deleting another project member',async()=
  await user.click(screen.getByRole('button',{name:'Confirm removal'}));
  await screen.findByRole('button',{name:'Other'});
  expect(deleted).toBe('/api/v1/projects/p/members/other');
+});
+
+it.each(['project','team'] as const)('cancelling %s removal sends no mutation and retains the member role and scope',async(scope)=>{
+ const writes:{url:string;method:string}[]=[],refresh=vi.fn();
+ const member={id:'other',name:'Other',email:'other@example.test',teamRole:'member',projectRole:'developer'};
+ vi.stubGlobal('fetch',async(url:string,init?:RequestInit)=>{
+  const method=init?.method??'GET';if(method!=='GET')writes.push({url,method});
+  return new Response(JSON.stringify({data:[member]}));
+ });
+ const user=userEvent.setup();render(<MembersPage client={new PlatformClient()} session={session} team={team} project={project} refreshProject={refresh}/>);
+ if(scope==='team')await user.click(screen.getByRole('button',{name:'Team members'}));
+ await user.click(await screen.findByRole('button',{name:'Other'}));
+ const removeName=scope==='project'?'Remove from project':'Remove from team';
+ await user.click(screen.getByRole('button',{name:removeName}));
+ const notice=scope==='project'?'Remove Other from Project only. Team and other project memberships remain.':'Remove Other from the team and every team project. Pending invitations will be revoked.';
+ const confirmation=screen.getByText(notice).parentElement!;
+ expect(writes).toEqual([]);
+ await user.click(within(confirmation).getByRole('button',{name:'Cancel'}));
+ expect(screen.queryByRole('button',{name:'Confirm removal'})).toBeNull();
+ expect(screen.queryByText(notice)).toBeNull();
+ expect(writes).toEqual([]);expect(refresh).not.toHaveBeenCalled();
+ expect(screen.getByLabelText(scope==='project'?'Project role':'Team role')).toHaveProperty('value',scope==='project'?'developer':'member');
+ expect(screen.getByRole('heading',{name:'Other'})).toBeTruthy();
+ await user.click(screen.getByRole('button',{name:'Cancel'}));
+ expect(await screen.findByRole('button',{name:'Other'})).toBeTruthy();
+ expect(screen.getByRole('button',{name:scope==='project'?'Project members':'Team members'}).getAttribute('aria-current')).toBe('page');
+ expect(writes).toEqual([]);expect(refresh).not.toHaveBeenCalled();
 });
 
 it('reports when the selected member disappears after a successful role refresh',async()=>{
