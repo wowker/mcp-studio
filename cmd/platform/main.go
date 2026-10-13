@@ -66,7 +66,10 @@ func recordStorageConfig() (int64, int, int, time.Duration, error) {
 	return limit, int(days), int(max), interval, nil
 }
 func backupKey() ([]byte, error) {
-	raw := os.Getenv("MCP_STUDIO_BACKUP_KEY")
+	raw, err := infrastructure.Secret("MCP_STUDIO_BACKUP_KEY")
+	if err != nil {
+		return nil, err
+	}
 	if raw == "" {
 		return nil, nil
 	}
@@ -113,7 +116,19 @@ func run() error {
 	if err != nil {
 		return err
 	}
-	db, err := infrastructure.Database(ctx, os.Getenv("MCP_STUDIO_DATABASE_URL"))
+	databaseURL, err := infrastructure.Secret("MCP_STUDIO_DATABASE_URL")
+	if err != nil {
+		return err
+	}
+	initial, err := infrastructure.Secret("MCP_STUDIO_INIT_CREDENTIAL")
+	if err != nil {
+		return err
+	}
+	smtpPassword, err := infrastructure.Secret("MCP_STUDIO_SMTP_PASSWORD")
+	if err != nil {
+		return err
+	}
+	db, err := infrastructure.Database(ctx, databaseURL)
 	if err != nil {
 		return err
 	}
@@ -121,10 +136,10 @@ func run() error {
 	if err = migrations.Apply(ctx, db); err != nil {
 		return errors.New("database migration failed")
 	}
-	cfg := platform.Config{BackupKey: key, Origin: origin, StaticDir: os.Getenv("MCP_STUDIO_STATIC_DIR"), BootstrapCredential: os.Getenv("MCP_STUDIO_INIT_CREDENTIAL"), CookieSecure: u.Scheme == "https", Idle: idle, Absolute: absolute, RecordCapacityBytes: limit, HistoryRetentionDays: days, MaxHistoryRetentionDays: maxDays}
+	cfg := platform.Config{BackupKey: key, Origin: origin, StaticDir: os.Getenv("MCP_STUDIO_STATIC_DIR"), BootstrapCredential: initial, CookieSecure: u.Scheme == "https", Idle: idle, Absolute: absolute, RecordCapacityBytes: limit, HistoryRetentionDays: days, MaxHistoryRetentionDays: maxDays}
 	a := &platform.App{DB: db, Now: time.Now, Config: cfg}
 	if addr := os.Getenv("MCP_STUDIO_SMTP_ADDRESS"); addr != "" {
-		a.Mail = infrastructure.SMTP{Address: addr, From: os.Getenv("MCP_STUDIO_SMTP_FROM"), Username: os.Getenv("MCP_STUDIO_SMTP_USERNAME"), Password: os.Getenv("MCP_STUDIO_SMTP_PASSWORD"), AllowInsecureLoopback: allow}
+		a.Mail = infrastructure.SMTP{Address: addr, From: os.Getenv("MCP_STUDIO_SMTP_FROM"), Username: os.Getenv("MCP_STUDIO_SMTP_USERNAME"), Password: smtpPassword, AllowInsecureLoopback: allow}
 	}
 	// The job is cancellable and joined before the database pool closes. Errors
 	// expose no stored content, credentials or database connection strings.

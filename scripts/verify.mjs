@@ -1,4 +1,6 @@
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readdir, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { randomBytes } from 'node:crypto';
 import { runChecked, runRuntime, validateTestDatabaseURL, withTestSchema } from './test-runtime.mjs';
 
 // Explicit database is mandatory. No environment silently skips integration or browser gates.
@@ -21,8 +23,19 @@ try {
   await mkdir('.runtime', { recursive: true });
   await check('Go production platform build', 'go', ['build', '-o', '.runtime/platform', './cmd/platform']);
   await check('Go production Agent build', 'go', ['build', '-o', '.runtime/agent', './cmd/agent']);
+  await check('Go offline administration build', 'go', ['build', '-o', '.runtime/studio-admin', './cmd/studio-admin']);
   await check('Controlled Agent integration fixture build', 'go', ['build', '-o', '.runtime/m5-agent-fixture', './tests/fixtures/m5-agent']);
+  const candidate = resolve('.runtime', 'm7-verify-candidate-' + randomBytes(8).toString('hex'));
+  const candidateEnv = { MCP_STUDIO_CANDIDATE_DIR: candidate };
+  await check('Four-target unsigned Agent candidates', process.execPath, ['packaging/build-agent.mjs'], candidateEnv);
+  const operationTests = (await readdir('tests/operations')).filter(name => name.endsWith('.test.mjs')).sort().map(name => 'tests/operations/' + name);
+  await check('Deployment, recovery, packaging and real candidate lifecycle', process.execPath, ['--test', ...operationTests], candidateEnv);
+  await check('Local platform container candidate build', 'docker', ['build', '-f', 'deploy/Dockerfile', '-t', 'mcp-studio-platform:m7-candidate', '.']);
+  await check('Fresh isolated HTTPS deployment, recovery and upgrade', process.execPath, ['scripts/test-deployment.mjs']);
   await runRuntime([], { signal: controller.signal });
+  const evidence = process.env.PLAYWRIGHT_EVIDENCE_DIR ?? 'tests/evidence/m7-final';
+  await mkdir(evidence, { recursive: true });
+  await writeFile(resolve(evidence, 'candidate-location.json'), JSON.stringify({ directory: candidate, gates: 'passed', publication: 'not-authorized', nativeAcceptance: 'pending' }, null, 2) + '\n');
   console.log('[verify] all gates passed');
 } catch (error) {
   console.error(`[verify] ${error.message}`);

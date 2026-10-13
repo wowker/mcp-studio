@@ -23,7 +23,7 @@ import (
 func main() {
 	options, err := parseOptions(os.Args[1:])
 	if err == nil {
-		err = run(options)
+		err = execute(options, os.Stdout)
 	}
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "MCP Studio Agent:", err)

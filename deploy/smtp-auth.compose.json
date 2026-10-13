@@ -1,0 +1,17 @@
+{
+  "services": {
+    "platform": {
+      "environment": {
+        "MCP_STUDIO_SMTP_PASSWORD_FILE": "/run/secrets/smtp_password"
+      },
+      "secrets": [
+        "smtp_password"
+      ]
+    }
+  },
+  "secrets": {
+    "smtp_password": {
+      "file": "${STUDIO_SECRETS_DIR:?Absolute private secrets directory required}/smtp_password"
+    }
+  }
+}

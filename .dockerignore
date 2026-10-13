@@ -1,0 +1,13 @@
+.git
+.runtime
+node_modules
+apps/web/dist
+.env*
+**/*.key
+**/*.pem
+.secrets
+.superpowers
+test-results
+playwright-report
+tests/evidence
+docs

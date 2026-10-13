@@ -1,4 +1,4 @@
-# M1–M5 本机启动与验证
+# M1–M7 本机启动与验证
 
 正式入口包含身份协作、连接配置、环境定义、个人内存授权、浏览器 HTTP 会话，以及 T15/M3 的工具目录/Tab、参数编辑、实际调用、脱敏上传、历史/保存/修订和恢复。M4 提供浏览器脱敏持久队列，M5 新增受保护本机 Agent；实际验证状态和实机待验项见执行账本。
 
@@ -72,6 +72,8 @@ npm run verify
 缺少数据库、Agent 集成测试 helper、SMTP 测试捕获器、浏览器或任一测试失败均非通过，不静默跳过。门禁包含生成合同一致性、64 个共同语义向量、SDK／回环安全／邮件／runtime 测试、前端类型／组件测试／生产构建、真实 PostgreSQL Go 测试、vet、Go 构建以及真实生产入口 Playwright 旅程。测试 SMTP 只监听回环，收件内容只在进程内，结束关闭；浏览器 trace、video、failure screenshot 关闭，避免采集验证码。
 
 当前目标设备证据见 `docs/tasks/progress.md`。T02 的跨浏览器／跨 OS／公网限制矩阵继续待验，M2/M3 的局部受控证据不放行未验证 MCP 通道。
+
+M7增加离线admin构建、四目标未签名Agent候选、临时前缀安装/升级/卸载与恢复回归、运维/交付白名单测试、平台Docker镜像构建和实际新容器HTTPS/STARTTLS/权限/备份恢复/未来迁移拒绝烟测，再运行原M1–M6浏览器门禁。需要Docker/Compose、可用固定镜像、macOS pkgbuild、tar/zip/openssl；当前完整构建门禁是在macOS arm64执行，Windows/Linux原生环境仍待验。每次候选目录全新，旧产物不覆盖；通过后目录登记在candidate-location.json。设置PLAYWRIGHT_EVIDENCE_DIR为新的证据目录；失败即非通过，所有本次独立容器/临时目录清理。候选交付工具`node scripts/package-candidate.mjs EVIDENCE_DIRECTORY`仅在门禁通过并补齐manifest/cleanup后生成本地包，不发布。部署/恢复操作见deployment-recovery.md，Agent限制见agent-distribution.md。
 
 ## M2 使用与验证范围
 

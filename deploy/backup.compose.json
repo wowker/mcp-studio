@@ -1,0 +1,17 @@
+{
+  "services": {
+    "platform": {
+      "environment": {
+        "MCP_STUDIO_BACKUP_KEY_FILE": "/run/secrets/backup_key"
+      },
+      "secrets": [
+        "backup_key"
+      ]
+    }
+  },
+  "secrets": {
+    "backup_key": {
+      "file": "${STUDIO_SECRETS_DIR:?Absolute private secrets directory required}/backup_key"
+    }
+  }
+}

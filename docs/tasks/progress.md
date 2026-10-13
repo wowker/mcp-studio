@@ -308,3 +308,22 @@ T02a/b、C01继续待验：公网HTTPS LNA、目标Chrome/Edge两稳定主版本
 - 主包453.47kB/minified、139.19kB/gzip，schema-vendor70.35/18.89kB，未提高500kB门槛或禁用axe规则。产物/锁文件hash、实际macOS/Go/Node/PG/Chromium/axe版本与支持限制见[manifest](../../tests/evidence/m6-final/manifest.json)。runtime已停止Agent/平台/SMTP/MCP/OAuth/TLS，并删除本次schema/临时目录；[清理检查](../../tests/evidence/m6-final/cleanup.json) test_/e2e_ schema为0。M5 race/交叉编译仅历史证据，没有冒称本次重做实机。
 
 T31a/b、T32a、T33a/b共5叶子完成；T32b人工键盘/读屏保持未勾选，C11整组完成项也保持未勾选，门禁和登记条目独立签收。T02a/b、T25b、T28a、T29b及C01/C09/C10原待验不变；目标Chrome/Edge两稳定主版本、公网HTTPS LNA、远程网络、跨OS、真实邮件供应商、原生库/人工配对/介质和物理断电未宣称支持。A01–A60仍全部待验收，仅直接相关10行补M6部分版本和证据。后续M7需另行授权。
+
+## M7 T34–T36 执行开始 · 2026-10-13
+
+用户授权M7，基线acf7197；本次不发布、推送、合并或签收缺环境验收。T02/T32b及既有OS/人工/介质待验保持原状态。沿用当前干净codex/m0-m1工作分支与既有验证依赖；持久登记使用docs/tasks，参考设计快照不改。执行切片和完成条件见m7-execution.md；阶段最终状态必须依据实际门禁与交付物，不把交叉编译或未签名候选当实机通过。
+
+### M7 实现与局部验证（最终门禁前）
+
+| 叶子 | 实际实现与验证 | 未满足的完整完成条件 |
+| --- | --- | --- |
+| T34a | Secret/_FILE冲突与私有文件读取；同站点非root HTTPS/PG/STARTTLS Compose。部署第八轮实际exit0：新独立库、一次Owner、Secure/HttpOnly/CSRF、业务非SUPER/BYPASSRLS。证据m7-root/secrets-behavior-red.log、secrets-green-final.log、deployment-eighth.log及m7-deployment/deployment-report.json | 真实DNS/可信证书/SMTP供应商及目标网络环境 |
+| T34b | 离线全事务cipher轮换，错key/损坏回滚；custom pg_dump、空app schema恢复、未来迁移拒绝；managed目录1–30d淘汰。实际PG轮换rotation-green-corrected.log、TOC/retention RED→GREEN、Docker合成恢复成功 | 真实旧版库/异地与物理介质/掉电/key custody演练 |
+| T35a | 四目标生产binary、unsigned Mac pkg/Windows zip/Linux CLI及安全离线诊断；实际4目标build、6hash、3Node、7包Go及vet局部门禁。tests/evidence/m7-agent | 三OS清洁安装/权限/凭据库、Windows MSI、签名/公证与支持版本 |
+| T35b | install+state锁、受管binary/state/本人校验、升级保留queue/vault、解除后旧channel/grant新Run401与Tool次数保持；Important marker故障真实RED→可恢复journal回归GREEN | 真实旧发行版迁移/回退、跨OS人工配对解除、真实掉电 |
+| T36a | verify增加admin/候选/ops/容器烟测；60项逐项相关源和剩余验收条件索引已整理，下一步执行冻结候选全门禁 | 全部A项正式预期逐断言复核、实机和人工签收 |
+| T36b | 平台镜像/Agent/合同/5条SQL/恢复说明/证据的白名单交付工具；逃逸/链接/覆盖/篡改摘要回归2/2；实际整包在全门禁之后生成 | 最终设计人工签收；本次不发布 |
+
+最终审阅：gpt-6-astra只读审阅，两项Important均接受并在ONE fix pass加故障回归修复。Minor无单独递延；完整verify缺运维检查作为本阶段未完工作补入。全部13项未判断/范围裁定及判断错误代价见m7-review.md的Rulings I made，逐项保留实机/人工/媒体待验，不降低门槛。根任务T36交付工具自检，不冒称已有独立审阅。
+
+失败与环境记录保留：默认Go module-cache EPERM不是通过；初次轮换owner_id列错误、部署tag/脚本执行权/TLS最小NET_BIND_SERVICE、测试客户端漏CSRF、CREATE app TOC恢复冲突分别定位后修补。m7-deployment-first至seventh均失败，eighth为真实成功；不删失败证据或把初次编译缺能力等同运行行为RED。
