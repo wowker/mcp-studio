@@ -1,0 +1,5 @@
+--- FAIL: TestLocalCredentialRoundtripDoesNotMutateMasterKeyProvider (0.03s)
+    credentials_test.go:114: local roundtrip read 0: encrypted_data_corrupt
+FAIL
+FAIL	mcp-studio/internal/agent/sessions	0.503s
+FAIL

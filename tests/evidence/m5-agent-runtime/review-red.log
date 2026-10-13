@@ -1,0 +1,35 @@
+Review regression console excerpts, captured before each corresponding fix.
+All credential strings below are synthetic fixture data.
+
+Command: go test ./internal/agent/sessions -run TestBackupCurrentVersion
+--- FAIL: TestBackupCurrentVersionResponseAndRestoreCredentialContract
+    backup contract {"data":{"ok":true}}
+    backup 2: 409 {"error":{"code":"platform_rejected_409"}}
+    versions [0 0]
+    restore contract 200 {"data":{"ok":true}}
+
+Command: go test ./internal/agent/oauth -run 'TestOAuthReduced|TestOAuthOmitted'
+--- FAIL: TestOAuthReducedScopeIsDeniedAndCannotBeSaved
+    claimed scopes [read write] want actual []
+    reduced scope accepted: Status:authorized Saved:false saved=true err=<nil>
+--- FAIL: TestOAuthOmittedScopeUsesRequestedAndProvidedScopeUsesActual
+    claimed scopes [read write] want actual [write read]
+    reduced scope accepted: Status:authorized Saved:false saved=true err=<nil>
+
+Command: go test ./internal/agent/sessions -run 'TestResolvedEndpoint|TestNativePrompt'
+--- FAIL: TestNativePromptMasksEncodedKnownSecret
+    encoded secret printed [--credential=a%2Fb literal]
+--- FAIL: TestResolvedEndpointRejectsEncodedKnownCredential
+    encoded credential URL accepted https://mcp.example/?public=a%2Fb
+
+Command: go test ./internal/agent/sessions -run TestKnownSecretSchema
+--- FAIL: TestKnownSecretSchemaStructureKeysNeverReachCatalogOrSnapshot
+    private structure key leaked {"properties":{"Authorization":{"type":"string"},"private-schema-key":{"type":"string"},"token":{"type":"string"}},"type":"object"}
+
+Command: go test ./internal/agent/sessions -run 'TestOAuthSaveReturns|TestTerminalCache'
+--- FAIL: TestTerminalCacheReceiptGraceAndPendingExpiry
+    receipt grace did not evict body; SnapshotJSON still retained {"response":0}
+--- FAIL: TestTerminalCacheCountBytesAndActivePreservation
+    metadata or active limit 1002
+--- FAIL: TestOAuthSaveReturnsCredentialStateAndKeepsAuthorizationStateSeparate
+    save credential contract 200 {"data":{"status":"authorized","saved":true,"diagnostic":""}}

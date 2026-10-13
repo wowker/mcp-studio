@@ -1,0 +1,5 @@
+--- FAIL: TestRealLocalAPICredentialStatusUsesContractEnum (0.02s)
+    status_contract_test.go:96: actual localAPI status "configured" wanted "saved" outside enum [saved unsaved failed missing expired]
+FAIL
+FAIL	mcp-studio/internal/agent/sessions	0.722s
+FAIL

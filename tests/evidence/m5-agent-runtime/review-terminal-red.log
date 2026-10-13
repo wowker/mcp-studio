@@ -1,0 +1,5 @@
+--- FAIL: TestNativeConfirmationQuotesEveryUntrustedTerminalValue (0.00s)
+    confirmation_test.go:17: raw terminal escape reached local approval
+FAIL
+FAIL	mcp-studio/cmd/agent	0.588s
+FAIL
