@@ -1,0 +1,200 @@
+{
+  "stage": "M2 T10–T14",
+  "sourceCommit": "fc5331f",
+  "contractVersion": "1.1.0",
+  "environment": {
+    "os": "macOS 26.6.2 arm64",
+    "node": "24.21.0",
+    "go": "1.25.5",
+    "postgres": "18.6",
+    "playwright": "1.59.1",
+    "browser": "Chromium 147.0.7727.15"
+  },
+  "verification": {
+    "exitCode": 0,
+    "nodeTests": 16,
+    "frontendTests": 143,
+    "browserTests": 6,
+    "skipped": 0,
+    "go": "test -count=1 ./..., vet, production build; real isolated PostgreSQL",
+    "configurationSharedCases": 28,
+    "environmentSharedCases": 14,
+    "commonSemantics": 64,
+    "cleanupSchemas": 0
+  },
+  "builds": [
+    {
+      "path": ".runtime/platform",
+      "bytes": 15054498,
+      "sha256": "0923afbb97f7d7f906f14591c937371591174f224081b64eceeb9984f0dd31f9"
+    },
+    {
+      "path": "contracts/platform/openapi.json",
+      "bytes": 99149,
+      "sha256": "7f1a88b834155d9bf8c07a8ecaaf4b12abda27361509b23e4617d8dacacb250b"
+    },
+    {
+      "path": "migrations/002_configuration_environment.sql",
+      "bytes": 1361,
+      "sha256": "12bb595182429ed33b48f7e70a695aad65bc8f2c307c44edd9931fed76860f79"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 155210,
+      "sha256": "18e2d7e4c54dbc3fa2ebeb5359ebb424e880054131d03e401b581c1028728350"
+    },
+    {
+      "path": "go.sum",
+      "bytes": 4174,
+      "sha256": "483cea7eeaa2588a5d3de0cc0e91c75a086529c26a118e417ba02d7834d77a77"
+    },
+    {
+      "path": "apps/web/dist/assets/ConnectionsPage-djHbXh0v.js",
+      "bytes": 20142,
+      "sha256": "dbd51e7ae0fefaec69c6b1f89c2801dd6d9888c255dc6176707d2ddea7c93352"
+    },
+    {
+      "path": "apps/web/dist/assets/EnvironmentPage-6A0kDlFV.js",
+      "bytes": 13272,
+      "sha256": "07dd82792c95a83d1f6418ff87de6320ffc604bdc3da27dfb27bde128baf8507"
+    },
+    {
+      "path": "apps/web/dist/assets/auth-By4xEfK4.js",
+      "bytes": 21575,
+      "sha256": "f41308d154f9e683fef8a4f08028579337385e9bc27db1ada7932247445383d3"
+    },
+    {
+      "path": "apps/web/dist/assets/browser-session-BXZ4UdaO.js",
+      "bytes": 5147,
+      "sha256": "2ddb102bd7d64ae69e0feffbdb8714a2bd302d5918e8f203986533268c1b288f"
+    },
+    {
+      "path": "apps/web/dist/assets/index-B9STFFuW.js",
+      "bytes": 165175,
+      "sha256": "d049f699570a000f249d8c5308cc6a2cbe49c5eb9cef62e4fac1c38e5feb6001"
+    },
+    {
+      "path": "apps/web/dist/assets/index-BTKd6M6H.css",
+      "bytes": 7289,
+      "sha256": "a1077105ab58ef75f6130d525e793043ecfe3ac35750c3fd8aa70808b508dca3"
+    },
+    {
+      "path": "apps/web/dist/assets/index-CWNZrm4G.js",
+      "bytes": 420374,
+      "sha256": "44a2ed20b7ba5c4ec206619970436f3e341bc2ee5c9edfa857a691b679dc213f"
+    },
+    {
+      "path": "apps/web/dist/assets/sse-D7nMRjOK.js",
+      "bytes": 8776,
+      "sha256": "362cac9d4e1f016b35f7c3fd977a371616035ebc55f9e4d167e9172ece0130ac"
+    },
+    {
+      "path": "apps/web/dist/assets/streamableHttp-LaUoAFox.js",
+      "bytes": 7654,
+      "sha256": "80fb5e08f154bf879be98e47869c7671b4f1c0bf9be4761d0bde7b2838e12b91"
+    },
+    {
+      "path": "apps/web/dist/assets/types-DRFiyKon.js",
+      "bytes": 12279,
+      "sha256": "a2ab3cc4a5cb8ed31dfffb4416ee7fa7fa6afef3d81f6ed3bc25047133792205"
+    },
+    {
+      "path": "apps/web/dist/index.html",
+      "bytes": 404,
+      "sha256": "c812592d134b3ca619792901f42710dbeafa90e145dd1c44baadf7d6ab434ac1"
+    },
+    {
+      "path": "migrations/001_identity_collaboration.sql",
+      "bytes": 2555,
+      "sha256": "831830f95df95084a5a45e5b53dd5f81ea5fce6c6613987049788be8e17cf738"
+    }
+  ],
+  "limitations": [
+    "T02 full Chrome/Edge, OS and public HTTPS local-network matrix pending",
+    "T15/M3 Tools, Tabs, Run not implemented",
+    "M5 Agent, OS credential store, dynamic registration, refresh and arbitrary OAuth provider compatibility not claimed",
+    "Fixture certificate validation exception applies only to isolated Playwright test contexts"
+  ],
+  "evidence": [
+    {
+      "path": "tests/evidence/m2-final/verify.log",
+      "sha256": "d79c81141a435eacfb7856b929570ed494689fe972e42079025bb62ece25b9ae"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/en-US-dark-1440.png",
+      "sha256": "48babf14e6b7fcbb20998e9d1bf82263b5e88eacec345a996bdca7afb7277ca7"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/en-US-dark-390.png",
+      "sha256": "8d34e993e2666195399b5b6036770fcbce4d5b043f6879f95b5b9938e2d1217b"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/en-US-dark-820.png",
+      "sha256": "d24eef9267c887f76dd94b561f6fcfc09d79849693e0df14e09a4471f373671b"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/en-US-light-1440.png",
+      "sha256": "e84bfb9b9530c638080da4edea8da53136139aec1a2f7497f30201d5d4596ec8"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/en-US-light-390.png",
+      "sha256": "3ea8a1cf425f104e500bb8de9aeb493deaeba9f703426eb81f489b21cb568c6f"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/en-US-light-820.png",
+      "sha256": "254e00bfd008e765d38b92a70759f2459edac7c52279e43962cfe5c23e99047d"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/environment.json",
+      "sha256": "65e008a22e963b2c42c8078ea5d4e2b0cddb1a872f0765a8354036d49614ece9"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/fixture-statistics.json",
+      "sha256": "1dab4cbb61c656a6fc6d1a969ce8e7d01acda6409276d86409f59ea2bd84060c"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-en-US-dark-1440.png",
+      "sha256": "f758471ce57f1d21621a5038270865b976966b4620366d93df9d91eb6cc22233"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-en-US-dark-390.png",
+      "sha256": "52160b0b98ac797a8519c8b81351b9bc7df31a020079b6ec376498b43aab4664"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-en-US-light-1440.png",
+      "sha256": "265cc41205c35c09c08aca414539955369819086cfe3e50d8500b6d1306d4e25"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-en-US-light-390.png",
+      "sha256": "5c35bb1b94b501778a11bba1181183f81f707ea83a196a9226761335e53d3341"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-regression-environment.json",
+      "sha256": "8043c019bbe5c0ba8b74b1cd4cc42f11cb32852254817aef26b889a06a9d11bd"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-zh-CN-dark-1440.png",
+      "sha256": "184f491b8726a3ecaec2f4c3e055ed8c97a2aaa7405807946d117999afbc452e"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-zh-CN-dark-390.png",
+      "sha256": "0cfa99b77892fea01662266a47e25cf38c5e4e919f8dd5ea946b377d9e4039da"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-zh-CN-light-1440.png",
+      "sha256": "62fcb96c5000ed98d62e12f26a28f73f2c6f2a4e6fc6c452065642264d860e92"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/m1-zh-CN-light-390.png",
+      "sha256": "7ba6a259626e5febf3b59e1c942025cf19363c09e2013729038a893e6cee35f9"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/results.json",
+      "sha256": "e9b7b08799ea73c9ed1a8ca3dd17d468dea36e799b77e5bd83447f385976468a"
+    },
+    {
+      "path": "tests/evidence/m2-playwright/zh-CN-dark-1440.png",
+      "sha256": "584995d19158fa15223f0c239477e85cf7e08522208704512112c4bc495eaa6e"
+    }
+  ]
+}

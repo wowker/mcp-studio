@@ -1,0 +1,193 @@
+
+> mcp-studio@0.1.0 verify
+> node scripts/verify.mjs
+
+[verify] Generated contracts are current
+Platform contract v1.1.0: 34 schemas, 31 paths; generated boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Generator, SDK, loopback security and runtime guards
+✔ versioned platform contract generates stable Go and TypeScript boundaries (128.203667ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (192.350916ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (36.266417ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (12.813791ms)
+✔ expired codes and local unpair reject new requests (6.60925ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (40.8245ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (6.508458ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (4.585208ms)
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (462.606625ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (408.669542ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (1.730833ms)
+✔ gate propagates a failing real subprocess exit status (79.817541ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (50.364ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (11.787833ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (14.031625ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1000.680333
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/shared/i18n.test.ts (2 tests) 9ms
+ ✓ src/runtime/oauth.test.ts (10 tests) 57ms
+ ✓ src/shared/api.test.ts (8 tests) 28ms
+ ✓ src/runtime/browser-session.test.ts (5 tests) 75ms
+ ✓ src/features/team/MembersPage.test.tsx (2 tests) 976ms
+   ✓ retains failed invitation inputs and default 7 day scope  687ms
+ ✓ src/runtime/connection.test.ts (4 tests) 40ms
+ ✓ src/runtime/configuration.test.ts (30 tests) 63ms
+ ✓ src/runtime/environment.test.ts (19 tests) 10ms
+ ✓ src/runtime/vault.test.ts (2 tests) 8ms
+ ✓ src/features/connections/session.test.ts (3 tests) 4ms
+ ✓ src/features/team/protection.test.ts (3 tests) 3ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (3 tests) 408ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (3 tests) 421ms
+   ✓ service configuration > preserves the edited local draft after a version conflict and compares latest remote config  315ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 783ms
+   ✓ keeps original invitation after registration and never accepts automatically  590ms
+ ✓ src/app/App.test.tsx (9 tests) 1064ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  337ms
+
+ Test Files  15 passed (15)
+      Tests  106 passed (106)
+   Start at  11:02:10
+   Duration  4.67s (transform 1.04s, setup 1.78s, collect 12.56s, tests 3.95s, environment 8.56s, prepare 1.08s)
+
+[verify] Frontend production build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4918 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:   0.28 kB
+dist/assets/index-BTKd6M6H.css    7.29 kB │ gzip:   2.07 kB
+dist/assets/index-DB07o2_E.js   660.25 kB │ gzip: 198.01 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.90s
+[verify] Go tests with real isolated PostgreSQL
+ok  	mcp-studio/cmd/platform	0.617s
+ok  	mcp-studio/internal/configuration	0.806s
+ok  	mcp-studio/internal/contracts	(cached)
+ok  	mcp-studio/internal/environment	(cached)
+ok  	mcp-studio/internal/infrastructure	(cached)
+ok  	mcp-studio/internal/platform	44.855s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	1.655s
+ok  	mcp-studio/tests/fixtures/sdk	(cached)
+ok  	mcp-studio/tests/integration	2.066s
+[test-runtime] isolated schema removed
+[verify] Go vet
+[verify] Go production platform build
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 6 tests using 1 worker
+
+(node:98199) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98199) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m1.spec.ts:16:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (5.0s)
+  ✓  2 [chromium] › tests/e2e/m1.spec.ts:30:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (1.6s)
+  ✓  3 [chromium] › tests/e2e/m1.spec.ts:37:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (2.6s)
+  ✘  4 [chromium] › tests/e2e/m2.spec.ts:23:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (623ms)
+(node:98276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [chromium] › tests/e2e/m2.spec.ts:33:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (569ms)
+(node:98288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [chromium] › tests/e2e/m2.spec.ts:40:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (625ms)
+
+
+  1) [chromium] › tests/e2e/m2.spec.ts:23:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m401[39m
+
+       8 | test.afterEach(async({page})=>{expect(incidents.get(page)??[]).toEqual([]);});
+       9 | test.afterAll(async({browser})=>{await mkdir('tests/evidence/m2-playwright',{recursive:true});await writeFile('tests/evidence/m2-playwright/environment.json',JSON.stringify({scope:'M2 T10–T14 local controlled Chromium only',browser:browser.version(),playwright:'1.59.1',fixture:'Synthetic loopback MCP HTTP / SSE and OAuth HTTPS public-client PKCE',excluded:'External service compatibility, actual Chrome/Edge target matrix, OS credential stores, Agent execution, M3 Tools and Run',tls:'Temporary self-signed fixture certificate; browser context ignores fixture TLS errors only'},null,2)+'\n');});
+    > 10 | async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}
+         |                                                                                                                                                                     ^
+      11 | async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      12 | async function bootstrap(page:Page,request:APIRequestContext){
+      13 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+        at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:10:165)
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:16:150)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:24:2
+
+    Error Context: test-results/m2-M2-production-shared-co-10652-ellation-and-stdio-boundary-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-shared-co-10652-ellation-and-stdio-boundary-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/m2.spec.ts:33:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m401[39m
+
+       8 | test.afterEach(async({page})=>{expect(incidents.get(page)??[]).toEqual([]);});
+       9 | test.afterAll(async({browser})=>{await mkdir('tests/evidence/m2-playwright',{recursive:true});await writeFile('tests/evidence/m2-playwright/environment.json',JSON.stringify({scope:'M2 T10–T14 local controlled Chromium only',browser:browser.version(),playwright:'1.59.1',fixture:'Synthetic loopback MCP HTTP / SSE and OAuth HTTPS public-client PKCE',excluded:'External service compatibility, actual Chrome/Edge target matrix, OS credential stores, Agent execution, M3 Tools and Run',tls:'Temporary self-signed fixture certificate; browser context ignores fixture TLS errors only'},null,2)+'\n');});
+    > 10 | async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}
+         |                                                                                                                                                                     ^
+      11 | async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      12 | async function bootstrap(page:Page,request:APIRequestContext){
+      13 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+        at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:10:165)
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:16:150)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:34:2
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+  3) [chromium] › tests/e2e/m2.spec.ts:40:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m401[39m
+
+       8 | test.afterEach(async({page})=>{expect(incidents.get(page)??[]).toEqual([]);});
+       9 | test.afterAll(async({browser})=>{await mkdir('tests/evidence/m2-playwright',{recursive:true});await writeFile('tests/evidence/m2-playwright/environment.json',JSON.stringify({scope:'M2 T10–T14 local controlled Chromium only',browser:browser.version(),playwright:'1.59.1',fixture:'Synthetic loopback MCP HTTP / SSE and OAuth HTTPS public-client PKCE',excluded:'External service compatibility, actual Chrome/Edge target matrix, OS credential stores, Agent execution, M3 Tools and Run',tls:'Temporary self-signed fixture certificate; browser context ignores fixture TLS errors only'},null,2)+'\n');});
+    > 10 | async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}
+         |                                                                                                                                                                     ^
+      11 | async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      12 | async function bootstrap(page:Page,request:APIRequestContext){
+      13 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+        at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:10:165)
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:16:150)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:41:2
+
+    Error Context: test-results/m2-M2-production-direct-HT-c626c-explicit-connect-and-denial-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-direct-HT-c626c-explicit-connect-and-denial-chromium/error-context.md
+
+  3 failed
+    [chromium] › tests/e2e/m2.spec.ts:23:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary 
+    [chromium] › tests/e2e/m2.spec.ts:33:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+    [chromium] › tests/e2e/m2.spec.ts:40:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial 
+  3 passed (14.5s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+[verify] Playwright production-entry E2E: failed with exit 1

@@ -1,0 +1,46 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 3 tests using 1 worker
+
+(node:1923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m2.spec.ts:24:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (3.8s)
+  ✘  2 [chromium] › tests/e2e/m2.spec.ts:34:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (1.0m)
+(node:2203) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2203) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [chromium] › tests/e2e/m2.spec.ts:41:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (3.4s)
+
+
+  1) [chromium] › tests/e2e/m2.spec.ts:34:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test ended.
+    Call log:
+    [2m  - waiting for getByLabel('名称', { exact: true })[22m
+
+
+      35 |  await bootstrap(page,request);const project=await createProject(page);const connection=await createService(page,'Token one',process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp','token');await page.getByLabel('个人访问 Token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'保存到本会话',exact:true}).click();await expect(page.getByText('已授权，待连接',{exact:true})).toBeVisible();await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText(/已连接.*m2-controlled-fixture/)).toBeVisible();await page.getByRole('button',{name:'断开',exact:true}).click();
+      36 |  const sameURL=await createService(page,'Token two',process.env.PLAYWRIGHT_MCP_ORIGIN+'/token-mcp','token');expect(sameURL).not.toBe(connection);await expect(page.getByText('个人凭据缺失或已过期。',{exact:true})).toBeVisible();await page.getByRole('button',{name:'连接',exact:true}).click();await expect(page.getByText('连接前请准备个人授权。',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Token one',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill('Local retained');
+    > 37 |  const other=await browser.newContext({baseURL:process.env.PLAYWRIGHT_BASE_URL,locale:'zh-CN',ignoreHTTPSErrors:process.env.PLAYWRIGHT_FIXTURE_TLS==='true'});const second=await other.newPage();await second.goto('/');await second.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await second.getByLabel('密码',{exact:true}).fill(password);await second.getByRole('button',{name:'登录',exact:true}).click();await second.goto(`/?page=servers&project=${project}&connection=${connection}`);await second.getByLabel('名称',{exact:true}).fill('Remote saved');await second.getByRole('button',{name:'保存修改',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${project}/connections/${connection}`,wire.connectionSchema)).name).toBe('Remote saved');await page.getByRole('button',{name:'保存修改',exact:true}).click();await expect(page.getByText(/其他会话已修改对象/)).toBeVisible();await expect(page.getByLabel('名称',{exact:true})).toHaveValue('Local retained');expect((await requestData(page.request,`/projects/${project}/connections/${connection}`,wire.connectionSchema)).name).toBe('Remote saved');await page.getByRole('button',{name:'保留编辑草稿并以最新版本保存',exact:true}).click();await expect.poll(async()=>(await requestData(page.request,`/projects/${project}/connections/${connection}`,wire.connectionSchema)).name).toBe('Local retained');
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+      38 |  await page.reload();await expect(page.getByText('个人凭据缺失或已过期。',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:localStorage,session:sessionStorage}).includes('fixture-token'))).toBe(false);await other.close();
+      39 | });
+      40 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:37:522
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m2.spec.ts:34:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+  2 passed (1.1m)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

@@ -1,0 +1,22 @@
+{
+  "scope": "M1 identity/collaboration regression in current implementation",
+  "browser": "Playwright Chromium",
+  "browserVersion": "147.0.7727.15",
+  "playwright": "1.59.1",
+  "node": "v24.21.0",
+  "productionHashes": {
+    ".runtime/platform": "0923afbb97f7d7f906f14591c937371591174f224081b64eceeb9984f0dd31f9",
+    "apps/web/dist/index.html": "c812592d134b3ca619792901f42710dbeafa90e145dd1c44baadf7d6ab434ac1",
+    "apps/web/dist/assets/ConnectionsPage-djHbXh0v.js": "dbd51e7ae0fefaec69c6b1f89c2801dd6d9888c255dc6176707d2ddea7c93352",
+    "apps/web/dist/assets/EnvironmentPage-6A0kDlFV.js": "07dd82792c95a83d1f6418ff87de6320ffc604bdc3da27dfb27bde128baf8507",
+    "apps/web/dist/assets/auth-By4xEfK4.js": "f41308d154f9e683fef8a4f08028579337385e9bc27db1ada7932247445383d3",
+    "apps/web/dist/assets/browser-session-BXZ4UdaO.js": "2ddb102bd7d64ae69e0feffbdb8714a2bd302d5918e8f203986533268c1b288f",
+    "apps/web/dist/assets/index-B9STFFuW.js": "d049f699570a000f249d8c5308cc6a2cbe49c5eb9cef62e4fac1c38e5feb6001",
+    "apps/web/dist/assets/index-BTKd6M6H.css": "a1077105ab58ef75f6130d525e793043ecfe3ac35750c3fd8aa70808b508dca3",
+    "apps/web/dist/assets/index-CWNZrm4G.js": "44a2ed20b7ba5c4ec206619970436f3e341bc2ee5c9edfa857a691b679dc213f",
+    "apps/web/dist/assets/sse-D7nMRjOK.js": "362cac9d4e1f016b35f7c3fd977a371616035ebc55f9e4d167e9172ece0130ac",
+    "apps/web/dist/assets/streamableHttp-LaUoAFox.js": "80fb5e08f154bf879be98e47869c7671b4f1c0bf9be4761d0bde7b2838e12b91",
+    "apps/web/dist/assets/types-DRFiyKon.js": "a2ab3cc4a5cb8ed31dfffb4416ee7fa7fa6afef3d81f6ed3bc25047133792205"
+  },
+  "excluded": "Not Chrome/Edge target matrix or MCP transport compatibility evidence"
+}

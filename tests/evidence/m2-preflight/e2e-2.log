@@ -1,0 +1,98 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 3 tests using 1 worker
+
+(node:281) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:281) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m2.spec.ts:23:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (1.0m)
+(node:921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/m2.spec.ts:33:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (1.0m)
+(node:1157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [chromium] › tests/e2e/m2.spec.ts:40:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (1.0m)
+
+
+  1) [chromium] › tests/e2e/m2.spec.ts:23:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('授权方式', { exact: true })[22m
+
+
+      18 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();
+      19 | }
+    > 20 | async function createProject(page:Page){await page.getByRole('button',{name:'创建项目',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(`M2-${Date.now()}`);await page.getByRole('button',{name:'创建项目',exact:true}).click();await expect(page.getByRole('navigation',{name:'项目导航'})).toBeVisible();const id=new URL(page.url()).searchParams.get('project')!;await page.getByRole('button',{name:'服务',exact:true}).click();await expect(page.getByRole('heading',{name:'服务',exact:true})).toBeVisible();return id;}
+         |                                                                                                                                                                                                                                                                                                                                    ^
+      21 | async function createService(page:Page,name:string,endpoint:string,auth:'none'|'token'|'oauth'='none'){await page.getByRole('button',{name:'创建服务',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(name);await page.getByLabel('HTTP 地址',{exact:true}).fill(endpoint);await page.getByLabel('授权方式',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth 客户端 ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth 权限（空格分隔）',{exact:true}).fill('read');}const response=page.waitForResponse(res=>res.url().includes('/connections')&&res.request().method()==='POST');await page.getByRole('button',{name:'保存修改',exact:true}).click();expect((await response).status()).toBe(200);await expect(page.getByRole('button',{name:'连接',exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+      22 | async function fixtureStats(request:APIRequestContext,oauth=false){const response=await request.get(`${oauth?process.env.PLAYWRIGHT_OAUTH_ORIGIN:process.env.PLAYWRIGHT_MCP_ORIGIN}/stats`);expect(response.status()).toBe(200);return await response.json() as {initialize:number;httpInitialize:number;sseInitialize:number;pkceVerified:number;resourceVerified:number;oauthExchanges:number;oauthDenials:number};}
+      23 |
+        at createService (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:20:324)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:24:130
+
+    Error Context: test-results/m2-M2-production-shared-co-10652-ellation-and-stdio-boundary-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-shared-co-10652-ellation-and-stdio-boundary-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/m2.spec.ts:33:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('授权方式', { exact: true })[22m
+
+
+      18 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();
+      19 | }
+    > 20 | async function createProject(page:Page){await page.getByRole('button',{name:'创建项目',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(`M2-${Date.now()}`);await page.getByRole('button',{name:'创建项目',exact:true}).click();await expect(page.getByRole('navigation',{name:'项目导航'})).toBeVisible();const id=new URL(page.url()).searchParams.get('project')!;await page.getByRole('button',{name:'服务',exact:true}).click();await expect(page.getByRole('heading',{name:'服务',exact:true})).toBeVisible();return id;}
+         |                                                                                                                                                                                                                                                                                                                                    ^
+      21 | async function createService(page:Page,name:string,endpoint:string,auth:'none'|'token'|'oauth'='none'){await page.getByRole('button',{name:'创建服务',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(name);await page.getByLabel('HTTP 地址',{exact:true}).fill(endpoint);await page.getByLabel('授权方式',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth 客户端 ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth 权限（空格分隔）',{exact:true}).fill('read');}const response=page.waitForResponse(res=>res.url().includes('/connections')&&res.request().method()==='POST');await page.getByRole('button',{name:'保存修改',exact:true}).click();expect((await response).status()).toBe(200);await expect(page.getByRole('button',{name:'连接',exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+      22 | async function fixtureStats(request:APIRequestContext,oauth=false){const response=await request.get(`${oauth?process.env.PLAYWRIGHT_OAUTH_ORIGIN:process.env.PLAYWRIGHT_MCP_ORIGIN}/stats`);expect(response.status()).toBe(200);return await response.json() as {initialize:number;httpInitialize:number;sseInitialize:number;pkceVerified:number;resourceVerified:number;oauthExchanges:number;oauthDenials:number};}
+      23 |
+        at createService (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:20:324)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:34:89
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+  3) [chromium] › tests/e2e/m2.spec.ts:40:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('授权方式', { exact: true })[22m
+
+
+      18 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();
+      19 | }
+    > 20 | async function createProject(page:Page){await page.getByRole('button',{name:'创建项目',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(`M2-${Date.now()}`);await page.getByRole('button',{name:'创建项目',exact:true}).click();await expect(page.getByRole('navigation',{name:'项目导航'})).toBeVisible();const id=new URL(page.url()).searchParams.get('project')!;await page.getByRole('button',{name:'服务',exact:true}).click();await expect(page.getByRole('heading',{name:'服务',exact:true})).toBeVisible();return id;}
+         |                                                                                                                                                                                                                                                                                                                                    ^
+      21 | async function createService(page:Page,name:string,endpoint:string,auth:'none'|'token'|'oauth'='none'){await page.getByRole('button',{name:'创建服务',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill(name);await page.getByLabel('HTTP 地址',{exact:true}).fill(endpoint);await expect(page.getByLabel('授权方式',{exact:true})).toBeVisible();await page.getByLabel('授权方式',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth 客户端 ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth 权限（空格分隔）',{exact:true}).fill('read');}const response=page.waitForResponse(res=>res.url().includes('/connections')&&res.request().method()==='POST');await page.getByRole('button',{name:'保存修改',exact:true}).click();expect((await response).status()).toBe(200);await expect(page.getByRole('button',{name:'连接',exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+      22 | async function fixtureStats(request:APIRequestContext,oauth=false){const response=await request.get(`${oauth?process.env.PLAYWRIGHT_OAUTH_ORIGIN:process.env.PLAYWRIGHT_MCP_ORIGIN}/stats`);expect(response.status()).toBe(200);return await response.json() as {initialize:number;httpInitialize:number;sseInitialize:number;pkceVerified:number;resourceVerified:number;oauthExchanges:number;oauthDenials:number;cookieRequests:number};}
+      23 |
+        at createService (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:20:324)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:41:117
+
+    Error Context: test-results/m2-M2-production-direct-HT-c626c-explicit-connect-and-denial-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-direct-HT-c626c-explicit-connect-and-denial-chromium/error-context.md
+
+  3 failed
+    [chromium] › tests/e2e/m2.spec.ts:23:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary 
+    [chromium] › tests/e2e/m2.spec.ts:33:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+    [chromium] › tests/e2e/m2.spec.ts:40:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial 
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1
