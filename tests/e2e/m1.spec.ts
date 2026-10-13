@@ -3,7 +3,7 @@ import {sessionSchema,projectSchema,inviteEntrySchema,invitationSchema,acceptedS
 import {z} from 'zod';
 import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m2-playwright';
+const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m3-playwright';
 test.afterAll(async({browser})=>{const files=['.runtime/platform','apps/web/dist/index.html',...(await readdir('apps/web/dist/assets')).sort().map(file=>'apps/web/dist/assets/'+file)];const hashes:Record<string,string>={};for(const file of files)hashes[file]=createHash('sha256').update(await readFile(file)).digest('hex');await mkdir(evidenceDir,{recursive:true});await writeFile(`${evidenceDir}/m1-regression-environment.json`,JSON.stringify({scope:'M1 identity/collaboration regression in current implementation',browser:'Playwright Chromium',browserVersion:browser.version(),playwright:'1.59.1',node:process.version,productionHashes:hashes,excluded:'Not Chrome/Edge target matrix or MCP transport compatibility evidence'},null,2)+'\n');});
 const issues=new WeakMap<Page,string[]>();test.beforeEach(async({page})=>{const found:string[]=[];issues.set(page,found);page.on('pageerror',()=>found.push('pageerror'));page.on('console',message=>{if(message.type()==='warning')found.push('console_warning');if(message.type()==='error'&&!message.text().startsWith('Failed to load resource:'))found.push('console_error');});});test.afterEach(async({page})=>{expect(issues.get(page)??[]).toEqual([]);});
 const ownerEmail='owner-e2e@example.test',memberEmail='member-e2e@example.test',password='Fixture-Password-12';

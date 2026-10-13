@@ -6,10 +6,18 @@ export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.
  if(!['localhost','127.0.0.1'].includes(publicHostname))throw Error('unsupported-public-hostname');
  if(!allowedOrigin)throw Error('allowed-origin-required');
  const streams=new Map(),codes=new Map(),tokens=new Set(['fixture-token']);
- const stats={cookieRequests:0,initialize:0,httpInitialize:0,sseInitialize:0,oauthExchanges:0,oauthDenials:0,oauthReplays:0,pkceVerified:0,resourceVerified:0};
+ const stats={cookieRequests:0,initialize:0,httpInitialize:0,sseInitialize:0,toolsList:0,httpToolsList:0,sseToolsList:0,oauthExchanges:0,oauthDenials:0,oauthReplays:0,pkceVerified:0,resourceVerified:0};
  let origin;
  const reply=(res,status,value)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(value===undefined?'':JSON.stringify(value));};
- const resultFor=message=>message.method==='initialize'?{protocolVersion:'2025-11-25',serverInfo:{name:'m2-controlled-fixture',version:'1.0'},capabilities:{tools:{}}}:undefined;
+ const toolDefinitions=[
+  {name:'echo',title:'Echo',description:'Returns supplied text',inputSchema:{type:'object',properties:{text:{type:'string',minLength:1},count:{type:'integer',minimum:0},enabled:{type:'boolean'},note:{type:['string','null']}},required:['text'],additionalProperties:false},outputSchema:{type:'object',properties:{text:{type:'string'}},required:['text']},annotations:{readOnlyHint:true}},
+  {name:'nested',title:'Nested arguments',description:'Exercises nested object and array parameters',inputSchema:{type:'object',properties:{items:{type:'array',items:{type:'object',properties:{quantity:{type:'integer',minimum:0},enabled:{type:'boolean'}},required:['quantity'],additionalProperties:false}},mode:{type:'string',enum:['preview','apply']}},required:['items'],additionalProperties:false}},
+ ];
+ const resultFor=message=>{
+  if(message.method==='initialize')return {protocolVersion:'2025-11-25',serverInfo:{name:'m2-controlled-fixture',version:'1.0'},capabilities:{tools:{}}};
+  if(message.method==='tools/list')return message.params?.cursor==='second'?{tools:[toolDefinitions[1]]}:message.params?.cursor===undefined?{tools:[toolDefinitions[0]],nextCursor:'second'}:undefined;
+  return undefined;
+ };
  const handler=async(req,res)=>{
   const url=new URL(req.url,origin),path=url.pathname;
   if(req.headers.cookie)stats.cookieRequests++;
@@ -53,6 +61,7 @@ export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.
    let message;try{message=JSON.parse(raw);}catch{return reply(res,400,{error:'invalid-json'});}
    if(message.id===undefined)return reply(res,202);
    if(message.method==='initialize'){stats.initialize++;stats.httpInitialize++;}
+   if(message.method==='tools/list'){stats.toolsList++;stats.httpToolsList++;}
    const result=resultFor(message);return reply(res,200,result?{jsonrpc:'2.0',id:message.id,result}:{jsonrpc:'2.0',id:message.id,error:{code:-32601,message:'Unknown method'}});
   }
   if(path==='/sse'&&req.method==='GET'){
@@ -62,6 +71,7 @@ export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.
    const stream=streams.get(url.searchParams.get('session'));if(!stream)return reply(res,404,{error:'missing-stream'});
    let message;try{message=JSON.parse(raw);}catch{return reply(res,400);}
    if(message.method==='initialize'){stats.initialize++;stats.sseInitialize++;}
+   if(message.method==='tools/list'){stats.toolsList++;stats.sseToolsList++;}
    if(message.id!==undefined){const result=resultFor(message);stream.write(`event: message\ndata: ${JSON.stringify(result?{jsonrpc:'2.0',id:message.id,result}:{jsonrpc:'2.0',id:message.id,error:{code:-32601,message:'Unknown method'}})}\n\n`);}
    return reply(res,202);
   }

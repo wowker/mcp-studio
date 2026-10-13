@@ -111,7 +111,7 @@ export async function runRuntime(args = [], { signal } = {}) {
     } finally {
       try { await stopProcess(platform); }
       finally {
-        const dir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m2-playwright';
+        const dir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m3-playwright';
         await mkdir(dir,{recursive:true});
         if(mcp&&oauth)await writeFile(`${dir}/fixture-statistics.json`,JSON.stringify({mcp:mcp.stats,oauth:oauth.stats,tls:'Temporary self-signed certificate, browser ignoreHTTPSErrors only; no CORS/mixed-content/LNA bypass',supportMatrix:'T02 remains pending'},null,2)+'\n');
         await mcp?.close(); await oauth?.close(); await terminator?.close(); await certificate?.close();
