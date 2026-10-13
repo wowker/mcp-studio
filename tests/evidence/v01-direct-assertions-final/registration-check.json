@@ -1,0 +1,22 @@
+{
+  "formalItems": 60,
+  "changedCSVRows": [
+    "A01",
+    "A09",
+    "A28",
+    "A32",
+    "A51"
+  ],
+  "other55RowsUnchanged": true,
+  "formalPassCount": 0,
+  "originalTLeavesUnchanged": true,
+  "historicalAuditUnchanged": true,
+  "referenceSnapshotUnchanged": true,
+  "supplementalSourceReferences": 8,
+  "sourceInputsUnchanged": 352,
+  "productionSourceChanged": false,
+  "artifactHashesMatch": true,
+  "originalM7ArchiveUnchanged": "fb6c61b10f504cb71a9f6b4d0d8ad61c39117398d6e9ae04387a5b273d4000c2",
+  "linksChecked": 21,
+  "publication": "not-authorized"
+}

@@ -1,0 +1,431 @@
+{
+  "format": "mcp-studio.v01.direct-assertion-supplement.v1",
+  "baselineAudit": "docs/tasks/v01-assertion-audit.json",
+  "baselineImplementation": "3056a6b0ab771149b39435f7f2535d2bcd0881bc",
+  "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+  "items": [
+    {
+      "id": "A01",
+      "expected": "成功空项目",
+      "formalExpected": "定位错误、保留输入、无重复项目；成功空项目且创建者为维护者",
+      "baselineCoverage": "not-found",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+      "assertions": [
+        {
+          "path": "internal/platform/v01_project_membership_assertions_test.go",
+          "line": 10,
+          "testName": "TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer",
+          "summary": "真实PG/API：有数据的兄弟项目对照；新项目连接/环境/变量/历史/保存/操作零内容，唯一创建者成员为维护者。",
+          "sha256": "837efbb818fd0cfb581f77c67941c0d3d492bd21a839938b7e664b0efe923d83"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-direct-assertions-focused/projects-members/go.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+        "log": "tests/evidence/v01-direct-assertions-final/verify.log",
+        "scope": "Go包级/前端文件及运行时用例/浏览器具名旅程；聚焦Go日志另外具名，不冒称每条断言独立日志"
+      },
+      "behavior": "已有生产行为直接GREEN；本轮无复现产品缺陷、无生产代码修补",
+      "scope": "真实PG/API；非新项目全旅程正式签收"
+    },
+    {
+      "id": "A09",
+      "expected": "连接和执行被一致阻断",
+      "formalExpected": "定位依赖错误；所有敏感派生遮罩；连接和执行被一致阻断",
+      "baselineCoverage": "not-found",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+      "assertions": [
+        {
+          "path": "apps/web/src/runtime/execution/v01-environment-blocking.test.ts",
+          "line": 20,
+          "testName": "A09 Browser connect and Run block cycle / nested missing dependency with zero upstream calls",
+          "summary": "真实BrowserSession/ExecutionRunner与MCP SDK服务；循环及嵌套依赖错误零initialize/Tool，无Run/完成回调；实际连通对照和显式修复恢复。",
+          "sha256": "047264fffd3ba3f7d9b8cfced875f5eff4e2d08abd1f748424ce1b1327306376"
+        },
+        {
+          "path": "internal/agent/sessions/v01_environment_blocking_test.go",
+          "line": 22,
+          "testName": "TestV01AgentDependencyErrorsBlockConnectAndRun/cycle + nested_missing_dependency",
+          "summary": "实际Go Engine/临时vault/SDK HTTP；连接前零HTTP、已连接后相同版本个人值变非法，Run拒绝且零新增HTTP/Tool/记录；有效值恢复显式调用。",
+          "sha256": "a5949e1a31870483ecc9e9b531d1b70d26a3d5662f8be351b16d0523df15261c"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-direct-assertions-focused/environment-blocking/browser-green.log",
+        "tests/evidence/v01-direct-assertions-focused/environment-blocking/agent-baseline.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+        "log": "tests/evidence/v01-direct-assertions-final/verify.log",
+        "scope": "Go包级/前端文件及运行时用例/浏览器具名旅程；聚焦Go日志另外具名，不冒称每条断言独立日志"
+      },
+      "behavior": "已有生产行为直接GREEN；本轮无复现产品缺陷、无生产代码修补",
+      "scope": "Browser运行时在Node环境；Agent平台授权边界供应作用域响应，非新增权限验收；系统凭据库、目标浏览器矩阵待验"
+    },
+    {
+      "id": "A28",
+      "expected": "署名保留",
+      "formalExpected": "影响范围精确、署名保留、确认明确、取消无副作用",
+      "baselineCoverage": "not-found",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+      "assertions": [
+        {
+          "path": "internal/platform/v01_project_membership_assertions_test.go",
+          "line": 52,
+          "testName": "TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project + team",
+          "summary": "正常项目/团队移除后共享历史和经实际metadata修订发布的保存记录，详情完整相等，列表ownerId/ownerName保持原署名；已移除身份访问拒绝。",
+          "sha256": "837efbb818fd0cfb581f77c67941c0d3d492bd21a839938b7e664b0efe923d83"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-direct-assertions-focused/projects-members/go.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+        "log": "tests/evidence/v01-direct-assertions-final/verify.log",
+        "scope": "Go包级/前端文件及运行时用例/浏览器具名旅程；聚焦Go日志另外具名，不冒称每条断言独立日志"
+      },
+      "behavior": "已有生产行为直接GREEN；本轮无复现产品缺陷、无生产代码修补",
+      "scope": "真实PG/API；无实机/介质条件签收"
+    },
+    {
+      "id": "A28",
+      "expected": "取消无副作用",
+      "formalExpected": "影响范围精确、署名保留、确认明确、取消无副作用",
+      "baselineCoverage": "not-found",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+      "assertions": [
+        {
+          "path": "apps/web/src/features/team/MembersPage.test.tsx",
+          "line": 33,
+          "testName": "cancelling project / team removal sends no mutation and retains the member role and scope",
+          "summary": "实际MembersPage确认取消，两作用域零mutation/刷新，成员角色和所选作用域保留。",
+          "sha256": "afc2eddec4d4bdaeb996e4d2856d9483b721c385a1e8e3d21875c98f3609370e"
+        },
+        {
+          "path": "tests/e2e/v01-membership.spec.ts",
+          "line": 21,
+          "testName": "V01 A28: cancelling project / team removal preserves real memberships, invitations and audit without API mutations",
+          "summary": "生产入口真实角色/项目；取消前后及重载后真实成员关系、邀请、审计严格相等，两项目访问角色不变，页面零API mutation。",
+          "sha256": "b06d44234a10f53e85f15f6059f58c682c18eb05e6c0388999fa870f194c1bcd"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-direct-assertions-focused/integrated/frontend-focused.log",
+        "tests/evidence/v01-direct-assertions-focused/browser-integrated/results.json"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+        "log": "tests/evidence/v01-direct-assertions-final/verify.log",
+        "scope": "Go包级/前端文件及运行时用例/浏览器具名旅程；聚焦Go日志另外具名，不冒称每条断言独立日志"
+      },
+      "behavior": "已有生产行为直接GREEN；本轮无复现产品缺陷、无生产代码修补",
+      "scope": "组件HTTP边界受控，浏览器旅程真实平台/PG；不签收整个A28全部环境"
+    },
+    {
+      "id": "A32",
+      "expected": "运行保留",
+      "formalExpected": "草稿、运行及当前上下文滚动位置保留",
+      "baselineCoverage": "not-found",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-run-preferences.spec.ts",
+          "line": 19,
+          "testName": "V01 A32 production: preference changes retain the in-flight call and completed Run identity, status and result",
+          "summary": "真实MCP barrier保持在途；中英×亮暗保持同项目/连接/Tab、原草稿和运行按钮状态；一次调用，释放后唯一历史Run、一次上传，完成快照/结果/Run身份全等。",
+          "sha256": "b10315517228c178bb8dba87e7238972785d2594235e4c3cda0a18378a0e4ca3"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-direct-assertions-focused/browser-integrated/results.json",
+        "tests/evidence/v01-direct-assertions-focused/browser-integrated/run-preferences.json"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+        "log": "tests/evidence/v01-direct-assertions-final/verify.log",
+        "scope": "Go包级/前端文件及运行时用例/浏览器具名旅程；聚焦Go日志另外具名，不冒称每条断言独立日志"
+      },
+      "behavior": "已有生产行为直接GREEN；本轮无复现产品缺陷、无生产代码修补",
+      "scope": "在途Run UUID无UI出口，用明确barrier+同Tab+一次Tool证明持续执行；完成后直接比对UUID/全快照。目标浏览器/人工/滚动其他条款仍待验"
+    },
+    {
+      "id": "A51",
+      "expected": "失效诊断清除",
+      "formalExpected": "目标项目 / 服务 / 生效环境准确，未保存输入保留；失效诊断清除；修复不自动连接",
+      "baselineCoverage": "not-found",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+      "assertions": [
+        {
+          "path": "apps/web/src/features/environment/v01-diagnostics.test.tsx",
+          "line": 27,
+          "testName": "A51 clears the original missing dependency / invalid typed reference diagnosis after repair and returns without connecting (explicit apply=false / true)",
+          "summary": "实际编辑器补缺失定义/修复原类型值，精确旧行诊断与alert消失，预览有效；显式apply/直接return两路径皆断开且Connect可用，零自动session-access/MCP。",
+          "sha256": "7c1fc7a04b44794b025a1fb310dcc4c0303ba355038693969b54513d210bb7f0"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-direct-assertions-focused/diagnostics/focused.log",
+        "tests/evidence/v01-direct-assertions-focused/integrated/frontend-focused.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+        "log": "tests/evidence/v01-direct-assertions-final/verify.log",
+        "scope": "Go包级/前端文件及运行时用例/浏览器具名旅程；聚焦Go日志另外具名，不冒称每条断言独立日志"
+      },
+      "behavior": "已有生产行为直接GREEN；本轮无复现产品缺陷、无生产代码修补",
+      "scope": "jsdom实际组件/BrowserSession；仅平台HTTP边界受控，未冒称A51实浏览器/Agent环境签收"
+    }
+  ],
+  "summary": {
+    "formalItems": 60,
+    "clauses": 187,
+    "coverage": {
+      "partial": 73,
+      "assertion-backed": 111,
+      "environment-pending": 3,
+      "not-found": 0
+    },
+    "supplementedClauses": 6,
+    "formalPassCount": 0
+  },
+  "effectiveCoverageByItem": {
+    "A01": {
+      "partial": 1,
+      "assertion-backed": 4
+    },
+    "A02": {
+      "assertion-backed": 1,
+      "partial": 1
+    },
+    "A03": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A04": {
+      "assertion-backed": 2,
+      "partial": 2
+    },
+    "A05": {
+      "partial": 3
+    },
+    "A06": {
+      "partial": 2
+    },
+    "A07": {
+      "partial": 2
+    },
+    "A08": {
+      "partial": 2,
+      "assertion-backed": 1
+    },
+    "A09": {
+      "partial": 2,
+      "assertion-backed": 1
+    },
+    "A10": {
+      "partial": 2,
+      "assertion-backed": 1
+    },
+    "A11": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A12": {
+      "assertion-backed": 1
+    },
+    "A13": {
+      "assertion-backed": 4
+    },
+    "A14": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A15": {
+      "assertion-backed": 3
+    },
+    "A16": {
+      "assertion-backed": 1,
+      "partial": 1
+    },
+    "A17": {
+      "partial": 1,
+      "assertion-backed": 1
+    },
+    "A18": {
+      "assertion-backed": 4
+    },
+    "A19": {
+      "assertion-backed": 2
+    },
+    "A20": {
+      "partial": 1,
+      "assertion-backed": 2
+    },
+    "A21": {
+      "partial": 2
+    },
+    "A22": {
+      "assertion-backed": 2
+    },
+    "A23": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A24": {
+      "partial": 1,
+      "assertion-backed": 2
+    },
+    "A25": {
+      "partial": 1,
+      "assertion-backed": 2
+    },
+    "A26": {
+      "assertion-backed": 2
+    },
+    "A27": {
+      "assertion-backed": 2
+    },
+    "A28": {
+      "assertion-backed": 3,
+      "partial": 1
+    },
+    "A29": {
+      "partial": 4
+    },
+    "A30": {
+      "partial": 3,
+      "environment-pending": 1
+    },
+    "A31": {
+      "partial": 2,
+      "assertion-backed": 1
+    },
+    "A32": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A33": {
+      "partial": 3,
+      "assertion-backed": 1
+    },
+    "A34": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A35": {
+      "assertion-backed": 3
+    },
+    "A36": {
+      "assertion-backed": 3,
+      "partial": 2
+    },
+    "A37": {
+      "assertion-backed": 3,
+      "partial": 1
+    },
+    "A38": {
+      "partial": 2,
+      "assertion-backed": 1
+    },
+    "A39": {
+      "assertion-backed": 1,
+      "partial": 3
+    },
+    "A40": {
+      "assertion-backed": 4
+    },
+    "A41": {
+      "assertion-backed": 1,
+      "partial": 2
+    },
+    "A42": {
+      "assertion-backed": 2,
+      "environment-pending": 1,
+      "partial": 1
+    },
+    "A43": {
+      "partial": 2,
+      "assertion-backed": 2
+    },
+    "A44": {
+      "assertion-backed": 3
+    },
+    "A45": {
+      "assertion-backed": 1,
+      "partial": 1
+    },
+    "A46": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A47": {
+      "assertion-backed": 3,
+      "partial": 2
+    },
+    "A48": {
+      "assertion-backed": 4,
+      "environment-pending": 1
+    },
+    "A49": {
+      "assertion-backed": 2
+    },
+    "A50": {
+      "assertion-backed": 1,
+      "partial": 1
+    },
+    "A51": {
+      "partial": 1,
+      "assertion-backed": 2
+    },
+    "A52": {
+      "partial": 2,
+      "assertion-backed": 2
+    },
+    "A53": {
+      "partial": 3,
+      "assertion-backed": 1
+    },
+    "A54": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A55": {
+      "partial": 2
+    },
+    "A56": {
+      "assertion-backed": 1,
+      "partial": 1
+    },
+    "A57": {
+      "partial": 1,
+      "assertion-backed": 2
+    },
+    "A58": {
+      "assertion-backed": 2,
+      "partial": 1
+    },
+    "A59": {
+      "assertion-backed": 3
+    },
+    "A60": {
+      "assertion-backed": 5
+    }
+  },
+  "publication": "not-authorized",
+  "method": "Only six original not-found clauses updated from direct executed supplemental assertions; other187 clauses not bulk reassessed. All formal statuses pending; historical audit/manifest left unchanged."
+}

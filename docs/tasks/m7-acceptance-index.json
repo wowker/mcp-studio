@@ -41,6 +41,18 @@
           "not-found": 1
         },
         "formalSignoff": "pending"
+      },
+      "directAssertionSupplement": {
+        "path": "docs/tasks/v01-direct-assertions.json",
+        "clauses": [
+          "成功空项目"
+        ],
+        "implementation": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+        "effectiveCoverage": {
+          "partial": 1,
+          "assertion-backed": 4
+        },
+        "formalSignoff": "pending"
       }
     },
     {
@@ -371,6 +383,18 @@
         "coverage": {
           "partial": 2,
           "not-found": 1
+        },
+        "formalSignoff": "pending"
+      },
+      "directAssertionSupplement": {
+        "path": "docs/tasks/v01-direct-assertions.json",
+        "clauses": [
+          "连接和执行被一致阻断"
+        ],
+        "implementation": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+        "effectiveCoverage": {
+          "partial": 2,
+          "assertion-backed": 1
         },
         "formalSignoff": "pending"
       }
@@ -1111,6 +1135,19 @@
           "partial": 1
         },
         "formalSignoff": "pending"
+      },
+      "directAssertionSupplement": {
+        "path": "docs/tasks/v01-direct-assertions.json",
+        "clauses": [
+          "署名保留",
+          "取消无副作用"
+        ],
+        "implementation": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+        "effectiveCoverage": {
+          "assertion-backed": 3,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
       }
     },
     {
@@ -1249,6 +1286,18 @@
         "coverage": {
           "assertion-backed": 1,
           "not-found": 1,
+          "partial": 1
+        },
+        "formalSignoff": "pending"
+      },
+      "directAssertionSupplement": {
+        "path": "docs/tasks/v01-direct-assertions.json",
+        "clauses": [
+          "运行保留"
+        ],
+        "implementation": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+        "effectiveCoverage": {
+          "assertion-backed": 2,
           "partial": 1
         },
         "formalSignoff": "pending"
@@ -2016,6 +2065,18 @@
           "assertion-backed": 1
         },
         "formalSignoff": "pending"
+      },
+      "directAssertionSupplement": {
+        "path": "docs/tasks/v01-direct-assertions.json",
+        "clauses": [
+          "失效诊断清除"
+        ],
+        "implementation": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+        "effectiveCoverage": {
+          "partial": 1,
+          "assertion-backed": 2
+        },
+        "formalSignoff": "pending"
       }
     },
     {
@@ -2403,6 +2464,13 @@
     "report": "docs/tasks/v01-v02-review.md",
     "gates": "tests/evidence/v01-v02-final/manifest.json",
     "interruption": "tests/evidence/v01-v02-interrupted/result.json",
+    "formalPassCount": 0
+  },
+  "latestDirectAssertionVerification": {
+    "implementation": "c3a1dc0678765e1720bc90e64f20663a898dd8d0",
+    "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
+    "report": "docs/tasks/v01-direct-assertions-review.md",
+    "supplementedClauses": 6,
     "formalPassCount": 0
   }
 }

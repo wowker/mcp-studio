@@ -1,0 +1,49 @@
+{
+  "mcp": {
+    "cookieRequests": 0,
+    "initialize": 1,
+    "httpInitialize": 1,
+    "sseInitialize": 0,
+    "toolsList": 4,
+    "httpToolsList": 4,
+    "sseToolsList": 0,
+    "toolsCall": 1,
+    "httpToolsCall": 1,
+    "sseToolsCall": 0,
+    "delayedCalls": 1,
+    "releasedCalls": 1,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "oauth": {
+    "cookieRequests": 0,
+    "initialize": 0,
+    "httpInitialize": 0,
+    "sseInitialize": 0,
+    "toolsList": 0,
+    "httpToolsList": 0,
+    "sseToolsList": 0,
+    "toolsCall": 0,
+    "httpToolsCall": 0,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "agent": {
+    "generation": 1,
+    "nativePairings": 0,
+    "nativeProcesses": 0,
+    "stdioCalls": 0,
+    "uploads": []
+  },
+  "tls": "Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass",
+  "supportMatrix": "T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence"
+}

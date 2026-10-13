@@ -1,0 +1,8 @@
+=== RUN   TestV01AgentDependencyErrorsBlockConnectAndRun
+=== RUN   TestV01AgentDependencyErrorsBlockConnectAndRun/cycle
+=== RUN   TestV01AgentDependencyErrorsBlockConnectAndRun/nested_missing_dependency
+--- PASS: TestV01AgentDependencyErrorsBlockConnectAndRun (0.04s)
+    --- PASS: TestV01AgentDependencyErrorsBlockConnectAndRun/cycle (0.03s)
+    --- PASS: TestV01AgentDependencyErrorsBlockConnectAndRun/nested_missing_dependency (0.01s)
+PASS
+ok  	mcp-studio/internal/agent/sessions	0.638s

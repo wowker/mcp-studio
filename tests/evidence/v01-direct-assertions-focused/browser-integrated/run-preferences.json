@@ -1,0 +1,94 @@
+{
+  "scope": "Production build, isolated PostgreSQL and synthetic MCP barrier; supplemental A32 automated assertions, no formal/manual/native/target-browser acceptance.",
+  "browser": "147.0.7727.15",
+  "identity": {
+    "projectId": "fbd93210492437c72275051c6a592e34",
+    "connectionId": "846a83cfab1c8d29b0b3c64ac6e86b10",
+    "tabId": "2613af59-203f-4ad8-8848-338a6db80c2a",
+    "runId": "3e0862c8-91b1-408a-8686-07c72427010e"
+  },
+  "observations": [
+    {
+      "phase": "in-flight",
+      "locale": "en-US",
+      "theme": "dark"
+    },
+    {
+      "phase": "in-flight",
+      "locale": "en-US",
+      "theme": "light"
+    },
+    {
+      "phase": "in-flight",
+      "locale": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "phase": "in-flight",
+      "locale": "zh-CN",
+      "theme": "light"
+    },
+    {
+      "phase": "completed",
+      "locale": "en-US",
+      "theme": "dark"
+    },
+    {
+      "phase": "completed",
+      "locale": "en-US",
+      "theme": "light"
+    },
+    {
+      "phase": "completed",
+      "locale": "zh-CN",
+      "theme": "dark"
+    },
+    {
+      "phase": "completed",
+      "locale": "zh-CN",
+      "theme": "light"
+    }
+  ],
+  "counters": {
+    "baseline": {
+      "cookieRequests": 0,
+      "initialize": 1,
+      "httpInitialize": 1,
+      "sseInitialize": 0,
+      "toolsList": 2,
+      "httpToolsList": 2,
+      "sseToolsList": 0,
+      "toolsCall": 0,
+      "httpToolsCall": 0,
+      "sseToolsCall": 0,
+      "delayedCalls": 0,
+      "releasedCalls": 0,
+      "oauthExchanges": 0,
+      "oauthDenials": 0,
+      "oauthReplays": 0,
+      "pkceVerified": 0,
+      "resourceVerified": 0
+    },
+    "final": {
+      "cookieRequests": 0,
+      "initialize": 1,
+      "httpInitialize": 1,
+      "sseInitialize": 0,
+      "toolsList": 4,
+      "httpToolsList": 4,
+      "sseToolsList": 0,
+      "toolsCall": 1,
+      "httpToolsCall": 1,
+      "sseToolsCall": 0,
+      "delayedCalls": 1,
+      "releasedCalls": 1,
+      "oauthExchanges": 0,
+      "oauthDenials": 0,
+      "oauthReplays": 0,
+      "pkceVerified": 0,
+      "resourceVerified": 0
+    },
+    "uploads": 1
+  },
+  "pageErrors": []
+}

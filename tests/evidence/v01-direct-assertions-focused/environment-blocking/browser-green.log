@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/execution/v01-environment-blocking.test.ts (2 tests) 104ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  02:25:05
+   Duration  443ms (transform 62ms, setup 64ms, collect 133ms, tests 104ms, environment 0ms, prepare 41ms)
+

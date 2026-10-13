@@ -1,0 +1,14 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/environment/v01-diagnostics.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/environment/v01-diagnostics.test.tsx (2 tests) 419ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  02:23:32
+   Duration  1.77s (transform 141ms, setup 36ms, collect 1.04s, tests 419ms, environment 161ms, prepare 24ms)
+

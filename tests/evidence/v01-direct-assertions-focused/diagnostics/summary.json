@@ -1,0 +1,32 @@
+{
+  "acceptance": "A51 / 失效诊断清除",
+  "scope": "Controlled feature regression; no release or formal acceptance signoff",
+  "testSource": "apps/web/src/features/environment/v01-diagnostics.test.tsx",
+  "cases": [
+    "Missing dependency: create SEGMENT in the original project/connection/environment, then return without applying",
+    "Missing dependency: create SEGMENT in the original project/connection/environment, explicitly apply, then return",
+    "Invalid typed reference: repair the original COUNT definition, then return without applying",
+    "Invalid typed reference: repair the original COUNT definition, explicitly apply, then return"
+  ],
+  "assertions": [
+    "Real BrowserSession first reports failed/reference_missing before any authorization or upstream request",
+    "Repair navigation carries the original connection and effective environment",
+    "The original specific row diagnosis and missing-variable alert are present before repair",
+    "Saving the scoped definition removes the old row diagnosis and alert and displays the literal expected new value and Available state",
+    "Repair alone does not apply the preview or connect",
+    "Explicit apply stores the selected environment and clears the failed session state",
+    "Returning without apply also clears the obsolete runtime reference alert via the production ConnectionEditor behavior",
+    "Returned connection is disconnected and Connect is enabled",
+    "Only the expected definition mutation occurs; no session-access or upstream request is issued"
+  ],
+  "realImplementations": ["EnvironmentPage", "VariableEditor", "ConnectionsPage", "ConnectionEditor", "BrowserSession", "M2Memory", "PlatformClient", "buildLayers", "resolveEnvironment"],
+  "controlledBoundary": "fetch responses for the platform configuration HTTP API only",
+  "behaviorResult": "GREEN with existing production code; direct assertion supplement, no reproduced product defect and no production repair",
+  "baseline": {"log": "baseline.log", "cases": 2, "passed": 2, "note": "Initial two repair paths; test-authoring locale string corrections were not product RED evidence"},
+  "focused": {
+    "command": "npm test -- apps/web/src/features/environment/v01-diagnostics.test.tsx apps/web/src/features/environment/EnvironmentPage.test.tsx apps/web/src/features/connections/ConnectionsPage.test.tsx",
+    "log": "focused.log", "files": 3, "passed": 29, "newDirectCases": 4
+  },
+  "typecheck": {"command": "npm run typecheck", "log": "typecheck.log", "status": "initial shared-worktree run found ByRoleOptions exact errors only in concurrent MembersPage.test.tsx; final integrated status belongs to root verification"},
+  "limitations": "This is jsdom feature coverage with a controlled API boundary. It does not claim real-browser, native Agent, OS, manual, credential-store, media, or formal A51 acceptance."
+}

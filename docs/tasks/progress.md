@@ -377,3 +377,29 @@ runChecked不使用spawn AbortSignal提前错误，而是独立POSIX进程组；
 - [最终清理](../../tests/evidence/v01-v02-final/cleanup.json)：test_/e2e_ schema0，本次准确Compose项目的容器/网络/卷0，原mcp-studio-m1-pg保留；runtime finally结束Agent/平台/SMTP/MCP/OAuth/临时TLS。只读计数不意味着做前缀批量删除。
 
 V01/V02切片已逐项登记；A01–A60正式60/60仍待验，T02/T32b及既有实机/人工/介质不签收。Windows原生进程树、脱离组外部程序、验证器直接SIGKILL/掉电、Docker全阶段强制中止未验。当前只留本地提交和未签名候选，不推送、合并、tag、签名、公证或发布。下一软件切片可从V01明确证据缺口选A编号补证；V03/V04需要验收人员，V05/V06需要隔离Mac账号，均等待后续范围授权。
+
+## 2026-10-14 · V01 六条直接断言补证
+
+用户授权只补A01/A09/A28/A32/A51六条直接缺口，若实际复现行为缺陷同步修补，完整verify和逐项登记；不发布。基于3219b1e，按领域分文件并行补证，分切片验证/本地提交1df5fca（项目成员）、c78fb00（诊断）、d36331f（跨端阻断）、c3a1dc0（运行偏好）。冻结实现c3a1dc0678765e1720bc90e64f20663a898dd8d0。没有复现产品行为缺陷、没有生产源修改；七个测试文件新增567行/删1行，不制造产品RED，不改设计/合同/迁移或安全阈值。
+
+### 六条逐项结果
+
+- A01「成功空项目」：TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer实际PG/API验证，与已有连接/环境/历史/保存的兄弟项目对照；新项目所有连接/环境/变量/记录/record operations空、唯一创建者维护者。
+- A09「连接和执行被一致阻断」：真实BrowserSession/ExecutionRunner在Node中用实际MCP fixture/SDK验证循环与嵌套缺失依赖，连接零initialize/Tool，执行无Run/完成回调、Tool0；Go TestV01AgentDependencyErrorsBlockConnectAndRun用真实Engine/临时vault/SDK HTTP，连接前零HTTP，已连通但同版本个人值变非法时Run拒绝且零新HTTP/Tool/入队；有效值对照和修复后显式实际调用成功。平台授权边界供应作用域响应，不称新授权验收；系统凭据库及目标浏览器待验。
+- A28「署名保留」：真实PG/API TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval，两种正常移除后共享历史与由私有保存实际发布的记录详情全等，列表原ownerId/ownerName未改、移除者读取拒绝。
+- A28「取消无副作用」：两组件case和两生产浏览器旅程确认取消，零API mutation；真实成员关系/邀请/审计严格相等且重载保持、另一项目访问角色未变。组件9项及浏览器2项分别具名保存。
+- A32「运行保留」：生产browser新旅程用显式MCP release barrier，在途4个语言/主题组合保持项目/连接/Tab/草稿/运行状态，一次调用且零提前上传；释放后唯一历史/一次上传，4组合完整快照（含Run UUID）/状态/结果一致。在途UUID没有UI出口，用barrier/同Tab/一次调用证明持续，不添加测试专用生产出口。
+- A51「失效诊断清除」：4个真实组件旅程，补缺失依赖/修复原类型值×显式apply/直接return。精确旧诊断/alert消失、新预览有效，返回服务断开、Connect可用且零自动session-access/MCP；平台HTTP边界受控，不声称实浏览器/Agent环境签收。
+
+具体新行号/测试名/源SHA/正式原文见[增量JSON](v01-direct-assertions.json)及[审阅](v01-direct-assertions-review.md)。原V01审计JSON不动，347条历史引用按3056a6b还原（新增成员测试使旧文件部分行号后移）；本次8处源引用绑定c3a1dc0，不冒称8份独立运行。
+
+### 实际验证与登记
+
+- 聚焦真实PG两个Go顶层测试、Agent一个顶层测试及两子case通过；整合前端3文件15项、前端与两个新E2E strict类型通过；生产入口新browser3/3，0失败/跳过/重试。子代理初轮A28两旅程与根整合三旅程分别保留，不相加凑场景数量。
+- 独立限定源审阅批准，无Required/Important/Critical，审阅者未跑测试。测试编写错误（Node-only teardown缺localStorage、Testing Library exact选项、期望文案）修正并保留说明/失败日志，均非产品RED。证据[focused](../../tests/evidence/v01-direct-assertions-focused/README.md)。
+- [完整verify](../../tests/evidence/v01-direct-assertions-final/verify.log)真实exit0：599前端/59文件、32基础Node、真实隔离PG全量Go24个具测试包、vet、production/helper构建、四目标Agent候选/未签名Mac pkg、12运维、平台镜像和隔离HTTPS/STARTTLS/权限/备份恢复/未来迁移拒绝、29浏览器（原26＋本轮3），0失败/跳过/重试。Go无测试包只编译，race与依赖审计未重跑。
+- [manifest](../../tests/evidence/v01-direct-assertions-final/manifest.json)：实际macOS26.6.2 arm64、Go1.25.5、Node24.21.0、PG18.6、Docker29.7.2/Compose5.4.0、Chromium147.0.7727.15/Playwright1.59.1、axe4.13.0；352冻结输入SHA322be8003c8785462b3219417ca4a9e46a8092de9914b972b51da5300a5a3a00、锁文件和产物摘要。826 PNG/159axe/0确认违规，原tools英文亮/暗两份color-contrast incomplete仍人工待验。
+- [清理](../../tests/evidence/v01-direct-assertions-final/cleanup.json)：test_/e2e_ schema0、本次准确Compose项目容器/网络/卷0，预存PG保留，runtime finally结束自己的平台/Agent/SMTP/MCP/OAuth/TLS；只读计数不作前缀批量删除。本轮没有重做历史verify CLI中止，原V02中止回归仍在基础32 Node中执行。
+- CSV只追加五个目标A行，另55行完全不变。仅将6条not-found改为受控断言支持，有效111支持/73部分/0未找到/3环境；六条之外未批量重评。[登记完整性](../../tests/evidence/v01-direct-assertions-final/registration-check.json)核对原T叶子/审计/设计快照/M7归档不变，新8引用与352源输入/产物SHA吻合。
+
+A01–A60正式仍60/60待验；T02/T32b及既有原生/人工/介质、M7完整叶子状态不动。未扩大到A21风险、剩余73部分条款或V03之后，本地候选与登记提交不推送/合并/tag/签名/公证/发布。后续从明确A编号的部分证据或具备环境的V批次授权继续。

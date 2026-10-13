@@ -1,0 +1,29 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/runtime/execution/v01-environment-blocking.test.ts (2 tests | 2 failed) 131ms
+   × A09 Browser connect and Run block cycle with zero upstream calls 116ms
+     → localStorage is not defined
+   × A09 Browser connect and Run block nested missing dependency with zero upstream calls 15ms
+     → localStorage is not defined
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/runtime/execution/v01-environment-blocking.test.ts > A09 Browser connect and Run block cycle with zero upstream calls
+ FAIL  src/runtime/execution/v01-environment-blocking.test.ts > A09 Browser connect and Run block nested missing dependency with zero upstream calls
+ReferenceError: localStorage is not defined
+ ❯ tests/setup.ts:3:29
+      1| import {afterEach} from 'vitest';
+      2| import {cleanup} from '@testing-library/react';
+      3| afterEach(() => {cleanup(); localStorage.clear();});
+       |                             ^
+      4| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  02:23:49
+   Duration  508ms (transform 65ms, setup 51ms, collect 159ms, tests 131ms, environment 0ms, prepare 41ms)
+

@@ -1,0 +1,18 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/team/MembersPage.test.tsx > retains failed invitation inputs and default 7 day scope 180ms
+ ✓ src/features/team/MembersPage.test.tsx > requires scope confirmation before deleting another project member 64ms
+ ✓ src/features/team/MembersPage.test.tsx > cancelling project removal sends no mutation and retains the member role and scope 78ms
+ ✓ src/features/team/MembersPage.test.tsx > cancelling team removal sends no mutation and retains the member role and scope 91ms
+ ✓ src/features/team/MembersPage.test.tsx > reports when the selected member disappears after a successful role refresh 64ms
+ ✓ src/features/team/MembersPage.test.tsx > clears a no-match member search without resetting the current project scope 48ms
+ ✓ src/features/team/MembersPage.test.tsx > records an invitation fact only after successful creation in the same identity and project 74ms
+ ✓ src/features/team/MembersPage.test.tsx > does not record delayed invitation success for a different current project 77ms
+ ✓ src/features/team/MembersPage.test.tsx > does not record delayed invitation success after management permission is revoked 77ms
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  02:24:14
+   Duration  1.38s (transform 74ms, setup 63ms, collect 144ms, tests 753ms, environment 279ms, prepare 29ms)
+

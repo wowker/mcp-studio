@@ -1,0 +1,16 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 3 tests using 1 worker
+
+(node:40180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:40180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/v01-membership.spec.ts:21:2 › V01 A28: cancelling project removal preserves real memberships, invitations and audit without API mutations (2.3s)
+  ✓  2 [chromium] › tests/e2e/v01-membership.spec.ts:21:2 › V01 A28: cancelling team removal preserves real memberships, invitations and audit without API mutations (1.6s)
+  ✓  3 [chromium] › tests/e2e/v01-run-preferences.spec.ts:19:1 › V01 A32 production: preference changes retain the in-flight call and completed Run identity, status and result (3.4s)
+
+  3 passed (7.9s)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed

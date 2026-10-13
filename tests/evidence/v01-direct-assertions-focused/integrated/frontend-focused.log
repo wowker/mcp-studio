@@ -1,0 +1,13 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/execution/v01-environment-blocking.test.ts (2 tests) 117ms
+ ✓ src/features/team/MembersPage.test.tsx (9 tests) 1198ms
+   ✓ does not record delayed invitation success for a different current project  450ms
+ ✓ src/features/environment/v01-diagnostics.test.tsx (4 tests) 700ms
+
+ Test Files  3 passed (3)
+      Tests  15 passed (15)
+   Start at  02:26:21
+   Duration  2.78s (transform 230ms, setup 144ms, collect 1.91s, tests 2.01s, environment 575ms, prepare 120ms)
+

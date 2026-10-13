@@ -1,0 +1,22 @@
+=== RUN   TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer
+=== RUN   TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/history_empty
+=== RUN   TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/saved_empty
+--- PASS: TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer (0.73s)
+    --- PASS: TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/history_empty (0.01s)
+    --- PASS: TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/saved_empty (0.00s)
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/history_retained
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/saved_retained
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/history_retained
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/saved_retained
+--- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval (2.19s)
+    --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project (1.10s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/history_retained (0.01s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/saved_retained (0.01s)
+    --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team (1.09s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/history_retained (0.01s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/saved_retained (0.01s)
+PASS
+ok  	mcp-studio/internal/platform	3.558s
