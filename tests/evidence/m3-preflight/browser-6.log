@@ -1,0 +1,50 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 4 tests using 1 worker
+
+(node:41901) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41901) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (3.5s)
+  ✓  2 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (5.2s)
+  ✓  3 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (4.3s)
+  ✘  4 [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission (13.2s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('button', { name: 'Execute tool', exact: true })
+    Expected: enabled
+    Received: disabled
+    Timeout:  10000ms
+
+    Call log:
+    [2m  - Expect "toBeEnabled" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Execute tool', exact: true })[22m
+    [2m    14 × locator resolved to <button disabled type="button" class="ui-button ui-button-primary">Execute tool</button>[22m
+    [2m       - unexpected value "disabled"[22m
+
+
+      59 |  const recorded=async()=>{await expect.poll(async()=>(await history()).items.length).toBe(++count);return (await history()).items[0];};
+      60 |  for(const [text,kind]of [['fixture-tool-error','tool_error'],['fixture-rpc-error','rpc_error'],['fixture-output-invalid','output_invalid']] as const){await run(text);const record=await recorded();expect(record.snapshot.resultKind).toBe(kind);expect(record.snapshot.runStatus).toBe('failed');expect(record.snapshot.remoteOutcome).toBe('known');if(kind==='tool_error')expect(JSON.parse(record.snapshot.responseJSON).isError).toBe(true);}
+    > 61 |  const delayed=(await fixtureStats(request)).delayedCalls;await run('fixture-slow-result');await expect.poll(async()=>(await fixtureStats(request)).delayedCalls).toBe(delayed+1);await expect(page.getByRole('button',{name:'Close tab for echo',exact:true})).toBeDisabled();await page.getByRole('button',{name:'New tab for echo',exact:true}).click();await expect(page.getByRole('button',{name:'Execute tool',exact:true})).toBeEnabled();await page.getByRole('tab',{name:'echo',exact:true}).first().click();await page.getByRole('button',{name:'Cancel execution',exact:true}).click();const cancelled=await recorded();expect(cancelled.snapshot.runStatus).toBe('cancelled');expect(cancelled.snapshot.remoteOutcome).toBe('unknown');expect((await request.post(process.env.PLAYWRIGHT_MCP_ORIGIN+'/release-tools')).status()).toBe(200);const stillCancelled=await requestData(page.request,`/projects/${projectId}/records/${cancelled.id}`,wire.recordSchema);expect(stillCancelled.snapshot.runStatus).toBe('cancelled');
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+      62 |  await run('after-cancel');expect((await recorded()).snapshot.runStatus).toBe('succeeded');await run('fixture-slow-result');const timedOut=await recorded();expect(timedOut.snapshot.resultKind).toBe('timeout');expect(timedOut.snapshot.remoteOutcome).toBe('unknown');await request.post(process.env.PLAYWRIGHT_MCP_ORIGIN+'/release-tools');
+      63 |  const calls=(await fixtureStats(request)).toolsCall;await page.route(`**/api/v1/projects/${projectId}/connections/${connectionId}`,route=>route.abort('failed'));await run('platform-offline');await expect(page.getByText('The platform is unavailable. Check your connection and retry; your input is retained.',{exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(calls);expect((await history()).items).toHaveLength(count);await page.unroute(`**/api/v1/projects/${projectId}/connections/${connectionId}`);
+      64 |  await run('fixture-call-401');const rejected=await recorded();expect(rejected.snapshot.resultKind).toBe('http_error');expect(rejected.snapshot.httpStatus).toBe(401);expect(rejected.snapshot.remoteOutcome).toBe('known');expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+7);expect(issues).toEqual([]);await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m3-errors-en-US-light-1440.png`});
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:61:420
+
+    Error Context: test-results/m3-M3-production-actual-to-ea008-t-401-and-offline-admission-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-actual-to-ea008-t-401-and-offline-admission-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission 
+  3 passed (26.9s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

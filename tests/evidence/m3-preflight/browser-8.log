@@ -1,0 +1,48 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 5 tests using 1 worker
+
+(node:44508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:44508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (3.4s)
+  ✓  2 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (5.2s)
+  ✓  3 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (4.3s)
+  ✓  4 [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission (6.0s)
+  ✘  5 [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft (14.6s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.record-detail')
+    Expected substring: not [32m"fixture-token"[39m
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "not toContainText" with timeout 10000ms[22m
+    [2m  - waiting for locator('.record-detail')[22m
+
+
+      74 |  await page.getByRole('button',{name:'Save request',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('Incomplete private draft');await expect(page.getByLabel('Visibility',{exact:true})).toBeDisabled();await expect(page.getByText('Incomplete private request draft',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Save record',exact:true}).click();await expect(page.getByRole('button',{name:'Open Incomplete private draft',exact:true})).toBeVisible();const saved=await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema),draft=saved.items.find(item=>item.metadata.name==='Incomplete private draft')!;expect(draft.metadata.visibility).toBe('private');expect(draft.metadata.completeness).toBe('incomplete');expect(draft.snapshot.runStatus).toBe('idle');expect(draft.snapshot.runId).toBe('');expect(draft.sourceRunId).toBe('');expect(JSON.parse(draft.snapshot.requestJSON)).toEqual({text:7});expect(draft.snapshot.responseJSON).toBe('null');
+      75 |  await page.getByLabel('Raw parameters',{exact:true}).fill('{"text":');await expect(page.getByRole('button',{name:'Execute tool',exact:true})).toBeDisabled();await expect(page.getByRole('button',{name:'Save request',exact:true})).toBeDisabled();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);expect(await page.evaluate(()=>JSON.stringify({local:localStorage,session:sessionStorage}).includes('fixture-token'))).toBe(false);expect(page.url()).not.toContain('fixture-token');
+    > 76 |  await page.getByRole('button',{name:'Call history',exact:true}).click();await page.getByRole('tab',{name:'Saved records',exact:true}).click();await page.getByRole('button',{name:'Open Private safe result',exact:true}).click();await expect(page.getByRole('heading',{name:'Private safe result',exact:true})).toBeVisible();await page.getByLabel('Language').selectOption('zh-CN');await page.getByRole('button',{name:'切换主题',exact:true}).click();await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('article')).not.toContainText('fixture-token');expect(issues).toEqual([]);await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m3-record-zh-CN-dark-390.png`,fullPage:true});
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^
+      77 | });
+      78 |
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:76:635
+
+    Error Context: test-results/m3-M3-production-credentia-a76ec-an-unexecuted-private-draft-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-credentia-a76ec-an-unexecuted-private-draft-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft 
+  4 passed (34.1s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

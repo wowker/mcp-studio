@@ -1,0 +1,44 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 3 tests using 1 worker
+
+(node:41630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (3.5s)
+  ✘  2 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (2.8s)
+(node:41651) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:41651) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (4.3s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      27 |  await page.route(`**/api/v1/projects/${projectId}/record-uploads`,async route=>{const input=route.request().postDataJSON() as wire.RecordUploadInput;uploads.push(input);if(failFirst&&input.targetKind==='history'){failFirst=false;await route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:{code:'network'}})});}else await route.continue();});
+      28 |  await page.getByRole('button',{name:'Raw JSON',exact:true}).click();await page.getByLabel('Raw parameters',{exact:true}).fill('{"text":"actual-http","count":0,"enabled":false,"note":null}');await page.getByRole('button',{name:'Execute tool',exact:true}).dblclick();await expect(page.getByRole('button',{name:'Retry upload',exact:true})).toBeVisible();expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);
+    > 29 |  await page.getByLabel('Raw parameters',{exact:true}).fill('{"text":"edited-after-run"}');const retryResponse=page.waitForResponse(response=>response.url().endsWith(`/projects/${projectId}/record-uploads`)&&response.request().method()==='POST');await page.getByRole('button',{name:'Retry upload',exact:true}).click();const retried=await retryResponse;if(retried.status()!==200){const error=await retried.json() as {error?:{code?:string}};throw Error(`retry_upload_${retried.status()}_${error.error?.code??'unknown'}`);}const receiptEnvelope=await retried.json() as {data:unknown};const parsedReceipt=wire.recordOperationReceiptSchema.safeParse(receiptEnvelope.data);expect(parsedReceipt.success).toBe(true);if(parsedReceipt.success){expect(parsedReceipt.data.operationId).toBe(uploads[0].operationId);expect(parsedReceipt.data.frozenDigest).toBe(uploads[0].frozenDigest);expect(parsedReceipt.data.recordId).toBe(uploads[0].targetId);}await expect.poll(()=>page.locator('.tool-execution > p').allTextContents()).toContain('Record upload: Recorded');expect(uploads[1]).toEqual(uploads[0]);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ^
+      30 |  const historyPage=await requestData(page.request,`/projects/${projectId}/records?kind=history`,wire.recordPageSchema);expect(historyPage.items).toHaveLength(1);const history=historyPage.items[0];expect(history.id).not.toBe(history.snapshot.runId);expect(uploads[0].operationId).not.toBe(history.id);expect(history.snapshot.tabId).not.toBe(history.snapshot.runId);expect(history.connectionId).toBe(connectionId);expect(JSON.parse(history.snapshot.requestJSON)).toEqual({text:'actual-http',count:0,enabled:false,note:null});
+      31 |  await page.getByRole('button',{name:'Save result',exact:true}).click();await page.getByLabel('Record name',{exact:true}).fill('M3 saved');await page.getByLabel('Note',{exact:true}).fill('Independent saved snapshot');await page.getByRole('button',{name:'Save record',exact:true}).click();await expect(page.getByRole('button',{name:'Open M3 saved',exact:true})).toBeVisible();
+      32 |  const savedPage=await requestData(page.request,`/projects/${projectId}/records?kind=saved`,wire.recordPageSchema);expect(savedPage.items).toHaveLength(1);const saved=savedPage.items[0];expect(saved.id).not.toBe(history.id);expect(saved.sourceRunId).toBe(history.snapshot.runId);expect(saved.snapshot.requestJSON).toBe(history.snapshot.requestJSON);
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:29:697
+
+    Error Context: test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration 
+  2 passed (11.7s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

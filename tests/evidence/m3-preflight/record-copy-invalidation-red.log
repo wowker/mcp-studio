@@ -1,0 +1,36 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/records/viewStore.test.ts -t closes only the copy forms
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/records/viewStore.test.ts (4 tests | 1 failed | 3 skipped) 5ms
+   ↓ retains project and connection+tool history filters and cursor positions independently
+   ↓ isolates additional redaction and metadata forms per project+record and revokes only the target project
+   × closes only the copy forms whose cached source was invalidated 4ms
+     → expected true to be false // Object.is equality
+   ↓ root Run invalidation clears matching cached copies and Tab results while retaining another Run and another project
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/records/viewStore.test.ts > closes only the copy forms whose cached source was invalidated
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/features/records/viewStore.test.ts:7:480
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 skipped (4)
+   Start at  14:27:12
+   Duration  739ms (transform 123ms, setup 68ms, collect 207ms, tests 5ms, environment 310ms, prepare 37ms)
+

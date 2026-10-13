@@ -1,0 +1,258 @@
+{
+  "stage": "T15 and M3 T16–T21",
+  "sourceCommit": "cf9b6cfd4803557466187e55f91b8c93c4b73142",
+  "t15Commit": "adf6622",
+  "contractVersion": "1.2.0",
+  "environment": {
+    "os": "macOS 26.6.2 arm64",
+    "node": "24.21.0",
+    "go": "1.25.5",
+    "postgres": "18.6",
+    "playwright": "1.59.1",
+    "browser": "Chromium 147.0.7727.15"
+  },
+  "verification": {
+    "exitCode": 0,
+    "generatedSchemas": 47,
+    "generatedPaths": 39,
+    "commonSemantics": 64,
+    "schemaAdditionalCases": 49,
+    "m0SchemaCases": 17,
+    "canonicalCases": 7,
+    "redactionCases": 19,
+    "nodeTests": 18,
+    "frontendTestFiles": 34,
+    "frontendTests": 424,
+    "browserTests": 11,
+    "skipped": 0,
+    "browserRetries": 0,
+    "go": "test -count=1 ./..., vet, production build with real isolated PostgreSQL",
+    "noStandaloneGoTests": [
+      "internal/wire",
+      "internal/jsonnumber"
+    ],
+    "cleanupSchemas": 0,
+    "postGateChange": "Removed one extra blank line at RecordEditors.tsx EOF; rebuilt frontend and Go production artifacts after commit. No behavior change."
+  },
+  "builds": [
+    {
+      "path": ".runtime/platform",
+      "bytes": 16103074,
+      "sha256": "17c97838181466e631181e23084bb830b0a7d75f821a5a80576588b770d8392f"
+    },
+    {
+      "path": "apps/web/dist/assets/ConnectionsPage-CICybg__.js",
+      "bytes": 20148,
+      "sha256": "d2480bbcb30bdbee8a64a7398a71fa7cfd9949de4824c7076453b1226a90d9b8"
+    },
+    {
+      "path": "apps/web/dist/assets/EnvironmentPage-CcznkkQe.js",
+      "bytes": 13277,
+      "sha256": "13676010477a4002d368199d053aded4aa57645480aad61e65650b7fab65a42f"
+    },
+    {
+      "path": "apps/web/dist/assets/RecordsPage-BcUVVPNl.css",
+      "bytes": 387,
+      "sha256": "b47f1a91608faebd4f37691a6c79d49510c1ff7958469761be8e353029a64960"
+    },
+    {
+      "path": "apps/web/dist/assets/RecordsPage-DKfqWur3.js",
+      "bytes": 33616,
+      "sha256": "7c6303d4419708a2e94de1906875df24f763c4461a42daebaa17cb94722e6b5e"
+    },
+    {
+      "path": "apps/web/dist/assets/ToolsPage-DanCipfB.js",
+      "bytes": 40605,
+      "sha256": "5c0b93182af6a6d33d433480eb29ede4a5349668dd46ca5fbfc88d76da6d38d8"
+    },
+    {
+      "path": "apps/web/dist/assets/auth-BXEy5NlZ.js",
+      "bytes": 21594,
+      "sha256": "8dd22064bf46802c8f438aa164630f53fcb214062d8e599a526e12a11c7eea93"
+    },
+    {
+      "path": "apps/web/dist/assets/browser-session-_bjo8feZ.js",
+      "bytes": 22263,
+      "sha256": "19c5f802404c3a1238f28f2d28943921ba6372ab9f3a5fe6cda476965c3a68fa"
+    },
+    {
+      "path": "apps/web/dist/assets/index-BoxhgMvG.js",
+      "bytes": 466342,
+      "sha256": "bade9c4817a1d457214c7a6be5dfdcd09d7cc5edbb1bcbada92769f8d57342c3"
+    },
+    {
+      "path": "apps/web/dist/assets/index-CNlQDx-y.css",
+      "bytes": 12319,
+      "sha256": "b2addbdc07a884d6f94fe2f7e1bfaacd56b9ee49b4adaa67aa2fbc9769326e19"
+    },
+    {
+      "path": "apps/web/dist/assets/index-Q-kWLqe5.js",
+      "bytes": 165186,
+      "sha256": "f988ca28dc48e28c81e0a09164f5cf088dd3253b4924bd69b5effcee753775fb"
+    },
+    {
+      "path": "apps/web/dist/assets/sse-CUKZ11Qi.js",
+      "bytes": 8786,
+      "sha256": "8961f91992431fe0d108e8e1b9841a1d99af6e71e7b762bff04e50d01942b41f"
+    },
+    {
+      "path": "apps/web/dist/assets/streamableHttp-Bb4QJvvC.js",
+      "bytes": 7664,
+      "sha256": "960d8d763375274c00a01ffb589fa45ae722ae710905bb1e743f161a6365f8f4"
+    },
+    {
+      "path": "apps/web/dist/assets/worker-rF_BGtny.js",
+      "bytes": 71804,
+      "sha256": "6dc104cbdf884414855e3d6e58f1cabb65f23e523e2658ad617597686fc73860"
+    },
+    {
+      "path": "apps/web/dist/index.html",
+      "bytes": 404,
+      "sha256": "dbb60d3a035df4a365d0fb6fe2d3c139f527467e276d8ce26d05f8dbe4054eb2"
+    }
+  ],
+  "limits": [
+    "T02 Chrome/Edge/OS/public HTTPS LNA/native confirmation pending",
+    "All A01–A60 formally pending",
+    "SDK protocol summary only; no raw frame trace",
+    "Session-memory frozen retry only; M4 persistence/capacity/retention/archive not implemented",
+    "M5 Agent execution, system credentials and upload authentication not implemented; saved Agent source tests use synthetic archive"
+  ],
+  "evidence": [
+    {
+      "path": "tests/evidence/m3-final/fixture-statistics.json",
+      "bytes": 986,
+      "sha256": "606895938ba6913195e347b661a48bb2018bd1a6c6da8413a7527bc5baa9c882"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-en-US-dark-1440.png",
+      "bytes": 34307,
+      "sha256": "f758471ce57f1d21621a5038270865b976966b4620366d93df9d91eb6cc22233"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-en-US-dark-390.png",
+      "bytes": 22397,
+      "sha256": "52160b0b98ac797a8519c8b81351b9bc7df31a020079b6ec376498b43aab4664"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-en-US-light-1440.png",
+      "bytes": 34130,
+      "sha256": "265cc41205c35c09c08aca414539955369819086cfe3e50d8500b6d1306d4e25"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-en-US-light-390.png",
+      "bytes": 21996,
+      "sha256": "5c35bb1b94b501778a11bba1181183f81f707ea83a196a9226761335e53d3341"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-regression-environment.json",
+      "bytes": 2046,
+      "sha256": "026151fa9188b2312ad86e9cff1be13e3076668567b69b437619ab05dc605755"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-zh-CN-dark-1440.png",
+      "bytes": 31346,
+      "sha256": "184f491b8726a3ecaec2f4c3e055ed8c97a2aaa7405807946d117999afbc452e"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-zh-CN-dark-390.png",
+      "bytes": 20246,
+      "sha256": "0cfa99b77892fea01662266a47e25cf38c5e4e919f8dd5ea946b377d9e4039da"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-zh-CN-light-1440.png",
+      "bytes": 31084,
+      "sha256": "62fcb96c5000ed98d62e12f26a28f73f2c6f2a4e6fc6c452065642264d860e92"
+    },
+    {
+      "path": "tests/evidence/m3-final/m1-zh-CN-light-390.png",
+      "bytes": 20683,
+      "sha256": "7ba6a259626e5febf3b59e1c942025cf19363c09e2013729038a893e6cee35f9"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-en-US-dark-1440.png",
+      "bytes": 105369,
+      "sha256": "744361345c3fdb61eb802d3200109b71c57f3b24e67c7344c6211bbd9ac39b46"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-en-US-dark-390.png",
+      "bytes": 72002,
+      "sha256": "9e3e3a27561b1955d3e1ba62ce4edf30f7293e8ce7a269d5bea7195a3f5f1111"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-en-US-dark-820.png",
+      "bytes": 101965,
+      "sha256": "e5b7c8727d2d9a76bf69b001c9e5cd40d378b24ae481b69107dd060fbd93cb1b"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-en-US-light-1440.png",
+      "bytes": 103859,
+      "sha256": "cf57ea4e8b874daef5442db3549092fd000b90defee1c559b95c156a5cb0d4b7"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-en-US-light-390.png",
+      "bytes": 69885,
+      "sha256": "1ed36609d206e34297d55c2ba1fe04069605fe4a75d78fe306a8d5157f87a91a"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-en-US-light-820.png",
+      "bytes": 99813,
+      "sha256": "7de6f24ace108aa1c4bd3f10563c02d9b8cc78c2a05c748dcbda5364ca18a87f"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-regression-environment.json",
+      "bytes": 444,
+      "sha256": "65e008a22e963b2c42c8078ea5d4e2b0cddb1a872f0765a8354036d49614ece9"
+    },
+    {
+      "path": "tests/evidence/m3-final/m2-zh-CN-dark-1440.png",
+      "bytes": 101399,
+      "sha256": "30cf4f9096e6e510a5b43eb1055cd587fda6a91fa8328020692da710c2b9e1c4"
+    },
+    {
+      "path": "tests/evidence/m3-final/m3-environment.json",
+      "bytes": 294,
+      "sha256": "1037815e0f6cc892b1bded127b1b6c0427338429fa6bfa6212991d001a874b60"
+    },
+    {
+      "path": "tests/evidence/m3-final/m3-errors-en-US-light-1440.png",
+      "bytes": 93639,
+      "sha256": "84192863b74eb7b41e586f865bc45c8e66b8e4b0d3dbcd30be8782e61de328f5"
+    },
+    {
+      "path": "tests/evidence/m3-final/m3-record-en-US-light-1440.png",
+      "bytes": 102146,
+      "sha256": "6b6765ccd58476ed1376f93e577da498899f1ee471427b12864be73c87b5ca75"
+    },
+    {
+      "path": "tests/evidence/m3-final/m3-record-zh-CN-dark-390.png",
+      "bytes": 66777,
+      "sha256": "fff3beb00ae5199f82b8b3a803a59d5ef76f1c09335c046bc7f473a3a1c0122e"
+    },
+    {
+      "path": "tests/evidence/m3-final/postcommit-build.log",
+      "bytes": 1213,
+      "sha256": "b7d1facb333041059abd06a82aeb0a189d71a45daa7b75f3399dd5709f84f70d"
+    },
+    {
+      "path": "tests/evidence/m3-final/results.json",
+      "bytes": 13978,
+      "sha256": "e1f9a4d4d2dbc75213f476874dacee348d9b71ca47d9db26cbb39b0a696c84f3"
+    },
+    {
+      "path": "tests/evidence/m3-final/t15-en-US-light-1440.png",
+      "bytes": 86670,
+      "sha256": "ad2feb75f1a25d27793f61ff129673c164bad30303858a877f68245797cc8693"
+    },
+    {
+      "path": "tests/evidence/m3-final/t16-en-US-light-390.png",
+      "bytes": 45138,
+      "sha256": "d5aa52b993895d793489367967c54c3243dc7cd2fd910c9163c7a117c3ef07dd"
+    },
+    {
+      "path": "tests/evidence/m3-final/verify.log",
+      "bytes": 9847,
+      "sha256": "39328475dd4ba81c72c576e624bbb736af0965c57fc41af66de083cb37348789"
+    }
+  ]
+}

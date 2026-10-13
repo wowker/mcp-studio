@@ -1,0 +1,131 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/execution/fixture.test.ts (2 tests) 227ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (9 tests) 719ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 881ms
+   ✓ keeps original invitation after registration and never accepts automatically  617ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1373ms
+ ✓ src/features/records/RecordEditors.test.tsx (5 tests) 503ms
+ ✓ src/features/tools/ToolsPage.test.tsx (7 tests) 533ms
+ ✓ src/app/App.test.tsx (11 tests) 2379ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  315ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  745ms
+   ✓ keeps another project tool document when switching through a Viewer project  451ms
+ ✓ src/features/records/RecordsPage.test.tsx (5 tests) 385ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (5 tests) 418ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 341ms
+ ❯ src/runtime/browser-session.test.ts (57 tests | 1 failed) 233ms
+   ✓ uses real pinned SDK handshake only after authoritative scoped access, keeps tokens out of snapshot 34ms
+   ✓ blocks stale or foreign authority before any upstream request 1ms
+   ✓ cancellation during permission lookup prevents late connect 0ms
+   ✓ sanitizes browser policy failures and refuses automatic Agent selection 1ms
+   ✓ allows trustworthy loopback HTTP to reach actual browser policy instead of treating it as mixed content 1ms
+   ✓ refuses OAuth token for another resource before sending any target traffic 0ms
+   ✓ fails streamable-http immediately after a connected server stream breaks and never reconnects 55ms
+   ✓ fails sse immediately after a connected server stream breaks and never reconnects 57ms
+   ✓ redacts nested sensitive JSON leaves echoed in server identity 2ms
+   ✓ hides whole server identity if collecting known private leaves hits the bound 4ms
+   ✓ preserves safe upstream 401 diagnosis for actual legacy SSE initialize rejection 1ms
+   ✓ preserves safe upstream 403 diagnosis for actual legacy SSE initialize rejection 1ms
+   ✓ preserves safe platform version_conflict diagnosis and never sends MCP traffic 0ms
+   ✓ preserves safe platform forbidden diagnosis and never sends MCP traffic 0ms
+   ✓ preserves safe platform unauthenticated diagnosis and never sends MCP traffic 0ms
+   ✓ lists real SDK validated tools and follows cursors over explicit streamable-http transport 3ms
+   ✓ lists real SDK validated tools and follows cursors over explicit sse transport 1ms
+   ✓ requires a connected tools-capable session before catalog network requests 2ms
+   ✓ returns a real empty tool catalog as an empty array 1ms
+   ✓ rejects a late catalog from a disconnected generation without exposing its result 1ms
+   ✓ bounds and safely rejects repeated cursor 1ms
+   ✓ bounds and safely rejects too many tools 2ms
+   ✓ bounds and safely rejects too many pages 11ms
+   ✓ bounds and safely rejects duplicate tool names 1ms
+   ✓ bounds and safely rejects empty tool identity 1ms
+   ✓ bounds and safely rejects malformed schema 1ms
+   ✓ bounds and safely rejects large catalog 4ms
+   ✓ bounds and safely rejects untrusted protocol error 2ms
+   ✓ maps catalog HTTP 401 rejection into safe diagnostics without fallback 3ms
+   ✓ maps catalog HTTP 403 rejection into safe diagnostics without fallback 2ms
+   ✓ rejects known credential echoed in tool name before returning metadata 1ms
+   ✓ rejects known credential echoed in tool description before returning metadata 1ms
+   ✓ rejects known credential echoed in tool schema before returning metadata 1ms
+   ✓ rejects recognizable secret metadata without including its value in errors (0) 1ms
+   ✓ rejects recognizable secret metadata without including its value in errors (1) 1ms
+   ✓ rejects recognizable secret metadata without including its value in errors (2) 1ms
+   ✓ clears metadata secrets on disconnect and reconnect while retaining protection for sensitive environment leaves 1ms
+   ✓ refuses catalog when known sensitive leaf collection could not finish 4ms
+   ✓ does not treat ordinary public header values as catalog secrets 1ms
+   ✓ rejects authentication-bearing metadata URLs without exposing URL in error (0) 1ms
+   ✓ rejects authentication-bearing metadata URLs without exposing URL in error (1) 1ms
+   ✓ rejects authentication-bearing metadata URLs without exposing URL in error (2) 1ms
+   ✓ preserves public query parameters in tool metadata URLs 1ms
+   ✓ discovers output schemas over streamable-http without SDK dynamic validator compilation under strict CSP 5ms
+   ✓ discovers output schemas over sse without SDK dynamic validator compilation under strict CSP 1ms
+   ✓ calls a tool through real streamable-http SDK wire validation without dynamic output compiler 1ms
+   ✓ calls a tool through real sse SDK wire validation without dynamic output compiler 1ms
+   ✓ refuses changed config and resolved environment values before any call traffic 1ms
+   ✓ keeps captured connection secret sanitization after current values change or session disconnects 1ms
+   ✓ per-call cancellation and late response do not disconnect the session or permit late success 2ms
+   ✓ replaces raw JSON-RPC error messages with a safe call classification 2ms
+   ✓ preserves actual call HTTP 401 diagnosis ahead of SDK closed-connection errors 1ms
+   ✓ preserves actual call HTTP 403 diagnosis ahead of SDK closed-connection errors 1ms
+   ✓ checks current connection identity for restoration without reading an execution environment 2ms
+   ✓ freezes the actual credential used for connecting before an async authority lookup returns 2ms
+   ✓ classifies transport failure during a pending call as network error rather than RPC closed-connection error 1ms
+   × classifies a malformed SDK tool result as a protocol failure without exposing raw payload 5ms
+     → expected RuntimeError: network_error { …(1) } to match object { code: 'rpc_error', …(1) }
+(1 matching property omitted from actual)
+ ✓ src/features/team/MembersPage.test.tsx (2 tests) 274ms
+ ✓ src/features/connections/runtimeStore.test.ts (2 tests) 43ms
+ ✓ src/runtime/records/operations.test.ts (13 tests) 122ms
+ ✓ src/features/tools/ToolExecution.test.tsx (3 tests) 267ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 48ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 37ms
+ ✓ src/runtime/execution/index.test.ts (12 tests) 36ms
+ ✓ src/shared/i18n.test.ts (2 tests) 8ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 6ms
+ ✓ src/shared/api.test.ts (9 tests) 7ms
+ ✓ src/runtime/vault.test.ts (8 tests) 6ms
+ ✓ src/features/records/restore.test.ts (4 tests) 8ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 6ms
+ ✓ src/runtime/connection.test.ts (5 tests) 6ms
+ ✓ src/runtime/records/redaction.test.ts (21 tests) 6ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 4ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 3ms
+ ✓ src/runtime/environment.test.ts (21 tests) 3ms
+ ✓ src/features/tools/workspace.test.ts (6 tests) 3ms
+ ✓ src/features/records/viewStore.test.ts (3 tests) 2ms
+ ✓ src/features/connections/session.test.ts (3 tests) 1ms
+ ✓ src/features/team/protection.test.ts (3 tests) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/runtime/browser-session.test.ts > classifies a malformed SDK tool result as a protocol failure without exposing raw payload
+AssertionError: expected RuntimeError: network_error { …(1) } to match object { code: 'rpc_error', …(1) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "rpc_error",
+-   "message": "rpc_error",
++ RuntimeError {
++   "code": "network_error",
+  }
+
+ ❯ src/runtime/browser-session.test.ts:176:234
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 32 passed (33)
+      Tests  1 failed | 390 passed (391)
+   Start at  12:32:58
+   Duration  7.54s (transform 573ms, setup 1.34s, collect 8.97s, tests 8.89s, environment 6.42s, prepare 945ms)
+

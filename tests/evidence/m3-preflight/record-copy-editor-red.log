@@ -1,0 +1,1454 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/records/RecordsPage.test.tsx -t detail copy
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/features/records/RecordsPage.test.tsx (8 tests | 2 failed | 6 skipped) 2379ms
+   ↓ queries the real scoped API and preserves its connection+tool filters through pagination and detail return
+   ↓ presents Viewer details without mutation or restore controls
+   ↓ refuses a late or mismatched detail from another connection scope
+   ↓ does not offer project-history pinning on a private history record
+   ↓ refreshes a mounted scoped list after root Run invalidation without changing its filters
+   ↓ shows only frozen failed session uploads in the exact connection+tool scope and offers retry without record mutations
+   × closes the detail copy editor after a successful upload and does not reopen it after returning to the record 1179ms
+     → expected <button type="submit" …(1)></button> to be null
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<section[39m
+        [33mclass[39m=[32m"records-page"[39m
+      [36m>[39m
+        [36m<h1>[39m
+          [0mCall history[0m
+        [36m</h1>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mBack to records[0m
+        [36m</button>[39m
+        [36m<article>[39m
+          [36m<h2>[39m
+            [0mEcho run[0m
+          [36m</h2>[39m
+          [36m<p>[39m
+            [0mUser[0m
+            [0m · [0m
+            [0mProject[0m
+            [0m · [0m
+            [0m2026-10-13T01:00:00Z[0m
+          [36m</p>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ui-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mRestore to new tab[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mSave as new record[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mPin record[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mDelete record[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<form[39m
+            [33mclass[39m=[32m"ui-form record-editor"[39m
+          [36m>[39m
+            [36m<h2>[39m
+              [0mSave as new record[0m
+            [36m</h2>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r9»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mRecord name[0m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"ui-required"[39m
+                [36m>[39m
+                  [0m *[0m
+                [36m</span>[39m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Record name"[39m
+                [33mid[39m=[32m"«r9»"[39m
+                [33mmaxlength[39m=[32m"200"[39m
+                [33mrequired[39m=[32m""[39m
+                [33mvalue[39m=[32m"echo"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mNote[0m
+              [36m</span>[39m
+              [36m<textarea[39m
+                [33maria-label[39m=[32m"Note"[39m
+                [33mmaxlength[39m=[32m"4096"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mVisibility[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Visibility"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"private"[39m
+                [36m>[39m
+                  [0mOnly me[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"project"[39m
+                [36m>[39m
+                  [0mProject[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mContent[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Content"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request"[39m
+                [36m>[39m
+                  [0mRequest only[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request-response"[39m
+                [36m>[39m
+                  [0mRequest and response[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mRequest snapshot[0m
+              [36m</summary>[39m
+              [36m<pre[39m
+                [33mclass[39m=[32m"tools-schema"[39m
+              [36m>[39m
+                [0m{
+  "zero": 0,
+  "false": false,
+  "nil": null
+}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mCancel[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-primary"[39m
+                [33mtype[39m=[32m"submit"[39m
+              [36m>[39m
+                [0mSave record[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</form>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"record-snapshot"[39m
+          [36m>[39m
+            [36m<h2>[39m
+              [0mRequest snapshot[0m
+            [36m</h2>[39m
+            [36m<pre>[39m
+              [0m{"zero":0,"false":false,"nil":null}[0m
+            [36m</pre>[39m
+            [36m<h2>[39m
+              [0mResponse snapshot[0m
+            [36m</h2>[39m
+            [36m<pre>[39m
+              [0m{"content":[]}[0m
+            [36m</pre>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mProtocol snapshot[0m
+              [36m</summary>[39m
+              [36m<pre>[39m
+                [0m{"method":"tools/call"}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mExecution context[0m
+              [36m</summary>[39m
+              [36m<dl>[39m
+                [36m<dt>[39m
+                  [0mRun ID[0m
+                [36m</dt>[39m
+                [36m<dd[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mrun[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mTab ID[0m
+                [36m</dt>[39m
+                [36m<dd[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mtab[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mConnection ID[0m
+                [36m</dt>[39m
+                [36m<dd[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mc[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mEnvironment ID[0m
+                [36m</dt>[39m
+                [36m<dd />[39m
+                [36m<dt>[39m
+                  [0mRun status[0m
+                [36m</dt>[39m
+                [36m<dd>[39m
+                  [0mSucceeded[0m
+                  [0m · [0m
+                  [0msuccess[0m
+                  [0m · [0m
+                  [0mknown[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mHTTP[0m
+                [36m</dt>[39m
+                [36m<dd>[39m
+                  [0m200[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mOwner ID[0m
+                [36m</dt>[39m
+                [36m<dd>[39m
+                  [0mu[0m
+                [36m</dd>[39m
+              [36m</dl>[39m
+            [36m</details>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mRedaction markers[0m
+              [36m</summary>[39m
+              [36m<ul />[39m
+            [36m</details>[39m
+          [36m</div>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"record-editor"[39m
+          [36m>[39m
+            [36m<h2>[39m
+              [0mAdd redaction revision[0m
+            [36m</h2>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mAdditional redaction paths (one JSON Pointer per line)[0m
+              [36m</span>[39m
+              [36m<textarea[39m
+                [33maria-label[39m=[32m"Additional redaction paths (one JSON Pointer per line)"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mReason for additional redaction[0m
+              [36m</span>[39m
+              [36m<textarea[39m
+                [33maria-label[39m=[32m"Reason for additional redaction"[39m
+                [33mmaxlength[39m=[32m"4096"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mdisabled[39m=[32m""[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mAdd redaction revision[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mRedaction audit[0m
+            [36m</summary>[39m
+            [36m<p>[39m
+              [0mNo redaction revisions.[0m
+            [36m</p>[39m
+          [36m</details>[39m
+        [36m</article>[39m
+      [36m</section>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+   × preserves a failed detail copy draft and closes it after its frozen retry succeeds 1199ms
+     → Unable to find role="button" and name "Retry frozen operation"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mBack to records[0m
+      [36m</button>[39m
+      [36m<article>[39m
+        [36m<h2>[39m
+          [0mEcho run[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0mUser[0m
+          [0m · [0m
+          [0mProject[0m
+          [0m · [0m
+          [0m2026-10-13T01:00:00Z[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mRestore to new tab[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave as new record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPin record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDelete record[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"record-snapshot"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mRequest snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"zero":0,"false":false,"nil":null}[0m
+          [36m</pre>[39m
+          [36m<h2>[39m
+            [0mResponse snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"content":[]}[0m
+          [36m</pre>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mProtocol snapshot[0m
+            [36m</summary>[39m
+            [36m<pre>[39m
+              [0m{"method":"tools/call"}[0m
+            [36m</pre>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mExecution context[0m
+            [36m</summary>[39m
+            [36m<dl>[39m
+              [36m<dt>[39m
+                [0mRun ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mrun[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mTab ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mtab[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mConnection ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mc[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mEnvironment ID[0m
+              [36m</dt>[39m
+              [36m<dd />[39m
+              [36m<dt>[39m
+                [0mRun status[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mSucceeded[0m
+                [0m · [0m
+                [0msuccess[0m
+                [0m · [0m
+                [0mknown[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mHTTP[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0m200[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mOwner ID[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mu[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mRedaction markers[0m
+            [36m</summary>[39m
+            [36m<ul />[39m
+          [36m</details>[39m
+        [36m</div>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"record-editor"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mAdd redaction revision[0m
+          [36m</h2>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mAdditional redaction paths (one JSON Pointer per line)[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Additional redaction paths (one JSON Pointer per line)"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mReason for additional redaction[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Reason for additional redaction"[39m
+              [33mmaxlength[39m=[32m"4096"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ui-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mdisabled[39m=[32m""[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAdd redaction revision[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+        [36m<details>[39m
+          [36m<summary>[39m
+            [0mRedaction audit[0m
+          [36m</summary>[39m
+          [36m<p>[39m
+            [0mNo redaction revisions.[0m
+          [36m</p>[39m
+        [36m</details>[39m
+      [36m</article>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mBack to records[0m
+      [36m</button>[39m
+      [36m<article>[39m
+        [36m<h2>[39m
+          [0mEcho run[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0mUser[0m
+          [0m · [0m
+          [0mProject[0m
+          [0m · [0m
+          [0m2026-10-13T01:00:00Z[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mRestore to new tab[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave as new record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPin record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDelete record[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"record-snapshot"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mRequest snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"zero":0,"false":false,"nil":null}[0m
+          [36m</pre>[39m
+          [36m<h2>[39m
+            [0mResponse snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"content":[]}[0m
+          [36m</pre>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mProtocol snapshot[0m
+            [36m</summary>[39m
+            [36m<pre>[39m
+              [0m{"method":"tools/call"}[0m
+            [36m</pre>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mExecution context[0m
+            [36m</summary>[39m
+            [36m<dl>[39m
+              [36m<dt>[39m
+                [0mRun ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mrun[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mTab ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mtab[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mConnection ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mc[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mEnvironment ID[0m
+              [36m</dt>[39m
+              [36m<dd />[39m
+              [36m<dt>[39m
+                [0mRun status[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mSucceeded[0m
+                [0m · [0m
+                [0msuccess[0m
+                [0m · [0m
+                [0mknown[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mHTTP[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0m200[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mOwner ID[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mu[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mRedaction markers[0m
+            [36m</summary>[39m
+            [36m<ul />[39m
+          [36m</details>[39m
+        [36m</div>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"record-editor"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mAdd redaction revision[0m
+          [36m</h2>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mAdditional redaction paths (one JSON Pointer per line)[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Additional redaction paths (one JSON Pointer per line)"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mReason for additional redaction[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Reason for additional redaction"[39m
+              [33mmaxlength[39m=[32m"4096"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ui-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mdisabled[39m=[32m""[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAdd redaction revision[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+        [36m<details>[39m
+          [36m<summary>[39m
+            [0mRedaction audit[0m
+          [36m</summary>[39m
+          [36m<p>[39m
+            [0mNo redaction revisions.[0m
+          [36m</p>[39m
+        [36m</details>[39m
+      [36m</article>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/records/RecordsPage.test.tsx > closes the detail copy editor after a successful upload and does not reopen it after returning to the record
+AssertionError: expected <button type="submit" …(1)></button> to be null
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<section[39m
+        [33mclass[39m=[32m"records-page"[39m
+      [36m>[39m
+        [36m<h1>[39m
+          [0mCall history[0m
+        [36m</h1>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [0mBack to records[0m
+        [36m</button>[39m
+        [36m<article>[39m
+          [36m<h2>[39m
+            [0mEcho run[0m
+          [36m</h2>[39m
+          [36m<p>[39m
+            [0mUser[0m
+            [0m · [0m
+            [0mProject[0m
+            [0m · [0m
+            [0m2026-10-13T01:00:00Z[0m
+          [36m</p>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ui-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mRestore to new tab[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mSave as new record[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mPin record[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mDelete record[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<form[39m
+            [33mclass[39m=[32m"ui-form record-editor"[39m
+          [36m>[39m
+            [36m<h2>[39m
+              [0mSave as new record[0m
+            [36m</h2>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+              [33mfor[39m=[32m"«r9»"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mRecord name[0m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"ui-required"[39m
+                [36m>[39m
+                  [0m *[0m
+                [36m</span>[39m
+              [36m</span>[39m
+              [36m<input[39m
+                [33maria-label[39m=[32m"Record name"[39m
+                [33mid[39m=[32m"«r9»"[39m
+                [33mmaxlength[39m=[32m"200"[39m
+                [33mrequired[39m=[32m""[39m
+                [33mvalue[39m=[32m"echo"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mNote[0m
+              [36m</span>[39m
+              [36m<textarea[39m
+                [33maria-label[39m=[32m"Note"[39m
+                [33mmaxlength[39m=[32m"4096"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mVisibility[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Visibility"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"private"[39m
+                [36m>[39m
+                  [0mOnly me[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"project"[39m
+                [36m>[39m
+                  [0mProject[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mContent[0m
+              [36m</span>[39m
+              [36m<select[39m
+                [33maria-label[39m=[32m"Content"[39m
+              [36m>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request"[39m
+                [36m>[39m
+                  [0mRequest only[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"request-response"[39m
+                [36m>[39m
+                  [0mRequest and response[0m
+                [36m</option>[39m
+              [36m</select>[39m
+            [36m</label>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mRequest snapshot[0m
+              [36m</summary>[39m
+              [36m<pre[39m
+                [33mclass[39m=[32m"tools-schema"[39m
+              [36m>[39m
+                [0m{
+  "zero": 0,
+  "false": false,
+  "nil": null
+}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mCancel[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-primary"[39m
+                [33mtype[39m=[32m"submit"[39m
+              [36m>[39m
+                [0mSave record[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</form>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"record-snapshot"[39m
+          [36m>[39m
+            [36m<h2>[39m
+              [0mRequest snapshot[0m
+            [36m</h2>[39m
+            [36m<pre>[39m
+              [0m{"zero":0,"false":false,"nil":null}[0m
+            [36m</pre>[39m
+            [36m<h2>[39m
+              [0mResponse snapshot[0m
+            [36m</h2>[39m
+            [36m<pre>[39m
+              [0m{"content":[]}[0m
+            [36m</pre>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mProtocol snapshot[0m
+              [36m</summary>[39m
+              [36m<pre>[39m
+                [0m{"method":"tools/call"}[0m
+              [36m</pre>[39m
+            [36m</details>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mExecution context[0m
+              [36m</summary>[39m
+              [36m<dl>[39m
+                [36m<dt>[39m
+                  [0mRun ID[0m
+                [36m</dt>[39m
+                [36m<dd[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mrun[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mTab ID[0m
+                [36m</dt>[39m
+                [36m<dd[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mtab[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mConnection ID[0m
+                [36m</dt>[39m
+                [36m<dd[39m
+                  [33mclass[39m=[32m"ui-mono"[39m
+                [36m>[39m
+                  [0mc[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mEnvironment ID[0m
+                [36m</dt>[39m
+                [36m<dd />[39m
+                [36m<dt>[39m
+                  [0mRun status[0m
+                [36m</dt>[39m
+                [36m<dd>[39m
+                  [0mSucceeded[0m
+                  [0m · [0m
+                  [0msuccess[0m
+                  [0m · [0m
+                  [0mknown[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mHTTP[0m
+                [36m</dt>[39m
+                [36m<dd>[39m
+                  [0m200[0m
+                [36m</dd>[39m
+                [36m<dt>[39m
+                  [0mOwner ID[0m
+                [36m</dt>[39m
+                [36m<dd>[39m
+                  [0mu[0m
+                [36m</dd>[39m
+              [36m</dl>[39m
+            [36m</details>[39m
+            [36m<details>[39m
+              [36m<summary>[39m
+                [0mRedaction markers[0m
+              [36m</summary>[39m
+              [36m<ul />[39m
+            [36m</details>[39m
+          [36m</div>[39m
+          [36m<section[39m
+            [33mclass[39m=[32m"record-editor"[39m
+          [36m>[39m
+            [36m<h2>[39m
+              [0mAdd redaction revision[0m
+            [36m</h2>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mAdditional redaction paths (one JSON Pointer per line)[0m
+              [36m</span>[39m
+              [36m<textarea[39m
+                [33maria-label[39m=[32m"Additional redaction paths (one JSON Pointer per line)"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<label[39m
+              [33mclass[39m=[32m"ui-field"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mReason for additional redaction[0m
+              [36m</span>[39m
+              [36m<textarea[39m
+                [33maria-label[39m=[32m"Reason for additional redaction"[39m
+                [33mmaxlength[39m=[32m"4096"[39m
+              [36m/>[39m
+            [36m</label>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"ui-actions"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+                [33mdisabled[39m=[32m""[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mAdd redaction revision[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mRedaction audit[0m
+            [36m</summary>[39m
+            [36m<p>[39m
+              [0mNo redaction revisions.[0m
+            [36m</p>[39m
+          [36m</details>[39m
+        [36m</article>[39m
+      [36m</section>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+
+- Expected: 
+null
+
++ Received: 
+<button
+  class="ui-button ui-button-primary"
+  type="submit"
+>
+  Save record
+</button>
+
+ ❯ src/features/records/RecordsPage.test.tsx:40:78
+     38|  await waitFor(()=>expect(memory.records.get(upload!.operationId)?.sta…
+     39|  await screen.findByRole('heading',{name:'Request snapshot'});
+     40|  await waitFor(()=>expect(screen.queryByRole('button',{name:'Save reco…
+       |                                                                              ^
+     41|  await user.click(screen.getByRole('button',{name:'Back to records'}))…
+     42|  await screen.findByRole('heading',{name:'Request snapshot'});expect(s…
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../../node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../../node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback ../../node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/features/records/RecordsPage.test.tsx > preserves a failed detail copy draft and closes it after its frozen retry succeeds
+TestingLibraryElementError: Unable to find role="button" and name "Retry frozen operation"
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mBack to records[0m
+      [36m</button>[39m
+      [36m<article>[39m
+        [36m<h2>[39m
+          [0mEcho run[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0mUser[0m
+          [0m · [0m
+          [0mProject[0m
+          [0m · [0m
+          [0m2026-10-13T01:00:00Z[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mRestore to new tab[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave as new record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPin record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDelete record[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"record-snapshot"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mRequest snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"zero":0,"false":false,"nil":null}[0m
+          [36m</pre>[39m
+          [36m<h2>[39m
+            [0mResponse snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"content":[]}[0m
+          [36m</pre>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mProtocol snapshot[0m
+            [36m</summary>[39m
+            [36m<pre>[39m
+              [0m{"method":"tools/call"}[0m
+            [36m</pre>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mExecution context[0m
+            [36m</summary>[39m
+            [36m<dl>[39m
+              [36m<dt>[39m
+                [0mRun ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mrun[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mTab ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mtab[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mConnection ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mc[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mEnvironment ID[0m
+              [36m</dt>[39m
+              [36m<dd />[39m
+              [36m<dt>[39m
+                [0mRun status[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mSucceeded[0m
+                [0m · [0m
+                [0msuccess[0m
+                [0m · [0m
+                [0mknown[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mHTTP[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0m200[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mOwner ID[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mu[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mRedaction markers[0m
+            [36m</summary>[39m
+            [36m<ul />[39m
+          [36m</details>[39m
+        [36m</div>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"record-editor"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mAdd redaction revision[0m
+          [36m</h2>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mAdditional redaction paths (one JSON Pointer per line)[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Additional redaction paths (one JSON Pointer per line)"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mReason for additional redaction[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Reason for additional redaction"[39m
+              [33mmaxlength[39m=[32m"4096"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ui-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mdisabled[39m=[32m""[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAdd redaction revision[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+        [36m<details>[39m
+          [36m<summary>[39m
+            [0mRedaction audit[0m
+          [36m</summary>[39m
+          [36m<p>[39m
+            [0mNo redaction revisions.[0m
+          [36m</p>[39m
+        [36m</details>[39m
+      [36m</article>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<section[39m
+      [33mclass[39m=[32m"records-page"[39m
+    [36m>[39m
+      [36m<h1>[39m
+        [0mCall history[0m
+      [36m</h1>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0mBack to records[0m
+      [36m</button>[39m
+      [36m<article>[39m
+        [36m<h2>[39m
+          [0mEcho run[0m
+        [36m</h2>[39m
+        [36m<p>[39m
+          [0mUser[0m
+          [0m · [0m
+          [0mProject[0m
+          [0m · [0m
+          [0m2026-10-13T01:00:00Z[0m
+        [36m</p>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"ui-actions"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mRestore to new tab[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mSave as new record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mPin record[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"ui-button ui-button-danger"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDelete record[0m
+          [36m</button>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"record-snapshot"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mRequest snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"zero":0,"false":false,"nil":null}[0m
+          [36m</pre>[39m
+          [36m<h2>[39m
+            [0mResponse snapshot[0m
+          [36m</h2>[39m
+          [36m<pre>[39m
+            [0m{"content":[]}[0m
+          [36m</pre>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mProtocol snapshot[0m
+            [36m</summary>[39m
+            [36m<pre>[39m
+              [0m{"method":"tools/call"}[0m
+            [36m</pre>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mExecution context[0m
+            [36m</summary>[39m
+            [36m<dl>[39m
+              [36m<dt>[39m
+                [0mRun ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mrun[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mTab ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mtab[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mConnection ID[0m
+              [36m</dt>[39m
+              [36m<dd[39m
+                [33mclass[39m=[32m"ui-mono"[39m
+              [36m>[39m
+                [0mc[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mEnvironment ID[0m
+              [36m</dt>[39m
+              [36m<dd />[39m
+              [36m<dt>[39m
+                [0mRun status[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mSucceeded[0m
+                [0m · [0m
+                [0msuccess[0m
+                [0m · [0m
+                [0mknown[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mHTTP[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0m200[0m
+              [36m</dd>[39m
+              [36m<dt>[39m
+                [0mOwner ID[0m
+              [36m</dt>[39m
+              [36m<dd>[39m
+                [0mu[0m
+              [36m</dd>[39m
+            [36m</dl>[39m
+          [36m</details>[39m
+          [36m<details>[39m
+            [36m<summary>[39m
+              [0mRedaction markers[0m
+            [36m</summary>[39m
+            [36m<ul />[39m
+          [36m</details>[39m
+        [36m</div>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"record-editor"[39m
+        [36m>[39m
+          [36m<h2>[39m
+            [0mAdd redaction revision[0m
+          [36m</h2>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mAdditional redaction paths (one JSON Pointer per line)[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Additional redaction paths (one JSON Pointer per line)"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mReason for additional redaction[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33maria-label[39m=[32m"Reason for additional redaction"[39m
+              [33mmaxlength[39m=[32m"4096"[39m
+            [36m/>[39m
+          [36m</label>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ui-actions"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"ui-button ui-button-secondary"[39m
+              [33mdisabled[39m=[32m""[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAdd redaction revision[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+        [36m<details>[39m
+          [36m<summary>[39m
+            [0mRedaction audit[0m
+          [36m</summary>[39m
+          [36m<p>[39m
+            [0mNo redaction revisions.[0m
+          [36m</p>[39m
+        [36m</details>[39m
+      [36m</article>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper ../../node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/features/records/RecordsPage.test.tsx:62:32
+     60|  await screen.findByRole('button',{name:'Retry frozen operation'});exp…
+     61|  await user.click(screen.getByRole('button',{name:'Back to records'}))…
+     62|  await user.click(await screen.findByRole('button',{name:'Retry frozen…
+       |                                ^
+     63|  expect(uploads[1]).toEqual(uploads[0]);await waitFor(()=>expect(scree…
+     64|  expect(screen.queryByRole('button',{name:'Save record'})).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 skipped (8)
+   Start at  14:25:46
+   Duration  3.07s (transform 128ms, setup 57ms, collect 219ms, tests 2.38s, environment 270ms, prepare 32ms)
+

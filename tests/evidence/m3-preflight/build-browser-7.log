@@ -1,0 +1,25 @@
+
+> mcp-studio@0.1.0 build
+> vite build --config apps/web/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4943 modules transformed.
+rendering chunks...
+[plugin vite:reporter] 
+(!) /Users/wuwei/code/github/mcp-studio/apps/web/src/runtime/browser-session.ts is dynamically imported by /Users/wuwei/code/github/mcp-studio/apps/web/src/features/connections/runtimeStore.ts but also statically imported by /Users/wuwei/code/github/mcp-studio/apps/web/src/runtime/execution/index.ts, dynamic import will not move module into another chunk.
+
+computing gzip size...
+dist/index.html                            0.40 kB │ gzip:   0.28 kB
+dist/assets/worker-rF_BGtny.js            71.80 kB
+dist/assets/index-CNlQDx-y.css            12.32 kB │ gzip:   2.99 kB
+dist/assets/streamableHttp-Cq718xbI.js     7.63 kB │ gzip:   2.53 kB
+dist/assets/sse-uKp0vLQ7.js                8.75 kB │ gzip:   3.22 kB
+dist/assets/EnvironmentPage-B8l6_UqV.js   13.28 kB │ gzip:   3.95 kB
+dist/assets/ConnectionsPage-h-i1K1zu.js   20.15 kB │ gzip:   6.39 kB
+dist/assets/auth-DNi16Z2Q.js              21.55 kB │ gzip:   6.76 kB
+dist/assets/RecordsPage-BhESGRXP.js       31.42 kB │ gzip:   9.62 kB
+dist/assets/ToolsPage-DlZH77HT.js         40.40 kB │ gzip:  12.12 kB
+dist/assets/index-BmMiw2Qd.js            165.18 kB │ gzip:  50.15 kB
+dist/assets/index-CWmspZ9B.js            487.83 kB │ gzip: 148.27 kB
+✓ built in 1.93s

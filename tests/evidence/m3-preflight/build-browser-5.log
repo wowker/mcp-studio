@@ -1,0 +1,24 @@
+
+> mcp-studio@0.1.0 build
+> vite build --config apps/web/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4943 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                            0.40 kB │ gzip:   0.28 kB
+dist/assets/worker-rF_BGtny.js            71.80 kB
+dist/assets/index-CNlQDx-y.css            12.32 kB │ gzip:   2.99 kB
+dist/assets/redaction-DqSk90HO.js          4.19 kB │ gzip:   1.86 kB
+dist/assets/streamableHttp-T62IoGKB.js     7.70 kB │ gzip:   2.56 kB
+dist/assets/sse-I7HL-ucU.js                8.82 kB │ gzip:   3.25 kB
+dist/assets/EnvironmentPage-DtWNAH2F.js   13.28 kB │ gzip:   3.95 kB
+dist/assets/ConnectionsPage-CZzsNABH.js   20.15 kB │ gzip:   6.39 kB
+dist/assets/auth-Bzofqn1q.js              21.59 kB │ gzip:   6.78 kB
+dist/assets/browser-session-o6yrODz9.js   22.24 kB │ gzip:   7.50 kB
+dist/assets/RecordsPage-DUF4p9Yb.js       30.86 kB │ gzip:   9.49 kB
+dist/assets/ToolsPage-CH18KQ2U.js         40.42 kB │ gzip:  12.13 kB
+dist/assets/index-B9HG5zM4.js            165.22 kB │ gzip:  50.16 kB
+dist/assets/index-yXys46Rh.js            461.04 kB │ gzip: 140.34 kB
+✓ built in 1.89s

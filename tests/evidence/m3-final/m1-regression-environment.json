@@ -1,0 +1,25 @@
+{
+  "scope": "M1 identity/collaboration regression in current implementation",
+  "browser": "Playwright Chromium",
+  "browserVersion": "147.0.7727.15",
+  "playwright": "1.59.1",
+  "node": "v24.21.0",
+  "productionHashes": {
+    ".runtime/platform": "6eedc30dfb254366e6f6b7c671d6a1c143711eb6d47883e7165a06544608bc62",
+    "apps/web/dist/index.html": "dbb60d3a035df4a365d0fb6fe2d3c139f527467e276d8ce26d05f8dbe4054eb2",
+    "apps/web/dist/assets/ConnectionsPage-CICybg__.js": "d2480bbcb30bdbee8a64a7398a71fa7cfd9949de4824c7076453b1226a90d9b8",
+    "apps/web/dist/assets/EnvironmentPage-CcznkkQe.js": "13676010477a4002d368199d053aded4aa57645480aad61e65650b7fab65a42f",
+    "apps/web/dist/assets/RecordsPage-BcUVVPNl.css": "b47f1a91608faebd4f37691a6c79d49510c1ff7958469761be8e353029a64960",
+    "apps/web/dist/assets/RecordsPage-DKfqWur3.js": "7c6303d4419708a2e94de1906875df24f763c4461a42daebaa17cb94722e6b5e",
+    "apps/web/dist/assets/ToolsPage-DanCipfB.js": "5c0b93182af6a6d33d433480eb29ede4a5349668dd46ca5fbfc88d76da6d38d8",
+    "apps/web/dist/assets/auth-BXEy5NlZ.js": "8dd22064bf46802c8f438aa164630f53fcb214062d8e599a526e12a11c7eea93",
+    "apps/web/dist/assets/browser-session-_bjo8feZ.js": "19c5f802404c3a1238f28f2d28943921ba6372ab9f3a5fe6cda476965c3a68fa",
+    "apps/web/dist/assets/index-BoxhgMvG.js": "bade9c4817a1d457214c7a6be5dfdcd09d7cc5edbb1bcbada92769f8d57342c3",
+    "apps/web/dist/assets/index-CNlQDx-y.css": "b2addbdc07a884d6f94fe2f7e1bfaacd56b9ee49b4adaa67aa2fbc9769326e19",
+    "apps/web/dist/assets/index-Q-kWLqe5.js": "f988ca28dc48e28c81e0a09164f5cf088dd3253b4924bd69b5effcee753775fb",
+    "apps/web/dist/assets/sse-CUKZ11Qi.js": "8961f91992431fe0d108e8e1b9841a1d99af6e71e7b762bff04e50d01942b41f",
+    "apps/web/dist/assets/streamableHttp-Bb4QJvvC.js": "960d8d763375274c00a01ffb589fa45ae722ae710905bb1e743f161a6365f8f4",
+    "apps/web/dist/assets/worker-rF_BGtny.js": "6dc104cbdf884414855e3d6e58f1cabb65f23e523e2658ad617597686fc73860"
+  },
+  "excluded": "Not Chrome/Edge target matrix or MCP transport compatibility evidence"
+}

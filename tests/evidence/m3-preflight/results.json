@@ -1,0 +1,148 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/m3-preflight/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m3.spec.ts",
+      "file": "m3.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16012,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Save metadata revision', exact: true })\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Save metadata revision', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Save metadata revision', exact: true })\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Save metadata revision', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:37:314",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts",
+                      "column": 314,
+                      "line": 37
+                    },
+                    "snippet": "  35 |  await page.getByLabel('Additional redaction paths (one JSON Pointer per line)',{exact:true}).fill('/request/text');await page.getByLabel('Reason for additional redaction',{exact:true}).fill('Protect actual-http value');await page.getByRole('button',{name:'Add redaction revision',exact:true}).click();await expect(page.locator('.record-snapshot').locator('pre').first()).toContainText('$redacted');const redactedSaved=await requestData(page.request,`/projects/${projectId}/records/${saved.id}`,wire.recordSchema);expect(redactedSaved.version).toBe(3);expect(JSON.stringify(redactedSaved)).not.toContain('actual-http');\n  36 |  await page.getByRole('button',{name:'Delete record',exact:true}).click();await page.getByRole('button',{name:'Confirm record deletion',exact:true}).click();await expect(page.getByText('No records yet.',{exact:true})).toBeVisible();expect((await page.request.get(`/api/v1/projects/${projectId}/records/${history.id}`)).status()).toBe(404);expect((await page.request.get(`/api/v1/projects/${projectId}/records/${saved.id}`)).status()).toBe(200);\n> 37 |  await page.getByRole('tab',{name:'Saved records',exact:true}).click();await page.getByRole('button',{name:'Open M3 renamed',exact:true}).click();await expect(page.getByRole('heading',{name:'M3 renamed',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Save metadata revision',exact:true})).toHaveCount(0);await expect(page.locator('.record-snapshot').locator('pre').first()).toContainText('$redacted');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m3-record-en-US-light-1440.png`,fullPage:true});await page.getByRole('button',{name:'Restore to new tab',exact:true}).click();await expect(page.getByRole('tab',{name:'echo',exact:true})).toHaveCount(2);await expect(page.getByText('Not executed',{exact:true})).toBeVisible();await expect(page.getByText(/Parameters to enter again: text/)).toBeVisible();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();expect(JSON.parse(await page.getByLabel('Raw parameters',{exact:true}).inputValue())).toEqual({count:0,enabled:false,note:null});expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);\n     |                                                                                                                                                                                                                                                                                                                          ^\n  38 |  await page.getByRole('tab',{name:'echo',exact:true}).first().click();expect(JSON.parse(await page.getByLabel('Raw parameters',{exact:true}).inputValue())).toEqual({text:'edited-after-run'});await expect(page.getByText(/cached result was cleared after a redaction/)).toBeVisible();expect(issues).toEqual([]);\n  39 |  await context.grantPermissions(['clipboard-read','clipboard-write']);\n  40 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts",
+                        "column": 314,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: 'Save metadata revision', exact: true })\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Save metadata revision', exact: true })\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  35 |  await page.getByLabel('Additional redaction paths (one JSON Pointer per line)',{exact:true}).fill('/request/text');await page.getByLabel('Reason for additional redaction',{exact:true}).fill('Protect actual-http value');await page.getByRole('button',{name:'Add redaction revision',exact:true}).click();await expect(page.locator('.record-snapshot').locator('pre').first()).toContainText('$redacted');const redactedSaved=await requestData(page.request,`/projects/${projectId}/records/${saved.id}`,wire.recordSchema);expect(redactedSaved.version).toBe(3);expect(JSON.stringify(redactedSaved)).not.toContain('actual-http');\n  36 |  await page.getByRole('button',{name:'Delete record',exact:true}).click();await page.getByRole('button',{name:'Confirm record deletion',exact:true}).click();await expect(page.getByText('No records yet.',{exact:true})).toBeVisible();expect((await page.request.get(`/api/v1/projects/${projectId}/records/${history.id}`)).status()).toBe(404);expect((await page.request.get(`/api/v1/projects/${projectId}/records/${saved.id}`)).status()).toBe(200);\n> 37 |  await page.getByRole('tab',{name:'Saved records',exact:true}).click();await page.getByRole('button',{name:'Open M3 renamed',exact:true}).click();await expect(page.getByRole('heading',{name:'M3 renamed',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Save metadata revision',exact:true})).toHaveCount(0);await expect(page.locator('.record-snapshot').locator('pre').first()).toContainText('$redacted');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m3-record-en-US-light-1440.png`,fullPage:true});await page.getByRole('button',{name:'Restore to new tab',exact:true}).click();await expect(page.getByRole('tab',{name:'echo',exact:true})).toHaveCount(2);await expect(page.getByText('Not executed',{exact:true})).toBeVisible();await expect(page.getByText(/Parameters to enter again: text/)).toBeVisible();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();expect(JSON.parse(await page.getByLabel('Raw parameters',{exact:true}).inputValue())).toEqual({count:0,enabled:false,note:null});expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);\n     |                                                                                                                                                                                                                                                                                                                          ^\n  38 |  await page.getByRole('tab',{name:'echo',exact:true}).first().click();expect(JSON.parse(await page.getByLabel('Raw parameters',{exact:true}).inputValue())).toEqual({text:'edited-after-run'});await expect(page.getByText(/cached result was cleared after a redaction/)).toBeVisible();expect(issues).toEqual([]);\n  39 |  await context.grantPermissions(['clipboard-read','clipboard-write']);\n  40 | });\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:37:314"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T06:15:04.654Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts",
+                    "column": 314,
+                    "line": 37
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4a54508069b861ac02de-fd4e01df78752b9997ca",
+          "file": "m3.spec.ts",
+          "line": 23,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T06:15:04.092Z",
+    "duration": 16864.163,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

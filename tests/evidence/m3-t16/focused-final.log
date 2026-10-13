@@ -1,0 +1,21 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts --run apps/web/src/runtime/schema apps/web/src/runtime/records apps/web/src/features/tools/SchemaArgumentEditor.test.tsx apps/web/src/features/tools/argumentDraft.test.ts apps/web/src/features/tools/workspace.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/schema/index.test.ts (5 tests) 6ms
+ ✓ src/runtime/schema/interpreter.test.ts (85 tests) 70ms
+ ✓ src/runtime/records/operations.test.ts (8 tests) 143ms
+ ✓ src/runtime/records/redaction.test.ts (21 tests) 7ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 5ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 3ms
+ ✓ src/features/tools/workspace.test.ts (6 tests) 2ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1018ms
+
+ Test Files  8 passed (8)
+      Tests  155 passed (155)
+   Start at  12:19:07
+   Duration  2.79s (transform 198ms, setup 450ms, collect 1.47s, tests 1.25s, environment 2.38s, prepare 264ms)
+

@@ -1,0 +1,42 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 2 tests using 1 worker
+
+(node:29295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/m3.spec.ts:6:1 › T15 production: real paged catalog, independent documents and protected Tab commands (3.5s)
+  ✘  2 [chromium] › tests/e2e/m3.spec.ts:22:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (3.0s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:22:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP 
+
+    Error: locator.click: Error: strict mode violation: getByRole('button', { name: /Go to \/items\/0\/quantity/ }) resolved to 2 elements:
+        1) <button type="button" class="ui-button ui-button-secondary">…</button> aka getByRole('button', { name: 'Go to /items/0/quantity · input_incomplete' })
+        2) <button type="button" class="ui-button ui-button-secondary">…</button> aka getByRole('button', { name: 'Go to /items/0/quantity · required' })
+
+    Call log:
+    [2m  - waiting for getByRole('button', { name: /Go to \/items\/0\/quantity/ })[22m
+
+
+      25 |  await expect(page.getByLabel('Skip /count',{exact:true})).toBeChecked();await page.getByLabel('/text',{exact:true}).fill('explicit');await page.getByLabel('Skip /count',{exact:true}).uncheck();await page.getByLabel('/count',{exact:true}).fill('0');await page.getByLabel('Skip /enabled',{exact:true}).uncheck();await page.getByLabel('/enabled',{exact:true}).selectOption('false');await page.getByLabel('Skip /note',{exact:true}).uncheck();await page.getByLabel('Null /note',{exact:true}).check();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();const raw=page.getByLabel('Raw parameters',{exact:true});expect(JSON.parse(await raw.inputValue())).toEqual({text:'explicit',count:0,enabled:false,note:null});
+      26 |  await page.getByRole('button',{name:'Validate parameters',exact:true}).click();await expect(page.getByText('Parameters are valid.',{exact:true})).toBeVisible();await raw.fill('{"text":');await expect(page.getByRole('button',{name:'Form',exact:true})).toBeDisabled();await raw.fill('{"text":7}');await page.getByRole('button',{name:'Validate parameters',exact:true}).click();await expect(page.getByRole('button',{name:/Go to \/text/})).toBeVisible();await page.getByRole('button',{name:'Form',exact:true}).click();await page.getByRole('button',{name:/Go to \/text/}).click();await expect(page.getByLabel('/text',{exact:true})).toBeFocused();
+    > 27 |  await page.getByRole('button',{name:'Open nested',exact:true}).click();await page.getByRole('button',{name:'Add item to /items',exact:true}).click();await page.getByRole('button',{name:'Validate parameters',exact:true}).click();await page.getByRole('button',{name:/Go to \/items\/0\/quantity/}).click();await expect(page.getByLabel('/items/0/quantity',{exact:true})).toBeFocused();
+         |                                                                                                                                                                                                                                                                                                         ^
+      28 |  await page.getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Disconnect',exact:true}).click();await page.getByLabel('HTTP endpoint',{exact:true}).fill(process.env.PLAYWRIGHT_MCP_ORIGIN+'/schema-mcp');await page.getByRole('button',{name:'Save changes',exact:true}).click();await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(/Connected.*m2-controlled-fixture/)).toBeVisible();await page.getByRole('button',{name:'Tools',exact:true}).click();
+      29 |  await page.getByRole('button',{name:'Open composed',exact:true}).click();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();await page.getByLabel('Raw parameters',{exact:true}).fill('{"x":0,"kind":"demo"}');await page.getByRole('button',{name:'Validate parameters',exact:true}).click();await expect(page.getByText('Parameters are valid.',{exact:true})).toBeVisible();await page.getByLabel('Raw parameters',{exact:true}).fill('{"x":0,"kind":"demo","extra":1}');await page.getByRole('button',{name:'Validate parameters',exact:true}).click();await expect(page.getByRole('button',{name:/Go to \/extra/})).toBeVisible();
+      30 |  await page.getByRole('button',{name:'Open recursive',exact:true}).click();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();await page.getByLabel('Raw parameters',{exact:true}).fill('{"value":0,"next":{"value":1}}');await page.getByRole('button',{name:'Validate parameters',exact:true}).click();await expect(page.getByText('Parameters are valid.',{exact:true})).toBeVisible();
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:27:297
+
+    Error Context: test-results/m3-T16-production-nested-s-d7cd4-ursive-validation-under-CSP-chromium/error-context.md
+
+    Error Context: test-results/m3-T16-production-nested-s-d7cd4-ursive-validation-under-CSP-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:22:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP 
+  1 passed (7.2s)
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

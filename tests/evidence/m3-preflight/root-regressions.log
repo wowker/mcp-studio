@@ -1,0 +1,15 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts --run apps/web/src/features/tools/ToolExecution.test.tsx apps/web/src/runtime/records/operations.test.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/runtime/records/operations.test.ts (13 tests) 147ms
+ ✓ src/features/tools/ToolExecution.test.tsx (4 tests) 252ms
+
+ Test Files  2 passed (2)
+      Tests  17 passed (17)
+   Start at  13:47:16
+   Duration  2.14s (transform 200ms, setup 135ms, collect 1.42s, tests 399ms, environment 683ms, prepare 79ms)
+

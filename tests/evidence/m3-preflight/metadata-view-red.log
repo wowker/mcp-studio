@@ -1,0 +1,46 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:46151) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:46151) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (16.0s)
+
+
+  1) [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('button', { name: 'Save metadata revision', exact: true })
+    Expected: [32m0[39m
+    Received: [31m1[39m
+    Timeout:  10000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Save metadata revision', exact: true })[22m
+    [2m    14 × locator resolved to 1 element[22m
+    [2m       - unexpected value "1"[22m
+
+
+      35 |  await page.getByLabel('Additional redaction paths (one JSON Pointer per line)',{exact:true}).fill('/request/text');await page.getByLabel('Reason for additional redaction',{exact:true}).fill('Protect actual-http value');await page.getByRole('button',{name:'Add redaction revision',exact:true}).click();await expect(page.locator('.record-snapshot').locator('pre').first()).toContainText('$redacted');const redactedSaved=await requestData(page.request,`/projects/${projectId}/records/${saved.id}`,wire.recordSchema);expect(redactedSaved.version).toBe(3);expect(JSON.stringify(redactedSaved)).not.toContain('actual-http');
+      36 |  await page.getByRole('button',{name:'Delete record',exact:true}).click();await page.getByRole('button',{name:'Confirm record deletion',exact:true}).click();await expect(page.getByText('No records yet.',{exact:true})).toBeVisible();expect((await page.request.get(`/api/v1/projects/${projectId}/records/${history.id}`)).status()).toBe(404);expect((await page.request.get(`/api/v1/projects/${projectId}/records/${saved.id}`)).status()).toBe(200);
+    > 37 |  await page.getByRole('tab',{name:'Saved records',exact:true}).click();await page.getByRole('button',{name:'Open M3 renamed',exact:true}).click();await expect(page.getByRole('heading',{name:'M3 renamed',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Save metadata revision',exact:true})).toHaveCount(0);await expect(page.locator('.record-snapshot').locator('pre').first()).toContainText('$redacted');await mkdir(evidenceDir,{recursive:true});await page.screenshot({path:`${evidenceDir}/m3-record-en-US-light-1440.png`,fullPage:true});await page.getByRole('button',{name:'Restore to new tab',exact:true}).click();await expect(page.getByRole('tab',{name:'echo',exact:true})).toHaveCount(2);await expect(page.getByText('Not executed',{exact:true})).toBeVisible();await expect(page.getByText(/Parameters to enter again: text/)).toBeVisible();await page.getByRole('button',{name:'Raw JSON',exact:true}).click();expect(JSON.parse(await page.getByLabel('Raw parameters',{exact:true}).inputValue())).toEqual({count:0,enabled:false,note:null});expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall+1);
+         |                                                                                                                                                                                                                                                                                                                          ^
+      38 |  await page.getByRole('tab',{name:'echo',exact:true}).first().click();expect(JSON.parse(await page.getByLabel('Raw parameters',{exact:true}).inputValue())).toEqual({text:'edited-after-run'});await expect(page.getByText(/cached result was cleared after a redaction/)).toBeVisible();expect(issues).toEqual([]);
+      39 |  await context.grantPermissions(['clipboard-read','clipboard-write']);
+      40 | });
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:37:314
+
+    Error Context: test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration 
+[test-runtime] platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] isolated schema removed
+Playwright production-entry E2E: failed with exit 1

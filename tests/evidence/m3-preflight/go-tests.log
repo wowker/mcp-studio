@@ -1,0 +1,13 @@
+ok  	mcp-studio/cmd/platform	0.581s
+ok  	mcp-studio/internal/configuration	0.964s
+ok  	mcp-studio/internal/contracts	1.802s
+ok  	mcp-studio/internal/environment	2.195s
+ok  	mcp-studio/internal/infrastructure	1.404s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	49.924s
+ok  	mcp-studio/internal/recording	2.603s
+ok  	mcp-studio/internal/schema	2.761s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	3.183s
+ok  	mcp-studio/tests/fixtures/sdk	3.404s
+ok  	mcp-studio/tests/integration	3.492s

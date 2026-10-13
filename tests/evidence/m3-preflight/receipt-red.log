@@ -1,0 +1,5 @@
+--- FAIL: TestRecordUploadAtomicReplayScopeAndRedaction (0.67s)
+    records_test.go:103: receipt {OperationID:2132e7184607ad61746fdd0f78dc660d TargetKind:history TargetID:d4588787feff5f2965d8337480da107a FrozenDigest:bcb485c3ea91b0d44207e44cfdb308d0b1bf856c965ef54ddf262754494be0a9 ResponsibleEndpoint:browser Status:accepted RecordID:d4588787feff5f2965d8337480da107a Version:1 Etag:"f5c4e28e27ccf6e78d7fbd476cfe8597e6b7b3e734e9140acbc76ec15c190899" RecordedAt:2026-10-13T00:00:00Z AffectedRecords:[{ID:d4588787feff5f2965d8337480da107a Version:1}]}
+FAIL
+FAIL	mcp-studio/internal/platform	3.413s
+FAIL

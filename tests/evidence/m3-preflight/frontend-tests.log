@@ -1,0 +1,103 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/connections/ConnectionsPage.test.tsx (9 tests) 571ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 735ms
+   ✓ keeps original invitation after registration and never accepts automatically  529ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1228ms
+ ✓ src/features/records/RecordEditors.test.tsx (5 tests) 483ms
+ ✓ src/features/tools/ToolsPage.test.tsx (7 tests) 561ms
+ ✓ src/app/App.test.tsx (11 tests) 2278ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  300ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  746ms
+   ✓ keeps another project tool document when switching through a Viewer project  461ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 364ms
+ ✓ src/features/environment/EnvironmentPage.test.tsx (5 tests) 422ms
+ ✓ src/features/records/RecordsPage.test.tsx (5 tests) 380ms
+ ✓ src/features/team/MembersPage.test.tsx (2 tests) 266ms
+ ✓ src/runtime/browser-session.test.ts (56 tests) 267ms
+ ✓ src/features/connections/runtimeStore.test.ts (2 tests) 56ms
+ ✓ src/runtime/records/operations.test.ts (13 tests) 122ms
+ ✓ src/features/tools/ToolExecution.test.tsx (3 tests) 290ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 49ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 28ms
+ ✓ src/runtime/execution/index.test.ts (12 tests) 32ms
+ ✓ src/shared/i18n.test.ts (2 tests) 9ms
+ ✓ src/shared/api.test.ts (9 tests) 7ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 7ms
+ ✓ src/features/records/restore.test.ts (4 tests) 7ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 8ms
+ ✓ src/runtime/vault.test.ts (8 tests) 7ms
+ ✓ src/runtime/records/redaction.test.ts (21 tests) 5ms
+ ✓ src/runtime/connection.test.ts (5 tests) 6ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 4ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 4ms
+ ✓ src/runtime/environment.test.ts (21 tests) 3ms
+ ✓ src/features/tools/workspace.test.ts (6 tests) 2ms
+ ✓ src/features/records/viewStore.test.ts (3 tests) 2ms
+ ✓ src/features/connections/session.test.ts (3 tests) 1ms
+ ✓ src/features/team/protection.test.ts (3 tests) 1ms
+ ❯ src/runtime/execution/fixture.test.ts (2 tests | 2 failed) 10009ms
+   × executes actual streamable-http SDK echo and business/protocol errors without retry or platform proxy 5005ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   × executes actual sse SDK echo and business/protocol errors without retry or platform proxy 5003ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/runtime/execution/fixture.test.ts > executes actual streamable-http SDK echo and business/protocol errors without retry or platform proxy
+ FAIL  src/runtime/execution/fixture.test.ts > executes actual sse SDK echo and business/protocol errors without retry or platform proxy
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/runtime/execution/fixture.test.ts:12:43
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 2 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted 127.0.0.1
+ ❯ Server.setupListenHandle [as _listen2] ../../node:net:2306:21
+ ❯ listenInCluster ../../node:net:2437:12
+ ❯ ../../node:net:2666:7
+ ❯ processTicksAndRejections ../../node:internal/process/task_queues:90:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '127.0.0.1' }
+This error originated in "src/runtime/execution/fixture.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "executes actual streamable-http SDK echo and business/protocol errors without retry or platform proxy". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted 127.0.0.1
+ ❯ Server.setupListenHandle [as _listen2] ../../node:net:2306:21
+ ❯ listenInCluster ../../node:net:2437:12
+ ❯ ../../node:net:2666:7
+ ❯ processTicksAndRejections ../../node:internal/process/task_queues:90:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '127.0.0.1' }
+This error originated in "src/runtime/execution/fixture.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "executes actual sse SDK echo and business/protocol errors without retry or platform proxy". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed | 32 passed (33)
+      Tests  2 failed | 388 passed (390)
+     Errors  2 errors
+   Start at  12:32:17
+   Duration  17.42s (transform 500ms, setup 1.38s, collect 9.58s, tests 18.21s, environment 6.59s, prepare 909ms)
+

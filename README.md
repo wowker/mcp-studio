@@ -2,7 +2,7 @@
 
 交接日期：2026-10-13。目标目录：`/Users/wuwei/code/github/mcp-studio`。
 
-**已完成 M0 合同、M1 身份／项目／团队协作及 M2 T10–T14 配置／环境／会话授权／浏览器 HTTP，完整状态见 [执行账本](docs/tasks/progress.md)。T02 跨设备兼容矩阵仍待验；T15 未开始，本次不进入 M3。** `apps/web` 与 `cmd/platform` 是正式工程入口；参考包内 HTML / JS / CSS 是设计原型，其示例状态不代表 MCP、加密或 Agent 已实现。项目目录名采用 mcp-studio；参考资料中的 MCP Inspector / MCP Testpilot 是来源名称，不在本次擅自修改产品品牌。
+**已完成 M0 合同、M1、M2 及 T15／M3 T16–T21：工具与参数、真实浏览器调用、脱敏记录、保存修订和恢复，完整状态见 [执行账本](docs/tasks/progress.md)。T02 完整兼容矩阵仍待验；本次未进入 M4。** 失败上传仅在当前会话保留冻结快照，刷新恢复尚未实现。`apps/web` 与 `cmd/platform` 是正式工程入口；参考包内 HTML / JS / CSS 是设计原型，其示例状态不代表 MCP、加密或 Agent 已实现。项目目录名采用 mcp-studio；参考资料中的 MCP Inspector / MCP Testpilot 是来源名称，不在本次擅自修改产品品牌。
 
 ## 从这里开始
 

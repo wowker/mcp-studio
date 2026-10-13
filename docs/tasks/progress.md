@@ -1,6 +1,6 @@
 # M0–M3 执行账本
 
-2026-10-13。历史授权 T01–T14，当前追加授权补 T15 与 M3 T16–T21；不进入 M4。Git 分支 `codex/m0-m1`；设计参考基准提交 `7eac7d4`。
+2026-10-13。T15及M3 T16–T21已逐项实现并验证，代码cf9b6cf；本轮授权完成，未进入M4。T02完整矩阵仍待验。Git 分支 `codex/m0-m1`；设计参考基准提交 `7eac7d4`。下列历史中间状态保留追溯，以末尾最终签收为当前状态。
 
 | 切片 | 状态 | 修改与实际验证 |
 | --- | --- | --- |
@@ -130,3 +130,63 @@ T15 计划切片：a.1 SDK分页工具发现与断开代际；a.2 真实目录/�
 独立审阅三项重要问题（凭据回显目录/默认复制，关闭焦点丢失，删除记忆连接伪空列表）红→绿修复；五文件68项复核通过。目录对敏感元数据/秘密URL或来源收集不完整整体安全拒绝，保留有效工具原身份与Schema。真实入口还发现SDK listTools隐式Ajv编译违反CSP，改为Client.request+ListToolsResultSchema；真实HTTP/SSE阻断编译回归与浏览器均通过，CSP未放宽。允许夹具origin上GET /mcp的405，仅代表规范允许不提供可选SSE监听；其他未预期HTTP状态仍失败。
 
 预检失败保留于m3-t15/browser-*.log与verify-preflight.log。最终最大JS425.92kB/gzip130.12kB、工具chunk17.99/5.65kB、CSS9.94/2.57kB，无chunk阈值告警。T02状态不变；尚未实现T16参数编辑或真实执行，后续M3继续授权范围。所有A项仍待验收。
+
+## M3 实施中 · 2026-10-13（尚未签收）
+
+T16 正式使用 Hyperjump 1.18.0 独立 Worker AST 校验和 Go jsonschema/v6 6.0.3，生产 CSP 未放宽。46 条新增共同 Schema 向量涵盖组合、递归引用、注释及跨端数值/正则边界；保留 M0 原向量。跨端 `multipleOf` 已用精确十进制运算消除 epsilon 分歧；不一致的通配点、空白类与 POSIX pattern 明确不支持，不自动远程取回引用。独立审阅发现的分支切换丢失其他非法原文、修改一字段清除其他错误均有红→绿回归。
+
+当前实际验证：T16 生产浏览器两旅程通过（[browser-3.log](../../tests/evidence/m3-t16/browser-3.log)）；随后一致性修复的前端范围测试 155/155（[focused-final.log](../../tests/evidence/m3-t16/focused-final.log)）、Go Schema/脱敏共同向量非缓存通过（[go-vectors-final.log](../../tests/evidence/m3-t16/go-vectors-final.log)）。尚需本轮最终生产构建与完整 verify，T16 叶子暂不提前勾选。
+
+T17 冻结记录合同升级1.2.0；任意正文以 JSON 字符串保存，外层共同规范摘要，独立 history/saved/operation/Run 身份。前端新增 `runtime/records/{canonical,redaction,snapshot,operations}.ts`：共同7条摘要/16条脱敏向量；来源、默认、项目、追加规则；二进制/超限明确省略；Schema 属性名与注释分别处理。上传只在会话内保留脱敏冻结内容，相同操作并发合并、失败原摘要重试、清除身份与撤项目阻断迟到回执及摘要计算竞态。操作/快照9项回归实际通过；不提供 M4 持久恢复。
+
+T17/T19/T20/T21 Go 接收、真实权限/幂等、稳定游标、保存/修订/追加脱敏事务与前端记录页面仍在逐项联调；T18 执行运行时正在接通，未签署任何未验证出口。T02 和所有 A 项状态不变，本次不进入 M4。
+
+2026-10-13 后续验证：T16共同Schema已扩至49条，脱敏19条。初次完整verify已实际通过Node18、前端419、Go非缓存/PG/vet/build与11条生产浏览器旅程；日志保留为 `tests/evidence/m3-preflight/verify-before-view-fix.log`。目视发现元数据修订成功后旧编辑状态未清，新增浏览器断言实测失败于 `metadata-view-red.log`；正在修复并最终复验，暂不签收M3叶子。
+
+## M3 叶子 / 子切片登记
+
+下列为实际文件与逐项验证映射。前端路径均相对 `apps/web/src/`；共享文件随后续切片增量修改。签收以本节后的最终门禁版本为准。
+
+| 叶子 / 子切片 | 实际文件 | 完成标准与验证入口 |
+| --- | --- | --- |
+| T16a.1 状态模型 | features/tools/argumentDraft.ts、argumentDraft.test.ts | skip/touched/原文/last parseable/null独立；嵌套默认skip，0/false/null/空值保留，数组删除路径重排 |
+| T16a.2 结构编辑 | features/tools/SchemaArgumentEditor.tsx、SchemaArgumentEditor.test.tsx | 嵌套对象/数组/enum/nullable、无歧义oneOf；focus/blur不误报，错误路径焦点；分支不丢其他非法原文 |
+| T16b.1 校验隔离 | runtime/schema/index.ts、index.test.ts、worker.ts、interpreter.ts、interpreter.test.ts | 每job独立Worker/超时；严格CSP、禁止网络取ref；组合/递归/unevaluated/dynamicRef正式解释 |
+| T16b.2 跨端范围 | runtime/schema/profile.ts、types.ts；features/tools/argumentDraft.ts；contracts/fixtures/schema-v1.json | dialect/keywords/pattern/节点/深度/数值边界；新增49共同向量+M0 17条Schema语义 |
+| T16b.3 Go对应 | internal/schema/check.go、check_test.go；internal/jsonnumber/number.go；go.mod/go.sum | 正式校验器、数值先限词法再binary64，multipleOf精确；jsonnumber无独立测试，边界由schema/recording/平台测试覆盖 |
+| T17a.1 共同规范 | runtime/records/canonical.ts、canonical.test.ts、redaction.ts、redaction.test.ts；contracts/fixtures/recording-v1.json | 7摘要/19脱敏共同用例；来源/默认/项目/追加/嵌套回显，二进制/超限/未知来源明确省略 |
+| T17a.2 冻结快照 | runtime/records/snapshot.ts、operations.ts、operations.test.ts | request/response/protocol/metadata/context联合来源；Schema注释单独遍历；同摘要/ID原操作重试，不持久化 |
+| T17b.1 合同与迁移 | contracts/platform/openapi.json、generated/platform.ts、internal/wire/platform.gen.go；migrations/003_records.sql、migrate_test.go | v1.2.0 47schemas/39paths生成一致；001→003升级保留已有数据，新schema重复迁移 |
+| T17b.2 平台规范 | internal/recording/canonical.go、canonical_test.go、redaction.go、redaction_test.go、fixtures_test.go | 相同共同规范向量；JSON歧义、正文转义预算、数值/布尔传播和冻结摘要 |
+| T17b.3 接收事务 | internal/platform/records.go、records_test.go、server.go；tests/integration/foundation_test.go | 当前真实角色先于回执、团队锁后重读；原ID原摘要幂等，异摘要冲突，失败回滚/并发仅一次；Agent责任Cookie拒绝 |
+| T18a.1 运行状态 | runtime/execution/index.ts、index.test.ts、types.ts、environment.ts | 同Tab同步锁定，当前Tool/环境/权限准入；无效不建Run；独立Run/record/operation与冻结上下文 |
+| T18a.2 工具接入 | features/tools/ToolExecution.tsx、ToolExecution.test.tsx、ToolsPage.tsx、ToolsPage.test.tsx、workspace.ts | 草稿与Run分离，执行后编辑不变快照；失效不丢旧结果事实，运行项保护，参数/执行组件key隔离 |
+| T18b.1 实际SDK | runtime/browser-session.ts、browser-session.test.ts、execution/fixture.test.ts、protocol.ts、protocol.test.ts | HTTP/SSE真实callTool，取消不破坏同连接下次调用；RPC/401/403/isError/output/网络/超时区分，摘要安全界限 |
+| T18b.2 连续流程 | tests/fixtures/m2/fixture.mjs、fixture.test.mjs；tests/e2e/m3.spec.ts、production-helpers.ts | 实际延迟屏障/迟到、双击一次、TabB可编辑、平台不可达不发新调用，上传503后编辑草稿再原body重试 |
+| T19a.1 查询 | internal/platform/records_list.go、records_test.go | 项目/工具含连接范围；私有SQL过滤/猜ID拒绝；签名游标绑定身份/筛选/highWater，插入不重排已有页 |
+| T19a.2 范围记忆 | features/records/RecordsPage.tsx、RecordsPage.test.tsx、viewStore.ts、viewStore.test.ts | 总历史/工具历史独立筛选与分页；返回记录所属范围重查，项目+记录表单隔离 |
+| T19b.1 详情动作 | features/records/RecordDetail.tsx、SessionUploads.tsx、records.css、translations.ts | 脱敏正文/SDK协议摘要/身份和省略原因；维护者固定，固定删除保护；本人会话待/失败项只冻结重试，无伪造详情/删除 |
+| T20a.1 保存 | features/records/RecordEditors.tsx、RecordEditors.test.tsx；runtime/records/snapshot.ts、operations.test.ts | 请求/请求响应新ID/时间，原执行者身份与上传责任分开；合法Schema错仅私有未完成，非法JSON拒绝 |
+| T20a.2 来源独立 | internal/platform/records.go、records_revision.go、records_test.go | 已上传/未上传本人Run、合成Agent来源另存；来源历史/配置删除不删saved；当前规则安全投影才通过来源证明 |
+| T20b.1 修订 | 同上平台文件；features/records/RecordEditors.tsx、RecordEditors.test.tsx | 新operation+If-Match/baseVersion；参数/响应不变，范围权限再查；失败再编辑仍原body/etag重试，冲突显式放弃后保留草稿 |
+| T20b.2 凭据/卸载 | features/connections/runtimeStore.ts；features/records/RecordEditors.tsx、RecordEditors.test.tsx | 捕获私有来源闭包保护已掩码请求后的新备注；异项目撤权不误失效；离开页成功后清旧编辑态，失败保留 |
+| T21a.1 恢复 | features/records/restore.ts、restore.test.ts；features/tools/workspace.ts、workspace.test.ts | 当前实际session-access/配置/应用环境/目录，new未执行Tab；脱敏身份拒绝，marked顶层参数移除，0/false/null及旧草稿保留 |
+| T21b.1 平台修订 | internal/platform/records_revision.go、records_test.go | 追加路径+原因新操作；关联他人private副本也同步脱敏/版本，但不向修订者泄漏其内容；旧审计原因不留秘密 |
+| T21b.2 缓存隔离 | features/connections/runtimeStore.ts；features/records/RecordEditors.tsx、RecordEditors.test.tsx、viewStore.ts | 原因A→B→A保留，失败原操作重试；离开页后成功仍失效对应Run/副本/保存来源，其他新Run/项目不受影响 |
+| M3 入口/双语 | app/App.tsx、shared/i18n.ts、shared/tokens.css、features/tools/executionTranslations.ts；package.json/package-lock.json | 历史路由、中文英文、沿用token/Phosphor/primitives；页面/transport懒加载，正式生产入口完整verify |
+
+## M3 最终签收 · cf9b6cf · 2026-10-13
+
+T16参数编辑、T17脱敏/平台接收、T18真实执行、T19历史查询详情、T20保存与元数据修订、T21恢复/追加脱敏均按上表逐叶完成，C06/C07签收；T15已在adf6622签收。本轮止于M3。
+
+- [完整verify](../../tests/evidence/m3-final/verify.log)实际退出0：合同1.2.0（47schemas/39paths）生成一致、JS共同语义64、Node18；前端类型/34文件424项测试/生产构建；Go `test -count=1 ./...`，含真实非超级用户隔离PG、vet及生产构建。wire/jsonnumber无独立单测只编译，jsonnumber边界由Schema/recording/平台回归覆盖，不虚报独立测试。
+- 正式Go/TS校验新增49共同Schema向量，继续运行M0的17条Schema语义；记录7摘要/19脱敏共同用例。Hyperjump解释器在独立Worker和严格生产CSP下验证；未放宽unsafe-eval、远程引用、正则兼容范围或数字边界。
+- [生产浏览器结果](../../tests/evidence/m3-final/results.json)：11通过（M1三条、M2三条、T15/M3五条），0失败/跳过/重试，45.4秒。真实Go/PG/受控SMTP/HTTPS静态入口与实际SDKHTTP；冻结执行、双击一次、503后原body重试不重调、保存/元数据/关联脱敏/删除来源/新未执行Tab恢复、嵌套错误焦点/组合/递归/remote零请求、RPC实际码/401/isError/output错误/取消迟到/超时/离线准入、Token回显/默认复制/保存备注/私有未完成草稿、详情另存关闭/再次打开取消均有实际断言。
+- [数值网络统计](../../tests/evidence/m3-final/fixture-statistics.json)：MCP HTTP initialize9、SSE initialize1、toolsCall9，延迟2/释放2；OAuth PKCE/resource各1，两个上游cookieRequests=0。SSE tools/call另由实际SDK HTTP/SSE fixture回归证明；统计不记录Token/code/verifier。
+- [审阅](./m3-review.md)所列问题均有回归并修复，无剩余阻塞项。目视英文1440亮色/中文390暗色记录详情、英文390参数页；记录截图发现元数据旧表单后真实浏览器RED→GREEN，详情另存同根因经RecordsPage集成RED→GREEN，来源失效仅关闭匹配copy；最终Records32项通过。初次419项门禁与后续421项门禁不作为最终签收，失败与中间日志保留m3-preflight/m3-t16。
+- [环境、构建与证据摘要](../../tests/evidence/m3-final/manifest.json)：macOS26.6.2 arm64、Go1.25.5、Node24.21.0、PG18.6、Playwright1.59.1/Chromium147.0.7727.15。最大JS466.34kB/gzip141.99kB，工具40.61/12.23kB、记录33.62/10.23kB、browser-session22.26/7.52kB，主CSS12.32/2.99kB；无chunk阈值或静态/动态导入告警。提交检查只移除一处末尾空行，随后对提交重建前端/Go发行产物，不改变行为。
+- 本次平台、邮件、MCP、OAuth、临时TLS均停止，随机测试schema已清；最终只读PG查询遗留test_/e2e_schema计数0。回环tmpfs测试DB容器仅供复验保留。
+
+T02a/b、C01完整Chrome/Edge/OS/公网HTTPS LNA/原生人工确认路径继续待验，不宣称支持。当前Chromium证据不抵扣目标Chrome155/Edge或Windows/Linux。A01–A60全部仍为待验收，只登记相关M3部分版本/证据，等待正式分期联验。
+
+协议记录仅SDK摘要，没有原始传输帧trace或虚构HTTP成功码；取消/超时不承诺回滚。平台摘要保证操作一致性，不是上游执行签名。当前浏览器失败操作只有会话内冻结重试，刷新/退出后无可靠恢复。M4 T22–T24的持久队列、容量、可靠重认证、保留与封存未开始；M5 Agent/系统凭据库/上传认证未实现，Agent来源另存仅用合成存档证明归属，不宣称Agent已支持。
