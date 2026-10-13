@@ -1,0 +1,12 @@
+✔ deploy context and runtime isolate secrets and the database from the public listener (1.542875ms)
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (8.248833ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (1.131667ms)
+✔ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (136.829667ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 182.607083

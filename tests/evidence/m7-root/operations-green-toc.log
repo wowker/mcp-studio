@@ -1,0 +1,15 @@
+✔ production candidate diagnostic, private install, upgrade and uninstall preserve encrypted files (2092.207583ms)
+✔ candidate archives have an exact allowlist without runtime, test or helper entries (61.367791ms)
+✔ deploy context and runtime isolate secrets and the database from the public listener (1.370458ms)
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (8.404958ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (0.881459ms)
+✔ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (76.497084ms)
+✔ restore TOC skips only the preprovisioned app schema and rejects unrelated schema archives (0.310541ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2187.610042

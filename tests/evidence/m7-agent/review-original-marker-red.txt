@@ -1,0 +1,5 @@
+--- FAIL: TestReadOnlyMarkerFailureDoesNotLoseOldBinary (0.04s)
+    transaction_test.go:17: old binary lost after marker failure version-two
+FAIL
+FAIL	mcp-studio/internal/agent/lifecycle	0.593s
+FAIL

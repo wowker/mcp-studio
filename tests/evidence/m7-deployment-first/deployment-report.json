@@ -1,0 +1,8 @@
+{
+  "project": "m7_test_59741a2ab464",
+  "scope": "Owned loopback HTTPS containers; no publishing/native/manual/media acceptance",
+  "checks": [],
+  "status": "failed",
+  "error": "isolated deployment assertion or transport failure; see test stderr",
+  "cleanup": "owned containers/network/volume removed"
+}

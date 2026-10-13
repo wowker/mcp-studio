@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "archiveSHA256": "fb6c61b10f504cb71a9f6b4d0d8ad61c39117398d6e9ae04387a5b273d4000c2",
+  "bytes": 71591053,
+  "fileCount": 41,
+  "checked": "exact allowlist; every entry hash/size; all checksum lines; archive regular-only/path containment; no secret/helper/state filenames; executable init/readable public Caddyfile; exported image config ID/user/entrypoint/no secret env",
+  "temporaryExtraction": "removed",
+  "publication": "none"
+}

@@ -5,8 +5,10 @@
 - [执行账本](progress.md)：逐叶修改、实际验证、限制和推进判断。
 - [启动与验证](../operations/development.md)：正式同站点入口与完整 verify。
 - [实施计划](plan.md)：8 阶段、三端模块和建议结构。
-- [任务与检查点](todo.md)：36 工作包 / 72 叶子任务 / 12 检查点，M0／M1 当前状态见执行账本，M2 起未开始。
+- [任务与检查点](todo.md)：36 工作包 / 72 叶子任务 / 12 检查点；M0–M7 已执行至候选实现和可执行验证，实机/人工/介质未验项仍未勾选。
 - [验收分期](acceptance-schedule.csv)：60 条全部待验；状态、负责人、实现版本与证据在此更新。
+- [M7 候选交付与限制](m7-review.md)：实现449c1f6／最终源3056a6b、完整门禁、审阅修补、13项裁定与已知问题；本次不发布。
+- [A01–A60逐项证据索引](m7-acceptance-index.json)：逐条相关自动回归、实际候选版本和剩余正式条件，不批量签收。
 
 正式预期结果以 [设计验收正文](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md) 和 [原始登记](../design-baseline-v2/design-handoff/acceptance-register-v2.csv) 为准。参考目录内的旧 tasks 保持为交接快照，不同步开发进度。
 

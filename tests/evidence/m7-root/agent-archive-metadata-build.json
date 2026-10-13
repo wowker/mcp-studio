@@ -1,0 +1,28 @@
+{
+  "output": "/Users/wuwei/code/github/mcp-studio/.runtime/m7-archive-metadata-fixed",
+  "version": "0.1.0-m7-candidate",
+  "revision": "b4516f907537f4445d71869f23f40b1d9c2ca949",
+  "sourceSHA256": "2264d17731e3f8514a6f12c0255d13efa0e0ed57e531a26d80f16aeb35094b23",
+  "artifacts": [
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64.tar.gz",
+      "sha256": "3ca8134d0198df3d0fb24f3f2971139d2b05f466aa2f998f4ac907ea8ee93486"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64-unsigned.pkg",
+      "sha256": "6a39fe43c58168cd0ca932ffd9e86f01e7d5ec46eaab332bf97ae8feaea81392"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-windows-amd64.zip",
+      "sha256": "db8cb88e744aa311fb2e90e9d57704d5dcce9edd933f57a121de7c7ac3c2e000"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64.tar.gz",
+      "sha256": "102d16efa03dc6a128ce7790db34c57a4504f7f074805e789b275de5d7481a63"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64.tar.gz",
+      "sha256": "90efd2ad8b884b02978cf20434650ff2aeb1c07789e786691b13e818517d309b"
+    }
+  ]
+}

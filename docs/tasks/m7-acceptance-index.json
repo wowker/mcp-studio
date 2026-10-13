@@ -12,7 +12,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "配置命名在 T10 联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -45,7 +45,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "工具草稿、迟到 Run 和后台上传齐备后联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/configuration_test.go",
         "apps/web/src/runtime/configuration.test.ts",
@@ -82,7 +82,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "同 URL 的 Agent 会话及凭据库联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/configuration_test.go",
         "apps/web/src/runtime/configuration.test.ts",
@@ -113,7 +113,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "显式切换 Agent 后成功连接才完整",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/browser-session.test.ts",
         "internal/agent/mcp/client_test.go",
@@ -144,7 +144,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "配置校验与实际进程启动一并验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/configuration_test.go",
         "apps/web/src/runtime/configuration.test.ts",
@@ -174,7 +174,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "实机配对状态；不以页面模拟代替",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/agent/localapi/api_test.go",
         "internal/agent/pairing/pairing_test.go",
@@ -203,7 +203,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "授权、凭据保存和备份三种结果独立",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/agent/sessions/credentials_test.go",
         "internal/agent/sessions/backups_test.go",
@@ -233,7 +233,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "加入本机敏感值来源联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/environment.test.ts",
         "internal/agent/sessions/environment_test.go",
@@ -266,7 +266,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "连接、浏览器执行、Agent 执行一致阻断",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/environment.test.ts",
         "internal/agent/sessions/environment_test.go",
@@ -298,7 +298,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "已连接时应用环境，两个执行端均验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/environment.test.ts",
         "internal/agent/sessions/environment_test.go",
@@ -327,7 +327,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "包含嵌套可选项与执行前全量校验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/tools/argumentDraft.test.ts",
         "apps/web/src/features/tools/SchemaArgumentEditor.test.tsx",
@@ -354,7 +354,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "编辑和恢复都保留显式值",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/tools/argumentDraft.test.ts",
         "apps/web/src/features/tools/SchemaArgumentEditor.test.tsx",
@@ -383,7 +383,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "同时验证保存限制与结构模式切换",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/tools/argumentDraft.test.ts",
         "apps/web/src/features/tools/SchemaArgumentEditor.test.tsx",
@@ -412,7 +412,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "正式组件的焦点与窄屏联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/tools/argumentDraft.test.ts",
         "apps/web/src/features/tools/SchemaArgumentEditor.test.tsx",
@@ -444,7 +444,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "两执行端冻结、重复执行及迟到竞态",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/execution/index.test.ts",
         "internal/agent/sessions/engine_test.go",
@@ -473,7 +473,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "HTTP / stdio 错误不能混称 HTTP 状态",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/execution/index.test.ts",
         "internal/agent/sessions/engine_test.go",
@@ -500,7 +500,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "服务范围、工具范围及游标均保持",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/records_test.go",
         "apps/web/src/features/records/RecordsPage.test.tsx",
@@ -525,7 +525,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "采用当前授权与 Schema，不发送请求",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/records/restore.test.ts",
         "tests/e2e/m3.spec.ts",
@@ -552,7 +552,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "浏览器及 Agent 队列各自重试",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/queueStorage.test.ts",
         "internal/agent/queue/queue_test.go",
@@ -584,7 +584,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "清理来源后保存内容仍在",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/records_test.go",
         "apps/web/src/features/records/RecordsPage.test.tsx",
@@ -614,7 +614,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "实际上传中与失败队列互斥动作",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/queueStorage.test.ts",
         "internal/agent/queue/queue_test.go",
@@ -646,7 +646,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "真实记录详情、上传与执行 API 对象授权",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -682,7 +682,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 产生快照与敏感凭据来源联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/redaction.test.ts",
         "internal/platform/records_test.go",
@@ -709,7 +709,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "邮件验证、匹配邮箱及接受事务",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -736,7 +736,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "旧 ID 与旧期限不能继续使用",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -764,7 +764,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "直接 API 调用不能越过团队能力",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -790,7 +790,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "并发保护不能仅前端计数",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -818,7 +818,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "含记录封存与凭据删除联动",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -852,7 +852,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "26 页面适用状态矩阵逐页登记",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "docs/tasks/m6-state-matrix.md",
         "apps/web/src/shared/QueryFeedback.states.test.tsx",
@@ -877,7 +877,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "中英 × 亮暗 × 四宽；两浏览器",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "tests/e2e/m6-layout.spec.ts",
         "apps/web/src/shared/ui.layout.test.tsx"
@@ -902,7 +902,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "短桌面与手机尺寸独立检查",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "tests/e2e/m6-layout.spec.ts",
         "apps/web/src/shared/ui.layout.test.tsx"
@@ -928,7 +928,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "切换时保留草稿、状态与滚动",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "tests/e2e/m6-layout.spec.ts",
         "apps/web/src/shared/ui.layout.test.tsx"
@@ -953,7 +953,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "自动扫描与人工键盘分开记录",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "tests/e2e/m6-layout.spec.ts",
         "apps/web/src/shared/ui.layout.test.tsx"
@@ -980,12 +980,11 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "固定 / 运行保护及复制不含结果",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
-        "apps/web/src/runtime/execution/index.test.ts",
-        "internal/agent/sessions/engine_test.go",
-        "tests/e2e/m3.spec.ts",
-        "tests/e2e/m5.spec.ts"
+        "apps/web/src/features/tools/workspace.test.ts",
+        "apps/web/src/features/tools/ToolDocumentTabs.test.tsx",
+        "tests/e2e/m3.spec.ts"
       ],
       "candidateEvidence": [
         "tests/evidence/m7-final/verify.log",
@@ -1006,7 +1005,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "同一 Run 的成功与上传状态驱动进度",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/workflow/model.test.ts",
         "tests/e2e/m6-flow.spec.ts"
@@ -1034,7 +1033,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "到期暂停两端上传；初始化只一次",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -1069,7 +1068,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "接管之后他人私有记录仍不可读",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -1100,7 +1099,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 本人队列也按最新角色约束",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/records_test.go",
         "apps/web/src/features/records/RecordsPage.test.tsx",
@@ -1133,7 +1132,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "浏览器刷新与关闭后 Agent 完成分别验证",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/queueStorage.test.ts",
         "internal/agent/queue/queue_test.go",
@@ -1167,7 +1166,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 容量和相同摘要重试联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/queueStorage.test.ts",
         "internal/agent/queue/queue_test.go",
@@ -1198,7 +1197,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "重认证、当前权限、本机 / 备份 / 上游边界",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/agent/sessions/credentials_test.go",
         "internal/agent/sessions/backups_test.go",
@@ -1227,7 +1226,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "伪造 Host / Origin、令牌与执行配置变更",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/agent/localapi/api_test.go",
         "internal/agent/pairing/pairing_test.go",
@@ -1256,7 +1255,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "兼容矩阵覆盖浏览器及 Agent",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/browser-session.test.ts",
         "internal/agent/mcp/client_test.go",
@@ -1283,7 +1282,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "合法但无效草稿仅私有，不自动远程取 Schema",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/tools/argumentDraft.test.ts",
         "apps/web/src/features/tools/SchemaArgumentEditor.test.tsx",
@@ -1310,7 +1309,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "真实组件计算样式与双语截图",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "tests/e2e/m6-layout.spec.ts",
         "apps/web/src/shared/ui.layout.test.tsx"
@@ -1337,7 +1336,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "跨端快照省略规则及关联副本同步",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/redaction.test.ts",
         "internal/platform/records_test.go",
@@ -1367,7 +1366,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "队列、记录清理与备份周期实测",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/record_lifecycle_test.go",
         "tests/operations/operations.test.mjs",
@@ -1401,7 +1400,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "即时权限、30 天封存和备份删除均验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/record_lifecycle_test.go",
         "tests/operations/operations.test.mjs",
@@ -1433,7 +1432,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "项目名称唯一性及两人版本冲突",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/configuration_test.go",
         "apps/web/src/runtime/configuration.test.ts",
@@ -1467,7 +1466,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "三端实际网络路径与租户身份审查",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/browser-session.test.ts",
         "internal/agent/mcp/client_test.go",
@@ -1502,7 +1501,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "保留连接草稿；旧诊断清除不自动连接",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/environment.test.ts",
         "internal/agent/sessions/environment_test.go",
@@ -1533,7 +1532,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "会话 / 本机值与被删引用联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/environment.test.ts",
         "internal/agent/sessions/environment_test.go",
@@ -1565,7 +1564,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 来源保存由浏览器持有新保存操作",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/records_test.go",
         "apps/web/src/features/records/RecordsPage.test.tsx",
@@ -1597,7 +1596,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "刷新及上传失败仍保持新修订身份",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/records_test.go",
         "apps/web/src/features/records/RecordsPage.test.tsx",
@@ -1629,7 +1628,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "权限依据记录所属项目而非当前 UI",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/runtime/records/queueStorage.test.ts",
         "internal/agent/queue/queue_test.go",
@@ -1661,7 +1660,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "接管只写目标项目关系与审计",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -1688,7 +1687,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "旧页和下一次 API 请求均拒绝",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -1720,7 +1719,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "隐藏服务上下文和流程进度；错误账号不得恢复",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/identity_test.go",
         "internal/platform/projects_test.go",
@@ -1750,7 +1749,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "失败修订的表单隔离与持久任务联验",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "internal/platform/records_test.go",
         "apps/web/src/features/records/RecordsPage.test.tsx",
@@ -1787,7 +1786,7 @@
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "完整正常旅程与邀请修复 / 上传失败异常旅程",
       "formalStatus": "待验收",
-      "implementationVersion": "M7候选：见 tests/evidence/m7-final/manifest.json 的实现提交和源摘要；不抵扣正式签收",
+      "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
         "apps/web/src/features/workflow/model.test.ts",
         "tests/e2e/m6-flow.spec.ts",
@@ -1810,5 +1809,6 @@
         "真实邮件供应商与目标网络连续旅程未验；当前仅受控SMTP。"
       ]
     }
-  ]
+  ],
+  "implementationRevision": "3056a6b0ab771149b39435f7f2535d2bcd0881bc"
 }

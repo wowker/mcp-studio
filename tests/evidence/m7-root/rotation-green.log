@@ -1,0 +1,4 @@
+# mcp-studio/internal/platform [mcp-studio/internal/platform.test]
+internal/platform/backup_rotation_test.go:55:10: got.Backup undefined (type wire.CredentialBackupSecret has no field or method Backup)
+FAIL	mcp-studio/internal/platform [build failed]
+FAIL

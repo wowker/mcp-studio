@@ -1,0 +1,4 @@
+Package "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64-unsigned.pkg":
+   Status: no signature
+
+exit=1 (expected unsigned candidate; not a signing pass)

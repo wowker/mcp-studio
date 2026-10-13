@@ -22,6 +22,6 @@
 
 ## Agent与交接
 
-仅构建未签名候选：Darwin arm64需CGO1以链接真实库；Windows amd64/Linux amd64/arm64交叉构建。macOS pkg、Windows zip+PowerShell入口、Linux tar+CLI入口的支持状态均显式pending-native-validation。不从doctor初始化state/keychain，不自动注册daemon或批准配对。受管安装前缀按当前用户/state/摘要绑定，升级/卸载与实际运行共用锁，保留state/queue/vault/device。独立审阅发现binary/marker两文件更新中断窗口，须通过可恢复事务修补后重建候选。
+仅构建未签名候选：Darwin arm64需CGO1以链接真实库；Windows amd64/Linux amd64/arm64交叉构建。macOS pkg、Windows zip+PowerShell入口、Linux tar+CLI入口的支持状态均显式pending-native-validation。不从doctor初始化state/keychain，不自动注册daemon或批准配对。受管安装前缀按当前用户/state/摘要绑定，升级/卸载与实际运行共用锁，保留state/queue/vault/device。独立审阅发现binary/marker两文件更新中断窗口，已用保留旧快照、同步journal/完成标记和持锁恢复修补，并重建候选通过实际完整门禁；注入中断不等于真实掉电或Windows原生耐久性。
 
 完整候选门禁必须包含operations测试、离线CLI构建、候选包构建/载荷/安装temp-prefix回归、真实容器部署恢复及原M1–M6全部门禁。不把旧verify单独当M7覆盖；不批量签收A01–A60。不推送、发布tag、注册域名或调用签名服务。

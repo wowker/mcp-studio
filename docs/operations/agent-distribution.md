@@ -25,6 +25,8 @@ macOS pkg 是候选文件投放容器，目标为 `/Applications/MCP Studio Agen
 
 各包内含生产二进制、一个 OS 安装入口、manifest.json、CHECKSUMS.sha256。外层另有全体归档校验和及 manifest。SHA-256 用于检查候选完整性；当前产物没有可信发布签名，不能把摘要校验当作来源认证。`support=pending-native-validation`、`signing=unsigned-not-published` 保留在 manifest。
 
+最终tar禁用mac copyfile/ACL/xattrs，按物理TAR头校验四个文件，避免BSD tar列表隐藏AppleDouble而误判。`.runtime/distribution`及首轮目录是历史构建，不作为最终交付；当前通过完整门禁的候选以m7-final/candidate-location.json为准。macOS pkg中的`._*`仍是pkgbuild的候选包元数据，原生签名/安装保持待验，不能以pkg检查抵扣tar内容校验。
+
 ## 诊断与前台启动
 
 ```sh

@@ -1,0 +1,6 @@
+# mcp-studio/internal/agent/lifecycle [mcp-studio/internal/agent/lifecycle.test]
+internal/agent/lifecycle/install_test.go:147:9: undefined: ValidateRuntime
+internal/agent/lifecycle/install_test.go:149:5: undefined: ValidateRuntime
+internal/agent/lifecycle/install_test.go:151:9: undefined: ValidateRuntime
+FAIL	mcp-studio/internal/agent/lifecycle [build failed]
+FAIL

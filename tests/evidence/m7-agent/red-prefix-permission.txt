@@ -1,0 +1,5 @@
+--- FAIL: TestRejectsPublicManagedPrefix (0.04s)
+    install_test.go:138: accepted public writable managed prefix
+FAIL
+FAIL	mcp-studio/internal/agent/lifecycle	0.588s
+FAIL

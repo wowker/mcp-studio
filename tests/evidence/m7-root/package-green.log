@@ -1,0 +1,10 @@
+✔ handoff copies only explicit regular files and refuses escape, links and overwrite (11.350166ms)
+✔ candidate archive selection checks each declared hash and rejects traversal (5.657209ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.871458

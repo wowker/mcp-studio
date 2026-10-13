@@ -1,0 +1,11 @@
+✔ deploy context and runtime isolate secrets and the database from the public listener (1.327833ms)
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (8.974958ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (1.040666ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50.267416

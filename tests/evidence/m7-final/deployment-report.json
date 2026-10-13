@@ -1,0 +1,42 @@
+{
+  "project": "m7_test_4e511b512084",
+  "scope": "Owned loopback HTTPS containers; no publishing/native/manual/media acceptance",
+  "checks": [
+    "compose config; fresh nonroot platform/HTTPS/PostgreSQL healthy",
+    "one-time init; Secure HttpOnly cookie; real STARTTLS certificate verification and mailbox confirmation",
+    "real object authorization; foreign Origin rejection; non-superuser/non-BYPASSRLS database role",
+    "protected custom pg_dump; nonempty restore refused; fresh-database atomic restore preserves identity/project/migration ledger",
+    "restored platform restart keeps initialized state; future migration prevents startup"
+  ],
+  "phase": "migration rejection",
+  "status": "passed",
+  "containers": [
+    {
+      "service": "db",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "mail",
+      "state": "running",
+      "health": ""
+    },
+    {
+      "service": "platform",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "tls",
+      "state": "running",
+      "health": ""
+    }
+  ],
+  "limits": [
+    "Controlled internal SMTP is not real mail-provider acceptance",
+    "Temporary CA trusted explicitly; no TLS skip",
+    "T02/T32b/native/manual/media remain pending",
+    "No production deployment or publication"
+  ],
+  "cleanup": "owned containers/network/volume removed"
+}

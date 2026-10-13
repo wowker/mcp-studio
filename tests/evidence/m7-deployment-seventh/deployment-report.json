@@ -1,0 +1,23 @@
+{
+  "project": "m7_test_7cc1e6226df2",
+  "scope": "Owned loopback HTTPS containers; no publishing/native/manual/media acceptance",
+  "checks": [
+    "compose config; fresh nonroot platform/HTTPS/PostgreSQL healthy",
+    "one-time init; Secure HttpOnly cookie; real STARTTLS certificate verification and mailbox confirmation",
+    "real object authorization; foreign Origin rejection; non-superuser/non-BYPASSRLS database role"
+  ],
+  "phase": "archive and restore",
+  "status": "failed",
+  "failedServices": [
+    {
+      "service": "db",
+      "state": "running",
+      "health": "healthy",
+      "exitCode": 0
+    }
+  ],
+  "tlsStartupError": [],
+  "tlsDiagnostics": [],
+  "error": "isolated deployment assertion or transport failure; see test stderr",
+  "cleanup": "owned containers/network/volume removed"
+}

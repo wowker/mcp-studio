@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-13T14:40:11.046Z",
+  "testSchemas": 1,
+  "ownedM7Containers": [],
+  "ownedM7Networks": [],
+  "ownedM7Volumes": [],
+  "preexistingFixture": "mcp-studio-m1-pg preserved",
+  "productionDeployment": "none",
+  "platformImage": "local candidate retained",
+  "privateFixtures": "runtime and deployment finally blocks removed their own temporary resources"
+}

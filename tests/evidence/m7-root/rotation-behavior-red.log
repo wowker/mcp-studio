@@ -1,0 +1,5 @@
+--- FAIL: TestOfflineBackupRotationAtomicAndPreservesUserVersion (1.17s)
+    backup_rotation_test.go:34: wrong old key accepted
+FAIL
+FAIL	mcp-studio/internal/platform	2.496s
+FAIL

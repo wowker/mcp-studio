@@ -1,0 +1,32 @@
+[
+  {
+    "file": "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64.tar.gz",
+    "sha256": "875a20640c9efe81586988bd41c2446af3d9a02d364640313437b02f6501aa6f",
+    "physicalRegularFiles": [
+      "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64/install.sh",
+      "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64/mcp-studio-agent",
+      "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64/CHECKSUMS.sha256",
+      "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64/manifest.json"
+    ]
+  },
+  {
+    "file": "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64.tar.gz",
+    "sha256": "16e5325759eef1d688047b61dafc29569802d3d6e36520b11c9d11572c70afd0",
+    "physicalRegularFiles": [
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64/install.sh",
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64/mcp-studio-agent",
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64/CHECKSUMS.sha256",
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64/manifest.json"
+    ]
+  },
+  {
+    "file": "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64.tar.gz",
+    "sha256": "f98f90ad3348573b75d5264b361b9d7c6068e88ddc206804fdc14916ec4fe9db",
+    "physicalRegularFiles": [
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64/install.sh",
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64/mcp-studio-agent",
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64/CHECKSUMS.sha256",
+      "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64/manifest.json"
+    ]
+  }
+]

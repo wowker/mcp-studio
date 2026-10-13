@@ -1,0 +1,88 @@
+{
+  "project": "m7_test_9cf308fa0c1a",
+  "scope": "Owned loopback HTTPS containers; no publishing/native/manual/media acceptance",
+  "checks": [
+    "compose config; fresh nonroot platform/HTTPS/PostgreSQL healthy"
+  ],
+  "phase": "fresh startup",
+  "status": "failed",
+  "failedServices": [
+    {
+      "service": "db",
+      "state": "running",
+      "health": "healthy",
+      "exitCode": 0
+    },
+    {
+      "service": "mail",
+      "state": "running",
+      "health": "",
+      "exitCode": 0
+    },
+    {
+      "service": "platform",
+      "state": "running",
+      "health": "healthy",
+      "exitCode": 0
+    },
+    {
+      "service": "tls",
+      "state": "running",
+      "health": "",
+      "exitCode": 0
+    }
+  ],
+  "tlsStartupError": [],
+  "tlsDiagnostics": [
+    {
+      "message": "adapted config to JSON",
+      "error": null
+    },
+    {
+      "message": "Caddyfile input is not formatted; run 'caddy fmt --overwrite' to fix inconsistencies",
+      "error": null
+    },
+    {
+      "message": "admin endpoint disabled",
+      "error": null
+    },
+    {
+      "message": "started background certificate maintenance",
+      "error": null
+    },
+    {
+      "message": "unmanaged certificate expires within 1 day",
+      "error": null
+    },
+    {
+      "message": "automatic HTTPS is completely disabled for server",
+      "error": null
+    },
+    {
+      "message": "cleaning storage unit",
+      "error": null
+    },
+    {
+      "message": "finished cleaning storage units",
+      "error": null
+    },
+    {
+      "message": "enabling HTTP/3 listener",
+      "error": null
+    },
+    {
+      "message": "server running",
+      "error": null
+    },
+    {
+      "message": "autosaved config (load with --resume flag)",
+      "error": null
+    },
+    {
+      "message": "serving initial configuration",
+      "error": null
+    }
+  ],
+  "error": "isolated deployment assertion or transport failure; see test stderr",
+  "cleanup": "owned containers/network/volume removed"
+}

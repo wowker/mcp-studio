@@ -1,0 +1,2 @@
+ok  	mcp-studio/internal/agent/lifecycle	1.784s
+ok  	mcp-studio/cmd/agent	0.680s

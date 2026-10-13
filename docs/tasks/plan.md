@@ -1,8 +1,8 @@
 # MCP Inspector 服务版实施计划
 
-目标目录：`/Users/wuwei/code/github/mcp-studio`，已完成 M0 合同至 M5，M6 实现与可执行门禁通过；T32b 人工及既有实机/介质、T02 完整矩阵待验。执行状态统一维护于本目录。
+目标目录：`/Users/wuwei/code/github/mcp-studio`，已完成 M0 合同至 M7 候选实现与可执行验证；T32b 人工及既有实机/介质、T02 完整矩阵与M7原生/正式联验待验。执行状态统一维护于本目录。
 
-日期：2026-10-13。状态：**M6 T31–T33 实现与可执行门禁通过（fc0b161；M6 主实现5a07743）。T32b 人工键盘/读屏及 T02、既有实机/人工/介质联验仍待验；本次未进入 M7**。当前状态见 [执行账本](progress.md)；以下保留全程规划，后续阶段仍需授权。
+日期：2026-10-13。状态：**M7 T34–T36候选实现449c1f6／最终源3056a6b及扩展完整门禁通过；平台HTTPS/PG/SMTP恢复与Agent四目标候选有实际证据。T02、T32b及既有实机/人工/介质未验项不变，T34–T36完整叶子和A01–A60正式签收仍待验。本次不发布**。当前状态见 [执行账本](progress.md)与[M7审阅](m7-review.md)；以下保留全程规划，发布与合并另行授权。
 
 依据：[最终交付索引](../design-baseline-v2/design-handoff/11-final-delivery-checklist.md)、[D01–D15](../design-baseline-v2/design-handoff/08-decision-proposals.md)、[A01–A60](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md)。任务登记在 [todo.md](./todo.md)，验收分期在 [acceptance-schedule.csv](./acceptance-schedule.csv)。原仓库 `tasks/` 属于旧功能发布，不修改或覆盖。
 

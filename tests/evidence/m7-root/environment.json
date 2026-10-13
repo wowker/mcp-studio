@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-10-13T14:25:52.681Z",
+  "os": "26.6.2",
+  "arch": "arm64",
+  "node": "v24.21.0",
+  "go": "go version go1.25.5 darwin/arm64",
+  "docker": "29.7.2",
+  "compose": "5.4.0",
+  "postgresql": "18.6 (Debian 18.6-1.pgdg13+2)",
+  "playwright": "1.59.1",
+  "axe": "4.13.0"
+}

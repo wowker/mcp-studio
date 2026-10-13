@@ -1,0 +1,9 @@
+# mcp-studio/internal/agent/lifecycle [mcp-studio/internal/agent/lifecycle.test]
+internal/agent/lifecycle/transaction_test.go:75:9: undefined: systemOperations
+internal/agent/lifecycle/transaction_test.go:83:5: undefined: apply
+internal/agent/lifecycle/transaction_test.go:98:9: undefined: systemOperations
+internal/agent/lifecycle/transaction_test.go:113:7: undefined: apply
+internal/agent/lifecycle/transaction_test.go:150:11: undefined: systemOperations
+internal/agent/lifecycle/transaction_test.go:167:8: undefined: apply
+FAIL	mcp-studio/internal/agent/lifecycle [build failed]
+FAIL

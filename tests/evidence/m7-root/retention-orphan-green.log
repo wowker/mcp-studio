@@ -1,0 +1,13 @@
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (11.10825ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (1.498834ms)
+✔ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (174.703417ms)
+✔ restore TOC skips only the preprovisioned app schema and rejects unrelated schema archives (1.171833ms)
+✔ interrupted purge and dump fragments do not block later managed expiration (24.557958ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 273.2965

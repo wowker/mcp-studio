@@ -1,0 +1,6 @@
+mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64.tar.gz: OK
+mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64-unsigned.pkg: OK
+mcp-studio-agent-0.1.0-m7-candidate-windows-amd64.zip: OK
+mcp-studio-agent-0.1.0-m7-candidate-linux-amd64.tar.gz: OK
+mcp-studio-agent-0.1.0-m7-candidate-linux-arm64.tar.gz: OK
+manifest.json: OK

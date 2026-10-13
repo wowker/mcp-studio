@@ -1,0 +1,60 @@
+{
+  "implementation": "3056a6b0ab771149b39435f7f2535d2bcd0881bc",
+  "delivery": {
+    "archive": "/Users/wuwei/code/github/mcp-studio/.runtime/m7-handoff-0abe66a449df5c4b/mcp-studio-m7-candidate.tar.gz",
+    "sha256": "fb6c61b10f504cb71a9f6b4d0d8ad61c39117398d6e9ae04387a5b273d4000c2",
+    "bytes": 71591053,
+    "manifest": "/Users/wuwei/code/github/mcp-studio/.runtime/m7-handoff-0abe66a449df5c4b/mcp-studio-m7-candidate/manifest.json",
+    "publication": "not-authorized"
+  },
+  "formalAcceptance": "pending 60/60; no publication",
+  "exactContentCheck": {
+    "status": "passed",
+    "archiveSHA256": "fb6c61b10f504cb71a9f6b4d0d8ad61c39117398d6e9ae04387a5b273d4000c2",
+    "bytes": 71591053,
+    "fileCount": 41,
+    "checked": "exact allowlist; every entry hash/size; all checksum lines; archive regular-only/path containment; no secret/helper/state filenames; executable init/readable public Caddyfile; exported image config ID/user/entrypoint/no secret env",
+    "temporaryExtraction": "removed",
+    "publication": "none"
+  },
+  "matrix": {
+    "png": 824,
+    "axeScans": 159,
+    "confirmedViolations": 0,
+    "incomplete": [
+      {
+        "file": "tools-en-US-dark-axe.json",
+        "rules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "file": "tools-en-US-light-axe.json",
+        "rules": [
+          "color-contrast"
+        ]
+      }
+    ],
+    "humanVisualKeyboardScreenreader": "pending"
+  },
+  "cleanup": {
+    "checkedAt": "2026-10-13T14:47:40.033Z",
+    "testSchemas": 0,
+    "ownedM7Containers": [],
+    "ownedM7Networks": [],
+    "ownedM7Volumes": [],
+    "preexistingFixture": "mcp-studio-m1-pg preserved",
+    "productionDeployment": "none",
+    "platformImage": "local candidate retained",
+    "privateFixtures": "runtime and deployment finally blocks removed their own temporary resources"
+  },
+  "priorEvidence": {
+    "m7-final-first": "Initial complete software gate passed; archive metadata content check later failed; not final delivery",
+    "m7-final-interrupted": "Voluntarily SIGINT exit130 while fixing Agent TAR metadata; exact leftover test schema removed",
+    "m7-delivery-first": "Initial archive retained; fails physical allowlist"
+  },
+  "deferrals": [
+    "Development-only interrupted Go inner-test fixture cleanup automation; one exact owned schema manually removed",
+    "T02/T32b/native/manual/media/target environment/formal signoff remain pending"
+  ]
+}

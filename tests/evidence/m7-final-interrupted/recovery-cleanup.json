@@ -1,0 +1,8 @@
+{
+  "schema": "test_73ee66ae271df89ce137456d1637037c",
+  "owner": "mcp_studio_app",
+  "removed": true,
+  "basis": "First successful gate cleanup recorded zero test schemas; this one appeared during the sole owned interrupted Go test, which ended at SIGINT; dedicated synthetic mcp_studio_test/app role; no other resources selected",
+  "scope": "Exact schema only; no prefix sweep",
+  "knownIssue": "Aborted go test may skip its inner t.Cleanup; ordinary complete suite cleans all schemas"
+}

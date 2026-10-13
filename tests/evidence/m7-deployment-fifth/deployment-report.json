@@ -1,0 +1,37 @@
+{
+  "project": "m7_test_7597f11de290",
+  "scope": "Owned loopback HTTPS containers; no publishing/native/manual/media acceptance",
+  "checks": [],
+  "phase": "fresh startup",
+  "status": "failed",
+  "failedServices": [
+    {
+      "service": "db",
+      "state": "running",
+      "health": "healthy",
+      "exitCode": 0
+    },
+    {
+      "service": "mail",
+      "state": "running",
+      "health": "",
+      "exitCode": 0
+    },
+    {
+      "service": "platform",
+      "state": "running",
+      "health": "healthy",
+      "exitCode": 0
+    },
+    {
+      "service": "tls",
+      "state": "exited",
+      "health": "",
+      "exitCode": 255
+    }
+  ],
+  "tlsStartupError": [],
+  "tlsDiagnostics": [],
+  "error": "isolated deployment assertion or transport failure; see test stderr",
+  "cleanup": "owned containers/network/volume removed"
+}

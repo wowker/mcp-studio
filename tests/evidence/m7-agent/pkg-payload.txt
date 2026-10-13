@@ -1,0 +1,9 @@
+.
+./install.sh
+./._install.sh
+./mcp-studio-agent
+./._mcp-studio-agent
+./CHECKSUMS.sha256
+./._CHECKSUMS.sha256
+./manifest.json
+./._manifest.json

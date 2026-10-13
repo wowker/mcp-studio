@@ -327,3 +327,20 @@ T31a/b、T32a、T33a/b共5叶子完成；T32b人工键盘/读屏保持未勾选�
 最终审阅：gpt-6-astra只读审阅，两项Important均接受并在ONE fix pass加故障回归修复。Minor无单独递延；完整verify缺运维检查作为本阶段未完工作补入。全部13项未判断/范围裁定及判断错误代价见m7-review.md的Rulings I made，逐项保留实机/人工/媒体待验，不降低门槛。根任务T36交付工具自检，不冒称已有独立审阅。
 
 失败与环境记录保留：默认Go module-cache EPERM不是通过；初次轮换owner_id列错误、部署tag/脚本执行权/TLS最小NET_BIND_SERVICE、测试客户端漏CSRF、CREATE app TOC恢复冲突分别定位后修补。m7-deployment-first至seventh均失败，eighth为真实成功；不删失败证据或把初次编译缺能力等同运行行为RED。
+
+### T36 最终交付内容回归 · 初轮之后
+
+初轮449c1f6完整verify exit0：591前端、20基础Node、11运维、26浏览器；其结果移至m7-final-first保留。归档后独立实际成员检查发现AppleDouble元数据超出白名单；普通BSD tar列表隐藏条目，初始测试虽GREEN却不足，明确保留package-metadata-initial-test-insufficient.log，不充作RED。物理TAR头检查真实RED→禁用copyfile/ACL/xattrs后GREEN，提交b4516f9。进一步实际检查同问题影响三份Agent tar，已中止尚未完成的第二轮verify（exit130，m7-final-interrupted），加物理候选归档断言RED→新目录四目标重建/5测试GREEN，提交3056a6b冻结最终源，再跑完整门禁。旧归档保留但不是交付。
+
+Final: minor (deferred): 中止Go测试可留下内部test schema，外层e2e已清。实际仅1个本次合成schema，已核对app owner、按具体ID删除，未做前缀批量清理；证据m7-final-interrupted/recovery-cleanup.json。暂不扩展开发信号/子进程清理实现；代价为中止时需逐ID核对清理，正常最终门禁仍必须清理为0，非生产数据问题。
+
+### M7 最终可执行验证与候选交付 · 2026-10-13
+
+- 冻结源3056a6b（实现449c1f6、归档修补b4516f9/3056a6b）。最终扩展npm run verify实际exit0：JS/Go oracle各64、基础Node20、运维/分发12、前端57文件/591测试及类型/构建、真实隔离PG全量Go/vet、platform/agent/studio-admin与受控helper构建、4目标生产Agent/5归档、平台镜像构建、真实新容器HTTPS/STARTTLS/权限/备份恢复/未来迁移拒绝、浏览器26/26。零失败/跳过/重试，Go无单测包只编译，未把历史race或依赖审计称本次重做。
+- 真实环境：macOS26.6.2 arm64、Go1.25.5、Node24.21.0、PG18.6、Docker29.7.2/Compose5.4.0、Chromium147.0.7727.15、Playwright1.59.1、axe4.13.0。824 PNG/159 axe，0确认violation，2份color-contrast incomplete仍需人工；T32b不勾选。
+- 源摘要21306836fe20aae846c0249fa7632bc891c4a762dce2d3bee3d2608c6781ff28（341个tracked非docs/evidence输入）；Agent输入摘要2264d17731e3f8514a6f12c0255d13efa0e0ed57e531a26d80f16aeb35094b23；候选revision/dirty如实登记，不把Git HEAD单独当生产源码证明。平台镜像linux/arm64、ID a148cb7255239efcd801c60e65bf68bcfa78d4117bb5668f7b1ec6bd67d1ebc0；未宣称其他架构运行。
+- 最终本地归档见tests/evidence/m7-final/delivery.json：.runtime/m7-handoff-0abe66a449df5c4b/mcp-studio-m7-candidate.tar.gz，71591053 bytes，SHA-256 fb6c61b10f504cb71a9f6b4d0d8ad61c39117398d6e9ae04387a5b273d4000c2。实际解压检查41个文件的白名单/大小/hash、全部CHECKSUMS、物理TAR成员/权限、镜像导出ID/USER/entrypoint/无秘密Env、Agent及60项索引revision与验证源一致。无秘密/运行state/测试helper；合同规范fixtures/共同向量是明确白名单。临时解压删除。3个Agent tar各恰好4个物理普通文件；全部6hash OK，Mac pkg明确no signature，非签名通过。
+- 交付登记助手的临时脚本语法错误导致一次归档仍带旧索引，实际revision一致性断言拦截；保留m7-delivery-registration-stale后修正登记重打，最终检查passed。不因此改产品源码/重跑无关测试，最终包来自同一3056a6b验证源。
+- 成功结束实际清理：test_/e2e_ schema0，自有M7容器/网络/卷0，Agent/平台/邮件/MCP/OAuth/临时TLS进程和文件结束；原mcp-studio-m1-pg保留。证据m7-final/cleanup.json。首轮完整通过但归档失败、中止130、全部RED/失败资料独立保留，不能作最终交付。
+
+T34–T36的6叶子和C12整组完成项保持未勾选：目标部署/旧版/三OS原生/签名/人工/介质及最终设计正式签收未结束；C12门禁与登记两项已勾选。A01–A60逐项追加3056a6b与相关实际证据，正式状态60/60仍待验；T02/T32b/T25b/T28a/T29b及既有未验不变。详细裁定13项及代价、一个开发夹具回收递延Minor见m7-review.md；无未修复审阅Important。保持本地codex/m0-m1分支和候选，不推送、合并、tag、签名或发布。后续只有补齐待验环境、逐项联验/签收；发布须新授权。

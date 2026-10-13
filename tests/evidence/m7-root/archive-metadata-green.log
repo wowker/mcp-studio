@@ -1,0 +1,13 @@
+✔ production candidate diagnostic, private install, upgrade and uninstall preserve encrypted files (1642.569042ms)
+✔ candidate archives have an exact allowlist without runtime, test or helper entries (78.729333ms)
+✔ handoff copies only explicit regular files and refuses escape, links and overwrite (5.6285ms)
+✔ candidate archive contains the allowlist even when macOS source files have extended metadata (11.077792ms)
+✔ candidate archive selection checks each declared hash and rejects traversal (1.801416ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1759.181958

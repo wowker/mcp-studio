@@ -1,0 +1,21 @@
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (8.899042ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (1.244792ms)
+✖ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (68.775417ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 115.88675
+
+✖ failing tests:
+
+test at tests/operations/operations.test.mjs:4:1
+✖ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (68.775417ms)
+  Error: deployment configuration invalid
+      at provision (file:///Users/wuwei/code/github/mcp-studio/scripts/operations.mjs:10:510)
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/operations/operations.test.mjs:4:389)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

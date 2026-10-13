@@ -1,0 +1,29 @@
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (26.511791ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (2.053041ms)
+✔ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (71.588375ms)
+✔ restore TOC skips only the preprovisioned app schema and rejects unrelated schema archives (3.814625ms)
+✖ interrupted purge and dump fragments do not block later managed expiration (14.862791ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 207.3625
+
+✖ failing tests:
+
+test at tests/operations/operations.test.mjs:6:1
+✖ interrupted purge and dump fragments do not block later managed expiration (14.862791ms)
+  Error: ENOENT: no such file or directory, lstat '/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/m7-orphan-TpqOtW/studio-20000101-aaaaaaaaaaaaaaaa.dump'
+      at async lstat (node:internal/fs/promises:1734:18)
+      at async purgeBackups (file:///Users/wuwei/code/github/mcp-studio/scripts/operations.mjs:25:457)
+      at async TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/operations/operations.test.mjs:6:983)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'lstat',
+    path: '/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/m7-orphan-TpqOtW/studio-20000101-aaaaaaaaaaaaaaaa.dump'
+  }

@@ -1,0 +1,11 @@
+file:///Users/wuwei/code/github/mcp-studio/scripts/operations.mjs:18
+export async function compose(directory,project,args,{input,output,includeStderr=false}={}){const argv=await composeArgs(directory,project,args);const env={...process.env,...await deploymentEnv(directory)};return new Promise((ok,fail)=>{const child=spawn('docker',argv,{env,stdio:['pipe','pipe','pipe']});let data=[];child.stderr.on('data',b=>{if(includeStderr&&data.reduce((n,x)=>n+x.length,0)+b.length<=65536)data.push(b);});if(output)child.stdout.pipe(output);else child.stdout.on('data',b=>{if(data.reduce((n,x)=>n+x.length,0)+b.length>16*1024*1024){child.kill();return;}data.push(b);});child.once('error',()=>fail(Error('compose transport unavailable')));child.once('exit',code=>code===0?ok(Buffer.concat(data)):fail(Error(`compose command failed (exit ${code})`)));child.stdin.on('error',()=>{});if(input&&typeof input.pipe==='function'){input.on('error',()=>child.kill());input.pipe(child.stdin);}else if(input)child.stdin.end(input);else child.stdin.end();});}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+
+Error: compose command failed (exit 1)
+    at ChildProcess.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/scripts/operations.mjs:18:723)
+    at ChildProcess.wrapper (node:events:639:12)
+    at ChildProcess.emit (node:events:514:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:295:12)
+
+Node.js v24.21.0

@@ -1,0 +1,5 @@
+--- FAIL: TestDiagnosticsNeverInitializeStateOrEchoConfiguration (0.00s)
+    diagnostics_test.go:16: invalid_agent_arguments
+FAIL
+FAIL	mcp-studio/cmd/agent	0.472s
+FAIL

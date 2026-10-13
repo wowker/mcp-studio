@@ -1,0 +1,85 @@
+{
+  "mcp": {
+    "cookieRequests": 0,
+    "initialize": 24,
+    "httpInitialize": 23,
+    "sseInitialize": 1,
+    "toolsList": 87,
+    "httpToolsList": 87,
+    "sseToolsList": 0,
+    "toolsCall": 19,
+    "httpToolsCall": 19,
+    "sseToolsCall": 0,
+    "delayedCalls": 2,
+    "releasedCalls": 2,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "oauth": {
+    "cookieRequests": 0,
+    "initialize": 2,
+    "httpInitialize": 2,
+    "sseInitialize": 0,
+    "toolsList": 2,
+    "httpToolsList": 2,
+    "sseToolsList": 0,
+    "toolsCall": 1,
+    "httpToolsCall": 1,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 2,
+    "oauthDenials": 1,
+    "oauthReplays": 0,
+    "pkceVerified": 2,
+    "resourceVerified": 2
+  },
+  "agent": {
+    "generation": 3,
+    "nativePairings": 5,
+    "nativeProcesses": 1,
+    "stdioCalls": 1,
+    "uploads": [
+      {
+        "frozenDigest": "ffe413d4cb8cd8728f98455a0237450f65680414dda2c48e4c750583ee6d1215",
+        "operationId": "d0e4eedc-417c-4b0c-8ca8-c48b47e49ade",
+        "status": 200,
+        "targetId": "e1093a86-9081-4c06-bda1-b6f9e1f05e56",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "9683971980f93f2e73a2c36c03678491941cd17100e4fab8dbdf75d2a77a64c0",
+        "operationId": "246c8ac3-ad77-4707-a074-17aaaee75adb",
+        "status": 200,
+        "targetId": "41e51080-7276-4183-9cf8-588a2036c2fd",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "89a0882c9d77ec7610bd900fc5a2a4ef7442825bc1256aafa915312f6ddaabfd",
+        "operationId": "28cccb42-e56d-4003-9187-095692fd5f97",
+        "status": 503,
+        "targetId": "08f124ff-5668-4c87-aa76-623a451e0f40",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "89a0882c9d77ec7610bd900fc5a2a4ef7442825bc1256aafa915312f6ddaabfd",
+        "operationId": "28cccb42-e56d-4003-9187-095692fd5f97",
+        "status": 200,
+        "targetId": "08f124ff-5668-4c87-aa76-623a451e0f40",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "f5f30c034fd4dbeecb599109e114c407b860bd8ade05bac8e9ab1c41860c695d",
+        "operationId": "f9d0f03d-b166-47f9-a350-d58ec3b40b75",
+        "status": 200,
+        "targetId": "0c210b0b-08c9-4b7e-a020-30b827455d20",
+        "type": "upload"
+      }
+    ]
+  },
+  "tls": "Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass",
+  "supportMatrix": "T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence"
+}

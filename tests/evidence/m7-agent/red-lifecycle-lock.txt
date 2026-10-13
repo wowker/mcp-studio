@@ -1,0 +1,5 @@
+--- FAIL: TestManagedInstallUpgradeUninstallPreservesState (0.03s)
+    install_test.go:31: upgraded running Agent
+FAIL
+FAIL	mcp-studio/internal/agent/lifecycle	0.578s
+FAIL

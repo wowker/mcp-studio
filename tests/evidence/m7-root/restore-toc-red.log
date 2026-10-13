@@ -1,0 +1,21 @@
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (8.485333ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (0.936833ms)
+✔ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (47.921667ms)
+✖ restore TOC skips only the preprovisioned app schema and rejects unrelated schema archives (0.205708ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.31875
+
+✖ failing tests:
+
+test at tests/operations/operations.test.mjs:5:1
+✖ restore TOC skips only the preprovisioned app schema and rejects unrelated schema archives (0.205708ms)
+  TypeError: restoreTOC is not a function
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/operations/operations.test.mjs:5:343)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

@@ -1,0 +1,44 @@
+✔ production candidate diagnostic, private install, upgrade and uninstall preserve encrypted files (1181.434458ms)
+✖ candidate archives have an exact allowlist without runtime, test or helper entries (28.148958ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1246.635416
+
+✖ failing tests:
+
+test at tests/operations/agent-distribution.test.mjs:33:1
+✖ candidate archives have an exact allowlist without runtime, test or helper entries (28.148958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '._CHECKSUMS.sha256',
+  +   '._install.sh',
+  +   '._manifest.json',
+  +   '._mcp-studio-agent',
+  +   '._mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64',
+      'CHECKSUMS.sha256',
+      'install.sh',
+      'manifest.json',
+      'mcp-studio-agent'
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/operations/agent-distribution.test.mjs:42:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '._CHECKSUMS.sha256', '._install.sh', '._manifest.json', '._mcp-studio-agent', '._mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64', 'CHECKSUMS.sha256', 'install.sh', 'manifest.json', 'mcp-studio-agent' ],
+    expected: [ 'CHECKSUMS.sha256', 'install.sh', 'manifest.json', 'mcp-studio-agent' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

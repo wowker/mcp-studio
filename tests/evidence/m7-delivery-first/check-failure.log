@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/private/tmp/m7-delivery-check.py", line 15, in <module>
+    assert p.parts[0]=='mcp-studio-m7-candidate' and '..' not in p.parts and not p.is_absolute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

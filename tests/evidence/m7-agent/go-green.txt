@@ -1,0 +1,7 @@
+ok  	mcp-studio/cmd/agent	1.226s
+ok  	mcp-studio/internal/agent/lifecycle	1.767s
+ok  	mcp-studio/internal/agent/localapi	2.456s
+ok  	mcp-studio/internal/agent/pairing	2.772s
+ok  	mcp-studio/internal/agent/process	1.988s
+ok  	mcp-studio/internal/agent/sessions	2.029s
+ok  	mcp-studio/internal/agent/queue	2.765s

@@ -1,0 +1,4 @@
+.runtime/distribution/mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64/mcp-studio-agent:      Mach-O 64-bit executable arm64
+.runtime/distribution/mcp-studio-agent-0.1.0-m7-candidate-linux-amd64/mcp-studio-agent:       ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, BuildID[sha1]=ba214fb3cf29ea229c239db6033c5c572446da5f, with debug_info, not stripped
+.runtime/distribution/mcp-studio-agent-0.1.0-m7-candidate-linux-arm64/mcp-studio-agent:       ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, BuildID[sha1]=7a9a4176b2494b65fba43de440e5010a0fc06907, with debug_info, not stripped
+.runtime/distribution/mcp-studio-agent-0.1.0-m7-candidate-windows-amd64/mcp-studio-agent.exe: PE32+ executable (console) x86-64, for MS Windows

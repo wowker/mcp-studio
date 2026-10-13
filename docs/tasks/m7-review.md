@@ -1,6 +1,6 @@
 # M7 候选审阅与未验项
 
-授权范围是T34–T36实现和可执行验证；不发布。M6基线acf7197。实际最终提交、工具版本与完整门禁见tests/evidence/m7-final/manifest.json及verify.log；生成这些证据前不得以本文作通过声明。A01–A60逐项相关回归与剩余条件见m7-acceptance-index.json，正式状态均待验收。
+授权范围是T34–T36实现和可执行验证；不发布。M6基线acf7197；M7实现449c1f6，最终冻结源3056a6b。扩展完整verify实际exit0：591前端/57文件、20基础Node、12运维/分发、真实隔离PG Go全量/vet/生产platform+agent+admin构建、4目标Agent/5归档及非rootHTTPS/STARTTLS/权限/新库恢复/未来迁移拒绝烟测。浏览器26/26，0失败/跳过/重试。实际工具/构建hash见tests/evidence/m7-final/manifest.json，完整输出verify.log；无单测包只编译，未重跑race或依赖审计，不冒称通过。A01–A60逐项相关回归与剩余条件见m7-acceptance-index.json，正式状态均待验收。
 
 ## 独立审阅及最后一轮修复
 
@@ -9,7 +9,11 @@
 - Agent替换binary后唯一marker写失败会失去可启动的旧版本。真实0400 marker RED复现；改为保留旧binary/marker快照、同步journal和提交/回滚完成标记，在安装锁及state锁内恢复。受控发布失败、升级/卸载中断、首次安装恢复、提交后清理回归GREEN；恢复启动要求重启。证据tests/evidence/m7-agent/review-original-marker-red.txt、review-transaction-red.txt、review-transaction-green.txt。
 - 一个孤立metadata让淘汰抛ENOENT，阻断后续合法过期副本；无metadata旧dump未被清理。真实RED复现；按家族独立处理，孤立JSON继续清理，孤立旧dump按mtime淘汰，异常/symlink保留并报告，不能阻断其他合法过期文件。证据tests/evidence/m7-root/retention-orphan-red.log、retention-orphan-green.log、operations-review-green.log。
 
-Minor（递延）：暂无需单独递延的审阅Minor；审阅指出完整verify缺运维入口属于本阶段未完工作，现补入候选构建/真实安装烟测/容器烟测及admin构建，不递延。修复后完整套件由根任务执行，不再请求重审。后续T36白名单交付工具由根任务自检，含逃逸/符号链接/覆盖/摘要篡改回归；不冒称其已经过独立审阅。
+审阅Minor：没有单独递延项；审阅指出完整verify缺运维入口属于本阶段未完工作，已补入候选构建/真实安装烟测/容器烟测及admin构建。两项Important修复后完整套件由根任务执行，不请求重审。T36白名单交付工具由根任务自检，含逃逸/符号链接/覆盖/摘要篡改回归；不冒称其经过独立审阅。
+
+T36实际归档验证发现原Mac tar带AppleDouble，BSD tar列表又隐藏这些物理条目，初轮Node列表检查不能证明物理白名单。交付和三个Agent tar均明确禁用mac copyfile/ACL/xattrs，增加实际xattr夹具和物理TAR头校验；真实RED→GREEN。第一份归档及首轮门禁保存在m7-delivery-first/m7-final-first，不能作最终交付；中间轮因修补同问题主动SIGINT（exit130），保存在m7-final-interrupted。最终source另行冻结及全门禁重跑，不把中止计为通过。
+
+Final: minor (deferred): 开发verify主动中止go test时，外层schema清理但内部t.Cleanup可能未执行，留一个合成schema；本次核对owner并只删除具体ID，证据m7-final-interrupted/recovery-cleanup.json。正常完整门禁结束会检查全部test_/e2e_为0。递延信号中止嵌套Go测试的自动回收优化；影响限开发夹具残留，非产品数据删除/恢复能力。后续中止须只按已确认的本次ID清理，不能做前缀批量删除。
 
 ## Rulings I made / 未判断事项逐项裁定
 

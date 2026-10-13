@@ -1,0 +1,8 @@
+{
+  "scope": "Production platform HTTPS/PG + actual Agent localapi/sessions/vault/queue and real MCP SDK HTTP/stdio browser journeys",
+  "browser": "147.0.7727.15",
+  "nativeConsent": "Controlled callback injected by dedicated test helper; production CLI has no consent bypass",
+  "credentialStore": "Controlled MasterStore kept separate from actual encrypted Agent disk; not a real OS credential store",
+  "tls": "Temporary fixture CA trusted explicitly by Agent test helper; browser ignoreHTTPSErrors for that fixture",
+  "remaining": "Real native terminal confirmation, macOS/Windows/Linux credential stores, target Chrome/Edge/LNA matrix remain pending"
+}

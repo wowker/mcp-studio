@@ -1,0 +1,6 @@
+--- FAIL: TestOfflineBackupRotationAtomicAndPreservesUserVersion (1.12s)
+    backup_rotation_test.go:54: rotation failed 0 backup key rotation failed
+FAIL
+FAIL	mcp-studio/internal/platform	1.791s
+ok  	mcp-studio/cmd/studio-admin	1.073s
+FAIL

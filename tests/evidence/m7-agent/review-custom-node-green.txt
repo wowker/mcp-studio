@@ -1,0 +1,11 @@
+✔ candidate output uses only a fresh absolute directory within real .runtime (3.044875ms)
+✔ production candidate diagnostic, private install, upgrade and uninstall preserve encrypted files (1311.561625ms)
+✔ candidate archives have an exact allowlist without runtime, test or helper entries (57.58425ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1412.739167

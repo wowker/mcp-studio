@@ -1,0 +1,11 @@
+✔ handoff copies only explicit regular files and refuses escape, links and overwrite (5.369833ms)
+✔ candidate archive contains the allowlist even when macOS source files have extended metadata (9.102291ms)
+✔ candidate archive selection checks each declared hash and rejects traversal (1.952792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.513084
