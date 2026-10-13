@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "MCP Studio platform",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "servers": [
     {
@@ -1986,6 +1986,1139 @@
           }
         ]
       }
+    },
+    "/api/v1/projects/{projectId}/connections": {
+      "get": {
+        "operationId": "listConnections",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Connection"
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createConnection",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Connection"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectionInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/connections/{connectionId}": {
+      "get": {
+        "operationId": "getConnection",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Connection"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "updateConnection",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Connection"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectionInput"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteConnection",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Accepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectId}/environments": {
+      "get": {
+        "operationId": "listEnvironments",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Environment"
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createEnvironment",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Environment"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvironmentInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/environments/{environmentId}": {
+      "get": {
+        "operationId": "getEnvironment",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Environment"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "updateEnvironment",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Environment"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvironmentInput"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteEnvironment",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Accepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "environmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectId}/variables": {
+      "get": {
+        "operationId": "listVariables",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Variable"
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createVariable",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Variable"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VariableInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{projectId}/variables/{variableId}": {
+      "get": {
+        "operationId": "getVariable",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Variable"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variableId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "updateVariable",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Variable"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variableId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VariableInput"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteVariable",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Accepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variableId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/v1/projects/{projectId}/connections/{connectionId}/session-access": {
+      "post": {
+        "operationId": "authorizeConnection",
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/ConnectionAccess"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid configuration"
+          },
+          "401": {
+            "description": "Expired session"
+          },
+          "403": {
+            "description": "Real project permission required"
+          },
+          "404": {
+            "description": "Unavailable object"
+          },
+          "409": {
+            "description": "version_conflict or duplicate_name"
+          },
+          "428": {
+            "description": "If-Match required"
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConnectionAccessRequest"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2516,6 +3649,412 @@
         },
         "required": [
           "role"
+        ]
+      },
+      "ConfigEntry": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      },
+      "ConnectionInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "transport": {
+            "type": "string",
+            "enum": [
+              "streamable-http",
+              "sse",
+              "stdio"
+            ]
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "browser",
+              "agent"
+            ]
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "command": {
+            "type": "string"
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cwd": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigEntry"
+            }
+          },
+          "env": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigEntry"
+            }
+          },
+          "timeoutMs": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "authMode": {
+            "type": "string",
+            "enum": [
+              "none",
+              "token",
+              "oauth",
+              "reference"
+            ]
+          },
+          "authReferenceId": {
+            "type": "string"
+          },
+          "oauthClientId": {
+            "type": "string"
+          },
+          "oauthScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "transport",
+          "channel",
+          "endpoint",
+          "command",
+          "args",
+          "cwd",
+          "headers",
+          "env",
+          "timeoutMs",
+          "environmentId",
+          "authMode",
+          "authReferenceId",
+          "oauthClientId",
+          "oauthScopes"
+        ]
+      },
+      "Connection": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "transport": {
+            "type": "string",
+            "enum": [
+              "streamable-http",
+              "sse",
+              "stdio"
+            ]
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "browser",
+              "agent"
+            ]
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "command": {
+            "type": "string"
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cwd": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigEntry"
+            }
+          },
+          "env": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigEntry"
+            }
+          },
+          "timeoutMs": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "authMode": {
+            "type": "string",
+            "enum": [
+              "none",
+              "token",
+              "oauth",
+              "reference"
+            ]
+          },
+          "authReferenceId": {
+            "type": "string"
+          },
+          "oauthClientId": {
+            "type": "string"
+          },
+          "oauthScopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "projectId",
+          "version",
+          "etag",
+          "name",
+          "transport",
+          "channel",
+          "endpoint",
+          "command",
+          "args",
+          "cwd",
+          "headers",
+          "env",
+          "timeoutMs",
+          "environmentId",
+          "authMode",
+          "authReferenceId",
+          "oauthClientId",
+          "oauthScopes"
+        ]
+      },
+      "EnvironmentInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "Environment": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "projectId",
+          "version",
+          "etag",
+          "name"
+        ]
+      },
+      "VariableInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "number",
+              "boolean",
+              "json"
+            ]
+          },
+          "sensitive": {
+            "type": "boolean"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "valueJSON": {
+            "type": "string"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "sensitive",
+          "required",
+          "valueJSON",
+          "environmentId",
+          "connectionId"
+        ]
+      },
+      "Variable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "number",
+              "boolean",
+              "json"
+            ]
+          },
+          "sensitive": {
+            "type": "boolean"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "valueJSON": {
+            "type": "string"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "projectId",
+          "version",
+          "etag",
+          "name",
+          "type",
+          "sensitive",
+          "required",
+          "valueJSON",
+          "environmentId",
+          "connectionId"
+        ]
+      },
+      "ConnectionAccessRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "environmentId"
+        ]
+      },
+      "ConnectionAccess": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId",
+          "projectId",
+          "connectionId",
+          "version",
+          "environmentId"
         ]
       }
     },

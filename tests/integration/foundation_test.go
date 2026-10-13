@@ -32,7 +32,7 @@ func TestFreshMigrationRestart(t *testing.T) {
 		t.Fatal(err)
 	}
 	var count int
-	if err := db.QueryRow(ctx, `SELECT count(*) FROM schema_migrations`).Scan(&count); err != nil || count != 1 {
+	if err := db.QueryRow(ctx, `SELECT count(*) FROM schema_migrations`).Scan(&count); err != nil || count != 2 {
 		t.Fatal(err, count)
 	}
 	db2 := database(t)

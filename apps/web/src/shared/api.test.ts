@@ -45,3 +45,9 @@ it('does not let delayed errors from an old identity invalidate the new session 
 it('still invalidates a current request after refreshing the same session CSRF',async()=>{
  let release:(value:Response)=>void=()=>{};vi.stubGlobal('fetch',()=>new Promise<Response>(resolve=>{release=resolve;}));const expired=vi.fn();const client=new PlatformClient(expired);client.setCSRF('same-session');const pending=client.request('/session',acceptedSchema);client.setCSRF('same-session');release(new Response(JSON.stringify({error:{code:'unauthenticated'}}),{status:401}));await expect(pending).rejects.toMatchObject({status:401});expect(expired).toHaveBeenCalledOnce();
 });
+
+it('sends the saved object ETag for conditional writes without altering CSRF',async()=>{
+ let captured:RequestInit|undefined;vi.stubGlobal('fetch',async(_url:string,init:RequestInit)=>{captured=init;return new Response(JSON.stringify({data:{ok:true}}));});const client=new PlatformClient();client.setCSRF('current');await client.request('/projects/p/connections/c',acceptedSchema,{method:'PATCH',headers:{'If-Match':'"connection-2"'}});expect(new Headers(captured?.headers).get('If-Match')).toBe('"connection-2"');expect(new Headers(captured?.headers).get('X-CSRF-Token')).toBe('current');
+});
+
+it('refreshes revoked content permission on a current GET without a repeated denial loop',async()=>{const changed=vi.fn();const client=new PlatformClient(undefined,changed);client.setCSRF('same-identity');vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({error:{code:'forbidden'}}),{status:403}));for(let i=0;i<2;i++)await expect(client.request('/projects/p/variables',acceptedSchema)).rejects.toMatchObject({code:'forbidden'});expect(changed).toHaveBeenCalledTimes(1);});

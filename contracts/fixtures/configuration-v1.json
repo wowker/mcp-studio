@@ -1,0 +1,565 @@
+{
+  "contractVersion": "1.1.0",
+  "purpose": "Public configuration validation vectors; all values synthetic",
+  "cases": [
+    {
+      "id": "public-query",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": true
+    },
+    {
+      "id": "reference-query",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace={{WORKSPACE}}",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": true
+    },
+    {
+      "id": "fragment",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://example.test/mcp#",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "userinfo",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://user:pass@example.test/mcp",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "token-query",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://example.test/mcp?access_token=fixture",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "encoded-api-key",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://example.test/mcp?api%5Fkey=fixture",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "invalid-protocol",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "file:///etc/passwd",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "raw-auth-header",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer fixture-value"
+          }
+        ],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "sensitive-header-ref",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{TOKEN}}"
+          }
+        ],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": true
+    },
+    {
+      "id": "duplicate-headers",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [
+          {
+            "name": "X-Demo",
+            "value": "a"
+          },
+          {
+            "name": "x-demo",
+            "value": "b"
+          }
+        ],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "header-injection",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [
+          {
+            "name": "X-Demo",
+            "value": "a\r\nb"
+          }
+        ],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "forbidden-cookie",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [
+          {
+            "name": "Cookie",
+            "value": "{{TOKEN}}"
+          }
+        ],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "stdio-agent",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "stdio",
+        "channel": "agent",
+        "endpoint": "",
+        "command": "node",
+        "args": [
+          "server.js"
+        ],
+        "cwd": "/Users/demo/project",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": true
+    },
+    {
+      "id": "stdio-browser",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "stdio",
+        "channel": "browser",
+        "endpoint": "",
+        "command": "node",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "stdio-relative-cwd",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "stdio",
+        "channel": "agent",
+        "endpoint": "",
+        "command": "node",
+        "args": [],
+        "cwd": "project",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "stdio-shell-command-string",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "stdio",
+        "channel": "agent",
+        "endpoint": "",
+        "command": "node server.js",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 10000,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "timeout-zero",
+      "kind": "connection",
+      "input": {
+        "name": "Demo",
+        "transport": "streamable-http",
+        "channel": "browser",
+        "endpoint": "https://mcp.example.test/mcp?workspace=demo",
+        "command": "",
+        "args": [],
+        "cwd": "",
+        "headers": [],
+        "env": [],
+        "timeoutMs": 0,
+        "environmentId": "",
+        "authMode": "none",
+        "authReferenceId": "",
+        "oauthClientId": "",
+        "oauthScopes": []
+      },
+      "valid": false
+    },
+    {
+      "id": "zero",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "number",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "0",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": true
+    },
+    {
+      "id": "false",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "boolean",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "false",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": true
+    },
+    {
+      "id": "json-null",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "json",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "null",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": true
+    },
+    {
+      "id": "optional-empty",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "string",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "\"\"",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": true
+    },
+    {
+      "id": "sensitive-definition",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "string",
+        "sensitive": true,
+        "required": false,
+        "valueJSON": "",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": true
+    },
+    {
+      "id": "shared-personal-value",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "string",
+        "sensitive": true,
+        "required": false,
+        "valueJSON": "\"fixture-value\"",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": false
+    },
+    {
+      "id": "number-string",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "number",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "\"3\"",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": false
+    },
+    {
+      "id": "expression",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "number",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "\"{{REF}}\"",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": true
+    },
+    {
+      "id": "invalid-json",
+      "kind": "variable",
+      "input": {
+        "name": "VALUE",
+        "type": "json",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "{}{}",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": false
+    },
+    {
+      "id": "nested-recognizable-secret",
+      "kind": "variable",
+      "input": {
+        "name": "PUBLIC",
+        "type": "json",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "{\"nested\":[{\"value\":\"Bearer synthetic-private-value\"}]}",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": false
+    },
+    {
+      "id": "json-nested-overflow",
+      "kind": "variable",
+      "input": {
+        "name": "JSON",
+        "type": "json",
+        "sensitive": false,
+        "required": false,
+        "valueJSON": "{\"n\":1e309}",
+        "environmentId": "",
+        "connectionId": ""
+      },
+      "valid": false
+    }
+  ]
+}

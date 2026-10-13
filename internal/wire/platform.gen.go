@@ -125,3 +125,88 @@ type MemberRequest struct {
 type TeamMemberRequest struct {
 	Role TeamRole `json:"role"`
 }
+type ConfigEntry struct {
+	Name  string `json:"name"`
+	Value string `json:"value"`
+}
+type ConnectionInput struct {
+	Name            string        `json:"name"`
+	Transport       string        `json:"transport"`
+	Channel         string        `json:"channel"`
+	Endpoint        string        `json:"endpoint"`
+	Command         string        `json:"command"`
+	Args            []string      `json:"args"`
+	Cwd             string        `json:"cwd"`
+	Headers         []ConfigEntry `json:"headers"`
+	Env             []ConfigEntry `json:"env"`
+	TimeoutMs       int           `json:"timeoutMs"`
+	EnvironmentID   string        `json:"environmentId"`
+	AuthMode        string        `json:"authMode"`
+	AuthReferenceID string        `json:"authReferenceId"`
+	OauthClientID   string        `json:"oauthClientId"`
+	OauthScopes     []string      `json:"oauthScopes"`
+}
+type Connection struct {
+	ID              string        `json:"id"`
+	ProjectID       string        `json:"projectId"`
+	Version         int           `json:"version"`
+	Etag            string        `json:"etag"`
+	Name            string        `json:"name"`
+	Transport       string        `json:"transport"`
+	Channel         string        `json:"channel"`
+	Endpoint        string        `json:"endpoint"`
+	Command         string        `json:"command"`
+	Args            []string      `json:"args"`
+	Cwd             string        `json:"cwd"`
+	Headers         []ConfigEntry `json:"headers"`
+	Env             []ConfigEntry `json:"env"`
+	TimeoutMs       int           `json:"timeoutMs"`
+	EnvironmentID   string        `json:"environmentId"`
+	AuthMode        string        `json:"authMode"`
+	AuthReferenceID string        `json:"authReferenceId"`
+	OauthClientID   string        `json:"oauthClientId"`
+	OauthScopes     []string      `json:"oauthScopes"`
+}
+type EnvironmentInput struct {
+	Name string `json:"name"`
+}
+type Environment struct {
+	ID        string `json:"id"`
+	ProjectID string `json:"projectId"`
+	Version   int    `json:"version"`
+	Etag      string `json:"etag"`
+	Name      string `json:"name"`
+}
+type VariableInput struct {
+	Name          string `json:"name"`
+	Type          string `json:"type"`
+	Sensitive     bool   `json:"sensitive"`
+	Required      bool   `json:"required"`
+	ValueJSON     string `json:"valueJSON"`
+	EnvironmentID string `json:"environmentId"`
+	ConnectionID  string `json:"connectionId"`
+}
+type Variable struct {
+	ID            string `json:"id"`
+	ProjectID     string `json:"projectId"`
+	Version       int    `json:"version"`
+	Etag          string `json:"etag"`
+	Name          string `json:"name"`
+	Type          string `json:"type"`
+	Sensitive     bool   `json:"sensitive"`
+	Required      bool   `json:"required"`
+	ValueJSON     string `json:"valueJSON"`
+	EnvironmentID string `json:"environmentId"`
+	ConnectionID  string `json:"connectionId"`
+}
+type ConnectionAccessRequest struct {
+	Version       int    `json:"version"`
+	EnvironmentID string `json:"environmentId"`
+}
+type ConnectionAccess struct {
+	UserID        string `json:"userId"`
+	ProjectID     string `json:"projectId"`
+	ConnectionID  string `json:"connectionId"`
+	Version       int    `json:"version"`
+	EnvironmentID string `json:"environmentId"`
+}
