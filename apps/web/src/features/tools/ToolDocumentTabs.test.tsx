@@ -1,0 +1,9 @@
+import {beforeEach,it,expect} from 'vitest';
+import {render,screen,within} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {i18n} from '../../shared/i18n';
+import {ToolDocumentTabs} from './ToolDocumentTabs';
+import {ToolScope} from './workspace';
+beforeEach(async()=>{await i18n.changeLanguage('en-US');});
+it('exposes only document tabs in the tablist and places named actions outside it',()=>{const scope=new ToolScope(()=>{});scope.open({name:'first',inputSchema:{type:'object'}});scope.open({name:'second',inputSchema:{type:'object'}});render(<ToolDocumentTabs scope={scope} onEmptyClose={()=>{}}/>);const list=screen.getByRole('tablist',{name:'Tool documents'});expect(within(list).getAllByRole('tab')).toHaveLength(2);expect(within(list).queryAllByRole('button')).toHaveLength(0);for(const button of [...screen.getAllByRole('button',{name:/Tab actions for/}),...screen.getAllByRole('button',{name:/Close tab for/})]){expect(button.closest('[role="tablist"]')).toBeNull();expect(button.getAttribute('aria-describedby')).toMatch(/^tool-tab-/u);}});
+it('keeps noncurrent actions attached to their document and returns focus without changing selection',async()=>{const user=userEvent.setup(),scope=new ToolScope(()=>{});const first=scope.open({name:'first',inputSchema:{type:'object'}}),second=scope.open({name:'second',inputSchema:{type:'object'}});render(<ToolDocumentTabs scope={scope} onEmptyClose={()=>{}}/>);const trigger=screen.getByRole('button',{name:'Tab actions for first'});await user.click(trigger);await user.click(screen.getByRole('menuitem',{name:'Pin tab'}));expect(scope.selectedId).toBe(second.id);expect(first.pinned).toBe(true);await user.click(trigger);await user.keyboard('{End}{Escape}');expect(document.activeElement).toBe(trigger);expect(scope.selectedId).toBe(second.id);expect(screen.queryByRole('menu')).toBeNull();});

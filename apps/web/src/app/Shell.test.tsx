@@ -1,0 +1,14 @@
+import {beforeEach,it,expect} from 'vitest';
+import {render,screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {Shell} from './Shell';
+import type {Project,Session} from '../generated/platform';
+import {i18n} from '../shared/i18n';
+import {layoutEn,layoutZh} from '../shared/layoutTranslations';
+const project:Project={id:'p',teamId:'t',name:'Long project name',description:'',role:'maintainer',canManage:true,canTakeover:false,canRead:true};
+const session:Session={user:{id:'u',email:'u@example.test',name:'Long account name',verified:true},teams:[{id:'t',name:'Team',role:'owner'}],csrf:'c',expiresAt:'2099-01-01T00:00:00Z'};
+beforeEach(async()=>{i18n.addResourceBundle('en-US','translation',layoutEn,true,true);i18n.addResourceBundle('zh-CN','translation',layoutZh,true,true);await i18n.changeLanguage('en-US');});
+it('allows skipping the sidebar by keyboard and identifies collapsed navigation controls',async()=>{const user=userEvent.setup();render(<Shell session={session} projects={[project]} project={project} teamId="t" page="tools" navigate={()=>{}}><input aria-label="Draft" defaultValue="retained"/></Shell>);await user.tab();expect(document.activeElement).toBe(screen.getByRole('link',{name:'Skip to content'}));await user.keyboard('{Enter}');expect(document.activeElement).toBe(screen.getByRole('main'));await user.click(screen.getByRole('button',{name:'Collapse sidebar'}));expect(screen.getByRole('button',{name:'Tools'}).getAttribute('aria-label')).toBe('Tools');expect(screen.getByLabelText('Draft')).toHaveProperty('value','retained');});
+it('announces a language change while retaining the language control and unsaved inputs',async()=>{const user=userEvent.setup();render(<Shell session={session} projects={[project]} project={project} teamId="t" page="tools" navigate={()=>{}}><input aria-label="Draft" defaultValue="retained"/></Shell>);const language=screen.getByLabelText('Language');await user.selectOptions(language,'zh-CN');expect(document.activeElement).toBe(language);expect(screen.getByLabelText('Draft')).toHaveProperty('value','retained');expect(screen.getByRole('status').textContent).toBe('界面语言已切换。');});
+
+it('labels the workflow navigation in both locales including collapsed controls',async()=>{const user=userEvent.setup();render(<Shell session={session} projects={[project]} project={project} teamId="t" page="project-flow" navigate={()=>{}}><p>Content</p></Shell>);expect(screen.getByRole('button',{name:'Project workflow'}).textContent).toBe('Project workflow');await user.selectOptions(screen.getByLabelText('Language'),'zh-CN');await user.click(screen.getByRole('button',{name:'收起侧栏'}));expect(screen.getByRole('button',{name:'项目流程'}).getAttribute('aria-current')).toBe('page');expect(screen.queryByRole('button',{name:'project-flow'})).toBeNull();});

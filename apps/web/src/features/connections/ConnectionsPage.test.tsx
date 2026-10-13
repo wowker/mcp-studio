@@ -37,3 +37,16 @@ it('retains invalid stdio argument JSON across navigation and blocks saving',asy
 it('lets keyboard input multiple OAuth scopes separated by spaces and has precise select names',async()=>{network(path=>path.endsWith('/connections')?reply([{...conn,authMode:'oauth',oauthClientId:'public-client'}]):undefined);const user=userEvent.setup();mount();await screen.findByRole('combobox',{name:'Authorization mode'});expect(screen.getByRole('combobox',{name:'Transport'})).toBeTruthy();await user.type(screen.getByLabelText('OAuth scopes (space separated)'),'read profile');expect(screen.getByLabelText('OAuth scopes (space separated)')).toHaveProperty('value','read profile');});
 
 it('ignores a delayed deletion after identity end and preserves the next identity draft',async()=>{let release:(response:Response)=>void=()=>{};const pending=new Promise<Response>(resolve=>{release=resolve;});vi.stubGlobal('fetch',async(url:string,init?:RequestInit)=>init?.method==='DELETE'?pending:reply(url.endsWith('/connections')?[conn]:[]));const memory=new M2Memory(),navigate=vi.fn(),user=userEvent.setup();const first=render(<I18nextProvider i18n={i18n}><ConnectionsPage client={new PlatformClient()} project={project} session={session} memory={memory} connectionId="c" navigate={navigate} scopeRevision={0}/></I18nextProvider>);await user.click(await screen.findByRole('button',{name:'Delete service'}));await user.click(screen.getByRole('button',{name:'Confirm deletion'}));memory.clear();memory.setDraft('p','c',{...emptyConnection,name:'New identity draft'});first.unmount();await act(async()=>{release(reply({ok:true}));await pending;});expect(memory.getDraft('p','c')?.name).toBe('New identity draft');expect(navigate).not.toHaveBeenCalled();});
+
+it('shows an unavailable explicit service link even when no services remain and returns to the same project',async()=>{
+ vi.stubGlobal('fetch',async()=>reply([]));const navigate=vi.fn(),user=userEvent.setup();
+ render(<I18nextProvider i18n={i18n}><ConnectionsPage client={new PlatformClient()} project={project} session={session} memory={new M2Memory()} connectionId="deleted" navigate={navigate} scopeRevision={0}/></I18nextProvider>);
+ await screen.findByRole('alert');expect(screen.queryByText('No services yet. Create a saved configuration before connecting.')).toBeNull();
+ await user.click(screen.getByRole('button',{name:'Servers'}));expect(navigate).toHaveBeenLastCalledWith({connection:''});
+});
+
+it('selects an existing service after a previously remembered service was removed',async()=>{
+ network();const memory=new M2Memory();memory.selected.set('p','deleted');
+ render(<I18nextProvider i18n={i18n}><ConnectionsPage client={new PlatformClient()} project={project} session={session} memory={memory} connectionId="" navigate={()=>{}} scopeRevision={0}/></I18nextProvider>);
+ expect(await screen.findByLabelText('Name')).toHaveProperty('value','Saved');
+});

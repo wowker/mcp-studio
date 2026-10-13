@@ -112,3 +112,35 @@ it('keeps another project tool document when switching through a Viewer project'
   network({'GET /teams/team-one/projects':()=>reply([project,viewer]),'GET /projects/project-viewer':()=>reply(viewer),'GET /projects/project-one/connections':()=>reply([connection]),'GET /projects/project-viewer/connections':()=>reply([{...connection,projectId:'project-viewer'}])});const user=userEvent.setup();render(<App/>);await user.click(await screen.findByRole('button',{name:'Open retained.lookup'}));const scope=owned!.tools.scope('project-one','c'),tab=scope.selected!;act(()=>scope.updateDraft(tab.id,{raw:'{"zero":0}',mode:'raw'}));await user.selectOptions(screen.getByLabelText('Project'),'project-viewer');await screen.findByRole('heading',{name:'Viewer project'});await user.selectOptions(screen.getByLabelText('Project'),'project-one');await user.click(await screen.findByRole('button',{name:'Tools'}));await screen.findByRole('tab',{name:'retained.lookup'});expect(owned!.tools.scope('project-one','c').selected?.draft.raw).toBe('{"zero":0}');
  }finally{spy.mockRestore();}
 });
+
+it('shows a bootstrap failure with a working retry instead of an endless loading state',async()=>{
+ let offline=true;network({'GET /bootstrap':()=>{if(offline)throw new TypeError('network');return reply({initialized:true,mailConfigured:true});}});
+ const user=userEvent.setup();render(<App/>);await screen.findByRole('alert');const retry=await screen.findByRole('button',{name:'Retry'});offline=false;await user.click(retry);await screen.findByRole('heading',{name:'Projects'});expect(screen.queryByRole('alert')).toBeNull();
+});
+it('provides a scoped return action for an unavailable project without showing its content',async()=>{
+ history.replaceState({},'','/?page=tools&project=missing');network({'GET /projects/missing':()=>reply('not_found',404)});const user=userEvent.setup();render(<App/>);await screen.findByRole('alert');expect(screen.queryByRole('navigation',{name:'Project navigation'})).toBeNull();await user.click(await screen.findByRole('button',{name:'Return to project list'}));await screen.findByRole('heading',{name:'Projects'});expect(new URL(location.href).searchParams.get('project')).toBeNull();
+});
+
+it('offers recovery while hiding expired content when bootstrap refresh fails at the session deadline',async()=>{
+ vi.useFakeTimers();history.replaceState({},'','/?page=project&project=project-one');let offline=false;
+ network({'GET /bootstrap':()=>{if(offline)throw new TypeError('network');return reply({initialized:true,mailConfigured:true});},'GET /session':()=>reply({...owner,expiresAt:new Date(Date.now()+1000).toISOString()})});
+ await act(async()=>{render(<App/>);});expect(screen.getByRole('heading',{name:'First project'})).toBeTruthy();offline=true;await act(async()=>{await vi.advanceTimersByTimeAsync(1000);});expect(screen.queryByRole('heading',{name:'First project'})).toBeNull();expect(screen.getByRole('alert').textContent).toContain('platform is unavailable');const retry=screen.getByRole('button',{name:'Retry'});offline=false;await act(async()=>{retry.click();});expect(screen.getByRole('heading',{name:'First project'})).toBeTruthy();expect(screen.queryByRole('alert')).toBeNull();
+});
+
+it.each(['401','success'])('ignores a late initial session %s after a successful bootstrap retry establishes a newer identity',async(late)=>{
+ let offline=true,checks=0,release!:(response:Response)=>void;const initial=new Promise<Response>(resolve=>{release=resolve;});const fresh={...owner,user:{...owner.user,id:'fresh-user',name:'Fresh account'}};
+ network({'GET /bootstrap':()=>{if(offline)throw new TypeError('network');return reply({initialized:true,mailConfigured:true});},'GET /session':()=>checks++===0?initial:reply(fresh)});
+ const user=userEvent.setup();render(<App/>);await screen.findByRole('button',{name:'Retry'});offline=false;await user.click(screen.getByRole('button',{name:'Retry'}));await screen.findByRole('button',{name:'Fresh account'});await act(async()=>{release(late==='401'?reply('unauthenticated',401):reply(owner));});expect(screen.getByRole('button',{name:'Fresh account'})).toBeTruthy();expect(screen.queryByRole('heading',{name:'Sign in'})).toBeNull();expect(screen.queryByRole('button',{name:'Owner'})).toBeNull();
+});
+
+it('leaves a canonical invalid invitation path when choosing sign in without invitation',async()=>{
+ history.replaceState({},'','/invitations/missing-invitation');network({'GET /session':()=>reply('unauthenticated',401),'GET /invitations/missing-invitation':()=>reply('not_found',404)});const user=userEvent.setup();render(<App/>);await screen.findByRole('alert');await user.click(await screen.findByRole('button',{name:'Sign in without invitation'}));await screen.findByRole('heading',{name:'Sign in'});expect(location.pathname).toBe('/');expect(new URL(location.href).searchParams.get('invite')).toBeNull();await waitFor(()=>expect(screen.queryByRole('alert')).toBeNull());
+});
+
+it('renders anonymous sign in when the initial 401 arrives before the independent bootstrap response',async()=>{
+ let release!:(response:Response)=>void;const bootstrap=new Promise<Response>(resolve=>{release=resolve;});network({'GET /bootstrap':()=>bootstrap,'GET /session':()=>reply('unauthenticated',401)});render(<App/>);await act(async()=>{await Promise.resolve();await Promise.resolve();});await act(async()=>{release(reply({initialized:true,mailConfigured:true}));});await screen.findByRole('heading',{name:'Sign in'});expect(screen.queryByText('Loading…')).toBeNull();
+});
+
+it('does not let an obsolete refresh 401 expire a newer successful check of the same session',async()=>{
+ let checks=0,release!:(response:Response)=>void;const obsolete=new Promise<Response>(resolve=>{release=resolve;});network({'GET /session':()=>++checks===2?obsolete:reply(owner)});render(<App/>);await screen.findByRole('button',{name:'Owner'});await act(async()=>{document.dispatchEvent(new Event('visibilitychange'));});await waitFor(()=>expect(checks).toBe(2));await act(async()=>{document.dispatchEvent(new Event('visibilitychange'));});await waitFor(()=>expect(checks).toBe(3));await act(async()=>{release(reply('unauthenticated',401));});expect(screen.getByRole('button',{name:'Owner'})).toBeTruthy();expect(screen.queryByRole('heading',{name:'Sign in'})).toBeNull();
+});

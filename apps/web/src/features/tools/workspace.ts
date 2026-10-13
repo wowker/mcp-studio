@@ -1,6 +1,7 @@
 import type {ToolDefinition} from '../../runtime/browser-session';
 export type ToolDraft={raw:string;mode:'form'|'raw';arguments?:import('./argumentDraft').ArgumentDraft;restore?:{recordId:string;missing:string[]}};
-export type ToolTab={id:string;definition:ToolDefinition;draft:ToolDraft;pinned:boolean;running:boolean;lastRunId?:string;lastSnapshot?:import('../../generated/platform').ExecutionSnapshot;uploadOperationId?:string};
+export type DebuggerLayoutState={ratio:number;requestScroll:number;resultScroll:number};
+export type ToolTab={layout?:DebuggerLayoutState;id:string;definition:ToolDefinition;draft:ToolDraft;pinned:boolean;running:boolean;lastRunId?:string;lastSnapshot?:import('../../generated/platform').ExecutionSnapshot;uploadOperationId?:string};
 /** Personal documents live only in root-owned memory, never browser storage. */
 export class ToolScope {
  tabs:ToolTab[]=[];selectedId='';search='';
@@ -13,6 +14,7 @@ export class ToolScope {
  }
  select(id:string){if(this.tabs.some(tab=>tab.id===id)){this.selectedId=id;this.changed();}}
  updateDraft(id:string,draft:ToolDraft){const tab=this.tabs.find(tab=>tab.id===id);if(tab){tab.draft=structuredClone(draft);this.changed();}}
+ setLayout(id:string,values:Partial<DebuggerLayoutState>,notify=true){const tab=this.tabs.find(tab=>tab.id===id);if(!tab)return;const previous=tab.layout??{ratio:52,requestScroll:0,resultScroll:0};const finite=(value:number|undefined,fallback:number)=>value!==undefined&&Number.isFinite(value)?value:fallback;tab.layout={ratio:Math.max(30,Math.min(65,finite(values.ratio,previous.ratio))),requestScroll:Math.max(0,finite(values.requestScroll,previous.requestScroll)),resultScroll:Math.max(0,finite(values.resultScroll,previous.resultScroll))};if(notify)this.changed();}
  setRunning(id:string,running:boolean){const tab=this.tabs.find(tab=>tab.id===id);if(tab){tab.running=running;this.changed();}}
  duplicate(id:string){const source=this.tabs.find(tab=>tab.id===id);if(!source)return;const tab=this.open(source.definition,true);tab.draft=structuredClone(source.draft);this.changed();return tab;}
  pin(id:string,pinned:boolean){const tab=this.tabs.find(tab=>tab.id===id);if(!tab||tab.pinned===pinned)return;tab.pinned=pinned;const others=this.tabs.filter(item=>item.id!==id);const pinnedCount=others.filter(item=>item.pinned).length;others.splice(pinned?pinnedCount:others.length,0,tab);this.tabs=others;this.changed();}

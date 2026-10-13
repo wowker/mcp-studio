@@ -1,5 +1,5 @@
 import {beforeEach,afterEach,it,expect,vi} from 'vitest';
-import {render,screen} from '@testing-library/react';
+import {act,render,screen,waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {MembersPage} from './MembersPage';
 import {PlatformClient} from '../../shared/api';
@@ -28,4 +28,32 @@ it('requires scope confirmation before deleting another project member',async()=
  await user.click(screen.getByRole('button',{name:'Confirm removal'}));
  await screen.findByRole('button',{name:'Other'});
  expect(deleted).toBe('/api/v1/projects/p/members/other');
+});
+
+it('reports when the selected member disappears after a successful role refresh',async()=>{
+ let changed=false;vi.stubGlobal('fetch',async(_url:string,init?:RequestInit)=>{if(init?.method==='PATCH'){changed=true;return new Response(JSON.stringify({data:{ok:true}}));}return new Response(JSON.stringify({data:changed?[]:[{id:'other',name:'Other',email:'other@example.test',teamRole:'member',projectRole:'developer'}]}));});
+ const user=userEvent.setup();render(<MembersPage client={new PlatformClient()} session={session} team={team} project={project} refreshProject={()=>{}}/>);await user.click(await screen.findByRole('button',{name:'Other'}));await user.selectOptions(screen.getByLabelText('Project role'),'viewer');await user.click(screen.getByRole('button',{name:'Save changes'}));await screen.findByRole('alert');expect(screen.queryByText('No members.')).toBeNull();await user.click(screen.getByRole('button',{name:'Back to members'}));expect(await screen.findByText('No members.')).toBeTruthy();
+});
+
+it('clears a no-match member search without resetting the current project scope',async()=>{
+ vi.stubGlobal('fetch',async()=>new Response(JSON.stringify({data:[{id:'other',name:'Other',email:'other@example.test',teamRole:'member',projectRole:'developer'}]})));
+ const user=userEvent.setup();render(<MembersPage client={new PlatformClient()} session={session} team={team} project={project} refreshProject={()=>{}}/>);await screen.findByRole('button',{name:'Other'});await user.type(screen.getByLabelText('Search members or invitations'),'absent');expect(screen.getByText('No members match this search.')).toBeTruthy();expect(screen.queryByText('No members.')).toBeNull();await user.click(screen.getByRole('button',{name:'Clear search'}));expect(screen.getByRole('button',{name:'Other'})).toBeTruthy();
+});
+
+it('records an invitation fact only after successful creation in the same identity and project',async()=>{
+ const sent=vi.fn(),invitation={id:'new-invite',projectId:'p',email:'invitee@example.test',teamRole:'member',projectRole:'developer',status:'pending',expiresAt:'2099-01-01T00:00:00Z',delivery:'sent'};
+ vi.stubGlobal('fetch',async(_url:string,init?:RequestInit)=>new Response(JSON.stringify({data:init?.method==='POST'?invitation:[]})));
+ const user=userEvent.setup();render(<MembersPage client={new PlatformClient()} session={session} team={team} project={project} refreshProject={()=>{}} onInvitationSent={sent}/>);expect(sent).not.toHaveBeenCalled();await user.click(await screen.findByRole('button',{name:'Invite member'}));await user.type(screen.getByLabelText('Email'),'invitee@example.test');expect(sent).not.toHaveBeenCalled();await user.click(screen.getByRole('button',{name:'Send invitation'}));await waitFor(()=>expect(sent).toHaveBeenCalledExactlyOnceWith({projectId:'p',userId:'owner',invitationId:'new-invite',delivery:'sent'}));
+});
+
+it('does not record delayed invitation success for a different current project',async()=>{
+ let release:(response:Response)=>void=()=>{};const pending=new Promise<Response>(resolve=>{release=resolve;}),sent=vi.fn(),client=new PlatformClient();vi.stubGlobal('fetch',async(_url:string,init?:RequestInit)=>init?.method==='POST'?pending:new Response(JSON.stringify({data:[]})));
+ const user=userEvent.setup(),view=render(<MembersPage client={client} session={session} team={team} project={project} refreshProject={()=>{}} onInvitationSent={sent}/>);await user.click(await screen.findByRole('button',{name:'Invite member'}));await user.type(screen.getByLabelText('Email'),'invitee@example.test');await user.click(screen.getByRole('button',{name:'Send invitation'}));view.rerender(<MembersPage client={client} session={session} team={team} project={{...project,id:'other'}} refreshProject={()=>{}} onInvitationSent={sent}/>);
+ await act(async()=>{release(new Response(JSON.stringify({data:{id:'old-invite',projectId:'p',email:'invitee@example.test',teamRole:'member',projectRole:'developer',status:'pending',expiresAt:'2099-01-01T00:00:00Z',delivery:'sent'}})));await pending;});expect(sent).not.toHaveBeenCalled();
+});
+
+it('does not record delayed invitation success after management permission is revoked',async()=>{
+ let release:(response:Response)=>void=()=>{};const pending=new Promise<Response>(resolve=>{release=resolve;}),sent=vi.fn(),client=new PlatformClient();vi.stubGlobal('fetch',async(_url:string,init?:RequestInit)=>init?.method==='POST'?pending:new Response(JSON.stringify({data:[]})));
+ const user=userEvent.setup(),view=render(<MembersPage client={client} session={session} team={team} project={project} refreshProject={()=>{}} onInvitationSent={sent}/>);await user.click(await screen.findByRole('button',{name:'Invite member'}));await user.type(screen.getByLabelText('Email'),'invitee@example.test');await user.click(screen.getByRole('button',{name:'Send invitation'}));view.rerender(<MembersPage client={client} session={session} team={team} project={{...project,role:'viewer',canManage:false}} refreshProject={()=>{}} onInvitationSent={sent}/>);await screen.findByRole('alert');
+ await act(async()=>{release(new Response(JSON.stringify({data:{id:'old-invite',projectId:'p',email:'invitee@example.test',teamRole:'member',projectRole:'developer',status:'pending',expiresAt:'2099-01-01T00:00:00Z',delivery:'sent'}})));await pending;});expect(sent).not.toHaveBeenCalled();expect(screen.queryByRole('button',{name:'Send invitation'})).toBeNull();
 });

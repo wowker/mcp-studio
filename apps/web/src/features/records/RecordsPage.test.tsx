@@ -6,6 +6,7 @@ import {i18n} from '../../shared/i18n';
 import {PlatformClient} from '../../shared/api';
 import {M2Memory} from '../connections/runtimeStore';
 import {RecordsPage} from './RecordsPage';
+import {RecordDetail} from './RecordDetail';
 import type {Record as StoredRecord,ExecutionSnapshot,RecordUploadInput} from '../../generated/platform';
 const project={id:'p',teamId:'team',name:'Project',description:'',role:'maintainer' as const,canRead:true,canManage:true,canTakeover:false};const session={user:{id:'u',name:'User',email:'user@example.test',verified:true},teams:[{id:'team',name:'Team',role:'member' as const}],csrf:'test',expiresAt:'2099-01-01T00:00:00Z'};
 export const snapshot:ExecutionSnapshot={userId:'u',projectId:'p',connectionId:'c',tabId:'tab',runId:'run',toolName:'echo',configurationVersion:1,toolDefinitionVersion:'1',environmentId:'',environmentVersion:'1',executor:'browser',credentialSource:'none',requestJSON:'{"zero":0,"false":false,"nil":null}',inputSchemaJSON:'{"type":"object"}',responseJSON:'{"content":[]}',protocolJSON:'{"method":"tools/call"}',startedAt:'2026-10-13T01:00:00Z',finishedAt:'2026-10-13T01:00:01Z',runStatus:'succeeded',remoteOutcome:'known',resultKind:'success',httpStatus:200,responseRetention:'full',omissionReason:'',schemaValid:true,redactions:[]};
@@ -66,4 +67,13 @@ it('preserves a failed detail copy draft and closes it after its frozen retry su
  await user.click(await screen.findByRole('button',{name:'Retry frozen operation'}));await waitFor(()=>expect(uploads).toHaveLength(2));
  expect(uploads[1]).toEqual(uploads[0]);await waitFor(()=>expect(screen.queryByRole('button',{name:'Retry frozen operation'})).toBeNull());
  expect(screen.queryByRole('button',{name:'Save record'})).toBeNull();
+});
+
+it('observes a scoped owner history once across equivalent scope object rerenders and rejects foreign-owner facts',async()=>{
+ await memory.resumeIdentity('u');const observed=vi.spyOn(memory.workflow,'historyObserved');const client=new PlatformClient(()=>{});const props={client,project,session,memory,scopeRevision:0,recordId:'history',navigate:vi.fn(),refreshed:vi.fn(),removed:vi.fn()};const ui=(owner=session,scope={connectionId:'c',toolName:'echo'})=><I18nextProvider i18n={i18n}><RecordDetail {...props} session={owner} scope={scope}/></I18nextProvider>;
+ const mounted=render(ui());await screen.findByText('Request snapshot');await waitFor(()=>expect(observed).toHaveBeenCalledTimes(1));mounted.rerender(ui());await act(async()=>{});expect(observed).toHaveBeenCalledTimes(1);expect(observed.mock.calls[0][0]).toEqual({userId:'u',projectId:'p',connectionId:'c',runId:'run',recordId:'history',status:'succeeded'});mounted.rerender(ui({...session,user:{...session.user,id:'another'}}));await act(async()=>{});expect(observed).toHaveBeenCalledTimes(1);
+});
+
+it('distinguishes a failed Run from mail delivery failure in both record locales and execution context',async()=>{
+ const failed={...historyRecord,snapshot:{...snapshot,runStatus:'failed',resultKind:'tool_error'}};vi.stubGlobal('fetch',async(url:string)=>url.includes('records?')?reply({items:[failed],nextCursor:''}):url.endsWith('/audits')?reply([]):reply(failed));const user=setup();await screen.findByRole('cell',{name:/^Failed$/});expect(screen.queryByText('Email delivery failed')).toBeNull();await act(async()=>{await i18n.changeLanguage('zh-CN');});expect(screen.getByRole('cell',{name:/^调用失败$/})).toBeTruthy();expect(screen.queryByText('邮件发送失败')).toBeNull();await user.click(screen.getByRole('button',{name:'打开 Echo run'}));await user.click(await screen.findByText('执行上下文'));expect(screen.getByText('调用失败 · tool_error · known')).toBeTruthy();
 });

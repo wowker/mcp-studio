@@ -1,0 +1,9 @@
+import {expect,type Page} from '@playwright/test';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {verifyLayout,axeScan} from './layout-helpers';
+/** Only called by the first real production initialization test, before secrets are entered. */
+export async function verifyInitializationLayout(page:Page){
+ const evidence=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m6-initialization',metrics=[];
+ for(const language of ['zh-CN','en-US']){await page.locator('.workbench-preferences select').selectOption(language);await expect(page.locator('html')).toHaveAttribute('lang',language);for(const appearance of ['light','dark']){if(await page.locator('html').getAttribute('data-theme')!==appearance)await page.getByRole('button',{name:language==='zh-CN'?'切换主题':'Toggle theme',exact:true}).click();for(const width of [390,820,1024,1440]){await page.setViewportSize({width,height:width===390?844:900});metrics.push(await verifyLayout(page,`initialize-${language}-${appearance}-${width}`,{evidenceDir:evidence,screenshot:true}));if(width===1024)await axeScan(page,`initialize-${language}-${appearance}`,evidence);}await page.setViewportSize({width:1024,height:640});metrics.push(await verifyLayout(page,`initialize-${language}-${appearance}-short`,{evidenceDir:evidence,screenshot:true}));}}
+ await mkdir(evidence,{recursive:true});await writeFile(`${evidence}/initialization-coverage.json`,JSON.stringify({ids:['P01'],view:'once-only-initialization',status:'automated-matrix-passed',metrics,humanKeyboard:'pending',formalAcceptance:'pending'},null,2)+'\n');await page.locator('.workbench-preferences select').selectOption('zh-CN');if(await page.locator('html').getAttribute('data-theme')!=='light')await page.getByRole('button',{name:'切换主题',exact:true}).click();await page.setViewportSize({width:1440,height:900});
+}

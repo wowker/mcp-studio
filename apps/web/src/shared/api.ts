@@ -7,7 +7,7 @@ export class PlatformClient{
   constructor(private readonly expired?:()=>void,private readonly scopeChanged?:(code:string,path:string)=>void){}
   expireSession(){this.setCSRF('');this.expired?.();}
   setCSRF(value:string){if(value!==this.csrf){this.generation++;this.deniedReads.clear();}this.csrf=value;}
-  async request<T>(path:string,schema:z.ZodType<T>,options:{method?:string;body?:unknown;bodySchema?:z.ZodType;signal?:AbortSignal;headers?:HeadersInit}={}):Promise<T>{
+  async request<T>(path:string,schema:z.ZodType<T>,options:{method?:string;body?:unknown;bodySchema?:z.ZodType;signal?:AbortSignal;headers?:HeadersInit;isCurrent?:()=>boolean}={}):Promise<T>{
     const generation=this.generation;
     const method=options.method??'GET'; let body:unknown=options.body;
     if(options.bodySchema){try{body=z.decode(options.bodySchema,body);}catch{throw new ApiError('invalid_input');}}
@@ -17,9 +17,9 @@ export class PlatformClient{
     let response:Response;
     try{response=await fetch(`/api/v1${path}`,{method,headers,credentials:'same-origin',cache:'no-store',body:body===undefined?undefined:JSON.stringify(body),signal:options.signal});}
     catch(error){if(error instanceof DOMException&&error.name==='AbortError')throw error;throw new ApiError('network');}
-    if(response.status===401&&generation===this.generation)this.expireSession();
+    if(response.status===401&&generation===this.generation&&options.isCurrent?.()!==false)this.expireSession();
     let value:unknown;try{value=await response.json();}catch{throw new ApiError(response.status===401?'unauthenticated':'invalid_response',response.status);}
-    if(!response.ok){const decoded=errorSchema.safeParse(value);const code=decoded.success?decoded.data.error.code:'invalid_response';if(generation===this.generation&&response.status===403&&(code==='forbidden'||method!=='GET'&&code==='csrf_rejected')){if(method!=='GET'||!this.deniedReads.has(path)){if(method==='GET')this.deniedReads.add(path);this.scopeChanged?.(code,path);}}throw new ApiError(code,response.status);}
+    if(!response.ok){const decoded=errorSchema.safeParse(value);const code=decoded.success?decoded.data.error.code:'invalid_response';if(generation===this.generation&&options.isCurrent?.()!==false&&response.status===403&&(code==='forbidden'||method!=='GET'&&code==='csrf_rejected')){if(method!=='GET'||!this.deniedReads.has(path)){if(method==='GET')this.deniedReads.add(path);this.scopeChanged?.(code,path);}}throw new ApiError(code,response.status);}
     this.deniedReads.delete(path);
     try{const envelope=z.object({data:schema}).strict();return z.decode(envelope,value as z.input<typeof envelope>).data;}catch{throw new ApiError('invalid_response');}
   }
