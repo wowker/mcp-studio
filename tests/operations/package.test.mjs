@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { gunzipSync } from 'node:zlib';
+import { regularTarFiles } from './archive-headers.mjs';
 import { copyAllowlisted, candidateFiles, archiveBundle } from '../../scripts/package-candidate.mjs';
 
 test('handoff copies only explicit regular files and refuses escape, links and overwrite', async () => {
@@ -35,15 +36,7 @@ test('candidate archive contains the allowlist even when macOS source files have
     execFileSync('xattr', ['-w', 'com.apple.m7test', 'owned fixture metadata', join(bundle, 'guide.md')]);
     const archive = join(root, 'handoff.tar.gz'); archiveBundle(bundle, archive);
     // BSD tar's listing hides AppleDouble entries; inspect physical TAR headers independently.
-    const raw = gunzipSync(await readFile(archive)); const names = [];
-    for (let offset = 0; offset + 512 <= raw.length;) {
-      const header = raw.subarray(offset, offset + 512);
-      if (header.every(byte => byte === 0)) break;
-      const name = header.subarray(0, 100).toString().split('\0', 1)[0];
-      const size = parseInt(header.subarray(124, 136).toString().replaceAll('\0', '').trim(), 8) || 0;
-      if (header[156] === 0 || header[156] === 48) names.push(name);
-      offset += 512 + Math.ceil(size / 512) * 512;
-    }
+    const raw = gunzipSync(await readFile(archive)); const names = regularTarFiles(archive);
     assert.deepEqual(names, ['bundle/guide.md']);
     assert.equal(raw.includes(Buffer.from('owned fixture metadata')), false);
   } finally { await rm(root, { recursive: true, force: true }); }

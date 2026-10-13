@@ -4,6 +4,7 @@ import { mkdtempSync, realpathSync, writeFileSync, readFileSync, existsSync, sym
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { regularTarFiles } from './archive-headers.mjs';
 
 const root=resolve('.');
 const output=process.env.MCP_STUDIO_CANDIDATE_DIR || join(root,'.runtime','distribution');
@@ -34,9 +35,10 @@ test('candidate archives have an exact allowlist without runtime, test or helper
  assert.equal(manifest.artifacts.length,5);
  for(const artifact of manifest.artifacts.filter(a=>!a.file.endsWith('.pkg'))) {
   const archive=join(output,artifact.file);
-  const r=spawnSync(artifact.file.endsWith('.zip')?'unzip':'tar',artifact.file.endsWith('.zip')?['-Z1',archive]:['-tzf',archive],{encoding:'utf8'});
-  assert.equal(r.status,0,r.stderr);
-  const names=r.stdout.trim().split('\n').filter(n=>!n.endsWith('/')).map(n=>n.split('/').at(-1)).sort();
+  let physical;
+  if(artifact.file.endsWith('.zip')) {const r=spawnSync('unzip',['-Z1',archive],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);physical=r.stdout.trim().split('\n').filter(n=>!n.endsWith('/'));}
+  else physical=regularTarFiles(archive);
+  const names=physical.map(n=>n.split('/').at(-1)).sort();
   assert.deepEqual(names,['CHECKSUMS.sha256','manifest.json',artifact.target.os==='windows'?'install.ps1':'install.sh',artifact.target.os==='windows'?'mcp-studio-agent.exe':'mcp-studio-agent'].sort());
  }
 });

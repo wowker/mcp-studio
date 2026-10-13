@@ -37,7 +37,7 @@ for(const target of targets) {
  writeFileSync(join(dir,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
  writeFileSync(join(dir,'CHECKSUMS.sha256'),[executable,wrapper,'manifest.json'].map(p=>`${digest(readFileSync(join(dir,p)))}  ${p}`).join('\n')+'\n');
  const archive=join(output,`${name}.${target.os==='windows'?'zip':'tar.gz'}`);
- if(target.os==='windows')run('zip',['-q','-r',archive,name],{cwd:output});else run('tar',['-czf',archive,'-C',output,name]);
+ if(target.os==='windows')run('zip',['-q','-r',archive,name],{cwd:output});else run('tar',['--no-acls','--no-xattrs','-czf',archive,'-C',output,name],{env:{...process.env,COPYFILE_DISABLE:'1'}});
  artifacts.push({file:relative(output,archive),sha256:digest(readFileSync(archive)),...manifest});
  if(target.os==='darwin') {
   const pkg=join(output,`${name}-unsigned.pkg`);
