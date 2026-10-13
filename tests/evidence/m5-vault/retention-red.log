@@ -1,0 +1,5 @@
+--- FAIL: TestSessionReplacementCannotResurrectLocalCredential (0.02s)
+    store_test.go:157: previous local credential resurrected <nil>
+FAIL
+FAIL	mcp-studio/internal/agent/vault	0.644s
+FAIL

@@ -1,0 +1,6 @@
+--- FAIL: TestIndependentDisksSerializeMasterInitialization (0.03s)
+    store_test.go:265: key unavailable
+    store_test.go:272: overwritten master during concurrent initialization 2
+FAIL
+FAIL	mcp-studio/internal/agent/vault	0.605s
+FAIL

@@ -1,0 +1,14 @@
+# mcp-studio/internal/agent/vault [mcp-studio/internal/agent/vault.test]
+internal/agent/vault/store_test.go:4:114: undefined: ErrUnavailable
+internal/agent/vault/store_test.go:4:155: undefined: ErrKeyMissing
+internal/agent/vault/store_test.go:5:118: undefined: ErrUnavailable
+internal/agent/vault/store_test.go:5:155: undefined: ErrKeyExists
+internal/agent/vault/store_test.go:7:135: undefined: NewStore
+internal/agent/vault/store_test.go:7:209: undefined: Scope
+internal/agent/vault/store_test.go:7: undefined: Value
+internal/agent/vault/store_test.go:7: undefined: ErrMissing
+internal/agent/vault/store_test.go:7: undefined: NewStore
+internal/agent/vault/store_test.go:7: undefined: ErrMissing
+internal/agent/vault/store_test.go:7: too many errors
+FAIL	mcp-studio/internal/agent/vault [build failed]
+FAIL

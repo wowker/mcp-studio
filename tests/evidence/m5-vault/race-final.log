@@ -1,0 +1,6 @@
+# mcp-studio/internal/agent/queue.test
+ld: warning: '/private/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/go-link-2779647979/000013.o' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626
+# mcp-studio/internal/agent/vault.test
+ld: warning: '/private/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/go-link-943270394/000013.o' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626
+ok  	mcp-studio/internal/agent/vault	2.082s
+ok  	mcp-studio/internal/agent/queue	1.810s

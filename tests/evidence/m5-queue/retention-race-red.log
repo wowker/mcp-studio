@@ -1,0 +1,7 @@
+--- FAIL: TestRetentionChangeDuringFailedUploadCannotRestoreCiphertext (0.04s)
+    queue_test.go:292: memory consent overridden {{1.2.0 u p c op history record-op agent 0dbb007bab823a4bc867945101cadb2620dab51d021a4021fd574ad34f38f554  {u p c tab run-op echo 1 v1  v1 agent none {"text":"safe queued fixture"} {"type":"object"} {"content":[]} {} 2026-10-13T00:00:00Z 2026-10-13T00:00:01Z succeeded known success 0 full  true []} {echo  project request-response complete}} failed upload_failed <nil> 2026-10-13 17:04:42.861281 +0800 CST 1028 true false false} <nil>
+--- FAIL: TestMemoryChoiceCannotSilentlyLeaveLockedCiphertext (0.02s)
+    queue_test.go:317: claimed memory while ciphertext unreadable <nil>
+FAIL
+FAIL	mcp-studio/internal/agent/queue	0.510s
+FAIL

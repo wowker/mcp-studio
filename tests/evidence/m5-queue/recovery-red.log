@@ -1,0 +1,5 @@
+--- FAIL: TestQueueLockedVaultRecoversWithoutCallingTool (0.02s)
+    queue_test.go:199: locked vault mislabeled queue_corrupt
+FAIL
+FAIL	mcp-studio/internal/agent/queue	0.636s
+FAIL

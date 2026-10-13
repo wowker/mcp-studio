@@ -1,0 +1,15 @@
+# mcp-studio/internal/agent/vault
+internal/agent/vault/system_darwin.go:21:2: warning: 'SecKeychainSetUserInteractionAllowed' is deprecated: first deprecated in macOS 10.10 - SecKeychain is deprecated [-Wdeprecated-declarations]
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:639:10: note: 'SecKeychainSetUserInteractionAllowed' has been explicitly marked deprecated here
+internal/agent/vault/system_darwin.go:28:2: warning: 'SecKeychainSetUserInteractionAllowed' is deprecated: first deprecated in macOS 10.10 - SecKeychain is deprecated [-Wdeprecated-declarations]
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:639:10: note: 'SecKeychainSetUserInteractionAllowed' has been explicitly marked deprecated here
+internal/agent/vault/system_darwin.go:32:44: warning: 'SecKeychainSetUserInteractionAllowed' is deprecated: first deprecated in macOS 10.10 - SecKeychain is deprecated [-Wdeprecated-declarations]
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:639:10: note: 'SecKeychainSetUserInteractionAllowed' has been explicitly marked deprecated here
+# mcp-studio/internal/agent/queue [mcp-studio/internal/agent/queue.test]
+internal/agent/queue/queue_test.go:5: cannot use make([]struct{Path string `json:"path"`; Reason string `json:"reason"`}, 0) (value of type []struct{Path string "json:\"path\""; Reason string "json:\"reason\""}) as []wire.RedactionMarker value in assignment
+internal/agent/queue/queue_test.go:6: cannot use []struct{RecordID string `json:"recordId"`; RunID string `json:"runId"`}{} (value of type []struct{RecordID string "json:\"recordId\""; RunID string "json:\"runId\""}) as []wire.AffectedRecord value in struct literal
+internal/agent/queue/queue_test.go:7:135: undefined: New
+internal/agent/queue/queue_test.go:9:108: undefined: New
+internal/agent/queue/queue_test.go:10:105: undefined: New
+FAIL	mcp-studio/internal/agent/queue [build failed]
+FAIL

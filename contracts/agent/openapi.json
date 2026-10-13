@@ -1,0 +1,2086 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "MCP Studio paired Agent local API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:45455"
+    }
+  ],
+  "paths": {
+    "/v1/status": {
+      "get": {
+        "operationId": "getAgentStatus",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentStatus"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pairing/challenges": {
+      "post": {
+        "operationId": "createAgentChallenge",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentChallenge"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentChallengeInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pairing/challenges/{challengeId}": {
+      "get": {
+        "operationId": "getAgentChallenge",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentChallenge"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pairing/confirmations": {
+      "post": {
+        "operationId": "confirmAgentPair",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentPair"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentPairInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pairing/{pairingId}": {
+      "delete": {
+        "operationId": "unpairAgent",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentAccepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/connections": {
+      "post": {
+        "operationId": "connectAgent",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentConnectionState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentConnectInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/connections/{connectionId}": {
+      "delete": {
+        "operationId": "disconnectAgent",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentAccepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/connections/{connectionId}/tools": {
+      "get": {
+        "operationId": "listAgentTools",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentTools"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs": {
+      "post": {
+        "operationId": "startAgentRun",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentRunState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentRunInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs/{runId}": {
+      "get": {
+        "operationId": "getAgentRun",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentRunState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/runs/{runId}/cancel": {
+      "post": {
+        "operationId": "cancelAgentRun",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentRunState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/operations/{operationId}": {
+      "get": {
+        "operationId": "getAgentOperation",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentQueueState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/queue": {
+      "get": {
+        "operationId": "getAgentQueue",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentQueuePage"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/queue/{operationId}/retry": {
+      "post": {
+        "operationId": "retryAgentUpload",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentQueueState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentProjectInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/queue/{operationId}": {
+      "delete": {
+        "operationId": "discardAgentUpload",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentAccepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/retention": {
+      "post": {
+        "operationId": "setAgentRetention",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentAccepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentRetentionInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials": {
+      "post": {
+        "operationId": "storeAgentCredential",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentCredentialState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentCredentialInput"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteAgentCredential",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentAccepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentCredentialScope"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials/status": {
+      "post": {
+        "operationId": "getAgentCredentialStatus",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentCredentialState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentCredentialScope"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials/reveal": {
+      "post": {
+        "operationId": "revealAgentCredential",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentSecret"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentCredentialRevealInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/oauth": {
+      "post": {
+        "operationId": "startAgentOAuth",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentOAuthStart"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentOAuthInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/oauth/{attemptId}": {
+      "get": {
+        "operationId": "getAgentOAuth",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentOAuthState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/oauth/{attemptId}/save": {
+      "post": {
+        "operationId": "saveAgentOAuth",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentCredentialState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentOAuthSaveInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials/backups": {
+      "get": {
+        "operationId": "getAgentBackups",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentBackups"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials/backup": {
+      "post": {
+        "operationId": "backupAgentCredential",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentBackups"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentBackupInput"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteAgentBackup",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentAccepted"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentBackupDeleteInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/credentials/restore": {
+      "post": {
+        "operationId": "restoreAgentCredential",
+        "responses": {
+          "200": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentCredentialState"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentBackupRestoreInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/environment/preview": {
+      "post": {
+        "operationId": "previewAgentEnvironment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentConnectInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Current own Agent environment preview",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/AgentEnvironmentPreview"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Safe error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AgentAccepted": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ok"
+        ],
+        "additionalProperties": false
+      },
+      "AgentError": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "additionalProperties": false
+      },
+      "AgentStatus": {
+        "type": "object",
+        "properties": {
+          "contractVersion": {
+            "type": "string",
+            "enum": [
+              "1.0.0"
+            ]
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "unpaired",
+              "online"
+            ]
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "vaultAvailable": {
+            "type": "boolean"
+          },
+          "queueRetention": {
+            "type": "string",
+            "enum": [
+              "encrypted",
+              "memory"
+            ]
+          }
+        },
+        "required": [
+          "contractVersion",
+          "deviceId",
+          "state",
+          "capabilities",
+          "vaultAvailable",
+          "queueRetention"
+        ],
+        "additionalProperties": false
+      },
+      "AgentChallengeInput": {
+        "type": "object",
+        "properties": {
+          "platformProof": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "contractVersion": {
+            "type": "string",
+            "enum": [
+              "1.0.0"
+            ]
+          }
+        },
+        "required": [
+          "platformProof",
+          "deviceId",
+          "contractVersion"
+        ],
+        "additionalProperties": false
+      },
+      "AgentChallenge": {
+        "type": "object",
+        "properties": {
+          "challengeId": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "denied",
+              "expired"
+            ]
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "challengeId",
+          "expiresAt",
+          "deviceId",
+          "userId",
+          "origin",
+          "state",
+          "capabilities"
+        ],
+        "additionalProperties": false
+      },
+      "AgentPairInput": {
+        "type": "object",
+        "properties": {
+          "challengeId": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "challengeId",
+          "code"
+        ],
+        "additionalProperties": false
+      },
+      "AgentPair": {
+        "type": "object",
+        "properties": {
+          "pairingId": {
+            "type": "string"
+          },
+          "channelToken": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "deviceId": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "pairingId",
+          "channelToken",
+          "userId",
+          "deviceId",
+          "origin",
+          "expiresAt",
+          "capabilities"
+        ],
+        "additionalProperties": false
+      },
+      "AgentConnectInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "version",
+          "environmentId"
+        ],
+        "additionalProperties": false
+      },
+      "AgentConnectionState": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "disconnected",
+              "connecting",
+              "connected",
+              "failed"
+            ]
+          },
+          "diagnostic": {
+            "type": "string"
+          },
+          "serverName": {
+            "type": "string"
+          },
+          "serverVersion": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "userId",
+          "version",
+          "environmentId",
+          "status",
+          "diagnostic",
+          "serverName",
+          "serverVersion"
+        ],
+        "additionalProperties": false
+      },
+      "AgentTools": {
+        "type": "object",
+        "properties": {
+          "toolsJSON": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "toolsJSON"
+        ],
+        "additionalProperties": false
+      },
+      "AgentRunInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "tabId": {
+            "type": "string"
+          },
+          "toolName": {
+            "type": "string"
+          },
+          "argumentsJSON": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "tabId",
+          "toolName",
+          "argumentsJSON",
+          "version",
+          "environmentId"
+        ],
+        "additionalProperties": false
+      },
+      "AgentRunState": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string"
+          },
+          "recordId": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "tabId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "running",
+              "succeeded",
+              "failed",
+              "cancelled"
+            ]
+          },
+          "snapshotJSON": {
+            "type": "string"
+          },
+          "diagnostic": {
+            "type": "string"
+          },
+          "uploadStatus": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "uploading",
+              "recorded",
+              "failed",
+              "paused"
+            ]
+          },
+          "persisted": {
+            "type": "boolean"
+          },
+          "lossRisk": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "runId",
+          "recordId",
+          "operationId",
+          "userId",
+          "projectId",
+          "connectionId",
+          "tabId",
+          "status",
+          "snapshotJSON",
+          "diagnostic",
+          "uploadStatus",
+          "persisted",
+          "lossRisk"
+        ],
+        "additionalProperties": false
+      },
+      "AgentQueueState": {
+        "type": "object",
+        "properties": {
+          "operationId": {
+            "type": "string"
+          },
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "inputJSON": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "uploading",
+              "recorded",
+              "failed",
+              "paused"
+            ]
+          },
+          "bytes": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "stale": {
+            "type": "boolean"
+          },
+          "lossRisk": {
+            "type": "boolean"
+          },
+          "persisted": {
+            "type": "boolean"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operationId",
+          "projectId",
+          "connectionId",
+          "inputJSON",
+          "status",
+          "bytes",
+          "createdAt",
+          "stale",
+          "lossRisk",
+          "persisted",
+          "error"
+        ],
+        "additionalProperties": false
+      },
+      "AgentQueuePage": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentQueueState"
+            }
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "AgentProjectInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId"
+        ],
+        "additionalProperties": false
+      },
+      "AgentRetentionInput": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "encrypted",
+              "memory"
+            ]
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "AgentCredentialInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "token",
+              "oauth",
+              "variable"
+            ]
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "valueJSON": {
+            "type": "string"
+          },
+          "retention": {
+            "type": "string",
+            "enum": [
+              "session",
+              "local"
+            ]
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "kind",
+          "referenceId",
+          "valueJSON",
+          "retention"
+        ],
+        "additionalProperties": false
+      },
+      "AgentCredentialScope": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "token",
+              "oauth",
+              "variable"
+            ]
+          },
+          "referenceId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "kind",
+          "referenceId"
+        ],
+        "additionalProperties": false
+      },
+      "AgentCredentialRevealInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "token",
+              "oauth",
+              "variable"
+            ]
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "confirmed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "kind",
+          "referenceId",
+          "confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "AgentCredentialState": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "token",
+              "oauth",
+              "variable"
+            ]
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "present": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "string",
+            "enum": [
+              "none",
+              "session",
+              "local"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "saved",
+              "unsaved",
+              "failed",
+              "missing",
+              "expired"
+            ]
+          },
+          "expiresAt": {
+            "type": "string"
+          },
+          "diagnostic": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "kind",
+          "referenceId",
+          "present",
+          "location",
+          "status",
+          "expiresAt",
+          "diagnostic"
+        ],
+        "additionalProperties": false
+      },
+      "AgentSecret": {
+        "type": "object",
+        "properties": {
+          "valueJSON": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "valueJSON"
+        ],
+        "additionalProperties": false
+      },
+      "AgentOAuthInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "environmentId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "version",
+          "environmentId"
+        ],
+        "additionalProperties": false
+      },
+      "AgentOAuthStart": {
+        "type": "object",
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "authorizationUrl": {
+            "type": "string"
+          },
+          "expiresAt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attemptId",
+          "authorizationUrl",
+          "expiresAt"
+        ],
+        "additionalProperties": false
+      },
+      "AgentOAuthState": {
+        "type": "object",
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "authorizing",
+              "authorized",
+              "denied",
+              "expired",
+              "callback-failed",
+              "cancelled"
+            ]
+          },
+          "saved": {
+            "type": "boolean"
+          },
+          "diagnostic": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attemptId",
+          "status",
+          "saved",
+          "diagnostic"
+        ],
+        "additionalProperties": false
+      },
+      "AgentOAuthSaveInput": {
+        "type": "object",
+        "properties": {
+          "retention": {
+            "type": "string",
+            "enum": [
+              "session",
+              "local"
+            ]
+          }
+        },
+        "required": [
+          "retention"
+        ],
+        "additionalProperties": false
+      },
+      "AgentBackupInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "token",
+              "oauth",
+              "variable"
+            ]
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "confirmed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "kind",
+          "referenceId",
+          "password",
+          "confirmed"
+        ],
+        "additionalProperties": false
+      },
+      "AgentBackupRestoreInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "backupId": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "confirmed": {
+            "type": "boolean"
+          },
+          "retention": {
+            "type": "string",
+            "enum": [
+              "session",
+              "local"
+            ]
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "backupId",
+          "password",
+          "confirmed",
+          "retention"
+        ],
+        "additionalProperties": false
+      },
+      "AgentBackupDeleteInput": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "backupId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "backupId"
+        ],
+        "additionalProperties": false
+      },
+      "AgentBackups": {
+        "type": "object",
+        "properties": {
+          "backupsJSON": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "backupsJSON"
+        ],
+        "additionalProperties": false
+      },
+      "AgentEnvironmentPreview": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "connectionId": {
+            "type": "string"
+          },
+          "environmentId": {
+            "type": "string"
+          },
+          "valid": {
+            "type": "boolean"
+          },
+          "diagnostic": {
+            "type": "string"
+          },
+          "previewJSON": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "projectId",
+          "connectionId",
+          "environmentId",
+          "valid",
+          "diagnostic",
+          "previewJSON"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

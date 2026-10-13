@@ -1,0 +1,8 @@
+# mcp-studio/internal/agent/vault
+internal/agent/vault/system_darwin.go:21:2: warning: 'SecKeychainSetUserInteractionAllowed' is deprecated: first deprecated in macOS 10.10 - SecKeychain is deprecated [-Wdeprecated-declarations]
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:639:10: note: 'SecKeychainSetUserInteractionAllowed' has been explicitly marked deprecated here
+internal/agent/vault/system_darwin.go:28:2: warning: 'SecKeychainSetUserInteractionAllowed' is deprecated: first deprecated in macOS 10.10 - SecKeychain is deprecated [-Wdeprecated-declarations]
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:639:10: note: 'SecKeychainSetUserInteractionAllowed' has been explicitly marked deprecated here
+internal/agent/vault/system_darwin.go:32:44: warning: 'SecKeychainSetUserInteractionAllowed' is deprecated: first deprecated in macOS 10.10 - SecKeychain is deprecated [-Wdeprecated-declarations]
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:639:10: note: 'SecKeychainSetUserInteractionAllowed' has been explicitly marked deprecated here
+ok  	mcp-studio/internal/agent/queue	0.908s
