@@ -508,6 +508,8 @@ T16–T21 在 cf9b6cf 逐叶完成，最终完整verify退出0。424项前端、
 
 ## 验收登记约定
 
+M7剩余验收执行批次见[剩余验收安排](m7-remaining-acceptance.md)：V01逐预期证据、V02开发中止清理、V03/V04人工可访问性、V05/V06 Mac原生、V07浏览器矩阵、V08真实部署邮件、V09 Windows/Linux、V10旧版兼容、V11恢复介质、V12签名、V13正式总验收。V编号只细化当前未验项；本次列计划，未执行、未勾选任何新T/A签收。
+
 每个任务结束记录实际修改文件、验证结果与实现版本。A 项牵头 / 联验关系见 [acceptance-schedule.csv](./acceptance-schedule.csv)，正式预期结果以 [原验收登记表](../design-baseline-v2/design-handoff/acceptance-register-v2.csv) 为准。M7 在候选版本上统一签收；不能以原型模型通过、模拟角色切换或仅前端禁用按钮作为真实权限与持久化证据。
 
 仅勾选已满足完成标准的叶子任务；详细修改和实际验证见 [执行账本](./progress.md)。

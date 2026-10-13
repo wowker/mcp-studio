@@ -6,6 +6,8 @@
 
 依据：[最终交付索引](../design-baseline-v2/design-handoff/11-final-delivery-checklist.md)、[D01–D15](../design-baseline-v2/design-handoff/08-decision-proposals.md)、[A01–A60](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md)。任务登记在 [todo.md](./todo.md)，验收分期在 [acceptance-schedule.csv](./acceptance-schedule.csv)。原仓库 `tasks/` 属于旧功能发布，不修改或覆盖。
 
+M7候选之后的剩余验收、所需环境、当前设备可继续的切片和建议依赖顺序见[剩余验收安排](m7-remaining-acceptance.md)。这份补充只作计划，不新增产品阶段，不改变待验状态，不授权部署、签名或发布。
+
 ## 1. 目标与范围
 
 用正式前端、Go 平台和 Go 本机 Agent 实现已确认的 26 个页面 / 视图及 15 条交互链。首版内部部署，同时保留团队隔离与未来 SaaS 所需的身份边界。
