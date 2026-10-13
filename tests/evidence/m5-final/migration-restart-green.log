@@ -1,0 +1,3 @@
+[verify] go
+ok  	mcp-studio/tests/integration	0.701s
+[test-runtime] isolated schema removed

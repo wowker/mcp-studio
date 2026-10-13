@@ -1,0 +1,2 @@
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /private/tmp/mcp-studio-agent-linux ./cmd/agent
+Observed exit code: 0. Compilation only; no real linux execution or credential-store support claim.

@@ -1,0 +1,19 @@
+# mcp-studio/internal/agent/vault.test
+ld: warning: '/private/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/go-link-3929168189/000013.o' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626
+# mcp-studio/internal/agent/queue.test
+ld: warning: '/private/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/go-link-1952937305/000013.o' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626
+# mcp-studio/cmd/agent.test
+ld: warning: '/private/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/go-link-2793012672/000013.o' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626
+ok  	mcp-studio/cmd/agent	1.563s
+# mcp-studio/internal/agent/sessions.test
+ld: warning: '/private/var/folders/43/3dqzkbbx21b4kdxv37kyjxqr0000gn/T/go-link-4042169809/000013.o' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626
+ok  	mcp-studio/internal/agent/localapi	3.224s
+ok  	mcp-studio/internal/agent/mcp	4.704s
+ok  	mcp-studio/internal/agent/oauth	4.584s
+ok  	mcp-studio/internal/agent/pairing	2.784s
+ok  	mcp-studio/internal/agent/platformclient	1.967s
+ok  	mcp-studio/internal/agent/process	2.402s
+ok  	mcp-studio/internal/agent/queue	3.851s
+ok  	mcp-studio/internal/agent/sessions	4.401s
+ok  	mcp-studio/internal/agent/vault	3.201s
+?   	mcp-studio/internal/agent/wire	[no test files]

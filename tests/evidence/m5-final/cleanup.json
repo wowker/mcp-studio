@@ -1,0 +1,5 @@
+{
+  "ownedSchemasRemaining": 0,
+  "runtime": "Actual verify finally stopped Agent, platform, SMTP, MCP, OAuth and temporary TLS fixtures",
+  "retained": "Only isolated local tmpfs PostgreSQL test container retained for reproduction"
+}

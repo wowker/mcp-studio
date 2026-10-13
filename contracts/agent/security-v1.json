@@ -131,8 +131,16 @@
     "permission revoked between run completion and upload"
   ],
   "notClaimed": [
-    "production Agent API exists",
-    "tokens encryption or key rotation implemented",
-    "cross-OS or browser compatibility passed"
-  ]
+    "real native confirmation and OS credential-store acceptance completed",
+    "master-key rotation implemented",
+    "cross-OS or target Chrome/Edge browser compatibility passed"
+  ],
+  "implementationEvidence": {
+    "stage": "M5",
+    "implementation": "98d5049",
+    "localContract": "contracts/agent/openapi.json",
+    "productionEntry": "cmd/agent",
+    "verification": "tests/evidence/m5-final/verify.log",
+    "scope": "Actual local API and encrypted scoped credentials/queue implemented; controlled fixtures do not establish real OS/native/target-browser support"
+  }
 }

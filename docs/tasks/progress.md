@@ -1,6 +1,6 @@
-# M0–M3 执行账本
+# M0–M5 执行账本
 
-2026-10-13。T15及M3 T16–T21已逐项实现并验证，代码cf9b6cf；本轮授权完成，未进入M4。T02完整矩阵仍待验。Git 分支 `codex/m0-m1`；设计参考基准提交 `7eac7d4`。下列历史中间状态保留追溯，以末尾最终签收为当前状态。
+2026-10-13。当前 M5 T25–T30 实现与可执行门禁通过，代码98d5049；T25b/T28a/T29b人工实机或介质联验未签收。T02完整矩阵仍待验，未进入M6。Git 分支 `codex/m0-m1`；设计参考基准提交 `7eac7d4`。下列历史中间状态保留追溯，以末尾最终签收为当前状态。
 
 | 切片 | 状态 | 修改与实际验证 |
 | --- | --- | --- |
@@ -225,3 +225,50 @@ T22a/b、T23a/b、T24a/b逐叶完成，C08签收，本轮止于M4。迁移总数
 - [定向Go race](../../tests/evidence/m4-platform/focused-race.txt)真实PG容量并发/撤成员上传路径通过。额外全量race尝试在8分钟超时，日志[go-race.txt](../../tests/evidence/m4-platform/go-race.txt)保留，不报告通过；其单个孤立schema经角色与固定夹具/空项目/空记录/无会话核验后清理。最终随机test_/e2e_ schema计数0，平台/邮件/MCP/OAuth/临时TLS均停止；仅隔离回环tmpfs测试DB供复验保留。
 
 T02a/b、C01完整Chrome/Edge/OS/公网HTTPS LNA/原生人工确认矩阵继续待验，不宣称支持。A01–A60正式状态全部仍待验收，本轮只补M4部分实现版本与证据。浏览器持久性仍受OS/浏览器存储清理影响，不能保证断电绝不丢失；beforeunload仅辅助提醒，秘密与原始请求响应不进持久队列。平台容量是定义明确的逻辑预算，不是PG物理磁盘或备份大小。M5 Agent、系统凭据库、加密Agent队列、个人备份/删除联动及M7备份介质淘汰未实现，不以合成存档冒充支持。下一阶段仅在新授权后进入M5 T25–T30。
+
+## M5 T25–T30 执行开始 · 2026-10-13
+
+用户明确授权本阶段，不进入 M6。平台独立切片 1ae449c：005 迁移、1.4 平台合同、一次性 Agent proof / 私有委托 grant、本人显式加密备份、密码重认证、修订冲突和成员移除清除在线备份。真实 PostgreSQL 14 项 focused 测试通过，含父会话期限、密码重置、授权事务竞态、密钥故障、AAD 和并发覆写；仍须统一门禁和跨端联验。
+
+Agent 本机 1.0 合同（30 schemas / 26 paths）与严格 Go / TS 生成已实现；本机确认、原生进程、HTTP SDK、OAuth、加密 vault / queue 与前端正在逐片联验。独立复审问题已逐项修复或正在验证；此中间状态不勾选叶子任务，不签收 A 项。工程依据见 [008](../decisions/008-m5-agent-credentials-queue.md)。T02 完整矩阵、人工确认及真实 OS 凭据库等实机验收继续待验。
+
+## M5 工作包与子切片证据
+
+实现版本：平台 `1ae449c`、本机合同与加密存储 `91a81ca`、原生 Agent `9e104a7`、前端与生产集成 `0322293`。统一门禁最终签收记录在下节。每个叶子继续按职责拆分，未验证的实机 / 介质检查不由受控测试抵扣。
+
+| 叶子 / 子切片 | 准确文件（相对根） | 实际行为与回归 |
+| --- | --- | --- |
+| T25a.1 平台委托 | internal/platform/agent_auth.go、agent_auth_test.go；migrations/005_agent_credentials.sql；contracts/platform/openapi.json | Cookie+CSRF proof / 非浏览器一次性兑换 / digest-only grant；父期限、重放、并发单胜者、Cookie/Sec-Fetch拒绝、重置/退出/设备撤销与事务授权 |
+| T25a.2 本机边界 | contracts/agent/openapi.json；scripts/generate-agent-contracts.mjs、generate-agent-contracts.test.mjs；internal/agent/localapi、pairing；apps/web/src/runtime/agent-client.ts、agent-session.ts 及对应测试 | 字面回环、精确 Host/Origin、token身份/期限；30 schema / 26 path严格合同，与平台/MCP凭证独立 |
+| T25b.1 原生确认与状态 | cmd/agent/confirmation.go、confirmation_test.go、main.go、main_test.go、options.go；apps/web/src/features/devices/DevicesPage.tsx、DevicesPage.test.tsx | /dev/tty / CONIN$ 原生输入；用户/Origin/能力与一次码，安全引用控制字符；离线为未知，恢复不连接。受控配对旅程通过，人工本机确认/解除仍待验 |
+| T26a.1 进程与锁 | internal/agent/process/process.go、process_test.go、lock_unix.go、lock_windows.go、lock_test.go | 直接程序+数组、合法cwd、最小父环境、同数据目录单进程锁，特殊参数与敏感父环境回归 |
+| T26a.2 核对与确认 | internal/agent/sessions/engine.go、stdio_test.go、environment.go、environment_test.go | 当前真实配置/变量定义/用户/项目权限，首次及变更确认；无浏览器凭据借用 |
+| T26b.1 stdio生命周期 | internal/agent/mcp/client.go、client_test.go；internal/agent/sessions/engine_test.go、stdio_test.go | 锁定GoSDK实际子进程、独立连接、退出/超时/取消/迟到结果；stdio HTTP状态为0，取消不承诺回滚 |
+| T27a.1 HTTP适配 | internal/agent/mcp、platformclient；internal/agent/sessions/catalog.go、catalog_test.go | 实际Streamable HTTP/旧SSE，状态来自tools/call而非握手；私有会话按用户/项目/连接；敏感URL编码与Schema结构键拒绝 |
+| T27b.1 显式入口 | apps/web/src/features/connections/AgentConnectionPanel.tsx、runtimeStore.ts；features/tools/AgentToolExecution.tsx、AgentToolExecution.test.tsx、ToolsPage.tsx；features/records/restore.ts、restore.test.ts | 本人选择Agent，独立工具目录/Run和冻结结果；历史恢复新未执行Tab，无自动fallback；browser保存Agent结果为新browser操作 |
+| T28a.1 原生key与密文 | internal/agent/vault/storage.go、store.go、store_test.go、system_darwin.go、system_keychain_darwin.m/.h、system_windows.go、system_linux.go、system_unavailable.go | AES-GCM nonce/AAD、主密钥与密文分离、私有原子文件；跨Disk初始化不覆写key；丢key不重建、密文篡改/错误AAD/保存失败/session替换与重启回归；真实OS库仍待验 |
+| T28a.2 凭据接口与界面 | internal/agent/sessions/credentials.go、credentials_test.go、status_contract_test.go；apps/web/src/features/connections/AgentCredentialsPanel.tsx、AgentCredentialsPanel.test.tsx；features/environment/AgentEnvironmentPanel.tsx、AgentEnvironmentPanel.test.tsx、AgentPersonalValueEditor.tsx | 当前本人范围与实际定义ID、session/local分开；已授权与保存失败独立；refresh/status严格枚举，个人值不进入公共预览 |
+| T28b.1 原生OAuth | internal/agent/oauth/oauth.go、oauth_test.go、scopes_test.go；sessions/oauth_contract_test.go；apps/web/src/features/connections/AgentOAuthPanel.tsx、AgentOAuthPanel.test.tsx | HTTPS PKCE/issuer/resource/state/loopback回调，实际返回scope；缺必要scope拒绝，授权成功但落盘失败可单独重试，授权交换次数不增加 |
+| T29a.1 备份与条件修订 | internal/platform/credentials.go、credentials_test.go；cmd/platform配置；internal/agent/sessions/backups_test.go | 默认OFF，密码重认证，本人最新真实权限；平台外key、AAD含version；metadata/delete在key丢失时仍可用；并发expectedVersion防覆盖 |
+| T29a.2 Agent备份界面 | apps/web/src/features/connections/AgentBackupsPanel.tsx、AgentBackupsPanel.test.tsx；sessions/credentials.go | 显式确认，读取本人metadata确定修订，实际backup/restore DTO一致；备份失败不否定本机保存 |
+| T29b.1 删除与成员事务 | platform/credentials_test.go、membership/005外键；Agent凭据delete；AgentBackupsPanel | 本机/平台/上游分离，项目/团队移除即时删在线备份，重加无自动恢复；实际备份介质生命周期仍待验 |
+| T30a.1 加密冻结与配额 | internal/agent/queue/queue.go、queue_test.go；sessions/queue.go、queue_test.go、cache.go、cache_test.go | 预留计入1000项/100MiB、本人memory选择、同digest重试、7天仅提醒；OS临时锁定恢复；并发保留切换不重写旧cipher；receipt擦正文，terminal缓存有界 |
+| T30a.2 进程恢复与上传 | tests/fixtures/m5-agent/main.go、fixture.mjs、fixture.test.mjs；tests/e2e/m5.spec.ts | 页面关闭已授权调用继续；进程重启只读冻结操作、重配对后重试同op/digest，HTTP/stdio Tool调用次数不增加；受控加密队列不是物理断电验收 |
+| T30b.1 跨端与项目权限 | apps/web/src/features/devices/AgentQueuePanel.tsx、AgentQueuePanel.test.tsx；features/operations/OperationsPage.tsx；平台agent_auth_test；sessions/queueRoutes | 本人/所属项目及当前角色门控，队列与browser队列独立，失效不报空；保存Agent来源新建browser操作 |
+| 共同完整门禁 | scripts/verify.mjs、test-runtime.mjs；tests/integration/foundation_test.go；tests/fixtures/m2/tls.mjs、fixture.mjs；tests/e2e/m5.spec.ts | Node/前端/真实PG/Go/vet/平台+Agent生产构建与M1–M5旅程；005新表及重开连接不清proof/grant回归 |
+
+独立复审与实际联验发现的错误没有通过放宽校验解决。Schema结构键秘密、备份修订与DTO、OAuth范围、凭据session替换、terminal缓存、queue保留竞态、OS锁定、主密钥初始化及TTY显示均有确定性回归。受控M5三旅程通过；最终全量门禁须以下节实际退出值为准。
+
+## M5 最终可执行验证与待验登记 · 2026-10-13
+
+- 最终实现与回归版本 `98d5049`：M5 平台 `1ae449c`、合同/加密存储 `91a81ca`、Agent `9e104a7`、前端/真实集成 `0322293`。未进入 M6。
+- [完整 verify](../../tests/evidence/m5-final/verify.log) 实际退出0：平台1.4 / Agent1.0生成一致性、JS/Go64共同向量、Node20回归、前端46文件/497测试、TypeScript与生产构建、真实隔离PostgreSQL的Go `./... -count=1`、vet、生产平台/Agent及独立helper构建、M1–M5生产入口18条浏览器旅程全部通过。wire / jsonnumber / helper等无单测包只编译，不冒称测试数量。
+- [浏览器结果](../../tests/evidence/m5-final/results.json)：18通过，0失败、跳过或重试。真实Agent HTTP、stdio、页面关闭继续已发出调用、平台中断和Agent进程重启、同op/digest上传重试且Tool调用次数不增加、browser保存Agent来源、session替换旧local凭据不复活、备份创建/覆写/恢复、OAuth授权/落盘失败分离均有实际接口证据。
+- [Agent全包race](../../tests/evidence/m5-final/agent-race.log) 实际退出0；macOS Go race链接器出现LC_DYSYMTAB警告，保留原日志，未抹去或计为OS验收。Windows/Linux amd64交叉构建退出0，只算编译，不算实机运行或系统库通过。目标OS/人工确认仍待验。
+- 首轮全量门禁捕获005迁移数量断言过时：[原始失败](../../tests/evidence/m5-final/verify-first-red.log)，补新表与重开连接保留proof/grant回归后 [真实PG通过](../../tests/evidence/m5-final/migration-restart-green.log)。浏览器中旧“Agent未开放”与主题模糊定位失败见 [完整失败](../../tests/evidence/m5-final/verify-e2e-red.log)；更新为真实未配对保护并强化无配对/子进程/MCP调用断言后最终18条通过，未降低检查标准。
+- 构建主入口434.39kB/minified，133.71kB/gzip；共享schema-vendor70.35/18.89kB，Agent各视图按真实模块惰性加载。保持500kB门槛、CSP、同一tokens/Phosphor/primitives；没有提高阈值或关闭检查。3张M5合成非秘密截图已目视检查，M6全页面/可访问性矩阵未开展。
+- 实际测试runtime停止Agent/平台/SMTP/MCP/OAuth/TLS并清临时目录；[清理检查](../../tests/evidence/m5-final/cleanup.json) 的 test_/e2e_ schema为0。保留本机隔离tmpfs PG用于复验，未部署、推送或打包安装器。
+
+T25a、T26a/b、T27a/b、T28b、T29a、T30a/b共9叶子完成可执行验证。T25b已实现原生TTY确认与设备状态，但人工配对/解除/恢复未验；T28a已实现原生系统key与密文、故障回归，但macOS/Windows/Linux真实系统库验收未验；T29b已验证在线备份即时删除及移除事务，但实际备份介质生命周期未验。三叶子与C09/C10整组完成项保持未勾选；门禁/登记条目独立签收。A01–A60正式状态仍待验收，相关29行只补M5部分版本和证据。
+
+T02a/b、C01继续待验：公网HTTPS LNA、目标Chrome/Edge两稳定主版本、远程网络、跨OS和人工确认未放行。受控fixture仅在测试helper注入明确确认、分离测试主密钥与临时CA，不使用生产自动批准或TLS跳过。DCR、自动OAuth refresh、主密钥轮换、物理断电、真实邮件供应商与介质生命周期未宣称支持/通过。下一阶段M6需要新的用户授权。

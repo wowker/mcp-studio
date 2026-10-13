@@ -1,0 +1,179 @@
+
+> mcp-studio@0.1.0 verify
+> node scripts/verify.mjs
+
+[verify] Generated contracts are current
+Platform contract v1.4.0: 57 schemas, 47 paths; generated boundaries match.
+[verify] Generated Agent contracts are current
+Agent local contract v1.0.0: 30 schemas, 26 paths; strict boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Generator, SDK, loopback security and runtime guards
+✔ Agent local API has generated strict Go and TypeScript boundaries distinct from platform and MCP (81.187084ms)
+✔ versioned platform contract generates stable Go and TypeScript boundaries (82.340958ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (140.922958ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (67.105959ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (23.528292ms)
+✔ expired codes and local unpair reject new requests (6.541291ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (41.369792ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (6.361667ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (3.188375ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (3.248667ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (14.079166ms)
+✔ controlled call failures and barrier do not change handshake or retain payloads in counters (3.528625ms)
+✔ controlled Agent links real protected local API and restarts with guaranteed process cleanup (2569.347167ms)
+[test-runtime] isolated schema removed
+✔ test database schema is created then only its own schema is dropped after failure (344.520917ms)
+[test-runtime] isolated schema removed
+[test-runtime] isolated schema removed
+✔ concurrent isolated schemas do not remove each other (449.745709ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (1.008083ms)
+✔ gate propagates a failing real subprocess exit status (45.435792ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (39.575042ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (13.849625ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (10.729291ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2667.232959
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/environment/EnvironmentPage.test.tsx (5 tests) 656ms
+ ✓ src/features/connections/ConnectionsPage.test.tsx (9 tests) 830ms
+   ✓ service configuration > preserves the edited local draft after a version conflict and compares latest remote config  332ms
+ ✓ src/features/tools/ToolsPage.test.tsx (8 tests) 951ms
+   ✓ lists the real session catalog, searches it, and opens independent documents with keyboard navigation  448ms
+ ✓ src/features/records/RecordEditors.test.tsx (13 tests) 1728ms
+   ✓ freezes a failed metadata revision including its ETag and retries the exact operation after further editing  362ms
+ ✓ src/features/records/RecordsPage.test.tsx (8 tests) 1344ms
+   ✓ closes the detail copy editor after a successful upload and does not reopen it after returning to the record  467ms
+   ✓ preserves a failed detail copy draft and closes it after its frozen retry succeeds  344ms
+ ✓ src/app/App.test.tsx (11 tests) 3181ms
+   ✓ authenticated Shell > keeps page input and focus through language/theme/sidebar controls  398ms
+   ✓ hides a stale personal authorization form after content GET permission revocation  829ms
+   ✓ keeps another project tool document when switching through a Viewer project  659ms
+ ✓ src/features/tools/SchemaArgumentEditor.test.tsx (13 tests) 1740ms
+   ✓ preserves zero false null empty arrays and explicit nested input with independent optional skipping  355ms
+ ✓ src/features/operations/OperationsPage.test.tsx (12 tests) 668ms
+ ✓ src/features/tools/AgentToolExecution.test.tsx (3 tests) 418ms
+ ✓ src/features/tools/ToolExecution.test.tsx (8 tests) 696ms
+   ✓ performs one call and retries only the frozen redacted upload despite later draft edits  427ms
+ ✓ src/features/environment/VariableEditor.test.tsx (4 tests) 609ms
+   ✓ accepts a shared number reference expression and preserves it for typed runtime resolution  307ms
+ ✓ src/features/auth/IdentityPage.test.tsx (3 tests) 1168ms
+   ✓ keeps original invitation after registration and never accepts automatically  820ms
+ ✓ src/features/devices/AgentQueuePanel.test.tsx (3 tests) 212ms
+ ✓ src/features/team/MembersPage.test.tsx (2 tests) 311ms
+ ✓ src/features/connections/AgentBackupsPanel.test.tsx (2 tests) 248ms
+ ✓ src/runtime/browser-session.test.ts (58 tests) 283ms
+ ✓ src/features/connections/AgentCredentialsPanel.test.tsx (1 test) 174ms
+ ✓ src/runtime/records/queueStorage.test.ts (29 tests) 193ms
+ ✓ src/features/connections/AgentOAuthPanel.test.tsx (1 test) 148ms
+ ✓ src/features/environment/AgentEnvironmentPanel.test.tsx (1 test) 129ms
+ ✓ src/runtime/records/operations.test.ts (14 tests) 124ms
+ ✓ src/features/connections/runtimeStore.test.ts (6 tests) 100ms
+ ✓ src/runtime/schema/interpreter.test.ts (88 tests) 95ms
+ ✓ src/features/records/restore.test.ts (8 tests) 16ms
+ ✓ src/runtime/oauth.test.ts (12 tests) 45ms
+ ✓ src/runtime/execution/index.test.ts (15 tests) 54ms
+ ✓ src/features/records/SessionUploads.test.tsx (1 test) 35ms
+ ✓ src/features/devices/DevicesPage.test.tsx (2 tests) 219ms
+ ✓ src/runtime/agent-session.test.ts (2 tests) 8ms
+ ✓ src/runtime/agent-client.test.ts (8 tests) 42ms
+ ✓ src/shared/i18n.test.ts (2 tests) 13ms
+ ✓ src/shared/api.test.ts (10 tests) 16ms
+ ✓ src/runtime/configuration.test.ts (31 tests) 11ms
+ ✓ src/runtime/records/redaction.test.ts (24 tests) 13ms
+ ✓ src/runtime/connection.test.ts (5 tests) 8ms
+ ✓ src/runtime/schema/index.test.ts (5 tests) 8ms
+ ✓ src/features/tools/argumentDraft.test.ts (8 tests) 8ms
+ ✓ src/runtime/vault.test.ts (8 tests) 7ms
+ ✓ src/runtime/records/canonical.test.ts (9 tests) 9ms
+ ✓ src/runtime/execution/protocol.test.ts (5 tests) 6ms
+ ✓ src/runtime/environment.test.ts (21 tests) 7ms
+ ✓ src/features/records/viewStore.test.ts (4 tests) 8ms
+ ✓ src/features/tools/workspace.test.ts (6 tests) 3ms
+ ✓ src/features/team/protection.test.ts (3 tests) 2ms
+ ✓ src/features/connections/session.test.ts (3 tests) 3ms
+ ✓ src/runtime/execution/fixture.test.ts (3 tests) 175ms
+
+ Test Files  46 passed (46)
+      Tests  497 passed (497)
+   Start at  17:18:53
+   Duration  14.55s (transform 1.02s, setup 2.90s, collect 16.53s, tests 16.72s, environment 13.62s, prepare 1.97s)
+
+[verify] Frontend production build
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 4964 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     0.49 kB │ gzip:   0.31 kB
+dist/assets/worker-rF_BGtny.js                     71.80 kB
+dist/assets/RecordsPage-BcUVVPNl.css                0.39 kB │ gzip:   0.24 kB
+dist/assets/OperationsPage-DPjr8syy.css             1.59 kB │ gzip:   0.59 kB
+dist/assets/index-CNlQDx-y.css                     12.32 kB │ gzip:   2.99 kB
+dist/assets/AgentPersonalValueEditor-Bzd1jHQP.js    2.50 kB │ gzip:   1.12 kB
+dist/assets/AgentBackupsPanel-DIeoABa5.js           2.92 kB │ gzip:   1.17 kB
+dist/assets/Plug.es-CTFk1nTe.js                     3.20 kB │ gzip:   1.06 kB
+dist/assets/DevicesPage-BXG0-j7f.js                 3.29 kB │ gzip:   1.29 kB
+dist/assets/agent-2-G2kVFA.js                       3.30 kB │ gzip:   0.90 kB
+dist/assets/agent-session-Cw_frgLt.js               3.40 kB │ gzip:   1.32 kB
+dist/assets/AgentEnvironmentPanel-B2yO1Rcz.js       4.13 kB │ gzip:   1.82 kB
+dist/assets/AgentQueuePanel-WoXTAcA6.js             4.67 kB │ gzip:   1.66 kB
+dist/assets/agent-client-FpnxC724.js                5.08 kB │ gzip:   1.90 kB
+dist/assets/AgentToolExecution-CPBaSF3g.js          7.07 kB │ gzip:   2.70 kB
+dist/assets/streamableHttp-DOIbyS_o.js              7.70 kB │ gzip:   2.57 kB
+dist/assets/AgentConnectionPanel-BaeaFyLA.js        7.76 kB │ gzip:   2.50 kB
+dist/assets/sse-DrzyZ75N.js                         8.82 kB │ gzip:   3.26 kB
+dist/assets/OperationsPage-DUpe7YzB.js             10.11 kB │ gzip:   3.38 kB
+dist/assets/AgentFeedback-aX6maE0x.js              13.87 kB │ gzip:   5.45 kB
+dist/assets/EnvironmentPage-VGe4fMNc.js            14.61 kB │ gzip:   4.40 kB
+dist/assets/ConnectionsPage-B-muH5Kq.js            17.77 kB │ gzip:   5.76 kB
+dist/assets/auth-CHMIaD5v.js                       21.54 kB │ gzip:   6.76 kB
+dist/assets/browser-session-xwKbSl_C.js            22.33 kB │ gzip:   7.53 kB
+dist/assets/RecordsPage-D1lJnRHa.js                33.96 kB │ gzip:  10.35 kB
+dist/assets/ToolsPage-wAANZKoP.js                  41.81 kB │ gzip:  12.73 kB
+dist/assets/schema-vendor-Hd_RTo2f.js              70.35 kB │ gzip:  18.89 kB
+dist/assets/index-C2dyJvxk.js                     165.22 kB │ gzip:  50.17 kB
+dist/assets/index-J9Q0X_9l.js                     434.39 kB │ gzip: 133.71 kB
+✓ built in 1.98s
+[verify] Go tests with real isolated PostgreSQL
+ok  	mcp-studio/cmd/agent	0.240s
+ok  	mcp-studio/cmd/platform	1.079s
+ok  	mcp-studio/internal/agent/localapi	0.646s
+ok  	mcp-studio/internal/agent/mcp	3.636s
+ok  	mcp-studio/internal/agent/oauth	3.148s
+ok  	mcp-studio/internal/agent/pairing	1.882s
+ok  	mcp-studio/internal/agent/platformclient	2.695s
+ok  	mcp-studio/internal/agent/process	1.491s
+ok  	mcp-studio/internal/agent/queue	2.466s
+ok  	mcp-studio/internal/agent/sessions	3.471s
+ok  	mcp-studio/internal/agent/vault	3.559s
+?   	mcp-studio/internal/agent/wire	[no test files]
+ok  	mcp-studio/internal/configuration	3.773s
+ok  	mcp-studio/internal/contracts	4.062s
+ok  	mcp-studio/internal/environment	4.007s
+ok  	mcp-studio/internal/infrastructure	4.054s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	152.110s
+ok  	mcp-studio/internal/recording	4.130s
+ok  	mcp-studio/internal/schema	4.104s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	4.072s
+?   	mcp-studio/tests/fixtures/m5-agent	[no test files]
+ok  	mcp-studio/tests/fixtures/sdk	3.694s
+--- FAIL: TestFreshMigrationRestart (0.03s)
+    foundation_test.go:36: <nil> 5
+FAIL
+FAIL	mcp-studio/tests/integration	3.977s
+FAIL
+[test-runtime] isolated schema removed
+[verify] Go tests with real isolated PostgreSQL: failed with exit 1

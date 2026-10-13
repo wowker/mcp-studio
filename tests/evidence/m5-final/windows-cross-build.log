@@ -1,0 +1,2 @@
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o /private/tmp/mcp-studio-agent-windows.exe ./cmd/agent
+Observed exit code: 0. Compilation only; no real windows execution or credential-store support claim.

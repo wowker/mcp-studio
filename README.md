@@ -2,7 +2,9 @@
 
 交接日期：2026-10-13。目标目录：`/Users/wuwei/code/github/mcp-studio`。
 
-**已完成 M0 合同、M1、M2、T15／M3 及 M4 T22–T24（c3fbf2e）：脱敏浏览器持久队列、身份和所属项目门控、容量及保留封存，详见 [执行账本](docs/tasks/progress.md)。T02 完整兼容矩阵仍待验；本次未进入 M5。** 浏览器刷新可恢复本人脱敏冻结操作，重试不重调 Tool；存储故障须本人显式选择仅内存并知晓风险。`apps/web` 与 `cmd/platform` 是正式工程入口；参考包内 HTML / JS / CSS 是设计原型，其示例状态不代表 Agent 或凭据备份已实现。目录名采用 mcp-studio，参考资料中的 MCP Inspector / MCP Testpilot 是来源名称。
+**M5 T25–T30 的实现与可执行门禁已通过（98d5049），包含受保护本机 Agent、stdio / 显式 Agent HTTP、个人凭据 / OAuth、可选个人平台加密备份与加密上传队列。** [执行账本](docs/tasks/progress.md) 与 [任务登记](docs/tasks/todo.md) 逐叶记录结果。T25b / T28a / T29b 的人工实机、真实 OS 凭据库和备份介质联验仍待验；T02 完整矩阵不宣称支持，正式 A 项没有批量签收；本次未进入 M6。
+
+正式入口为 `apps/web`、`cmd/platform` 与 `cmd/agent`。Agent 重启只恢复冻结上传，不重放 Tool；浏览器保存 Agent 结果是新的 browser operation。原型 HTML / JS / CSS 仍是设计参考，其示例状态不代表生产能力。启动方式见 [本机运行](docs/operations/development.md)。
 
 ## 从这里开始
 
