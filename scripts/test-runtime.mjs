@@ -42,7 +42,10 @@ export async function runChecked(command, args, { label = command, quiet = false
       const deadline = Date.now() + 10000;
       while (true) {
         try { process.kill(-child.pid, 0); }
-        catch (error) { if (error.code === 'ESRCH') return; throw new Error(`${label}: process cleanup could not be confirmed`); }
+        // A killed group can briefly refuse the existence probe before it is
+        // reaped. EPERM is not proof of disappearance: keep the same bounded
+        // wait, and confirm cleanup only on ESRCH. Signal failures remain errors.
+        catch (error) { if (error.code === 'ESRCH') return; if (error.code !== 'EPERM') throw new Error(`${label}: process cleanup could not be confirmed`); }
         if (Date.now() >= deadline) throw new Error(`${label}: process cleanup could not be confirmed`);
         await new Promise(done => setTimeout(done, 25));
       }
