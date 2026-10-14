@@ -1588,6 +1588,17 @@
         },
         "automatedGapsClosed": 1,
         "formalSignoff": "pending"
+      },
+      "agentRetrySupplement": {
+        "path": "docs/tasks/v01-a38-agent-retry-supplement.json",
+        "clauses": [
+          "本人执行角色仅重试本人责任端队列"
+        ],
+        "implementation": "b3b6fa305d09fe615e599a726f6eaaa40e65a12a",
+        "effectiveCoverage": {
+          "assertion-backed": 3
+        },
+        "formalSignoff": "pending"
       }
     },
     {
@@ -2537,6 +2548,13 @@
     "report": "docs/tasks/v01-a30-a38-review.md",
     "supplementedClauses": 3,
     "changedOverallCoverageClauses": 1,
+    "formalPassCount": 0
+  },
+  "latestAgentRetryVerification": {
+    "implementation": "b3b6fa305d09fe615e599a726f6eaaa40e65a12a",
+    "manifest": "tests/evidence/v01-a38-agent-retry-final/manifest.json",
+    "report": "docs/tasks/v01-a38-agent-retry-review.md",
+    "supplementedClauses": 1,
     "formalPassCount": 0
   }
 }

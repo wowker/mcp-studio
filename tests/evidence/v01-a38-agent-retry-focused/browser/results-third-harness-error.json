@@ -1,0 +1,143 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/v01-a38-agent-retry-focused/browser/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "v01-agent-retry.spec.ts",
+      "file": "v01-agent-retry.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8645,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts:54:630",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts",
+                      "column": 630,
+                      "line": 54
+                    },
+                    "snippet": "  52 |   await deny('viewer_connect','/v1/connections',{projectId,connectionId:connection.id,version:connection.version,environmentId:connection.environmentId},actor.headers,'project_permission_revoked');await deny('viewer_run','/v1/runs',runInput,actor.headers,'project_permission_revoked');\n  53 |   expect(await queue()).toEqual(baselineQueue);expect(await uploads()).toEqual(baselineUploads);expect(await fixtureStats(request)).toEqual(baselineStats);expect((await history()).items).toEqual([]);expect(await requestData(actor.page.request,privatePath,wire.recordSchema)).toEqual(privateRecord);expect(await requestData(page.request,`/projects/${projectId}/audit`,z.array(wire.auditSchema))).toEqual(auditBefore);\n> 54 |   await role('developer');const accepted=await request.post(address()+`/v1/queue/${frozen.operationId}/retry`,{headers:actor.headers,data:{projectId}});expect(accepted.status()).toBe(200);const recorded=agentWire.agentQueueStateSchema.parse((await accepted.json()).data);expect(recorded).toMatchObject({operationId:frozen.operationId,status:'recorded',bytes:0});const retained=JSON.parse(recorded.inputJSON) as wire.RecordUploadInput;expect(retained).toMatchObject({operationId:agentInput.operationId,targetId:agentInput.targetId,frozenDigest:agentInput.frozenDigest,responsibleEndpoint:'agent'});expect((await history()).items).toHaveLength(1);expect((await history()).items[0].id).toBe(agentInput.targetId);expect((await history()).items[0].snapshot).toEqual(agentInput.snapshot);expect(await fixtureStats(request)).toEqual(baselineStats);const finalUploads=await uploads();expect(finalUploads).toHaveLength(baselineUploads.length+1);expect(finalUploads.at(-1)).toEqual({...baselineUploads.at(-1)!,status:200});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n  55 |   const again=await request.post(address()+`/v1/operations/${frozen.operationId}/retry`,{headers:actor.headers,data:{projectId}});expect(again.status()).toBe(200);expect(await uploads()).toEqual(finalUploads);expect(await fixtureStats(request)).toEqual(baselineStats);\n  56 |   const dir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/v01-a38-agent-retry-focused/browser';await mkdir(dir,{recursive:true});await writeFile(`${dir}/agent-retry-boundaries.json`,JSON.stringify({scope:'Real platform PG/users + paired protected Go Agent HTTP; controlled native confirmation/MasterStore, T02/T32b/native/manual/media/formal pending',projectId,connectionId:connection.id,userId:actor.session.user.id,otherUserId:other.session.user.id,operationId:frozen.operationId,browserOperationId:browserInput.operationId,targetId:agentInput.targetId,frozenDigest:agentInput.frozenDigest,runId:run.runId,observations,roles:['developer','viewer','developer'],queuePreservedOnDenial:true,privateRecordReadOnlyPreserved:true,noNewToolCalls:true,uploads:{before:baselineUploads.length,after:finalUploads.length},apiCallsUseActualPairing:true,channelSecretsPersisted:false},null,2)+'\\n');\n  57 |  }finally{await control(request,'/upload-failure',{enabled:false});for(const context of contexts)await context.close();}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts",
+                        "column": 630,
+                        "line": 54
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n\n  52 |   await deny('viewer_connect','/v1/connections',{projectId,connectionId:connection.id,version:connection.version,environmentId:connection.environmentId},actor.headers,'project_permission_revoked');await deny('viewer_run','/v1/runs',runInput,actor.headers,'project_permission_revoked');\n  53 |   expect(await queue()).toEqual(baselineQueue);expect(await uploads()).toEqual(baselineUploads);expect(await fixtureStats(request)).toEqual(baselineStats);expect((await history()).items).toEqual([]);expect(await requestData(actor.page.request,privatePath,wire.recordSchema)).toEqual(privateRecord);expect(await requestData(page.request,`/projects/${projectId}/audit`,z.array(wire.auditSchema))).toEqual(auditBefore);\n> 54 |   await role('developer');const accepted=await request.post(address()+`/v1/queue/${frozen.operationId}/retry`,{headers:actor.headers,data:{projectId}});expect(accepted.status()).toBe(200);const recorded=agentWire.agentQueueStateSchema.parse((await accepted.json()).data);expect(recorded).toMatchObject({operationId:frozen.operationId,status:'recorded',bytes:0});const retained=JSON.parse(recorded.inputJSON) as wire.RecordUploadInput;expect(retained).toMatchObject({operationId:agentInput.operationId,targetId:agentInput.targetId,frozenDigest:agentInput.frozenDigest,responsibleEndpoint:'agent'});expect((await history()).items).toHaveLength(1);expect((await history()).items[0].id).toBe(agentInput.targetId);expect((await history()).items[0].snapshot).toEqual(agentInput.snapshot);expect(await fixtureStats(request)).toEqual(baselineStats);const finalUploads=await uploads();expect(finalUploads).toHaveLength(baselineUploads.length+1);expect(finalUploads.at(-1)).toEqual({...baselineUploads.at(-1)!,status:200});\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n  55 |   const again=await request.post(address()+`/v1/operations/${frozen.operationId}/retry`,{headers:actor.headers,data:{projectId}});expect(again.status()).toBe(200);expect(await uploads()).toEqual(finalUploads);expect(await fixtureStats(request)).toEqual(baselineStats);\n  56 |   const dir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/v01-a38-agent-retry-focused/browser';await mkdir(dir,{recursive:true});await writeFile(`${dir}/agent-retry-boundaries.json`,JSON.stringify({scope:'Real platform PG/users + paired protected Go Agent HTTP; controlled native confirmation/MasterStore, T02/T32b/native/manual/media/formal pending',projectId,connectionId:connection.id,userId:actor.session.user.id,otherUserId:other.session.user.id,operationId:frozen.operationId,browserOperationId:browserInput.operationId,targetId:agentInput.targetId,frozenDigest:agentInput.frozenDigest,runId:run.runId,observations,roles:['developer','viewer','developer'],queuePreservedOnDenial:true,privateRecordReadOnlyPreserved:true,noNewToolCalls:true,uploads:{before:baselineUploads.length,after:finalUploads.length},apiCallsUseActualPairing:true,channelSecretsPersisted:false},null,2)+'\\n');\n  57 |  }finally{await control(request,'/upload-failure',{enabled:false});for(const context of contexts)await context.close();}\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts:54:630"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T08:03:39.048Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-agent-retry-V01-A38-pr-34e36-ot-retry-or-replay-the-Tool-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts",
+                    "column": 630,
+                    "line": 54
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6f57bc71c37a46b5343a-701b6560b811a81fed89",
+          "file": "v01-agent-retry.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T08:03:38.599Z",
+    "duration": 9429.237000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

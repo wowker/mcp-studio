@@ -1,0 +1,73 @@
+{
+  "scope": "Controlled production browser/Agent same-endpoint journey; no native/target-browser/manual signoff",
+  "projectId": "db05585ff9d8d601082c9d06759551cc",
+  "connectionId": "cb8ce34a6d0a2067971a160777650eb9",
+  "otherConnectionId": "c7fc7ce44a12dd276fd4fe773c65a84a",
+  "endpointUnchanged": true,
+  "configurationVersions": [
+    1,
+    2
+  ],
+  "policyErrors": 1,
+  "failedUpstream": 1,
+  "agentActions": [
+    {
+      "path": "/v1/connections",
+      "connectionId": "cb8ce34a6d0a2067971a160777650eb9"
+    },
+    {
+      "path": "/v1/credentials",
+      "connectionId": "cb8ce34a6d0a2067971a160777650eb9"
+    },
+    {
+      "path": "/v1/connections",
+      "connectionId": "cb8ce34a6d0a2067971a160777650eb9"
+    },
+    {
+      "path": "/v1/runs",
+      "connectionId": "cb8ce34a6d0a2067971a160777650eb9"
+    }
+  ],
+  "counters": {
+    "before": {
+      "cookieRequests": 0,
+      "initialize": 24,
+      "httpInitialize": 23,
+      "sseInitialize": 1,
+      "toolsList": 89,
+      "httpToolsList": 89,
+      "sseToolsList": 0,
+      "toolsCall": 20,
+      "httpToolsCall": 20,
+      "sseToolsCall": 0,
+      "delayedCalls": 2,
+      "releasedCalls": 2,
+      "oauthExchanges": 0,
+      "oauthDenials": 0,
+      "oauthReplays": 0,
+      "pkceVerified": 0,
+      "resourceVerified": 0
+    },
+    "after": {
+      "cookieRequests": 0,
+      "initialize": 25,
+      "httpInitialize": 24,
+      "sseInitialize": 1,
+      "toolsList": 91,
+      "httpToolsList": 91,
+      "sseToolsList": 0,
+      "toolsCall": 21,
+      "httpToolsCall": 21,
+      "sseToolsCall": 0,
+      "delayedCalls": 2,
+      "releasedCalls": 2,
+      "oauthExchanges": 0,
+      "oauthDenials": 0,
+      "oauthReplays": 0,
+      "pkceVerified": 0,
+      "resourceVerified": 0
+    }
+  },
+  "runId": "a9d18173-3d96-4f86-98ce-4fcb5f65a65c",
+  "pageErrors": []
+}

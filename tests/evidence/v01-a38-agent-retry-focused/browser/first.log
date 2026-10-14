@@ -1,0 +1,32 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:10369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool (2.8s)
+
+
+  1) [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool 
+
+    TypeError: Cannot read properties of undefined (reading 'role')
+
+      27 |    const email=`v01-retry-${suffix}@example.test`,inviteResponse=await post(page.request,`/projects/${projectId}/invitations`,{email,teamRole:'member',projectRole:'developer',days:7},owner.csrf),invite=wire.invitationSchema.parse((await inviteResponse.json()).data),token=await mail(request,email,1);
+      28 |    const context=await browser.newContext({baseURL:origin(),ignoreHTTPSErrors:true});contexts.push(context);await post(context.request,'/invitation/register',{email,name:'A38 '+suffix,password:'Fixture-Password-12',token});await post(context.request,'/verification/confirm',{token:await mail(request,email,2)});await post(context.request,'/login',{email,password:'Fixture-Password-12'});const actual=await session(context.request);await post(context.request,`/invitations/${invite.id}/accept`,{token},actual.csrf);
+    > 29 |    expect((await requestData(context.request,`/projects/${projectId}`,wire.projectSchema)).role).toBe('developer');expect(actual.teams[0].role).toBe('member');const actorPage=await context.newPage();await actorPage.goto(`/?project=${projectId}&page=servers&connection=${connection.id}`);await expect(actorPage.getByRole('navigation',{name:'项目导航'})).toBeVisible();await actorPage.locator('.workbench-preferences select').selectOption('en-US');const headers=await pair(actorPage,request);actors.push({page:actorPage,session:actual,headers});
+         |                                                                                                                                           ^
+      30 |   }
+      31 |   const [actor,other]=actors;
+      32 |   const agentGet=async(path:string,headers=actor.headers)=>{const response=await request.get(address()+path,{headers});expect(response.status()).toBe(200);return response;};
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts:29:139
+
+    Error Context: test-results/v01-agent-retry-V01-A38-pr-34e36-ot-retry-or-replay-the-Tool-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool 
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed
+Playwright production-entry E2E: failed with exit 1

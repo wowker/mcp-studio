@@ -1,0 +1,78 @@
+=== RUN   TestBackupCurrentVersionResponseAndRestoreCredentialContract
+--- PASS: TestBackupCurrentVersionResponseAndRestoreCredentialContract (0.01s)
+=== RUN   TestTerminalCacheReceiptGraceAndPendingExpiry
+--- PASS: TestTerminalCacheReceiptGraceAndPendingExpiry (0.00s)
+=== RUN   TestTerminalCacheCountBytesAndActivePreservation
+--- PASS: TestTerminalCacheCountBytesAndActivePreservation (0.01s)
+=== RUN   TestCatalogPreservesSensitivePropertySchemaButMasksSecretAnnotations
+--- PASS: TestCatalogPreservesSensitivePropertySchemaButMasksSecretAnnotations (0.00s)
+=== RUN   TestNativePromptMasksEncodedKnownSecret
+--- PASS: TestNativePromptMasksEncodedKnownSecret (0.00s)
+=== RUN   TestKnownSecretSchemaStructureKeysNeverReachCatalogOrSnapshot
+--- PASS: TestKnownSecretSchemaStructureKeysNeverReachCatalogOrSnapshot (0.00s)
+=== RUN   TestCredentialRevealRequiresCurrentProjectAuthorityAndExplicitChoice
+--- PASS: TestCredentialRevealRequiresCurrentProjectAuthorityAndExplicitChoice (0.01s)
+=== RUN   TestTokenSaveRejectsNonStringAndEmptyValues
+--- PASS: TestTokenSaveRejectsNonStringAndEmptyValues (0.00s)
+=== RUN   TestResolvedEndpointRejectsEncodedKnownCredential
+--- PASS: TestResolvedEndpointRejectsEncodedKnownCredential (0.01s)
+=== RUN   TestLocalCredentialRoundtripDoesNotMutateMasterKeyProvider
+--- PASS: TestLocalCredentialRoundtripDoesNotMutateMasterKeyProvider (0.01s)
+=== RUN   TestRunSurvivesRequestCancellationAndOwnsSafeFrozenSnapshot
+--- PASS: TestRunSurvivesRequestCancellationAndOwnsSafeFrozenSnapshot (0.05s)
+=== RUN   TestAgentPreviewUsesItsOwnVaultAndMasksDerivedSecrets
+--- PASS: TestAgentPreviewUsesItsOwnVaultAndMasksDerivedSecrets (0.01s)
+=== RUN   TestOverriddenMissingOrExpiredCredentialDoesNotBlockEffectiveLayer
+--- PASS: TestOverriddenMissingOrExpiredCredentialDoesNotBlockEffectiveLayer (0.00s)
+=== RUN   TestOAuthSaveReturnsCredentialStateAndKeepsAuthorizationStateSeparate
+--- PASS: TestOAuthSaveReturnsCredentialStateAndKeepsAuthorizationStateSeparate (0.01s)
+=== RUN   TestRetryUploadsFrozenAgentInputWithoutReplayingTool
+--- PASS: TestRetryUploadsFrozenAgentInputWithoutReplayingTool (0.03s)
+=== RUN   TestRealLocalAPICredentialStatusUsesContractEnum
+--- PASS: TestRealLocalAPICredentialStatusUsesContractEnum (0.02s)
+=== RUN   TestControlledEngineStdioFixture
+--- PASS: TestControlledEngineStdioFixture (0.00s)
+=== RUN   TestStdioFirstAndChangedConfigurationRequireNativeApproval
+--- PASS: TestStdioFirstAndChangedConfigurationRequireNativeApproval (0.02s)
+=== RUN   TestV01AgentDependencyErrorsBlockConnectAndRun
+=== RUN   TestV01AgentDependencyErrorsBlockConnectAndRun/cycle
+=== RUN   TestV01AgentDependencyErrorsBlockConnectAndRun/nested_missing_dependency
+--- PASS: TestV01AgentDependencyErrorsBlockConnectAndRun (0.03s)
+    --- PASS: TestV01AgentDependencyErrorsBlockConnectAndRun/cycle (0.01s)
+    --- PASS: TestV01AgentDependencyErrorsBlockConnectAndRun/nested_missing_dependency (0.01s)
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/foreign-owner
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/wrong-project
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/not-held-operation
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/browser-responsibility
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/foreign-owner
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/wrong-project
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/not-held-operation
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/browser-responsibility
+--- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite (0.08s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/foreign-owner (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/wrong-project (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/not-held-operation (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/browser-responsibility (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/foreign-owner (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/wrong-project (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/not-held-operation (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/browser-responsibility (0.00s)
+PASS
+ok  	mcp-studio/internal/agent/sessions	0.859s
+=== RUN   TestEncryptedQueueRestartReceiptAndOwnerIsolation
+--- PASS: TestEncryptedQueueRestartReceiptAndOwnerIsolation (0.02s)
+=== RUN   TestQueueLostReceiptRetainsExactInputAndSevenDayReminder
+--- PASS: TestQueueLostReceiptRetainsExactInputAndSevenDayReminder (0.04s)
+=== RUN   TestQueueUnavailableRequiresExplicitOwnerMemoryChoice
+--- PASS: TestQueueUnavailableRequiresExplicitOwnerMemoryChoice (0.01s)
+=== RUN   TestQueueLockedVaultRecoversWithoutCallingTool
+--- PASS: TestQueueLockedVaultRecoversWithoutCallingTool (0.03s)
+=== RUN   TestReceiptErasesFrozenPayloadAndQuotaIncludesReservations
+--- PASS: TestReceiptErasesFrozenPayloadAndQuotaIncludesReservations (0.06s)
+=== RUN   TestRetentionChangeDuringFailedUploadCannotRestoreCiphertext
+--- PASS: TestRetentionChangeDuringFailedUploadCannotRestoreCiphertext (0.01s)
+=== RUN   TestMemoryChoiceCannotSilentlyLeaveLockedCiphertext
+--- PASS: TestMemoryChoiceCannotSilentlyLeaveLockedCiphertext (0.01s)
+PASS
+ok  	mcp-studio/internal/agent/queue	0.908s

@@ -1,0 +1,12 @@
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.561ms)
+✔ abort waits for TERM-ignoring descendant after its parent exits first (5062.616834ms)
+✔ gate propagates a failing real subprocess exit status (42.904709ms)
+✔ abort waits for real parent and inherited child cleanup before returning (68.007334ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5228.847875

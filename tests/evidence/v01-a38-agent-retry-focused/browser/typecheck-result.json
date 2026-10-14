@@ -1,0 +1,1 @@
+{"command":"tsc --noEmit --strict --esModuleInterop --module esnext --moduleResolution bundler --target es2022 --jsx react-jsx --skipLibCheck tests/e2e/v01-agent-retry.spec.ts","exitCode":0,"output":"typecheck-final.log","scope":"Final strengthened test source; observed actual process exit"}

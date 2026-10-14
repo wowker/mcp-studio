@@ -1,0 +1,1 @@
+{"command": "tsc --noEmit --strict --esModuleInterop --module esnext --moduleResolution bundler --target es2022 --jsx react-jsx --skipLibCheck tests/e2e/m2.spec.ts", "exitCode": 0, "output": "typecheck.log", "scope": "actual observed compiler exit for M2 test synchronization source"}

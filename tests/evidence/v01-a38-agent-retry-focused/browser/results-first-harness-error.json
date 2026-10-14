@@ -1,0 +1,143 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/v01-a38-agent-retry-focused/browser/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "v01-agent-retry.spec.ts",
+      "file": "v01-agent-retry.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2750,
+                  "error": {
+                    "message": "TypeError: Cannot read properties of undefined (reading 'role')",
+                    "stack": "TypeError: Cannot read properties of undefined (reading 'role')\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts:29:139",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts",
+                      "column": 139,
+                      "line": 29
+                    },
+                    "snippet": "  27 |    const email=`v01-retry-${suffix}@example.test`,inviteResponse=await post(page.request,`/projects/${projectId}/invitations`,{email,teamRole:'member',projectRole:'developer',days:7},owner.csrf),invite=wire.invitationSchema.parse((await inviteResponse.json()).data),token=await mail(request,email,1);\n  28 |    const context=await browser.newContext({baseURL:origin(),ignoreHTTPSErrors:true});contexts.push(context);await post(context.request,'/invitation/register',{email,name:'A38 '+suffix,password:'Fixture-Password-12',token});await post(context.request,'/verification/confirm',{token:await mail(request,email,2)});await post(context.request,'/login',{email,password:'Fixture-Password-12'});const actual=await session(context.request);await post(context.request,`/invitations/${invite.id}/accept`,{token},actual.csrf);\n> 29 |    expect((await requestData(context.request,`/projects/${projectId}`,wire.projectSchema)).role).toBe('developer');expect(actual.teams[0].role).toBe('member');const actorPage=await context.newPage();await actorPage.goto(`/?project=${projectId}&page=servers&connection=${connection.id}`);await expect(actorPage.getByRole('navigation',{name:'项目导航'})).toBeVisible();await actorPage.locator('.workbench-preferences select').selectOption('en-US');const headers=await pair(actorPage,request);actors.push({page:actorPage,session:actual,headers});\n     |                                                                                                                                           ^\n  30 |   }\n  31 |   const [actor,other]=actors;\n  32 |   const agentGet=async(path:string,headers=actor.headers)=>{const response=await request.get(address()+path,{headers});expect(response.status()).toBe(200);return response;};"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts",
+                        "column": 139,
+                        "line": 29
+                      },
+                      "message": "TypeError: Cannot read properties of undefined (reading 'role')\n\n  27 |    const email=`v01-retry-${suffix}@example.test`,inviteResponse=await post(page.request,`/projects/${projectId}/invitations`,{email,teamRole:'member',projectRole:'developer',days:7},owner.csrf),invite=wire.invitationSchema.parse((await inviteResponse.json()).data),token=await mail(request,email,1);\n  28 |    const context=await browser.newContext({baseURL:origin(),ignoreHTTPSErrors:true});contexts.push(context);await post(context.request,'/invitation/register',{email,name:'A38 '+suffix,password:'Fixture-Password-12',token});await post(context.request,'/verification/confirm',{token:await mail(request,email,2)});await post(context.request,'/login',{email,password:'Fixture-Password-12'});const actual=await session(context.request);await post(context.request,`/invitations/${invite.id}/accept`,{token},actual.csrf);\n> 29 |    expect((await requestData(context.request,`/projects/${projectId}`,wire.projectSchema)).role).toBe('developer');expect(actual.teams[0].role).toBe('member');const actorPage=await context.newPage();await actorPage.goto(`/?project=${projectId}&page=servers&connection=${connection.id}`);await expect(actorPage.getByRole('navigation',{name:'项目导航'})).toBeVisible();await actorPage.locator('.workbench-preferences select').selectOption('en-US');const headers=await pair(actorPage,request);actors.push({page:actorPage,session:actual,headers});\n     |                                                                                                                                           ^\n  30 |   }\n  31 |   const [actor,other]=actors;\n  32 |   const agentGet=async(path:string,headers=actor.headers)=>{const response=await request.get(address()+path,{headers});expect(response.status()).toBe(200);return response;};\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts:29:139"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:42:02.751Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-agent-retry-V01-A38-pr-34e36-ot-retry-or-replay-the-Tool-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts",
+                    "column": 139,
+                    "line": 29
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6f57bc71c37a46b5343a-701b6560b811a81fed89",
+          "file": "v01-agent-retry.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T07:42:02.305Z",
+    "duration": 3548.3959999999997,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

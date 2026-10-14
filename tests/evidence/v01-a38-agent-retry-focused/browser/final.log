@@ -1,0 +1,36 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:22163) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22163) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool (8.6s)
+
+
+  1) [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoHaveLength[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected length: [32m1[39m
+    Received length: [31m0[39m
+    Received array:  [31m[][39m
+
+      52 |   await deny('viewer_connect','/v1/connections',{projectId,connectionId:connection.id,version:connection.version,environmentId:connection.environmentId},actor.headers,'project_permission_revoked');await deny('viewer_run','/v1/runs',runInput,actor.headers,'project_permission_revoked');
+      53 |   expect(await queue()).toEqual(baselineQueue);expect(await uploads()).toEqual(baselineUploads);expect(await fixtureStats(request)).toEqual(baselineStats);expect((await history()).items).toEqual([]);expect(await requestData(actor.page.request,privatePath,wire.recordSchema)).toEqual(privateRecord);expect(await requestData(page.request,`/projects/${projectId}/audit`,z.array(wire.auditSchema))).toEqual(auditBefore);
+    > 54 |   await role('developer');const accepted=await request.post(address()+`/v1/queue/${frozen.operationId}/retry`,{headers:actor.headers,data:{projectId}});expect(accepted.status()).toBe(200);const recorded=agentWire.agentQueueStateSchema.parse((await accepted.json()).data);expect(recorded).toMatchObject({operationId:frozen.operationId,status:'recorded',bytes:0});const retained=JSON.parse(recorded.inputJSON) as wire.RecordUploadInput;expect(retained).toMatchObject({operationId:agentInput.operationId,targetId:agentInput.targetId,frozenDigest:agentInput.frozenDigest,responsibleEndpoint:'agent'});expect((await history()).items).toHaveLength(1);expect((await history()).items[0].id).toBe(agentInput.targetId);expect((await history()).items[0].snapshot).toEqual(agentInput.snapshot);expect(await fixtureStats(request)).toEqual(baselineStats);const finalUploads=await uploads();expect(finalUploads).toHaveLength(baselineUploads.length+1);expect(finalUploads.at(-1)).toEqual({...baselineUploads.at(-1)!,status:200});
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+      55 |   const again=await request.post(address()+`/v1/operations/${frozen.operationId}/retry`,{headers:actor.headers,data:{projectId}});expect(again.status()).toBe(200);expect(await uploads()).toEqual(finalUploads);expect(await fixtureStats(request)).toEqual(baselineStats);
+      56 |   const dir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/v01-a38-agent-retry-focused/browser';await mkdir(dir,{recursive:true});await writeFile(`${dir}/agent-retry-boundaries.json`,JSON.stringify({scope:'Real platform PG/users + paired protected Go Agent HTTP; controlled native confirmation/MasterStore, T02/T32b/native/manual/media/formal pending',projectId,connectionId:connection.id,userId:actor.session.user.id,otherUserId:other.session.user.id,operationId:frozen.operationId,browserOperationId:browserInput.operationId,targetId:agentInput.targetId,frozenDigest:agentInput.frozenDigest,runId:run.runId,observations,roles:['developer','viewer','developer'],queuePreservedOnDenial:true,privateRecordReadOnlyPreserved:true,noNewToolCalls:true,uploads:{before:baselineUploads.length,after:finalUploads.length},apiCallsUseActualPairing:true,channelSecretsPersisted:false},null,2)+'\n');
+      57 |  }finally{await control(request,'/upload-failure',{enabled:false});for(const context of contexts)await context.close();}
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-agent-retry.spec.ts:54:630
+
+    Error Context: test-results/v01-agent-retry-V01-A38-pr-34e36-ot-retry-or-replay-the-Tool-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool 
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed
+Playwright production-entry E2E: failed with exit 1

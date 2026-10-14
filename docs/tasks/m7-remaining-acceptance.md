@@ -8,7 +8,9 @@ V01已逐项核对，见[断言审计](v01-assertion-audit.md)和[逐条JSON](v0
 
 2026-10-14最新授权：A04同连接CORS→显式Agent、A07独立备份失败/重试已补证并修补实际重认证403误分类，冻结3ad6445完整verify通过。仅四个目标条款更新为受控证据，该批有效115支持/69部分/0未找到/3环境；正式全待验、T02/T32b及实机/人工/介质不变。详见[连续补证审阅](v01-a04-a07-review.md)和[增量JSON](v01-a04-a07-supplement.json)，不发布。
 
-2026-10-14最新：A30必要pane/底栏自动补证及缺底栏修补、A38 Developer固定API直拒已执行，冻结f2fd29b完整verify通过。A30总体partial/environment-pending保留，仅A38固定条款补为受控支持；有效116支持/68部分/0未找到/3环境。详见[布局/固定补证审阅](v01-a30-a38-review.md)和[增量JSON](v01-a30-a38-supplement.json)。正式A、T02/T32b及实机/人工/介质保持待验，不发布。
+2026-10-14最新：A30必要pane/底栏自动补证及缺底栏修补、A38 Developer固定API直拒已执行，冻结f2fd29b完整verify通过。A30总体partial/environment-pending保留，仅A38固定条款补为受控支持；该批有效116支持/68部分/0未找到/3环境。详见[布局/固定补证审阅](v01-a30-a38-review.md)和[增量JSON](v01-a30-a38-supplement.json)。正式A、T02/T32b及实机/人工/介质保持待验，不发布。
+
+2026-10-14最新：A38他人Agent operation/错误责任端/实时Viewer接口组合补证已完成，冻结b3b6fa3最终完整verify通过。首轮既有中止回归偶发失败原因未稳定复现，未改中止源码/断言/时限；第二轮M2测试刷新时序已补等待，原断言/时限保持。两轮失败及复核资料单独保留。仅重试条款补为受控支持，有效117支持/67部分/0未找到/3环境；正式A、A30环境/人工、T02/T32b及实机/介质不变。详见[Agent重试补证](v01-a38-agent-retry-review.md)和[增量JSON](v01-a38-agent-retry-supplement.json)，不发布。
 
 ## 当前可用环境与边界
 

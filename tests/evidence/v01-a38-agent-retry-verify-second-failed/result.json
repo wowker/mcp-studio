@@ -1,0 +1,13 @@
+{
+  "implementationRevision": "b2bc47a432b23823056b6db213102f9ea38634f0",
+  "verifyExit": 1,
+  "browser": {
+    "passed": 32,
+    "failed": 1
+  },
+  "failedTest": "M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial",
+  "symptom": "credential confirmation detached during connection save/list refresh; click timed out",
+  "cause": "test initiated followup before asynchronous save refresh completed; ConnectionsPage reload unmounts editor",
+  "followup": "await actual GET refresh and resource mismatch view before opening confirmation; no original assertion or timeout removed",
+  "cleanup": "log records runtime fixtures stopped and exact leased schemas removed"
+}

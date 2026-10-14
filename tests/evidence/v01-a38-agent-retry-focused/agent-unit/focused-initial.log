@@ -1,0 +1,20 @@
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/foreign-owner
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/wrong-project
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/not-held-operation
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/browser-responsibility
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/foreign-owner
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/wrong-project
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/not-held-operation
+=== RUN   TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/browser-responsibility
+--- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite (0.06s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/foreign-owner (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/wrong-project (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/not-held-operation (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/queue/browser-responsibility (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/foreign-owner (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/wrong-project (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/not-held-operation (0.00s)
+    --- PASS: TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite/operations/browser-responsibility (0.00s)
+PASS
+ok  	mcp-studio/internal/agent/sessions	0.760s

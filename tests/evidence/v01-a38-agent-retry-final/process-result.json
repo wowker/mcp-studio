@@ -1,0 +1,8 @@
+{
+  "command": "npm run verify",
+  "implementationRevision": "b3b6fa305d09fe615e599a726f6eaaa40e65a12a",
+  "exitCode": 0,
+  "observed": "Actual terminal process completion; log ends with all gates passed",
+  "evidenceDir": "tests/evidence/v01-a38-agent-retry-final",
+  "database": "Dedicated synthetic disposable test database; exact schemas leased and removed"
+}

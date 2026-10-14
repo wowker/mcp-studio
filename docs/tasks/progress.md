@@ -421,3 +421,13 @@ CSV仅A04/A07追加，原审计/六条补证历史不动，四个目标partial�
 聚焦Shell两文件4项、类型/构建及1browser20格通过，完整platform Go通过含新1顶层两子case；测试编译类型/NodeNext命令错误分别保留为harness失败。独立限定审查无Critical/Important/Minor，未替代根验证。冻结源完整verifyexit0：601前端/61文件、33Node、12运维、真实PG全量Go/24个具测试包/vet/build、四目标未签名候选/隔离部署、32browser零失败/跳过/重试。360输入SHA a83115b856ce86852885f7f2063787fa2305d977b311c01d95eb013da94b39bd；835PNG/159axe，0确认违规，原color-contrast incomplete仍人工待验。准确自有schema/Compose资源清理0，预存PG保留；无新CLI中止/race/依赖审计声明。
 
 CSV只A30/A38追加，原审计/两补证JSON/原72叶子/设计快照/M7归档不动。A30两自动缺口闭合但总体partial/environment-pending保留，仅A38固定partial补为受控支持，有效116支持/68部分/0未找到/3环境；其余不重评。全部A正式待验、T02/T32b及实机/人工/介质不变，只本地提交不推送/合并/tag/签名/公证/发布。详见[逐项审阅](v01-a30-a38-review.md)、[精确增量](v01-a30-a38-supplement.json)及[登记核对](../../tests/evidence/v01-a30-a38-final/registration-check.json)。
+
+## 2026-10-14 · A38 Agent责任端/Viewer真实接口补证
+
+基于10e369f，仅补本人责任端队列条款；Go144e4b4，真实HTTP冻结b3b6fa305d09fe615e599a726f6eaaa40e65a12a。两个实际验证/接受账号及真实配对token、旧配置在实时Viewer降级后仍由平台/Agent拒绝，不依赖UI角色；两个retry路由的他人ID/Browseroperation拒绝，Browser不能原样上传Agent冻结输入。拒绝时全队列/上传/Tool/历史/私有保存/audit保持，恢复Developer后原身份/摘要/快照仅上传一次，重复重试幂等。实际浏览器持久存储无通道token；Go受控Session/授权seam不冒称真实角色证明。
+
+无A38产品缺陷/生产源修改；另修补完整门禁复现的M2测试保存刷新时序（b3b6fa3），单项/strict通过，原断言及60秒保持。第二轮完整门禁浏览器32通过/1时序失败与资料保留。三轮测试编写假设错误（接受前teams、成功队列应保留正文、Owner应见别人私有history）分别保留并修正，不称产品RED。独立审查无阻断，Minor来源断言补后最新1browser通过，strict实际exit0有结果文件；Go27顶层通过。完整首轮既有TERM-ignoring子进程中止回归error.exitCode异常失败，独立runtime4和同Node33诊断通过，原因未稳定复现，不称修复、不改原断言/时限。
+
+新冻结源重新完整verifyexit0：601前端/61文件、33Node、12运维、真实PG Go/24具测试包/vet/build、四目标未签名候选/隔离部署、33browser零失败/跳过/重试。362输入SHA 31550f8693dd9ee971daecce182de9601d0f635b2dadc6e8acb4f6f1976d452b；835PNG/159axe，0确认违规，2color-contrast incomplete仍人工待验。准确自有schema/Compose资源清理0，预存PG保留；首次失败及复核单独归档，无新完整CLI中止/race/依赖审计声明。
+
+CSV仅A38追加，其他59/原审计/三补证JSON/72叶子/设计快照/M7归档不变。一partial补受控支持，有效117支持/67部分/0未找到/3环境。正式A全待验，A30部分/环境及T02/T32b/实机/人工/介质不变。仅本地提交，不推送/合并/tag/签名/公证/发布；详见[审阅](v01-a38-agent-retry-review.md)、[精确增量](v01-a38-agent-retry-supplement.json)、[登记检查](../../tests/evidence/v01-a38-agent-retry-final/registration-check.json)。

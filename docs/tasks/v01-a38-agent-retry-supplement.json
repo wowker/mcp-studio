@@ -1,0 +1,86 @@
+{
+  "format": "mcp-studio.v01.agent-retry-supplement.v1",
+  "baseRevision": "10e369f6245e044c14d5dd3ec6fa533f0e83e0c0",
+  "baselineAudit": "docs/tasks/v01-assertion-audit.json",
+  "previousSupplements": [
+    "docs/tasks/v01-direct-assertions.json",
+    "docs/tasks/v01-a04-a07-supplement.json",
+    "docs/tasks/v01-a30-a38-supplement.json"
+  ],
+  "implementationRevision": "b3b6fa305d09fe615e599a726f6eaaa40e65a12a",
+  "sourceSHA256": "31550f8693dd9ee971daecce182de9601d0f635b2dadc6e8acb4f6f1976d452b",
+  "items": [
+    {
+      "id": "A38",
+      "expected": "本人执行角色仅重试本人责任端队列",
+      "formalExpected": "仅维护者可固定；本人执行角色仅重试本人责任端队列；Viewer 可见私有记录只读",
+      "baselineCoverage": "partial",
+      "baselineGap": "浏览器同账号绑定、最新权限及Agent队列owner List有证据；未见他人Agent operation ID retry拒绝、错误责任端retry及降级后真实Agent接口组合断言。",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "b3b6fa305d09fe615e599a726f6eaaa40e65a12a",
+      "assertions": [
+        {
+          "path": "internal/agent/sessions/v01_retry_boundaries_test.go",
+          "line": 54,
+          "testName": "TestA38AuthenticatedRetryEnforcesOwnerProjectEndpointAndCurrentWrite",
+          "summary": "实际SDK/加密队列/Engine路由，两retry别名8拒绝子case；受控授权seam，不冒称真实localapi/PG角色；一次Tool、错误端入队拒绝、拒绝不泄漏、恢复后同冻结输入/幂等。",
+          "sha256": "62e080f79546dc454659d9ef8068d6c591cc495683ec7c9aecfffd94c1f990b4"
+        },
+        {
+          "path": "tests/e2e/v01-agent-retry.spec.ts",
+          "line": 21,
+          "testName": "V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool",
+          "summary": "两个实际验证账号/Developer普通成员/真实配对token；10拒绝响应覆盖他人ID、Browser责任端、无通道及实时Viewer；队列/上传/Tool/私有记录/审计保持，恢复仅原冻结上传，成功正文清除及私有Owner边界正确。",
+          "sha256": "06bc8c9ebbe3bf8b6967a1b6c66a859759eadd19e8d621d73329c1f697bcfdef"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a38-agent-retry-focused/agent-unit/go.log",
+        "tests/evidence/v01-a38-agent-retry-focused/browser/review-green.log",
+        "tests/evidence/v01-a38-agent-retry-focused/browser/results.json",
+        "tests/evidence/v01-a38-agent-retry-focused/browser/agent-retry-boundaries.json",
+        "tests/evidence/v01-a38-agent-retry-focused/browser/typecheck-result.json"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a38-agent-retry-final/manifest.json",
+        "log": "tests/evidence/v01-a38-agent-retry-final/verify.log",
+        "results": "tests/evidence/v01-a38-agent-retry-final/results.json"
+      },
+      "behavior": "既有生产行为直接GREEN，无生产源修改；三轮测试编写错误分别修正，非产品RED。首轮完整verify已有中止回归单次失败，原因未稳定复现；第二轮既有M2 OAuth测试刷新时序失败，等待真实刷新后单项通过；新冻结源最终门禁通过。",
+      "scope": "当前单个受控Agent、实际两个配对用户、Browser↔Agent责任端；Go另覆盖未持有/错误项目。真实多设备/OS/本机确认及目标浏览器/人工/介质仍待验。"
+    }
+  ],
+  "effectiveCoverage": {
+    "assertion-backed": 117,
+    "partial": 67,
+    "not-found": 0,
+    "environment-pending": 3
+  },
+  "clauses": 187,
+  "supplementedClauses": 1,
+  "formalPassCount": 0,
+  "scope": "仅A38本人责任端重试条款受控补证，其他不重评，A30环境/人工保持原状态；全部正式签收待验。",
+  "review": {
+    "agent": "a38_retry_review",
+    "blockingFindings": 0,
+    "minor": "Browser副本Agent来源/同Run直接断言已补并实际重新通过",
+    "testsExecutedByReviewer": false
+  },
+  "verificationFirstFailure": "tests/evidence/v01-a38-agent-retry-verify-first-failed/result.json",
+  "verificationSecondFailure": "tests/evidence/v01-a38-agent-retry-verify-second-failed/result.json",
+  "gateTestSynchronization": {
+    "path": "tests/e2e/m2.spec.ts",
+    "revision": "b3b6fa305d09fe615e599a726f6eaaa40e65a12a",
+    "focused": "tests/evidence/v01-a38-agent-retry-focused/m2-save-sync/results.json",
+    "productSourceChanged": false
+  },
+  "pendingUnchanged": [
+    "T02",
+    "T32b",
+    "实机/人工/介质",
+    "原72叶子",
+    "全部正式A"
+  ],
+  "publication": "not-authorized"
+}
