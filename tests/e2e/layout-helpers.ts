@@ -1,8 +1,10 @@
 import {expect,type Page} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {mkdir,writeFile} from 'node:fs/promises';
+import {verifyRequiredLayout} from './v01-required-layout';
 const defaultDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m6-layout';
 export async function verifyLayout(page:Page,viewName:string,{evidenceDir=defaultDir,screenshot=false}:{evidenceDir?:string;screenshot?:boolean}={}){
+ const requiredGeometry=await verifyRequiredLayout(page,['.workbench-content']);
  const metrics=await page.evaluate(()=>{
   const shown=(element:Element)=>{const rect=element.getBoundingClientRect();return rect.width>0&&rect.height>0&&getComputedStyle(element).visibility!=='hidden';};
   const panes=[...document.querySelectorAll('.tools-layout,.tools-workspace,.ui-debugger-request,.ui-debugger-result,.workbench-content')].filter(shown).map(element=>({className:element.className,width:element.getBoundingClientRect().width,height:element.getBoundingClientRect().height}));
@@ -14,7 +16,7 @@ export async function verifyLayout(page:Page,viewName:string,{evidenceDir=defaul
  expect(metrics.bodySize).toBe(14);expect(metrics.minimumTextSize).toBeGreaterThanOrEqual(11);for(const size of metrics.auxiliarySizes)expect(size).toBe(12);expect(metrics.pageOverflow).toBe(false);for(const pane of metrics.panes){expect(pane.width).toBeGreaterThan(0);expect(pane.height).toBeGreaterThan(0);}
  for(const table of metrics.tables){expect(table.tableWidth).toBeGreaterThanOrEqual(640);if(table.regionWidth<640)expect(table.keyboardReachable).toBe(true);}
  await mkdir(evidenceDir,{recursive:true});const screenshotState=!screenshot?'not-requested':metrics.sensitiveInput?'withheld-sensitive-input':'captured';if(screenshotState==='captured')await page.screenshot({path:`${evidenceDir}/${viewName}.png`});
- return {name:viewName,...metrics,screenshot:screenshotState};
+ return {name:viewName,...metrics,requiredGeometry,screenshot:screenshotState};
 }
 export async function axeScan(page:Page,viewName:string,evidenceDir=defaultDir){
  const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
