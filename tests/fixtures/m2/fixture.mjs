@@ -40,7 +40,7 @@ export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.
   if(req.headers.cookie)stats.cookieRequests++;
   if(req.headers.origin&&req.headers.origin!==allowedOrigin)return reply(res,403,{error:'origin-rejected'});
   if(req.headers.host!==new URL(origin).host)return reply(res,403,{error:'host-rejected'});
-  if(path!=='/cors-denied'){
+  if(path!=='/cors-denied'&&path!=='/cors-token-mcp'){
    res.setHeader('Access-Control-Allow-Origin',allowedOrigin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Methods','GET, POST, DELETE, OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type, Accept, Authorization, MCP-Session-Id, MCP-Protocol-Version');res.setHeader('Access-Control-Expose-Headers','MCP-Session-Id, WWW-Authenticate');
   }
   if(req.method==='OPTIONS')return reply(res,204);
@@ -67,14 +67,14 @@ export async function startM2Fixture({allowedOrigin,tls,publicHostname='127.0.0.
    if(p.get('grant_type')!=='authorization_code'||entry.expires<=Date.now()||entry.challenge!==challenge||entry.resource!==p.get('resource')||entry.redirect!==p.get('redirect_uri')||entry.clientId!==p.get('client_id')||p.has('client_secret'))return reply(res,400,{error:'invalid_grant'});
    stats.pkceVerified++;stats.resourceVerified++;const token=randomBytes(32).toString('base64url');tokens.add(token);return reply(res,200,{access_token:token,token_type:'Bearer',expires_in:300,refresh_token:'synthetic-refresh-not-supported'});
   }
-  if(path==='/oauth-mcp'||path==='/oauth-deny-mcp'||path==='/token-mcp'){
+  if(path==='/oauth-mcp'||path==='/oauth-deny-mcp'||path==='/token-mcp'||path==='/cors-token-mcp'){
    const token=req.headers.authorization?.replace(/^Bearer /u,'');
    if(!tokens.has(token)){res.setHeader('WWW-Authenticate',`Bearer resource_metadata="${origin}/.well-known/oauth-protected-resource/${path==='/oauth-deny-mcp'?'oauth-deny-mcp':'oauth-mcp'}", scope="${path==='/oauth-deny-mcp'?'deny':'read'}"`);return reply(res,401,{error:'authorization-required'});}
   }
   if(path==='/cors-denied')return reply(res,200,{ok:true});
   if(path==='/slow-mcp')return; // Deliberately until aborted. closeAllConnections tears down test handles.
   if(path==='/failure')return reply(res,500,{error:'controlled-failure'});
-  if(['/mcp','/oauth-mcp','/token-mcp','/schema-mcp'].includes(path)){
+  if(['/mcp','/oauth-mcp','/token-mcp','/cors-token-mcp','/schema-mcp'].includes(path)){
    if(req.method==='DELETE')return reply(res,204);
    if(req.method!=='POST')return reply(res,405);
    let message;try{message=JSON.parse(raw);}catch{return reply(res,400,{error:'invalid-json'});}
