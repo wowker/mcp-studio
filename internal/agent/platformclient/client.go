@@ -74,6 +74,16 @@ func (c *Client) request(ctx context.Context, method, path, token string, body, 
 			return errors.New("platform_identity_expired")
 		}
 		if response.StatusCode == 403 {
+			// Backup password reauthentication is independent of project access.
+			// Preserve only that known error on its exact mutation routes; never
+			// expose arbitrary platform error bodies or reclassify grant denial.
+			if backupReauthenticationRequest(method, path) {
+				b, err := io.ReadAll(io.LimitReader(response.Body, 4097))
+				var rejection wire.Error
+				if err == nil && len(b) <= 4096 && json.Unmarshal(b, &rejection) == nil && rejection.Error.Code == "reauthentication_failed" {
+					return errors.New("reauthentication_failed")
+				}
+			}
 			return errors.New("project_permission_revoked")
 		}
 		return fmt.Errorf("platform_rejected_%d", response.StatusCode)
@@ -92,6 +102,20 @@ func (c *Client) request(ctx context.Context, method, path, token string, body, 
 		return errors.New("invalid_platform_response")
 	}
 	return nil
+}
+
+func backupReauthenticationRequest(method, path string) bool {
+	if method != http.MethodPost {
+		return false
+	}
+	parts := strings.Split(path, "/")
+	if len(parts) != 8 && len(parts) != 10 {
+		return false
+	}
+	if parts[0] != "" || parts[1] != "api" || parts[2] != "v1" || parts[3] != "projects" || !validID(parts[4]) || parts[5] != "connections" || !validID(parts[6]) || parts[7] != "credential-backups" {
+		return false
+	}
+	return len(parts) == 8 || validID(parts[8]) && parts[9] == "restore"
 }
 func (c *Client) Exchange(ctx context.Context, proof, device string) (pairing.Grant, error) {
 	var v wire.AgentGrant

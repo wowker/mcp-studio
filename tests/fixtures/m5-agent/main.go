@@ -83,6 +83,40 @@ type fixturePlatformTransport struct {
 }
 
 func (f fixturePlatformTransport) RoundTrip(r *http.Request) (*http.Response, error) {
+	// Observe only public metadata. Forward both attempts to the real platform;
+	// passwords, token payloads, grants and response bodies never enter the log.
+	if r.Method == http.MethodPost && filepath.Base(r.URL.Path) == "credential-backups" {
+		summary := map[string]any{"type": "backup"}
+		parts := strings.Split(strings.Trim(r.URL.Path, "/"), "/")
+		if len(parts) == 7 {
+			summary["projectId"], summary["connectionId"] = parts[3], parts[5]
+		}
+		if r.GetBody != nil {
+			body, err := r.GetBody()
+			if err == nil {
+				var input struct {
+					Kind            string `json:"kind"`
+					ReferenceID     string `json:"referenceId"`
+					SourceDigest    string `json:"sourceDigest"`
+					ValueJSON       string `json:"valueJSON"`
+					ExpectedVersion int    `json:"expectedVersion"`
+				}
+				if json.NewDecoder(body).Decode(&input) == nil {
+					sum := sha256.Sum256([]byte(input.ValueJSON))
+					summary["kind"], summary["referenceId"] = input.Kind, input.ReferenceID
+					summary["sourceDigest"], summary["expectedVersion"] = input.SourceDigest, input.ExpectedVersion
+					summary["sourceDigestMatchesValue"] = input.SourceDigest == hex.EncodeToString(sum[:])
+				}
+				body.Close()
+			}
+		}
+		response, err := f.base.RoundTrip(r)
+		if err == nil {
+			summary["status"] = response.StatusCode
+			event(summary)
+		}
+		return response, err
+	}
 	if filepath.Base(r.URL.Path) == "record-uploads" {
 		summary := map[string]any{"type": "upload"}
 		if r.GetBody != nil {
