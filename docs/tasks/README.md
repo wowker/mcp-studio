@@ -13,6 +13,7 @@
 - [V01/V02 执行审阅](v01-v02-review.md)：verify中止夹具回收、真实RED/GREEN、冻结源9ed9292完整门禁和限制；不发布。
 - [V01 六条直接断言补证](v01-direct-assertions-review.md)：A01/A09/A28/A32/A51补证及冻结源c3a1dc0；只更新这六条受控证据，正式全待验。
 - [V01 A04/A07 连续补证](v01-a04-a07-review.md)：同连接CORS显式切Agent、真实备份失败/重试及错误码修补；最新完整门禁与逐条补证，正式全待验。
+- [V01 A30/A38 布局与固定API补证](v01-a30-a38-review.md)：必要pane/底栏20格与遗漏修补、Developer真实API403；最新门禁、待验与登记。
 - [M7 剩余验收安排](m7-remaining-acceptance.md)：V01/V02已执行；后续环境、当前设备可继续项目和建议顺序。
 
 正式预期结果以 [设计验收正文](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md) 和 [原始登记](../design-baseline-v2/design-handoff/acceptance-register-v2.csv) 为准。参考目录内的旧 tasks 保持为交接快照，不同步开发进度。

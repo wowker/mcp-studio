@@ -1,0 +1,179 @@
+{
+  "format": "mcp-studio.v01.layout-pin-supplement.v1",
+  "baseRevision": "d9b36099522e940973b4d0b925a0c41afbbc6d7f",
+  "baselineAudit": "docs/tasks/v01-assertion-audit.json",
+  "previousSupplements": [
+    "docs/tasks/v01-direct-assertions.json",
+    "docs/tasks/v01-a04-a07-supplement.json"
+  ],
+  "implementationRevision": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+  "sourceSHA256": "a83115b856ce86852885f7f2063787fa2305d977b311c01d95eb013da94b39bd",
+  "items": [
+    {
+      "id": "A30",
+      "expected": "无零高内容",
+      "formalExpected": "无整页横溢出、底栏裁切、零高内容；长文和操作可达",
+      "baselineCoverage": "partial",
+      "baselineGap": "shown过滤器已排除零宽高元素（layout-helpers.ts:7–8），因此并未证明预期必须呈现的pane在全部布局均存在且非零；需必需pane存在/可达性断言及视觉审阅。",
+      "currentCoverage": "partial",
+      "automatedCoverage": "assertion-backed",
+      "automatedGapStatus": "closed-in-controlled-environment",
+      "formalStatus": "待验收",
+      "implementationRevision": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-required-layout.spec.ts",
+          "line": 8,
+          "testName": "V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix",
+          "summary": "真实平台/PG/Browser MCP完成唯一Run后，中英×亮暗×四宽及1024×480共20格；10个预先明确pane存在且非零，底栏完整视口与命中，参数/结果动作及侧栏语言能scroll/focus/trial-click；草稿/历史/Tool次数保持。",
+          "sha256": "e5006b8193a6cfdc46104a43bf8e9a08fe0260b077ae453955a6293da7a32358"
+        },
+        {
+          "path": "tests/e2e/v01-required-layout.ts",
+          "line": 5,
+          "testName": "export async function verifyRequiredLayout",
+          "summary": "未先过滤，逐预期selector查count和尺寸/显示状态；底栏几何与命中，零高与越界受控CSS探针会拒绝。",
+          "sha256": "d57a5b52b7c6c2179f0f89a271df09b1d6cd13b273be41b6d3a3a9e5674f0168"
+        },
+        {
+          "path": "tests/e2e/v01-required-layout.ts",
+          "line": 19,
+          "testName": "export async function verifyReachableControl",
+          "summary": "真实scrollIntoView/focus/trialclick，加完整rect/每层裁切容器及3点命中，无force点击或绕过滚动。",
+          "sha256": "d57a5b52b7c6c2179f0f89a271df09b1d6cd13b273be41b6d3a3a9e5674f0168"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a30-a38-focused/layout/browser-red.log",
+        "tests/evidence/v01-a30-a38-focused/layout/results-footer-red.json",
+        "tests/evidence/v01-a30-a38-focused/layout/browser-green.log",
+        "tests/evidence/v01-a30-a38-focused/layout/results.json",
+        "tests/evidence/v01-a30-a38-focused/layout/required-pane-footer-metrics.json"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a30-a38-final/manifest.json",
+        "log": "tests/evidence/v01-a30-a38-final/verify.log",
+        "results": "tests/evidence/v01-a30-a38-final/results.json"
+      },
+      "behavior": "真实组件与生产浏览器RED：缺设计03要求的底部状态栏；最小修补后20格GREEN；oracle CSS探针非产品故障",
+      "remaining": [
+        "T02 Chrome/Edge目标版本、人工视觉/长文/所有操作和T32b仍待验；整体partial/environment-pending保留，自动缺口闭合不签收完整A30。"
+      ]
+    },
+    {
+      "id": "A30",
+      "expected": "无底栏裁切",
+      "formalExpected": "无整页横溢出、底栏裁切、零高内容；长文和操作可达",
+      "baselineCoverage": "environment-pending",
+      "baselineGap": "verifyLayout只检查横溢出、可见pane几何及table宽度，未断言所有底栏bounding rectangle/遮挡/滚动后可点击。截图存在不等同人工视觉验收。",
+      "currentCoverage": "environment-pending",
+      "automatedCoverage": "assertion-backed",
+      "automatedGapStatus": "closed-in-controlled-environment",
+      "formalStatus": "待验收",
+      "implementationRevision": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-required-layout.spec.ts",
+          "line": 8,
+          "testName": "V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix",
+          "summary": "真实平台/PG/Browser MCP完成唯一Run后，中英×亮暗×四宽及1024×480共20格；10个预先明确pane存在且非零，底栏完整视口与命中，参数/结果动作及侧栏语言能scroll/focus/trial-click；草稿/历史/Tool次数保持。",
+          "sha256": "e5006b8193a6cfdc46104a43bf8e9a08fe0260b077ae453955a6293da7a32358"
+        },
+        {
+          "path": "tests/e2e/v01-required-layout.ts",
+          "line": 5,
+          "testName": "export async function verifyRequiredLayout",
+          "summary": "未先过滤，逐预期selector查count和尺寸/显示状态；底栏几何与命中，零高与越界受控CSS探针会拒绝。",
+          "sha256": "d57a5b52b7c6c2179f0f89a271df09b1d6cd13b273be41b6d3a3a9e5674f0168"
+        },
+        {
+          "path": "tests/e2e/layout-helpers.ts",
+          "line": 7,
+          "testName": "const requiredGeometry=await verifyRequiredLayout",
+          "summary": "既有实际P01–P26截图/状态矩阵capture同步检查必要main与全局底栏。",
+          "sha256": "4c147378c34a659f5ccad251831b37bb926ed8725d780793549b82967610147a"
+        },
+        {
+          "path": "apps/web/src/app/v01-shell-footer.test.tsx",
+          "line": 9,
+          "testName": "keeps the actual readable project context in the bottom bar and removes it after losing content access",
+          "summary": "组件复现缺底栏；仅可读项目名称/title，失去canRead后仅Projects，输入保持。",
+          "sha256": "2619ae3fbf18fcca110369f25b60d7d85a97ab1f942a1dfc8fad8d5550281515"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a30-a38-focused/layout/browser-red.log",
+        "tests/evidence/v01-a30-a38-focused/layout/results-footer-red.json",
+        "tests/evidence/v01-a30-a38-focused/layout/browser-green.log",
+        "tests/evidence/v01-a30-a38-focused/layout/results.json",
+        "tests/evidence/v01-a30-a38-focused/layout/required-pane-footer-metrics.json"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a30-a38-final/manifest.json",
+        "log": "tests/evidence/v01-a30-a38-final/verify.log",
+        "results": "tests/evidence/v01-a30-a38-final/results.json"
+      },
+      "behavior": "真实组件与生产浏览器RED：缺设计03要求的底部状态栏；最小修补后20格GREEN；oracle CSS探针非产品故障",
+      "remaining": [
+        "T02 Chrome/Edge目标版本、人工视觉/长文/所有操作和T32b仍待验；整体partial/environment-pending保留，自动缺口闭合不签收完整A30。"
+      ]
+    },
+    {
+      "id": "A38",
+      "expected": "仅维护者可固定",
+      "formalExpected": "仅维护者可固定；本人执行角色仅重试本人责任端队列；Viewer 可见私有记录只读",
+      "baselineCoverage": "partial",
+      "baselineGap": "证明Maintainer可固定/Viewer无入口；未找到Developer直接pin/unpin API返回403的断言。不能由UI隐藏或Owner成功外推角色拒绝。",
+      "currentCoverage": "assertion-backed",
+      "automatedCoverage": "assertion-backed",
+      "automatedGapStatus": "closed-in-controlled-environment",
+      "formalStatus": "待验收",
+      "implementationRevision": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+      "assertions": [
+        {
+          "path": "internal/platform/v01_developer_pin_test.go",
+          "line": 15,
+          "testName": "TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation",
+          "summary": "实际PG/API鉴权Developer对本人/其他成员真实上传的共享历史pin/unpin403；完整record/etag/version/time、原始PG行和两种audit不变；非Owner普通团队成员Maintainer成功200。",
+          "sha256": "07757735d44c79efc12e49be5bd95f252442b6d5341d6db85b578901d58f6880"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a30-a38-focused/pin-api/go.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a30-a38-final/manifest.json",
+        "log": "tests/evidence/v01-a30-a38-final/verify.log",
+        "results": "tests/evidence/v01-a30-a38-final/results.json"
+      },
+      "behavior": "既有服务端权限直接GREEN，无生产修改；初轮测试编译类型错误不算产品RED",
+      "remaining": [
+        "本人责任端队列/他人Agent重试及降级组合条款未扩展；正式联验未签收。"
+      ]
+    }
+  ],
+  "effectiveCoverage": {
+    "assertion-backed": 116,
+    "partial": 68,
+    "not-found": 0,
+    "environment-pending": 3
+  },
+  "clauses": 187,
+  "supplementedClauses": 3,
+  "changedOverallCoverageClauses": 1,
+  "formalPassCount": 0,
+  "scope": "A30两目标受控自动缺口补齐但总体partial/environment-pending保留；仅A38固定条款partial→assertion-backed。其他条款不重评、不批量签收。",
+  "review": {
+    "agent": "a30_a38_review",
+    "verdict": "no Critical/Important/Minor findings",
+    "testsExecutedByReviewer": false
+  },
+  "pendingUnchanged": [
+    "T02",
+    "T32b",
+    "既有实机/人工/介质",
+    "全部A正式签收",
+    "全部原T叶子"
+  ],
+  "publication": "not-authorized"
+}

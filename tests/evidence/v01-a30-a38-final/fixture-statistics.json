@@ -1,0 +1,99 @@
+{
+  "mcp": {
+    "cookieRequests": 0,
+    "initialize": 27,
+    "httpInitialize": 26,
+    "sseInitialize": 1,
+    "toolsList": 97,
+    "httpToolsList": 97,
+    "sseToolsList": 0,
+    "toolsCall": 22,
+    "httpToolsCall": 22,
+    "sseToolsCall": 0,
+    "delayedCalls": 3,
+    "releasedCalls": 3,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "oauth": {
+    "cookieRequests": 0,
+    "initialize": 3,
+    "httpInitialize": 3,
+    "sseInitialize": 0,
+    "toolsList": 4,
+    "httpToolsList": 4,
+    "sseToolsList": 0,
+    "toolsCall": 2,
+    "httpToolsCall": 2,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 3,
+    "oauthDenials": 1,
+    "oauthReplays": 0,
+    "pkceVerified": 3,
+    "resourceVerified": 3
+  },
+  "agent": {
+    "generation": 3,
+    "nativePairings": 7,
+    "nativeProcesses": 1,
+    "stdioCalls": 1,
+    "uploads": [
+      {
+        "frozenDigest": "3ee0c9b843b120c09a7a530f690970b0e3545a312453be188d045e8decadc8f8",
+        "operationId": "b5d16fdc-6673-490e-a913-7d1003ec3590",
+        "status": 200,
+        "targetId": "a9a5302e-1ab4-4a87-aa8b-28fb22f605b5",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "fc5e9750317290138e1f288fab3da368970071b4958b79a82a68adc1b8edce1e",
+        "operationId": "8fbb61d6-f26d-4f41-8270-3de4a57d3f17",
+        "status": 200,
+        "targetId": "4adb8ef7-ec49-4e75-bf4e-174140de161f",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "797b8f78fb62084e10ee50664c3ff39bad7293baaf27f95747c4ade0f2f38dc1",
+        "operationId": "859766ca-9db5-47ff-8737-5d3d424af024",
+        "status": 503,
+        "targetId": "2dbb8bf7-d518-437a-b883-5e176d2d2627",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "797b8f78fb62084e10ee50664c3ff39bad7293baaf27f95747c4ade0f2f38dc1",
+        "operationId": "859766ca-9db5-47ff-8737-5d3d424af024",
+        "status": 200,
+        "targetId": "2dbb8bf7-d518-437a-b883-5e176d2d2627",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "bdea2ca9b25ae6b9bc2df7dc2bebedce6cd827a71e7d36ca294d8da51a11e99b",
+        "operationId": "1d47a609-ff45-4d8c-abba-08c9bbc55a94",
+        "status": 200,
+        "targetId": "39683efc-c906-412c-ad09-87a8a6bf0b86",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "65bc34eff2e5bed09cf1f9123ef5ee5fbe88a6d9039a86f83287c0af037c3806",
+        "operationId": "fb660818-f86b-4402-b602-0938280f6e4c",
+        "status": 200,
+        "targetId": "9d676ba4-8c40-4f66-bfe2-ea485f33af6b",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "381a356d863c49680788bf3190428efa80b9b137a1debd1d6fbd7c3974e502dc",
+        "operationId": "5fa095ea-6f6a-4741-a475-b227fc3acd3a",
+        "status": 200,
+        "targetId": "d2d9342b-a56d-49e9-bfd6-1bc4c506352b",
+        "type": "upload"
+      }
+    ]
+  },
+  "tls": "Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass",
+  "supportMatrix": "T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence"
+}

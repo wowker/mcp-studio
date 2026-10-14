@@ -1,0 +1,143 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/v01-a30-a38-focused/layout/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "v01-required-layout.spec.ts",
+      "file": "v01-required-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3818,
+                  "error": {
+                    "message": "Error: required bottom bar must exist\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m",
+                    "stack": "Error: required bottom bar must exist\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n    at verifyRequiredLayout (/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.ts:14:65)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.spec.ts:16:56",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.ts",
+                      "column": 65,
+                      "line": 14
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mv01-required-layout.ts:14\n\n  12 |  },selectors);\n  13 |  for(const pane of geometry.panes){expect(pane.count,`${pane.selector} must exist exactly once`).toBe(1);for(const box of pane.boxes){expect(box.width,`${pane.selector} width`).toBeGreaterThan(0);expect(box.height,`${pane.selector} height`).toBeGreaterThan(0);expect(box.display).not.toBe('none');expect(box.visibility).toBe('visible');}}\n> 14 |  expect(geometry.footer.count,'required bottom bar must exist').toBe(1);expect(geometry.footer.box).not.toBeNull();const footer=geometry.footer.box!;\n     |                                                                 ^\n  15 |  expect(footer.width).toBeGreaterThan(0);expect(footer.height).toBeGreaterThan(0);expect(footer.x).toBeGreaterThanOrEqual(0);expect(footer.y).toBeGreaterThanOrEqual(0);expect(footer.right).toBeLessThanOrEqual(geometry.viewport.width+.5);expect(footer.bottom).toBeLessThanOrEqual(geometry.viewport.height+.5);expect(geometry.footer.unobstructed).toEqual([true,true,true]);\n  16 |  return geometry;\n  17 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.ts",
+                        "column": 65,
+                        "line": 14
+                      },
+                      "message": "Error: required bottom bar must exist\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\n\n   at v01-required-layout.ts:14\n\n  12 |  },selectors);\n  13 |  for(const pane of geometry.panes){expect(pane.count,`${pane.selector} must exist exactly once`).toBe(1);for(const box of pane.boxes){expect(box.width,`${pane.selector} width`).toBeGreaterThan(0);expect(box.height,`${pane.selector} height`).toBeGreaterThan(0);expect(box.display).not.toBe('none');expect(box.visibility).toBe('visible');}}\n> 14 |  expect(geometry.footer.count,'required bottom bar must exist').toBe(1);expect(geometry.footer.box).not.toBeNull();const footer=geometry.footer.box!;\n     |                                                                 ^\n  15 |  expect(footer.width).toBeGreaterThan(0);expect(footer.height).toBeGreaterThan(0);expect(footer.x).toBeGreaterThanOrEqual(0);expect(footer.y).toBeGreaterThanOrEqual(0);expect(footer.right).toBeLessThanOrEqual(geometry.viewport.width+.5);expect(footer.bottom).toBeLessThanOrEqual(geometry.viewport.height+.5);expect(geometry.footer.unobstructed).toEqual([true,true,true]);\n  16 |  return geometry;\n  17 | }\n    at verifyRequiredLayout (/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.ts:14:65)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.spec.ts:16:56"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T06:57:11.494Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-required-layout-V01-A3-3c4ed-lingual-theme-window-matrix-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.ts",
+                    "column": 65,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1207909c6b45501f500b-c4f99762d823ea7ed094",
+          "file": "v01-required-layout.spec.ts",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T06:57:11.094Z",
+    "duration": 4504.041,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

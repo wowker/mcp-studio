@@ -1,0 +1,447 @@
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ❯ src/app/v01-shell-footer.test.tsx (1 test | 1 failed) 102ms
+   × keeps the actual readable project context in the bottom bar and removes it after losing content access 101ms
+     → Unable to find an accessible element with the role "contentinfo"
+
+Here are the accessible roles:
+
+  status:
+
+  Name "":
+  [36m<span[39m
+    [33mclass[39m=[32m"ui-visually-hidden"[39m
+    [33mrole[39m=[32m"status"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  link:
+
+  Name "Skip to content":
+  [36m<a[39m
+    [33mclass[39m=[32m"ui-skip-link"[39m
+    [33mhref[39m=[32m"#main-content"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  complementary:
+
+  Name "":
+  [36m<aside[39m
+    [33mclass[39m=[32m"workbench-sidebar"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Collapse sidebar":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Collapse sidebar"[39m
+    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+    [33mtitle[39m=[32m"Collapse sidebar"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Toggle theme":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Toggle theme"[39m
+    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+    [33mtitle[39m=[32m"Toggle theme"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  combobox:
+
+  Name "Language":
+  [36m<select[39m
+    [33maria-label[39m=[32m"Language"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  option:
+
+  Name "简体中文":
+  [36m<option[39m
+    [33mvalue[39m=[32m"zh-CN"[39m
+  [36m/>[39m
+
+  Name "English":
+  [36m<option[39m
+    [33mvalue[39m=[32m"en-US"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"workbench-header"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  [36m<main[39m
+    [33mclass[39m=[32m"workbench-content"[39m
+    [33mid[39m=[32m"main-content"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  textbox:
+
+  Name "Draft":
+  [36m<input[39m
+    [33maria-label[39m=[32m"Draft"[39m
+    [33mvalue[39m=[32m"retained"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"ui-visually-hidden"[39m
+      [33mrole[39m=[32m"status"[39m
+    [36m/>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"ui-skip-link"[39m
+      [33mhref[39m=[32m"#main-content"[39m
+    [36m>[39m
+      [0mSkip to content[0m
+    [36m</a>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-preferences"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Toggle theme"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtitle[39m=[32m"Toggle theme"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mToggle theme[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mLanguage[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Language"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"zh-CN"[39m
+              [36m>[39m
+                [0m简体中文[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"en-US"[39m
+              [36m>[39m
+                [0mEnglish[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"workbench-header"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mtitle[39m=[32m"A30 long workspace name · 长名称"[39m
+        [36m>[39m
+          [0mA30 long workspace name · 长名称[0m
+        [36m</span>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"workbench-content"[39m
+        [33mid[39m=[32m"main-content"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Draft"[39m
+          [33mvalue[39m=[32m"retained"[39m
+        [36m/>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/v01-shell-footer.test.tsx > keeps the actual readable project context in the bottom bar and removes it after losing content access
+TestingLibraryElementError: Unable to find an accessible element with the role "contentinfo"
+
+Here are the accessible roles:
+
+  status:
+
+  Name "":
+  [36m<span[39m
+    [33mclass[39m=[32m"ui-visually-hidden"[39m
+    [33mrole[39m=[32m"status"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  link:
+
+  Name "Skip to content":
+  [36m<a[39m
+    [33mclass[39m=[32m"ui-skip-link"[39m
+    [33mhref[39m=[32m"#main-content"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  complementary:
+
+  Name "":
+  [36m<aside[39m
+    [33mclass[39m=[32m"workbench-sidebar"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Collapse sidebar":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Collapse sidebar"[39m
+    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+    [33mtitle[39m=[32m"Collapse sidebar"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Toggle theme":
+  [36m<button[39m
+    [33maria-label[39m=[32m"Toggle theme"[39m
+    [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+    [33mtitle[39m=[32m"Toggle theme"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  combobox:
+
+  Name "Language":
+  [36m<select[39m
+    [33maria-label[39m=[32m"Language"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  option:
+
+  Name "简体中文":
+  [36m<option[39m
+    [33mvalue[39m=[32m"zh-CN"[39m
+  [36m/>[39m
+
+  Name "English":
+  [36m<option[39m
+    [33mvalue[39m=[32m"en-US"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"workbench-header"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  [36m<main[39m
+    [33mclass[39m=[32m"workbench-content"[39m
+    [33mid[39m=[32m"main-content"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  textbox:
+
+  Name "Draft":
+  [36m<input[39m
+    [33maria-label[39m=[32m"Draft"[39m
+    [33mvalue[39m=[32m"retained"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"ui-visually-hidden"[39m
+      [33mrole[39m=[32m"status"[39m
+    [36m/>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"ui-skip-link"[39m
+      [33mhref[39m=[32m"#main-content"[39m
+    [36m>[39m
+      [0mSkip to content[0m
+    [36m</a>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"workbench-shell"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"workbench-sidebar"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-brand"[39m
+        [36m>[39m
+          [0mMCP Inspector[0m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-label[39m=[32m"Collapse sidebar"[39m
+          [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+          [33mtitle[39m=[32m"Collapse sidebar"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mfill[39m=[32m"currentColor"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mviewBox[39m=[32m"0 0 256 256"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"workbench-preferences"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33maria-label[39m=[32m"Toggle theme"[39m
+            [33mclass[39m=[32m"ui-button ui-button-secondary "[39m
+            [33mtitle[39m=[32m"Toggle theme"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mviewBox[39m=[32m"0 0 256 256"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mToggle theme[0m
+            [36m</span>[39m
+          [36m</button>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"ui-field"[39m
+          [36m>[39m
+            [36m<span>[39m
+              [0mLanguage[0m
+            [36m</span>[39m
+            [36m<select[39m
+              [33maria-label[39m=[32m"Language"[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"zh-CN"[39m
+              [36m>[39m
+                [0m简体中文[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"en-US"[39m
+              [36m>[39m
+                [0mEnglish[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"workbench-header"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mtitle[39m=[32m"A30 long workspace name · 长名称"[39m
+        [36m>[39m
+          [0mA30 long workspace name · 长名称[0m
+        [36m</span>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"workbench-content"[39m
+        [33mid[39m=[32m"main-content"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<input[39m
+          [33maria-label[39m=[32m"Draft"[39m
+          [33mvalue[39m=[32m"retained"[39m
+        [36m/>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError ../../node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ ../../node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/app/v01-shell-footer.test.tsx:12:22
+     10|  const props={projects:[project],project,teamId:'team',page:'tools',na…
+     11|  const view=render(<Shell {...props}><input aria-label="Draft" default…
+     12|  const footer=screen.getByRole('contentinfo');expect(footer.textConten…
+       |                      ^
+     13|  view.rerender(<Shell {...props} project={{...project,canRead:false}}>…
+     14|  expect(screen.getByRole('contentinfo').textContent).toBe('Projects');…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  14:55:30
+   Duration  1.78s (transform 73ms, setup 76ms, collect 1.10s, tests 102ms, environment 345ms, prepare 36ms)
+

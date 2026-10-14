@@ -1,0 +1,202 @@
+=== RUN   TestAgentProofExchangeBindingReplayExpiryAndRevocation
+--- PASS: TestAgentProofExchangeBindingReplayExpiryAndRevocation (1.07s)
+=== RUN   TestAgentGrantHistoryOwnershipReceiptAndCurrentRole
+--- PASS: TestAgentGrantHistoryOwnershipReceiptAndCurrentRole (0.88s)
+=== RUN   TestAgentGrantOriginParentLogoutDeadlineAndHashStorage
+--- PASS: TestAgentGrantOriginParentLogoutDeadlineAndHashStorage (0.77s)
+=== RUN   TestAgentProofConcurrentExchangeOneWinner
+--- PASS: TestAgentProofConcurrentExchangeOneWinner (0.75s)
+=== RUN   TestAgentPasswordResetRevokesProofsAndGrants
+--- PASS: TestAgentPasswordResetRevokesProofsAndGrants (0.96s)
+=== RUN   TestAgentProofCookieCSRFAndExchangeCookieOriginRejected
+--- PASS: TestAgentProofCookieCSRFAndExchangeCookieOriginRejected (0.74s)
+=== RUN   TestAgentGrantBoundedByParentAbsoluteDeadline
+--- PASS: TestAgentGrantBoundedByParentAbsoluteDeadline (0.73s)
+=== RUN   TestAgentExchangeRejectsBrowserFetchWithoutCookie
+--- PASS: TestAgentExchangeRejectsBrowserFetchWithoutCookie (0.71s)
+=== RUN   TestOfflineBackupRotationAtomicAndPreservesUserVersion
+--- PASS: TestOfflineBackupRotationAtomicAndPreservesUserVersion (1.76s)
+=== RUN   TestConnectionIndependentIdentityConditionalPersistence
+--- PASS: TestConnectionIndependentIdentityConditionalPersistence (1.21s)
+=== RUN   TestEnvironmentVariableLayersScopeAndSafeDeletion
+--- PASS: TestEnvironmentVariableLayersScopeAndSafeDeletion (0.84s)
+=== RUN   TestConfigurationPermissionsAndCurrentSessionAccess
+--- PASS: TestConfigurationPermissionsAndCurrentSessionAccess (2.09s)
+=== RUN   TestConnectionAccessChecksUsedDefinitionsWithoutReceivingPersonalValues
+--- PASS: TestConnectionAccessChecksUsedDefinitionsWithoutReceivingPersonalValues (0.75s)
+=== RUN   TestConnectionAuthReferenceMustBeEffectiveForItsOwnScope
+--- PASS: TestConnectionAuthReferenceMustBeEffectiveForItsOwnScope (0.73s)
+=== RUN   TestConnectionAccessAppliesPersonalEnvironmentWithoutChangingSharedConfig
+--- PASS: TestConnectionAccessAppliesPersonalEnvironmentWithoutChangingSharedConfig (0.74s)
+=== RUN   TestConfigurationPreservesPublicScalarsAndCaseSensitiveNames
+--- PASS: TestConfigurationPreservesPublicScalarsAndCaseSensitiveNames (0.76s)
+=== RUN   TestConfigurationRejectsRecognizableSecretInsidePublicVariable
+--- PASS: TestConfigurationRejectsRecognizableSecretInsidePublicVariable (0.72s)
+=== RUN   TestSensitiveQueryReferencesFollowEffectiveSourceAndCurrentDefinitions
+--- PASS: TestSensitiveQueryReferencesFollowEffectiveSourceAndCurrentDefinitions (0.75s)
+=== RUN   TestConcurrentConfigurationSavesOnlyOneVersionWins
+--- PASS: TestConcurrentConfigurationSavesOnlyOneVersionWins (0.97s)
+=== RUN   TestConfigurationWriteWaitingOnRevocationRechecksRoleBeforeVersion
+--- PASS: TestConfigurationWriteWaitingOnRevocationRechecksRoleBeforeVersion (1.18s)
+=== RUN   TestResolvedPublicFragmentsCannotCreateRecognizableSecretURL
+--- PASS: TestResolvedPublicFragmentsCannotCreateRecognizableSecretURL (0.74s)
+=== RUN   TestCredentialBackupEncryptionOwnershipReauthAndMembershipDeletion
+--- PASS: TestCredentialBackupEncryptionOwnershipReauthAndMembershipDeletion (3.41s)
+=== RUN   TestCredentialBackupRestoreWaitsForRoleRevocation
+--- PASS: TestCredentialBackupRestoreWaitsForRoleRevocation (1.33s)
+=== RUN   TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit
+=== RUN   TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit/project
+=== RUN   TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit/team
+--- PASS: TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit (3.16s)
+    --- PASS: TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit/project (1.59s)
+    --- PASS: TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit/team (1.57s)
+=== RUN   TestCredentialBackupReferenceValidationCipherBindingAndWriteFailure
+--- PASS: TestCredentialBackupReferenceValidationCipherBindingAndWriteFailure (2.22s)
+=== RUN   TestCredentialBackupAgentRestoreFreshPasswordAndConcurrentVersion
+--- PASS: TestCredentialBackupAgentRestoreFreshPasswordAndConcurrentVersion (2.19s)
+=== RUN   TestCredentialBackupKeyLossStillAllowsMetadataAndPrivacyDeletion
+--- PASS: TestCredentialBackupKeyLossStillAllowsMetadataAndPrivacyDeletion (0.93s)
+=== RUN   TestInitializeConcurrentOnlyOneOwner
+--- PASS: TestInitializeConcurrentOnlyOneOwner (0.31s)
+=== RUN   TestLoginCookieCsrfExpirationAndLogout
+--- PASS: TestLoginCookieCsrfExpirationAndLogout (1.34s)
+=== RUN   TestSessionAbsoluteExpiresDespiteActivity
+--- PASS: TestSessionAbsoluteExpiresDespiteActivity (0.70s)
+=== RUN   TestVerificationSingleUseExpiryAndMailFailure
+--- PASS: TestVerificationSingleUseExpiryAndMailFailure (0.78s)
+=== RUN   TestResetSingleUseRevokesSessions
+--- PASS: TestResetSingleUseRevokesSessions (1.13s)
+=== RUN   TestPublicRegistrationAndOriginRejected
+--- PASS: TestPublicRegistrationAndOriginRejected (0.06s)
+=== RUN   TestLoginWithOldCookieCreatesFreshSession
+--- PASS: TestLoginWithOldCookieCreatesFreshSession (0.95s)
+=== RUN   TestMissingMailCannotVerifyBootstrapOwner
+--- PASS: TestMissingMailCannotVerifyBootstrapOwner (0.48s)
+=== RUN   TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically
+--- PASS: TestInviteRegistrationRequiresValidCodeAndDoesNotJoinAutomatically (1.34s)
+=== RUN   TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash
+--- PASS: TestPasswordResetRejectsLoginWithPreviouslyVerifiedHash (0.90s)
+=== RUN   TestInvitesRequireIdentityAndExplicitAcceptance
+--- PASS: TestInvitesRequireIdentityAndExplicitAcceptance (1.15s)
+=== RUN   TestInviteExpiryRevokeResendAndSenderRevocation
+--- PASS: TestInviteExpiryRevokeResendAndSenderRevocation (2.17s)
+=== RUN   TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite
+--- PASS: TestInviteSenderCurrentAuthorityAndNoExistingRoleOverwrite (1.53s)
+=== RUN   TestAdminGrantSelfAndTeamProjectRoleBoundaries
+--- PASS: TestAdminGrantSelfAndTeamProjectRoleBoundaries (1.74s)
+=== RUN   TestMemberProtectionsConcurrentAndTeamScope
+--- PASS: TestMemberProtectionsConcurrentAndTeamScope (1.14s)
+=== RUN   TestTeamRemovalRevokesAllProjectsAndPendingInvites
+--- PASS: TestTeamRemovalRevokesAllProjectsAndPendingInvites (1.16s)
+=== RUN   TestMailFailureAndInvalidInvitationDoNotCreateMembers
+--- PASS: TestMailFailureAndInvalidInvitationDoNotCreateMembers (0.72s)
+=== RUN   TestConcurrentInvitationCreationAndAcceptance
+--- PASS: TestConcurrentInvitationCreationAndAcceptance (1.15s)
+=== RUN   TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly
+--- PASS: TestRemovedMaintainerOldSessionNoManagementAndViewerReadOnly (1.64s)
+=== RUN   TestOwnerAdminSelfAndLastMaintainerRoleProtection
+--- PASS: TestOwnerAdminSelfAndLastMaintainerRoleProtection (1.53s)
+=== RUN   TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected
+--- PASS: TestInvitationEntryMaskedAndUnverifiedAcceptanceRejected (1.13s)
+=== RUN   TestProjectNamesAndCreatorRelationship
+--- PASS: TestProjectNamesAndCreatorRelationship (1.11s)
+=== RUN   TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped
+--- PASS: TestDirectoryDoesNotGrantProjectContentAndOwnerTakeoverScoped (1.15s)
+=== RUN   TestConcurrentProjectCreationOnlyOne
+--- PASS: TestConcurrentProjectCreationOnlyOne (0.70s)
+=== RUN   TestDirectoryManagersReceiveAccessMetadataWithoutContent
+--- PASS: TestDirectoryManagersReceiveAccessMetadataWithoutContent (1.53s)
+=== RUN   TestRecordCapacityAdmissionAndConditionalRetention
+--- PASS: TestRecordCapacityAdmissionAndConditionalRetention (0.78s)
+=== RUN   TestRecordArchiveRejoinAndExpiredTombstone
+--- PASS: TestRecordArchiveRejoinAndExpiredTombstone (1.66s)
+=== RUN   TestRecordCapacityOneByteBoundaryAndConcurrentWriters
+--- PASS: TestRecordCapacityOneByteBoundaryAndConcurrentWriters (0.75s)
+=== RUN   TestRecordSweepHistorySavedPinnedAndReceiptRestart
+--- PASS: TestRecordSweepHistorySavedPinnedAndReceiptRestart (0.97s)
+=== RUN   TestRecordCapacityReadersAndArchiveAggregateIsolation
+--- PASS: TestRecordCapacityReadersAndArchiveAggregateIsolation (1.58s)
+=== RUN   TestTeamRemovalArchivesAllProjectsAndInvitationRestoresOnlyJoinedProject
+--- PASS: TestTeamRemovalArchivesAllProjectsAndInvitationRestoresOnlyJoinedProject (1.88s)
+=== RUN   TestRecordEffectiveRetentionClampsWhenDeploymentMaximumShrinks
+--- PASS: TestRecordEffectiveRetentionClampsWhenDeploymentMaximumShrinks (0.70s)
+=== RUN   TestAdditionalRedactionUpdatesArchivedCopiesWithoutRevealingIdentity
+--- PASS: TestAdditionalRedactionUpdatesArchivedCopiesWithoutRevealingIdentity (1.24s)
+=== RUN   TestAdditionalRedactionPrivacyCleanupAllowedAboveReducedCapacity
+--- PASS: TestAdditionalRedactionPrivacyCleanupAllowedAboveReducedCapacity (0.75s)
+=== RUN   TestAcceptedOwnProjectSaveAndRevisionReplayAfterDeveloperDowngrade
+--- PASS: TestAcceptedOwnProjectSaveAndRevisionReplayAfterDeveloperDowngrade (1.16s)
+=== RUN   TestSnapshotWholeContextOmissionClearsFreeLabels
+--- PASS: TestSnapshotWholeContextOmissionClearsFreeLabels (0.00s)
+=== RUN   TestRecordHistoryFiltersStableCursorAndPrivateIsolation
+--- PASS: TestRecordHistoryFiltersStableCursorAndPrivateIsolation (1.18s)
+=== RUN   TestRecordUploadAtomicReplayScopeAndRedaction
+--- PASS: TestRecordUploadAtomicReplayScopeAndRedaction (0.71s)
+=== RUN   TestRecordUploadCurrentPermissionsIdentityAndBoundedJSON
+--- PASS: TestRecordUploadCurrentPermissionsIdentityAndBoundedJSON (1.16s)
+=== RUN   TestRecordSavedMetadataConditionalPinDeletionAndIndependence
+--- PASS: TestRecordSavedMetadataConditionalPinDeletionAndIndependence (0.75s)
+=== RUN   TestRecordAdditionalRedactionPolicyAndLinkedPrivateCopies
+--- PASS: TestRecordAdditionalRedactionPolicyAndLinkedPrivateCopies (1.17s)
+=== RUN   TestRecordSourceProofOwnUnuploadedRunAndRedactedAuditHistory
+--- PASS: TestRecordSourceProofOwnUnuploadedRunAndRedactedAuditHistory (1.14s)
+=== RUN   TestRecordAtomicFailureRetryAndConcurrentReplay
+--- PASS: TestRecordAtomicFailureRetryAndConcurrentReplay (0.72s)
+=== RUN   TestRecordUploadWaitingOnMembershipRevocation
+--- PASS: TestRecordUploadWaitingOnMembershipRevocation (1.13s)
+=== RUN   TestRecordDecoderEscapedWireBudgetAndAmbiguousJSON
+--- PASS: TestRecordDecoderEscapedWireBudgetAndAmbiguousJSON (0.40s)
+=== RUN   TestRecordSchemaShapeAndJointMetadataSecretPropagation
+--- PASS: TestRecordSchemaShapeAndJointMetadataSecretPropagation (0.74s)
+=== RUN   TestRecordSchemaAnnotationTraversalKeepsNamedValidationNodes
+--- PASS: TestRecordSchemaAnnotationTraversalKeepsNamedValidationNodes (0.00s)
+=== RUN   TestRecordBrowserSavedCopyPreservesAgentAttributionAndRequestOnlySchema
+--- PASS: TestRecordBrowserSavedCopyPreservesAgentAttributionAndRequestOnlySchema (0.76s)
+=== RUN   TestRecordIncompleteSavedCannotPublishByMetadataRevision
+--- PASS: TestRecordIncompleteSavedCannotPublishByMetadataRevision (0.73s)
+=== RUN   TestSnapshotFreeContextIsRedactedWithoutChangingActualIdentities
+--- PASS: TestSnapshotFreeContextIsRedactedWithoutChangingActualIdentities (0.00s)
+=== RUN   TestAdditionalRedactionAcceptsClientSafeMetadataProjectionOnly
+--- PASS: TestAdditionalRedactionAcceptsClientSafeMetadataProjectionOnly (0.72s)
+=== RUN   TestCookieRecordUploadsCannotClaimAgentResponsibility
+--- PASS: TestCookieRecordUploadsCannotClaimAgentResponsibility (0.72s)
+=== RUN   TestSavedSourceProofUsesCurrentPolicyAndSemanticJSON
+--- PASS: TestSavedSourceProofUsesCurrentPolicyAndSemanticJSON (1.17s)
+=== RUN   TestSavedVersionHashSourceProofRequiresTheRecordedRedaction
+--- PASS: TestSavedVersionHashSourceProofRequiresTheRecordedRedaction (0.76s)
+=== RUN   TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation
+=== RUN   TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation/developer_owns_history
+    v01_developer_pin_test.go:109: Developer direct PATCH pin=true: 403 forbidden; record, etag, version, updatedAt and audits unchanged
+    v01_developer_pin_test.go:110: ordinary team member with live Maintainer role PATCH pin=true: 200; version and audit advance
+    v01_developer_pin_test.go:111: Developer direct PATCH pin=false: 403 forbidden; record, etag, version, updatedAt and audits unchanged
+    v01_developer_pin_test.go:112: ordinary team member with live Maintainer role PATCH pin=false: 200; version and audit advance
+=== RUN   TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation/another_member_owns_history
+    v01_developer_pin_test.go:109: Developer direct PATCH pin=true: 403 forbidden; record, etag, version, updatedAt and audits unchanged
+    v01_developer_pin_test.go:110: ordinary team member with live Maintainer role PATCH pin=true: 200; version and audit advance
+    v01_developer_pin_test.go:111: Developer direct PATCH pin=false: 403 forbidden; record, etag, version, updatedAt and audits unchanged
+    v01_developer_pin_test.go:112: ordinary team member with live Maintainer role PATCH pin=false: 200; version and audit advance
+--- PASS: TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation (1.68s)
+    --- PASS: TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation/developer_owns_history (0.03s)
+    --- PASS: TestV01A38DeveloperDirectPinAndUnpinDeniedWithoutMutation/another_member_owns_history (0.02s)
+=== RUN   TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer
+=== RUN   TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/history_empty
+=== RUN   TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/saved_empty
+--- PASS: TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer (0.75s)
+    --- PASS: TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/history_empty (0.00s)
+    --- PASS: TestV01A01NewProjectHasNoContentAndCreatorIsMaintainer/saved_empty (0.00s)
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/history_retained
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/saved_retained
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/history_retained
+=== RUN   TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/saved_retained
+--- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval (2.38s)
+    --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project (1.18s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/history_retained (0.01s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/project/saved_retained (0.00s)
+    --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team (1.20s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/history_retained (0.01s)
+        --- PASS: TestV01A28SharedHistoryAndPublishedSavedAttributionSurvivesRemoval/team/saved_retained (0.00s)
+PASS
+ok  	mcp-studio/internal/platform	91.550s

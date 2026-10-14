@@ -1241,6 +1241,20 @@
           "environment-pending": 1
         },
         "formalSignoff": "pending"
+      },
+      "layoutPinSupplement": {
+        "path": "docs/tasks/v01-a30-a38-supplement.json",
+        "clauses": [
+          "无零高内容",
+          "无底栏裁切"
+        ],
+        "implementation": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+        "effectiveCoverage": {
+          "partial": 3,
+          "environment-pending": 1
+        },
+        "automatedGapsClosed": 2,
+        "formalSignoff": "pending"
       }
     },
     {
@@ -1560,6 +1574,19 @@
           "partial": 2,
           "assertion-backed": 1
         },
+        "formalSignoff": "pending"
+      },
+      "layoutPinSupplement": {
+        "path": "docs/tasks/v01-a30-a38-supplement.json",
+        "clauses": [
+          "仅维护者可固定"
+        ],
+        "implementation": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+        "effectiveCoverage": {
+          "assertion-backed": 2,
+          "partial": 1
+        },
+        "automatedGapsClosed": 1,
         "formalSignoff": "pending"
       }
     },
@@ -2502,6 +2529,14 @@
     "manifest": "tests/evidence/v01-a04-a07-final/manifest.json",
     "report": "docs/tasks/v01-a04-a07-review.md",
     "supplementedClauses": 4,
+    "formalPassCount": 0
+  },
+  "latestLayoutPinVerification": {
+    "implementation": "f2fd29bdffb40e49673fe9e6669bc8669505876b",
+    "manifest": "tests/evidence/v01-a30-a38-final/manifest.json",
+    "report": "docs/tasks/v01-a30-a38-review.md",
+    "supplementedClauses": 3,
+    "changedOverallCoverageClauses": 1,
     "formalPassCount": 0
   }
 }

@@ -1,0 +1,4 @@
+# mcp-studio/internal/platform [mcp-studio/internal/platform.test]
+internal/platform/v01_developer_pin_test.go:24:129: cannot use member.role (variable of type string) as wire.ProjectRole value in struct literal
+FAIL	mcp-studio/internal/platform [build failed]
+FAIL

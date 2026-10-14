@@ -1,0 +1,40 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:98336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:98336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/v01-required-layout.spec.ts:8:1 › V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix (3.8s)
+
+
+  1) [chromium] › tests/e2e/v01-required-layout.spec.ts:8:1 › V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix 
+
+    Error: required bottom bar must exist
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+       at v01-required-layout.ts:14
+
+      12 |  },selectors);
+      13 |  for(const pane of geometry.panes){expect(pane.count,`${pane.selector} must exist exactly once`).toBe(1);for(const box of pane.boxes){expect(box.width,`${pane.selector} width`).toBeGreaterThan(0);expect(box.height,`${pane.selector} height`).toBeGreaterThan(0);expect(box.display).not.toBe('none');expect(box.visibility).toBe('visible');}}
+    > 14 |  expect(geometry.footer.count,'required bottom bar must exist').toBe(1);expect(geometry.footer.box).not.toBeNull();const footer=geometry.footer.box!;
+         |                                                                 ^
+      15 |  expect(footer.width).toBeGreaterThan(0);expect(footer.height).toBeGreaterThan(0);expect(footer.x).toBeGreaterThanOrEqual(0);expect(footer.y).toBeGreaterThanOrEqual(0);expect(footer.right).toBeLessThanOrEqual(geometry.viewport.width+.5);expect(footer.bottom).toBeLessThanOrEqual(geometry.viewport.height+.5);expect(geometry.footer.unobstructed).toEqual([true,true,true]);
+      16 |  return geometry;
+      17 | }
+        at verifyRequiredLayout (/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.ts:14:65)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-required-layout.spec.ts:16:56
+
+    Error Context: test-results/v01-required-layout-V01-A3-3c4ed-lingual-theme-window-matrix-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/v01-required-layout.spec.ts:8:1 › V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix 
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed
+Playwright production-entry E2E: failed with exit 1

@@ -413,3 +413,11 @@ A01–A60正式仍60/60待验；T02/T32b及既有原生/人工/介质、M7完整
 完整verify exit0：600前端/60文件、33基础Node、12运维、真实隔离PG全量Go/24个具测试包、vet/build、四目标未签名候选/隔离部署、31浏览器零失败/跳过/重试。冻结356输入SHA 049b051a87e6c6ce166e4dc91b2c55e2ac0f8df60c7c6e4aba1ee68df5705332；827PNG/159axe，0确认违规，color-contrast incomplete仍人工待验。自有schema/准确Compose资源清理0，预存PG保留；本轮无新CLI中止/race/依赖审计声明。
 
 CSV仅A04/A07追加，原审计/六条补证历史不动，四个目标partial变为受控支持，当前115支持/69部分/0未找到/3环境。正式60项仍待验收，原72叶子/T02/T32b/实机/人工/介质不变。旧M7归档保持；仅本地提交，不推送/合并/tag/签名/公证/发布。精确断言和正式原文见[增量JSON](v01-a04-a07-supplement.json)，逐项修改、真实RED和验证/限制见[审阅](v01-a04-a07-review.md)。
+
+## 2026-10-14 · A30 / A38 布局与固定API补证
+
+基于d9b3609，仅执行用户授权两项补证；A38切片8e8aa66，A30冻结f2fd29bdffb40e49673fe9e6669bc8669505876b。必要pane直接检查存在/非零，不先过滤；20语言主题窗口格验证底栏完整与参数/结果/侧栏操作可达。实际组件/生产browser复现遗漏设计03底栏RED，最小24px网格底栏及可读上下文修补后GREEN；零高/越界CSS为oracle探针，不冒称产品故障。A38 Developer对本人/他人真实上传共享历史pin/unpin403且API/原PG/audit无变化，非Owner Maintainer200对照；无权限源修补。
+
+聚焦Shell两文件4项、类型/构建及1browser20格通过，完整platform Go通过含新1顶层两子case；测试编译类型/NodeNext命令错误分别保留为harness失败。独立限定审查无Critical/Important/Minor，未替代根验证。冻结源完整verifyexit0：601前端/61文件、33Node、12运维、真实PG全量Go/24个具测试包/vet/build、四目标未签名候选/隔离部署、32browser零失败/跳过/重试。360输入SHA a83115b856ce86852885f7f2063787fa2305d977b311c01d95eb013da94b39bd；835PNG/159axe，0确认违规，原color-contrast incomplete仍人工待验。准确自有schema/Compose资源清理0，预存PG保留；无新CLI中止/race/依赖审计声明。
+
+CSV只A30/A38追加，原审计/两补证JSON/原72叶子/设计快照/M7归档不动。A30两自动缺口闭合但总体partial/environment-pending保留，仅A38固定partial补为受控支持，有效116支持/68部分/0未找到/3环境；其余不重评。全部A正式待验、T02/T32b及实机/人工/介质不变，只本地提交不推送/合并/tag/签名/公证/发布。详见[逐项审阅](v01-a30-a38-review.md)、[精确增量](v01-a30-a38-supplement.json)及[登记核对](../../tests/evidence/v01-a30-a38-final/registration-check.json)。
