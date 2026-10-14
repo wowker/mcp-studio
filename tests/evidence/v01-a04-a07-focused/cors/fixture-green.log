@@ -1,0 +1,15 @@
+✔ CORS-denied token endpoint remains a real authenticated MCP service for an explicit native client (31.62ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (14.089875ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (3.786959ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (2.340292ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (2.203959ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (10.654417ms)
+✔ controlled call failures and barrier do not change handshake or retain payloads in counters (3.36825ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.571791

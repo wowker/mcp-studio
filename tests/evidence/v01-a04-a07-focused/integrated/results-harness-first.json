@@ -1,0 +1,215 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/v01-a04-a07-focused/integrated/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "v01-backup-retry.spec.ts",
+      "file": "v01-backup-retry.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3446,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:5:172)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts:58:9",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts",
+                      "column": 172,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mproduction-helpers.ts:5\n\n  3 | import * as wire from '../../apps/web/src/generated/platform';\n  4 | const ownerEmail='owner-e2e@example.test',password='Fixture-Password-12';\n> 5 | export async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}\n    |                                                                                                                                                                            ^\n  6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}\n  7 | export async function bootstrap(page:Page,request:APIRequestContext){\n  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts",
+                        "column": 172,
+                        "line": 5
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n   at production-helpers.ts:5\n\n  3 | import * as wire from '../../apps/web/src/generated/platform';\n  4 | const ownerEmail='owner-e2e@example.test',password='Fixture-Password-12';\n> 5 | export async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}\n    |                                                                                                                                                                            ^\n  6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}\n  7 | export async function bootstrap(page:Page,request:APIRequestContext){\n  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);\n    at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:5:172)\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts:58:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T02:09:40.231Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-backup-retry-V01-A07-p-2f890-and-retries-only-the-backup-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts",
+                    "column": 172,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d9f94e21d5056fd9d45c-fb709e904f5668b6e6a5",
+          "file": "v01-backup-retry.spec.ts",
+          "line": 34,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v01-cors-agent.spec.ts",
+      "file": "v01-cors-agent.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13633,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Authorized, ready to connect', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Authorized, ready to connect', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Authorized, ready to connect', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Authorized, ready to connect', { exact: true })\u001b[22m\n\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:36:239",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                      "column": 239,
+                      "line": 36
+                    },
+                    "snippet": "  34 |  const otherId=await service(page,'A04 other credential',endpoint,'agent');await credential(page);\n  35 |  const connectionId=await service(page,'A04 browser target',endpoint,'browser');expect(connectionId).not.toBe(otherId);\n> 36 |  await page.getByLabel('Personal access token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'Save for this session',exact:true}).click();await expect(page.getByText('Authorized, ready to connect',{exact:true})).toBeVisible();\n     |                                                                                                                                                                                                                                               ^\n  37 |  const before=await fixtureStats(request),beforeAgent=await control(request),agentActions:{path:string;connectionId?:string}[]=[],snapshots:wire.Connection[]=[];\n  38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});\n  39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                        "column": 239,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Authorized, ready to connect', { exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Authorized, ready to connect', { exact: true })\u001b[22m\n\n\n  34 |  const otherId=await service(page,'A04 other credential',endpoint,'agent');await credential(page);\n  35 |  const connectionId=await service(page,'A04 browser target',endpoint,'browser');expect(connectionId).not.toBe(otherId);\n> 36 |  await page.getByLabel('Personal access token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'Save for this session',exact:true}).click();await expect(page.getByText('Authorized, ready to connect',{exact:true})).toBeVisible();\n     |                                                                                                                                                                                                                                               ^\n  37 |  const before=await fixtureStats(request),beforeAgent=await control(request),agentActions:{path:string;connectionId?:string}[]=[],snapshots:wire.Connection[]=[];\n  38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});\n  39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:36:239"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T02:09:44.269Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-cors-agent-V01-A04-pro-e2a9e-thout-borrowing-credentials-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                    "column": 239,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bb0179a6cb6fe27e0dd8-0dab65590528ff3444c5",
+          "file": "v01-cors-agent.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T02:09:39.620Z",
+    "duration": 18412.521,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

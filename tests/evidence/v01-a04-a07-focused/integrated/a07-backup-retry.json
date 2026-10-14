@@ -1,0 +1,113 @@
+{
+  "scope": "Supplemental A07 same-connection production UI + real Agent + real PostgreSQL; wrong-password backup failure then successful retry. Controlled MasterStore/native pairing; real OS/T02/manual/media and formal A07 remain pending.",
+  "browser": "147.0.7727.15",
+  "identity": {
+    "projectId": "bed6d2efe947ebc5665e51a6759a03fb",
+    "connectionId": "89edafe05867349a265be718c86ff228",
+    "attemptId": "y0IBQ9R4WOYUj8cg59R4TG1vKnytZuH_OqBZaJKNRDg",
+    "runId": "ceadab22-4eb6-4032-b008-18b6047e7b38",
+    "backupId": "63624ed45ca1ba1a74d735b0b95f4813"
+  },
+  "failure": {
+    "platformStatus": 403,
+    "agentStatus": 409,
+    "code": "reauthentication_failed",
+    "backupRows": 0,
+    "passwordRetained": true,
+    "confirmationRetained": true
+  },
+  "retry": {
+    "platformStatus": 200,
+    "agentStatus": 200,
+    "backupRows": 1,
+    "version": 1,
+    "sourceDigest": "fb5634061a0b74a08cddcf8d463a7f41e8b2c93433eb687be35fa1569761ad2c"
+  },
+  "attempts": [
+    {
+      "connectionId": "89edafe05867349a265be718c86ff228",
+      "expectedVersion": 0,
+      "kind": "oauth",
+      "projectId": "bed6d2efe947ebc5665e51a6759a03fb",
+      "referenceId": "",
+      "sourceDigest": "fb5634061a0b74a08cddcf8d463a7f41e8b2c93433eb687be35fa1569761ad2c",
+      "sourceDigestMatchesValue": true,
+      "status": 403,
+      "type": "backup"
+    },
+    {
+      "connectionId": "89edafe05867349a265be718c86ff228",
+      "expectedVersion": 0,
+      "kind": "oauth",
+      "projectId": "bed6d2efe947ebc5665e51a6759a03fb",
+      "referenceId": "",
+      "sourceDigest": "fb5634061a0b74a08cddcf8d463a7f41e8b2c93433eb687be35fa1569761ad2c",
+      "sourceDigestMatchesValue": true,
+      "status": 200,
+      "type": "backup"
+    }
+  ],
+  "baselineCounts": {
+    "oauthStart": 1,
+    "oauthSave": 1,
+    "credentialMutation": 0,
+    "backup": 0,
+    "restore": 0,
+    "runs": 1
+  },
+  "finalCounts": {
+    "oauthStart": 1,
+    "oauthSave": 1,
+    "credentialMutation": 0,
+    "backup": 2,
+    "restore": 0,
+    "runs": 1
+  },
+  "baselineStats": {
+    "cookieRequests": 0,
+    "initialize": 1,
+    "httpInitialize": 1,
+    "sseInitialize": 0,
+    "toolsList": 2,
+    "httpToolsList": 2,
+    "sseToolsList": 0,
+    "toolsCall": 1,
+    "httpToolsCall": 1,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 1,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 1,
+    "resourceVerified": 1
+  },
+  "finalStats": {
+    "cookieRequests": 0,
+    "initialize": 1,
+    "httpInitialize": 1,
+    "sseInitialize": 0,
+    "toolsList": 2,
+    "httpToolsList": 2,
+    "sseToolsList": 0,
+    "toolsCall": 1,
+    "httpToolsCall": 1,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 1,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 1,
+    "resourceVerified": 1
+  },
+  "credentialDiskUnchanged": true,
+  "historyUnchanged": true,
+  "persistenceSafe": true,
+  "secretLeak": false,
+  "pageErrors": [],
+  "requestObservations": {
+    "baseline": 14,
+    "final": 19
+  }
+}

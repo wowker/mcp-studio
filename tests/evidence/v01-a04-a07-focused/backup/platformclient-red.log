@@ -1,0 +1,33 @@
+=== RUN   TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity
+=== RUN   TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity/create
+    v01_backup_reauthentication_test.go:68: wrong password must preserve the reauthentication failure, got project_permission_revoked
+=== RUN   TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity/restore
+    v01_backup_reauthentication_test.go:68: wrong password must preserve the reauthentication failure, got project_permission_revoked
+--- FAIL: TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity (0.00s)
+    --- FAIL: TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity/create (0.00s)
+    --- FAIL: TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity/restore (0.00s)
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/create_permission
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/restore_permission
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/unknown_secret
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/malformed
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/invalid_json
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/oversize
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/metadata_get
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/non_backup_post
+=== RUN   TestBackupForbiddenResponsesRetainPermissionBoundary/grant_denied_before_backup
+--- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/create_permission (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/restore_permission (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/unknown_secret (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/malformed (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/invalid_json (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/oversize (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/metadata_get (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/non_backup_post (0.00s)
+    --- PASS: TestBackupForbiddenResponsesRetainPermissionBoundary/grant_denied_before_backup (0.00s)
+=== RUN   TestBackupUnauthenticatedResponseKeepsIdentityExpired
+--- PASS: TestBackupUnauthenticatedResponseKeepsIdentityExpired (0.00s)
+FAIL
+FAIL	mcp-studio/internal/agent/platformclient	0.455s
+FAIL

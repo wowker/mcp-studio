@@ -1,0 +1,221 @@
+{
+  "format": "mcp-studio.v01.cors-backup-supplement.v1",
+  "baseRevision": "aab7330ac0b1bb54806f35105a8f1813cc4744c5",
+  "baselineAudit": "docs/tasks/v01-assertion-audit.json",
+  "previousSupplement": "docs/tasks/v01-direct-assertions.json",
+  "implementationRevision": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+  "sourceSHA256": "049b051a87e6c6ce166e4dc91b2c55e2ac0f8df60c7c6e4aba1ee68df5705332",
+  "items": [
+    {
+      "id": "A04",
+      "expected": "手动换 Agent",
+      "formalExpected": "说明原因、手动换 Agent；不静默换通道或借用凭据",
+      "baselineCoverage": "partial",
+      "baselineGap": "只覆盖Agent需要显式channel；m2 CORS失败与m5 Agent成功分属不同旅程，没有同连接手动切换后的证明。",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-cors-agent.spec.ts",
+          "line": 27,
+          "testName": "V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials",
+          "summary": "真实CORS拒绝后同project/connection/endpoint显式切Agent；零自动Agent请求，已有Browser和另一同URL Agent凭据仍不足；缺本连接凭据拒绝，明确保存后连接/Tool/历史成功。",
+          "sha256": "479bec357bf77af5e3e384538a752035d6c1642e7355b470bd0e56fa69e07072"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a04-a07-focused/integrated/browser-fixed.log",
+        "tests/evidence/v01-a04-a07-focused/integrated/results.json",
+        "tests/evidence/v01-a04-a07-focused/cors/fixture-green.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a04-a07-final/manifest.json",
+        "log": "tests/evidence/v01-a04-a07-final/verify.log",
+        "results": "tests/evidence/v01-a04-a07-final/results.json",
+        "scope": "浏览器具名旅程；Go包级全量，聚焦日志另外具名；非每个assertion单独报告"
+      },
+      "behavior": "A04现有产品行为直接GREEN，新增fixture能力RED不算产品缺陷",
+      "scope": "受控Chromium/实际平台PG/Go Agent/测试MasterStore与本机确认；目标浏览器、真实OS、人工/介质、正式签收待验。A07补证仅实际错误重认证失败/重试，未覆盖所有备份服务故障。"
+    },
+    {
+      "id": "A04",
+      "expected": "或借用凭据",
+      "formalExpected": "说明原因、手动换 Agent；不静默换通道或借用凭据",
+      "baselineCoverage": "partial",
+      "baselineGap": "同URL Token隔离不是CORS→Agent切换场景；未断言切换失败时不从其他连接/浏览器凭据借用。",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-cors-agent.spec.ts",
+          "line": 27,
+          "testName": "V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials",
+          "summary": "真实CORS拒绝后同project/connection/endpoint显式切Agent；零自动Agent请求，已有Browser和另一同URL Agent凭据仍不足；缺本连接凭据拒绝，明确保存后连接/Tool/历史成功。",
+          "sha256": "479bec357bf77af5e3e384538a752035d6c1642e7355b470bd0e56fa69e07072"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a04-a07-focused/integrated/browser-fixed.log",
+        "tests/evidence/v01-a04-a07-focused/integrated/results.json",
+        "tests/evidence/v01-a04-a07-focused/cors/fixture-green.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a04-a07-final/manifest.json",
+        "log": "tests/evidence/v01-a04-a07-final/verify.log",
+        "results": "tests/evidence/v01-a04-a07-final/results.json",
+        "scope": "浏览器具名旅程；Go包级全量，聚焦日志另外具名；非每个assertion单独报告"
+      },
+      "behavior": "A04现有产品行为直接GREEN，新增fixture能力RED不算产品缺陷",
+      "scope": "受控Chromium/实际平台PG/Go Agent/测试MasterStore与本机确认；目标浏览器、真实OS、人工/介质、正式签收待验。A07补证仅实际错误重认证失败/重试，未覆盖所有备份服务故障。"
+    },
+    {
+      "id": "A07",
+      "expected": "三个状态独立",
+      "formalExpected": "三个状态独立；重试保存 / 备份不重新调用工具",
+      "baselineCoverage": "partial",
+      "baselineGap": "OAuth authorized与save失败独立；backup失败保留表单且无恢复成功事实，但三个状态同一OAuth连接联动未断言。",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-backup-retry.spec.ts",
+          "line": 34,
+          "testName": "V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup",
+          "summary": "实际平台403重认证失败→Agent409固定错误；同OAuth attempt authorized/saved、密文文件摘要/mtime/size、历史不变；纠正密码只重试backup200，OAuth/save/Tool均保持1，restore0。",
+          "sha256": "c535f212a74523d170f7cd38a75ae4dbc2041b40652e6ade29b0766d931d1602"
+        },
+        {
+          "path": "apps/web/src/features/connections/v01-backup-retry.test.tsx",
+          "line": 15,
+          "testName": "retries a rejected backup with the retained scope and explicit consent, then shows only the accepted backup",
+          "summary": "保留输入/明确勾选、当前scope；拒绝不产生backup成功事实，重试仅一条成功备份后清空表单。",
+          "sha256": "9b73315c21a9740b0b48f131b47cf46743dc7ec35341a5e17f437cea859b6fd9"
+        },
+        {
+          "path": "internal/agent/platformclient/v01_backup_reauthentication_test.go",
+          "line": 15,
+          "testName": "TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity",
+          "summary": "真实HTTP创建/恢复错误重认证→修正重试，Validate先行、同路由两次请求，失败无结果。",
+          "sha256": "03685c6b9f83ef3b03ce5e438f1f39ca36404c538176530ee3feb0f6eef350dc"
+        },
+        {
+          "path": "internal/agent/platformclient/v01_backup_reauthentication_test.go",
+          "line": 83,
+          "testName": "TestBackupForbiddenResponsesRetainPermissionBoundary",
+          "summary": "9子case验证其他403、无效/oversize响应、非备份POST/GET、grant拒绝保持permission边界且无结果。",
+          "sha256": "03685c6b9f83ef3b03ce5e438f1f39ca36404c538176530ee3feb0f6eef350dc"
+        },
+        {
+          "path": "internal/agent/platformclient/v01_backup_reauthentication_test.go",
+          "line": 130,
+          "testName": "TestBackupUnauthenticatedResponseKeepsIdentityExpired",
+          "summary": "401仍platform_identity_expired。",
+          "sha256": "03685c6b9f83ef3b03ce5e438f1f39ca36404c538176530ee3feb0f6eef350dc"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a04-a07-focused/integrated/browser-fixed.log",
+        "tests/evidence/v01-a04-a07-focused/integrated/results.json",
+        "tests/evidence/v01-a04-a07-focused/backup/platformclient-red.log",
+        "tests/evidence/v01-a04-a07-focused/backup/platformclient-sessions-green.log",
+        "tests/evidence/v01-a04-a07-focused/backup/unit.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a04-a07-final/manifest.json",
+        "log": "tests/evidence/v01-a04-a07-final/verify.log",
+        "results": "tests/evidence/v01-a04-a07-final/results.json",
+        "scope": "浏览器具名旅程；Go包级全量，聚焦日志另外具名；非每个assertion单独报告"
+      },
+      "behavior": "实际Go和生产浏览器RED：备份重认证403误报permission；最小修补后GREEN",
+      "scope": "受控Chromium/实际平台PG/Go Agent/测试MasterStore与本机确认；目标浏览器、真实OS、人工/介质、正式签收待验。A07补证仅实际错误重认证失败/重试，未覆盖所有备份服务故障。"
+    },
+    {
+      "id": "A07",
+      "expected": "重试保存 / 备份不重新调用工具",
+      "formalExpected": "三个状态独立；重试保存 / 备份不重新调用工具",
+      "baselineCoverage": "partial",
+      "baselineGap": "save重试不重新OAuth交换有断言；没有backup失败后重试成功且Tool调用计数不变的断言。",
+      "currentCoverage": "assertion-backed",
+      "formalStatus": "待验收",
+      "implementationRevision": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+      "assertions": [
+        {
+          "path": "tests/e2e/v01-backup-retry.spec.ts",
+          "line": 34,
+          "testName": "V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup",
+          "summary": "实际平台403重认证失败→Agent409固定错误；同OAuth attempt authorized/saved、密文文件摘要/mtime/size、历史不变；纠正密码只重试backup200，OAuth/save/Tool均保持1，restore0。",
+          "sha256": "c535f212a74523d170f7cd38a75ae4dbc2041b40652e6ade29b0766d931d1602"
+        },
+        {
+          "path": "apps/web/src/features/connections/v01-backup-retry.test.tsx",
+          "line": 15,
+          "testName": "retries a rejected backup with the retained scope and explicit consent, then shows only the accepted backup",
+          "summary": "保留输入/明确勾选、当前scope；拒绝不产生backup成功事实，重试仅一条成功备份后清空表单。",
+          "sha256": "9b73315c21a9740b0b48f131b47cf46743dc7ec35341a5e17f437cea859b6fd9"
+        },
+        {
+          "path": "internal/agent/platformclient/v01_backup_reauthentication_test.go",
+          "line": 15,
+          "testName": "TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity",
+          "summary": "真实HTTP创建/恢复错误重认证→修正重试，Validate先行、同路由两次请求，失败无结果。",
+          "sha256": "03685c6b9f83ef3b03ce5e438f1f39ca36404c538176530ee3feb0f6eef350dc"
+        },
+        {
+          "path": "internal/agent/platformclient/v01_backup_reauthentication_test.go",
+          "line": 83,
+          "testName": "TestBackupForbiddenResponsesRetainPermissionBoundary",
+          "summary": "9子case验证其他403、无效/oversize响应、非备份POST/GET、grant拒绝保持permission边界且无结果。",
+          "sha256": "03685c6b9f83ef3b03ce5e438f1f39ca36404c538176530ee3feb0f6eef350dc"
+        },
+        {
+          "path": "internal/agent/platformclient/v01_backup_reauthentication_test.go",
+          "line": 130,
+          "testName": "TestBackupUnauthenticatedResponseKeepsIdentityExpired",
+          "summary": "401仍platform_identity_expired。",
+          "sha256": "03685c6b9f83ef3b03ce5e438f1f39ca36404c538176530ee3feb0f6eef350dc"
+        }
+      ],
+      "focusedEvidence": [
+        "tests/evidence/v01-a04-a07-focused/integrated/browser-fixed.log",
+        "tests/evidence/v01-a04-a07-focused/integrated/results.json",
+        "tests/evidence/v01-a04-a07-focused/backup/platformclient-red.log",
+        "tests/evidence/v01-a04-a07-focused/backup/platformclient-sessions-green.log",
+        "tests/evidence/v01-a04-a07-focused/backup/unit.log"
+      ],
+      "fullVerification": {
+        "manifest": "tests/evidence/v01-a04-a07-final/manifest.json",
+        "log": "tests/evidence/v01-a04-a07-final/verify.log",
+        "results": "tests/evidence/v01-a04-a07-final/results.json",
+        "scope": "浏览器具名旅程；Go包级全量，聚焦日志另外具名；非每个assertion单独报告"
+      },
+      "behavior": "实际Go和生产浏览器RED：备份重认证403误报permission；最小修补后GREEN",
+      "scope": "受控Chromium/实际平台PG/Go Agent/测试MasterStore与本机确认；目标浏览器、真实OS、人工/介质、正式签收待验。A07补证仅实际错误重认证失败/重试，未覆盖所有备份服务故障。"
+    }
+  ],
+  "effectiveCoverage": {
+    "assertion-backed": 115,
+    "partial": 69,
+    "not-found": 0,
+    "environment-pending": 3
+  },
+  "clauses": 187,
+  "supplementedClauses": 4,
+  "formalPassCount": 0,
+  "scope": "仅更新A04/A07四个目标partial条款；其他条款不批量重评；原审计与六条补证保持历史版本。",
+  "review": {
+    "agent": "a04_a07_review",
+    "verdict": "no Critical/Required findings",
+    "testsExecutedByReviewer": false
+  },
+  "pendingUnchanged": [
+    "T02",
+    "T32b",
+    "既有实机/人工/介质",
+    "全部A正式签收",
+    "全部原T叶子"
+  ],
+  "publication": "not-authorized"
+}

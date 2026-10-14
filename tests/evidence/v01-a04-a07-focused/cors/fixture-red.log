@@ -1,0 +1,31 @@
+✖ CORS-denied token endpoint remains a real authenticated MCP service for an explicit native client (27.01925ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.946417
+
+✖ failing tests:
+
+test at tests/fixtures/m2/fixture.test.mjs:2:1
+✖ CORS-denied token endpoint remains a real authenticated MCP service for an explicit native client (27.01925ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'http://localhost:3000'
+  - null
+  
+      at TestContext.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/tests/fixtures/m2/fixture.test.mjs:6:45)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'http://localhost:3000',
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,14 @@
+
+> mcp-studio@0.1.0 test
+> vitest run --config apps/web/vite.config.ts apps/web/src/features/connections/v01-backup-retry.test.tsx
+
+
+ RUN  v3.2.7 /Users/wuwei/code/github/mcp-studio/apps/web
+
+ ✓ src/features/connections/v01-backup-retry.test.tsx (1 test) 284ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  10:07:27
+   Duration  1.15s (transform 175ms, setup 65ms, collect 324ms, tests 284ms, environment 288ms, prepare 33ms)
+

@@ -1,0 +1,215 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/v01-a04-a07-focused/integrated/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "v01-backup-retry.spec.ts",
+      "file": "v01-backup-retry.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7599,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mreauthentication_fail\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mproject_permission_revok\u001b[27med\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mreauthentication_fail\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mproject_permission_revok\u001b[27med\"\u001b[39m\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts:119:115",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts",
+                      "column": 115,
+                      "line": 119
+                    },
+                    "snippet": "  117 |  const failedResponseEvent=page.waitForResponse(response=>response.url()===agentOrigin+'/v1/credentials/backup'&&response.request().method()==='POST');\n  118 |  await page.getByRole('button',{name:'Create personal backup',exact:true}).click();const failedResponse=await failedResponseEvent;\n> 119 |  expect(failedResponse.status()).toBe(409);expect(wire.errorSchema.parse(await failedResponse.json()).error.code).toBe('reauthentication_failed');\n      |                                                                                                                   ^\n  120 |  await expect(page.getByRole('alert').filter({hasText:'reauthentication_failed'})).toBeVisible();\n  121 |  await expect(reauth).toHaveValue(wrongPassword);await expect(confirmed).toBeChecked();\n  122 |  await expect(page.getByRole('button',{name:'Restore personal backup',exact:true})).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts",
+                        "column": 115,
+                        "line": 119
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7mreauthentication_fail\u001b[27med\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mproject_permission_revok\u001b[27med\"\u001b[39m\n\n  117 |  const failedResponseEvent=page.waitForResponse(response=>response.url()===agentOrigin+'/v1/credentials/backup'&&response.request().method()==='POST');\n  118 |  await page.getByRole('button',{name:'Create personal backup',exact:true}).click();const failedResponse=await failedResponseEvent;\n> 119 |  expect(failedResponse.status()).toBe(409);expect(wire.errorSchema.parse(await failedResponse.json()).error.code).toBe('reauthentication_failed');\n      |                                                                                                                   ^\n  120 |  await expect(page.getByRole('alert').filter({hasText:'reauthentication_failed'})).toBeVisible();\n  121 |  await expect(reauth).toHaveValue(wrongPassword);await expect(confirmed).toBeChecked();\n  122 |  await expect(page.getByRole('button',{name:'Restore personal backup',exact:true})).toHaveCount(0);\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts:119:115"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T02:12:13.572Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-backup-retry-V01-A07-p-2f890-and-retries-only-the-backup-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts",
+                    "column": 115,
+                    "line": 119
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d9f94e21d5056fd9d45c-fb709e904f5668b6e6a5",
+          "file": "v01-backup-retry.spec.ts",
+          "line": 34,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v01-cors-agent.spec.ts",
+      "file": "v01-cors-agent.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3530,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"authMode\": \"token\",\u001b[22m\n\u001b[32m-   \"channel\": \"browser\",\u001b[39m\n\u001b[31m+   \"channel\": \"agent\",\u001b[39m\n\u001b[2m    \"endpoint\": \"http://127.0.0.1:60295/cors-token-mcp\",\u001b[22m\n\u001b[2m    \"id\": \"d896934c4541bb294b6a2e2bb881fa89\",\u001b[22m\n\u001b[2m    \"projectId\": \"baaa4c9ac118519ac53c2f04c1e5eaa2\",\u001b[22m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"authMode\": \"token\",\u001b[22m\n\u001b[32m-   \"channel\": \"browser\",\u001b[39m\n\u001b[31m+   \"channel\": \"agent\",\u001b[39m\n\u001b[2m    \"endpoint\": \"http://127.0.0.1:60295/cors-token-mcp\",\u001b[22m\n\u001b[2m    \"id\": \"d896934c4541bb294b6a2e2bb881fa89\",\u001b[22m\n\u001b[2m    \"projectId\": \"baaa4c9ac118519ac53c2f04c1e5eaa2\",\u001b[22m\n\u001b[2m  }\u001b[22m\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:40:61",
+                    "location": {
+                      "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                      "column": 61,
+                      "line": 40
+                    },
+                    "snippet": "  38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});\n  39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);\n> 40 |  snapshots.push(await configuration());expect(snapshots[0]).toMatchObject({id:connectionId,projectId,channel:'browser',endpoint,authMode:'token'});\n     |                                                             ^\n  41 |  await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(/The browser cannot reliably distinguish these causes/)).toBeVisible();\n  42 |  expect(policyErrors).toBeGreaterThan(0);expect(failedUpstream).toBeGreaterThan(0);expect((await fixtureStats(request)).initialize).toBe(before.initialize);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);\n  43 |  expect(agentActions).toEqual([]);expect((await control(request)).prompts.length).toBe(beforeAgent.prompts.length);expect((await control(request)).uploads).toEqual(beforeAgent.uploads);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                        "column": 61,
+                        "line": 40
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoMatchObject\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"authMode\": \"token\",\u001b[22m\n\u001b[32m-   \"channel\": \"browser\",\u001b[39m\n\u001b[31m+   \"channel\": \"agent\",\u001b[39m\n\u001b[2m    \"endpoint\": \"http://127.0.0.1:60295/cors-token-mcp\",\u001b[22m\n\u001b[2m    \"id\": \"d896934c4541bb294b6a2e2bb881fa89\",\u001b[22m\n\u001b[2m    \"projectId\": \"baaa4c9ac118519ac53c2f04c1e5eaa2\",\u001b[22m\n\u001b[2m  }\u001b[22m\n\n  38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});\n  39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);\n> 40 |  snapshots.push(await configuration());expect(snapshots[0]).toMatchObject({id:connectionId,projectId,channel:'browser',endpoint,authMode:'token'});\n     |                                                             ^\n  41 |  await page.getByRole('button',{name:'Connect',exact:true}).click();await expect(page.getByText(/The browser cannot reliably distinguish these causes/)).toBeVisible();\n  42 |  expect(policyErrors).toBeGreaterThan(0);expect(failedUpstream).toBeGreaterThan(0);expect((await fixtureStats(request)).initialize).toBe(before.initialize);expect((await fixtureStats(request)).toolsCall).toBe(before.toolsCall);\n  43 |  expect(agentActions).toEqual([]);expect((await control(request)).prompts.length).toBe(beforeAgent.prompts.length);expect((await control(request)).uploads).toEqual(beforeAgent.uploads);\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:40:61"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T02:12:21.717Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-cors-agent-V01-A04-pro-e2a9e-thout-borrowing-credentials-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                    "column": 61,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bb0179a6cb6fe27e0dd8-0dab65590528ff3444c5",
+          "file": "v01-cors-agent.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T02:12:13.056Z",
+    "duration": 12312.237,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

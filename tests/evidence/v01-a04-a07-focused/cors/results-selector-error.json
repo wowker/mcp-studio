@@ -1,0 +1,135 @@
+{
+  "config": {
+    "configFile": "/Users/wuwei/code/github/mcp-studio/playwright.config.ts",
+    "rootDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/wuwei/code/github/mcp-studio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/wuwei/code/github/mcp-studio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "tests/evidence/v01-a04-a07-focused/cors/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "v01-cors-agent.spec.ts",
+      "file": "v01-cors-agent.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60105,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts",
+                        "column": 62,
+                        "line": 36
+                      },
+                      "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Personal access Token', { exact: true })\u001b[22m\n\n\n  34 |  const otherId=await service(page,'A04 other credential',endpoint,'agent');await credential(page);\n  35 |  const connectionId=await service(page,'A04 browser target',endpoint,'browser');expect(connectionId).not.toBe(otherId);\n> 36 |  await page.getByLabel('Personal access Token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'Save for this session',exact:true}).click();await expect(page.getByText('Authorized, ready to connect',{exact:true})).toBeVisible();\n     |                                                              ^\n  37 |  const before=await fixtureStats(request),beforeAgent=await control(request),agentActions:{path:string;connectionId?:string}[]=[],snapshots:wire.Connection[]=[];\n  38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});\n  39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);\n    at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:36:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T02:07:31.286Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/wuwei/code/github/mcp-studio/test-results/v01-cors-agent-V01-A04-pro-e2a9e-thout-borrowing-credentials-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bb0179a6cb6fe27e0dd8-0dab65590528ff3444c5",
+          "file": "v01-cors-agent.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T02:07:30.648Z",
+    "duration": 61251.652,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

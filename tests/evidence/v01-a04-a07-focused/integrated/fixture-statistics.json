@@ -1,0 +1,64 @@
+{
+  "mcp": {
+    "cookieRequests": 0,
+    "initialize": 1,
+    "httpInitialize": 1,
+    "sseInitialize": 0,
+    "toolsList": 2,
+    "httpToolsList": 2,
+    "sseToolsList": 0,
+    "toolsCall": 1,
+    "httpToolsCall": 1,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 0,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 0,
+    "resourceVerified": 0
+  },
+  "oauth": {
+    "cookieRequests": 0,
+    "initialize": 1,
+    "httpInitialize": 1,
+    "sseInitialize": 0,
+    "toolsList": 2,
+    "httpToolsList": 2,
+    "sseToolsList": 0,
+    "toolsCall": 1,
+    "httpToolsCall": 1,
+    "sseToolsCall": 0,
+    "delayedCalls": 0,
+    "releasedCalls": 0,
+    "oauthExchanges": 1,
+    "oauthDenials": 0,
+    "oauthReplays": 0,
+    "pkceVerified": 1,
+    "resourceVerified": 1
+  },
+  "agent": {
+    "generation": 1,
+    "nativePairings": 2,
+    "nativeProcesses": 0,
+    "stdioCalls": 0,
+    "uploads": [
+      {
+        "frozenDigest": "75960ee623ae41cc060828be29df8d5e9cd8471eb72493d30559c05132390217",
+        "operationId": "2311ae5f-e8a5-45e4-a757-f892396ae9f1",
+        "status": 200,
+        "targetId": "d86ae0a8-19d5-443d-9a2f-e662e09fd59f",
+        "type": "upload"
+      },
+      {
+        "frozenDigest": "b69df18ce8908f4c1b013adf4c5c832642543fbd8085b951062df9692ccf33c9",
+        "operationId": "64dfd175-9a5c-4f5a-9ac5-129459b3b875",
+        "status": 200,
+        "targetId": "752b0fb8-24af-4bed-9339-484bfac08310",
+        "type": "upload"
+      }
+    ]
+  },
+  "tls": "Temporary fixture CA trusted by the controlled Go Agent helper; browser ignoreHTTPSErrors for this fixture only; no CORS/mixed-content/LNA bypass",
+  "supportMatrix": "T02 remains pending; controlled MasterStore/native Confirm are not real OS/terminal confirmation evidence"
+}

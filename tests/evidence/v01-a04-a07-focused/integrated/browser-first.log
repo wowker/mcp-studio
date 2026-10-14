@@ -1,0 +1,79 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 2 tests using 1 worker
+
+(node:56733) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56733) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/v01-backup-retry.spec.ts:34:1 › V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup (3.4s)
+(node:56752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/v01-cors-agent.spec.ts:25:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials (13.6s)
+
+
+  1) [chromium] › tests/e2e/v01-backup-retry.spec.ts:34:1 › V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m404[39m
+
+       at production-helpers.ts:5
+
+      3 | import * as wire from '../../apps/web/src/generated/platform';
+      4 | const ownerEmail='owner-e2e@example.test',password='Fixture-Password-12';
+    > 5 | export async function requestData<T>(request:APIRequestContext,path:string,schema:z.ZodType<T>){const response=await request.get('/api/v1'+path);expect(response.status()).toBe(200);return z.object({data:schema}).parse(await response.json()).data;}
+        |                                                                                                                                                                            ^
+      6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      7 | export async function bootstrap(page:Page,request:APIRequestContext){
+      8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+        at requestData (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:5:172)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-backup-retry.spec.ts:58:9
+
+    Error Context: test-results/v01-backup-retry-V01-A07-p-2f890-and-retries-only-the-backup-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/v01-cors-agent.spec.ts:25:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText('Authorized, ready to connect', { exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByText('Authorized, ready to connect', { exact: true })[22m
+
+
+      34 |  const otherId=await service(page,'A04 other credential',endpoint,'agent');await credential(page);
+      35 |  const connectionId=await service(page,'A04 browser target',endpoint,'browser');expect(connectionId).not.toBe(otherId);
+    > 36 |  await page.getByLabel('Personal access token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'Save for this session',exact:true}).click();await expect(page.getByText('Authorized, ready to connect',{exact:true})).toBeVisible();
+         |                                                                                                                                                                                                                                               ^
+      37 |  const before=await fixtureStats(request),beforeAgent=await control(request),agentActions:{path:string;connectionId?:string}[]=[],snapshots:wire.Connection[]=[];
+      38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});
+      39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:36:239
+
+    Error Context: test-results/v01-cors-agent-V01-A04-pro-e2a9e-thout-borrowing-credentials-chromium/error-context.md
+
+  2 failed
+    [chromium] › tests/e2e/v01-backup-retry.spec.ts:34:1 › V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup 
+    [chromium] › tests/e2e/v01-cors-agent.spec.ts:25:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials 
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed
+file:///Users/wuwei/code/github/mcp-studio/scripts/test-runtime.mjs:60
+      else reject(Object.assign(new Error(`${label}: failed with ${childSignal ?? `exit ${code}`}`), { exitCode: code ?? 130 }));
+                                ^
+
+Error: Playwright production-entry E2E: failed with exit 1
+    at ChildProcess.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/scripts/test-runtime.mjs:60:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  exitCode: 1
+}
+
+Node.js v24.21.0

@@ -1,0 +1,27 @@
+=== RUN   TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity
+=== RUN   TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity/create
+--- FAIL: TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity (0.00s)
+    --- FAIL: TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity/create (0.00s)
+panic: httptest: failed to listen on a port: listen tcp6 [::1]:0: bind: operation not permitted [recovered, repanicked]
+
+goroutine 9 [running]:
+testing.tRunner.func1.2({0x10527a400, 0x14000028450})
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1872 +0x190
+testing.tRunner.func1()
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1875 +0x31c
+panic({0x10527a400?, 0x14000028450?})
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/runtime/panic.go:783 +0x120
+net/http/httptest.newLocalListener()
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/net/http/httptest/server.go:71 +0xd4
+net/http/httptest.NewUnstartedServer(...)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/net/http/httptest/server.go:119
+net/http/httptest.NewServer({0x1052fe780, 0x14000076b00})
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/net/http/httptest/server.go:106 +0x28
+mcp-studio/internal/agent/platformclient.TestBackupReauthenticationFailurePreservesRetryAndErrorIdentity.func1(0x14000003dc0)
+	/Users/wuwei/code/github/mcp-studio/internal/agent/platformclient/v01_backup_reauthentication_test.go:23 +0x188
+testing.tRunner(0x14000003dc0, 0x1400000e1c8)
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1934 +0xc8
+created by testing.(*T).Run in goroutine 8
+	/opt/homebrew/Cellar/go/1.25.5/libexec/src/testing/testing.go:1997 +0x364
+FAIL	mcp-studio/internal/agent/platformclient	0.477s
+FAIL

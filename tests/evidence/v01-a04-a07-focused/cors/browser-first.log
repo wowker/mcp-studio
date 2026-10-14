@@ -1,0 +1,47 @@
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 1 test using 1 worker
+
+(node:53497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:53497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/v01-cors-agent.spec.ts:25:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials (1.0m)
+
+
+  1) [chromium] › tests/e2e/v01-cors-agent.spec.ts:25:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('Personal access Token', { exact: true })[22m
+
+
+      34 |  const otherId=await service(page,'A04 other credential',endpoint,'agent');await credential(page);
+      35 |  const connectionId=await service(page,'A04 browser target',endpoint,'browser');expect(connectionId).not.toBe(otherId);
+    > 36 |  await page.getByLabel('Personal access Token',{exact:true}).fill('fixture-token');await page.getByRole('button',{name:'Save for this session',exact:true}).click();await expect(page.getByText('Authorized, ready to connect',{exact:true})).toBeVisible();
+         |                                                              ^
+      37 |  const before=await fixtureStats(request),beforeAgent=await control(request),agentActions:{path:string;connectionId?:string}[]=[],snapshots:wire.Connection[]=[];
+      38 |  page.on('request',entry=>{const url=new URL(entry.url());if(url.origin!==agentOrigin||entry.method()!=='POST'||!['/v1/connections','/v1/runs','/v1/credentials'].includes(url.pathname))return;const body=entry.postDataJSON() as {connectionId?:string};agentActions.push({path:url.pathname,connectionId:body.connectionId});});
+      39 |  const configuration=async()=>requestData(page.request,`/projects/${projectId}/connections/${connectionId}`,wire.connectionSchema);
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/v01-cors-agent.spec.ts:36:62
+
+    Error Context: test-results/v01-cors-agent-V01-A04-pro-e2a9e-thout-borrowing-credentials-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/v01-cors-agent.spec.ts:25:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials 
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed
+file:///Users/wuwei/code/github/mcp-studio/scripts/test-runtime.mjs:60
+      else reject(Object.assign(new Error(`${label}: failed with ${childSignal ?? `exit ${code}`}`), { exitCode: code ?? 130 }));
+                                ^
+
+Error: Playwright production-entry E2E: failed with exit 1
+    at ChildProcess.<anonymous> (file:///Users/wuwei/code/github/mcp-studio/scripts/test-runtime.mjs:60:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  exitCode: 1
+}
+
+Node.js v24.21.0

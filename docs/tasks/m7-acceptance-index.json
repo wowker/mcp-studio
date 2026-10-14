@@ -185,6 +185,18 @@
           "partial": 2
         },
         "formalSignoff": "pending"
+      },
+      "corsBackupSupplement": {
+        "path": "docs/tasks/v01-a04-a07-supplement.json",
+        "clauses": [
+          "手动换 Agent",
+          "或借用凭据"
+        ],
+        "implementation": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+        "effectiveCoverage": {
+          "assertion-backed": 4
+        },
+        "formalSignoff": "pending"
       }
     },
     {
@@ -298,6 +310,18 @@
         "formalExpected": "三个状态独立；重试保存 / 备份不重新调用工具",
         "coverage": {
           "partial": 2
+        },
+        "formalSignoff": "pending"
+      },
+      "corsBackupSupplement": {
+        "path": "docs/tasks/v01-a04-a07-supplement.json",
+        "clauses": [
+          "三个状态独立",
+          "重试保存 / 备份不重新调用工具"
+        ],
+        "implementation": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+        "effectiveCoverage": {
+          "assertion-backed": 2
         },
         "formalSignoff": "pending"
       }
@@ -2471,6 +2495,13 @@
     "manifest": "tests/evidence/v01-direct-assertions-final/manifest.json",
     "report": "docs/tasks/v01-direct-assertions-review.md",
     "supplementedClauses": 6,
+    "formalPassCount": 0
+  },
+  "latestCorsBackupVerification": {
+    "implementation": "3ad64452210d9f916b6bf530ecf1416ecf9ae487",
+    "manifest": "tests/evidence/v01-a04-a07-final/manifest.json",
+    "report": "docs/tasks/v01-a04-a07-review.md",
+    "supplementedClauses": 4,
     "formalPassCount": 0
   }
 }
