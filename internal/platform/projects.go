@@ -20,23 +20,22 @@ func (s projectAccess) canManage() bool {
 }
 func (s projectAccess) canRead() bool { return s.teamRole != "" && s.projectRole != "" }
 func lockTeamTx(ctx context.Context, tx pgx.Tx, teamID string) error {
-	var found string
-	return tx.QueryRow(ctx, `SELECT id FROM teams WHERE id=$1 FOR UPDATE`, teamID).Scan(&found)
+	// build-tag variants provide the concrete implementation in auth_cloud.go
+	// (FOR UPDATE lock) or auth_local.go (existence check only, single-user
+	// edition needs no serialization).
+	return lockTeamTxImpl(ctx, tx, teamID)
 }
 func projectScope(ctx context.Context, q queryRower, projectID, userID string) (projectAccess, error) {
 	var scope projectAccess
-	err := q.QueryRow(ctx, `SELECT p.team_id,COALESCE(tm.role,''),CASE WHEN tm.role IS NOT NULL THEN COALESCE(pm.role,'') ELSE '' END FROM projects p LEFT JOIN team_members tm ON tm.team_id=p.team_id AND tm.user_id=$2 LEFT JOIN project_members pm ON pm.project_id=p.id AND pm.user_id=$2 WHERE p.id=$1`, projectID, userID).Scan(&scope.teamID, &scope.teamRole, &scope.projectRole)
-	return scope, err
+	var ok bool
+	scope.teamID, scope.teamRole, scope.projectRole, ok = projectRole(ctx, q, projectID, userID)
+	if !ok {
+		return scope, errors.New("not_found")
+	}
+	return scope, nil
 }
 func authorizedInvite(ctx context.Context, q queryRower, projectID, actorID, invitedTeamRole string) bool {
-	s, err := projectScope(ctx, q, projectID, actorID)
-	if err != nil || s.teamRole == "" {
-		return false
-	}
-	if invitedTeamRole == "admin" {
-		return s.teamRole == "owner"
-	}
-	return invitedTeamRole == "member" && s.canManage()
+	return authorizedInviteRole(ctx, q, projectID, actorID, invitedTeamRole)
 }
 func dbFailure(w http.ResponseWriter, err error) {
 	var pg *pgconn.PgError
@@ -71,14 +70,10 @@ func (a *App) listProjects(w http.ResponseWriter, r *http.Request) {
 	if !ok {
 		return
 	}
-	var role string
 	teamID := r.PathValue("teamId")
-	if err := a.DB.QueryRow(r.Context(), `SELECT role FROM team_members WHERE team_id=$1 AND user_id=$2`, teamID, u.ID).Scan(&role); err != nil {
-		if errors.Is(err, pgx.ErrNoRows) {
-			fail(w, 403, "forbidden")
-		} else {
-			dbFailure(w, err)
-		}
+	role, ok := teamRoleOnTeam(r.Context(), a.DB, teamID, u.ID)
+	if !ok {
+		fail(w, 403, "forbidden")
 		return
 	}
 	rows, err := a.DB.Query(r.Context(), `SELECT p.id,p.team_id,p.name,p.description,COALESCE(pm.role,'') FROM projects p LEFT JOIN project_members pm ON pm.project_id=p.id AND pm.user_id=$2 WHERE p.team_id=$1 AND ($3 IN ('owner','admin') OR pm.user_id IS NOT NULL) ORDER BY p.name_key,p.id`, teamID, u.ID, role)
@@ -131,8 +126,8 @@ func (a *App) createProject(w http.ResponseWriter, r *http.Request) {
 		fail(w, 403, "forbidden")
 		return
 	}
-	var role string
-	if err = tx.QueryRow(ctx, `SELECT role FROM team_members WHERE team_id=$1 AND user_id=$2`, teamID, u.ID).Scan(&role); err != nil || (role != "owner" && role != "admin") {
+	role, ok := teamRoleOnTeam(ctx, tx, teamID, u.ID)
+	if !ok || (role != "owner" && role != "admin") {
 		fail(w, 403, "forbidden")
 		return
 	}
@@ -167,14 +162,9 @@ func (a *App) getProject(w http.ResponseWriter, r *http.Request) {
 	}
 	p, err := a.projectValue(r.Context(), a.DB, r.PathValue("projectId"), u.ID)
 	if err != nil {
-		if errors.Is(err, pgx.ErrNoRows) {
-			fail(w, 404, "not_found")
-		} else {
-			dbFailure(w, err)
-		}
+		fail(w, 404, "not_found")
 		return
 	}
-	// This endpoint returns directory/access metadata, never project content.
 	if !p.CanRead && !p.CanManage {
 		fail(w, 403, "forbidden")
 		return
@@ -239,7 +229,7 @@ func (a *App) takeoverProject(w http.ResponseWriter, r *http.Request) {
 	success(w, p)
 }
 func (a *App) projectAudit(w http.ResponseWriter, r *http.Request) {
-	u, ok := a.require(w, r, true)
+	u, ok := a.require(w, r, false)
 	if !ok {
 		return
 	}

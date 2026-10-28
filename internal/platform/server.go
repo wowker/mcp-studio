@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/rand"
 	"crypto/sha256"
-	"crypto/subtle"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
@@ -39,6 +38,8 @@ type App struct {
 	Mail               Mailer
 	recordCursorOnce   sync.Once
 	recordCursorSecret [32]byte
+	localSubject       wire.User
+	localTeams         []wire.Team
 }
 
 func id() string {
@@ -173,73 +174,20 @@ func (a *App) Handler() http.Handler {
 	})
 }
 func (a *App) require(w http.ResponseWriter, r *http.Request, verified bool) (wire.User, bool) {
-	if r.Header.Get("Authorization") != "" {
-		return a.authenticateAgent(w, r)
-	}
-	s, err := a.session(r)
-	if err != nil {
-		a.cookie(w, "", true)
+	u, ok := requireUser(a, w, r, verified)
+	if !ok {
 		fail(w, 401, "session_expired")
 		return wire.User{}, false
 	}
-	if verified && !s.User.Verified {
+	if verified && !u.Verified && CurrentEdition == EditionCloud {
 		fail(w, 403, "email_unverified")
 		return wire.User{}, false
 	}
-	if r.Method != "GET" && r.Method != "HEAD" && subtle.ConstantTimeCompare([]byte(r.Header.Get("X-CSRF-Token")), []byte(s.Csrf)) != 1 {
+	if !csrfOk(a, r) {
 		fail(w, 403, "csrf_rejected")
 		return wire.User{}, false
 	}
-	return s.User, true
-}
-func (a *App) session(r *http.Request) (wire.Session, error) {
-	var s wire.Session
-	c, err := r.Cookie(a.cookieName())
-	if err != nil {
-		return s, err
-	}
-	tx, err := a.DB.Begin(r.Context())
-	if err != nil {
-		return s, err
-	}
-	defer tx.Rollback(r.Context())
-	var created, last time.Time
-	err = tx.QueryRow(r.Context(), `SELECT u.id,u.email,u.name,u.verified,s.csrf,s.created_at,s.last_seen FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.digest=$1 FOR UPDATE OF s`, digest(c.Value)).Scan(&s.User.ID, &s.User.Email, &s.User.Name, &s.User.Verified, &s.Csrf, &created, &last)
-	if err != nil {
-		return s, err
-	}
-	now := a.Now()
-	if !now.Before(last.Add(a.Config.Idle)) || !now.Before(created.Add(a.Config.Absolute)) {
-		tx.Exec(r.Context(), `DELETE FROM sessions WHERE digest=$1`, digest(c.Value))
-		tx.Commit(r.Context())
-		return s, errors.New("expired")
-	}
-	if _, err = tx.Exec(r.Context(), `UPDATE sessions SET last_seen=$1 WHERE digest=$2`, now, digest(c.Value)); err != nil {
-		return s, err
-	}
-	s.Teams = []wire.Team{}
-	rows, err := tx.Query(r.Context(), `SELECT t.id,t.name,m.role FROM teams t JOIN team_members m ON m.team_id=t.id WHERE m.user_id=$1 ORDER BY t.name,t.id`, s.User.ID)
-	if err != nil {
-		return s, err
-	}
-	for rows.Next() {
-		var team wire.Team
-		if err = rows.Scan(&team.ID, &team.Name, &team.Role); err != nil {
-			rows.Close()
-			return s, err
-		}
-		s.Teams = append(s.Teams, team)
-	}
-	rows.Close()
-	if err = rows.Err(); err != nil {
-		return s, err
-	}
-	expiry := now.Add(a.Config.Idle)
-	if created.Add(a.Config.Absolute).Before(expiry) {
-		expiry = created.Add(a.Config.Absolute)
-	}
-	s.ExpiresAt = expiry.UTC().Format(time.RFC3339)
-	return s, tx.Commit(r.Context())
+	return u, true
 }
 func (a *App) throttle(r *http.Request) bool {
 	host, _, err := net.SplitHostPort(r.RemoteAddr)
