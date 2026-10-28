@@ -1,0 +1,14 @@
+{
+  "edition": "local-packaged",
+  "target": "darwin/arm64",
+  "checks": [
+    "layout: binary + shim + pg/{bin,lib,share} + wrapper complete",
+    "signing: shim + pg tools are ad-hoc re-signed",
+    "manifest: pgIncluded=true, pgThreadShim=true",
+    "bundled smoke: no PG_BIN override; initdb + health 200 + mode 0700",
+    "shutdown: SIGTERM exit 0, no stale postmaster.pid",
+    "install: shim + pg tree installed; uninstall removes prefix, preserves data"
+  ],
+  "durationMs": 9566,
+  "result": "pass"
+}

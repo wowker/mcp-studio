@@ -152,6 +152,21 @@
 
 落点：`scripts/verify.mjs` 已分别报告 cloud / local / all 三段结论，E09 只补本地冒烟断言与 macOS 启动竞态修复，不动云版门禁。`scripts/test-local-edition.mjs` 对 `.runtime/local-platform` 用临时数据目录断言四项：`PG_VERSION` 存在、数据目录 mode 0700、`GET /api/v1/health` 返回 200 `{"status":"ok"}`、SIGTERM 退出 0 且无残留 `postmaster.pid`，证据写入 `tests/evidence/e09-local-edition/local-edition-smoke.json`。验收中遇到 macOS 26 上 PostgreSQL 18.6 启动间歇 `postmaster became multithreaded during startup`——Postgres.app 与 Homebrew 两个构建都中招，根因是启动期系统调用（locale/timezone/SCDynamicStore）经 GCD/XPC 懒建线程触发 `pthread_is_threaded_np()` 检查，该检查本身在新 macOS 上误报，上游已提议移除。修复方式：编译一个 interpose dylib（`pg_no_multithread_check`）覆盖 `pthread_is_threaded_np` 恒返回 0，`startPG` 在 darwin 上通过 `DYLD_INSERT_LIBRARIES` 注入，解析顺序 `MCP_STUDIO_PG_THREAD_SHIM` → 二进制同目录 → `.runtime/pg_no_multithread_check.dylib`；Postgres.app 缓存二进制需 ad-hoc 重签以允许注入。同时 `startCluster` 重试预算由 90s 提至 5min（`MCP_STUDIO_PG_START_TIMEOUT` 可覆盖）作为兜底，smoke `waitHealthy` 超时提至 360s。验证：`node scripts/test-local-edition.mjs` 4 项 3.4s 通过；`MCP_STUDIO_TEST_DATABASE_URL=... node scripts/verify.mjs` 全绿退出 0，含 33 个浏览器 e2e 测试，输出 `cloud edition gates passed` / `local edition gates passed` / `all gates passed` 三段。
 
+## E10 · 打包内 shim 正式化
+
+### E10 · macOS PG 竞态 shim 与内嵌 PG 闭包进包
+
+责任：后端 / 打包。依赖：E09。范围：M。
+
+拟触及：`apps/local/packaging/pg-thread-shim/`（新增）、`apps/local/packaging/build-platform-local.mjs`、`apps/local/packaging/install-platform.sh`、`internal/platform/local_data.go`、`internal/platform/local_pg_test.go`（新增）。
+
+| 待办 | 叶子任务 | 完成标准 | 验证方式 |
+| --- | --- | --- | --- |
+| ☑ E10a | shim 源码入库并随 darwin 包构建 | `pg-thread-shim/pg_no_multithread_check.c` 入库；打包脚本在 darwin 宿主目标编译并 ad-hoc 签名 dylib，置于二进制旁（命中 `pgThreadShimPath` 规则 2）；manifest 记 `pgThreadShim`；安装脚本复制/卸载 dylib；`pgEnv` 单元回归 | `go test`（含 `-tags local`）3 项新断言通过；darwin 候选包含已签名 dylib |
+| ☑ E10b | 内嵌 PG 运行时闭包可打包且打包布局冒烟通过 | 修复 tar `--wildcards` 在 bsdtar 下的可移植性；提取闭包（bin 4 工具 + libpq/ICU/OpenSSL/libxml2/lz4/zstd + dict_snowball + plpgsql + share/postgresql 核心）并保持 `pg/bin|lib|share` 相对布局；提取后对全部 Mach-O 文件 ad-hoc 重签；`localPGBinDir` 新增可执行文件旁 `pg/bin` 捆绑解析；打包布局下无 `MCP_STUDIO_LOCAL_PG_BIN` 完成 initdb→健康→优雅关停；install/uninstall 冒烟 | `tests/evidence/e10-packaging/packaged-smoke.json` 6 项通过；E09 冒烟与两版 `go test` 回归通过 |
+
+落点：验收中发现并修复三处 E06 潜伏缺口（当时 EDB 下载 404 从未真正跑过提取路径）：(1) `tar --wildcards` 是 GNU tar 专属，macOS bsdtar 直接拒绝——按宿主平台分流；(2) 原"只提取 4 个二进制"在真实 PG 构建下不可运行——工具经 `@loader_path/../lib` 链接 libpq/ICU/OpenSSL 等 dylib，initdb 还需 `share/postgresql`（postgres.bki、timezone）、`$libdir/dict_snowball` 与 `CREATE EXTENSION plpgsql`——改为提取运行时闭包并保持 `pg/bin|lib|share` 相对布局（extension/contrib 两个可选目录排除，plpgsql 因 tar 的 --exclude 优先于成员模式而单独第二遍解包）；(3) `localPGBinDir` 只查环境变量，安装布局下永远找不到随包 `pg/`——新增可执行文件旁 `pg/bin` 解析（`bundledPGDir`，带单元回归）。darwin/arm64 候选包含完整闭包为 52.9MB（原 7–8MB 为无 PG 包），跨平台目标仍按宿主规则不含 pg/。EDB 下载 URL 当前 403（curl -I 实测），本次用 Postgres.app 缓存二进制构造同布局缓存包完成验证；真实 EDB 包的验证随 URL 恢复后重跑构建即可覆盖。证据：`.debug/e10-packaged-smoke.mjs`（不入库）驱动，`tests/evidence/e10-packaging/packaged-smoke.json` 入库。
+
 ## 检查点
 
 1. E00 完成：阶段与规则修订确认，方可动代码。
@@ -159,3 +174,4 @@
 3. E04 完成：授权分支定型，此后不再新增权限语义分叉。
 4. E06 完成：单机版可安装，进入实机待验批次。
 5. E09 完成：两版均有门禁，方可报告"两版都能起"。
+6. E10 完成：darwin 包自带 PG 竞态 shim 与可运行闭包，"双击即用"在打包布局下成立。

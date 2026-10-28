@@ -108,9 +108,10 @@ async function downloadPG(ctx) {
     writeFileSync(cacheMarker, finalDigest);
   }
 
-  // Extract only the 4 required binaries into dir/pg/. We don't need libpq
-  // .dylibs/.so because Go connects via pgx native protocol, and we don't need
-  // client tools like psql for the local edition.
+  // Extract the server-side runtime closure into dir/pg/ (bin + lib + share).
+  // The Go side never links libpq (pgx native protocol), but the postgres /
+  // initdb / pg_ctl / pg_isready tools themselves do link dylibs and read
+  // share/postgresql — see the patterns below.
   const pgOut = join(dir, 'pg');
   mkdirSync(pgOut, { mode: 0o700 });
 
@@ -123,44 +124,94 @@ async function downloadPG(ctx) {
     return false;
   }
 
-  // Tar.gz — EDB tarball layout is PostgreSQL-18/bin/<tool>. We extract just
-  // the bin/ entries for our 4 tools, stripping down to flat names.
-  const patterns = pgBinaries.map(name => `*bin/${name}`).concat(pgBinaries.map(name => `*bin/${name}.dylib`));
-  const tarExtract = spawnSync('tar', [
+  // Tar.gz — EDB tarball layout is PostgreSQL-18/{bin,lib,share}/…. We ship
+  // the runtime closure, not just the 4 tools: postgres/initdb link libpq,
+  // ICU, OpenSSL, libxml2, lz4 and zstd dylibs via @loader_path/../lib, and
+  // initdb reads share/postgresql (postgres.bki, timezone, …). Extraction
+  // keeps one path level so the archive ships pg/bin + pg/lib + pg/share —
+  // the relative layout the tools resolve at runtime. Extensions and contrib
+  // are excluded (44MB+ of optional modules the local edition never loads).
+  const patterns = [
+    ...pgBinaries.map(name => `*bin/${name}`),
+    '*lib/libpq*.dylib*', '*lib/libicu*.dylib*', '*lib/libssl*.dylib*',
+    '*lib/libcrypto*.dylib*', '*lib/libxml2*.dylib*', '*lib/libzstd*.dylib*',
+    '*lib/liblz4*.dylib*',
+    // initdb's post-bootstrap creates the default text-search configuration,
+    // which loads $libdir/dict_snowball. Other lib/postgresql modules are
+    // optional extensions the local edition never loads.
+    '*lib/postgresql/dict_snowball.dylib*',
+    // initdb finishes with CREATE EXTENSION plpgsql — the module ships here;
+    // its control/SQL files live in the excluded extension/ tree and are
+    // extracted in a second pass below.
+    '*lib/postgresql/plpgsql.dylib*',
+    '*share/postgresql/*',
+  ];
+  const tarArgs = [
     '--no-acls', '--no-xattrs', '-xzf', cacheArchive,
-    '--strip-components=2',
+    '--strip-components=1',
     '-C', pgOut,
-    '--wildcards',
-    ...patterns,
-  ], { encoding: 'utf8' });
+    '--exclude', '*share/postgresql/extension*',
+    '--exclude', '*share/postgresql/contrib*',
+  ];
+  // GNU tar needs --wildcards to treat member args as patterns; macOS bsdtar
+  // globs natively and rejects the flag outright.
+  if (process.platform !== 'darwin') tarArgs.push('--wildcards');
+  tarArgs.push(...patterns);
+  const tarExtract = spawnSync('tar', tarArgs, { encoding: 'utf8' });
   if (tarExtract.status !== 0) {
     console.warn(`[pg] tar extract failed: ${tarExtract.stderr || tarExtract.error || 'unknown'} — shipping without pg/`);
     rmSync(pgOut, { recursive: true, force: true });
     return false;
   }
 
-  // chmod +x every extracted binary. tar strips keep original exec bit on
+  // Second pass: initdb's mandatory plpgsql extension control/SQL files live
+  // under the excluded extension/ tree, and tar's --exclude wins over member
+  // patterns — so extract them separately without that exclude.
+  const plpgsqlArgs = [
+    '--no-acls', '--no-xattrs', '-xzf', cacheArchive,
+    '--strip-components=1', '-C', pgOut,
+  ];
+  if (process.platform !== 'darwin') plpgsqlArgs.push('--wildcards');
+  plpgsqlArgs.push('*share/postgresql/extension/plpgsql*');
+  const plpgsqlExtract = spawnSync('tar', plpgsqlArgs, { encoding: 'utf8' });
+  if (plpgsqlExtract.status !== 0) {
+    console.warn(`[pg] plpgsql extension extract failed: ${plpgsqlExtract.stderr || 'unknown'} — shipping without pg/`);
+    rmSync(pgOut, { recursive: true, force: true });
+    return false;
+  }
+
+  // chmod +x the extracted tools. tar strips keep original exec bits on
   // Unix, but be explicit.
   for (const name of pgBinaries) {
-    const p = join(pgOut, name);
+    const p = join(pgOut, 'bin', name);
     if (existsSync(p)) chmodSync(p, 0o700);
   }
 
   // Verify we got all 4 binaries.
-  const found = pgBinaries.filter(name => existsSync(join(pgOut, name)));
+  const found = pgBinaries.filter(name => existsSync(join(pgOut, 'bin', name)));
   if (found.length < pgBinaries.length) {
     console.warn(`[pg] only found ${found.length}/${pgBinaries.length} binaries after extract — shipping partial pg/`);
   }
 
-  // Ad-hoc re-sign darwin binaries so the thread-check shim's
+  // Ad-hoc re-sign darwin binaries and dylibs so the thread-check shim's
   // DYLD_INSERT_LIBRARIES injection is honored despite the original
   // hardened-runtime signature. Extraction restores the archive's original
   // signatures, so this must run at packaging time even if the cache was
   // previously re-signed.
   if (os === 'darwin') {
-    for (const name of found) {
-      run('codesign', ['--force', '--sign', '-', join(pgOut, name)]);
+    const machOFiles = [];
+    const collectMachO = (d) => {
+      for (const entry of readdirSync(join(pgOut, d), { withFileTypes: true })) {
+        const sub = join(d, entry.name);
+        if (entry.isDirectory()) collectMachO(sub);
+        else if (/^(bin\/[^.]+$|lib\/.+\.dylib)/.test(sub)) machOFiles.push(join(pgOut, sub));
+      }
+    };
+    collectMachO('.');
+    for (const f of machOFiles) {
+      run('codesign', ['--force', '--sign', '-', f]);
     }
+    console.log(`[pg] ad-hoc re-signed ${machOFiles.length} darwin binaries/dylibs`);
   }
   return found.length > 0;
 }

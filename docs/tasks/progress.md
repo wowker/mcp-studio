@@ -577,3 +577,15 @@ E09a：`scripts/test-local-edition.mjs` 对 `.runtime/local-platform` 用临时�
 E09b：完整 `MCP_STUDIO_TEST_DATABASE_URL=postgres://mcp_studio_app:isolated-app-test-only@127.0.0.1:55432/mcp_studio_test?sslmode=disable node scripts/verify.mjs` 退出 0，输出 `cloud edition gates passed` / `local edition gates passed` / `all gates passed` 三段，33 个浏览器 e2e 测试通过。
 
 限制：`pg_no_multithread_check.dylib` 目前编译产物在 `.runtime/`，源码在 `.debug/`，正式发行打包时需纳入 `apps/local/packaging` 构建流程；Postgres.app 缓存二进制 ad-hoc 重签为一次性操作，重新填充缓存时需重复。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E10 shim 正式化进打包
+
+用户授权 E10，范围为「把 `.debug/` 里的 pg 多线程检查 shim 源码纳入 `apps/local/packaging/` 构建流程，随单机版包分发，消除 E09 遗留限制」，不新建其他工作包、不回 M 系列。
+
+E10a：shim 源码入库 `apps/local/packaging/pg-thread-shim/pg_no_multithread_check.c`（interpose `pthread_is_threaded_np` 恒返回 0，`__DATA,__interpose` section）。`build-platform-local.mjs` 在 darwin 宿主目标用 `cc -dynamiclib -arch <arm64|x86_64> -O2` 编译 shim 并 `codesign --force --sign -` ad-hoc 重签，manifest 记 `pgThreadShim`；`collect()` 源哈希正则纳入 `.c`。`install-platform.sh` install 步骤存在 shim 即复制 chmod 700，uninstall 删除。Go 侧补 `pgEnv`/`pgThreadShimPath` 单元回归（env 覆盖原样返回、darwin 恰好一条 `DYLD_INSERT_LIBRARIES`、非 darwin 零条、无 shim 不注入）。
+
+E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏缺口——(1) `tar --wildcards` 是 GNU tar 参数，macOS bsdtar 拒绝且原生支持成员 glob，按 `process.platform` 分流（此前 EDB 404 掩盖，darwin 提取从未真实执行）；(2) 原 4 二进制提取不可运行：`postgres`/`initdb` 经 `@loader_path/../lib` 链接 libpq/ICU（libicudata 64MB）/OpenSSL/libxml2/lz4/zstd，initdb 还需 `share/postgresql` 核心、`dict_snowball` 与 plpgsql（模块 + control/SQL，tar `--exclude` 优先于成员模式，plpgsql extension 文件须第二遍单独解包），改为 `--strip-components=1` 保持 `pg/bin|lib|share` 相对结构的运行时闭包提取，darwin 上递归收集全部 Mach-O ad-hoc 重签（覆盖 Postgres.app/EDB hardened runtime 对 DYLD 注入的阻止）；(3) `localPGBinDir()` 原无捆绑目录解析，新增第三优先级——可执行文件旁 `pg/bin`（`bundledPGDir`，仅真实目录生效，普通文件不遮蔽 PATH 回退），打包布局下无需 `MCP_STUDIO_LOCAL_PG_BIN`。`install-platform.sh` pg 复制改递归保持整树。EDB 真实 URL 实测 403，用 Postgres.app 缓存二进制构造 `PostgreSQL-18/{bin,lib,share}` 同布局 tarball 放入 `.runtime/pg-cache` 模拟下载缓存，驱动完整提取→重签→打包链路。
+
+验证：darwin/arm64 候选包 52.9MB（含完整 PG 闭包 + shim），linux/windows 目标按宿主规则不含 pg/。`.debug/e10-packaged-smoke.mjs` 六项通过（9566ms）：解包布局断言（mcp-studio、dylib、pg/bin 4 工具、`share/postgresql/postgres.bki`、lib 含 libpq/libicuuc/libicudata/libssl/libcrypto）、`codesign -dv` 全 adhoc、manifest `pgIncluded:true` + `pgThreadShim:true`、**无 `MCP_STUDIO_LOCAL_PG_BIN`** 且 cwd=解包目录运行（纯捆绑 + shim 规则 2 解析）完成 initdb→health 200→mode 0700→SIGTERM exit 0 无残留锁、install/uninstall 冒烟（shim+pg 树复制、卸载保留数据目录），证据 `tests/evidence/e10-packaging/packaged-smoke.json`。E09 dev 冒烟回归 4 项通过（2182ms）；`go test ./internal/platform`（带 `MCP_STUDIO_TEST_DATABASE_URL` 真库，85.9s）与 `go test -tags local` 全过；`go vet` 两版干净。新增回归：`TestBundledPGDir`（无 pg/ 返回空、普通文件返回空、真实目录返回路径）、`TestLocalPGBinDirEnvPrecedence`（env 优先级）。
+
+限制：EDB 真实下载 URL 仍 403，真实 EDB 包验证待 URL 恢复后重跑打包链路；macOS 签名/公证、真实介质首启、单机版凭据库仍为待验项；linux/windows 候选无 pg/（宿主规则，CI 需逐平台构建）。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。

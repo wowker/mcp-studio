@@ -71,14 +71,34 @@ func localDataDir() (string, error) {
 
 // localPGBinDir locates the bundled PostgreSQL tools. Precedence: explicit
 // MCP_STUDIO_LOCAL_PG_BIN override, then MCP_STUDIO_LOCAL_PG_DIR/<ver>/bin
-// (matches Homebrew's unversioned prefix), then PATH lookup which the caller
-// performs separately. Returns "" when no explicit override is set.
+// (matches Homebrew's unversioned prefix), then the bundled pg/ directory
+// next to the platform executable (installed or candidate layout), then PATH
+// lookup which the caller performs separately. Returns "" when no explicit or
+// bundled directory is available.
 func localPGBinDir() string {
 	if custom := os.Getenv("MCP_STUDIO_LOCAL_PG_BIN"); custom != "" {
 		return custom
 	}
 	if prefix := os.Getenv("MCP_STUDIO_LOCAL_PG_DIR"); prefix != "" {
 		return filepath.Join(prefix, "bin")
+	}
+	if exe, err := os.Executable(); err == nil {
+		if bundled := bundledPGDir(exe); bundled != "" {
+			return bundled
+		}
+	}
+	return ""
+}
+
+// bundledPGDir returns the pg/bin directory next to the given executable
+// path, or "" when it does not exist. The bundle keeps the PostgreSQL
+// relative layout (pg/bin + pg/lib + pg/share) so the tools resolve their
+// dylibs and share files via @loader_path. Only a real directory counts — a
+// stale file or symlink to nowhere must not shadow the PATH fallback.
+func bundledPGDir(exe string) string {
+	candidate := filepath.Join(filepath.Dir(exe), "pg", "bin")
+	if info, err := os.Stat(candidate); err == nil && info.IsDir() {
+		return candidate
 	}
 	return ""
 }

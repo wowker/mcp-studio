@@ -53,13 +53,13 @@ do_install_or_upgrade() {
     chmod 700 "$PREFIX/$SHIM_NAME"
   fi
 
-  # 2. PG binaries — copy pg/ if present, keep any existing pg/ when upgrading.
+  # 2. PG runtime — copy pg/ (bin + lib + share) if present, keep any existing
+  #    pg/ when upgrading. The tools resolve ../lib and ../share relative to
+  #    pg/bin, so the tree must stay intact.
   if [ -d "$SELF_DIR/$PG_SUBDIR" ]; then
     mkdir -p "$PREFIX/$PG_SUBDIR"
-    for f in "$SELF_DIR/$PG_SUBDIR"/*; do
-      [ -f "$f" ] && cp -f "$f" "$PREFIX/$PG_SUBDIR/"
-    done
-    chmod 700 "$PREFIX/$PG_SUBDIR"/* 2>/dev/null || true
+    cp -Rf "$SELF_DIR/$PG_SUBDIR/." "$PREFIX/$PG_SUBDIR/"
+    chmod 700 "$PREFIX/$PG_SUBDIR"/bin/* 2>/dev/null || true
   else
     if [ ! -d "$PREFIX/$PG_SUBDIR" ]; then
       echo "WARNING: this candidate was built without pg/ binaries." >&2

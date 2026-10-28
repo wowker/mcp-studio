@@ -8,6 +8,6 @@
     "shutdown: SIGTERM exit 0, no stale postmaster.pid"
   ],
   "pgBin": "/Users/wuwei/code/github/mcp-studio/.runtime/pg-cache/darwin/arm64/pgsql/bin",
-  "durationMs": 2767,
+  "durationMs": 2182,
   "result": "pass"
 }
