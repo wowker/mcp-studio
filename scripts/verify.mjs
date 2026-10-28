@@ -23,21 +23,25 @@ try {
   await withTestSchema(database, scoped => check('Go tests with real isolated PostgreSQL', 'go', ['test', '-count=1', './...'], { MCP_STUDIO_TEST_DATABASE_URL: scoped }));
   await check('Go vet', 'go', ['vet', './...']);
   await mkdir('.runtime', { recursive: true });
-  await check('Go production platform build', 'go', ['build', '-o', '.runtime/platform', './cmd/platform']);
+  await check('Go production platform build', 'go', ['build', '-o', '.runtime/platform', './apps/cloud']);
+  await check('Go local edition static build', 'go', ['build', '-tags', 'local', '-trimpath', '-o', '.runtime/local-platform', './apps/local'], { CGO_ENABLED: '0' });
+  await check('Local edition smoke: initdb, health, permissions, graceful shutdown', process.execPath, ['scripts/test-local-edition.mjs']);
   await check('Go production Agent build', 'go', ['build', '-o', '.runtime/agent', './cmd/agent']);
   await check('Go offline administration build', 'go', ['build', '-o', '.runtime/studio-admin', './cmd/studio-admin']);
   await check('Controlled Agent integration fixture build', 'go', ['build', '-o', '.runtime/m5-agent-fixture', './tests/fixtures/m5-agent']);
   const candidate = resolve('.runtime', 'm7-verify-candidate-' + randomBytes(8).toString('hex'));
   const candidateEnv = { MCP_STUDIO_CANDIDATE_DIR: candidate };
-  await check('Four-target unsigned Agent candidates', process.execPath, ['packaging/build-agent.mjs'], candidateEnv);
+  await check('Four-target unsigned Agent candidates', process.execPath, ['apps/local/packaging/build-agent.mjs'], candidateEnv);
   const operationTests = (await readdir('tests/operations')).filter(name => name.endsWith('.test.mjs')).sort().map(name => 'tests/operations/' + name);
   await check('Deployment, recovery, packaging and real candidate lifecycle', process.execPath, ['--test', ...operationTests], candidateEnv);
-  await check('Local platform container candidate build', 'docker', ['build', '-f', 'deploy/Dockerfile', '-t', 'mcp-studio-platform:m7-candidate', '.']);
+  await check('Local platform container candidate build', 'docker', ['build', '-f', 'apps/cloud/deploy/Dockerfile', '-t', 'mcp-studio-platform:m7-candidate', '.']);
   await check('Fresh isolated HTTPS deployment, recovery and upgrade', process.execPath, ['scripts/test-deployment.mjs']);
   await runRuntime([], { signal: controller.signal });
   const evidence = process.env.PLAYWRIGHT_EVIDENCE_DIR ?? 'tests/evidence/m7-final';
   await mkdir(evidence, { recursive: true });
   await writeFile(resolve(evidence, 'candidate-location.json'), JSON.stringify({ directory: candidate, gates: 'passed', publication: 'not-authorized', nativeAcceptance: 'pending' }, null, 2) + '\n');
+  console.log('[verify] cloud edition gates passed: build, vet, real-PostgreSQL tests, Compose deployment/recovery/upgrade, browser journeys');
+  console.log('[verify] local edition gates passed: tagged build, initdb/health/permission/graceful-shutdown smoke');
   console.log('[verify] all gates passed');
 } catch (error) {
   console.error(`[verify] ${error.message}`);
