@@ -589,3 +589,17 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 验证：darwin/arm64 候选包 52.9MB（含完整 PG 闭包 + shim），linux/windows 目标按宿主规则不含 pg/。`.debug/e10-packaged-smoke.mjs` 六项通过（9566ms）：解包布局断言（mcp-studio、dylib、pg/bin 4 工具、`share/postgresql/postgres.bki`、lib 含 libpq/libicuuc/libicudata/libssl/libcrypto）、`codesign -dv` 全 adhoc、manifest `pgIncluded:true` + `pgThreadShim:true`、**无 `MCP_STUDIO_LOCAL_PG_BIN`** 且 cwd=解包目录运行（纯捆绑 + shim 规则 2 解析）完成 initdb→health 200→mode 0700→SIGTERM exit 0 无残留锁、install/uninstall 冒烟（shim+pg 树复制、卸载保留数据目录），证据 `tests/evidence/e10-packaging/packaged-smoke.json`。E09 dev 冒烟回归 4 项通过（2182ms）；`go test ./internal/platform`（带 `MCP_STUDIO_TEST_DATABASE_URL` 真库，85.9s）与 `go test -tags local` 全过；`go vet` 两版干净。新增回归：`TestBundledPGDir`（无 pg/ 返回空、普通文件返回空、真实目录返回路径）、`TestLocalPGBinDirEnvPrecedence`（env 优先级）。
 
 限制：EDB 真实下载 URL 仍 403，真实 EDB 包验证待 URL 恢复后重跑打包链路；macOS 签名/公证、真实介质首启、单机版凭据库仍为待验项；linux/windows 候选无 pg/（宿主规则，CI 需逐平台构建）。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。
+
+## 2026-10-28 · E10c PG 真实下载 URL 修复
+
+用户授权处理 E10 遗留的 EDB 真实 URL 403 问题。定位：原四条 EDB URL 全 403 并非 UA/鉴权问题（浏览器 UA 同样 403），而是命名错误——EDB 真实命名带 `-1-` 构建修订号与 `-binaries` 后缀；且 EDB 根本不发 macOS 裸二进制（只有安装器）与 Linux tarball（只发 PGDG 包）。逐源探测后换真实来源：
+
+- **darwin/arm64** = Postgres.app 2.9.6 `Postgres-2.9.6-18.dmg`（GitHub 发布页，122MB，发布说明明确含 PG 18.6）——与 E09 起 dev 链路同源二进制，含全部 4 工具
+- **linux/amd64 + arm64** = zonky `embedded-postgres-binaries-*` 18.6.0（Maven Central）——已知缺口：jar 只有 initdb/postgres/pg_ctl 三个工具，**不含 pg_isready**（`waitPGReady` 需要），linux pg/ 发货前须另解（Go 侧 TCP 探测或换源）
+- **windows/amd64** = EDB 修正命名 `postgresql-18.6-1-windows-x64-binaries.zip`（343MB，实测含 4 工具全套）
+
+四平台 URL 全部实测下载成功并填入实测 sha256。修复下载路径两个从未被触达的潜伏 bug：(1) `fetch()` 缺 `await`，`res.ok` 恒 undefined 必走失败分支——即使 URL 正确下载也从未可能成功；(2) 下载完成后 `rmSync(tmp)` 误删成品而非改名入缓存，改 `renameSync`。新增按 pg-bins.json `format` 字段分流的归一化处理器：dmg（hdiutil 挂载，`Contents/Versions/18` 重打包为 `pgsql/` 顶层 tar）与 zonky-jar（unzip 出 txz，顶层 bin/lib/share，strip 0）；提取库文件模式按 OS 分 `.dylib*`/`.so*`。
+
+验证：清掉 E10b 构造的模拟缓存包后全链路重建——darwin/arm64 真实下载 dmg（sha256 校验通过）→ 提取闭包 → 39 个 Mach-O ad-hoc 重签 → 打包 `pgIncluded:true`；`.debug/e10-packaged-smoke.mjs` 6 项通过（13375ms），证据 `tests/evidence/e10-packaging/packaged-smoke.json`；`go test -tags local ./internal/platform` 0.512s 通过，两版 `go vet` 干净。
+
+限制：zonky linux 缺 pg_isready 的缺口未解（linux 按宿主规则本不含 pg/）；windows zip 格式处理器未实现（windows 目标同样不含 pg/）；linux jar 与 windows zip 的提取路径经人工解包核对（成员布局/工具齐全性），未经构建脚本实跑。macOS 签名/公证、真实介质首启、单机版凭据库仍为待验项。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。

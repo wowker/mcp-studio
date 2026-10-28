@@ -3,9 +3,10 @@ import { prepareCandidateDirectory } from './candidate-path.mjs';
 import { createHash } from 'node:crypto';
 import {
   mkdirSync, readFileSync, writeFileSync, copyFileSync, chmodSync,
-  readdirSync, lstatSync, existsSync, rmSync, openSync, closeSync,
+  readdirSync, lstatSync, existsSync, rmSync, mkdtempSync, renameSync,
 } from 'node:fs';
 import { resolve, join, relative, basename } from 'node:path';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
@@ -61,6 +62,51 @@ function buildThreadShim({ arch, dir }) {
   run('codesign', ['--force', '--sign', '-', out]);
 }
 
+// Normalize each download format into a local tar the shared extractor can
+// consume. Returns {archive, stripComponents, cleanup}. Formats:
+//   tar.gz           — EDB-style tarball with a single top dir (strip 1)
+//   postgres-app-dmg — Postgres.app release dmg; repacked from
+//                      Contents/Versions/<major> as pgsql/{bin,lib,share}
+//   zonky-jar        — zonky embedded-postgres jar wrapping a .txz whose
+//                      bin/lib/share sit at the top level (strip 0)
+function preparePGArchive(info, cacheArchive) {
+  const format = info.format ?? 'tar.gz';
+  if (format === 'tar.gz') return { archive: cacheArchive, stripComponents: 1, cleanup: () => {} };
+  const scratch = mkdtempSync(join(tmpdir(), 'mcp-studio-pg-'));
+  const cleanup = () => rmSync(scratch, { recursive: true, force: true });
+  try {
+    if (format === 'postgres-app-dmg') {
+      const mount = join(scratch, 'mnt');
+      mkdirSync(mount, { recursive: true });
+      run('hdiutil', ['attach', '-nobrowse', '-readonly', '-mountpoint', mount, cacheArchive]);
+      try {
+        const versionsDir = join(mount, 'Postgres.app', 'Contents', 'Versions');
+        const major = pgBins.version.split('.')[0];
+        const entries = readdirSync(versionsDir).filter(n => existsSync(join(versionsDir, n, 'bin')));
+        const vdir = entries.includes(major) ? major : entries.length === 1 ? entries[0] : null;
+        if (!vdir) throw new Error(`Postgres.app dmg: cannot locate Versions/${major} (found: ${entries.join(', ') || 'none'})`);
+        const tarOut = join(scratch, 'pg-normalized.tar');
+        run('tar', ['--no-acls', '--no-xattrs', '-cf', tarOut, '-C', versionsDir, '-s', `|^${vdir}/|pgsql/|`, vdir], {
+          env: { ...process.env, COPYFILE_DISABLE: '1' },
+        });
+        return { archive: tarOut, stripComponents: 1, cleanup };
+      } finally {
+        try { run('hdiutil', ['detach', mount, '-quiet']); } catch { /* detach best-effort */ }
+      }
+    }
+    if (format === 'zonky-jar') {
+      run('unzip', ['-o', '-q', '-j', cacheArchive, '-d', scratch]);
+      const txz = readdirSync(scratch).find(n => n.endsWith('.txz'));
+      if (!txz) throw new Error('zonky jar did not contain a .txz member');
+      return { archive: join(scratch, txz), stripComponents: 0, cleanup };
+    }
+    throw new Error(`unknown pg binary format: ${format}`);
+  } catch (err) {
+    cleanup();
+    throw err;
+  }
+}
+
 async function downloadPG(ctx) {
   const { os, arch, dir } = ctx;
   const key = `${os}/${arch}`;
@@ -89,7 +135,7 @@ async function downloadPG(ctx) {
 
   if (!existsSync(cacheArchive)) {
     console.log(`[pg] fetching ${info.url}`);
-    const res = fetch(info.url, { redirect: 'follow' });
+    const res = await fetch(info.url, { redirect: 'follow' });
     if (!res.ok) {
       console.warn(`[pg] download failed: ${res.statusText} — archive will ship without pg/ subdir`);
       return false;
@@ -103,8 +149,9 @@ async function downloadPG(ctx) {
       console.warn(`[pg] SHA256 mismatch after download — expected ${info.sha256}, got ${finalDigest} — skipping pg/`);
       return false;
     }
+    // Atomically promote the verified download into the cache.
     rmSync(cacheArchive, { force: true });
-    rmSync(tmp, { force: false });
+    renameSync(tmp, cacheArchive);
     writeFileSync(cacheMarker, finalDigest);
   }
 
@@ -124,31 +171,41 @@ async function downloadPG(ctx) {
     return false;
   }
 
-  // Tar.gz — EDB tarball layout is PostgreSQL-18/{bin,lib,share}/…. We ship
-  // the runtime closure, not just the 4 tools: postgres/initdb link libpq,
-  // ICU, OpenSSL, libxml2, lz4 and zstd dylibs via @loader_path/../lib, and
-  // initdb reads share/postgresql (postgres.bki, timezone, …). Extraction
-  // keeps one path level so the archive ships pg/bin + pg/lib + pg/share —
-  // the relative layout the tools resolve at runtime. Extensions and contrib
-  // are excluded (44MB+ of optional modules the local edition never loads).
+  // Tar — layouts are normalized by preparePGArchive so the extractor always
+  // sees <top>/{bin,lib,share}. We ship the runtime closure, not just the 4
+  // tools: postgres/initdb link libpq, ICU, OpenSSL, libxml2 (and zstd/lz4
+  // when the build has them) via @loader_path/../lib, and initdb reads
+  // share/postgresql (postgres.bki, timezone, …). Extraction keeps the
+  // relative layout so the archive ships pg/bin + pg/lib + pg/share — the
+  // layout the tools resolve at runtime. Extensions and contrib are excluded
+  // (44MB+ of optional modules the local edition never loads).
+  let prepared;
+  try {
+    prepared = preparePGArchive(info, cacheArchive);
+  } catch (err) {
+    console.warn(`[pg] archive preparation failed: ${err.message} — shipping without pg/`);
+    rmSync(pgOut, { recursive: true, force: true });
+    return false;
+  }
+  try {
+  const dynSuffix = os === 'darwin' ? '.dylib*' : '.so*';
   const patterns = [
     ...pgBinaries.map(name => `*bin/${name}`),
-    '*lib/libpq*.dylib*', '*lib/libicu*.dylib*', '*lib/libssl*.dylib*',
-    '*lib/libcrypto*.dylib*', '*lib/libxml2*.dylib*', '*lib/libzstd*.dylib*',
-    '*lib/liblz4*.dylib*',
+    ...['libpq', 'libicu', 'libssl', 'libcrypto', 'libxml2', 'libzstd', 'liblz4']
+      .map(n => `*lib/${n}*${dynSuffix}`),
     // initdb's post-bootstrap creates the default text-search configuration,
     // which loads $libdir/dict_snowball. Other lib/postgresql modules are
     // optional extensions the local edition never loads.
-    '*lib/postgresql/dict_snowball.dylib*',
+    `*lib/postgresql/dict_snowball${dynSuffix}`,
     // initdb finishes with CREATE EXTENSION plpgsql — the module ships here;
     // its control/SQL files live in the excluded extension/ tree and are
     // extracted in a second pass below.
-    '*lib/postgresql/plpgsql.dylib*',
+    `*lib/postgresql/plpgsql${dynSuffix}`,
     '*share/postgresql/*',
   ];
   const tarArgs = [
-    '--no-acls', '--no-xattrs', '-xzf', cacheArchive,
-    '--strip-components=1',
+    '--no-acls', '--no-xattrs', '-xf', prepared.archive,
+    `--strip-components=${prepared.stripComponents}`,
     '-C', pgOut,
     '--exclude', '*share/postgresql/extension*',
     '--exclude', '*share/postgresql/contrib*',
@@ -168,8 +225,8 @@ async function downloadPG(ctx) {
   // under the excluded extension/ tree, and tar's --exclude wins over member
   // patterns — so extract them separately without that exclude.
   const plpgsqlArgs = [
-    '--no-acls', '--no-xattrs', '-xzf', cacheArchive,
-    '--strip-components=1', '-C', pgOut,
+    '--no-acls', '--no-xattrs', '-xf', prepared.archive,
+    `--strip-components=${prepared.stripComponents}`, '-C', pgOut,
   ];
   if (process.platform !== 'darwin') plpgsqlArgs.push('--wildcards');
   plpgsqlArgs.push('*share/postgresql/extension/plpgsql*');
@@ -214,6 +271,9 @@ async function downloadPG(ctx) {
     console.log(`[pg] ad-hoc re-signed ${machOFiles.length} darwin binaries/dylibs`);
   }
   return found.length > 0;
+  } finally {
+    prepared.cleanup();
+  }
 }
 
 async function build() {

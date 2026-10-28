@@ -9,6 +9,6 @@
     "shutdown: SIGTERM exit 0, no stale postmaster.pid",
     "install: shim + pg tree installed; uninstall removes prefix, preserves data"
   ],
-  "durationMs": 9566,
+  "durationMs": 13375,
   "result": "pass"
 }
