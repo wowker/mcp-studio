@@ -1,0 +1,25 @@
+{
+  "version": "18.6",
+  "downloads": {
+    "darwin/arm64": {
+      "url": "https://get.enterprisedb.com/postgresql/postgresql-18.6-osx-arm64-bin.tar.gz",
+      "sha256": null,
+      "note": "PostgreSQL 18.x macOS arm64 — EnterpriseDB binaries. Verify SHA256 before each release; update if PGDG changes URL."
+    },
+    "linux/amd64": {
+      "url": "https://get.enterprisedb.com/postgresql/postgresql-18.6-linux-x64-bin.tar.gz",
+      "sha256": null,
+      "note": "PostgreSQL 18.x Linux x86_64 — EnterpriseDB tarball. Alternative: PGDG apt repository on target host."
+    },
+    "linux/arm64": {
+      "url": "https://get.enterprisedb.com/postgresql/postgresql-18.6-linux-arm64-bin.tar.gz",
+      "sha256": null,
+      "note": "PostgreSQL 18.x Linux aarch64 — EnterpriseDB tarball."
+    },
+    "windows/amd64": {
+      "url": "https://get.enterprisedb.com/postgresql/postgresql-18.6-windows-x64-bin.zip",
+      "sha256": null,
+      "note": "PostgreSQL 18.x Windows x64 — EnterpriseDB zip."
+    }
+  }
+}

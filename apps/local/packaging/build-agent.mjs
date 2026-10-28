@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync, copyFileSync, chmodSync, readdirSync, lstatSync, existsSync } from 'node:fs';
 import { resolve, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
+const root = resolve(fileURLToPath(new URL('../../..', import.meta.url)));
 const output = prepareCandidateDirectory(root,process.env.MCP_STUDIO_CANDIDATE_DIR);
 const version = '0.1.0-m7-candidate';
 const run = (command, args, options = {}) => {
@@ -18,7 +18,7 @@ const dirty = run('git', ['status','--porcelain']).length > 0;
 const sources = [];
 function collect(dir) { for (const name of readdirSync(join(root,dir)).sort()) {const p=join(dir,name);if(lstatSync(join(root,p)).isDirectory())collect(p);else if(/\.(go|c|h|m|mjs|sh|ps1)$/.test(p))sources.push(p);} }
 collect('cmd/agent');collect('internal');
-collect('packaging');
+collect('apps/local/packaging');
 for(const name of ['go.mod','go.sum'])sources.push(name);
 const sourceHash = digest(sources.sort().map(p=>`${p}\0${digest(readFileSync(join(root,p)))}`).join('\n'));
 const targets = [{os:'darwin',arch:'arm64',cgo:'1'},{os:'windows',arch:'amd64',cgo:'0'},{os:'linux',arch:'amd64',cgo:'0'},{os:'linux',arch:'arm64',cgo:'0'}];
@@ -32,7 +32,7 @@ for(const target of targets) {
  const binary=join(dir,executable);
  run('go',['build','-trimpath','-ldflags',`-X main.version=${version} -X main.revision=${revision}${dirty?'-dirty':''}`,'-o',binary,'./cmd/agent'],{env:{...process.env,GOOS:target.os,GOARCH:target.arch,CGO_ENABLED:target.cgo,GOCACHE:process.env.GOCACHE || '/private/tmp/mcp-studio-go-cache'}});
  const wrapper=target.os==='windows'?'install.ps1':'install.sh';
- copyFileSync(join(root,'packaging',wrapper),join(dir,wrapper));if(target.os!=='windows')chmodSync(join(dir,wrapper),0o700);
+ copyFileSync(join(root,'apps/local/packaging',wrapper),join(dir,wrapper));if(target.os!=='windows')chmodSync(join(dir,wrapper),0o700);
  const manifest={format:'mcp-studio-agent.candidate.v1',version,revision,dirty,sourceSHA256:sourceHash,target,goVersion:run('go',['version']),binarySHA256:digest(readFileSync(binary)),support:'pending-native-validation',signing:'unsigned-not-published',nativeInstallation:'pending',nativeVault:'not-probed',autoStart:false,statePolicy:'preserve-on-upgrade-and-uninstall',windowsMSI:target.os==='windows'?'pending-native-toolchain':undefined};
  writeFileSync(join(dir,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
  writeFileSync(join(dir,'CHECKSUMS.sha256'),[executable,wrapper,'manifest.json'].map(p=>`${digest(readFileSync(join(dir,p)))}  ${p}`).join('\n')+'\n');
