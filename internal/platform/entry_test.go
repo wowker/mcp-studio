@@ -1,4 +1,4 @@
-package main
+package platform
 
 import (
 	"encoding/base64"
@@ -21,7 +21,7 @@ func TestRejectInvalidOriginAndRemoteInsecureListener(t *testing.T) {
 			t.Setenv("MCP_STUDIO_LISTEN", tc.listen)
 			t.Setenv("MCP_STUDIO_ALLOW_INSECURE_LOOPBACK", "true")
 			t.Setenv("MCP_STUDIO_DATABASE_URL", "")
-			err := run()
+			err := Run(Options{})
 			if err == nil || strings.Contains(err.Error(), "database") {
 				t.Fatalf("configuration passed security gate: %v", err)
 			}
@@ -31,13 +31,11 @@ func TestRejectInvalidOriginAndRemoteInsecureListener(t *testing.T) {
 
 func TestSessionDurationValidation(t *testing.T) {
 	for _, raw := range []string{"0s", "-1h", "garbage"} {
-		t.Setenv("MCP_STUDIO_SESSION_IDLE", raw)
-		if _, err := duration("MCP_STUDIO_SESSION_IDLE", 8*time.Hour); err == nil {
+		if _, err := parseDuration(raw, 8*time.Hour); err == nil {
 			t.Fatal("invalid duration accepted")
 		}
 	}
-	t.Setenv("MCP_STUDIO_SESSION_IDLE", "")
-	if got, err := duration("MCP_STUDIO_SESSION_IDLE", 8*time.Hour); err != nil || got != 8*time.Hour {
+	if got, err := parseDuration("", 8*time.Hour); err != nil || got != 8*time.Hour {
 		t.Fatal("default duration changed")
 	}
 }
@@ -51,7 +49,7 @@ func TestRecordStorageConfigurationRejectedBeforeDatabase(t *testing.T) {
 			t.Setenv("MCP_STUDIO_LISTEN", "127.0.0.1:8080")
 			t.Setenv("MCP_STUDIO_DATABASE_URL", "")
 			t.Setenv(tc.key, tc.value)
-			err := run()
+			err := Run(Options{})
 			if err == nil || strings.Contains(err.Error(), "database") {
 				t.Fatalf("invalid record configuration reached database: %v", err)
 			}

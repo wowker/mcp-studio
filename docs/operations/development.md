@@ -34,32 +34,73 @@ npm run verify
 
 停止或重建 tmpfs 容器可能清除角色和库，需要重新准备；验收证据保存在仓库，不靠该容器持久化。
 
+## 配置来源与优先级
+
+非秘密配置按四层合并，后者覆盖前者：内置缺省 → 发行默认文件（云服务版 `apps/cloud/config.default.json`，单机版 `apps/local/config.default.json`）→ `MCP_STUDIO_CONFIG_FILE` 指向的可选文件 → 环境变量。缺省本身合法：不给任何文件与环境也能解析出监听地址、会话时长与记录保留参数；`MCP_STUDIO_ORIGIN` 没有通用默认值，正式启动仍必须显式提供。
+
+配置文件是 UTF-8 JSON 对象，键为下表的变量名，值一律写字符串（例如 `"MCP_STUDIO_RECORD_CAPACITY_BYTES": "5368709120"`）。未知键、秘密键或非字符串值会被拒绝，避免共享文件混入凭据或错拼静默生效。
+
+秘密（`MCP_STUDIO_DATABASE_URL`、`MCP_STUDIO_INIT_CREDENTIAL`、`MCP_STUDIO_BACKUP_KEY`、`MCP_STUDIO_SMTP_PASSWORD`）只从秘密来源读取：环境变量或对应 `_FILE` 挂载；不能写进配置文件，也不出现在 URL、日志或 Toast。
+
+发行标识在编译期确定：默认构建（`go build ./apps/cloud`）是云服务版；`go build -tags local ./apps/local` 是单机版。`MCP_STUDIO_ALLOW_INSECURE_LOOPBACK` 与 `MCP_STUDIO_INIT_CREDENTIAL` 只在云服务版有意义：单机版由发行标识直接允许回环 HTTP、使用本地主体，不读取这两个变量；未加 `local` 标签构建单机版入口会明确拒绝启动。
+
+## 本机开发编排（单机版）
+
+`npm run dev` 一条命令得到可用工作台：构建并启动单机版平台（内嵌 PostgreSQL + HTTP API），再启动 Vite 开发服务器并把 `/api` 代理到平台。SIGINT/SIGTERM 同时回收两个进程；平台退出时 `pg_ctl` 优雅关停内嵌 PostgreSQL，不留 `postmaster.pid`。
+
+```sh
+npm run dev          # 构建 + 运行；--build 仅构建，--run 跳过构建
+```
+
+PostgreSQL 二进制按顺序解析：`MCP_STUDIO_LOCAL_PG_BIN` → `MCP_STUDIO_LOCAL_PG_DIR/bin` → PATH → `.runtime/pg-cache/<os>/<arch>/pgsql/bin`（需含 initdb/postgres/pg_ctl/pg_isready，见 `scripts/local-pg-bin.mjs`）。数据目录按 OS 每用户定位（macOS 为 `~/Library/Application Support/MCP Studio`，可用 `MCP_STUDIO_LOCAL_DATA_DIR` 覆盖）：目录含 `PG_VERSION` 时直接复用，只有缺失或空目录才执行 initdb；角色、业务库与本地主体幂等确保，二次启动不重复初始化。
+
+开发覆盖变量：`MCP_STUDIO_LISTEN`（平台监听，默认 `127.0.0.1:8080`）、`MCP_STUDIO_DEV_API`（Vite 代理目标，默认跟随平台监听）。单机版免登录：`/api/v1/session` 恒返回库中本地主体，前端不停留在登录页。
+
+Agent 用独立命令在另一个终端启动，终端确认界面保留在该窗口（stdin 继承真实 TTY，配对与进程执行确认不因管道失效）：
+
+```sh
+npm run dev:agent    # 构建 cmd/agent → .runtime/agent-dev 并前台运行
+```
+
+默认连接 `http://127.0.0.1:8080`（`MCP_STUDIO_DEV_API` 覆盖），状态目录 `.runtime/agent-dev-state`（`MCP_STUDIO_AGENT_STATE_DIR` 覆盖），回环监听 `127.0.0.1:45455`（`MCP_STUDIO_AGENT_LISTEN` 覆盖），开发态显式 `--allow-insecure-loopback`。配对仍从工作台设备页输入一次性码完成。
+
 ## 正式入口
 
 用 shell 环境或部署秘密管理器配置（密码、初始化凭证和 SMTP 密码不写仓库）：
 
-| 变量 | 含义 |
-| --- | --- |
-| MCP_STUDIO_DATABASE_URL | 专用数据库连接，角色非超级用户 |
-| MCP_STUDIO_ORIGIN | 精确外部 origin，无路径、query、fragment；正式环境 HTTPS |
-| MCP_STUDIO_LISTEN | 监听地址；默认 127.0.0.1:8080 |
-| MCP_STUDIO_STATIC_DIR | 构建产物目录 apps/web/dist |
-| MCP_STUDIO_INIT_CREDENTIAL | 一次初始化凭证；首次 Owner 在表单输入 |
-| MCP_STUDIO_SMTP_ADDRESS / FROM | 邮件服务器 host:port / 发信邮箱 |
-| MCP_STUDIO_SMTP_USERNAME / PASSWORD | 按邮件服务器配置认证 |
-| MCP_STUDIO_BACKUP_KEY | 可选 base64 编码 32 字节 AES 主密钥；由部署秘密管理器提供，数据库外保存，未配置时备份写入/恢复不可用，metadata/删除仍可用 |
-| MCP_STUDIO_ALLOW_INSECURE_LOOPBACK | 仅显式本机开发设 true；HTTP origin 与监听都必须回环 |
+| 变量 | 含义 | 来源与缺省 |
+| --- | --- | --- |
+| MCP_STUDIO_DATABASE_URL | 专用数据库连接，角色非超级用户 | 秘密来源（环境或 `_FILE`），必需 |
+| MCP_STUDIO_ORIGIN | 精确外部 origin，无路径、query、fragment；正式环境 HTTPS | 配置文件或环境，无默认，必需 |
+| MCP_STUDIO_LISTEN | 监听地址 | 配置文件或环境，默认 127.0.0.1:8080 |
+| MCP_STUDIO_STATIC_DIR | 构建产物目录 apps/web/dist | 配置文件或环境，无默认 |
+| MCP_STUDIO_INIT_CREDENTIAL | 一次初始化凭证；首次 Owner 在表单输入 | 秘密来源；云服务版读取，单机版忽略 |
+| MCP_STUDIO_SMTP_ADDRESS | 邮件服务器 host:port | 配置文件或环境；空表示不启用邮件 |
+| MCP_STUDIO_SMTP_FROM | 发信邮箱 | 配置文件或环境 |
+| MCP_STUDIO_SMTP_USERNAME | 邮件服务器认证用户名 | 配置文件或环境 |
+| MCP_STUDIO_SMTP_PASSWORD | 邮件服务器认证密码 | 秘密来源 |
+| MCP_STUDIO_BACKUP_KEY | 可选 base64 编码 32 字节 AES 主密钥；由部署秘密管理器提供，数据库外保存 | 秘密来源；未配置时备份写入/恢复不可用，metadata/删除仍可用 |
+| MCP_STUDIO_ALLOW_INSECURE_LOOPBACK | 仅云服务版显式本机开发设 true；HTTP origin 与监听都必须回环 | 配置文件或环境，默认 false；单机版恒允许回环且不读取 |
+| MCP_STUDIO_RECORD_CAPACITY_BYTES | 记录存储容量上限（字节） | 配置文件或环境，默认 5368709120 |
+| MCP_STUDIO_HISTORY_RETENTION_DAYS | 历史保留天数 | 配置文件或环境，默认 90 |
+| MCP_STUDIO_MAX_HISTORY_RETENTION_DAYS | 历史保留天数上限 | 配置文件或环境，默认 90 |
+| MCP_STUDIO_RECORD_SWEEP_INTERVAL | 记录清理周期 | 配置文件或环境，默认 1h |
+| MCP_STUDIO_SESSION_IDLE | 会话空闲超时 | 配置文件或环境，默认 8h |
+| MCP_STUDIO_SESSION_ABSOLUTE | 会话绝对超时 | 配置文件或环境，默认 24h |
+| MCP_STUDIO_CONFIG_FILE | 可选配置文件路径 | 仅环境；只定位文件，不是业务设置 |
+
+上表 17 个业务变量与秘密变量均已登记来源；`MCP_STUDIO_CONFIG_FILE` 只负责定位配置文件。
 
 HTTPS 部署由前置 TLS 入口终止，平台使用 Secure、HttpOnly、SameSite Cookie；SMTP 要求 STARTTLS，只有显式回环开发例外。未配置 SMTP 可初始化和登录，不能假装完成邮箱验证或新用户验证。邮件只含非秘密邀请 ID 链接，验证／邀请／重置码由收件人在表单输入，不放 URL。
 
 ```sh
 npm run build
 mkdir -p .runtime
-go build -o .runtime/platform ./cmd/platform
+go build -o .runtime/platform ./apps/cloud
 MCP_STUDIO_STATIC_DIR=apps/web/dist .runtime/platform
 ```
 
-运行前设置上表中的必需变量，并创建 `.runtime` 目录。`npm run dev` 仅前端开发预览，正式流程以 Go 同站点生产入口为准。
+运行前设置上表中的必需变量，并创建 `.runtime` 目录。`npm run dev:vite` 仅前端开发预览（平台需另行启动）；正式流程以 Go 同站点生产入口为准。单机版入口用 `go build -tags local ./apps/local` 构建，日常开发直接用上一节的 `npm run dev`。
 
 ## 完整门禁
 
