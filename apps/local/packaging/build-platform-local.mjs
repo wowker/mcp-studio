@@ -42,6 +42,25 @@ const goExecutable = (os) => os === 'windows' ? 'mcp-studio.exe' : 'mcp-studio';
 // wrapper, and manifest + checksums.
 const pgBinaries = ['initdb', 'postgres', 'pg_ctl', 'pg_isready'];
 
+// macOS thread-check shim: a DYLD interpose library that makes
+// pthread_is_threaded_np() return 0 so PostgreSQL's postmaster does not abort
+// on macOS 26+ (see pg-thread-shim/pg_no_multithread_check.c). Shipped next to
+// the platform binary in darwin archives; internal/platform injects it via
+// DYLD_INSERT_LIBRARIES (pgEnv). Other platforms ship no dylib — the race is
+// macOS-specific.
+const shimSource = join(root, 'apps/local/packaging/pg-thread-shim/pg_no_multithread_check.c');
+const shimName = 'pg_no_multithread_check.dylib';
+
+// Compile the shim for the host arch and ad-hoc sign it. Failure is fatal for
+// a darwin package: without the dylib the local edition intermittently fails
+// to start on macOS 26+, and a missing toolchain (cc/codesign) means the host
+// cannot produce a valid darwin candidate anyway.
+function buildThreadShim({ arch, dir }) {
+  const out = join(dir, shimName);
+  run('cc', ['-dynamiclib', '-arch', arch === 'arm64' ? 'arm64' : 'x86_64', '-O2', '-o', out, shimSource]);
+  run('codesign', ['--force', '--sign', '-', out]);
+}
+
 async function downloadPG(ctx) {
   const { os, arch, dir } = ctx;
   const key = `${os}/${arch}`;
@@ -132,6 +151,17 @@ async function downloadPG(ctx) {
   if (found.length < pgBinaries.length) {
     console.warn(`[pg] only found ${found.length}/${pgBinaries.length} binaries after extract — shipping partial pg/`);
   }
+
+  // Ad-hoc re-sign darwin binaries so the thread-check shim's
+  // DYLD_INSERT_LIBRARIES injection is honored despite the original
+  // hardened-runtime signature. Extraction restores the archive's original
+  // signatures, so this must run at packaging time even if the cache was
+  // previously re-signed.
+  if (os === 'darwin') {
+    for (const name of found) {
+      run('codesign', ['--force', '--sign', '-', join(pgOut, name)]);
+    }
+  }
   return found.length > 0;
 }
 
@@ -147,7 +177,7 @@ async function build() {
       const p = join(dir, name);
       const info = lstatSync(join(root, p));
       if (info.isDirectory()) collect(p);
-      else if (/\.(go|m|mjs|sh|json|sql|txt)$/.test(p) || /go\.(mod|sum)$/.test(p) || p.endsWith('pg-bins.json')) {
+      else if (/\.(go|c|m|mjs|sh|json|sql|txt)$/.test(p) || /go\.(mod|sum)$/.test(p) || p.endsWith('pg-bins.json')) {
         sources.push(p);
       }
     }
@@ -197,6 +227,14 @@ async function build() {
       console.log(`[pg] skipping ${target.os}/${target.arch} (cross-compile target without matching host)`);
     }
 
+    // 2b. macOS thread-check shim, next to the platform binary where
+    //     pgThreadShimPath resolution rule 2 finds it. Darwin host target only.
+    const shimIncluded = isHostTarget && target.os === 'darwin';
+    if (shimIncluded) {
+      buildThreadShim({ arch: target.arch, dir });
+      console.log(`[shim] built ${shimName} for darwin/${target.arch}`);
+    }
+
     // 3. Install wrapper.
     const wrapper = target.os === 'windows' ? 'install-platform.ps1' : 'install-platform.sh';
     const wrapperPath = join(root, 'apps/local/packaging', wrapper);
@@ -214,6 +252,7 @@ async function build() {
       target, goVersion,
       binarySHA256: digest(readFileSync(binary)),
       pgIncluded,
+      pgThreadShim: shimIncluded,
       pgVersion: pgBins.version,
       support: 'pending-native-validation',
       signing: 'unsigned-not-published',

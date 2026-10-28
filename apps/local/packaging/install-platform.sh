@@ -19,6 +19,9 @@ esac
 SELF_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 BIN_NAME='mcp-studio'
 PG_SUBDIR='pg'
+# macOS thread-check shim — sits next to the binary so the platform finds it
+# (pgThreadShimPath resolution rule 2). Present only in darwin candidates.
+SHIM_NAME='pg_no_multithread_check.dylib'
 
 # ---------- helpers ----------
 
@@ -43,6 +46,12 @@ do_install_or_upgrade() {
   # 1. Go binary — always copy.
   cp -f "$SELF_DIR/$BIN_NAME" "$PREFIX/$BIN_NAME"
   chmod 700 "$PREFIX/$BIN_NAME"
+
+  # 1b. macOS thread-check shim — copy when present (darwin candidates only).
+  if [ -f "$SELF_DIR/$SHIM_NAME" ]; then
+    cp -f "$SELF_DIR/$SHIM_NAME" "$PREFIX/$SHIM_NAME"
+    chmod 700 "$PREFIX/$SHIM_NAME"
+  fi
 
   # 2. PG binaries — copy pg/ if present, keep any existing pg/ when upgrading.
   if [ -d "$SELF_DIR/$PG_SUBDIR" ]; then
@@ -91,6 +100,7 @@ do_uninstall() {
 
   # Remove binary, wrapper, manifest, checksums, pg/ — everything we own.
   rm -f  "$PREFIX/$BIN_NAME"
+  rm -f  "$PREFIX/$SHIM_NAME"
   rm -f  "$PREFIX/install-platform.sh"
   rm -f  "$PREFIX/manifest.json"
   rm -f  "$PREFIX/CHECKSUMS.sha256"
