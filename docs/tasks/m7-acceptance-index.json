@@ -1,6 +1,6 @@
 {
   "format": "mcp-studio.m7.acceptance-index.v1",
-  "scope": "A01–A60逐项候选证据，正式联验未签收；无原型抵扣",
+  "scope": "A01–A60逐项候选证据，正式联验未签收；无原型抵扣；editions 标注适用发行形态（单机版 / 云服务版）",
   "formalPassCount": 0,
   "items": [
     {
@@ -11,6 +11,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "配置命名在 T10 联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -67,6 +68,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "工具草稿、迟到 Run 和后台上传齐备后联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -114,6 +116,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "同 URL 的 Agent 会话及凭据库联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -155,6 +158,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "显式切换 Agent 后成功连接才完整",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -208,6 +212,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "配置校验与实际进程启动一并验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -247,6 +252,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "实机配对状态；不以页面模拟代替",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -285,6 +291,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "授权、凭据保存和备份三种结果独立",
+      "editions": "两版",
+      "editionsNote": "个人平台加密备份在单机版默认关闭（凭据进系统凭据库），备份失败条款仅云版。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -336,6 +344,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "加入本机敏感值来源联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -379,6 +388,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "连接、浏览器执行、Agent 执行一致阻断",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -433,6 +443,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "已连接时应用环境，两个执行端均验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -472,6 +483,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "包含嵌套可选项与执行前全量校验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -509,6 +521,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "编辑和恢复都保留显式值",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -547,6 +560,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "同时验证保存限制与结构模式切换",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -585,6 +599,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "正式组件的焦点与窄屏联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -627,6 +642,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "两执行端冻结、重复执行及迟到竞态",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -665,6 +681,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "HTTP / stdio 错误不能混称 HTTP 状态",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -702,6 +719,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "服务范围、工具范围及游标均保持",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -737,6 +755,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "采用当前授权与 Schema，不发送请求",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -773,6 +792,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "浏览器及 Agent 队列各自重试",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -814,6 +834,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "清理来源后保存内容仍在",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -854,6 +875,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "实际上传中与失败队列互斥动作",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -895,6 +917,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "真实记录详情、上传与执行 API 对象授权",
+      "editions": "仅云版",
+      "editionsNote": "Viewer 执行与\"他人私有记录\"依赖角色与多账号，单机版只有本地真实主体；跨项目猜 ID 仍由项目归属过滤覆盖。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -940,6 +964,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 产生快照与敏感凭据来源联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -977,6 +1002,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "邮件验证、匹配邮箱及接受事务",
+      "editions": "仅云版",
+      "editionsNote": "邀请与邮箱验证在单机版不存在。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1014,6 +1041,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "旧 ID 与旧期限不能继续使用",
+      "editions": "仅云版",
+      "editionsNote": "邀请重发、撤销与旧邀请失效在单机版不存在。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1052,6 +1081,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "直接 API 调用不能越过团队能力",
+      "editions": "仅云版",
+      "editionsNote": "Admin 授予与团队能力在单机版不存在。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1087,6 +1118,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "并发保护不能仅前端计数",
+      "editions": "仅云版",
+      "editionsNote": "成员移除与最后维护者保护在单机版不存在。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1124,6 +1157,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "含记录封存与凭据删除联动",
+      "editions": "仅云版",
+      "editionsNote": "团队移除段仅云版；记录封存与凭据删除联动两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1182,6 +1217,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "26 页面适用状态矩阵逐页登记",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1216,6 +1252,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "中英 × 亮暗 × 四宽；两浏览器",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1265,6 +1302,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "短桌面与手机尺寸独立检查",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1301,6 +1339,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "切换时保留草稿、状态与滚动",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1349,6 +1388,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "自动扫描与人工键盘分开记录",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1386,6 +1426,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "固定 / 运行保护及复制不含结果",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1421,6 +1462,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "同一 Run 的成功与上传状态驱动进度",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1458,6 +1500,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "到期暂停两端上传；初始化只一次",
+      "editions": "仅云版",
+      "editionsNote": "登录、首次 Owner、邀请注册与会话到期在单机版不存在。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1503,6 +1547,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "接管之后他人私有记录仍不可读",
+      "editions": "仅云版",
+      "editionsNote": "Admin 目录权限与 Owner 接管仅云版。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1544,6 +1590,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 本人队列也按最新角色约束",
+      "editions": "仅云版",
+      "editionsNote": "角色与降级约束仅云版；本人队列责任端两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1611,6 +1659,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "浏览器刷新与关闭后 Agent 完成分别验证",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1655,6 +1704,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 容量和相同摘要重试联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1695,6 +1745,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "重认证、当前权限、本机 / 备份 / 上游边界",
+      "editions": "两版",
+      "editionsNote": "单机版无登录会话，\"重认证\"条款仅云版；换机恢复以库中真实本地主体为准。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1734,6 +1786,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "伪造 Host / Origin、令牌与执行配置变更",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1774,6 +1827,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "兼容矩阵覆盖浏览器及 Agent",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1811,6 +1865,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "合法但无效草稿仅私有，不自动远程取 Schema",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1847,6 +1902,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "真实组件计算样式与双语截图",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1884,6 +1940,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "跨端快照省略规则及关联副本同步",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1924,6 +1981,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "队列、记录清理与备份周期实测",
+      "editions": "两版",
+      "editionsNote": "备份周期实测仅云版；保留期、队列与记录清理两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -1968,6 +2027,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "即时权限、30 天封存和备份删除均验",
+      "editions": "仅云版",
+      "editionsNote": "成员移除后的封存与备份删除仅云版。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2010,6 +2071,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "项目名称唯一性及两人版本冲突",
+      "editions": "两版",
+      "editionsNote": "第二作者并发仅云版；ETag 版本冲突与名称唯一性两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2053,6 +2116,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "三端实际网络路径与租户身份审查",
+      "editions": "两版",
+      "editionsNote": "租户身份审查仅云版；三端实际网络路径两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2098,6 +2163,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "保留连接草稿；旧诊断清除不自动连接",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2152,6 +2218,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "会话 / 本机值与被删引用联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2194,6 +2261,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "Agent 来源保存由浏览器持有新保存操作",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2236,6 +2304,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "刷新及上传失败仍保持新修订身份",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2278,6 +2347,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "权限依据记录所属项目而非当前 UI",
+      "editions": "仅云版",
+      "editionsNote": "角色差异仅云版；记录所属项目过滤两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2319,6 +2390,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "接管只写目标项目关系与审计",
+      "editions": "仅云版",
+      "editionsNote": "Owner 接管仅云版。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2356,6 +2429,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "旧页和下一次 API 请求均拒绝",
+      "editions": "仅云版",
+      "editionsNote": "成员编辑页与实时角色拒绝仅云版。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2398,6 +2473,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "隐藏服务上下文和流程进度；错误账号不得恢复",
+      "editions": "仅云版",
+      "editionsNote": "会话到期与失去项目访问仅云版；深链接内容页隐藏服务上下文两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2438,6 +2515,7 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "失败修订的表单隔离与持久任务联验",
+      "editions": "两版",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
@@ -2484,6 +2562,8 @@
       ],
       "formalExpectedSource": "../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md（对应编号行）",
       "focus": "完整正常旅程与邀请修复 / 上传失败异常旅程",
+      "editions": "仅云版",
+      "editionsNote": "登录与邀请段仅云版；服务、环境、调用、历史、保存、恢复段两版适用。",
       "formalStatus": "待验收",
       "implementationVersion": "M7候选：3056a6b0ab771149b39435f7f2535d2bcd0881bc；输入/产物摘要见最终manifest，相关自动回归已执行，正式签收待验",
       "relatedAutomatedSources": [
