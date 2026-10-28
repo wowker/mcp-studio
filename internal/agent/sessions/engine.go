@@ -26,6 +26,7 @@ import (
 	"mcp-studio/internal/wire"
 	"net/http"
 	"net/url"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -416,6 +417,9 @@ func (e *Engine) execute(ctx context.Context, s pairing.Session, run *running, c
 		snapshot.ResponseRetention = "omitted"
 		snapshot.OmissionReason = "response_limit"
 	}
+	// Freeze context fields the way the platform will redact them on upload, so
+	// the queued snapshot and the stored record stay identical across retries.
+	redactSnapshotContext(&snapshot, secrets, a.Policy.Pointers)
 	input := wire.RecordUploadInput{ContractVersion: "1.2.0", UserID: s.UserID, ProjectID: in.ProjectID, ConnectionID: in.ConnectionID, OperationID: run.state.OperationID, TargetKind: "history", TargetID: run.state.RecordID, ResponsibleEndpoint: "agent", Snapshot: snapshot, Metadata: wire.RecordMetadata{Name: "Agent run", Visibility: "private", ContentKind: "request-response", Completeness: "complete"}}
 	input.FrozenDigest, _ = recording.Digest(encode(input))
 	queueErr := e.config.Queue.Enqueue(context.Background(), input)
@@ -445,6 +449,28 @@ func (e *Engine) execute(ctx context.Context, s pairing.Session, run *running, c
 func toolSchema(raw string) any { var v any; json.Unmarshal([]byte(raw), &v); return v }
 func encode(v any) string       { b, _ := json.Marshal(v); return string(b) }
 func hash(s string) string      { v := sha256.Sum256([]byte(s)); return hex.EncodeToString(v[:]) }
+func redactSnapshotContext(snapshot *wire.ExecutionSnapshot, secrets, pointers []string) {
+	safe, err := recording.Redact(map[string]any{"context": map[string]any{"toolName": snapshot.ToolName, "toolDefinitionVersion": snapshot.ToolDefinitionVersion, "environmentVersion": snapshot.EnvironmentVersion, "omissionReason": snapshot.OmissionReason}}, recording.Options{SecretValues: secrets, ProjectPointers: pointers})
+	if err != nil {
+		return
+	}
+	fields, ok := safe.Value.(map[string]any)["context"].(map[string]any)
+	if !ok {
+		return
+	}
+	snapshot.ToolName = contextText(fields["toolName"])
+	snapshot.ToolDefinitionVersion = contextText(fields["toolDefinitionVersion"])
+	snapshot.EnvironmentVersion = contextText(fields["environmentVersion"])
+	snapshot.OmissionReason = contextText(fields["omissionReason"])
+	snapshot.Redactions = append(snapshot.Redactions, safe.Markers...)
+	sort.Slice(snapshot.Redactions, func(i, j int) bool { return snapshot.Redactions[i].Path < snapshot.Redactions[j].Path })
+}
+func contextText(value any) string {
+	if text, ok := value.(string); ok {
+		return text
+	}
+	return "[REDACTED]"
+}
 func (e *Engine) RunState(s pairing.Session, id string) (agentwire.AgentRunState, error) {
 	e.mu.Lock()
 	defer e.mu.Unlock()

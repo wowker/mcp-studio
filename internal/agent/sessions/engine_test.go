@@ -10,6 +10,8 @@ import (
 	"mcp-studio/internal/wire"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
+	"strings"
 	"sync/atomic"
 	"testing"
 	"time"
@@ -85,4 +87,17 @@ func contains(s, v string) bool {
 		}
 	}
 	return false
+}
+func TestRedactSnapshotContextFreezesPlatformMasking(t *testing.T) {
+	versionHash := "ab1234567890" + strings.Repeat("c", 52)
+	clean := strings.Repeat("d", 64)
+	snapshot := wire.ExecutionSnapshot{ToolName: "echo", ToolDefinitionVersion: clean, EnvironmentVersion: versionHash, OmissionReason: "", Redactions: []wire.RedactionMarker{{Path: "/request/token", Reason: "source"}}}
+	redactSnapshotContext(&snapshot, nil, nil)
+	if snapshot.EnvironmentVersion != "[REDACTED]" || snapshot.ToolName != "echo" || snapshot.ToolDefinitionVersion != clean || snapshot.OmissionReason != "" {
+		t.Fatalf("context = %q %q %q %q", snapshot.ToolName, snapshot.ToolDefinitionVersion, snapshot.EnvironmentVersion, snapshot.OmissionReason)
+	}
+	want := []wire.RedactionMarker{{Path: "/context/environmentVersion", Reason: "default"}, {Path: "/request/token", Reason: "source"}}
+	if !reflect.DeepEqual(snapshot.Redactions, want) {
+		t.Fatalf("redactions = %#v", snapshot.Redactions)
+	}
 }
