@@ -10,10 +10,11 @@ WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download
 COPY cmd cmd
+COPY apps/cloud apps/cloud
 COPY internal internal
 COPY migrations migrations
 COPY contracts contracts
-RUN CGO_ENABLED=0 go build -trimpath -o /out/platform ./cmd/platform && CGO_ENABLED=0 go build -trimpath -o /out/studio-admin ./cmd/studio-admin
+RUN CGO_ENABLED=0 go build -trimpath -o /out/platform ./apps/cloud && CGO_ENABLED=0 go build -trimpath -o /out/studio-admin ./cmd/studio-admin
 FROM caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
 COPY --from=go /out/platform /app/platform
 COPY --from=go /out/studio-admin /app/studio-admin

@@ -36,8 +36,8 @@
     "platform": {
       "image": "${STUDIO_PLATFORM_IMAGE:-mcp-studio-platform:m7-candidate}",
       "build": {
-        "context": "..",
-        "dockerfile": "deploy/Dockerfile"
+        "context": "../..",
+        "dockerfile": "apps/cloud/deploy/Dockerfile"
       },
       "user": "10001:10001",
       "read_only": true,
