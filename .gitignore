@@ -1,6 +1,8 @@
 node_modules/
 apps/web/dist/
 .runtime/
+cloud
+local
 .env
 .env.*
 *.key
