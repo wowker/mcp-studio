@@ -5,7 +5,7 @@ import { createReadStream } from 'node:fs';
 import { isIP } from 'node:net';
 import { resolve, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-const deploy = resolve('deploy');
+const deploy = resolve('apps/cloud/deploy');
 const marker = '.mcp-studio-backup-store';
 const archiveName = /^studio-\d{8}-[a-f0-9]{16}$/u;
 async function fileDigest(path) { const hash = createHash('sha256'); for await (const chunk of createReadStream(path))

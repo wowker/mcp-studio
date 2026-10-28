@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,readFileSync,writeFileSync,rmSync,symlinkSync,realpathSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {prepareCandidateDirectory} from '../../packaging/candidate-path.mjs';
+import {prepareCandidateDirectory} from '../../apps/local/packaging/candidate-path.mjs';
 
 test('candidate output uses only a fresh absolute directory within real .runtime',()=>{
  const root=realpathSync(mkdtempSync(join(tmpdir(),'candidate-output-')));

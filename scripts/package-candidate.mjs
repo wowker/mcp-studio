@@ -6,7 +6,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import { dirname, basename, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn, execFileSync } from 'node:child_process';
-import { prepareCandidateDirectory } from '../packaging/candidate-path.mjs';
+import { prepareCandidateDirectory } from '../apps/local/packaging/candidate-path.mjs';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 function safe(name) {
@@ -76,7 +76,7 @@ async function main() {
   if (location.gates !== 'passed') throw new Error('A completed candidate gate is required.');
   const output = prepareCandidateDirectory(root, resolve('.runtime', 'm7-handoff-' + randomBytes(8).toString('hex')));
   const bundle = join(output, 'mcp-studio-m7-candidate'); await mkdir(bundle, { mode: 0o700 });
-  const files = [...await tree('deploy'), ...await tree('contracts'), ...(await tree('migrations')).filter(p => p.endsWith('.sql')), 'scripts/operations.mjs', 'docs/operations/deployment-recovery.md', 'docs/operations/agent-distribution.md', 'docs/tasks/m7-review.md', 'docs/tasks/m7-acceptance-index.json'];
+  const files = [...await tree('apps/cloud/deploy'), ...await tree('contracts'), ...(await tree('migrations')).filter(p => p.endsWith('.sql')), 'scripts/operations.mjs', 'docs/operations/deployment-recovery.md', 'docs/operations/agent-distribution.md', 'docs/tasks/m7-review.md', 'docs/tasks/m7-acceptance-index.json'];
   // Dockerfile and Caddyfile have no suffix; their known public configuration is copied separately.
   const special = files.filter(p => /\/(Dockerfile|Caddyfile)$/.test(p));
   const normal = files.filter(p => !special.includes(p));

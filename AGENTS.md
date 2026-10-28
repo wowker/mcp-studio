@@ -20,7 +20,7 @@
 
 - 团队、项目、用户、连接、Tab、Run、记录与操作身份独立；凭据按连接 ID 隔离，不按 URL 合并。
 - 浏览器直连可访问 HTTP；Agent 执行用户明确切换的 HTTP 与 stdio；平台默认不代理 MCP 调用。
-- 平台 API 和 Agent 都检查对象所属项目的真实权限；模拟角色不是授权来源，目录管理权不等于项目内容权。
+- 云服务版平台 API 和 Agent 都检查对象所属项目的真实权限；模拟角色不是授权来源，目录管理权不等于项目内容权。单机版（发行形态见 [012](docs/decisions/012-edition-split-and-local-startup.md)）不做角色与成员资格校验，但仍按项目归属过滤；其本地主体是库中真实账号，不是模拟角色。
 - 原始请求响应和会话凭据不进浏览器持久存储；浏览器队列只存脱敏快照，Agent 用加密队列和系统凭据库。
 - 不把秘密写进 URL、日志、Toast、默认复制 / 导出或提交到仓库。仅本人明确选择时保存个人平台加密备份，不称为端到端加密。
 - 执行、上传、保存修订分离；每 Run 一个上传责任端。上传重试不重调 Tool；历史恢复是新未执行 Tab。
@@ -35,3 +35,17 @@
 每个行为变更和修复有对应回归；每个叶子任务验证完成标准；核心流程、认证、持久化、路由、布局、生产入口使用新工程建立的完整 verify 门禁，包含前端类型 / 测试 / 构建及 Go 测试 / vet / 构建、合同和适用集成。尚未建立的命令或尚未执行的测试不得报告为通过。
 
 阶段结束记录修改、实际验证、限制、任务与验收状态以及下一阶段范围。A01–A60 通过须有真实实现版本和证据。缺少 OS / 邮件 / 浏览器测试环境时，明确保留待验状态。
+
+## Agent skills
+
+### Issue tracker
+
+issue 与 spec 存放在本仓库 GitHub Issues（`wowker/mcp-studio`），统一用 `gh` CLI 读写。见 `docs/agents/issue-tracker.md`。
+
+### Triage labels
+
+沿用默认五个 triage 标签：`needs-triage`、`needs-info`、`ready-for-agent`、`ready-for-human`、`wontfix`。见 `docs/agents/triage-labels.md`。
+
+### Domain docs
+
+单上下文（single-context）：`GLOSSARY.md` 在根目录，ADR 存放在 `docs/decisions/`。见 `docs/agents/domain.md`。

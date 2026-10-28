@@ -4,7 +4,7 @@
 
 **M6 T31–T33 实现与可执行门禁通过（fc0b161；M6 主实现5a07743）。T32b 人工键盘/读屏及 T02、既有实机/人工/介质联验仍待验；本次未进入 M7。** 已完成全页面状态修补、语言主题窗口矩阵、分栏/焦点回归和真实项目流程衔接。结果逐叶登记于 [执行账本](docs/tasks/progress.md)、[任务登记](docs/tasks/todo.md) 与 [M6审阅](docs/tasks/m6-review.md)；正式 A01–A60 不批量签收。
 
-正式入口为 `apps/web`、`cmd/platform` 与 `cmd/agent`。Agent 重启只恢复冻结上传，不重放 Tool；浏览器保存 Agent 结果是新的 browser operation。原型 HTML / JS / CSS 仍是设计参考，其示例状态不代表生产能力。启动方式见 [本机运行](docs/operations/development.md)。
+正式入口为 `apps/web`、`apps/cloud`、`apps/local` 与两版共用的 `cmd/agent`。Agent 重启只恢复冻结上传，不重放 Tool；浏览器保存 Agent 结果是新的 browser operation。原型 HTML / JS / CSS 仍是设计参考，其示例状态不代表生产能力。启动方式见 [本机运行](docs/operations/development.md)。
 
 ## 从这里开始
 

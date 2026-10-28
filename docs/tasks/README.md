@@ -16,6 +16,7 @@
 - [V01 A30/A38 布局与固定API补证](v01-a30-a38-review.md)：必要pane/底栏20格与遗漏修补、Developer真实API403；最新门禁、待验与登记。
 - [V01 A38 Agent重试补证](v01-a38-agent-retry-review.md)：真实配对/他人ID/错误责任端/Viewer降级及恢复，完整门禁与首轮中止限制、第二轮测试同步修补，正式仍待验。
 - [M7 剩余验收安排](m7-remaining-acceptance.md)：V01/V02已执行；后续环境、当前设备可继续项目和建议顺序。
+- [发行形态规格](editions-spec.md)／[任务切片](editions-todo.md)：单机版与云服务版，E00–E03 已通过（2026-10-28），E04–E09 待办；A01–A60 已逐条标注适用形态。
 
 正式预期结果以 [设计验收正文](../design-baseline-v2/design-handoff/06-handoff-and-acceptance.md) 和 [原始登记](../design-baseline-v2/design-handoff/acceptance-register-v2.csv) 为准。参考目录内的旧 tasks 保持为交接快照，不同步开发进度。
 

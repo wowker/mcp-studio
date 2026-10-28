@@ -5,15 +5,15 @@
 ## 生成与核对
 
 ```sh
-node packaging/build-agent.mjs
+node apps/local/packaging/build-agent.mjs
 # 完整 verify 可选择一个全新目录，保留已有候选：
-# MCP_STUDIO_CANDIDATE_DIR="$PWD/.runtime/verify-agent-unique" node packaging/build-agent.mjs
+# MCP_STUDIO_CANDIDATE_DIR="$PWD/.runtime/verify-agent-unique" node apps/local/packaging/build-agent.mjs
 # MCP_STUDIO_CANDIDATE_DIR="$PWD/.runtime/verify-agent-unique" node --test tests/operations/agent-*.test.mjs
 cd .runtime/distribution
 shasum -a 256 -c CHECKSUMS.sha256
 ```
 
-构建使用生产 `./cmd/agent`，不包含集成测试 helper、测试服务器、凭据、运行状态或队列。输入摘要覆盖 `cmd/agent`、`internal` 的 Go / 原生源文件、`packaging` 脚本以及 go.mod / go.sum；不是仅把 HEAD 当作实际实现版本。`MCP_STUDIO_CANDIDATE_DIR` 可选，必须是 `.runtime` 下的全新绝对路径，目录及祖先不得是符号链接；未设置时仍写 `.runtime/distribution`。构建器和生产候选测试使用同一变量。构建器拒绝覆盖已存在的候选目录；再次构建前把整个 `.runtime/distribution` 移到一个新的、仅本机使用的归档目录，例如 `.runtime/m7-agent-previous-build`。这些目录已被 gitignore 排除。Node / Go 与 pkgbuild 只用于构建，安装后的 CLI 不需要 Node。
+构建使用生产 `./cmd/agent`，不包含集成测试 helper、测试服务器、凭据、运行状态或队列。输入摘要覆盖 `cmd/agent`、`internal` 的 Go / 原生源文件、`apps/local/packaging` 脚本以及 go.mod / go.sum；不是仅把 HEAD 当作实际实现版本。`MCP_STUDIO_CANDIDATE_DIR` 可选，必须是 `.runtime` 下的全新绝对路径，目录及祖先不得是符号链接；未设置时仍写 `.runtime/distribution`。构建器和生产候选测试使用同一变量。构建器拒绝覆盖已存在的候选目录；再次构建前把整个 `.runtime/distribution` 移到一个新的、仅本机使用的归档目录，例如 `.runtime/m7-agent-previous-build`。这些目录已被 gitignore 排除。Node / Go 与 pkgbuild 只用于构建，安装后的 CLI 不需要 Node。
 
 | 目标 | 实际候选文件 | 原生验收 / 支持状态 |
 | --- | --- | --- |

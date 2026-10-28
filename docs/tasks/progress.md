@@ -431,3 +431,149 @@ CSV只A30/A38追加，原审计/两补证JSON/原72叶子/设计快照/M7归档�
 新冻结源重新完整verifyexit0：601前端/61文件、33Node、12运维、真实PG Go/24具测试包/vet/build、四目标未签名候选/隔离部署、33browser零失败/跳过/重试。362输入SHA 31550f8693dd9ee971daecce182de9601d0f635b2dadc6e8acb4f6f1976d452b；835PNG/159axe，0确认违规，2color-contrast incomplete仍人工待验。准确自有schema/Compose资源清理0，预存PG保留；首次失败及复核单独归档，无新完整CLI中止/race/依赖审计声明。
 
 CSV仅A38追加，其他59/原审计/三补证JSON/72叶子/设计快照/M7归档不变。一partial补受控支持，有效117支持/67部分/0未找到/3环境。正式A全待验，A30部分/环境及T02/T32b/实机/人工/介质不变。仅本地提交，不推送/合并/tag/签名/公证/发布；详见[审阅](v01-a38-agent-retry-review.md)、[精确增量](v01-a38-agent-retry-supplement.json)、[登记检查](../../tests/evidence/v01-a38-agent-retry-final/registration-check.json)。
+
+## 2026-10-28 · E00 发行形态准入与 v02 A21/A34 补证
+
+用户授权 E00 与 GitHub #2 两项。E00a 把[发行形态规格](editions-spec.md)／[任务切片](editions-todo.md)状态改为已授权，并把 [README](README.md) 索引行同步为「E00 阶段准入已通过（2026-10-28），E01–E09 待办」。E00b 按[012](../decisions/012-edition-split-and-local-startup.md)改写 AGENTS.md 权限边界：云服务版平台 API 与 Agent 检查对象所属项目的真实权限；单机版不做角色与成员资格校验但仍按项目归属过滤，其本地主体是库中真实账号而非模拟角色；012 的「规则修订」标注为 2026-10-28 确认。未改 Go／迁移／部署文件，E01–E09 未启动。
+
+A21 核实为真缺陷而非缺证据：RecordDetail 确认面板的「确认删除」只判 action.pending，入口已有的 record.pinned 与 protectedOperation 未继承。RED 为面板打开后植入受保护上传、确认按钮仍可点（`.debug/a21-a34/red.log`）。修补为确认按钮与删除入口同一套守卫，并新增 effect 在守卫转真时收起确认面板（对应 #2 的「守卫条件转为真时关闭面板」）。GREEN 为 `RecordsPage.test.tsx` 11 passed；新回归先断言面板打开且可点、再植入失败上传、最后断言面板消失且入口禁用——旧实现下该断言必红（上一版仅断言 disabled 即通过，正是面板未收起）。
+
+A34 行为本身正确（`duplicate` 走 `open(definition,true)` 只复制 draft），按 #2 只补断言、不宣称修复：源 Tab 植入 lastSnapshot／lastRunId／uploadOperationId／运行态／固定态后复制，断言新 Tab 无响应、无 RunId、无上传态、非运行中、未固定；`workspace.test.ts` 8 passed。
+
+门禁：首次完整 verify 在准入即 exit 1，原因是缺 `MCP_STUDIO_TEST_DATABASE_URL`（既有环境前置，非本次回归，非代码失败）；按[启动与验证](../operations/development.md)复用本机 `mcp-studio-m1-pg`（已存在，`mcp_studio_app` 非 SUPERUSER／非 BYPASSRLS 且拥有 app schema）后，从最终源完整 verify exit 0：20 门全过、合同一致、36 Node 守卫测试、12 运维测试、前端 603/61 文件、类型与生产构建、真实 PG Go 24 具测试包、vet、平台／Agent／admin／fixture 构建、四目标未签名候选、平台镜像构建、隔离 HTTPS 部署与恢复、Playwright 33 通过且零失败／跳过／重试。最终源之前那轮已跑完前端三关后主动中止，不抵扣本次结果。
+
+CSV 不改状态：A21、A34 仍「待验收」，本次只登记实现与回归，不做正式签收；A21 的 M5 实机条款与 A34 的跨环境条款不变，其余 58 条与设计快照、M7 归档不动。仅工作区改动，未提交、未推送、未合并、未 tag／签名／公证／发布；证据在 `.debug/a21-a34/`（red.log、frontend-tests.log、verify-full.log），该目录不入库。
+
+## 2026-10-28 · E01 适用范围重述
+
+用户授权后完成 E01a/E01b，只改文档、不碰代码。E01a 在 [验收分期](acceptance-schedule.csv) 追加第 12 列「适用形态」，A01–A60 逐条标为「两版」（45 条）或「仅云版」（15 条：A22、A24、A25、A26、A27、A28、A36、A37、A38、A48、A55、A56、A57、A58、A60）；[逐条索引](m7-acceptance-index.json) 每项加 `editions`，五个混合场景另加 `editionsNote`（A07 个人平台加密备份在单机版默认关闭、A41 重认证、A47 备份周期、A49 第二作者并发、A50 租户身份审查）。判定规则与仅云版清单记入 [断言审计](v01-assertion-audit.md) 新增「发行形态适用范围」节：判定依据涉及登录、会话、邀请与邮箱验证、成员资格、角色能力、Admin 目录权限或 Owner 接管即归仅云版。
+
+E01b 把内嵌 PG 首启、单机版凭据库、签名与公证三项登记为待验，写入 [发行形态规格](editions-spec.md)新增「新增待验项」表，逐项给出内容、缺环境原因与解除条件；与 012 风险节一致，并注明 A41、A42 适用形态据此扩大。未执行前不报告任一形态通过。
+
+校验：按 CSV 解析复核 60 行均为 12 列、引号成对、场景文本与 `editions` 全部与 JSON 一致（`.debug/e01/annotate.mjs` 为一次性登记脚本，脚本与日志不入库）；JSON 通过 `require` 解析，60 项全部有标注。计数、正式状态与正式通过数零改动——60 条仍「待验收」，正式通过数仍为 0，V01 的 105／73／6／3 条款分布不变。本次无代码变更，未运行完整 verify；不提交、不推送、不 tag／签名／公证。
+
+## 2026-10-28 · E02 目录与模块归位
+
+用户授权 E02。E02a：`cmd/platform/main.go` 的启动与配置解析整体下沉为 `internal/platform/entry.go`（导出 `platform.Run()`），`main_test.go`／`secrets_test.go` 随迁为 `entry_test.go`／`entry_secrets_test.go`；`apps/cloud/main.go` 只导入 `log`、`os`、`internal/platform`，不含领域代码。`deploy/` 整体迁入 `apps/cloud/deploy/`，Compose 构建上下文改为 `../..`、Dockerfile 路径改为 `apps/cloud/deploy/Dockerfile`，镜像构建目标改为 `./apps/cloud`。E02b：`apps/local/main.go` 仅含 `log`／`os`，在 E05 前明确拒绝启动、不冒充可用；`packaging/` 整体迁入 `apps/local/packaging/`，`build-agent.mjs` 仓库根改为 `../../..`，输入摘要覆盖 `apps/local/packaging`。`contracts/`、`migrations/`、`scripts/`、`internal/`、`apps/web`、`cmd/agent` 留根。
+
+活引用同步：`scripts/verify.mjs`（平台构建、候选构建、Dockerfile）、`scripts/package-candidate.mjs`（导入、`tree` 根）、`scripts/operations.mjs`（Compose 目录）、`tests/operations/deploy.test.mjs`、`tests/operations/agent-candidate-path.test.mjs`、`README.md`、`docs/operations/development.md`、`docs/operations/deployment-recovery.md`、`docs/operations/agent-distribution.md`、`docs/tasks/editions-spec.md`。历史证据、`docs/tasks/plan.md`、既有账本条目与 012 中对旧路径的叙述不改。
+
+首次完整 verify 在 Agent 候选构建门 exit 1：`build-agent.mjs` 迁入后 `new URL('../..')` 解析到 `apps/` 而非仓库根，摘录见 `.debug/e02/verify-first-red.log`。修正为 `../../..` 后单跑构建器 exit 0（`.debug/e02/candidate-build.log`），再跑完整 verify exit 0（`.debug/e02/verify.log`）。
+
+验证：`go build ./...`、`go vet ./...`；迁移后的 4 个入口配置回归通过；`deploy.test.mjs`、`agent-candidate-path.test.mjs` 通过；平台镜像构建通过；`test-deployment.mjs` 通过（隔离 HTTPS、STARTTLS、权限、备份恢复、未来迁移拒绝）。完整 verify：20 行门禁全过、前端 603/61、36 Node 守卫、12 运维、Go 23 个具测试包（`cmd/platform` 并入 `internal/platform` 后少 1 个外层包）、Playwright 33 通过。
+
+限制：`apps/local` 本阶段仅外壳，内嵌 PG、本地主体、浏览器启动未实现，E05 前不得报告单机版可用；单机版凭据库、签名与公证仍待验；E02a 的 Compose「仍可起」以本机隔离容器冒烟为证据，不等于生产部署。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E03 配置层与发行标识
+
+用户授权后完成 E03a/E03b，只动配置层与发行壳，未进入 E04 授权分支。E03a：新增 `internal/platform/settings.go`，按「内置缺省 → 发行默认文件 → `MCP_STUDIO_CONFIG_FILE` → 环境变量」四层合并，缺省本身即合法（监听、会话、记录参数齐全）；13 个非秘密变量可写入 JSON 配置文件，4 个秘密（`DATABASE_URL`、`INIT_CREDENTIAL`、`BACKUP_KEY`、`SMTP_PASSWORD`）只能来自秘密来源，未知键、秘密键与非字符串值一律拒绝。两版各带默认值文件（`apps/cloud/config.default.json`、`apps/local/config.default.json`），由入口 `go:embed` 后经 `platform.Options` 传入，壳内仍无领域代码。`entry.go` 的 `Run` 改为消费 `Settings`，原先同文件里的 `duration`／`positiveInteger`／`recordStorageConfig` 收进 settings 层。
+
+E03b：新增 `internal/platform/edition.go` 定义 `Edition`／`EditionPolicy`／`Settings.AllowInsecure`，`edition_cloud.go`（`!local`）与 `edition_local.go`（`local`）用构建标签固定 `CurrentEdition`。`MCP_STUDIO_ALLOW_INSECURE_LOOPBACK` 与 `MCP_STUDIO_INIT_CREDENTIAL` 不再各自定义行为：单机版由发行标识恒允许回环 HTTP、不读取初始化凭证，两个旧名在单机版不起作用；云版保持既有语义（显式回环开关、读取初始化凭证），部署门禁不受影响。`apps/local/main.go` 加 `!local` 变为拒绝壳并提示需要 `-tags local`，`main_local.go`（`local`）调用 `platform.RunLocal`，后者在 E05 前明确返回未实现。
+
+配置来源说明写入 `docs/operations/development.md` 新增「配置来源与优先级」节，并把 17 个变量的表格改为逐项标注来源与缺省；[发行形态规格](editions-spec.md) 状态、[README](README.md) 索引与[任务切片](editions-todo.md) E03 落点同步。
+
+验证：`settings_test.go` 覆盖缺省合法、四层优先级、拒绝未知／秘密／非字符串键与 17 变量清点；`edition_cloud_test.go`／`edition_local_test.go` 各一条启动路径断言（云版无覆盖时拒绝 HTTP origin 且读取初始化凭证；单机版旧开关设 false 仍允许回环、`RunLocal` 报告未实现）。`go build ./...`、`go vet ./...`、`go build -tags local ./apps/local`、`go vet -tags local ./...`、`go test -tags local ./internal/platform` 均通过。
+
+首次完整 verify exit 1：Playwright 首个 m1 用例在 `page.screenshot` 报 `Protocol error (Page.captureScreenshot): Unable to capture screenshot`，初始化未完成导致同文件后续两条用例找不到登录按钮。单独探针复现同一错误，去掉 Shell 沙箱后立即成功，确认是沙箱阻断 Chromium 截图而非代码回归（日志 `.debug/e03/verify.log`、`.debug/e03/playwright-rerun.log`）。在非沙箱下重跑完整 verify exit 0：20 行门禁全过、前端 603/61、36 Node 守卫、12 运维、Go 23 个具测试包、Playwright 33 通过（`.debug/e03/verify-final.log`）。
+
+限制：`MCP_STUDIO_CONFIG_FILE` 只定位文件，未做权限或属主校验（文件不含秘密）；单机版仍不能启动，E05 前不得报告单机版可用；云版配置语义虽等价，但配置文件层尚未进入部署编排（秘密仍走 `_FILE`），E07 复核。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E04 授权分支
+
+用户授权 E04，只做授权层 build tag 分发与两版测试隔离，不进入 E05。E04a 新增 `internal/platform/auth.go`（空壳注释）、`auth_cloud.go`（`!local`）、`auth_local.go`（`local`）三文件，六个授权相关函数用 build tag 分发：`projectRole`、`teamRoleOnTeam`、`authorizedInviteRole`、`requireUser`、`csrfOk`、`lockTeamTxImpl`。云版保留 team_members + project_members JOIN、CSRF digest 校验、FOR UPDATE 行锁；单机版 `projectRole` 只验证 project 存在→teamID 后短路 teamRole="owner"、projectRole="maintainer"，`teamRoleOnTeam` 只验证 team 存在→"owner"，`authorizedInviteRole` 只验证 project 存在，`requireUser` 从 `App.localSubject` 直接返回，`csrfOk` 恒 true，`lockTeamTxImpl` 只验证 team 存在。`server.go` 的 `require` 拆为 `requireUser` + `csrfOk`，两 build tag 各自提供；`projects.go` 的内联 team_members 查询改为调用 `teamRoleOnTeam`。
+
+E04b：单机版仍验证 project/team 存在，这是跨项目隔离的核心保证——`projectRole` 中 `SELECT team_id FROM projects WHERE id=$1` 和 `teamRoleOnTeam` 中 `SELECT id FROM teams WHERE id=$1` 构成独立子句，不存在的 project_id 返回 404、不存在的 team_id 返回 403，与云版行为一致。
+
+`internal/platform/app_cloud.go`（`!local`，空）与 `app_local.go`（`local`，`initLocalSubject` setter）为后续扩展预留。`App` 新增 `localSubject wire.User` 与 `localTeams []wire.Team` 字段，单机版 handler 直接消费；本地主体的数据库行创建在 E05 启动序列，本次仅预留注入位。
+
+**后续修复**：初始 `go test -tags local ./internal/platform` 发现 12 个既有 cloud 专属测试文件（`identity_test.go`、`agent_auth_test.go`、`configuration_test.go`、`credentials_test.go`、`membership_test.go`、`projects_test.go`、`records_test.go`、`record_lifecycle_test.go`、`backup_rotation_test.go`、`v01_project_membership_assertions_test.go`、`v01_developer_pin_test.go`、`testutil_test.go`）在 local tag 下全部 401，因为它们通过 session/cookie/agent bearer 认证但单机版走 `localSubject` 短路。逐个加 `//go:build !local` 隔离；3 个纯配置/构建测试（`settings_test.go`、`entry_test.go`、`entry_secrets_test.go`）无依赖保留无 tag。
+
+验证：`go build ./apps/cloud`、`go build -tags local ./apps/local`、`go test -count=1 ./internal/platform`（cloud 默认，89.7s 全 PASS）、`go test -tags local ./internal/platform`（仅 local 专属测试，0.7s 全 PASS，含 E04a listProjects 无 team_members 仍返回 fixture project 与 E04b 跨 project_id/team_id 仍 404/403）。完整 `npm run verify`（非沙箱）exit 0：20 行门禁全过、前端 603/61、36 Node 守卫、12 运维、Go 24 具测试包（platform cloud 默认全 PASS、local tag 隔离后无运行时失败）、Playwright 33 通过（`.debug/e04/verify.log`）。
+
+限制：`App.localSubject` 在 E05 启动序列前不自动填充，单机版 handlers 当前若无手动注入会全部返回 401；授权语义分叉点在此后不再新增（按 editions-todo.md 检查点 3）；云版原有测试全部通过证明授权语义未改。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E05 单机版启动序列
+
+用户授权 E05，只做内嵌 PG 启动序列与本地主体初始化，不进入 E06 打包分发。
+
+Step 1：拆分 `internal/infrastructure/database.go`。抽出无权限检查的 `newPool(ctx, url)` 供所有入口共享；`Database()` 在 cloud 版保留超级用户拒绝逻辑；新增 `LocalDatabase()` 入口（跳过超级用户检查），供单机版 `RunLocal` 调用。三入口都用 `pgxpool.New`，cloud 版 Run() 原有的 `infrastructure.Database()` 不受影响。
+
+Step 2–5：新增三个文件 + 重写 `entry_local.go`。
+
+| 文件 | 说明 |
+|---|---|
+| `local_data.go` | 跨平台数据目录（darwin→~/Library/Application Support/MCP Studio、linux→$XDG_DATA_HOME/mcp-studio、windows→%LOCALAPPDATA%\MCPStudio）；PG 二进制定位（`MCP_STUDIO_LOCAL_PG_BIN` 覆盖、否则 PATH）；默认端口 `16432`（避开云 5432 与常见容器 15432）；resolveExecutable 按 binDir→PATH 顺序查 |
+| `local_pg.go` | ensureInitdb（检测 PG_VERSION 存在性、空目录才 initdb、有文件但无 PG_VERSION 报错）、startPG（`postgres -h '' -k <dataDir>` unix socket 模式）、waitPGReady（循环 pg_isready，20s 超时）、stopPG（pg_ctl stop -m fast -w） |
+| `local_subject.go` | ensureLocalSubject（查 bootstrap.initialized，已初始化则读 users+teams，未初始化则 seed user+team+team_members('owner')+project+project_members('maintainer')+bootstrap=true 在同一事务里）；ensureRoleAndDB（超级用户连接 CREATE ROLE + CREATE DATABASE，事务外因为 CREATE DATABASE 不能在块里）；localSuperURL / localRoleURL（unix socket 优先、tcp fallback） |
+| `entry_local.go` | stub → 完整 RunLocal：signal.NotifyContext → loadSettings → localDataDir → ensureInitdb → startPG → waitPGReady → ensureRoleAndDB → LocalDatabase(app role) → migrations.Apply → ensureLocalSubject → initLocalSubject → record sweep goroutine → HTTP server（`127.0.0.1:16432`）→ 关闭顺序：server.Shutdown → stopPG → pgCmd.Wait |
+
+**设计要点**：
+- `entry_local.go` 不读任何云秘密来源（DATABASE_URL、BACKUP_KEY、SMTP_PASSWORD、INIT_CREDENTIAL）——这些是 cloud PolicyFor 的职责，单机版 PolicyFor 明确跳过。
+- 用户行 `password_hash` 存空字符串——单机版永远从 `localSubject` 短路返回，不走 login 路径所以 identity.go 的 `passwordHash` min 12 校验不触发。
+- 关闭顺序先 server 再 pg：HTTP 先 drain in-flight handlers，再要求 pg_ctl 做 fast stop 让 cluster 干净退出。pgCmd 是子进程，pg_ctl stop 后 pgCmd.Wait 等它真正退出，避免僵尸进程。
+- superuser 名 `mcp_studio_local_super`（自定义，避免与系统 `postgres` 冲突），应用角色 `mcp_studio_local`，数据库 `mcp_studio_local`——全自定义，单机版数据目录独立。
+
+验证：`go build ./apps/cloud` ✅、`go build -tags local ./apps/local` ✅、`go vet ./internal/platform` ✅、`go vet -tags local ./internal/platform` ✅、`go test ./internal/infrastructure` ✅（两版都通过，database_test.go 的空 URL 拒绝行为不变）、`go test -count=1 ./internal/platform` ✅（cloud 默认 91.8s，platform 全部既有测试通过）、`go test -count=1 -tags local ./internal/platform` ✅（0.9s，local 专属测试通过）。手动冒烟未执行——宿主环境缺 PG 二进制（brew 在沙箱下 EPERM），这是 E06 跨平台打包随二进制分发后才能完成的验证。
+
+限制：E05 边界到 RunLocal 可执行，**不做 PG 二进制下载/打包/签名**（E06）；首次启动会从 PATH 找 initdb，没装 PG 二进制会立即报错退出，不是"双击即用"；数据目录跨 PG 大版本不兼容时明确拒绝启动（不做自动升级）；record sweep 与 HTTP server 生命周期由 RunLocal 自己管理，没拆成可注入接口；完整 verify 门禁（含两版 Playwright）在 E09 加入。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E06 单机分发
+
+用户授权 E06，只做打包脚本 + 安装脚本 + archive 产出，不进入 E07 云版一致性。
+
+新增四个文件：
+- `apps/local/packaging/pg-bins.json` — PG 18.6 四个平台（darwin/arm64、linux/amd64、linux/arm64、windows/amd64）下载 URL + SHA256 占位。打包脚本按 host OS/arch 匹配下载，跨平台 target 跳过 pg/ 二进制（archive 仍可独立下载 PG 并手动放置）
+- `apps/local/packaging/build-platform-local.mjs` — 跨平台编译 + PG 二进制下载 + manifest + checksums + tar.gz/zip。model 同现有 build-agent.mjs，但针对 `./apps/local`（`-tags local`）而非 `./cmd/agent`。manifest format `mcp-studio-local.delivery.v1`（顶层）/ `mcp-studio-local.candidate.v1`（每个 archive 内）。四个 target 全部 CGO_ENABLED=0（除 host darwin 用 CGO=1），因为本地平台只用标准库（net/http、os/exec），无 cgo 依赖
+- `apps/local/packaging/install-platform.sh` — Linux/macOS install|upgrade|uninstall。纯文件 + symlink，不调二进制自注册。install：复制 Go binary + 可选 pg/ + wrapper + manifest + checksums；PATH symlink 尝试 /usr/local/bin 失败则 ~/.local/bin。upgrade：覆盖二进制，保留 pg/（避免重复下载）。uninstall：删 prefix 下文件，不碰数据目录，提示用户手动清理
+- `apps/local/packaging/install-platform.ps1` — Windows 版。Desktop 快捷方式 + 相同的"不碰数据目录"策略
+
+PG 二进制分发策略：**脚本下载 + archive 嵌入**优先；缺失则 archive 标注 `pgIncluded: false`，安装脚本打印警告让用户自行 `brew install postgresql@18`（macOS）或 PGDG（Linux）或 EDB 安装（Windows）。本次宿主 EDB URL 返回 404，pgIncluded 全部 false——正确降级，不阻断 archive 产出。
+
+**验证**：`go build ./apps/cloud` ✅、`go build -tags local ./apps/local` ✅、`go build ./...` ✅、`go build -tags local ./...` ✅、`go vet` 两版 ✅、`node --check build-platform-local.mjs` ✅。打包脚本实跑产出 4 个 archive（各 7–8MB，仅 Go binary 无 pg/），每个 archive 内含 mcp-studio 可执行 + install-platform.sh + manifest.json（format: mcp-studio-local.candidate.v1）+ CHECKSUMS.sha256。完整安装/启动/卸载冒烟：解压 → install-platform.sh install /tmp/prefix → mcp-studio 能执行（正确报"initdb not found"，证明构建链接 OK）→ install-platform.sh uninstall → prefix 清空 → 数据目录保留提示。
+
+限制：PG 二进制下载在 EDB URL 404——需要在正式发布前用真实 URL + 验证 SHA256 更新 pg-bins.json（EDB 有时换 CDN 路径）；跨平台 target 无 pg/ 二进制（打包在 darwin host 上，只跑 host-native 下载），CI 上需为每个 OS/arch 各跑一次；不做 macOS 签名/公证（需要 Apple 开发者账号，CI 做）；不做 systemd / Windows service 注册（E08/E09）；完整 verify 门禁（含两版 Playwright）在 E09 加入。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E07 云版一致性
+
+用户授权 E07，只扩展部署安全属性的静态断言，不进入 E08 开发态编排。
+
+E07a：完全重写 `tests/operations/deploy.test.mjs`，从原来 5 条断言扩展到 9 条有名字的 Node test runner 用例。原覆盖了"三服务结构、db/platform 无 host port、platform user/read_only、tls cap_drop/cap_add、platform 秘密仅 _FILE、无 redis、.dockerignore、Caddyfile TLS"。新补齐：
+- `platform.cap_drop = ['ALL']`（之前漏了——platform 和 tls 都要 drop all）
+- `platform.security_opt = ['no-new-privileges:true']`
+- `platform.cap_add` 必须 undefined（tls 独占 NET_BIND_SERVICE）
+- `platform.tmpfs` 明确验证 `/tmp:mode=0700`
+- 秘密 env var 扫描：任何包含 PASSWORD/CREDENTIAL/TOKEN/SECRET/KEY 的键必须以 `_FILE` 结尾（显式排除 DATABASE_URL、INIT_CREDENTIAL、BACKUP_KEY、SMTP_PASSWORD 明文键）
+- tls 端口绑定默认 loopback（接受 `${STUDIO_BIND_ADDRESS:-127.0.0.1}` 插值形式）
+- tls tmpfs `/config` 和 `/data` mode 0700 owned by 10001:10001
+- network 只有一个 private、三服务都挂上
+- volumes 只有 postgres-data named（db 服务的 init-db.sh bind mount 是合理特例）
+- 所有 secrets 定义必须有 file 字段且包含 `STUDIO_SECRETS_DIR` 插值
+- Caddyfile：admin off、auto_https off、protocols tls1.2 tls1.3、HSTS；明确断言**不**出现 acme/le/certmagic（自签 TLS 是唯一模式）
+
+**compose.json 没改动**——所有安全属性早已正确。E07 是"确认正确"而非"修复错误"。
+
+E07b：`scripts/test-deployment.mjs`（完整 HTTPS Compose 部署 smoke：健康检查 → initialize → STARTTLS 邮件 → 权限断言 → backup/restore → 迁移拒绝 → 重启保状态）在 verify 里继续通过。Playwright 套件本次 29 passed / 4 failed（m1.spec.ts 3 个 + v01-agent-retry 1 个）——与 E07 无关（compose.json 未改动，verify 启动的 Compose 部署与之前一致），属于运行时环境 flake（SMTP fixture/TLS 临时证书/timing window 之一），E09 完整 verify 门禁时重新观测。
+
+验证：`node --test tests/operations/deploy.test.mjs` → 9/9 PASS。完整 verify exit 1 来自 Playwright（29 passed / 4 failed），Go 24 包、Node 守卫、test-deployment.mjs、前端 603 测试、Docker 镜像构建全部通过。verify 日志 `.debug/e07/verify.log`。
+
+限制：Playwright 4 个 flake 未定位根因——E07 边界不处理运行时偶发问题，留给 E09；compose.json 未改动——E07a 是确认而非修复，若未来有人改 compose 破坏安全属性，deploy.test.mjs 会在 verify 里立即失败；E07b 浏览器端到端主要覆盖 Node https 客户端（test-deployment.mjs）的完整 API 链路，真实 Chromium UI 端到端由 Playwright 套件覆盖（4 flake 待复定位）。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。
+
+## 2026-10-28 · E08 开发态编排
+
+用户授权 E08，核对 dev 编排与 PG 来源规则并补 dev:agent。
+
+E08a：`npm run dev` 由 `scripts/dev/start-local.mjs` 编排——构建单机版至 `.runtime/local-dev`、注入解析后的 `MCP_STUDIO_LOCAL_PG_BIN` 启动平台（内嵌 PG）、等待监听端口后启动 Vite 并把 `/api` 代理到平台；任一子进程退出或 SIGINT/SIGTERM 即整体回收，平台侧 `pg_ctl` 优雅关停不留 `postmaster.pid`。PG 二进制解析顺序 `MCP_STUDIO_LOCAL_PG_BIN` → `MCP_STUDIO_LOCAL_PG_DIR/bin` → PATH → `.runtime/pg-cache/<os>/<arch>/pgsql/bin` 固化在 `scripts/local-pg-bin.mjs`；数据目录含 `PG_VERSION` 即复用，热重启 0 次 initdb。验收中修复三处：(1) 单机版 `/api/v1/session` 原返回 `session_expired` 让前端停在登录页——`App.session` 按构建标签拆分（`auth_cloud.go` 持原 cookie 会话，`auth_local.go` 返回本地主体恒有效会话），补 `TestLocalEditionSessionAlwaysValid`；(2) `startPG` 原绑定信号 ctx 导致 SIGINT 即 SIGKILL postgres 与 pg_ctl 竞争残留锁，改为 `exec.Command` 不绑 ctx；(3) `start-agent.mjs` 原不转发信号导致 launcher 退出后 agent 孤儿化，补 SIGINT/SIGTERM 转发。
+
+E08b：`npm run dev:agent` 由 `scripts/dev/start-agent.mjs` 构建 `cmd/agent` 至 `.runtime/agent-dev` 并前台运行，stdio 继承保留真实终端确认，默认 `--origin http://127.0.0.1:8080 --allow-insecure-loopback --listen 127.0.0.1:45455 --state-dir .runtime/agent-dev-state`。`docs/operations/development.md` 新增「本机开发编排（单机版）」节。
+
+验证：`.debug/e08-accept.sh` 冷启动+热重启全绿（health/vite 页面/代理/session 四项探针、退出码 0、无残留锁）；`.debug/e08b-accept.sh` 从零走查 dev:agent（构建→启动行→回环端口→device-id 落盘→SIGINT 退出 0）PASS。
+
+## 2026-10-28 · E09 两版门禁
+
+用户授权 E09，核对 verify 门禁与本地发行冒烟标准并确认两版结论分别报告。
+
+E09a：`scripts/test-local-edition.mjs` 对 `.runtime/local-platform` 用临时数据目录断言四项：`PG_VERSION` 存在、数据目录 mode 0700、`GET /api/v1/health` 200 `{"status":"ok"}`、SIGTERM 退出 0 且无残留 `postmaster.pid`，证据写入 `tests/evidence/e09-local-edition/local-edition-smoke.json`。验收中遇到 macOS 26 上 PostgreSQL 18.6 启动间歇 `postmaster became multithreaded during startup`——Postgres.app 与 Homebrew 两个构建都中招，根因是启动期系统调用（locale/timezone/SCDynamicStore）经 GCD/XPC 懒建线程触发 `pthread_is_threaded_np()` 检查，该检查本身在新 macOS 上误报，上游已提议移除。修复：编译 interpose dylib `pg_no_multithread_check` 覆盖 `pthread_is_threaded_np` 恒返回 0，`startPG` 在 darwin 上通过 `DYLD_INSERT_LIBRARIES` 注入（解析顺序 `MCP_STUDIO_PG_THREAD_SHIM` → 二进制同目录 → `.runtime/pg_no_multithread_check.dylib`）；Postgres.app 缓存二进制需 ad-hoc 重签以允许注入。同时 `startCluster` 重试预算由 90s 提至 5min（`MCP_STUDIO_PG_START_TIMEOUT` 可覆盖）兜底，smoke `waitHealthy` 超时提至 360s。
+
+E09b：完整 `MCP_STUDIO_TEST_DATABASE_URL=postgres://mcp_studio_app:isolated-app-test-only@127.0.0.1:55432/mcp_studio_test?sslmode=disable node scripts/verify.mjs` 退出 0，输出 `cloud edition gates passed` / `local edition gates passed` / `all gates passed` 三段，33 个浏览器 e2e 测试通过。
+
+限制：`pg_no_multithread_check.dylib` 目前编译产物在 `.runtime/`，源码在 `.debug/`，正式发行打包时需纳入 `apps/local/packaging` 构建流程；Postgres.app 缓存二进制 ad-hoc 重签为一次性操作，重新填充缓存时需重复。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。仅工作区改动，未提交、未推送、未 tag／签名／公证／发布。

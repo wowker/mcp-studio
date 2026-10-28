@@ -6,13 +6,13 @@
 
 ## 配置与启动
 
-`deploy/compose.json` 是容器组合入口；运行目录为本仓库。固定官方镜像摘要；平台/HTTPS非root，数据库业务账号独立。默认只发布127.0.0.1的TLS端口，db/platform不发布；真实内部网络地址需运维明确配置STUDIO_BIND_ADDRESS。无自动ACME申请、域名变更、邮件身份伪造或Redis要求。
+`apps/cloud/deploy/compose.json` 是容器组合入口；运行目录为本仓库。固定官方镜像摘要；平台/HTTPS非root，数据库业务账号独立。默认只发布127.0.0.1的TLS端口，db/platform不发布；真实内部网络地址需运维明确配置STUDIO_BIND_ADDRESS。无自动ACME申请、域名变更、邮件身份伪造或Redis要求。
 
 以私有外部目录存admin_db_password、app_db_password（64个小写hex）、database_url、init_credential、tls_cert、tls_key。app数据库URL必须指向新mcp_studio库和app search_path；初始化使用唯一强凭证，首次Owner成功后入口关闭。文件来源秘密需要目录0700、文件0444供非root挂载读取，目录不可对其他宿主用户开放。使用已有的保密管理器时遵守其授权与挂载权限，不复制生产秘密到仓库。
 
 测试与示例初始化函数为scripts/operations.mjs的provision：调用者提供已匹配/有效的证书和精确Origin、SMTP host:port/from；函数拒绝覆盖既有目录，随机生成测试/新环境密码与初始化凭证，不打印其值。配置不等于实际邮件服务已验；正式SMTP仍需另验收认证、证书、投递和供应商。
 
-设置STUDIO_SECRETS_DIR（绝对路径）、STUDIO_ORIGIN、STUDIO_HTTPS_PORT、STUDIO_SMTP_ADDRESS、STUDIO_SMTP_FROM；可选STUDIO_SMTP_USERNAME。环境中只放非秘密配置。构建：`docker compose -f deploy/compose.json build platform`；启动必须另行按实际环境授权。个人备份默认无key；只有明确启用时附加deploy/backup.compose.json并提供独立backup_key。SMTP AUTH附加deploy/smtp-auth.compose.json，独立smtp_password文件。不得使用MCP_STUDIO_ALLOW_INSECURE_LOOPBACK给生产容器放宽TLS/邮件。
+设置STUDIO_SECRETS_DIR（绝对路径）、STUDIO_ORIGIN、STUDIO_HTTPS_PORT、STUDIO_SMTP_ADDRESS、STUDIO_SMTP_FROM；可选STUDIO_SMTP_USERNAME。环境中只放非秘密配置。构建：`docker compose -f apps/cloud/deploy/compose.json build platform`；启动必须另行按实际环境授权。个人备份默认无key；只有明确启用时附加apps/cloud/deploy/backup.compose.json并提供独立backup_key。SMTP AUTH附加apps/cloud/deploy/smtp-auth.compose.json，独立smtp_password文件。不得使用MCP_STUDIO_ALLOW_INSECURE_LOOPBACK给生产容器放宽TLS/邮件。
 
 健康：TLS入口/api/v1/health检查DB；/api/v1/bootstrap表明初始化与邮件配置，mailConfigured不保证投递成功。安全烟测须验证初始化关闭、Secure/HttpOnly Cookie、CSRF/Origin、当前对象权限和DB角色。初始化脚本执行失败应停止，不临时改用管理员业务连接。
 
