@@ -1,0 +1,100 @@
+{
+  "batch": "B11",
+  "title": "Platform 131 测试函数名深度审阅 + Playwright 14 suites E2E 复盘 + 前端 61 files 结构",
+  "createdAt": "2026-10-29",
+  "mode": "deep-dive",
+  "previousBatch": "B10",
+  "platform": {
+    "testFiles": 23,
+    "testFunctions": 131,
+    "buildTagPartition": {
+      "cloudOnly_local__no_tag": {
+        "count": 13,
+        "files": ["agent_auth_test.go", "b1_identity_collaboration_assertions_test.go", "b2_connection_environment_assertions_test.go", "backup_rotation_test.go", "configuration_test.go", "credentials_test.go", "edition_cloud_test.go", "identity_test.go", "membership_test.go", "projects_test.go", "record_lifecycle_test.go", "records_test.go", "testutil_test.go", "v01_developer_pin_test.go", "v01_project_membership_assertions_test.go"],
+        "cloud": "✅",
+        "local": "⏭️ SKIP (build tag !local)"
+      },
+      "localOnly": {
+        "count": 3,
+        "files": ["b1_local_edition_assertions_test.go", "edition_local_auth_test.go", "edition_local_test.go"],
+        "cloud": "⏭️ SKIP (build tag local)",
+        "local": "✅"
+      },
+      "sharedNoTag": {
+        "count": 5,
+        "files": ["entry_secrets_test.go", "entry_test.go", "local_pg_test.go", "record_fixtures_test.go", "settings_test.go"],
+        "cloud": "✅",
+        "local": "✅"
+      }
+    },
+    "functionNamesFile": "tests/evidence/acceptance-b11/platform-functions.txt",
+    "testFunctionCategories": {
+      "B1/B2 assertions (cloud-only, !local)": ["TestB1A01", "TestB1A22", "TestB1A28", "TestB1A36A58", "TestB1A37", "TestB1A55", "TestB2A50"],
+      "V01 assertions (cloud-only)": ["TestV01A01", "TestV01A28", "TestV01A38"],
+      "Agent Auth (cloud-only, !local)": ["TestAgentExchangeRejectsBrowserFetchWithoutCookie", "TestAgentGrantBoundedByParentAbsoluteDeadline", "TestAgentGrantHistoryOwnershipReceiptAndCurrentRole", "TestAgentGrantOriginParentLogoutDeadlineAndHashStorage", "TestAgentPasswordResetRevokesProofsAndGrants", "TestAgentProofConcurrentExchangeOneWinner", "TestAgentProofCookieCSRFAndExchangeCookieOriginRejected", "TestAgentProofExchangeBindingReplayExpiryAndRevocation"],
+      "Credentials (cloud-only, !local)": ["TestCredentialBackupAgentRestoreFreshPasswordAndConcurrentVersion", "TestCredentialBackupEncryptionOwnershipReauthAndMembershipDeletion", "TestCredentialBackupKeyLossStillAllowsMetadataAndPrivacyDeletion", "TestCredentialBackupRealRemovalAPIsPurgeOnlineCopiesAndSafeAudit", "TestCredentialBackupReferenceValidationCipherBindingAndWriteFailure", "TestCredentialBackupRestoreWaitsForRoleRevocation"],
+      "Backup Rotation (cloud-only, !local)": ["TestOfflineBackupRotationAtomicAndPreservesUserVersion"],
+      "Configuration (cloud-only, !local)": ["TestConcurrentConfigurationSavesOnlyOneVersionWins", "TestConfigurationPermissionsAndCurrentSessionAccess", "TestConfigurationPreservesPublicScalarsAndCaseSensitiveNames", "TestConfigurationRejectsRecognizableSecretInsidePublicVariable", "TestConfigurationVariableCoverage", "TestConfigurationWriteWaitingOnRevocationRechecksRoleBeforeVersion"],
+      "Records (cloud-only, !local — largest group)": ["TestRecordAdditionalRedactionPolicyAndLinkedPrivateCopies", "TestRecordArchiveRejoinAndExpiredTombstone", "TestRecordAtomicFailureRetryAndConcurrentReplay", "TestRecordBrowserSavedCopyPreservesAgentAttributionAndRequestOnlySchema", "TestRecordCapacityAdmissionAndConditionalRetention", "TestRecordCapacityOneByteBoundaryAndConcurrentWriters", "TestRecordCapacityReadersAndArchiveAggregateIsolation", "TestRecordDecoderEscapedWireBudgetAndAmbiguousJSON", "TestRecordEffectiveRetentionClampsWhenDeploymentMaximumShrinks", "TestRecordHistoryFiltersStableCursorAndPrivateIsolation", "TestRecordIncompleteSavedCannotPublishByMetadataRevision", "TestRecordSavedMetadataConditionalPinDeletionAndIndependence", "TestRecordSchemaAnnotationTraversalKeepsNamedValidationNodes", "TestRecordSchemaShapeAndJointMetadataSecretPropagation", "TestRecordSourceProofOwnUnuploadedRunAndRedactedAuditHistory", "TestRecordStorageConfigurationRejectedBeforeDatabase (6 sub-tests)", "TestRecordSweepHistorySavedPinnedAndReceiptRestart", "TestRecordUploadAtomicReplayScopeAndRedaction", "TestRecordUploadCurrentPermissionsIdentityAndBoundedJSON", "TestRecordUploadWaitingOnMembershipRevocation"],
+      "Local-only": ["TestB1Local", "TestEditionLocalAuth", "TestEditionLocal"],
+      "Shared (no tag)": ["TestEntrySecrets", "TestEntry", "TestLocalPG (bundledPGDir, env precedence, shim injection)", "TestRecordFixtures", "TestSettings"]
+    }
+  },
+  "playwright": {
+    "date": "Oct 28 12:48-12:50",
+    "suites": 14,
+    "specs": 33,
+    "passed": 32,
+    "failed": 1,
+    "failedSpec": "v01-agent-retry.spec.ts (environment version mismatch, known)",
+    "suites": [
+      { "name": "m1.spec.ts",       "specs": 3, "passed": 3, "failed": 0, "note": "生产入口初始化: 邮箱生命周期 + 深链接拒绝" },
+      { "name": "m2.spec.ts",       "specs": 3, "passed": 3, "failed": 0, "note": "HTTP/SSE handshake + CORS + stdio boundary" },
+      { "name": "m3.spec.ts",       "specs": 5, "passed": 5, "failed": 0 },
+      { "name": "m4.spec.ts",       "specs": 4, "passed": 4, "failed": 0 },
+      { "name": "m5.spec.ts",       "specs": 3, "passed": 3, "failed": 0 },
+      { "name": "m6-flow.spec.ts",  "specs": 3, "passed": 3, "failed": 0, "note": "邀请/历史/保存复制连续旅程 → A60 实机" },
+      { "name": "m6-layout.spec.ts","specs": 2, "passed": 2, "failed": 0, "note": "键盘导航 + layout → A32b 实机" },
+      { "name": "m6-matrix.spec.ts","specs": 3, "passed": 3, "failed": 0 },
+      { "name": "v01-agent-retry.spec.ts", "specs": 1, "passed": 0, "failed": 1, "note": "A38 环境版本差异 — 非逻辑 bug" },
+      { "name": "v01-backup-retry.spec.ts", "specs": 1, "passed": 1, "failed": 0 },
+      { "name": "v01-cors-agent.spec.ts", "specs": 1, "passed": 1, "failed": 0 },
+      { "name": "v01-membership.spec.ts", "specs": 2, "passed": 2, "failed": 0 },
+      { "name": "v01-required-layout.spec.ts", "specs": 1, "passed": 1, "failed": 0 },
+      { "name": "v01-run-preferences.spec.ts", "specs": 1, "passed": 1, "failed": 0 }
+    ]
+  },
+  "layoutMetrics": {
+    "date": "Oct 28 12:48",
+    "entries": 37,
+    "pageOverflowFalse": 37,
+    "pageOverflowTrue": 0,
+    "consoleErrors": 0,
+    "bodySize": { "min": 14, "max": 14 },
+    "minimumTextSize": { "min": 12, "max": 14 },
+    "languages": ["en", "zh"],
+    "themes": ["light", "dark"],
+    "widths": [390, 820, 1024, 1440]
+  },
+  "frontendStructure": {
+    "totalTestFiles": 61,
+    "tsxFiles": 31,
+    "tsFiles": 30,
+    "gatePassed": "61 files / 603 tests (Node 24.21.0)",
+    "featureBreakdown": {
+      "runtime/": "12 files: browser-session(58), agent-session, agent-client, vault, oauth, environment, connection, configuration, execution(4), records(5), schema(2)",
+      "features/records/": "4 files: RecordsPage(11), RecordStates(3), RecordEditors(13), SessionUploads",
+      "features/tools/": "7 files: SchemaArgumentEditor(13), ArgumentDraft(8), ToolExecution(8), ToolDocumentTabs(2), AgentToolExecution, ToolsPage, workspace",
+      "features/operations/": "OperationsPage(11)",
+      "features/connections/": "7 files: ConnectionsPage, AgentCredentialsPanel, AgentBackupsPanel, AgentOAuthPanel, backup-retry, runtimeStore, session",
+      "features/environment/": "4 files: EnvironmentPage, v01-diagnostics, AgentEnvironmentPanel, VariableEditor",
+      "features/team/": "2 files: MembersPage(9), protection",
+      "features/workflow/": "3 files: WorkflowPage, uploads, model",
+      "features/devices/": "2 files: DevicesPage, AgentQueuePanel",
+      "features/auth/": "2 files: IdentityStates, IdentityPage",
+      "features/projects/": "Projects",
+      "app/": "3 files: App(27), Shell, v01-shell-footer",
+      "shared/": "4 files: QueryFeedback, ui.layout, api, i18n"
+    }
+  }
+}

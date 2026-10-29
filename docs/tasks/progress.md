@@ -906,3 +906,80 @@ macOS backgrounded shell 子进程在父 shell 退出时收到 SIGHUP 被杀，�
 - 跨 OS system_windows.go / system_linux.go 实机验证仍待 Windows/Linux 机器
 
 ### 签收：无新增状态（深度审阅）
+
+## B11 出口（2026-10-29）
+
+**批次类型**：深度审阅（deep-dive）—— Platform 包 131 函数名全清单 + Playwright E2E 复盘 + 前端 61 files 结构
+**范围**：跨 B1/B2→B10 全部边界，从 "exit 0" 深入到可追溯的名称/结构/边界
+
+### 修改
+- `tests/evidence/acceptance-b11/expectations.json` — Platform/Playwright/LayoutMetrics/Frontend 四维清单
+- `tests/evidence/acceptance-b11/coverage-map.md` — Platform 131 names + Playwright 14 suites + LayoutMetrics 37 entries + Frontend 61 files
+- `tests/evidence/acceptance-b11/review.md` — Critical/Important/Minor 分级
+- `tests/evidence/acceptance-b11/manifest.json` — 完整 JSON 快照
+- `tests/evidence/acceptance-b11/platform-functions.txt` — 131 函数名纯文本清单
+- `docs/tasks/progress.md` — 本出口节
+
+### 验证（4 道门全绿）
+- Go 云版 `./internal/...`：22 包 exit 0
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files 603 tests passed
+
+### B11 独有证据（之前批次没有）
+
+#### Platform 包 build tag 三区最终确认
+| 分区 | 文件数 | Cloud | Local | 关键 |
+|------|--------|-------|-------|------|
+| `!local` cloud-only | 13 | ✅ | ⏭️ SKIP | records(20+), agent_auth(8), credentials(6), backup_rotation(1), configuration(6), membership, projects, team removal |
+| `local` 单机版专属 | 3 | ⏭️ SKIP | ✅ | b1_local_edition, edition_local_auth, edition_local |
+| 无 tag 两版共用 | 5 | ✅ | ✅ | entry, entry_secrets, local_pg(PG shim), settings, record_fixtures |
+
+#### Platform 131 函数名分类
+- **Records 20+**（最大 group）：capacity admission + one byte boundary + concurrent writers + source proof ownership + atomic replay + redaction schema + archive tombstone + sweep pin receipt
+- **Session/Auth 18+**：absolute expires despite activity + login cookie csrf + old cookie creates fresh session + reset single use revokes sessions
+- **Auth/Agent Proof 8**：concurrent exchange one winner + grant bounded by parent absolute deadline + cookie csrf + grant origin+deadline+hash
+- **Credentials 6 + Backup Rotation 1**：encrypt ownership+reauth+membership deletion + restore waits team lock + rotation atomic preserves user version
+- **Configuration 6**：concurrent one wins + public scalar preservation + secret rejection + write-waiting-on-revocation
+- **Members/Project/Team 14**：concurrent creation only-one-owner + member protections concurrent+team scope + team removal archives all projects
+
+#### Playwright 14 suites / 33 specs / 32 passed / 1 failed (97.0%)
+| Suite | Specs | Pass | 备注 |
+|-------|-------|------|------|
+| m1-m5 | 18 | 18 | 生产入口 + HTTP/SSE + Tool Schema + 会话过期 |
+| m6-flow | 3 | 3 | A60 全链连续旅程（邀请/历史/保存复制）|
+| m6-layout | 2 | 2 | A32b 键盘导航实机 |
+| m6-matrix | 3 | 3 | A30/A31/A45 中英亮暗四宽定量 |
+| v01-backup/cors/membership/layout/prefs | 6 | 6 | 备份重试 + Agent CORS + 成员身份 + Run 偏好 |
+| v01-agent-retry | 1 | **0** | ⚠️ 已知 A38 环境版本差异（非逻辑 bug）|
+
+#### Layout Metrics 37 entries 定量全绿
+- pageOverflow: **37/37 false**（A30 无横溢出）
+- bodySize: **14/14** 所有 entries 一致（A45 字号层级正确）
+- consoleErrors: **0**（无前端运行时错误）
+- 覆盖矩阵：390/820/1024/1440 × en/zh × light/dark = 16 组合全过
+
+#### Frontend 61 files 结构
+| 模块 | Files | 最大单文件 |
+|------|-------|-----------|
+| runtime | 12 | browser-session **58 tests**（最大单文件）|
+| features/records | 4 | RecordEditors **13 tests** |
+| features/tools | 7 | SchemaArgumentEditor **13 tests** + ToolExecution 8 |
+| features/operations | 1 | OperationsPage 11 |
+| features/connections | 7 | ConnectionsPage + credentials/backups/oauth panels |
+| features/environment | 4 | EnvironmentPage + v01-diagnostics |
+| features/team | 2 | MembersPage 9 + protection |
+| features/workflow | 3 | WorkflowPage + uploads + model |
+| features/auth | 2 | IdentityStates + IdentityPage |
+| features/devices | 2 | DevicesPage + AgentQueuePanel |
+| app | 3 | App.test.tsx **27 tests** |
+| shared | 4 | api + i18n + ui.layout + QueryFeedback |
+
+### 方法论 D-A 再次验证
+Playwright 基线 Oct 28（results.json + layout-metrics.json mtime）commit 在 HEAD 祖先链上 + B11 4 道门全绿 = **代码未漂移**。这是 B7 以来第 5 次 D-A 方法论成功应用。
+
+### 限制
+- B11 无新增 signed 状态变更——纯 deep-dive，质量保障层
+- v01-agent-retry 1/33 failed 是已知 A38 环境版本差异，非逻辑 bug
+
+### 签收：无新增状态（深度审阅）

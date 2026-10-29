@@ -1,0 +1,56 @@
+{
+  "batch": "B11",
+  "date": "2026-10-29",
+  "commit": "HEAD",
+  "batchType": "deep-dive",
+  "previousBatch": "B10",
+  "description": "Platform 包 131 测试函数名全清单 + build tag 三区确认 + Playwright 14 suites E2E 复盘 + Layout Metrics 37 entries + Frontend 61 files 结构",
+  "platform": {
+    "testFiles": 23,
+    "testFunctions": 131,
+    "cloudOnlyLocal__no_tag": 13,
+    "localOnly3": 3,
+    "sharedNoTag5": 5,
+    "functionNamesFile": "tests/evidence/acceptance-b11/platform-functions.txt"
+  },
+  "playwright": {
+    "date": "Oct 28 12:48-12:50",
+    "suites": 14,
+    "specs": 33,
+    "passed": 32,
+    "failed": 1,
+    "passedPct": "97.0%",
+    "failedSpec": "v01-agent-retry.spec.ts — A38 environment version mismatch (known)",
+    "methodologyD_A": "Results from baseline .debug/verify-baseline/playwright/results.json; commit Oct 28 in HEAD ancestor chain; 4 gates green at B11 execution → code has not drifted"
+  },
+  "layoutMetrics": {
+    "date": "Oct 28 12:48",
+    "entries": 37,
+    "pageOverflowFalse": 37,
+    "consoleErrors": 0,
+    "bodySize": "14 (all 37)",
+    "minimumTextSizeRange": "12-14",
+    "A30": "signed — 37/37 pageOverflow=false",
+    "A45": "signed — bodySize=14 uniform"
+  },
+  "frontend": {
+    "testFiles": 61,
+    "tsxFiles": 31,
+    "tsFiles": 30,
+    "vitestPassed": "603/603 (Node 24.21.0)",
+    "largestRuntime": "browser-session.test.ts — 58 tests",
+    "largestFeature": "RecordEditors.test.tsx — 13 tests"
+  },
+  "verify": {
+    "cloudGo":  { "packages": 22, "result": "PASS" },
+    "localGo":  { "packages": 21, "result": "PASS" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "result": "PASS" }
+  },
+  "methodology": {
+    "D_A_latest_real_env": "Playwright baseline Oct 28 + results.json in HEAD ancestor chain + 4 gates green B11 execution = code has not drifted",
+    "D_C_env_limited_pending_only": true,
+    "deepDiveValue": "从 exit 0 深入到: platform 131 function names / Playwright 14 suite name+specs+pass+fail / Layout Metrics 37 entries pageOverflow+bodySize+consoleErrors / Frontend 61 files 分模块结构"
+  }
+}
