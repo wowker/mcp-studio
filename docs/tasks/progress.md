@@ -689,3 +689,21 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 限制：A39 Agent 进程层验收留 B5；A38/A48 仅云版（单机版无团队角色/凭据备份系统）。
 
 签收：CSV 逐条「待验收 → 已签收」5 条（A38、A39、A40、A47、A48）；A01–A60 累计已签收 47 / 待验收 13。下一批 B5（Agent 与授权，5 条两版），待用户确认后开始。
+
+## 2026-10-29 · B5 Agent 与授权批次出口（3 条签收 / 2 条待验）
+
+范围：B5 批次 5 条——A05、A06、A07、A41、A42（全部两版）。其中 **A41、A42 保持待验不签收**（批次计划明确单机侧系统凭据库与真实 OS 确认缺环境）；本批次签收 A05、A06、A07。证据 `tests/evidence/acceptance-b5/`（expectations.json、coverage-map.md、review.md、manifest.json、全量 Go 日志）。
+
+预期核对：从 06 清单逐条取正式文本（行 74–76/110–111），登记 `expectations.json`。关键架构发现：`agent_auth_test.go` 和 `credentials_test.go` 均带 `//go:build !local`（云版专属测试），单机版 `auth_local.go` 跳过角色/成员资格校验；A05 的 configuration/validate_test.go + process_test.go 无 build tag，两版共用。
+
+覆盖映射：
+- A05 stdio 校验：configuration 表驱动 + process 无 shell/不继承环境——Go 两版 exit 0
+- A06 Agent 配对/过期/撤销：agent_auth_test.go 8 tests（proof/grant/Origin/Sec-Fetch/并发/密码重置）——Go 云版 + 共享前端
+- A07 OAuth/备份三态独立：credentials_test.go 6 tests + platformclient client.go 精确路由分类——Go 云版 + 共享前端
+- A41/A42：批次计划明确单机侧系统凭据库与真实 OS 确认缺环境，保持待验
+
+实际验证：Go 全量 12 包 exit 0（configuration 0.9 + agent 11 包共 18s + platform 97.8s）；单机版 A05（configuration 0.6 + process 1.0s）exit 0；`go vet ./internal/...` 全量干净；前端 browser-session.test.ts 58 tests passed（Node 24.21.0）。**本批次不新增 Go 专属断言**。
+
+只读审阅：`tests/evidence/acceptance-b5/review.md`——Critical 0 / Important 0 / Minor 2。Minor-1：A06/A07 单机版无 Go 专属测试（!local），由共享前端套件承担；Minor-2：A41/A42 保持待验。
+
+签收：CSV 逐条「待验收 → 已签收」3 条（A05、A06、A07）；A41、A42 保持「待验收」。A01–A60 累计已签收 50 / 待验收 10。下一批 B6（页面一致性与全链，8 条），待用户确认后开始。

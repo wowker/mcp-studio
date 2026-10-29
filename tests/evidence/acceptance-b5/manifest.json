@@ -1,0 +1,39 @@
+{
+  "format": "mcp-studio.acceptance-evidence-manifest.v1",
+  "batch": "B5",
+  "batchName": "Agent 与授权（M5）",
+  "date": "2026-10-29",
+  "baselineCommit": "225d71e",
+  "codeCommit": "PENDING",
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "methodology": "docs/tasks/acceptance-methodology.md",
+  "batchPlan": "docs/tasks/acceptance-batches.md",
+  "signedOff": ["A05", "A06", "A07"],
+  "pending": ["A41", "A42"],
+  "evidenceDuty": {
+    "cloud": ["A05", "A06", "A07", "A41", "A42"],
+    "local": ["A05"]
+  },
+  "files": [
+    "expectations.json",
+    "coverage-map.md",
+    "review.md",
+    "manifest.json",
+    "go-cloud-all.log",
+    "go-local-agent.log"
+  ],
+  "gates": {
+    "goCloudAll": {"command": "go test -count=1 ./internal/configuration/ ./internal/agent/... ./internal/platform/", "result": "pass", "packages": 12, "log": "go-cloud-all.log"},
+    "goLocalA05": {"command": "go test -count=1 -tags local ./internal/configuration/ ./internal/agent/process/", "result": "pass", "packages": 2, "log": "go-local-agent.log"},
+    "vetAll": {"command": "go vet ./internal/...", "result": "pass"},
+    "frontend": {"command": "vitest run browser-session.test.ts", "node": "24.21.0", "result": "pass", "tests": 58}
+  },
+  "review": {"critical": 0, "important": 0, "minor": 2},
+  "newAssertions": 0,
+  "pendingItemsReason": "A41/A42 单机侧系统凭据库与真实 OS 确认缺环境（批次计划 acceptance-batches.md 明确：\"A41/A42 单机侧系统凭据库与真实 OS 确认缺环境，保持待验不签收\"；012-edition-split-and-local-startup.md:59；editions-spec.md:63,76）",
+  "notes": [
+    "agent_auth_test.go 和 credentials_test.go 均为 //go:build !local（云版专属），单机版 auth_local.go 跳过角色/成员资格校验",
+    "A05 的 configuration/validate_test.go + process_test.go 无 build tag，两版共用",
+    "A06/A07 单机版由共享前端套件承担（方法论 D-B jsdom 等价）"
+  ]
+}

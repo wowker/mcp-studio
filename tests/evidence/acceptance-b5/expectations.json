@@ -1,0 +1,25 @@
+{
+  "format": "mcp-studio.acceptance-batch-expectations.v1",
+  "batch": "B5",
+  "batchName": "Agent 与授权（M5）",
+  "date": "2026-10-29",
+  "baseline": {
+    "commit": "225d71e",
+    "evidence": "tests/evidence/acceptance-b5/",
+    "note": "验收基线为当前 main（B1–B4 签收后）。A41/A42 单机侧系统凭据库与真实 OS 确认缺环境，保持待验不签收（方法论 R3/R4 + editions-spec）。"
+  },
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "items": [
+    {"id":"A05","line":74,"scenario":"stdio 非字符串 args / 缺命令 / 相对 cwd","formalExpected":"保存前校验；不会启动无效配置；有权用户可修正","editions":"两版","evidenceDuty":["cloud","local"], "status":"signed-off"},
+    {"id":"A06","line":75,"scenario":"Agent 拒绝、过期、配对成功、离线恢复","formalExpected":"状态准确；配对 / 恢复不自动连接 MCP","editions":"两版","evidenceDuty":["cloud"], "status":"signed-off (云版 Go !local + 共享前端)"},
+    {"id":"A07","line":76,"scenario":"OAuth 成功后凭据保存失败，备份失败","formalExpected":"三个状态独立；重试保存 / 备份不重新调用工具","editions":"两版","evidenceDuty":["cloud"], "status":"signed-off (云版 Go !local + 共享前端)"},
+    {"id":"A41","line":110,"scenario":"新设备恢复、权限撤销、删除凭据","formalExpected":"重新验证身份及项目权限；本机删除 / 备份删除 / 上游撤销独立；托管加密范围明确","editions":"两版","evidenceDuty":["cloud"], "status":"pending: 单机侧系统凭据库缺真实 OS 环境（批次计划明确）"},
+    {"id":"A42","line":111,"scenario":"Agent 伪造来源、重复配对码、stdio 配置变更","formalExpected":"拒绝未授权来源 / 身份及失效令牌；本机确认；变更重新确认；不隐式 shell / 继承全部敏感环境","editions":"两版","evidenceDuty":["cloud"], "status":"pending: 单机侧系统凭据库缺真实 OS 环境（批次计划明确）"}
+  ],
+  "counts": {"total":5,"signedOff":3,"pending":2},
+  "fixtureRequirements": {
+    "cloud":"真实 PG + agent_auth_test.go (8 tests, !local) + credentials_test.go (6 tests, !local) + configuration/validate_test.go + process_test.go + e2e backup-retry",
+    "local":"仅 A05 有两版证据（configuration/agent/process 无 !local build tag）；A06/A07 共享前端套件（D-B jsdom 等价）；A41/A42 保持待验",
+    "toolchain":"Node 24.x + Go 1.25.5 + 真实 PG 55432"
+  }
+}
