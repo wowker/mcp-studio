@@ -1,0 +1,30 @@
+{
+  "format": "mcp-studio.acceptance-batch-expectations.v1",
+  "batch": "B2",
+  "batchName": "连接与环境（M2）",
+  "date": "2026-10-29",
+  "baseline": {
+    "commit": "fff4f9b",
+    "evidence": "tests/evidence/acceptance-baseline/",
+    "note": "验收基线为当前 main（含 E00–E10）；E03 配置层属触及领域，本批全部重验，不引用 V01 旧证据单独构成签收（方法论 D-C）"
+  },
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "items": [
+    {"id":"A03","line":72,"scenario":"同 URL 建两个连接并配置不同个人授权","formalExpected":"授权、服务变量、会话完全按连接隔离","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A04","line":73,"scenario":"浏览器 HTTP 遇 CORS","formalExpected":"说明原因、手动换 Agent；不静默换通道或借用凭据","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A08","line":77,"scenario":"四层同名变量，删最高层与最高层缺个人值","formalExpected":"删除回退；缺值不回退；来源链准确","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A09","line":78,"scenario":"变量循环、嵌套 JSON 引用、敏感派生","formalExpected":"定位依赖错误；所有敏感派生遮罩；连接和执行被一致阻断","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A10","line":79,"scenario":"浏览环境 / 应用环境 / 已连接时应用","formalExpected":"浏览不影响会话；应用需满足前置条件、不自动连接","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A43","line":112,"scenario":"新旧 HTTP transport、浏览器限制、非敏感 query","formalExpected":"兼容范围明确；仅显式换 Agent；非敏感 query 可存；URL 秘密与 fragment 被阻止","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A49","line":118,"scenario":"同一配置被两人修改","formalExpected":"版本冲突保留草稿并可比较，不静默后写覆盖；名称团队内去空白、忽略大小写唯一","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A50","line":119,"scenario":"平台接口 / 事件与实际 MCP 路径","formalExpected":"平台权限 / 配置 / 上传走平台 API，Tool HTTP 由浏览器或 Agent、stdio 由 Agent；平台默认不代调，租户身份不可混用","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A51","line":125,"scenario":"连接引用缺失 → 检查环境 → 补齐 → 返回","formalExpected":"目标项目 / 服务 / 生效环境准确，未保存输入保留；失效诊断清除；修复不自动连接","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A52","line":126,"scenario":"两个项目存在不同敏感变量；当前引用删除或个人值缺失","formalExpected":"仅显示当前作用域敏感定义；已选引用保留并标缺失；不借用另一项目变量；缺值不可冒充可用","editions":"两版","evidenceDuty":["cloud","local"]}
+  ],
+  "counts": {"total":10,"cloudOnly":0,"bothEditions":10},
+  "fixtureRequirements": {
+    "cloud":"真实 PG + 浏览器旅程（若前端覆盖）+ API 级断言（internal/platform 配置/环境/变量 handler）",
+    "local":"apps/local 形态 + 同一套断言脚本跑（方法论文档 R3/R4：单机版按项目归属过滤，角色校验跳过）",
+    "toolchain":"Node 24.x + Go 1.25.5 + 真实 PG 55432"
+  }
+}

@@ -642,3 +642,22 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 限制：A28 失败重试以「目标不在项目内」建模，无网络中断注入点；单机版 A02 的草稿保留由共享前端套件承担；A01 前端最终唯一项目计数未在前端层断言（B7 复核）；`scripts/acceptance-b1-local.mjs` 未纳入 verify 门禁。本批无环境受限子项，14 条全部具备当前代码版本证据。
 
 签收：CSV 逐条「待验收 → 已签收」14 条（A01、A02、A22、A24、A25、A26、A27、A28、A36、A37、A55、A56、A57、A58）；A01–A60 累计已签收 14 / 待验收 46。下一批 B2（连接与环境，10 条两版），待用户确认后开始。
+
+## 2026-10-29 · B2 连接与环境批次出口（10 条签收）
+
+范围：B2 批次 10 条——A03、A04、A08–A10、A43、A49–A52（全部两版）。证据 `tests/evidence/acceptance-b2/`（expectations.json、coverage-map.md、review.md、manifest.json、云版 Go 日志、单机版 Go 日志、前端 runtime 日志、单机版回环 JSON）。E03 配置层属 E 系列触及领域，全部重验，未引用 V01 旧证据签收。
+
+预期核对：从 06 清单逐条取正式文本（行 72/73/77–79/112/118–119/125–126），登记 `expectations.json`；覆盖映射确认 A04/A10 云版无 Go handler 层断言（前端层处理浏览器策略和 Environment 交互），方法论 D-B 认可两版共用前端代码的 jsdom 等价性，不另造后端假测试。
+
+新增证据（代码提交待 hash）：
+- 云版新增：`TestB2A50PlatformDoesNotExposeToolProxyEndpoint`（9 个代调-like 路径 GET+POST 全部 404），填补「平台默认不代调」在 Go handler 层的显式证据缺口。
+- 单机版回环脚本 `scripts/acceptance-b2-local.mjs`：真实 `apps/local` 二进制 + 内嵌 PG + 回环 HTTP，10 组断言覆盖 A03（同 URL 独立 identity/version + stale overwrite 409）、A43（secret query/fragment 阻止 + safe query 允许）、A49（名称 trim + 大小写重复 409）、A08（四层 TOKEN + 敏感 def 无 value + 删除回退）、A52（Project B 变量不泄漏到 A，R3 项目归属过滤）、A51（endpoint `{{HOST}}` 缺失 400 → HOST 引用 ABSENT 400 → 补齐 ABSENT 200 → 不自动 connect）、A50（单机版同样不暴露代调入口）。
+- 修复：单机脚本初版 etag 传 body（后端只读 If-Match header）和 A51 endpoint 未含引用（session-access 根本没用到变量），均已修正。
+
+实际验证：云版 `go test -count=1 ./internal/platform/` exit 0（94.5s，真实 PG 55432）；单机版同命令加 `-tags local` exit 0（1.3s）；`go vet` 两标签干净；前端 runtime + feature 测试在 Node 24.21.0 下 13 文件 174 test 通过；单机版回环旅程 10 组断言全过。全量两版基线仍以 `tests/evidence/acceptance-baseline/`（fff4f9b）为准。
+
+只读审阅：`tests/evidence/acceptance-b2/review.md`——Critical 0 / Important 0 / Minor 3。Minor-1：A50 断言覆盖 9 个常见路径变体，架构约束兜底；Minor-2：A04/A10 云版无 Go handler 断言（前端层处理）；Minor-3：单机脚本未纳入 verify 门禁。
+
+限制：A50 路径枚举不覆盖所有可能的新命名（架构约束兜底）；A04/A10 云版无 Go handler 证据（前端层处理 + 方法论认可）；单机版 authMode 仅支持 none（无 OAuth/Agent 后端，范围校验由云版 Go 测试覆盖）。
+
+签收：CSV 逐条「待验收 → 已签收」10 条（A03、A04、A08、A09、A10、A43、A49、A50、A51、A52）；A01–A60 累计已签收 24 / 待验收 36。下一批 B3（M3，18 条——连接管理、Tab/Run、凭据与 Vault、敏感派生阻断等），待用户确认后开始。

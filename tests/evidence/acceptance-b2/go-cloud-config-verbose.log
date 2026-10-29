@@ -1,0 +1,26 @@
+=== RUN   TestConnectionIndependentIdentityConditionalPersistence
+--- PASS: TestConnectionIndependentIdentityConditionalPersistence (0.75s)
+=== RUN   TestEnvironmentVariableLayersScopeAndSafeDeletion
+--- PASS: TestEnvironmentVariableLayersScopeAndSafeDeletion (0.86s)
+=== RUN   TestConfigurationPermissionsAndCurrentSessionAccess
+--- PASS: TestConfigurationPermissionsAndCurrentSessionAccess (1.96s)
+=== RUN   TestConnectionAccessChecksUsedDefinitionsWithoutReceivingPersonalValues
+--- PASS: TestConnectionAccessChecksUsedDefinitionsWithoutReceivingPersonalValues (0.69s)
+=== RUN   TestConnectionAuthReferenceMustBeEffectiveForItsOwnScope
+--- PASS: TestConnectionAuthReferenceMustBeEffectiveForItsOwnScope (0.67s)
+=== RUN   TestConnectionAccessAppliesPersonalEnvironmentWithoutChangingSharedConfig
+--- PASS: TestConnectionAccessAppliesPersonalEnvironmentWithoutChangingSharedConfig (0.73s)
+=== RUN   TestConfigurationPreservesPublicScalarsAndCaseSensitiveNames
+--- PASS: TestConfigurationPreservesPublicScalarsAndCaseSensitiveNames (0.69s)
+=== RUN   TestConfigurationRejectsRecognizableSecretInsidePublicVariable
+--- PASS: TestConfigurationRejectsRecognizableSecretInsidePublicVariable (0.67s)
+=== RUN   TestSensitiveQueryReferencesFollowEffectiveSourceAndCurrentDefinitions
+--- PASS: TestSensitiveQueryReferencesFollowEffectiveSourceAndCurrentDefinitions (0.69s)
+=== RUN   TestConfigurationWriteWaitingOnRevocationRechecksRoleBeforeVersion
+--- PASS: TestConfigurationWriteWaitingOnRevocationRechecksRoleBeforeVersion (1.08s)
+=== RUN   TestResolvedPublicFragmentsCannotCreateRecognizableSecretURL
+--- PASS: TestResolvedPublicFragmentsCannotCreateRecognizableSecretURL (0.68s)
+=== RUN   TestConfigurationVariableCoverage
+--- PASS: TestConfigurationVariableCoverage (0.00s)
+PASS
+ok  	mcp-studio/internal/platform	10.511s

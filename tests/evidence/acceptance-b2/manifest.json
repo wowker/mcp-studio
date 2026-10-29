@@ -1,0 +1,44 @@
+{
+  "format": "mcp-studio.acceptance-evidence-manifest.v1",
+  "batch": "B2",
+  "batchName": "连接与环境（M2）",
+  "date": "2026-10-29",
+  "baselineCommit": "bd01fc2",
+  "codeCommit": "0e11c85",
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "methodology": "docs/tasks/acceptance-methodology.md",
+  "batchPlan": "docs/tasks/acceptance-batches.md",
+  "signedOff": ["A03", "A04", "A08", "A09", "A10", "A43", "A49", "A50", "A51", "A52"],
+  "evidenceDuty": {
+    "cloud": ["A03", "A04", "A08", "A09", "A10", "A43", "A49", "A50", "A51", "A52"],
+    "local": ["A03", "A04", "A08", "A09", "A10", "A43", "A49", "A50", "A51", "A52"]
+  },
+  "files": [
+    "expectations.json",
+    "coverage-map.md",
+    "review.md",
+    "manifest.json",
+    "go-cloud-platform.log",
+    "go-local-platform.log",
+    "go-cloud-config-verbose.log",
+    "go-cloud-config-full.log",
+    "frontend-b2-runtime.log",
+    "local-edition.json"
+  ],
+  "gates": {
+    "goPlatformCloud": {"command": "go test -count=1 ./internal/platform/", "result": "pass", "duration": "94.5s", "log": "go-cloud-platform.log"},
+    "goPlatformLocal": {"command": "go test -count=1 -tags local ./internal/platform/", "result": "pass", "duration": "1.3s", "log": "go-local-platform.log"},
+    "vetCloud": {"command": "go vet ./internal/platform/", "result": "pass"},
+    "vetLocal": {"command": "go vet -tags local ./internal/platform/", "result": "pass"},
+    "frontend": {"command": "vitest run --config apps/web/vite.config.ts apps/web/src/runtime apps/web/src/features/{connections,environment}", "node": "24.21.0", "result": "pass", "tests": 174, "log": "frontend-b2-runtime.log"},
+    "localLoopback": {"command": "node scripts/acceptance-b2-local.mjs", "result": "pass", "checks": 10, "log": "local-edition.json"},
+    "fullBaseline": {"path": "tests/evidence/acceptance-baseline/manifest.json", "commit": "fff4f9b"}
+  },
+  "testDatabase": "postgres://mcp_studio_app@127.0.0.1:55432/mcp_studio_test (isolated Docker PG)",
+  "review": {"critical": 0, "important": 0, "minor": 3},
+  "limitations": [
+    "A50 断言覆盖 9 个常见代调-like 路径变体；架构约束兜底，未来若出现新命名需同步扩展",
+    "A04/A10 云版无 Go handler 层断言，完全由前端 runtime 测试承担；方法论 D-B 认可两版共用前端代码的 jsdom 等价性",
+    "scripts/acceptance-b2-local.mjs 未纳入 scripts/verify.mjs 门禁，属批次专用证据脚本"
+  ]
+}

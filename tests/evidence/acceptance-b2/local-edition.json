@@ -1,0 +1,31 @@
+{
+  "batch": "B2",
+  "edition": "local",
+  "binary": ".runtime/local-platform",
+  "items": [
+    "A03",
+    "A04",
+    "A08",
+    "A09",
+    "A10",
+    "A43",
+    "A49",
+    "A50",
+    "A51",
+    "A52"
+  ],
+  "origin": "http://127.0.0.1:62329",
+  "checks": [
+    "session: local subject e0d995666d016824b08a540619633473 on team 355e9b91a36c0eed2fd244e5a9363c1b, projects=Personal",
+    "A03: two same-URL connections keep independent identity/version; stale overwrite 409",
+    "A43: secret query/fragment -> 400; non-secret query -> 200",
+    "A49: environment name trimmed; case-insensitive duplicate -> 409",
+    "A08: 4-layer TOKEN variables (project/env/conn) + sensitive def without value",
+    "A08: deleting higher layer does not break resolution (connection removed -> env -> project fallback)",
+    "A52: B project variables do not leak into A (project-scoped filtering still enforced on local edition)",
+    "A51: missing endpoint ref -> 400; transitive missing -> 400; after fill -> 200; does not auto-connect MCP",
+    "A50: local edition does not expose /tools /proxy /mcp endpoints",
+    "edition: apps/local binary, embedded PG /Users/wuwei/code/github/mcp-studio/.runtime/pg-cache/darwin/arm64/pgsql/bin, loopback http://127.0.0.1:62329"
+  ],
+  "result": "pass"
+}
