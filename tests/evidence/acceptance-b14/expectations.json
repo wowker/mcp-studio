@@ -1,0 +1,68 @@
+{
+  "batch": "B14",
+  "title": "Frontend Features 剩余模块逐函数名全清单 — Connections 11 + Workflow 13 + Auth 5 + Devices 6 + Panels 7 + Projects 2 + Shared 5 = 52 tests",
+  "createdAt": "2026-10-29",
+  "mode": "deep-dive",
+  "previousBatch": "B13",
+  "modules": [
+    {
+      "name": "WorkflowPage.test.tsx",
+      "tests": 13,
+      "category": "workflow",
+      "highlights": [
+        "config optional skip 显式 + keyboard actions",
+        "no current project access → no config requests + all context hidden",
+        "only directory management → does not read protected config",
+        "七步页面 upload failure explicit → direct retry to owner queue",
+        "progress isolation when selecting another connection",
+        "recorded history + same-run saved receipt bilingual progress",
+        "missing personal applied env → incomplete (不使用 shared default)",
+        "reloaded workflow from observed history + saved details",
+        "forbidden config query → project return"
+      ]
+    },
+    {
+      "name": "ConnectionsPage.test.tsx",
+      "tests": 11,
+      "category": "connections",
+      "highlights": [
+        "version conflict → retains edited local draft + compares latest remote",
+        "viewer sees config but cannot edit personal auth or connect",
+        "remount same project → retains edits; draft unsaved → refuses connect",
+        "deleted auth definition identity retained (不借同 name 新 definition)",
+        "stale async query → does not populate next project service list",
+        "developer can read shared + prepare personal token but cannot save shared",
+        "invalid stdio argument JSON → blocks saving across navigation",
+        "OAuth scopes space-separated + precise select names",
+        "delayed deletion after identity end → ignored",
+        "unavailable explicit service link shown + returns to same project",
+        "previously remembered service removed → selects existing"
+      ]
+    },
+    {
+      "name": "AgentBackupsPanel.test.tsx",
+      "tests": 5,
+      "category": "connections",
+      "highlights": [
+        "does not create backup until confirmed",
+        "metadata deletion independent of local credentials",
+        "restore after explicit reauthentication + clears password from form",
+        "retains reauth input after backup/restore failure without success fact"
+      ]
+    },
+    { "name": "AgentQueuePanel.test.tsx", "tests": 3, "category": "devices", "highlights": ["offline Agent records unknown (separate from empty browser queue)", "retries only Agent retained upload + requires confirm before discard", "ignores late queue list when permission revoked"] },
+    { "name": "DevicesPage.test.tsx", "tests": 3, "category": "devices", "highlights": ["has complete Agent bilingual resources", "**requires local approval code + never approves natively from the web**", "retains in-memory pairing code after network failure"] },
+    { "name": "IdentityPage.test.tsx", "tests": 3, "category": "auth", "highlights": ["**keeps original invitation after registration + never accepts automatically**", "retains typed identity when wrong-password login returns 401", "offers manual-code reset after password repair"] },
+    { "name": "AgentOAuthPanel.test.tsx", "tests": 1, "category": "connections", "highlights": ["authorization separate from saving + retries local saving without repeating authorization"] },
+    { "name": "AgentCredentialsPanel.test.tsx", "tests": 1, "category": "connections", "highlights": ["backup off by default + Agent token independent of browser vault"] },
+    { "name": "IdentityStates.test.tsx", "tests": 2, "category": "auth", "highlights": ["unavailable invitation state before sign-in", "retains sign-in inputs while retrying invitation lookup"] },
+    { "name": "Projects.test.tsx", "tests": 2, "category": "projects", "highlights": ["explains denied create-project + returns to directory without write", "emits creation evidence only after real scoped success + preserves inputs on failure"] },
+    { "name": "QueryFeedback.states.test.tsx", "tests": 3, "category": "shared", "highlights": ["offers return instead of repeating forbidden/not_found lookup", "allows explicit retry of transient error + separate return"] },
+    { "name": "ui.layout.test.tsx", "tests": 2, "category": "shared", "highlights": ["keeps shared button class with caller styles", "adjusts separator by keyboard within bounds + resets without losing draft"] }
+  ],
+  "totalFeaturesTests": 52,
+  "methodology": {
+    "D_A_latest_real_env": "B13 Playwright Oct 28 baseline + B14 4 gates green = code has not drifted",
+    "featuresComplete": "B13 8 pages 84 tests + B14 12 modules 52 tests = features/ 全部页面组件逐函数名覆盖"
+  }
+}
