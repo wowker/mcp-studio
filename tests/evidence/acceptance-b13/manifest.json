@@ -1,0 +1,37 @@
+{
+  "batch": "B13",
+  "date": "2026-10-29",
+  "commit": "HEAD",
+  "batchType": "deep-dive",
+  "previousBatch": "B12",
+  "description": "Frontend Features 核心页面组件 8 pages / 84 tests 逐函数名全清单 + 每测试覆盖边界说明",
+  "features": {
+    "pages": 8,
+    "totalTests": 84,
+    "perPage": {
+      "EnvironmentPage": 14,
+      "RecordEditors": 13,
+      "SchemaArgumentEditor": 13,
+      "OperationsPage": 12,
+      "RecordsPage": 11,
+      "MembersPage": 9,
+      "ToolExecution": 8,
+      "v01-diagnostics": 4
+    }
+  },
+  "verify": {
+    "cloudGo":  { "packages": 22, "result": "PASS" },
+    "localGo":  { "packages": 21, "result": "PASS" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "result": "PASS" }
+  },
+  "methodology": {
+    "D_A_latest_real_env": "B12 Playwright Oct 28 baseline + B13 4 gates green = code has not drifted",
+    "deepDiveCumulative": {
+      "GoFunctions": "181+ (B10 agent ~50 + B11 platform 131)",
+      "TSTests": "362+ (B12 runtime 278 + B13 features 84)",
+      "GrandTotal": "543+ traceable boundaries"
+    }
+  }
+}

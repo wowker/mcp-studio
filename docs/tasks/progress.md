@@ -1062,3 +1062,57 @@ schema/
 - 另有 3 个 runtime 文件（connections/session/runtimeStore）没逐函数拉清单，但 B11 已确认存在且 vitest exit 0
 
 ### 签收：无新增状态（深度审阅）
+
+## B13 出口（2026-10-29）
+
+**批次类型**：深度审阅（deep-dive）—— Frontend Features 核心页面组件 8 pages / 84 tests 逐函数名全清单
+**范围**：B12 runtime 深潜后，features/ 页面组件的下沉——从模块级数字深入到逐函数名 + 覆盖边界说明
+
+### 修改
+- `tests/evidence/acceptance-b13/expectations.json` — 8 pages 逐函数名清单
+- `tests/evidence/acceptance-b13/coverage-map.md` — 84 tests 核心边界逐条列出
+- `tests/evidence/acceptance-b13/review.md` — Critical/Important/Minor 分级
+- `tests/evidence/acceptance-b13/manifest.json` — 完整 JSON 快照
+- `docs/tasks/progress.md` — 本出口节
+
+### 验证（4 道门全绿）
+- Go 云版 `./internal/...`：22 包 exit 0
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files 603 tests passed
+
+### B13 独有证据（B1–B12 都只有模块级数字）
+
+#### Features 核心页面 8 Pages / 84 Tests
+| 文件 | Tests | 核心边界 |
+|------|-------|---------|
+| EnvironmentPage | **14** | developer 只改 personal + same-project route 5 个 close |
+| RecordEditors | **13** | revision ETag 绑定 + Viewer read-only + redaction reason 脱敏 |
+| SchemaArgumentEditor | **13** | D08 focus/blur safe + falsy 值保留 + oneOf 分支独立 |
+| OperationsPage | **12** | **无 read perm 不读队列** + Viewer frozen retry unavailable + retention 180 day cap |
+| RecordsPage | **11** | connection+tool filter 跨分页 + foreign-owner reject + protected delete block |
+| MembersPage | **9** | invitation fact scope 严格 + delayed success revoked → 不记录 |
+| ToolExecution | **8** | one call retry frozen body + project isolation + execution 失败不建 Run |
+| v01-diagnostics | **4** | A51 diagnosis repair（apply=false/true 各两测） |
+
+#### 关键权限边界新发现
+1. **OperationsPage: "does not read or display queue contents when actual project read permission is absent"** — 权限硬边界（不是 UI filter，是 API 不返回）
+2. **SchemaArgumentEditor: "keeps optional defaults skipped and focus or blur does not emit validation errors"** — D08 硬规则的 jsdom 层实现
+3. **ToolExecution: "finishes and uploads this project run after an unrelated Viewer project is revoked"** — project isolation 正确性
+4. **MembersPage: "records invitation fact only after successful creation in same identity and project"** — scope 严格性
+
+### Deep-dive 批次累积（B10→B13）
+
+| 批次 | 深入到 | 累计可追溯边界 |
+|------|--------|---------------|
+| B10 | Agent 11 包 + backup/credentials | ~50 Go 函数 |
+| B11 | Platform 131 + Playwright 14 + Layout Metrics 37 | 131 Go + 33 E2E |
+| B12 | Frontend runtime 251+ tests + App Shell 27 | 278+ TS tests |
+| **B13** | **Frontend features 核心 8 pages / 84 tests 逐函数名** | **+84 TS tests** |
+| **总计** | | **Go 181+ / TS 362+ = 543+** |
+
+### 限制
+- B13 无新增 signed 状态变更——纯 deep-dive，质量保障层
+- features/ 剩余页面（connections/credentials/backups/oauth panels、devices、workflow、auth）未逐函数名深潜，但 B11 已确认 exit 0 + 模块级存在
+
+### 签收：无新增状态（深度审阅）

@@ -1,0 +1,154 @@
+{
+  "batch": "B13",
+  "title": "Frontend Features 核心页面组件逐函数名全清单 — 8 pages / 80+ tests",
+  "createdAt": "2026-10-29",
+  "mode": "deep-dive",
+  "previousBatch": "B12",
+  "pages": [
+    {
+      "name": "RecordEditors.test.tsx",
+      "tests": 13,
+      "category": "records",
+      "coverage": [
+        "freezes a failed metadata revision including its ETag and retries the exact operation after further editing",
+        "creates a private incomplete request with separate identities and rejects malformed JSON sources",
+        "keeps additional redaction reasons isolated and retries original pointers and reason without using the edited form",
+        "shows a read-only state for a Viewer instead of allowing a standalone save editor to submit",
+        "explicitly discards a failed metadata operation and keeps the edited form for a new revision",
+        "fetches the current project policy and masks an opaque field before freezing a saved upload",
+        "accepts metadata and free context redaction paths in a safe preview",
+        "preserves a save admission when another project is revoked during the fresh policy read",
+        "submits metadata and context redaction pointers without leaking their values in the frozen revision reason",
+        "invalidates source Run caches when an additional revision completes after leaving its editor",
+        "captures the current connection credential so edited metadata cannot leak it after the request was already redacted",
+        "clears root metadata editing state when its accepted revision completes after leaving the editor",
+        "preserves a failed metadata draft but clears all editing state after its frozen retry completes while unmounted"
+      ]
+    },
+    {
+      "name": "RecordsPage.test.tsx",
+      "tests": 11,
+      "category": "records",
+      "coverage": [
+        "queries the real scoped API and preserves its connection+tool filters through pagination and detail return",
+        "presents Viewer details without mutation or restore controls",
+        "refuses a late or mismatched detail from another connection scope",
+        "does not offer project-history pinning on a private history record",
+        "refreshes a mounted scoped list after root Run invalidation without changing its filters",
+        "shows only frozen failed session uploads in the exact connection+tool scope and offers retry without record mutations",
+        "closes the detail copy editor after a successful upload and does not reopen it after returning to the record",
+        "preserves a failed detail copy draft and closes it after its frozen retry succeeds",
+        "observes a scoped owner history once across equivalent scope object rerenders and rejects foreign-owner facts",
+        "blocks confirming deletion when a protected operation appears after the panel is open",
+        "distinguishes a failed Run from mail delivery failure in both record locales and execution context"
+      ]
+    },
+    {
+      "name": "OperationsPage.test.tsx",
+      "tests": 12,
+      "category": "operations",
+      "coverage": [
+        "shows only own current-project records, stale and storage failure, and real capacity summary",
+        "does not read or display queue contents when actual project read permission is absent",
+        "requires explicit selected discard and protects uploading records with keyboard-accessible controls",
+        "keeps frozen retry unavailable to Viewer even in the presence of a failed upload",
+        "rechecks the captured discard set and refuses a record that began uploading after confirmation",
+        "shows a newly saved own operation even when its shared source snapshot belongs to another executor",
+        "retries the same operation without sending MCP requests",
+        "explains memory loss before changing retention and reports storage failure",
+        "describes intentional memory retention as refresh risk without claiming storage failed",
+        "preserves the retention draft on policy conflict and uses the latest If-Match only after explicit reload",
+        "allows retention up to the deployment maximum of 180 days and submits the current policy If-Match",
+        "explains a competing window upload without exposing arbitrary details or discarding the queue"
+      ]
+    },
+    {
+      "name": "MembersPage.test.tsx",
+      "tests": 9,
+      "category": "team",
+      "coverage": [
+        "retains failed invitation inputs and default 7 day scope",
+        "requires scope confirmation before deleting another project member",
+        "cancelling project removal sends no mutation and retains the member role and scope",
+        "cancelling team removal sends no mutation and retains the member role and scope",
+        "reports when the selected member disappears after a successful role refresh",
+        "clears a no-match member search without resetting the current project scope",
+        "records an invitation fact only after successful creation in the same identity and project",
+        "does not record delayed invitation success for a different current project",
+        "does not record delayed invitation success after management permission is revoked"
+      ]
+    },
+    {
+      "name": "EnvironmentPage.test.tsx",
+      "tests": 14,
+      "category": "environment",
+      "coverage": [
+        "previews a different environment without applying and applies only after explicit action",
+        "blocks application for missing personal required value and preserves secret only in memory",
+        "developer can prepare personal values but cannot edit shared definitions",
+        "keeps a connection draft through reference repair and blocks apply until it is saved",
+        "filters effective missing sensitive and overridden values and exposes lower source editing",
+        "does not report an empty environment or permit edits while variable lookup fails",
+        "distinguishes filtered variables from absent definitions and clears only filters",
+        "never treats an unavailable explicit connection as project definitions",
+        "follows same-project route changes and back navigation without applying the previous scope or losing scoped drafts",
+        "closes the old personal UI when the same-project route scope changes",
+        "closes the old environment removal UI when the same-project route scope changes",
+        "closes the old definition removal UI when the same-project route scope changes",
+        "does not carry an old environment conflict into a new route scope (late=false)",
+        "does not carry an old environment conflict into a new route scope (late=true)"
+      ]
+    },
+    {
+      "name": "v01-diagnostics.test.tsx",
+      "tests": 4,
+      "category": "environment",
+      "coverage": [
+        "A51 clears the original 'missing dependency' diagnosis after repair (apply=false)",
+        "A51 clears the original 'missing dependency' diagnosis after repair (apply=true)",
+        "A51 clears the original 'invalid typed reference' diagnosis after repair (apply=false)",
+        "A51 clears the original 'invalid typed reference' diagnosis after repair (apply=true)"
+      ]
+    },
+    {
+      "name": "SchemaArgumentEditor.test.tsx",
+      "tests": 13,
+      "category": "tools",
+      "coverage": [
+        "keeps optional defaults skipped and focus or blur does not emit validation errors",
+        "preserves zero false null empty arrays and explicit nested input with independent optional skipping",
+        "preserves malformed Raw text and blocks Form until valid JSON, then accepts schema errors for correction",
+        "error path navigation opens collapsed ancestors and focuses the nested failing field",
+        "uses local JSON for advanced shapes and keeps full schema validation",
+        "discards an old validation result after the user edits its frozen input",
+        "keeps string empty enum values distinct and preserves edits after removing an earlier array item",
+        "invalidates prior validation when the current tool input schema changes while retaining parameters",
+        "ignores a skipped local JSON draft error while retaining its text for later correction",
+        "edits a disjoint oneOf branch and validates only its explicit canonical parameters",
+        "full validation rejects an enabled but empty optional numeric field without turning it into zero",
+        "changing one branch preserves unrelated malformed local JSON and keeps its last valid value blocked",
+        "fixing a field retains another field error in the summary and inline"
+      ]
+    },
+    {
+      "name": "ToolExecution.test.tsx",
+      "tests": 8,
+      "category": "tools",
+      "coverage": [
+        "performs one call and retries only the frozen redacted upload despite later draft edits",
+        "malformed local source prevents calls and saving, preserving the previous result",
+        "additional redaction invalidates cached result and open save source without touching another project",
+        "finishes and uploads this project run after an unrelated Viewer project is revoked",
+        "publishes failed execution validation into the parameter editor without creating a Run",
+        "marks the latest unsupported tool schema explicitly and retains the draft",
+        "retains an already issued redacted result after expiry and uploads only after current admission resumes",
+        "retains an already issued redacted result after revocation and uploads only after current admission resumes"
+      ]
+    }
+  ],
+  "totalFeaturesTests": 84,
+  "methodology": {
+    "D_A_latest_real_env": "B12 Playwright Oct 28 baseline + B13 4 gates green = code has not drifted",
+    "deepDiveValue": "从 features 6 个模块级数字（B11 说 RecordEditors 13 + RecordsPage 11）→ 每个测试的具体覆盖边界描述"
+  }
+}
