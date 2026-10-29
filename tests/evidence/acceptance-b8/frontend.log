@@ -1,0 +1,92 @@
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90m/Users/wuwei/code/github/mcp-studio/apps/web[39m
+
+ [32m✓[39m src/features/records/RecordsPage.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 2524[2mms[22m[39m
+   [33m[2m✓[22m[39m closes the detail copy editor after a successful upload and does not reopen it after returning to the record [33m 546[2mms[22m[39m
+   [33m[2m✓[22m[39m preserves a failed detail copy draft and closes it after its frozen retry succeeds [33m 1287[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordEditors.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 2687[2mms[22m[39m
+   [33m[2m✓[22m[39m invalidates source Run caches when an additional revision completes after leaving its editor [33m 914[2mms[22m[39m
+ [32m✓[39m src/features/team/MembersPage.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 2371[2mms[22m[39m
+   [33m[2m✓[22m[39m retains failed invitation inputs and default 7 day scope [33m 520[2mms[22m[39m
+   [33m[2m✓[22m[39m requires scope confirmation before deleting another project member [33m 386[2mms[22m[39m
+   [33m[2m✓[22m[39m does not record delayed invitation success after management permission is revoked [33m 455[2mms[22m[39m
+ [32m✓[39m src/features/environment/v01-diagnostics.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1913[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'missing dependency' diagnosis after repair and returns without connecting (explicit apply=false) [33m 1112[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'missing dependency' diagnosis after repair and returns without connecting (explicit apply=true) [33m 308[2mms[22m[39m
+ [32m✓[39m src/app/App.test.tsx [2m([22m[2m19 tests[22m[2m)[22m[33m 3600[2mms[22m[39m
+   [33m[2m✓[22m[39m authenticated Shell[2m > [22mkeeps page input and focus through language/theme/sidebar controls [33m 819[2mms[22m[39m
+   [33m[2m✓[22m[39m hides a stale personal authorization form after content GET permission revocation [33m 782[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps another project tool document when switching through a Viewer project [33m 482[2mms[22m[39m
+ [32m✓[39m src/features/tools/SchemaArgumentEditor.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 1428[2mms[22m[39m
+ [32m✓[39m src/features/environment/EnvironmentPage.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 1314[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolsPage.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1073[2mms[22m[39m
+   [33m[2m✓[22m[39m lists the real session catalog, searches it, and opens independent documents with keyboard navigation [33m 416[2mms[22m[39m
+ [32m✓[39m src/features/operations/OperationsPage.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 1833[2mms[22m[39m
+   [33m[2m✓[22m[39m requires explicit selected discard and protects uploading records with keyboard-accessible controls [33m 800[2mms[22m[39m
+ [32m✓[39m src/features/auth/IdentityPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 2322[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps original invitation after registration and never accepts automatically [33m 1715[2mms[22m[39m
+   [33m[2m✓[22m[39m offers manual-code reset after requesting password repair [33m 355[2mms[22m[39m
+ [32m✓[39m src/features/connections/ConnectionsPage.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 1836[2mms[22m[39m
+   [33m[2m✓[22m[39m service configuration[2m > [22mpreserves the edited local draft after a version conflict and compares latest remote config [33m 660[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentBackupsPanel.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 661[2mms[22m[39m
+ [32m✓[39m src/features/connections/v01-backup-retry.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 446[2mms[22m[39m
+   [33m[2m✓[22m[39m retries a rejected backup with the retained scope and explicit consent, then shows only the accepted backup [33m 445[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolExecution.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 944[2mms[22m[39m
+   [33m[2m✓[22m[39m performs one call and retries only the frozen redacted upload despite later draft edits [33m 558[2mms[22m[39m
+ [32m✓[39m src/features/tools/AgentToolExecution.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 424[2mms[22m[39m
+ [32m✓[39m src/features/environment/VariableEditor.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 527[2mms[22m[39m
+ [32m✓[39m src/runtime/browser-session.test.ts [2m([22m[2m58 tests[22m[2m)[22m[33m 478[2mms[22m[39m
+ [32m✓[39m src/features/auth/IdentityStates.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 972[2mms[22m[39m
+   [33m[2m✓[22m[39m shows unavailable invitation state before sign-in and offers sign-in without that invitation [33m 406[2mms[22m[39m
+   [33m[2m✓[22m[39m retains sign-in inputs while retrying the same invitation lookup [33m 560[2mms[22m[39m
+ [32m✓[39m src/features/workflow/WorkflowPage.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 869[2mms[22m[39m
+   [33m[2m✓[22m[39m reads real configuration and makes both optional skips explicit with keyboard actions [33m 457[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordStates.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 216[2mms[22m[39m
+ [32m✓[39m src/features/devices/AgentQueuePanel.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 230[2mms[22m[39m
+ [32m✓[39m src/runtime/records/queueStorage.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 222[2mms[22m[39m
+ [32m✓[39m src/app/Shell.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 333[2mms[22m[39m
+ [32m✓[39m src/features/devices/DevicesPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 314[2mms[22m[39m
+ [32m✓[39m src/features/projects/Projects.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 241[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentCredentialsPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 240[2mms[22m[39m
+ [32m✓[39m src/shared/ui.layout.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 246[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentOAuthPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 225[2mms[22m[39m
+ [32m✓[39m src/runtime/records/operations.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 149[2mms[22m[39m
+ [32m✓[39m src/shared/QueryFeedback.states.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 180[2mms[22m[39m
+ [32m✓[39m src/features/environment/AgentEnvironmentPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 287[2mms[22m[39m
+ [32m✓[39m src/features/connections/runtimeStore.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 150[2mms[22m[39m
+ [32m✓[39m src/runtime/schema/interpreter.test.ts [2m([22m[2m88 tests[22m[2m)[22m[32m 65[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolDocumentTabs.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 557[2mms[22m[39m
+   [33m[2m✓[22m[39m exposes only document tabs in the tablist and places named actions outside it [33m 410[2mms[22m[39m
+ [32m✓[39m src/runtime/oauth.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 56[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/index.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 65[2mms[22m[39m
+ [32m✓[39m src/features/records/SessionUploads.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/runtime/agent-client.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/runtime/connection.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/app/v01-shell-footer.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 150[2mms[22m[39m
+ [32m✓[39m src/features/records/restore.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/shared/i18n.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/shared/api.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/runtime/records/redaction.test.ts [2m([22m[2m36 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/features/workflow/uploads.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/runtime/configuration.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/runtime/vault.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/runtime/records/snapshot.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/runtime/schema/index.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/runtime/environment.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/runtime/agent-session.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/runtime/records/canonical.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/features/workflow/model.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/features/tools/argumentDraft.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/protocol.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/features/tools/workspace.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/features/records/viewStore.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/features/connections/session.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/features/team/protection.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/fixture.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 170[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/v01-environment-blocking.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 142[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m61 passed[39m[22m[90m (61)[39m
+[2m      Tests [22m [1m[32m603 passed[39m[22m[90m (603)[39m
+[2m   Start at [22m 16:06:13
+[2m   Duration [22m 39.78s[2m (transform 1.60s, setup 7.40s, collect 62.24s, tests 32.68s, environment 34.32s, prepare 4.82s)[22m
+

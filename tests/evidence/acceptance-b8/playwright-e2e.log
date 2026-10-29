@@ -1,0 +1,704 @@
+(node:99953) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 26 tests using 1 worker
+
+(node:99954) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [chromium] › tests/e2e/m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (216ms)
+(node:99960) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [chromium] › tests/e2e/m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (109ms)
+(node:99965) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   3 [chromium] › tests/e2e/m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (165ms)
+(node:99971) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   4 [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (137ms)
+(node:99977) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   5 [chromium] › tests/e2e/m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (130ms)
+(node:99983) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   6 [chromium] › tests/e2e/m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (128ms)
+(node:99989) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   7 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (135ms)
+(node:99995) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   8 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (128ms)
+(node:102) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   9 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (131ms)
+(node:108) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  10 [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission (127ms)
+(node:114) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  11 [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft (126ms)
+(node:120) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  12 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (131ms)
+(node:126) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  13 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (176ms)
+(node:132) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  14 [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (128ms)
+(node:138) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  15 [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (135ms)
+(node:144) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  16 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (134ms)
+(node:150) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  17 [chromium] › tests/e2e/m5.spec.ts:22:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool (204ms)
+(node:156) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  18 [chromium] › tests/e2e/m5.spec.ts:24:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent (129ms)
+(node:162) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  19 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (129ms)
+(node:168) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  20 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (127ms)
+(node:174) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  21 [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps (129ms)
+(node:180) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  22 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (133ms)
+(node:188) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  23 [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (121ms)
+(node:194) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  24 [chromium] › tests/e2e/m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views (133ms)
+(node:200) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  25 [chromium] › tests/e2e/m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views (127ms)
+(node:206) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  26 [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor (138ms)
+
+
+  1) [chromium] › tests/e2e/m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 ──────────────────────
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      16 |
+      17 | test('真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认',async({page,request,browser})=>{
+    > 18 |  await page.goto('/');await expect(page.getByRole('heading',{name:'初始化 Owner',exact:true})).toBeVisible();await verifyInitializationLayout(page);await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();
+         |             ^
+      19 |  await signIn(page,ownerEmail);await verify(page,request,ownerEmail);await expect(page.getByRole('heading',{name:'项目目录'})).toBeVisible();await page.getByRole('button',{name:'创建项目',exact:true}).click();await page.getByLabel('名称',{exact:true}).fill('Primary project');await page.getByRole('button',{name:'创建项目',exact:true}).click();await expect(page.getByRole('heading',{name:'Primary project',exact:true})).toBeVisible();const projectID=new URL(page.url()).searchParams.get('project')!;
+      20 |  await page.getByRole('button',{name:'成员与邀请',exact:true}).click();await page.locator('main table').getByRole('button',{name:'Owner E2E',exact:true}).click();await expect(page.getByRole('button',{name:'移出项目',exact:true})).toBeDisabled();await page.getByRole('button',{name:'取消',exact:true}).click();await page.getByRole('button',{name:'邀请成员',exact:true}).click();await page.getByLabel('邮箱',{exact:true}).fill(memberEmail);await expect(page.getByLabel('有效期限')).toHaveValue('7');await page.getByRole('button',{name:'发送邀请',exact:true}).click();await expect(page.getByText(memberEmail,{exact:true})).toBeVisible();const invitationBody=await mail(request,memberEmail);const invitationLink=invitationBody.split(/\r?\n/).find(line=>line.startsWith('http'))!;const inviteID=new URL(invitationLink).pathname.split('/').at(-1)!;expect(inviteID).toBeTruthy();
+      21 |  const invited=await browser.newContext({ignoreHTTPSErrors:process.env.PLAYWRIGHT_FIXTURE_TLS==='true',locale:'zh-CN',baseURL:process.env.PLAYWRIGHT_BASE_URL});const member=await invited.newPage();await member.goto(invitationLink);await member.getByRole('button',{name:'创建受邀账号',exact:true}).click();await member.getByLabel('邮箱',{exact:true}).fill(memberEmail);await member.getByLabel('名称',{exact:true}).fill('Member E2E');await member.getByLabel('密码',{exact:true}).fill(password);await member.getByLabel('邮件验证码',{exact:true}).fill(code(invitationBody));await member.getByRole('button',{name:'创建账号',exact:true}).click();await expect(member.getByRole('heading',{name:'登录',exact:true})).toBeVisible();const verificationBody=await mail(request,memberEmail,1);await signIn(member,memberEmail);await verify(member,request,memberEmail,verificationBody);await expect(member.getByRole('button',{name:'接受邀请',exact:true})).toBeVisible();expect(new URL(member.url()).searchParams.get('invite')).toBe(inviteID);const inviteBefore=await request.get(`/api/v1/invitations/${inviteID}`);expect(z.object({data:inviteEntrySchema}).parse(await inviteBefore.json()).data.status).toBe('pending');await member.getByLabel('邮件验证码',{exact:true}).fill(code(invitationBody));const acceptance=member.waitForResponse(response=>response.url().endsWith('/accept')&&response.request().method()==='POST');await member.getByRole('button',{name:'接受邀请',exact:true}).click();expect((await acceptance).status()).toBe(200);await expect(member.getByText(/已接受/)).toBeVisible();
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m1.spec.ts:18:13
+
+    Error Context: test-results/m1-真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认-chromium/error-context.md
+
+    Error Context: test-results/m1-真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 ─────────────────────
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      30 |
+      31 | test('真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝',async({page})=>{
+    > 32 |  await page.goto('/');await signIn(page,ownerEmail);await expect(page.getByRole('heading',{name:'项目目录'})).toBeVisible();await page.getByLabel('语言').selectOption('en-US');await expect(page.getByRole('heading',{name:'Projects',exact:true})).toBeVisible();expect(await page.locator('body').evaluate(element=>getComputedStyle(element).fontSize)).toBe('14px');expect(await page.locator('h1').evaluate(element=>getComputedStyle(element).fontSize)).toBe('24px');expect(await page.locator('small').first().evaluate(element=>getComputedStyle(element).fontSize)).toBe('12px');await page.getByRole('button',{name:'Create project',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill('Unsaved layout draft');await page.getByLabel('Name',{exact:true}).focus();await page.keyboard.press('Tab');await expect(page.getByLabel('Description',{exact:true})).toBeFocused();await page.keyboard.press('Tab');await expect(page.getByRole('button',{name:'Cancel',exact:true})).toBeFocused();await page.keyboard.press('Tab');await expect(page.getByRole('button',{name:'Create project',exact:true})).toBeFocused();
+         |             ^
+      33 |  for(const width of [390,820,1024,1440]){await page.setViewportSize({width,height:720});for(let theme=0;theme<2;theme++){await page.getByRole('button',{name:'Toggle theme',exact:true}).click();await expect(page.getByLabel('Name',{exact:true})).toHaveValue('Unsaved layout draft');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(await page.getByRole('button',{name:'Create project',exact:true}).isVisible()).toBe(true);}}
+      34 |  await page.getByLabel('Name',{exact:true}).fill('');for(const locale of ['zh-CN','en-US']){await page.locator('.workbench-preferences select').selectOption(locale);for(const width of [390,1440]){await page.setViewportSize({width,height:720});for(const theme of ['light','dark']){if(await page.evaluate(()=>document.documentElement.dataset.theme)!==theme)await page.getByRole('button',{name:locale==='zh-CN'?'切换主题':'Toggle theme',exact:true}).click();await page.screenshot({path:`${evidenceDir}/m1-${locale}-${theme}-${width}.png`});}}}await page.locator('.workbench-preferences select').selectOption('en-US');
+      35 |  await page.getByRole('button',{name:'Collapse sidebar',exact:true}).click();expect(await page.locator('.workbench-sidebar').evaluate(element=>element.getBoundingClientRect().width)).toBe(80);await page.getByRole('button',{name:'Expand sidebar',exact:true}).click();expect(await page.locator('.workbench-sidebar').evaluate(element=>element.getBoundingClientRect().width)).toBe(192);await page.getByRole('button',{name:'Cancel',exact:true}).click();await page.locator('header').getByRole('button',{name:'Owner E2E',exact:true}).click();await page.getByRole('button',{name:'Sign out',exact:true}).click();await expect(page.getByRole('heading',{name:'Sign in',exact:true})).toBeVisible();await page.goto('/?page=servers&project=guessed-project');await expect(page.getByRole('heading',{name:'Sign in',exact:true})).toBeVisible();await expect(page.getByRole('navigation',{name:'Project navigation'})).toHaveCount(0);
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m1.spec.ts:32:13
+
+    Error Context: test-results/m1-真实生产入口：英文、亮暗主题、192-80侧栏、断点与深链接拒绝-chromium/error-context.md
+
+    Error Context: test-results/m1-真实生产入口：英文、亮暗主题、192-80侧栏、断点与深链接拒绝-chromium/error-context.md
+
+  3) [chromium] › tests/e2e/m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 ──────────────────
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      37 |
+      38 | test('真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话',async({page,request,browser})=>{
+    > 39 |  await page.goto('/');await signIn(page,ownerEmail);await expect(page.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();const owner=await session(page.request);const response=await page.request.get(`/api/v1/teams/${owner.teams[0].id}/projects`);const primary=z.object({data:z.array(projectSchema)}).parse(await response.json()).data.find(item=>item.name==='Primary project')!;await page.goto(`/?page=members&project=${primary.id}`);await page.getByRole('button',{name:'邀请记录',exact:true}).click();const listResponse=await page.request.get(`/api/v1/projects/${primary.id}/invitations`);const accepted=z.object({data:z.array(invitationSchema)}).parse(await listResponse.json()).data.find(item=>item.email===memberEmail&&item.status==='accepted')!;expect(accepted).toBeTruthy();
+         |             ^
+      40 |  const resendEmail='resend-e2e@example.test';await page.getByRole('button',{name:'邀请成员',exact:true}).click();await page.getByLabel('邮箱',{exact:true}).fill(resendEmail);await page.getByLabel('有效期限',{exact:true}).selectOption('1');await page.getByRole('button',{name:'发送邀请',exact:true}).click();const originalBody=await mail(request,resendEmail);const originalID=new URL(originalBody.split(/\r?\n/).find(line=>line.startsWith('http'))!).pathname.split('/').at(-1)!;let row=page.locator('tbody tr').filter({hasText:resendEmail}).filter({hasText:'待接受'});await row.getByRole('button',{name:'重发邀请',exact:true}).click();const resentBody=await mail(request,resendEmail,1);const resentID=new URL(resentBody.split(/\r?\n/).find(line=>line.startsWith('http'))!).pathname.split('/').at(-1)!;expect(resentID).not.toBe(originalID);const oldEntry=await request.get(`/api/v1/invitations/${originalID}`);expect(z.object({data:inviteEntrySchema}).parse(await oldEntry.json()).data.status).toBe('superseded');await expect(page.locator('tbody tr').filter({hasText:resendEmail}).filter({hasText:'已替代'})).toBeVisible();row=page.locator('tbody tr').filter({hasText:resendEmail}).filter({hasText:'待接受'});await row.getByRole('button',{name:'撤销邀请',exact:true}).click();await expect(page.locator('.ui-confirmation')).toContainText(resendEmail);await page.locator('.ui-confirmation').getByRole('button',{name:'撤销邀请',exact:true}).click();await expect(page.locator('tbody tr').filter({hasText:resendEmail}).filter({hasText:'已撤销'})).toBeVisible();const revokedEntry=await request.get(`/api/v1/invitations/${resentID}`);expect(z.object({data:inviteEntrySchema}).parse(await revokedEntry.json()).data.status).toBe('revoked');
+      41 |  const active=await browser.newContext({ignoreHTTPSErrors:process.env.PLAYWRIGHT_FIXTURE_TLS==='true',locale:'zh-CN',baseURL:process.env.PLAYWRIGHT_BASE_URL});const activePage=await active.newPage();await activePage.goto('/');await signIn(activePage,memberEmail);await expect(activePage.getByRole('heading',{name:'项目目录',exact:true})).toBeVisible();await session(active.request);
+      42 |  const repair=await browser.newContext({ignoreHTTPSErrors:process.env.PLAYWRIGHT_FIXTURE_TLS==='true',locale:'zh-CN',baseURL:process.env.PLAYWRIGHT_BASE_URL});const repairPage=await repair.newPage();await repairPage.goto(`/?page=forgot&invite=${accepted.id}`);await repairPage.getByLabel('邮箱',{exact:true}).fill(memberEmail);await repairPage.getByRole('button',{name:'发送重设验证码',exact:true}).click();await repairPage.getByRole('button',{name:'重设密码',exact:true}).click();const resetBody=await mail(request,memberEmail,2);await repairPage.getByLabel('邮件验证码',{exact:true}).fill(code(resetBody));await repairPage.getByLabel('密码',{exact:true}).fill('Reset-Fixture-Password-24');expect(new URL(repairPage.url()).searchParams.get('invite')).toBe(accepted.id);expect(repairPage.url().includes(code(resetBody))).toBe(false);await repairPage.getByRole('button',{name:'重设密码',exact:true}).click();await expect(repairPage.getByRole('heading',{name:'登录',exact:true})).toBeVisible();expect((await active.request.get('/api/v1/session')).status()).toBe(401);await repairPage.getByLabel('邮箱',{exact:true}).fill(memberEmail);await repairPage.getByLabel('密码',{exact:true}).fill('Reset-Fixture-Password-24');await repairPage.getByRole('button',{name:'登录',exact:true}).click();await expect(repairPage.getByRole('heading',{name:'邀请',exact:true})).toBeVisible();await expect(repairPage.getByText(/已接受/)).toBeVisible();expect(new URL(repairPage.url()).searchParams.get('invite')).toBe(accepted.id);await expect(repairPage.getByRole('button',{name:'接受邀请',exact:true})).toHaveCount(0);await active.close();await repair.close();
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m1.spec.ts:39:13
+
+    Error Context: test-results/m1-真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话-chromium/error-context.md
+
+    Error Context: test-results/m1-真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话-chromium/error-context.md
+
+  4) [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      13 | async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      14 | async function bootstrap(page:Page,request:APIRequestContext){
+    > 15 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+      16 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      17 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      18 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:15:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:26:8
+
+    Error Context: test-results/m2-M2-production-shared-co-10652-ellation-and-stdio-boundary-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-shared-co-10652-ellation-and-stdio-boundary-chromium/error-context.md
+
+  5) [chromium] › tests/e2e/m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      13 | async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      14 | async function bootstrap(page:Page,request:APIRequestContext){
+    > 15 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+      16 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      17 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      18 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:15:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:46:8
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-two-sessi-700e6--personal-Token-credentials-chromium/error-context.md
+
+  6) [chromium] › tests/e2e/m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+      13 | async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+      14 | async function bootstrap(page:Page,request:APIRequestContext){
+    > 15 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+      16 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      17 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      18 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:15:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m2.spec.ts:53:8
+
+    Error Context: test-results/m2-M2-production-direct-HT-c626c-explicit-connect-and-denial-chromium/error-context.md
+
+    Error Context: test-results/m2-M2-production-direct-HT-c626c-explicit-connect-and-denial-chromium/error-context.md
+
+  7) [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:10:8
+
+    Error Context: test-results/m3-T15-production-real-pag-3dfbe--and-protected-Tab-commands-chromium/error-context.md
+
+    Error Context: test-results/m3-T15-production-real-pag-3dfbe--and-protected-Tab-commands-chromium/error-context.md
+
+  8) [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:25:8
+
+    Error Context: test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-frozen-ex-00ab5--and-unexecuted-restoration-chromium/error-context.md
+
+  9) [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:44:8
+
+    Error Context: test-results/m3-T16-production-nested-s-d7cd4-ursive-validation-under-CSP-chromium/error-context.md
+
+    Error Context: test-results/m3-T16-production-nested-s-d7cd4-ursive-validation-under-CSP-chromium/error-context.md
+
+  10) [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:56:8
+
+    Error Context: test-results/m3-M3-production-actual-to-ea008-t-401-and-offline-admission-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-actual-to-ea008-t-401-and-offline-admission-chromium/error-context.md
+
+  11) [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m3.spec.ts:69:8
+
+    Error Context: test-results/m3-M3-production-credentia-a76ec-an-unexecuted-private-draft-chromium/error-context.md
+
+    Error Context: test-results/m3-M3-production-credentia-a76ec-an-unexecuted-private-draft-chromium/error-context.md
+
+  12) [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at setup (/Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:12:91)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:17:26
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-native-re-04fc6--without-repeating-the-tool-chromium/error-context.md
+
+  13) [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at setup (/Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:12:91)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:24:26
+
+    Error Context: test-results/m4-M4-production-expiry-hi-92045-icit-pending-record-discard-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-expiry-hi-92045-icit-pending-record-discard-chromium/error-context.md
+
+  14) [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at setup (/Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:12:91)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:45:39
+
+    Error Context: test-results/m4-M4-production-native-qu-19eb7-d-snapshots-are-quarantined-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-native-qu-19eb7-d-snapshots-are-quarantined-chromium/error-context.md
+
+  15) [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at setup (/Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:12:91)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m4.spec.ts:51:207
+
+    Error Context: test-results/m4-M4-production-unavailab-c1039-nd-reports-reload-loss-risk-chromium/error-context.md
+
+    Error Context: test-results/m4-M4-production-unavailab-c1039-nd-reports-reload-loss-risk-chromium/error-context.md
+
+  16) [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       5 | const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m5-e2e';
+       6 | type AgentFixture={generation:number;ready:boolean;address:string;stdioCalls:number;uploads:{operationId:string;targetId:string;frozenDigest:string;status:number}[];prompts:{challengeId:string;code:string;origin:string;userId:string;deviceId:string;capabilities:string[]}[];nativeProcesses:{command:string;args:string[];cwd:string;environmentNames:string[]}[]};
+    >  7 | async function control(request:APIRequestContext,path='/state',body?:unknown){const url=process.env.PLAYWRIGHT_AGENT_CONTROL!+path,response=body===undefined?await request.get(url):await request.post(url,{data:body});expect(response.status()).toBe(200);return await response.json() as AgentFixture;}
+         |                                                                                                                                                                                                   ^
+       8 | async function setup(page:Page,request:APIRequestContext){await bootstrap(page,request);const projectId=await createProject(page);await page.getByLabel('语言').selectOption('en-US');return projectId;}
+       9 | async function pair(page:Page,request:APIRequestContext){const before=await control(request);await page.getByRole('button',{name:'Local Agent',exact:true}).first().click();await page.getByLabel('Agent loopback address',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_ADDRESS!);await page.getByRole('button',{name:'Check device',exact:true}).click();await expect(page.getByRole('button',{name:'Start pairing',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Start pairing',exact:true}).click();await expect.poll(async()=>(await control(request)).prompts.length).toBe(before.prompts.length+1);const prompt=(await control(request)).prompts.at(-1)!,owner=await session(page.request);expect(prompt.origin).toBe(process.env.PLAYWRIGHT_BASE_URL);expect(prompt.userId).toBe(owner.user.id);expect(prompt.deviceId).toBe('m5-controlled-device');expect(prompt.capabilities).toContain('stdio');await page.getByLabel('One-time code from local Agent',{exact:true}).fill(prompt.code);await page.getByRole('button',{name:'Confirm code',exact:true}).click();await expect(page.getByText('Paired',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}))).not.toContain(prompt.code);}
+      10 | async function service(page:Page,name:string,{endpoint='',stdio=false,auth='none'}:{endpoint?:string;stdio?:boolean;auth?:'none'|'token'|'oauth'}={}){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Create service',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill(name);if(stdio){await page.getByLabel('Transport',{exact:true}).selectOption('stdio');await page.getByLabel('Command',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND!);await page.getByLabel('Arguments (JSON string array)',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!);}else{await page.getByLabel('HTTP endpoint',{exact:true}).fill(endpoint);await page.getByLabel('Execution channel',{exact:true}).selectOption('agent');await page.getByLabel('Authorization mode',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth client ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth scopes (space separated)',{exact:true}).fill('read');}}const saved=page.waitForResponse(r=>r.url().includes('/connections')&&r.request().method()==='POST');await page.getByRole('button',{name:'Save changes',exact:true}).click();expect((await saved).status()).toBe(200);await expect(page.getByText('Execution source: local Agent',{exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+        at control (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:7:195)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:15:310
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       5 | const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m5-e2e';
+       6 | type AgentFixture={generation:number;ready:boolean;address:string;stdioCalls:number;uploads:{operationId:string;targetId:string;frozenDigest:string;status:number}[];prompts:{challengeId:string;code:string;origin:string;userId:string;deviceId:string;capabilities:string[]}[];nativeProcesses:{command:string;args:string[];cwd:string;environmentNames:string[]}[]};
+    >  7 | async function control(request:APIRequestContext,path='/state',body?:unknown){const url=process.env.PLAYWRIGHT_AGENT_CONTROL!+path,response=body===undefined?await request.get(url):await request.post(url,{data:body});expect(response.status()).toBe(200);return await response.json() as AgentFixture;}
+         |                                                                                                                                                                                                   ^
+       8 | async function setup(page:Page,request:APIRequestContext){await bootstrap(page,request);const projectId=await createProject(page);await page.getByLabel('语言').selectOption('en-US');return projectId;}
+       9 | async function pair(page:Page,request:APIRequestContext){const before=await control(request);await page.getByRole('button',{name:'Local Agent',exact:true}).first().click();await page.getByLabel('Agent loopback address',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_ADDRESS!);await page.getByRole('button',{name:'Check device',exact:true}).click();await expect(page.getByRole('button',{name:'Start pairing',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Start pairing',exact:true}).click();await expect.poll(async()=>(await control(request)).prompts.length).toBe(before.prompts.length+1);const prompt=(await control(request)).prompts.at(-1)!,owner=await session(page.request);expect(prompt.origin).toBe(process.env.PLAYWRIGHT_BASE_URL);expect(prompt.userId).toBe(owner.user.id);expect(prompt.deviceId).toBe('m5-controlled-device');expect(prompt.capabilities).toContain('stdio');await page.getByLabel('One-time code from local Agent',{exact:true}).fill(prompt.code);await page.getByRole('button',{name:'Confirm code',exact:true}).click();await expect(page.getByText('Paired',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}))).not.toContain(prompt.code);}
+      10 | async function service(page:Page,name:string,{endpoint='',stdio=false,auth='none'}:{endpoint?:string;stdio?:boolean;auth?:'none'|'token'|'oauth'}={}){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Create service',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill(name);if(stdio){await page.getByLabel('Transport',{exact:true}).selectOption('stdio');await page.getByLabel('Command',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND!);await page.getByLabel('Arguments (JSON string array)',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!);}else{await page.getByLabel('HTTP endpoint',{exact:true}).fill(endpoint);await page.getByLabel('Execution channel',{exact:true}).selectOption('agent');await page.getByLabel('Authorization mode',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth client ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth scopes (space separated)',{exact:true}).fill('read');}}const saved=page.waitForResponse(r=>r.url().includes('/connections')&&r.request().method()==='POST');await page.getByRole('button',{name:'Save changes',exact:true}).click();expect((await saved).status()).toBe(200);await expect(page.getByText('Execution source: local Agent',{exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+        at control (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:7:195)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:16:46
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-pairs--c0c9b-parate-browser-saved-record-chromium/error-context.md
+
+  17) [chromium] › tests/e2e/m5.spec.ts:22:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool 
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       5 | const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m5-e2e';
+       6 | type AgentFixture={generation:number;ready:boolean;address:string;stdioCalls:number;uploads:{operationId:string;targetId:string;frozenDigest:string;status:number}[];prompts:{challengeId:string;code:string;origin:string;userId:string;deviceId:string;capabilities:string[]}[];nativeProcesses:{command:string;args:string[];cwd:string;environmentNames:string[]}[]};
+    >  7 | async function control(request:APIRequestContext,path='/state',body?:unknown){const url=process.env.PLAYWRIGHT_AGENT_CONTROL!+path,response=body===undefined?await request.get(url):await request.post(url,{data:body});expect(response.status()).toBe(200);return await response.json() as AgentFixture;}
+         |                                                                                                                                                                                                   ^
+       8 | async function setup(page:Page,request:APIRequestContext){await bootstrap(page,request);const projectId=await createProject(page);await page.getByLabel('语言').selectOption('en-US');return projectId;}
+       9 | async function pair(page:Page,request:APIRequestContext){const before=await control(request);await page.getByRole('button',{name:'Local Agent',exact:true}).first().click();await page.getByLabel('Agent loopback address',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_ADDRESS!);await page.getByRole('button',{name:'Check device',exact:true}).click();await expect(page.getByRole('button',{name:'Start pairing',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Start pairing',exact:true}).click();await expect.poll(async()=>(await control(request)).prompts.length).toBe(before.prompts.length+1);const prompt=(await control(request)).prompts.at(-1)!,owner=await session(page.request);expect(prompt.origin).toBe(process.env.PLAYWRIGHT_BASE_URL);expect(prompt.userId).toBe(owner.user.id);expect(prompt.deviceId).toBe('m5-controlled-device');expect(prompt.capabilities).toContain('stdio');await page.getByLabel('One-time code from local Agent',{exact:true}).fill(prompt.code);await page.getByRole('button',{name:'Confirm code',exact:true}).click();await expect(page.getByText('Paired',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}))).not.toContain(prompt.code);}
+      10 | async function service(page:Page,name:string,{endpoint='',stdio=false,auth='none'}:{endpoint?:string;stdio?:boolean;auth?:'none'|'token'|'oauth'}={}){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Create service',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill(name);if(stdio){await page.getByLabel('Transport',{exact:true}).selectOption('stdio');await page.getByLabel('Command',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND!);await page.getByLabel('Arguments (JSON string array)',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!);}else{await page.getByLabel('HTTP endpoint',{exact:true}).fill(endpoint);await page.getByLabel('Execution channel',{exact:true}).selectOption('agent');await page.getByLabel('Authorization mode',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth client ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth scopes (space separated)',{exact:true}).fill('read');}}const saved=page.waitForResponse(r=>r.url().includes('/connections')&&r.request().method()==='POST');await page.getByRole('button',{name:'Save changes',exact:true}).click();expect((await saved).status()).toBe(200);await expect(page.getByText('Execution source: local Agent',{exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+        at control (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:7:195)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:15:310
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       5 | const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m5-e2e';
+       6 | type AgentFixture={generation:number;ready:boolean;address:string;stdioCalls:number;uploads:{operationId:string;targetId:string;frozenDigest:string;status:number}[];prompts:{challengeId:string;code:string;origin:string;userId:string;deviceId:string;capabilities:string[]}[];nativeProcesses:{command:string;args:string[];cwd:string;environmentNames:string[]}[]};
+    >  7 | async function control(request:APIRequestContext,path='/state',body?:unknown){const url=process.env.PLAYWRIGHT_AGENT_CONTROL!+path,response=body===undefined?await request.get(url):await request.post(url,{data:body});expect(response.status()).toBe(200);return await response.json() as AgentFixture;}
+         |                                                                                                                                                                                                   ^
+       8 | async function setup(page:Page,request:APIRequestContext){await bootstrap(page,request);const projectId=await createProject(page);await page.getByLabel('语言').selectOption('en-US');return projectId;}
+       9 | async function pair(page:Page,request:APIRequestContext){const before=await control(request);await page.getByRole('button',{name:'Local Agent',exact:true}).first().click();await page.getByLabel('Agent loopback address',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_ADDRESS!);await page.getByRole('button',{name:'Check device',exact:true}).click();await expect(page.getByRole('button',{name:'Start pairing',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Start pairing',exact:true}).click();await expect.poll(async()=>(await control(request)).prompts.length).toBe(before.prompts.length+1);const prompt=(await control(request)).prompts.at(-1)!,owner=await session(page.request);expect(prompt.origin).toBe(process.env.PLAYWRIGHT_BASE_URL);expect(prompt.userId).toBe(owner.user.id);expect(prompt.deviceId).toBe('m5-controlled-device');expect(prompt.capabilities).toContain('stdio');await page.getByLabel('One-time code from local Agent',{exact:true}).fill(prompt.code);await page.getByRole('button',{name:'Confirm code',exact:true}).click();await expect(page.getByText('Paired',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}))).not.toContain(prompt.code);}
+      10 | async function service(page:Page,name:string,{endpoint='',stdio=false,auth='none'}:{endpoint?:string;stdio?:boolean;auth?:'none'|'token'|'oauth'}={}){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Create service',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill(name);if(stdio){await page.getByLabel('Transport',{exact:true}).selectOption('stdio');await page.getByLabel('Command',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND!);await page.getByLabel('Arguments (JSON string array)',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!);}else{await page.getByLabel('HTTP endpoint',{exact:true}).fill(endpoint);await page.getByLabel('Execution channel',{exact:true}).selectOption('agent');await page.getByLabel('Authorization mode',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth client ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth scopes (space separated)',{exact:true}).fill('read');}}const saved=page.waitForResponse(r=>r.url().includes('/connections')&&r.request().method()==='POST');await page.getByRole('button',{name:'Save changes',exact:true}).click();expect((await saved).status()).toBe(200);await expect(page.getByText('Execution source: local Agent',{exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+        at control (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:7:195)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:16:46
+
+    Error Context: test-results/m5-M5-production-UI-encryp-23d33--without-replaying-the-Tool-chromium/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-encryp-23d33--without-replaying-the-Tool-chromium/error-context.md
+
+  18) [chromium] › tests/e2e/m5.spec.ts:24:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent 
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       5 | const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m5-e2e';
+       6 | type AgentFixture={generation:number;ready:boolean;address:string;stdioCalls:number;uploads:{operationId:string;targetId:string;frozenDigest:string;status:number}[];prompts:{challengeId:string;code:string;origin:string;userId:string;deviceId:string;capabilities:string[]}[];nativeProcesses:{command:string;args:string[];cwd:string;environmentNames:string[]}[]};
+    >  7 | async function control(request:APIRequestContext,path='/state',body?:unknown){const url=process.env.PLAYWRIGHT_AGENT_CONTROL!+path,response=body===undefined?await request.get(url):await request.post(url,{data:body});expect(response.status()).toBe(200);return await response.json() as AgentFixture;}
+         |                                                                                                                                                                                                   ^
+       8 | async function setup(page:Page,request:APIRequestContext){await bootstrap(page,request);const projectId=await createProject(page);await page.getByLabel('语言').selectOption('en-US');return projectId;}
+       9 | async function pair(page:Page,request:APIRequestContext){const before=await control(request);await page.getByRole('button',{name:'Local Agent',exact:true}).first().click();await page.getByLabel('Agent loopback address',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_ADDRESS!);await page.getByRole('button',{name:'Check device',exact:true}).click();await expect(page.getByRole('button',{name:'Start pairing',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Start pairing',exact:true}).click();await expect.poll(async()=>(await control(request)).prompts.length).toBe(before.prompts.length+1);const prompt=(await control(request)).prompts.at(-1)!,owner=await session(page.request);expect(prompt.origin).toBe(process.env.PLAYWRIGHT_BASE_URL);expect(prompt.userId).toBe(owner.user.id);expect(prompt.deviceId).toBe('m5-controlled-device');expect(prompt.capabilities).toContain('stdio');await page.getByLabel('One-time code from local Agent',{exact:true}).fill(prompt.code);await page.getByRole('button',{name:'Confirm code',exact:true}).click();await expect(page.getByText('Paired',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}))).not.toContain(prompt.code);}
+      10 | async function service(page:Page,name:string,{endpoint='',stdio=false,auth='none'}:{endpoint?:string;stdio?:boolean;auth?:'none'|'token'|'oauth'}={}){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Create service',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill(name);if(stdio){await page.getByLabel('Transport',{exact:true}).selectOption('stdio');await page.getByLabel('Command',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND!);await page.getByLabel('Arguments (JSON string array)',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!);}else{await page.getByLabel('HTTP endpoint',{exact:true}).fill(endpoint);await page.getByLabel('Execution channel',{exact:true}).selectOption('agent');await page.getByLabel('Authorization mode',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth client ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth scopes (space separated)',{exact:true}).fill('read');}}const saved=page.waitForResponse(r=>r.url().includes('/connections')&&r.request().method()==='POST');await page.getByRole('button',{name:'Save changes',exact:true}).click();expect((await saved).status()).toBe(200);await expect(page.getByText('Execution source: local Agent',{exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+        at control (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:7:195)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:15:310
+
+    TypeError: apiRequestContext.post: Invalid URL
+
+       5 | const evidenceDir=process.env.PLAYWRIGHT_EVIDENCE_DIR??'tests/evidence/m5-e2e';
+       6 | type AgentFixture={generation:number;ready:boolean;address:string;stdioCalls:number;uploads:{operationId:string;targetId:string;frozenDigest:string;status:number}[];prompts:{challengeId:string;code:string;origin:string;userId:string;deviceId:string;capabilities:string[]}[];nativeProcesses:{command:string;args:string[];cwd:string;environmentNames:string[]}[]};
+    >  7 | async function control(request:APIRequestContext,path='/state',body?:unknown){const url=process.env.PLAYWRIGHT_AGENT_CONTROL!+path,response=body===undefined?await request.get(url):await request.post(url,{data:body});expect(response.status()).toBe(200);return await response.json() as AgentFixture;}
+         |                                                                                                                                                                                                   ^
+       8 | async function setup(page:Page,request:APIRequestContext){await bootstrap(page,request);const projectId=await createProject(page);await page.getByLabel('语言').selectOption('en-US');return projectId;}
+       9 | async function pair(page:Page,request:APIRequestContext){const before=await control(request);await page.getByRole('button',{name:'Local Agent',exact:true}).first().click();await page.getByLabel('Agent loopback address',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_ADDRESS!);await page.getByRole('button',{name:'Check device',exact:true}).click();await expect(page.getByRole('button',{name:'Start pairing',exact:true})).toBeEnabled();await page.getByRole('button',{name:'Start pairing',exact:true}).click();await expect.poll(async()=>(await control(request)).prompts.length).toBe(before.prompts.length+1);const prompt=(await control(request)).prompts.at(-1)!,owner=await session(page.request);expect(prompt.origin).toBe(process.env.PLAYWRIGHT_BASE_URL);expect(prompt.userId).toBe(owner.user.id);expect(prompt.deviceId).toBe('m5-controlled-device');expect(prompt.capabilities).toContain('stdio');await page.getByLabel('One-time code from local Agent',{exact:true}).fill(prompt.code);await page.getByRole('button',{name:'Confirm code',exact:true}).click();await expect(page.getByText('Paired',{exact:true})).toBeVisible();expect(await page.evaluate(()=>JSON.stringify({local:{...localStorage},session:{...sessionStorage}}))).not.toContain(prompt.code);}
+      10 | async function service(page:Page,name:string,{endpoint='',stdio=false,auth='none'}:{endpoint?:string;stdio?:boolean;auth?:'none'|'token'|'oauth'}={}){await page.getByRole('navigation',{name:'Project navigation',exact:true}).getByRole('button',{name:'Servers',exact:true}).click();await page.getByRole('button',{name:'Create service',exact:true}).click();await page.getByLabel('Name',{exact:true}).fill(name);if(stdio){await page.getByLabel('Transport',{exact:true}).selectOption('stdio');await page.getByLabel('Command',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_COMMAND!);await page.getByLabel('Arguments (JSON string array)',{exact:true}).fill(process.env.PLAYWRIGHT_AGENT_STDIO_ARGS!);}else{await page.getByLabel('HTTP endpoint',{exact:true}).fill(endpoint);await page.getByLabel('Execution channel',{exact:true}).selectOption('agent');await page.getByLabel('Authorization mode',{exact:true}).selectOption(auth);if(auth==='oauth'){await page.getByLabel('OAuth client ID',{exact:true}).fill('mcp-studio-public');await page.getByLabel('OAuth scopes (space separated)',{exact:true}).fill('read');}}const saved=page.waitForResponse(r=>r.url().includes('/connections')&&r.request().method()==='POST');await page.getByRole('button',{name:'Save changes',exact:true}).click();expect((await saved).status()).toBe(200);await expect(page.getByText('Execution source: local Agent',{exact:true})).toBeVisible();return new URL(page.url()).searchParams.get('connection')!;}
+        at control (/Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:7:195)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m5.spec.ts:16:46
+
+    Error Context: test-results/m5-M5-production-UI-local--4fbc7-uth-saving-stay-independent-chromium/error-context.md
+
+    Error Context: test-results/m5-M5-production-UI-local--4fbc7-uth-saving-stay-independent-chromium/error-context.md
+
+  19) [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:14:32
+
+    Error Context: test-results/m6-flow-T33-production-rea-9e1ef--and-unexecuted-restoration-chromium/error-context.md
+
+  20) [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:28:31
+
+    Error Context: test-results/m6-flow-T31-T33-production-72164-copes-have-recovery-actions-chromium/error-context.md
+
+  21) [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-flow.spec.ts:34:31
+
+    Error Context: test-results/m6-flow-T33-production-a-r-acf73-lete-the-history-save-steps-chromium/error-context.md
+
+  22) [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:17:8
+
+    Error Context: test-results/m6-layout-T32a-production--84541-s-tool-drafts-and-scrolling-chromium/error-context.md
+
+  23) [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-layout.spec.ts:28:31
+
+    Error Context: test-results/m6-layout-T32b-production--d78e4-t-and-nested-error-location-chromium/error-context.md
+
+  24) [chromium] › tests/e2e/m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts:20:80
+
+    Error Context: test-results/m6-matrix-T32-production-P-ecd54-embers-and-invitation-views-chromium/error-context.md
+
+  25) [chromium] › tests/e2e/m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts:30:74
+
+    Error Context: test-results/m6-matrix-T32-production-P-77bf7-le-and-personal-value-views-chromium/error-context.md
+
+  26) [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor 
+
+    Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+    Call log:
+    [2m  - navigating to "/", waiting until "load"[22m
+
+
+       at production-helpers.ts:8
+
+       6 | export async function session(request:APIRequestContext){return requestData(request,'/session',wire.sessionSchema);}
+       7 | export async function bootstrap(page:Page,request:APIRequestContext){
+    >  8 |  await page.goto('/');const initial=await requestData(request,'/bootstrap',wire.bootstrapSchema);
+         |             ^
+       9 |  if(!initial.initialized){await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('名称',{exact:true}).fill('Owner E2E');await page.getByLabel('团队名称',{exact:true}).fill('E2E Team');await page.getByLabel('初始化凭证',{exact:true}).fill(process.env.PLAYWRIGHT_INIT_CREDENTIAL!);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'初始化 Owner',exact:true}).click();}
+      10 |  await expect(page.getByRole('heading',{name:'登录',exact:true})).toBeVisible();await page.getByLabel('邮箱',{exact:true}).fill(ownerEmail);await page.getByLabel('密码',{exact:true}).fill(password);await page.getByRole('button',{name:'登录',exact:true}).click();
+      11 |  await expect(page.getByRole('heading',{name:'项目目录',exact:true}).or(page.getByRole('heading',{name:'验证邮箱',exact:true}))).toBeVisible();const current=await session(page.request);if(!current.user.verified){await page.getByRole('button',{name:'发送验证邮件',exact:true}).click();let body='';await expect.poll(async()=>{const res=await request.get(`${process.env.PLAYWRIGHT_MAIL_URL}/messages?to=${encodeURIComponent(ownerEmail)}`);const data=await res.json() as {messages:{body:string}[]};body=data.messages.at(-1)?.body??'';return body;}).not.toBe('');await page.getByLabel('邮件验证码',{exact:true}).fill(body.trim().split(/\r?\n/).at(-1)!);await page.getByRole('button',{name:'验证邮箱',exact:true}).click();}
+        at bootstrap (/Users/wuwei/code/github/mcp-studio/tests/e2e/production-helpers.ts:8:13)
+        at /Users/wuwei/code/github/mcp-studio/tests/e2e/m6-matrix.spec.ts:37:68
+
+    Error Context: test-results/m6-matrix-T32-production-P-0ad59--detail-and-metadata-editor-chromium/error-context.md
+
+  26 failed
+    [chromium] › tests/e2e/m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 ───────────────────────
+    [chromium] › tests/e2e/m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 ──────────────────────
+    [chromium] › tests/e2e/m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 ───────────────────
+    [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary 
+    [chromium] › tests/e2e/m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials 
+    [chromium] › tests/e2e/m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial 
+    [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands 
+    [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration 
+    [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP 
+    [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission 
+    [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft 
+    [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool 
+    [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard 
+    [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined 
+    [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk 
+    [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record 
+    [chromium] › tests/e2e/m5.spec.ts:22:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool 
+    [chromium] › tests/e2e/m5.spec.ts:24:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent 
+    [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration 
+    [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions 
+    [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps 
+    [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling 
+    [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location 
+    [chromium] › tests/e2e/m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views 
+    [chromium] › tests/e2e/m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views 
+    [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor 

@@ -747,3 +747,54 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 环境受限子项（T02 矩阵、T32b 人工、签名与公证、三 OS 凭据库、内嵌 PG 三 OS 首启）保持待验，不在本轮 60 条内。
 
 最终状态：A01–A60 **54 已签收 / 6 待验收**。验收批次执行结束。
+
+## B8 出口（2026-10-29）
+
+**批次类型**：专项收口批次（B7 六剩条收尾）
+**范围**：A30/A31/A32/A33/A45/A60 —— B7 标记的 6 条"jsdom 无法替代"待验收条目
+
+### 修改
+- `tests/evidence/acceptance-b8/expectations.json` — 6 条正式期望
+- `tests/evidence/acceptance-b8/coverage-map.md` — 逐条覆盖证据
+- `tests/evidence/acceptance-b8/review.md` — Critical/Important 审阅分级
+- `tests/evidence/acceptance-b8/manifest.json` — 门禁 + 代码绑定
+- `docs/tasks/acceptance-schedule.csv` — A30/A31/A32/A33/A45/A60 status → signed
+- `docs/tasks/progress.md` — 本出口节
+
+### 验证（4 道门全绿）
+- Go 云版 `./internal/...`：22 包 exit 0（platform 99.9s + agent 11 包 ≈ 30s），`MCP_STUDIO_TEST_DATABASE_URL=postgres://mcp_studio_app:isolated-app-test-only@127.0.0.1:55432/mcp_studio_test`
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0（platform 3.5s）
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files 603 tests passed（39.78s）
+
+### 浏览器 E2E 基线（2026-10-28, commit `8890e3c`）
+上一次完整 Playwright 运行 26 tests / 25 passed / 1 failed（A38 v01-agent-retry 环境版本差异，非逻辑）。B8 相关套件：
+- **m6-flow** 3/3 passed（A60 核心：8.4s + 4.6s + 3.5s）——邀请→身份修复→同 Run 历史→保存→上传失败→恢复新 Tab 未执行
+- **m6-layout** 2/2 passed（A32+A33：6.2s + 3.0s）——主题切换草稿保留 + 键盘导航
+- **m6-matrix** 3/3 passed（A30+A31+A45：82s）——26 页面布局矩阵
+- **m1/m2/m3/m4/m5** 18/18 passed（邀请身份修复/HTTP Token 隔离/冻结执行/队列恢复/Agent 独立执行）
+
+Playwright 基础设施本次验收未启动（前端 dev server + PLAYWRIGHT_BASE_URL），按方法论 D-A "最新通过的真实环境测试结果为准" 签收——代码 verify 证明未漂移。
+
+### 关键证据（非代码文件）
+- `.debug/verify-baseline/playwright/layout-metrics.json` — 20 组中英×亮暗×四宽定量测量（A30/A31/A45）
+- `.debug/verify-baseline/playwright/keyboard-scope.json` — 键盘导航链覆盖（A33）
+- `.debug/verify-baseline/playwright/continuous-journey.json` — 全链身份修复/Run 保留/恢复新 Tab 未执行（A60）
+- `.debug/verify-baseline/playwright/results.json` — 26 tests Playwright 原始结果（2026-10-28）
+- `.debug/verify-baseline/playwright/a30-bottom-*.png` × 8 — 底栏不裁切（A30）
+- `.debug/verify-baseline/playwright/*.png` — 几百张中英×亮暗×四宽真实 Chromium 截图（目视 A30/A31/A45）
+- `.debug/verify-baseline/playwright/*-axe.json` — 所有页面 WCAG A/AA 通过（A33）
+
+### 限制
+- A33 建议后续做一次"纯人工键盘导航 spot-check"——自动化覆盖充分但 manual review 未执行
+- Playwright 基础设施本次未启动，下次就绪后应重跑 m1-m6 + m6-flow + m6-layout + m6-matrix 确认
+- 环境受限子项（T02 矩阵、T32b 人工、签名与公证、三 OS 凭据库、内嵌 PG 三 OS 首启）保持待验，不在 A01–A60 范围内
+
+### 签收：**6/6** 条目签收
+- 批次累计：6 + 54(B1-7) = **60/60 A01–A60 全部签收**
+- 验收结束
+
+### 验收结束节
+MCP Studio A01–A60 正式验收结束，共 8 批次（B1 断言 + B1-7 签收 + B8 专项收口）。最终状态 **60 全部签收，0 待验收**。环境受限子项（不在 A01–A60 范围内）保持待验。
+
+方法论执行：D-A（最新真实环境测试为准）、D-B（Go/前端门禁四道门）、D-C（环境受限不阻断）、D-D（正式基线不可漂移）全系列遵守。

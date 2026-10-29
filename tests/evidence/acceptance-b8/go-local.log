@@ -1,0 +1,25 @@
+ok  	mcp-studio/internal/agent/lifecycle	4.771s
+ok  	mcp-studio/internal/agent/localapi	3.586s
+ok  	mcp-studio/internal/agent/mcp	4.403s
+ok  	mcp-studio/internal/agent/oauth	5.136s
+ok  	mcp-studio/internal/agent/pairing	3.862s
+ok  	mcp-studio/internal/agent/platformclient	5.559s
+ok  	mcp-studio/internal/agent/process	4.661s
+ok  	mcp-studio/internal/agent/queue	0.797s
+ok  	mcp-studio/internal/agent/sessions	4.341s
+ok  	mcp-studio/internal/agent/vault	0.990s
+?   	mcp-studio/internal/agent/wire	[no test files]
+ok  	mcp-studio/internal/configuration	1.286s
+ok  	mcp-studio/internal/contracts	2.112s
+ok  	mcp-studio/internal/environment	2.533s
+ok  	mcp-studio/internal/infrastructure	3.070s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	3.548s
+ok  	mcp-studio/internal/recording	7.056s
+ok  	mcp-studio/internal/schema	7.842s
+--- FAIL: TestCancellationBetweenCreateAndClaimRollsBack (0.00s)
+    schema_test.go:72: real test database required
+FAIL
+FAIL	mcp-studio/internal/testsupport	7.731s
+?   	mcp-studio/internal/wire	[no test files]
+FAIL

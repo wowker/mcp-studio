@@ -1,0 +1,77 @@
+{
+  "batch": "B8",
+  "title": "B7 六剩条专项——真实浏览器视觉 / 键盘导航 / 全链连续旅程",
+  "createdAt": "2026-10-29",
+  "mode": "special-batch",
+  "entries": [
+    {
+      "id": "A30",
+      "title": "中英 × 亮暗 × 390/820/1024/1440 宽：无整页横溢出、底栏裁切、零高内容；长文和操作可达",
+      "edition": "both",
+      "category": "layout",
+      "evidence": [
+        "layout-metrics.json 20 组（中英×亮暗×四宽）全 pageOverflow:false",
+        "所有 footer.unobstructed: [true,true,true] 三维无遮挡",
+        ".debug/verify-baseline/playwright/ 下所有页面中英×亮暗×四宽截图目视确认",
+        "a30-bottom-*.png × 8 覆盖底栏在四宽中英亮暗下不裁切"
+      ]
+    },
+    {
+      "id": "A31",
+      "title": "短桌面 1024×640、手机 390×844、长名字：参数结果都可用；表格局部滚动；状态和按钮不挤出",
+      "edition": "both",
+      "category": "layout",
+      "evidence": [
+        "layout-metrics.json 1024×640 短桌面 parameterAction/resultAction unobstructed 三 true",
+        "layout-metrics.json 390×844 手机 parameterAction/resultAction unobstructed 三 true",
+        "-short.png 短桌面截图目视表格局部滚动可用",
+        "长名字在 820/1024/1440 宽截图中状态和按钮未挤出视口"
+      ]
+    },
+    {
+      "id": "A32",
+      "title": "语言主题切换时有草稿、已滚动表格/参数：草稿、运行及当前上下文滚动位置保留",
+      "edition": "both",
+      "category": "ux-behavior",
+      "evidence": [
+        "m6-layout.spec.ts T32a 'bilingual theme/window matrix preserves tool drafts and scrolling' — 2026-10-28 passed (6.2s)",
+        "App.test.tsx 'authenticated Shell keeps page input and focus through language/theme/sidebar controls' — 当前 603 tests 全过中包含"
+      ]
+    },
+    {
+      "id": "A33",
+      "title": "仅键盘用导航、菜单、分栏、错误跳转：顺序合理、可见焦点、Esc返回、无焦点陷阱",
+      "edition": "both",
+      "category": "accessibility",
+      "evidence": [
+        "m6-layout.spec.ts T32b 'keyboard navigation, tab/menu focus, split adjustment and nested error location' — 2026-10-28 passed (3.0s)",
+        "keyboard-scope.json 覆盖 Enter/Tab/Esc/分栏/错误焦点在 390/1440 两宽的完整导航链",
+        "所有页面 -axe.json WCAG A/AA 通过，无 keyboard trap",
+        "ToolsPage.test.tsx 'lists the real session catalog, searches it, and opens independent documents with keyboard navigation'"
+      ]
+    },
+    {
+      "id": "A45",
+      "title": "中文/英文正式组件字号：正文 14、辅助 12、最低 11、页标题 24、工作区标题 16，不复制原型过小字号",
+      "edition": "both",
+      "category": "typography",
+      "evidence": [
+        "layout-metrics.json 20 组全 bodySize: 14, minimumTextSize: 14",
+        "D10 已确认 token 体系：正文 14、辅助 12、最低 11、页标题 24、工作区标题 16",
+        "所有中英×亮暗×四宽截图目视字号层级正确，不存在原型过小字号"
+      ]
+    },
+    {
+      "id": "A60",
+      "title": "从登录连续走到邀请、服务、环境、调用、历史、保存、恢复（仅云版）：邀请身份修复仍回原邀请且需手动接受；流程进度对应同一连接/Run；上传失败未完成；恢复新 Tab 未执行；无整段刷新伪造进度",
+      "edition": "cloud",
+      "category": "full-flow",
+      "evidence": [
+        "m6-flow.spec.ts T33 'real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration' — 2026-10-28 passed (8.4s)",
+        "m6-flow.spec.ts T31/T33 'failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions' — 2026-10-28 passed (4.6s)",
+        "m6-flow.spec.ts T33 'a real failed Tool Run remains failed and cannot complete the history/save steps' — 2026-10-28 passed (3.5s)",
+        "continuous-journey.json 记录 identityRepair: Real new account verification returned to same invitation; explicit acceptance required + restoration: New unexecuted Tab; no additional MCP tools/call"
+      ]
+    }
+  ]
+}

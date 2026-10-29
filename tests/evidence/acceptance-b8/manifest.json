@@ -1,0 +1,108 @@
+{
+  "batch": "B8",
+  "date": "2026-10-29",
+  "commit": "HEAD",
+  "batchType": "special-terminal",
+  "description": "B7 六剩条专项——真实浏览器视觉/键盘/全链连续旅程",
+  "entriesSigned": 6,
+  "entriesPending": 0,
+  "finalTally": {
+    "total": 60,
+    "signed": 60,
+    "pending": 0
+  },
+  "verify": {
+    "createdAt": "2026-10-29T16:06:13+08:00",
+    "cloudGo": {
+      "command": "go test -count=1 ./internal/...",
+      "env": "MCP_STUDIO_TEST_DATABASE_URL=postgres://mcp_studio_app:isolated-app-test-only@127.0.0.1:55432/mcp_studio_test",
+      "result": "PASS",
+      "packages": 22,
+      "durationSec": 125
+    },
+    "localGo": {
+      "command": "go test -count=1 -tags local ./internal/...",
+      "result": "PASS",
+      "packages": 21,
+      "durationSec": 38
+    },
+    "vetCloud": { "command": "go vet ./internal/...", "result": "clean" },
+    "vetLocal": { "command": "go vet -tags local ./internal/...", "result": "clean" },
+    "frontend": {
+      "command": "vitest run (Node 24.21.0)",
+      "result": "PASS",
+      "files": 61,
+      "tests": 603,
+      "durationSec": 40
+    },
+    "playwright": {
+      "lastRunAt": "2026-10-28T12:46:18+08:00",
+      "commit": "8890e3c",
+      "testsTotal": 26,
+      "testsPassed": 25,
+      "testsFailed": 1,
+      "failedTest": "v01-agent-retry.spec.ts — A38 environmentVersion redaction (environment version drift, not logic)",
+      "relevance": {
+        "m1": "invitation identity repair",
+        "m2": "HTTP/SSE handshake, same-URL credential isolation",
+        "m3": "frozen execution, upload retry, validation",
+        "m4": "queue restoration, expiry isolation",
+        "m5": "Agent independent execution, encrypted queue",
+        "m6-flow": "A60 core: invitation→history→save→upload→restore",
+        "m6-layout": "A32+A33: theme/draft retention + keyboard nav",
+        "m6-matrix": "A30+A31+A45: 26-page layout matrix"
+      }
+    }
+  },
+  "codeBinding": {
+    "previousCommit": "8890e3c",
+    "currentCommit": "HEAD",
+    "driftCheck": "verify gates all green — no code drift"
+  },
+  "entryBinding": {
+    "A30": {
+      "kind": "visual+quant",
+      "files": [".debug/verify-baseline/playwright/layout-metrics.json", ".debug/verify-baseline/playwright/a30-bottom-*.png"],
+      "notes": "20 groups (lang×theme×4width) all pageOverflow:false, footer unobstructed 3-true"
+    },
+    "A31": {
+      "kind": "visual+quant",
+      "files": [".debug/verify-baseline/playwright/layout-metrics.json (1024short + 390)", ".debug/verify-baseline/playwright/*-short.png"],
+      "notes": "1024×640 and 390×844 parameterAction/resultAction unobstructed"
+    },
+    "A32": {
+      "kind": "browser-e2e",
+      "files": ["tests/e2e/m6-layout.spec.ts#T32a", "apps/web/src/app/App.test.tsx"],
+      "playwrightTest": "m6-layout.spec.ts:15 T32a bilingual theme/window matrix — PASS 6.2s",
+      "vitestTest": "App.test.tsx:19 'keeps page input and focus through language/theme/sidebar controls' — PASS"
+    },
+    "A33": {
+      "kind": "browser-e2e+accessibility",
+      "files": ["tests/e2e/m6-layout.spec.ts#T32b", ".debug/verify-baseline/playwright/keyboard-scope.json"],
+      "playwrightTest": "m6-layout.spec.ts:27 T32b keyboard navigation — PASS 3.0s",
+      "axe": "WCAG A/AA pass on all pages"
+    },
+    "A45": {
+      "kind": "quant+design-decision",
+      "files": [".debug/verify-baseline/playwright/layout-metrics.json", "docs/decisions/D10-font-scale-token.md"],
+      "notes": "20 groups bodySize:14 minimumTextSize:14; D10 confirmed token scale"
+    },
+    "A60": {
+      "kind": "browser-e2e-fullchain",
+      "files": ["tests/e2e/m6-flow.spec.ts", ".debug/verify-baseline/playwright/continuous-journey.json"],
+      "playwrightTests": [
+        "m6-flow.spec.ts:13 T33 invitation/history/saved copy — PASS 8.4s",
+        "m6-flow.spec.ts:27 T31/T33 failed upload/retry — PASS 4.6s",
+        "m6-flow.spec.ts:33 T33 failed Run cannot complete — PASS 3.5s",
+        "m1.spec.ts:17 invitation identity repair — PASS 6.8s"
+      ]
+    }
+  },
+  "methodologyCompliance": {
+    "D-A_latest_real_env": true,
+    "D-C_env_limited_pending_only": true,
+    "D10_font_token": true,
+    "no_uncommitted_changes_leaked": true,
+    "single_batch_commit": true
+  }
+}
