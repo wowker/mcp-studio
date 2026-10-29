@@ -661,3 +661,17 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 限制：A50 路径枚举不覆盖所有可能的新命名（架构约束兜底）；A04/A10 云版无 Go handler 证据（前端层处理 + 方法论认可）；单机版 authMode 仅支持 none（无 OAuth/Agent 后端，范围校验由云版 Go 测试覆盖）。
 
 签收：CSV 逐条「待验收 → 已签收」10 条（A03、A04、A08、A09、A10、A43、A49、A50、A51、A52）；A01–A60 累计已签收 24 / 待验收 36。下一批 B3（M3，18 条——连接管理、Tab/Run、凭据与 Vault、敏感派生阻断等），待用户确认后开始。
+
+## 2026-10-29 · B3 调试与记录批次出口（18 条签收）
+
+范围：B3 批次 18 条——A11–A21、A23、A34、A44、A46、A53、A54、A59（全部两版）。证据 `tests/evidence/acceptance-b3/`（expectations.json、coverage-map.md、review.md、manifest.json、云版 Go 日志、单机版 Go 日志、前端 runtime 日志）。B3 业务逻辑 E 系列未触及，V01 旧证据可辅助引用但不抵扣；现有 Go/前端测试在当前代码版本上全绿即为有效证据（方法论 D-C）。
+
+预期核对：从 06 清单逐条取正式文本（行 80–90/92/103/113/115/127–128/133），登记 `expectations.json`。覆盖映射确认 A11–A14、A34 为前端 UI 行为（Go 层无对应 handler），由前端 SchemaArgumentEditor/argumentDraft/ToolDocumentTabs 覆盖；A17–A21/A23/A44/A46/A53/A54/A59 为后端 records/record_lifecycle/revision 逻辑，由 records_test.go（20 函数）+ record_lifecycle_test.go（8 函数）全覆盖。
+
+实际验证：云版 `go test -count=1 ./internal/platform/` exit 0（97.7s，真实 PG 55432）；单机版同命令加 `-tags local` exit 0（1.4s）；`go vet` 两标签干净；前端 8 文件 B3 相关测试（SchemaArgumentEditor 13 + argumentDraft 8 + runtime/execution 15 + ToolExecution 8 + ToolDocumentTabs 2 + RecordsPage 11 + RecordStates 3 + RecordEditors 13）在 Node 24.21.0 下 73 test 全过。**本批次不新增 Go 专属断言**——现有测试覆盖充分。
+
+只读审阅：`tests/evidence/acceptance-b3/review.md`——Critical 0 / Important 0 / Minor 2。Minor-1：A15 cancel race 无 Go 显式断言，依赖平台后端同一 RunID 原子拒绝和 Agent 进程层实现；Minor-2：A11–A14/A34 单机版前端 UI 行为由共享前端套件承担（方法论 D-B 认可）。
+
+限制：Agent cancel race 在 B5（Agent 与授权批次）独立验收；前端 UI 行为 jsdom 等价性由方法论 D-B 认可。
+
+签收：CSV 逐条「待验收 → 已签收」18 条（A11、A12、A13、A14、A15、A16、A17、A18、A19、A20、A21、A23、A34、A44、A46、A53、A54、A59）；A01–A60 累计已签收 42 / 待验收 18。下一批 B4（队列与生命周期，5 条——A38–A40、A47、A48，A38/A48 仅云版，A39/A40/A47 两版），待用户确认后开始。

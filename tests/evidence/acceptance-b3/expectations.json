@@ -1,0 +1,38 @@
+{
+  "format": "mcp-studio.acceptance-batch-expectations.v1",
+  "batch": "B3",
+  "batchName": "调试与记录（M3）",
+  "date": "2026-10-29",
+  "baseline": {
+    "commit": "97ba2e7",
+    "evidence": "tests/evidence/acceptance-b3/",
+    "note": "验收基线为当前 main（B1+B2 签收后）；业务逻辑 E 系列未触及，现有 Go/前端测试在当前代码版本上全绿即有效，V01 证据可辅助引用但不抵扣（方法论 D-C）"
+  },
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "items": [
+    {"id":"A11","line":80,"scenario":"嵌套可选项含默认值、focus / blur、取消 skip","formalExpected":"初始全部跳过；无编辑不误报；执行时全量校验","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A12","line":81,"scenario":"输入 0 / false / null / 空串 / 空数组","formalExpected":"按各自语义与 Schema 校验，不能自动省略或变 0","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A13","line":82,"scenario":"Raw 语法错误，再合法但 Schema 不符","formalExpected":"原文保留；语法错不能回结构 / 执行；Schema 错可回结构纠正","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A14","line":83,"scenario":"点击嵌套数组错误路径","formalExpected":"展开祖先、聚焦正确字段；当前 Tab 草稿不丢失","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A15","line":84,"scenario":"执行后改参数、双击执行、取消后迟到返回","formalExpected":"快照冻结、无重复调用、取消不被改成成功","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A16","line":85,"scenario":"业务错误 / JSON-RPC error / 401 / 无响应","formalExpected":"正确分类及协议详情；无虚构 HTTP 成功","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A17","line":86,"scenario":"工具内历史与总历史来回切换","formalExpected":"工具范围始终限定项目 + 连接 + 工具；各自筛选和分页保留","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A18","line":87,"scenario":"恢复含 0 / false / null / 脱敏字段的历史","formalExpected":"新未执行 Tab；显式值保留；脱敏顶层项移除并提示；不覆盖旧草稿","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A19","line":88,"scenario":"调用成功但上传失败，改草稿后重试","formalExpected":"成功结果保留；仅原 ID / 原快照上传，无新 Run","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A20","line":89,"scenario":"保存请求、保存请求响应、编辑元数据、清理历史","formalExpected":"两种内容清楚；快照不变；保存与来源生命周期独立","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A21","line":90,"scenario":"上传中删除 / 双击重试 / 清理失败项","formalExpected":"不并行修改；清理跳过上传失败、待上传、固定项","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A23","line":92,"scenario":"默认复制、保存、上传嵌套秘密及响应回显","formalExpected":"一致脱敏；自定义路径有效性校验；自动规则不可关闭","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A34","line":103,"scenario":"复制 / 固定 / 移动 / 批量关闭工具 Tab","formalExpected":"命令只作用目标；固定和运行项保护；复制无运行结果","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A44","line":113,"scenario":"Schema 错草稿、组合 Schema、远程引用","formalExpected":"合法 JSON 可存私有未完成草稿，不可发布 / 执行；不能无损表单化时用 JSON；不自动请求远程引用","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A46","line":115,"scenario":"上传后追加脱敏、关联保存副本与二进制","formalExpected":"修订权限准确、关联缓存同步；审计不存秘密原文；无法可靠脱敏时只传元数据","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A53","line":127,"scenario":"保存来自已上传、上传失败或 Agent Run 的调用","formalExpected":"新保存 ID、时间、上传快照和浏览器责任端独立；保留来源关联；不继承来源上传缓存 / 丢弃状态；原 Run 不变","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A54","line":128,"scenario":"改名称 / 备注 / 范围后保存，失败再重试","formalExpected":"保存记录 ID 与请求响应不变；新修订含新元数据；该修订重试保持同操作身份 / 摘要，不上传旧名称，不制造新 Run","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A59","line":133,"scenario":"给记录 A 填脱敏原因，切 B 再回 A，修订失败后重试","formalExpected":"表单按项目 + 记录隔离；失败保留对应输入；只提交目标修订，关联副本按规则更新，无另一记录原因串入","editions":"两版","evidenceDuty":["cloud","local"]}
+  ],
+  "counts": {"total":18,"cloudOnly":0,"bothEditions":18},
+  "fixtureRequirements": {
+    "cloud":"真实 PG + 前端 runtime/feature 测试 + records/record_lifecycle 全量 Go 测试",
+    "local":"apps/local 形态 + 同一套 Go 测试（-tags local）+ 回环 HTTP 断言",
+    "toolchain":"Node 24.x + Go 1.25.5 + 真实 PG 55432"
+  }
+}
