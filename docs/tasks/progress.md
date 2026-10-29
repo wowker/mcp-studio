@@ -983,3 +983,82 @@ Playwright 基线 Oct 28（results.json + layout-metrics.json mtime）commit 在
 - v01-agent-retry 1/33 failed 是已知 A38 环境版本差异，非逻辑 bug
 
 ### 签收：无新增状态（深度审阅）
+
+## B12 出口（2026-10-29）
+
+**批次类型**：深度审阅（deep-dive）—— 前端 runtime 12 files / 251+ tests 逐函数名 + App Shell 27 tests
+**范围**：B11 Frontend 61 files 结构的下沉——从模块级深入到 test-level 覆盖边界
+
+### 修改
+- `tests/evidence/acceptance-b12/expectations.json` — Frontend runtime 四维 + App Shell
+- `tests/evidence/acceptance-b12/coverage-map.md` — Runtime 12 files / 251+ tests + App Shell 逐函数名
+- `tests/evidence/acceptance-b12/review.md` — Critical/Important/Minor 分级
+- `tests/evidence/acceptance-b12/manifest.json` — 完整 JSON 快照
+- `docs/tasks/progress.md` — 本出口节
+
+### 验证（4 道门全绿）
+- Go 云版 `./internal/...`：22 包 exit 0
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files 603 tests passed
+
+### B12 独有证据（B1–B11 都只有 file-level 数量）
+
+#### Runtime 12 Files / 251+ Tests — 按大小排序
+| 文件 | Tests | B11 提过？ | 关键覆盖 |
+|------|-------|-----------|---------|
+| **schema/interpreter** | **74** | ❌ | JSON Schema 2020 全边界 + draft07 + regex DAG budget + no remote schema fetch |
+| records/redaction | 36 | ❌ | 嵌套 secrets + pointer inherit reject + `__proto__` own data + embedded credential URL |
+| browser-session | 58 | ✅ | credential echo 三处位置 reject + CSP safe output + transport failure classification |
+| records/queueStorage | 29 | ❌ | **上传冻结核心**——capacity block + stale owner reject + two-queue serial + quarantine corrupt |
+| records/operations | 14 | ❌ | double submit one upload + retry original body + metadata freeze + redact reason |
+| execution/index | 15 | ✅ | Tab sync lock + local validation blocks Run + credential_rejected vs transport loss |
+| records/canonical | 9 | ❌ | Unicode code points + decimal JSON + versioned content hash |
+| schema/index | 5 | ❌ | Worker isolation + CPU budget terminate + no raw exception leak |
+| records/snapshot | 1 | ❌ | Agent 64-hex version hash masking |
+
+#### Records 子模块（5 files / 90 tests）
+```
+records/
+├── queueStorage    (29) ← 上传冻结核心
+├── redaction      (36) ← 凭据脱敏核心
+├── operations     (14) ← 上传操作 + metadata
+├── canonical       (9) ← Unicode + decimal
+└── snapshot        (1) ← Agent hash masking
+                       -----
+                       90 tests
+```
+
+#### Schema 子模块（2 files / 79 tests）
+```
+schema/
+├── interpreter (74) ← JSON Schema 核心安全边界
+└── index        (5) ← Worker 隔离 + CPU budget
+                       -----
+                       79 tests
+```
+
+#### App Shell 27 Tests 核心边界
+- language/theme/sidebar 保持 page input + focus
+- session expiry → unmount project context（不是 signout）
+- **late initial session 401/success after newer identity → ignored**（stale identity 防护核心）
+- bootstrap failure → working retry（no endless loading）
+- stale project response capabilities hidden
+- CSRF refresh + team permission refresh on forbidden changes
+- Viewer project switch → keeps other project tool document
+
+### Deep-dive 批次累积（B10→B12）
+
+| 批次 | 深入到 | 累计函数/测试名 |
+|------|--------|----------------|
+| B10 | Agent 11 包 + backup/credentials | ~50 Go 函数 |
+| B11 | Platform 131 + Playwright 14 + Layout Metrics 37 | 131 Go + 33 E2E |
+| B12 | **Frontend runtime 251+ tests + App Shell 27** | **278+ TS tests** |
+
+**Deep-dive 总产出**：**Go 181+ functions + TS 278+ tests** = **459+ 可追溯边界**。
+
+### 限制
+- B12 无新增 signed 状态变更——纯 deep-dive，质量保障层
+- 另有 3 个 runtime 文件（connections/session/runtimeStore）没逐函数拉清单，但 B11 已确认存在且 vitest exit 0
+
+### 签收：无新增状态（深度审阅）

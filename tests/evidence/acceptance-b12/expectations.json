@@ -1,0 +1,55 @@
+{
+  "batch": "B12",
+  "title": "前端 runtime 逐测试函数名全清单 — browser-session 58 / execution 15 / records 5 files / schema 2 files",
+  "createdAt": "2026-10-29",
+  "mode": "deep-dive",
+  "previousBatch": "B11",
+  "frontendRuntime": {
+    "totalFiles": 12,
+    "totalTests": "251+",
+    "largestFile": "schema/interpreter.test.ts — 74 tests",
+    "secondLargest": "records/redaction.test.ts — 36 tests",
+    "thirdLargest": "records/queueStorage.test.ts — 29 tests",
+    "browser-session.test.ts": {
+      "tests": 58,
+      "coverage": "SDK tool listing over streamable-http + SSE / credential echo rejection in tool name+description+schema / output schema discovery / call classification / connection credential freeze / transport failure classification / CSP-safe output compiler / call cancellation + late response handling / HTTP 401+403 preservation ahead of SDK closed-connection / malformed SDK result safe classification / raw RPC error context private"
+    },
+    "execution/index.test.ts": {
+      "tests": 15,
+      "coverage": "Tab synchronous lock before async schema validation / local validation blocks Run creation / scoped authority+policy required / call cancellation without late success / tool business failure vs invalid structured output distinction / request size recheck after env expansion / upstream definition refresh + removed tool rejection / project-only revocation / RPC rejection known classification / selected Run cache invalidation / oversized response retention omission + bounded output / identity clear cancels pending calls / credential_rejected vs generic transport loss / authorization_denied vs generic transport loss / RPC summary in transient outcome + request-source redaction"
+    },
+    "records/interpreter.test.ts (schema)": {
+      "tests": 74,
+      "coverage": "JSON Schema 2020 unevaluated-properties/prefix-items/contains-count / dependent-required/schema / conditional-branch / embedded-relative-ref + recursive-local-ref + dynamic-recursive-ref + anchor-local-ref / draft07-tuple + draft07-dependencies / format-annotation + unknown-format/keyword + remote-reference / custom-vocabulary / unsupported-dialect / regex-lookaround/backreference/portable + regex-portable semantics / regex-space/dot/posix/dot-literal parity / reference DAG budget + same-instance ref cycle rejection + structural-recursion-supported / regex-pattern-budget + cross-engine-escape / multipleof-small/decimal-exact/negative-exact/epsilon-below/epsilon-above/integer / 2020-definitions-ref / draft07-alias-no-fragment / binary64-unsafe-integer/decimal-normalized/bounded-underflow-zero / regex cross-engine semantics / regex escaped literal dot / decimal exact 5e-8 0.3 1.00000005 1.19e-7 etc / shared bounded 4096 node cap for request JSON / no remote schema fetching"
+    },
+    "records/queueStorage.test.ts": {
+      "tests": 29,
+      "coverage": "frozen body reload + revision etag retry / suspension without deletion + explicit logout discards owner / storage fallback + no false recorded claim / corrupted hydration rejection / capacity blocks admission + completed inflight as explicit loss risk / stale owner submission rejection + revoked project pause / latest project authorization on retry / memory retention removes durable payload by explicit choice / reuses original save etag + version / two queue instances one operation serial / suspended queue completed run + project retry on access restoration / mode + read failure exposure / 100 MiB UTF8 byte count + exact duplicate at limit / invalid receipt leaves frozen queue retryable / reload preserves failed queues 7 days + crash tab lease expiry / memory mode completed-over-capacity with explicit loss risk / persistent-mode rehydration preserves revocations / quarantines schema-valid digest-corrupt without revealing / memory fallback when storage recovers / failed cleanup preserves frozen queues / delayed persistent rebind cannot restore previous owner"
+    },
+    "records/operations.test.ts": {
+      "tests": 14,
+      "coverage": "request source + echoed response redaction / new save distinct identity + original executor attribution / double submit one upload / retry same operation original body / same operation different digest rejection / freeze metadata revisions + redact reason / identity clear during digest computation safe / default source redaction metadata echo removal / project rules with transport sanitizer / additional-redaction targeted source values / explicit discard failed ops / source secrets provenance+annotation cannot echo / upload wrapping provenance sanitization before source values gone / captured credentials remain redacted in new metadata"
+    },
+    "records/redaction.test.ts": {
+      "tests": 36,
+      "coverage": "nested source echoes + credentials + email + URL protection + keep explicit falsy / escaped pointer + schema-free binary metadata / restore omit top-level markers + preserve literal marker strings + explicit values / inherited JSON pointer rejection + __proto__ as own data / derived secret echo protection / secret URL protection / public query kept / nested marker literal / proto-own-data / invalid pointer / source-tainted false / phone number echo / short SK text / key boundary union / bearer whitespace union / whole HTTP scheme URL secret / browser alias source protection / embedded credential URL / empty URL userinfo / default empty URL userinfo / key substring derived echo / query substring credential / bearer whitespace union / whole HTTP URL / derived echo collection before typed marker tainting / pre-existing browser alias protection retained"
+    },
+    "records/canonical.test.ts": {
+      "tests": 9,
+      "coverage": "Unicode code point canonicalization / decimal JSON text preserved / versioned content hash without digest field"
+    },
+    "records/snapshot.test.ts": {
+      "tests": 1,
+      "coverage": "Agent 64-hex version hash masking before saving source Run"
+    }
+  },
+  "appShell": {
+    "file": "app/App.test.tsx",
+    "tests": 27,
+    "coverage": "language/theme/sidebar keep page input+focus / session expiry unmount project context / stale project response capabilities hidden / forbidden write recheck project capability (no signout) / server idle deadline recheck on activity / mailbox verification enables project loading / team permission refresh on forbidden changes / stale CSRF refresh keep project draft / 401 then different account before scope load / stale personal authorization form hidden / Viewer project keep other tool document / bootstrap failure with retry (no endless loading) / unavailable project scoped return action / session deadline bootstrap refresh fail hide expired content + recovery / late initial 401 after newer identity ignored / late initial success after newer identity ignored / no invitation → canonical invalid invitation path / anonymous sign in when 401 before bootstrap / obsolete refresh 401 does not expire newer check"
+  },
+  "methodology": {
+    "D_A_latest_real_env": "B11 Playwright Oct 28 baseline + B12 4 gates green = code has not drifted",
+    "deepDiveValue": "从 'runtime 12 files' → 逐文件测试函数名 + 每函数覆盖边界说明（browser-session 58 / execution 15 / records 5 files 90 tests / schema 2 files 79 tests = runtime 251+ total）"
+  }
+}

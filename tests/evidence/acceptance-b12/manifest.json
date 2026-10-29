@@ -1,0 +1,40 @@
+{
+  "batch": "B12",
+  "date": "2026-10-29",
+  "commit": "HEAD",
+  "batchType": "deep-dive",
+  "previousBatch": "B11",
+  "description": "Frontend runtime 251+ tests 逐函数名全清单 + App Shell 27 tests — 从 module-level 深入到 test-level 覆盖边界",
+  "frontendRuntime": {
+    "totalFiles": 12,
+    "totalTests": "251+",
+    "largestFile": { "name": "schema/interpreter.test.ts", "tests": 74 },
+    "recordsSubmodule": {
+      "queueStorage": 29,
+      "redaction": 36,
+      "operations": 14,
+      "canonical": 9,
+      "snapshot": 1,
+      "total": 90
+    },
+    "schemaSubmodule": {
+      "interpreter": 74,
+      "index": 5,
+      "total": 79
+    },
+    "browserSession": 58,
+    "executionIndex": 15,
+    "appShell": 27
+  },
+  "verify": {
+    "cloudGo":  { "packages": 22, "result": "PASS" },
+    "localGo":  { "packages": 21, "result": "PASS" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "result": "PASS" }
+  },
+  "methodology": {
+    "D_A_latest_real_env": "B11 Playwright Oct 28 baseline + B12 4 gates green = code has not drifted",
+    "deepDiveValue": "B10: ~50 Go agent functions; B11: 131 platform + 33 E2E + 37 metrics; B12: 251+ TS runtime tests = 所有前端核心边界函数名可追溯"
+  }
+}
