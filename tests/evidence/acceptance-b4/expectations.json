@@ -1,0 +1,25 @@
+{
+  "format": "mcp-studio.acceptance-batch-expectations.v1",
+  "batch": "B4",
+  "batchName": "队列与生命周期（M4）",
+  "date": "2026-10-29",
+  "baseline": {
+    "commit": "c95cd8f",
+    "evidence": "tests/evidence/acceptance-b4/",
+    "note": "验收基线为当前 main（B1–B3 签收后）；B4 业务逻辑 E 系列未触及，现有 Go/前端测试在当前版本全绿即有效（方法论 D-C）"
+  },
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "items": [
+    {"id":"A38","line":107,"scenario":"Developer 固定、重试他人记录、降级 Viewer","formalExpected":"仅维护者可固定；本人执行角色仅重试本人责任端队列；Viewer 可见私有记录只读","editions":"仅云版","evidenceDuty":["cloud"]},
+    {"id":"A39","line":108,"scenario":"浏览器刷新、Agent 执行时关闭页面、平台离线","formalExpected":"浏览器仅恢复脱敏队列；Agent 可完成已获准调用；新项目调用受阻；每 Run 单一责任端","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A40","line":109,"scenario":"同 ID 不同摘要、队列满、退出有待上传记录","formalExpected":"冲突不覆盖；不静默丢弃；阻止新调用并给出处理入口；退出先提示","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A47","line":116,"scenario":"保留期、超限、固定 / 保存和队列滞留","formalExpected":"90 天历史；固定 / 保存计容量且不自动清理；1 MiB 请求 / 10 MiB 响应标识准确；5 GiB 配额；失败队列只提醒","editions":"两版","evidenceDuty":["cloud","local"]},
+    {"id":"A48","line":117,"scenario":"移除成员后私有记录及凭据备份","formalExpected":"立即失去访问；私有封存 30 天；重加同身份可恢复记录但不自动恢复凭据；在线备份删除","editions":"仅云版","evidenceDuty":["cloud"]}
+  ],
+  "counts": {"total":5,"cloudOnly":2,"bothEditions":3},
+  "fixtureRequirements": {
+    "cloud":"真实 PG + 前端队列/runtime 测试 + records/record_lifecycle/membership/credentials 全量 Go 测试",
+    "local":"apps/local 形态 + Go 测试 -tags local（A39/A40/A47 两版）；A38/A48 仅云版单机版不要求",
+    "toolchain":"Node 24.x + Go 1.25.5 + 真实 PG 55432"
+  }
+}

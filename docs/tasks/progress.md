@@ -675,3 +675,17 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 限制：Agent cancel race 在 B5（Agent 与授权批次）独立验收；前端 UI 行为 jsdom 等价性由方法论 D-B 认可。
 
 签收：CSV 逐条「待验收 → 已签收」18 条（A11、A12、A13、A14、A15、A16、A17、A18、A19、A20、A21、A23、A34、A44、A46、A53、A54、A59）；A01–A60 累计已签收 42 / 待验收 18。下一批 B4（队列与生命周期，5 条——A38–A40、A47、A48，A38/A48 仅云版，A39/A40/A47 两版），待用户确认后开始。
+
+## 2026-10-29 · B4 队列与生命周期批次出口（5 条签收）
+
+范围：B4 批次 5 条——A38、A39、A40、A47、A48。其中 A38、A48 为**仅云版**（单机版无团队角色校验、无凭据备份系统）；A39、A40、A47 为两版。证据 `tests/evidence/acceptance-b4/`（expectations.json、coverage-map.md、review.md、manifest.json、前端队列日志）。B4 业务逻辑 E 系列未触及，V01 旧证据可辅助引用；现有 Go/前端测试在当前代码版本上全绿即为有效证据（方法论 D-C）。
+
+预期核对：从 06 清单逐条取正式文本（行 107–109/116–117），登记 `expectations.json`。覆盖映射确认：A38 由 v01_developer_pin_test.go（pin 权限边界）覆盖；A39 由 records_test.go 原子拒绝 + agent_auth grant 机制 + 前端 operations 队列状态机覆盖；A40 由 TestRecordUploadAtomicReplayScopeAndRedaction（同 ID 不同 digest 409）+ queue queue_full/operation_conflict 错误码 + 前端 queueStorage/operations 覆盖；A47 由 record_lifecycle_test.go（90 天 sweep、pinned/saved 保留）覆盖；A48 由 record_lifecycle_test.go（成员移除归档）+ credentials_test.go（凭据备份删除）+ membership_test.go（团队级归档）覆盖。
+
+实际验证：Go 全量云版 97.7s exit 0 / 单机版 1.4s exit 0（复用 B3 门禁，同一份代码）；`go vet` 两版干净；前端 B4 队列相关 2 文件（operations.test.ts 14 + queueStorage.test.ts 29）43 test 全过。**本批次不新增 Go 专属断言**。
+
+只读审阅：`tests/evidence/acceptance-b4/review.md`——Critical 0 / Important 0 / Minor 1。Minor-1：A39 Agent 执行时关闭页面由 agent_auth grant 机制间接覆盖，无 Go 显式断言，Agent 进程层在 B5 独立验收。
+
+限制：A39 Agent 进程层验收留 B5；A38/A48 仅云版（单机版无团队角色/凭据备份系统）。
+
+签收：CSV 逐条「待验收 → 已签收」5 条（A38、A39、A40、A47、A48）；A01–A60 累计已签收 47 / 待验收 13。下一批 B5（Agent 与授权，5 条两版），待用户确认后开始。

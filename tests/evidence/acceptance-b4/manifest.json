@@ -1,0 +1,38 @@
+{
+  "format": "mcp-studio.acceptance-evidence-manifest.v1",
+  "batch": "B4",
+  "batchName": "队列与生命周期（M4）",
+  "date": "2026-10-29",
+  "baselineCommit": "c95cd8f",
+  "codeCommit": "PENDING",
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "methodology": "docs/tasks/acceptance-methodology.md",
+  "batchPlan": "docs/tasks/acceptance-batches.md",
+  "signedOff": ["A38", "A39", "A40", "A47", "A48"],
+  "evidenceDuty": {
+    "cloud": ["A38", "A39", "A40", "A47", "A48"],
+    "local": ["A39", "A40", "A47"]
+  },
+  "files": [
+    "expectations.json",
+    "coverage-map.md",
+    "review.md",
+    "manifest.json",
+    "frontend-b4.log"
+  ],
+  "gates": {
+    "goPlatformCloud": {"command": "go test -count=1 ./internal/platform/", "result": "pass", "duration": "97.7s (reused from B3)", "log": "acceptance-b3/go-cloud-platform.log"},
+    "goPlatformLocal": {"command": "go test -count=1 -tags local ./internal/platform/", "result": "pass", "duration": "1.4s (reused from B3)", "log": "acceptance-b3/go-local-platform.log"},
+    "vetCloud": {"command": "go vet ./internal/platform/", "result": "pass", "note": "B4 运行，干净"},
+    "vetLocal": {"command": "go vet -tags local ./internal/platform/", "result": "pass", "note": "B4 运行，干净"},
+    "frontend": {"command": "vitest run (B4 2 files)", "node": "24.21.0", "result": "pass", "tests": 43, "log": "frontend-b4.log", "coverage": "operations.test.ts(14)+queueStorage.test.ts(29)"},
+    "fullBaseline": {"path": "tests/evidence/acceptance-baseline/manifest.json", "commit": "fff4f9b"}
+  },
+  "testDatabase": "postgres://mcp_studio_app@127.0.0.1:55432/mcp_studio_test (isolated Docker PG)",
+  "review": {"critical": 0, "important": 0, "minor": 1},
+  "newAssertions": 0,
+  "limitations": [
+    "A39 Agent 执行时关闭页面由 agent_auth grant 机制间接覆盖，无 Go 显式断言；Agent 进程层在 B5 独立验收",
+    "A38/A48 仅云版（单机版无团队角色校验、无凭据备份系统）"
+  ]
+}
