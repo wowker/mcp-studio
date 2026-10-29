@@ -1,0 +1,10 @@
+2026-10-29 16:26:18.143 CST [4110] LOG:  starting PostgreSQL 18.6 (Homebrew) on aarch64-apple-darwin25.6.0, compiled by Apple clang version 21.0.0 (clang-2100.3.34.2), 64-bit
+2026-10-29 16:26:18.143 CST [4110] LOG:  listening on Unix socket "/Users/wuwei/Library/Application Support/MCP Studio/.s.PGSQL.16432"
+2026-10-29 16:26:18.147 CST [4116] LOG:  database system was interrupted; last known up at 2026-10-29 16:24:43 CST
+2026-10-29 16:26:18.188 CST [4116] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-10-29 16:26:18.189 CST [4116] LOG:  invalid record length at 0/1CCBAC0: expected at least 24, got 0
+2026-10-29 16:26:18.189 CST [4116] LOG:  redo is not required
+2026-10-29 16:26:18.190 CST [4114] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-10-29 16:26:18.191 CST [4114] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CCBAC0, redo lsn=0/1CCBAC0
+2026-10-29 16:26:18.192 CST [4110] LOG:  database system is ready to accept connections
+2026/10/29 16:26:18 mcp-studio local edition listening on 127.0.0.1:8080

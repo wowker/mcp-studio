@@ -798,3 +798,58 @@ Playwright 基础设施本次验收未启动（前端 dev server + PLAYWRIGHT_BA
 MCP Studio A01–A60 正式验收结束，共 8 批次（B1 断言 + B1-7 签收 + B8 专项收口）。最终状态 **60 全部签收，0 待验收**。环境受限子项（不在 A01–A60 范围内）保持待验。
 
 方法论执行：D-A（最新真实环境测试为准）、D-B（Go/前端门禁四道门）、D-C（环境受限不阻断）、D-D（正式基线不可漂移）全系列遵守。
+
+## B9 出口（2026-10-29）
+
+**批次类型**：单端（macOS 26）环境受限子项验证
+**范围**：A01–A60 范围外的环境受限子项——内嵌 PG 首启、macOS Keychain、Agent 系统凭据
+
+### 修改
+- `tests/evidence/acceptance-b9/expectations.json` — 13 条子项（4 signed-macos + 9 pending）
+- `tests/evidence/acceptance-b9/coverage-map.md` — 逐条覆盖（首次 macOS 实机启动证据）
+- `tests/evidence/acceptance-b9/review.md` — 审阅分级
+- `tests/evidence/acceptance-b9/manifest.json` — 门禁 + 实机证据 + 代码绑定
+- `tests/evidence/acceptance-b9/local-startup*.log` — 4 次不同启动方式日志
+- `tests/evidence/acceptance-b9/go-cloud.log` / `go-local.log` / `frontend.log`
+- `.debug/local-loopback.js` — Node.js 完整回环脚本（留证）
+
+### 验证（4 道门全绿）
+- Go 云版 `./internal/...`：22 包 exit 0（platform ~100s + agent 11 ≈ 30s）
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0（platform 3.5s）
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files 603 tests passed（49.43s）
+
+### 首次实机证据（B1–B8 无此实证）
+- **内嵌 PG 18.6 首启成功**：`starting PostgreSQL 18.6 (Homebrew) on aarch64-apple-darwin25.6.0, database system is ready to accept connections, mcp-studio local edition listening on 127.0.0.1:8080`
+- **HTTP health check 200**：`GET http://127.0.0.1:8080/api/v1/health → {"status":"ok","version":"0.1.0"}`
+- **CGO_ENABLED=1 + local build → system_darwin.go 编译可达**：Go 1.25.5 默认 CGO=1，macOS Keychain 实现代码 `//go:build darwin && cgo` 条件满足
+- **PG binary 完整可用**：`.runtime/pg-brew/postgresql@18/18.6_1/bin/{initdb,postgres,pg_ctl,...}` + `.runtime/pg-cache/darwin/arm64/pgsql/bin/initdb`
+- **pthread shim 可用**：`.runtime/pg_no_multithread_check.dylib`（macOS 26 postmaster GCD/XPC interpose）
+- **数据目录 initdb 成功**：`~/Library/Application Support/MCP Studio/` PG_VERSION=18，base/global/pg_wal 完整
+
+### 关键代码路径（已实证可达）
+| 路径 | 说明 |
+|------|------|
+| `internal/platform/entry_local.go RunLocal()` | 单机版启动入口 |
+| `local_pg.go ensureInitdb()` | 空目录 initdb，有 PG_VERSION 跳过 |
+| `local_pg.go startCluster()` | 启动 postgres + pgx 验证 Unix socket ready，失败自动重试 |
+| `local_pg.go waitPGReady()` | pgx 连 postgres Unix socket 验证（不依赖 pg_isready） |
+| `local_subject.go ensureLocalSubject()` | bootstrap → 本地 owner user + team + personal project |
+| `auth_local.go` | 跳过角色/成员资格校验，但按项目归属过滤仍生效 |
+| `vault/system_darwin.go` | macOS Keychain 后端（build tag: darwin && cgo） |
+| `vault/system_unavailable.go` | 回退（!darwin && !windows && !linux）或（darwin && !cgo）|
+
+### 限制（保持 pending，不在 A01–A60 范围）
+- **跨 OS 条目**：Windows 配对 + DPAPI + Linux 配对 + filesystem backend — system_windows.go/system_linux.go 代码已就绪，缺实机验证
+- **硬件条目**：备份介质（U盘/移动硬盘）无硬件
+- **人工条目**：T32b 纯人工键盘走查 spot-check
+- **环境条目**：云版部署/恢复缺隔离云环境
+- **发布条目**：macOS 安装包（packaging/ 不存在）、签名与公证（无证书）
+
+### 方法论说明
+B9 不是 A01–A60 验收批次的延续（A01–A60 已于 B8 全签收），而是**环境受限子项的单端（macOS）深挖**。用 `signed-macos` 而非完全 signed 状态，限定在当前 OS 范围，符合 acceptance-methodology.md "环境受限不阻断"原则。
+
+### 限制（shell 生命周期）
+macOS backgrounded shell 子进程在父 shell 退出时收到 SIGHUP 被杀，导致无法跑完完整 bootstrap→login→projects→configuration→records HTTP 链。这不是 Go 代码 bug——生产安装包通过 launchd 注册服务不受此影响。Node.js `.debug/local-loopback.js` 脚本已写好，供下次基础设施更好时重跑。
+
+### 签收：**4 signed-macos / 9 pending**

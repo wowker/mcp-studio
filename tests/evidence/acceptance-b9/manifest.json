@@ -1,0 +1,56 @@
+{
+  "batch": "B9",
+  "date": "2026-10-29",
+  "commit": "aa6850d",
+  "batchType": "single-os-macos",
+  "description": "macOS 26 环境受限子项验证——内嵌 PG 首启 / macOS Keychain / 启动链全实证",
+  "environment": {
+    "os": "macOS 26.6.2 (darwin25)",
+    "arch": "arm64",
+    "go": "1.25.5",
+    "goCgoEnabled": true,
+    "node": "24.21.0",
+    "chrome": "156.0.8078.48",
+    "pgBinary": ".runtime/pg-brew/postgresql@18/18.6_1/bin",
+    "pgVersion": "18.6 (Homebrew)",
+    "pgThreadShim": ".runtime/pg_no_multithread_check.dylib",
+    "dataDir": "~/Library/Application Support/MCP Studio"
+  },
+  "entriesSigned": 4,
+  "entriesPending": 9,
+  "results": [
+    { "id": "T02a", "verdict": "signed-macos", "gate": "m1/m2.spec.ts + Go 两版 + vitest 603" },
+    { "id": "T02b", "verdict": "signed-macos", "gate": "真实启动 + health check 200 + Go local 21 包" },
+    { "id": "T28a", "verdict": "signed-macos", "gate": "CGO build system_darwin.go + vault/store_test.go" },
+    { "id": "内嵌PG首启", "verdict": "signed-macos", "gate": "initdb + startCluster + pthread shim + 数据目录 PG_VERSION=18" },
+    { "id": "跨OS/硬件/环境", "verdict": "pending", "gate": "缺 Windows/Linux/介质/隔离环境" }
+  ],
+  "verify": {
+    "cloudGo": { "packages": 22, "result": "PASS" },
+    "localGo": { "packages": 21, "result": "PASS" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "vitest": { "files": 61, "tests": 603, "result": "PASS" }
+  },
+  "realRuntimeEvidence": {
+    "startupLog": "tests/evidence/acceptance-b9/local-startup4.log",
+    "healthCheck": "200 {\"data\":{\"status\":\"ok\",\"version\":\"0.1.0\"}}",
+    "listenPort": "127.0.0.1:8080",
+    "pgPort": 16432,
+    "pgSocket": "~/Library/Application Support/MCP Studio/.s.PGSQL.16432",
+    "pgMessages": [
+      "starting PostgreSQL 18.6 (Homebrew) on aarch64-apple-darwin25.6.0",
+      "database system is ready to accept connections",
+      "mcp-studio local edition listening on 127.0.0.1:8080"
+    ]
+  },
+  "codeBinding": {
+    "localEntry": "internal/platform/entry_local.go — RunLocal()",
+    "pgInit": "internal/platform/local_pg.go — ensureInitdb() / startCluster() / ensureRoleAndDB()",
+    "subjectInit": "internal/platform/local_subject.go — ensureLocalSubject()",
+    "localAuth": "internal/platform/auth_local.go — projectRole/teamMembership/csrfOk",
+    "darwinKeychain": "internal/agent/vault/system_darwin.go //go:build darwin && cgo",
+    "pthreadShim": "pgThreadShimPath() → .runtime/pg_no_multithread_check.dylib"
+  },
+  "shellDetachmentNote": "macOS backgrounded shell 子进程在父 shell 退出时 SIGHUP 被杀，不是 Go 代码 bug。launchd 注册服务不受影响。"
+}

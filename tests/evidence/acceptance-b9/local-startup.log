@@ -1,0 +1,5 @@
+2026-10-29 16:23:38.026 CST [3714] LOG:  starting PostgreSQL 18.6 (Homebrew) on aarch64-apple-darwin25.6.0, compiled by Apple clang version 21.0.0 (clang-2100.3.34.2), 64-bit
+2026-10-29 16:23:38.026 CST [3714] LOG:  listening on Unix socket "/Users/wuwei/Library/Application Support/MCP Studio/.s.PGSQL.16432"
+2026-10-29 16:23:38.032 CST [3720] LOG:  database system was shut down at 2026-10-28 20:28:20 CST
+2026-10-29 16:23:38.035 CST [3714] LOG:  database system is ready to accept connections
+2026/10/29 16:23:38 mcp-studio local edition listening on 127.0.0.1:8080
