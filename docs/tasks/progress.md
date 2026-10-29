@@ -613,3 +613,32 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 验证：`go build -tags local`、两版 `go vet`、`go test -tags local ./internal/platform`（1.028s）全过；打包冒烟 6 项通过（13342ms）。
 
 限制：windows zip 格式处理器未实现（windows 目标不含 pg/，防御性补全待未来）；linux jar/windows zip 提取路径仍未经构建脚本实跑；macOS 签名/公证、真实介质首启、单机版凭据库仍为待验项。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。
+
+## 2026-10-29 · A01–A60 两版验收启动：方法论与切批确认
+
+范围：用户授权基于当前 main（fff4f9b，含 E00–E10）做两版正式验收；本节登记方法论与切批确认，不含任何条目签收。
+
+决策：用户确认 [两版验收方法论](acceptance-methodology.md) D-A～D-D——A60 单机版不另造改编版；两版项两版各自独立完整证据；历史 V01 证据在 E 系列触及领域重验、未触及领域仅辅助引用；15 条仅云版清单按 E01 标注确认。同日确认 [切批计划](acceptance-batches.md)：按牵头阶段 B1（M1，14 条）→ B2（M2，10 条）→ B3（M3，18 条）→ B4（M4，5 条）→ B5（M5，5 条）→ B6（M6，8 条）→ B7 总签收，计数 45 两版 / 15 仅云版与 E01 一致。
+
+工具链发现：本机 Node 升至 v26.11.1 后，vitest 3.2.7 的 jsdom 环境装配跳过 `localStorage`（Node 25+ 原生全局无 `--localstorage-file` 时为 undefined，`getWindowKeys` 命中 `k in global` 即跳过），前端 416/421 测试失败；失败证据 `tests/evidence/acceptance-baseline/verify-node26-failed.log`。门禁与冻结 manifest 一致使用 Node 24.21.0；Node 26 适配（升级 vitest 或钉 engines 上限）另行决策，不在本批范围。
+
+状态：基线 verify 在 Node 24.21.0 下完成，**exit 0 全绿**——前端 61 文件 603 测试、23 个 Go 具测试包真实 PG、两版构建与单机版冒烟、四目标 Agent、运维/部署、33 浏览器旅程；三段结论 cloud / local / all gates passed。证据 `tests/evidence/acceptance-baseline/`（1018 文件：835 PNG / 159 axe），manifest 绑定 fff4f9b + 工作区 89 项既有改动与工具链约束。基线达成，B1 起按切批计划执行。A01–A60 正式状态仍全部待验收、0 签收。
+
+## 2026-10-29 · B1 身份与协作批次出口（14 条签收）
+
+范围：B1 批次 14 条——A01、A02（两版）+ A22、A24–A28、A36、A37、A55–A58（仅云版）。证据 `tests/evidence/acceptance-b1/`（expectations.json、coverage-map.md、review.md、manifest.json、四份 Go 日志、前端日志、单机版回环 JSON）。E04 认证入口属 E 系列触及领域，全部重验，未引用 V01 旧证据签收。
+
+预期核对：从 06 清单逐条取正式文本（行 70/71/91/93–97/105/106/129–132），登记 `expectations.json`；覆盖映射初查发现 7 处云版子句仅间接覆盖、2 处单机版缺证据（A01/A02），均在批内补齐而非降低标准。
+
+新增证据（代码提交 0bfd1fe）：
+- 云版：`TestB1A01RetryAfterFailureCreatesSingleProject`、`TestB1A22ViewerCannotExecuteOrReadPrivateDetail`、`TestB1A28FailedRemovalRetriesToScopedSuccess`、`TestB1A36A58SessionExpiryPausesUploadsAndWrongAuthCannotRestore`、`TestB1A37TakeoverOwnerStillCannotReadOthersPrivateRecords`、`TestB1A55ProjectScopedUploadIgnoresCurrentScreenRole`。
+- 单机版：`TestB1LocalA01ProjectCreationValidationAndRetry`、`TestB1LocalA02ProjectScopedDataIsolation`（`-tags local`，独立 schema，复用既有 `prepareLocalFixture` 夹具，额外项目一律走产品接口）；`scripts/acceptance-b1-local.mjs` 启动真实 `apps/local` 二进制 + 内嵌 PG，回环 HTTP 复验 A01/A02，并显式断言项目归属过滤仍生效（方法论 R3/R4）。
+- 夹具整理：`frozenUpload`/`freezeUpload`/`httpConfiguration` 移到无构建标签的 `record_fixtures_test.go`，两版共用（原位置仅在 !local 生效）。
+
+实际验证：云版 `go test -count=1 ./internal/platform/` exit 0（94.6s，真实 PG 55432）；单机版同命令加 `-tags local` exit 0；`go vet` 两标签干净；前端 `App.test.tsx` + `Projects.test.tsx` 在 Node 24.21.0 下 21 test 通过；单机版回环旅程 5 组断言通过。全量两版基线仍以 `tests/evidence/acceptance-baseline/`（fff4f9b）为准。
+
+只读审阅：`tests/evidence/acceptance-b1/review.md`——Critical 0 / Important 0 / Minor 4。审阅中发现并已修正的两处证据弱点：(1) A36/A58 泄漏检查原以夹具 TargetID 比对，存在恒真风险，改为先查库确认真实记录 ID 再比对越权响应；(2) 单机版测试原直接 INSERT 团队/项目，改为复用既有夹具 + 产品接口创建。
+
+限制：A28 失败重试以「目标不在项目内」建模，无网络中断注入点；单机版 A02 的草稿保留由共享前端套件承担；A01 前端最终唯一项目计数未在前端层断言（B7 复核）；`scripts/acceptance-b1-local.mjs` 未纳入 verify 门禁。本批无环境受限子项，14 条全部具备当前代码版本证据。
+
+签收：CSV 逐条「待验收 → 已签收」14 条（A01、A02、A22、A24、A25、A26、A27、A28、A36、A37、A55、A56、A57、A58）；A01–A60 累计已签收 14 / 待验收 46。下一批 B2（连接与环境，10 条两版），待用户确认后开始。
