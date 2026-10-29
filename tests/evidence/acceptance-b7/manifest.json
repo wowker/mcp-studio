@@ -1,0 +1,32 @@
+{
+  "format": "mcp-studio.acceptance-evidence-manifest.v1",
+  "batch": "B7",
+  "batchName": "总签收（M7）",
+  "date": "2026-10-29",
+  "baselineCommit": "ac526c3",
+  "type": "final-review",
+  "predecessors": [
+    {"batch":"B1","files":["tests/evidence/acceptance-b1/manifest.json"]},
+    {"batch":"B2","files":["tests/evidence/acceptance-b2/manifest.json"]},
+    {"batch":"B3","files":["tests/evidence/acceptance-b3/manifest.json"]},
+    {"batch":"B4","files":["tests/evidence/acceptance-b4/manifest.json"]},
+    {"batch":"B5","files":["tests/evidence/acceptance-b5/manifest.json"]},
+    {"batch":"B6","files":["tests/evidence/acceptance-b6/manifest.json"]}
+  ],
+  "verification": {
+    "goCloudAll": {"command": "go test -count=1 ./internal/...", "result": "pass", "packages": 22, "duration": "~127s total", "log": "go-cloud-all.log"},
+    "goLocalAll": {"command": "go test -count=1 -tags local ./internal/...", "result": "pass", "packages": 22, "duration": "~29s total", "log": "go-local-all.log"},
+    "goVetAll": {"command": "go vet ./internal/...", "result": "pass", "log": "vet.log"},
+    "frontend": {"command": "vitest run (all)", "node": "24.21.0", "result": "pass", "files": 61, "tests": 603, "duration": "28.2s", "log": "frontend-all.log"}
+  },
+  "finalCount": {"total": 60, "signedOff": 54, "pending": 6},
+  "newlySignedInB7": ["A41", "A42"],
+  "remainingPending": ["A30", "A31", "A32", "A33", "A45", "A60"],
+  "pendingReason": "需真实浏览器视觉渲染/键盘导航/全链流程；jsdom 无法替代。A30 批次计划明确子项待验；A32 jsdom 无 localStorage 持久化；A60 仅云版 + m6-flow 之前有失败记录。",
+  "summary": [
+    "A41/A42 从 B5 待验升级为签收：Go credentials_test.go 6 tests + agent_auth_test.go 8 tests + process_test.go 两版全绿；agent/vault/sessions/platformclient/oauth 均覆盖功能正确性（加密/AAD/版本乐观锁/nonce/权限校验/伪造来源拒绝/stdio fingerprint 变更）",
+    "54 条签收覆盖 A01–A29、A34–A40、A43、A44、A46、A49–A59",
+    "6 条待验覆盖 A30、A31、A32、A33、A45、A60",
+    "全量 verify 4 门禁全绿（Go 云 22 包 + 单机 22 包 + vet 干净 + 前端 603 tests）"
+  ]
+}

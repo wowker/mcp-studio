@@ -1,0 +1,21 @@
+ok  	mcp-studio/internal/agent/lifecycle	1.789s
+ok  	mcp-studio/internal/agent/localapi	0.822s
+ok  	mcp-studio/internal/agent/mcp	2.363s
+ok  	mcp-studio/internal/agent/oauth	1.894s
+ok  	mcp-studio/internal/agent/pairing	1.438s
+ok  	mcp-studio/internal/agent/platformclient	2.745s
+ok  	mcp-studio/internal/agent/process	1.058s
+ok  	mcp-studio/internal/agent/queue	0.870s
+ok  	mcp-studio/internal/agent/sessions	3.202s
+ok  	mcp-studio/internal/agent/vault	2.543s
+?   	mcp-studio/internal/agent/wire	[no test files]
+ok  	mcp-studio/internal/configuration	0.793s
+ok  	mcp-studio/internal/contracts	3.747s
+ok  	mcp-studio/internal/environment	2.045s
+ok  	mcp-studio/internal/infrastructure	3.347s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	100.222s
+ok  	mcp-studio/internal/recording	1.030s
+ok  	mcp-studio/internal/schema	1.405s
+ok  	mcp-studio/internal/testsupport	3.604s
+?   	mcp-studio/internal/wire	[no test files]

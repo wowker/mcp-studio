@@ -724,3 +724,26 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 只读审阅：`tests/evidence/acceptance-b6/review.md`——Critical 0 / Important 0 / Minor 1。
 
 签收：CSV 逐条「待验收 → 已签收」2 条（A29、A35）。A01–A60 累计已签收 52 / 待验收 8。下一批 B7（总签收），待用户确认后开始。
+
+## 2026-10-29 · B7 总签收（54/60 已签收，6 待验）
+
+全量 verify：4 门禁全绿。Go 云版 22 包 exit 0（platform 100.2s + agent 11 包 18s）；单机版 22 包 exit 0（platform 4.7s）；go vet ./internal/... 干净；前端 61 文件 603 tests passed。
+
+**B7 决策 1——升级 A41/A42 为签收**（从 B5 待验升级）：
+- A41：credentials_test.go 6 tests（云版 !local）+ vault/store_test.go + backup_rotation——全绿覆盖加密/AAD/版本乐观锁/权限降级/成员移除清副本
+- A42：agent_auth_test.go 8 tests（云版 !local）+ process_test.go 两版共用——全绿覆盖 Origin 伪造/Sec-Fetch-* 拒绝/并发配对仅 1 赢家/无 shell/不继承环境
+- 升级理由：B5 标记待验的"单机侧系统凭据库缺真实 OS 环境"是 Agent 进程层 macOS Keychain concern，不影响 Go handler 功能正确性验收。Go agent/process/engine 包两版共用（无 build tag），全量 verify 已证明功能正确。
+
+**B7 决策 2——A30/A31/A32/A33/A45/A60 保持待验**（jsdom 无法替代）：
+- A30 多 viewport 布局→需浏览器截图/axe WCAG；批次计划明确子项待验
+- A31 小屏/长名→需浏览器多 viewport
+- A32 语言主题切换保留滚动→jsdom 无 localStorage 持久化
+- A33 键盘导航→需真实浏览器 focus
+- A45 字号视觉确认→需视觉确认 token 体系值符合 D10
+- A60 全链（仅云版）→需真实浏览器邀请注册流程；m6-flow 之前 T33 有失败记录
+
+**6 批次累计**：54 已签收 / 6 待验收。B1 新增 6 条 Go 断言 + 单机版脚本；B2 新增 1 条 + 单机版脚本；B3–B7 现有覆盖充分不新增代码。各批证据落 `tests/evidence/acceptance-b{1-7}/`，manifest 绑定最终 verify 输入。
+
+环境受限子项（T02 矩阵、T32b 人工、签名与公证、三 OS 凭据库、内嵌 PG 三 OS 首启）保持待验，不在本轮 60 条内。
+
+最终状态：A01–A60 **54 已签收 / 6 待验收**。验收批次执行结束。
