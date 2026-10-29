@@ -1,0 +1,25 @@
+{
+  "batch": "B10",
+  "title": "Agent 包专项 + Backup Rotation/Credentials 边界深度审阅",
+  "createdAt": "2026-10-29",
+  "mode": "deep-dive",
+  "previousBatch": "B9 (macOS single-os)",
+  "focus": [
+    "Agent 包 cloud 11 / local 10 测试逐包专项",
+    "Backup rotation 原子性 + 密钥轮换边界",
+    "Credentials 加密 + 权限降级等待 + 版本乐观锁 + 成员移除清副本"
+  ],
+  "agentPackages": {
+    "cloud": {
+      "total": 11,
+      "passed": 11,
+      "duration": "agent ≈30s total"
+    },
+    "local": {
+      "total": 10,
+      "passed": 10,
+      "skipped": 1,
+      "skippedPackage": "agent_auth (!local build tag)"
+    }
+  }
+}

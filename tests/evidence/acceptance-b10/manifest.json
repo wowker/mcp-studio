@@ -1,0 +1,80 @@
+{
+  "batch": "B10",
+  "date": "2026-10-29",
+  "commit": "HEAD",
+  "batchType": "deep-dive",
+  "previousBatch": "B9",
+  "description": "Agent 包专项 + Backup Rotation/Credentials 边界深度审阅 — 无新增 signed，全边界覆盖充分",
+  "agentPackages": {
+    "cloud":  { "passed": 11, "skipped": 0, "wire": "(no test files)" },
+    "local":  { "passed": 10, "skipped": 1, "skipped": "agent_auth (!local)" },
+    "sharedPackagesNoBuildTag": "lifecycle, localapi, mcp, oauth, pairing, platformclient, process, queue, sessions, vault",
+    "cloudOnlyBuildTag": "agent_auth (!local), credentials (!local), backup_rotation (!local)",
+    "buildTagConditions": {
+      "system_darwin":  "darwin && cgo",
+      "system_windows":  "windows",
+      "system_linux":    "linux",
+      "system_unavailable": "(!darwin && !windows && !linux) || (darwin && !cgo)"
+    }
+  },
+  "backupRotation": {
+    "test": "backup_rotation_test.go — cloud-only (!local)",
+    "assertions": [
+      "原子性: 损坏密文拒绝部分提交 (7/7 完好+损坏)",
+      "错误 old key 拒绝轮换 + 密文不变",
+      "用户版本不丢失: saved[i].Version 保持原值",
+      "用户内容不变: ValueJSON 保持原值",
+      "same key 拒绝: err != nil",
+      "完整轮换: count == len(saved)",
+      "密文不重复: RotateBackupKey(..., old, next) 后密文已换"
+    ]
+  },
+  "credentialsBackup": {
+    "test": "credentials_test.go — cloud-only (!local)",
+    "assertions": [
+      "未设 BackupKey → 503",
+      "错误密码 → 403",
+      "未确认 → 400",
+      "密文不含明文 + nonce=12 bytes",
+      "list 不暴露 valueJSON",
+      "restore 后 JSON 不变",
+      "版本乐观锁: ExpectedVersion → Version+1",
+      "nonce 不复用",
+      "BackupKey 更换后 restore → 503",
+      "非 owner developer → 404 restore",
+      "viewer → 403 restore",
+      "成员移除后 restore → 404 (cleanup 清副本)",
+      "DELETE 后 restore → 404",
+      "restore 等 team 锁: pg_stat_activity Lock wait 确认后权限降级才生效"
+    ]
+  },
+  "vaultDetail": {
+    "buildTag": "无 — 两版共用",
+    "tests": [
+      "TestEncryptedCredentialsScopeRestartAndDelete — 作用域重启/删除加密凭据",
+      "TestVaultUnavailableDoesNotEraseAuthorizedSessionOrRecreateLostKey — vault 不可用不删已授权 session",
+      "TestVaultRejectsForeignRootAndSymlink — foreign root + symlink 拒绝",
+      "TestSessionReplacementCannotResurrectLocalCredential — 本地凭据不可复活",
+      "TestCiphertextAuthenticationNonceAndScopedCleanupFailure — ciphertext 认证 + nonce + cleanup failure",
+      "TestIndependentDisksSerializeMasterInitialization — 多磁盘 master init 串行"
+    ],
+    "systemBackends": {
+      "darwin":  "//go:build darwin && cgo — macOS Keychain",
+      "windows": "//go:build windows — DPAPI",
+      "linux":   "//go:build linux — filesystem",
+      "fallback": "(!darwin && !windows && !linux) || (darwin && !cgo)"
+    }
+  },
+  "verify": {
+    "cloudGo":   { "packages": 22, "result": "PASS" },
+    "localGo":   { "packages": 21, "result": "PASS" },
+    "vetCloud":  "clean",
+    "vetLocal":  "clean",
+    "frontend":  { "files": 61, "tests": 603, "result": "PASS" }
+  },
+  "methodology": {
+    "D-A_latest_real_env": true,
+    "D-C_env_limited_pending_only": true,
+    "deepDiveValue": "从 go test exit 0 深入到每个测试函数名 + 断言 — 确认 backup rotation 原子性、credentials 成员移除清理、vault symlink 拒绝等关键安全边界"
+  }
+}

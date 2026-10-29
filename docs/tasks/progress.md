@@ -853,3 +853,56 @@ B9 不是 A01–A60 验收批次的延续（A01–A60 已于 B8 全签收），�
 macOS backgrounded shell 子进程在父 shell 退出时收到 SIGHUP 被杀，导致无法跑完完整 bootstrap→login→projects→configuration→records HTTP 链。这不是 Go 代码 bug——生产安装包通过 launchd 注册服务不受此影响。Node.js `.debug/local-loopback.js` 脚本已写好，供下次基础设施更好时重跑。
 
 ### 签收：**4 signed-macos / 9 pending**
+
+## B10 出口（2026-10-29）
+
+**批次类型**：深度审阅（deep-dive）—— B9 单端 OS 深挖的后续
+**范围**：Agent 包 cloud 11 / local 10 专项 + Backup Rotation / Credentials 边界条件审阅
+
+### 修改
+- `tests/evidence/acceptance-b10/expectations.json` — Agent 包清单 + deep-dive focus
+- `tests/evidence/acceptance-b10/coverage-map.md` — 逐包 + 逐断言覆盖
+- `tests/evidence/acceptance-b10/review.md` — Critical/Important/Minor 分级
+- `tests/evidence/acceptance-b10/manifest.json` — agent/vault/backup 深度 JSON
+- `docs/tasks/progress.md` — 本出口节
+
+### 验证（4 道门全绿）
+- Go 云版 `./internal/...`：22 包 exit 0（platform 103.8s）
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0（platform 4.3s）
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files 603 tests passed（59.86s）
+
+### B10 独有深度证据（vs B9）
+
+#### Agent 包逐包专项
+- cloud 11 / local 10 全部 passed（wire/ 无测试文件，agent_auth cloud-only）
+- **两版共用**（无 build tag）：lifecycle, localapi, mcp, oauth, pairing, platformclient, process, queue, sessions, vault
+- **cloud-only**（`!local`）：agent_auth 8 tests — proof exchange/concurrent/exchange/cookie/grant parent/密码重置
+- build tag 分区正确验证：无 tag 包 Go 两版全过 + `!local` 包 Go 云版通过 / 单机版正确跳过
+
+#### Backup Rotation 原子性边界（backup_rotation_test.go, cloud-only）
+- 损坏密文拒绝部分提交（整个轮换回滚，之前完好记录密文不变）
+- 错误 old key 拒绝轮换（密文不变）
+- 用户 Version 不丢失（轮换后每条 Version 保持原值）
+- 用户 ValueJSON 不变（加密层透明）
+- same key 拒绝（RotateBackupKey(..., next, next) → err != nil）
+
+#### Credentials Backup 边界（credentials_test.go, cloud-only, 6 tests → 14 断言）
+- 加密正确性：密文不含明文 + nonce=12 字节 + nonce 不复用
+- 版本乐观锁：ExpectedVersion → Version+1
+- 权限边界：非 owner developer → 404 restore；viewer → 403
+- 成员移除清理链：DELETE FROM project_members → cleanup 清副本 → restore 404
+- 撤销确认完整性：restore 等 team 锁（`SELECT ... FOR UPDATE`）+ pg_stat_activity Lock wait 确认
+- 密钥轮换期间：BackupKey 更换后 restore → 503
+
+#### Vault system backends build tag 确认
+- `system_darwin.go` build tag: `darwin && cgo`（macOS Keychain）
+- `system_windows.go` build tag: `windows`（DPAPI）
+- `system_linux.go` build tag: `linux`（filesystem）
+- `system_unavailable.go` 回退: `(!darwin && !windows && !linux) || (darwin && !cgo)`
+
+### 限制
+- B10 无新增 signed 状态变更——聚焦已有条目的深度审阅（不超 A01–A60 范围）
+- 跨 OS system_windows.go / system_linux.go 实机验证仍待 Windows/Linux 机器
+
+### 签收：无新增状态（深度审阅）
