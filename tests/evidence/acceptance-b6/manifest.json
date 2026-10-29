@@ -1,0 +1,18 @@
+{
+  "format": "mcp-studio.acceptance-evidence-manifest.v1",
+  "batch": "B6",
+  "batchName": "页面一致性与全链（M6）",
+  "date": "2026-10-29",
+  "baselineCommit": "5394c4a",
+  "codeCommit": "PENDING",
+  "signedOff": ["A29", "A35"],
+  "pending": ["A30", "A31", "A32", "A33", "A45", "A60"],
+  "files": ["expectations.json", "coverage-map.md", "review.md", "manifest.json"],
+  "gates": {
+    "frontend": {"files": 7, "tests": 46, "node": "24.21.0", "result": "pass", "files_detail": ["App(19)", "Shell(3)", "RecordStates(3)", "IdentityStates(2)", "Projects(2)", "execution/index(15)", "v01-environment-blocking(2)"]},
+    "goPlatform": {"result": "pass", "reusedFrom": "B5 (同一份代码，E 系列未触及)"},
+    "vet": {"result": "pass", "reusedFrom": "B5"}
+  },
+  "review": {"critical": 0, "important": 0, "minor": 1},
+  "pendingReason": "A30/A31/A32/A33/A45/A60 需真实浏览器视觉/键盘/全链能力，jsdom 无法替代；A30 批次计划明确子项待验；A60 仅云版 + 之前 T33 失败记录"
+}

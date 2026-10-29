@@ -1,0 +1,22 @@
+{
+  "format": "mcp-studio.acceptance-batch-expectations.v1",
+  "batch": "B6",
+  "batchName": "页面一致性与全链（M6）",
+  "date": "2026-10-29",
+  "baseline": {
+    "commit": "5394c4a",
+    "evidence": "tests/evidence/acceptance-b6/",
+    "note": "B6 策略性部分签收：A29（状态不误报）+ A35（失败流程）由当前版本前端单元测试覆盖；其余 A30/A31/A32/A33/A45/A60 需浏览器视觉渲染/键盘/全链，保持待验"
+  },
+  "items": [
+    {"id":"A29","line":98,"scenario":"每页 empty / loading / error / forbidden / missing","formalExpected":"不误报、不泄露、恢复动作一致；重试保留上下文","status":"signed-off (前端 Shell+RecordStates+IdentityStates+App 覆盖)", "editions":"两版"},
+    {"id":"A30","line":99,"scenario":"中英 × 亮暗 × 390 / 820 / 1024 / 1440 宽","formalExpected":"无整页横溢出、底栏裁切、零高内容；长文和操作可达","status":"pending: 需浏览器截图/axe，批次计划明确子项待验", "editions":"两版"},
+    {"id":"A31","line":100,"scenario":"短桌面 1024×640、手机 390×844、长名字","formalExpected":"参数结果都可用；表格局部滚动；状态和按钮不挤出","status":"pending: 需浏览器多 viewport 渲染", "editions":"两版"},
+    {"id":"A32","line":101,"scenario":"语言主题切换时有草稿、已滚动表格 / 参数","formalExpected":"草稿、运行及当前上下文滚动位置保留","status":"pending: 需真实浏览器语言/主题切换（jsdom 无 localStorage 持久化）", "editions":"两版"},
+    {"id":"A33","line":102,"scenario":"仅键盘用导航、菜单、分栏、错误跳转","formalExpected":"顺序合理、可见焦点、Esc 返回、无焦点陷阱","status":"pending: 需真实浏览器键盘导航；keyboard-scope 部分覆盖但 manual pending", "editions":"两版"},
+    {"id":"A35","line":104,"scenario":"项目流程遇失败调用或上传失败","formalExpected":"不虚构成功；历史和保存对应同一 Run；上传失败保持未完成","status":"signed-off (execution runtime 覆盖 forbidden/离线/失败不虚构成功)", "editions":"两版"},
+    {"id":"A45","line":114,"scenario":"中文 / 英文正式组件字号","formalExpected":"正文 14、辅助 12、最低 11、页标题 24、工作区标题 16","status":"pending: 需视觉确认 token 体系当前值符合 D10", "editions":"两版"},
+    {"id":"A60","line":134,"scenario":"从登录连续走到邀请、服务、环境、调用、历史、保存、恢复","formalExpected":"邀请身份修复仍回原邀请且需手动接受；流程进度对应同一连接 / Run；上传失败未完成；恢复新 Tab 未执行；无整段刷新伪造进度","status":"pending: 仅云版 + 需真实浏览器全链（m6-flow 之前 T33 有失败记录）", "editions":"仅云版"}
+  ],
+  "counts": {"total":8,"signedOff":2,"pending":6}
+}

@@ -707,3 +707,20 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 只读审阅：`tests/evidence/acceptance-b5/review.md`——Critical 0 / Important 0 / Minor 2。Minor-1：A06/A07 单机版无 Go 专属测试（!local），由共享前端套件承担；Minor-2：A41/A42 保持待验。
 
 签收：CSV 逐条「待验收 → 已签收」3 条（A05、A06、A07）；A41、A42 保持「待验收」。A01–A60 累计已签收 50 / 待验收 10。下一批 B6（页面一致性与全链，8 条），待用户确认后开始。
+
+## 2026-10-29 · B6 页面一致性与全链批次出口（2 条签收 / 6 条待验）
+
+范围：B6 批次 8 条——A29–A33、A35、A45、A60（7 条两版 + A60 仅云版）。**策略性部分签收**——A29（状态不误报）+ A35（失败流程）由当前版本前端单元测试覆盖签收；A30/A31/A32/A33/A45/A60 保持待验（需真实浏览器视觉/键盘/全链能力，jsdom 无法替代）。证据 `tests/evidence/acceptance-b6/`。
+
+策略原因：B6 多数条目（A30 多 viewport 布局、A31 小屏长名、A32 语言主题切换保留滚动位置、A33 键盘导航、A45 字号视觉确认、A60 全链流程）需要真实浏览器渲染/交互——jsdom 无 localStorage 持久化无法验证切换保留滚动位置、axe WCAG 需要真实 DOM、键盘导航需真实 focus、全链需要邀请注册登录验证流程批次计划明确 A30 子项保持待验。
+
+覆盖映射：
+- A29：App.test.tsx(19) + Shell(3) + RecordStates(3) + IdentityStates(2) + execution/index(15)——多页面状态管理不误报、恢复动作一致
+- A35：execution runtime 失败不虚构成功、不创建 Run、保留诊断；m6-flow e2e 上传失败保持 incomplete
+- A30/A31/A32/A33/A45/A60：保持待验
+
+实际验证：前端 B6 7 文件 46 tests passed（Node 24.21.0）；Go 全量 + go vet 复用 B5 结果（同一份代码）。**不新增测试代码**。
+
+只读审阅：`tests/evidence/acceptance-b6/review.md`——Critical 0 / Important 0 / Minor 1。
+
+签收：CSV 逐条「待验收 → 已签收」2 条（A29、A35）。A01–A60 累计已签收 52 / 待验收 8。下一批 B7（总签收），待用户确认后开始。
