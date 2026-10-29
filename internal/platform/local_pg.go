@@ -11,6 +11,8 @@ import (
 	"runtime"
 	"strings"
 	"time"
+
+	"github.com/jackc/pgx/v5"
 )
 
 // pgThreadShimPath returns the path to a dylib that interposes
@@ -226,24 +228,30 @@ func startCluster(ctx context.Context, dataDir, pgBinDir, port string) (*pgHandl
 	}
 }
 
-// waitPGReady polls pg_isready against the embedded cluster until it accepts
-// connections or the context expires. The cluster listens on a Unix socket
-// inside the data directory (no TCP), so pg_isready must be pointed there
-// with -h — its compiled-in default socket directory would never see it. We
-// give it 20s — enough for a cold start on slow disks, short enough to abort
-// fast when initdb/startup failed.
+// waitPGReady dials the embedded cluster over its Unix socket and pings it
+// until postgres accepts connections or the context expires. We deliberately
+// use pgx directly instead of shelling out to pg_isready: the embedded
+// cluster listens on a Unix socket inside the data directory (no TCP
+// listener, no port exposed outside), so pg_isready would also have to run.
+// Replacing the shell-out removes a hard binary dependency — PG
+// distributions that ship only initdb + postgres + pg_ctl (e.g. zonky's
+// embedded-postgres jars) are now sufficient to start the local edition.
+// We give it 20s — enough for a cold start on slow disks, short enough to
+// abort fast when initdb/startup failed.
 func waitPGReady(ctx context.Context, pgBinDir, port, superUser, dataDir string) error {
-	pgIsReady, err := resolveExecutable("pg_isready", pgBinDir)
-	if err != nil {
-		return err
-	}
+	_ = pgBinDir // retained for startCluster signature symmetry; no binary lookup needed.
+	url := fmt.Sprintf("postgres://%s@/postgres?host=%s&port=%s&sslmode=disable", superUser, dataDir, port)
 	deadline := time.After(20 * time.Second)
 	tick := time.NewTicker(300 * time.Millisecond)
 	defer tick.Stop()
 	for {
-		cmd := exec.CommandContext(ctx, pgIsReady, "-h", dataDir, "-p", port, "-U", superUser)
-		if err := cmd.Run(); err == nil {
-			return nil
+		conn, err := pgx.Connect(ctx, url)
+		if err == nil {
+			if err = conn.Ping(ctx); err == nil {
+				_ = conn.Close(ctx)
+				return nil
+			}
+			_ = conn.Close(ctx)
 		}
 		select {
 		case <-ctx.Done():

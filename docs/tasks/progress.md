@@ -603,3 +603,13 @@ E10b：打包闭包与捆绑解析。验收中发现并修复三处 E06 潜伏�
 验证：清掉 E10b 构造的模拟缓存包后全链路重建——darwin/arm64 真实下载 dmg（sha256 校验通过）→ 提取闭包 → 39 个 Mach-O ad-hoc 重签 → 打包 `pgIncluded:true`；`.debug/e10-packaged-smoke.mjs` 6 项通过（13375ms），证据 `tests/evidence/e10-packaging/packaged-smoke.json`；`go test -tags local ./internal/platform` 0.512s 通过，两版 `go vet` 干净。
 
 限制：zonky linux 缺 pg_isready 的缺口未解（linux 按宿主规则本不含 pg/）；windows zip 格式处理器未实现（windows 目标同样不含 pg/）；linux jar 与 windows zip 的提取路径经人工解包核对（成员布局/工具齐全性），未经构建脚本实跑。macOS 签名/公证、真实介质首启、单机版凭据库仍为待验项。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。
+
+## 2026-10-29 · E10d Go 侧去掉 pg_isready 硬依赖
+
+用户授权继续 E10，推进 E10c 遗留的 zonky linux 缺 pg_isready 缺口。根因定位：`waitPGReady` 用 `resolveExecutable("pg_isready", pgBinDir)` 强依赖 pg_isready 二进制——zonky jar 只有 initdb/postgres/pg_ctl 三个工具不含 pg_isready，导致 linux pg/ 发货永久阻断。
+
+修复：`waitPGReady` 从 shell-out `pg_isready -h dataDir -p port -U superUser` 改为 pgx 原生 `Connect`+`Ping` Unix socket——直接拼 `postgres://<superUser>@/postgres?host=<dataDir>&port=<port>&sslmode=disable` 用 `jackc/pgx/v5`（项目已有依赖，零新增）。pgx 连接成功即等价于 pg_isready 返回 0（完整 PG 协议握手），socket 文件不存在时立即返回 ENOENT（300ms 后重试，20s 超时，行为不变）。pgBinDir 参数保留签名对称但不再 resolve。打包脚本 `pgBinaries` 仍保留 4 工具提取模式（有则全带），但 3 工具分布不再阻断本地版启动。
+
+验证：`go build -tags local`、两版 `go vet`、`go test -tags local ./internal/platform`（1.028s）全过；打包冒烟 6 项通过（13342ms）。
+
+限制：windows zip 格式处理器未实现（windows 目标不含 pg/，防御性补全待未来）；linux jar/windows zip 提取路径仍未经构建脚本实跑；macOS 签名/公证、真实介质首启、单机版凭据库仍为待验项。CSV 未改，A01–A60 仍全部待验收，本次不做正式签收。
