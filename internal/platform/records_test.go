@@ -25,14 +25,6 @@ func TestSnapshotWholeContextOmissionClearsFreeLabels(t *testing.T) {
 	}
 }
 
-func frozenUpload(t *testing.T, userID, projectID string, c wire.Connection, kind, visibility string) wire.RecordUploadInput {
-	t.Helper()
-	run := id()
-	input := wire.RecordUploadInput{ContractVersion: "1.2.0", UserID: userID, ProjectID: projectID, ConnectionID: c.ID, OperationID: id(), TargetKind: kind, TargetID: id(), ResponsibleEndpoint: "browser", Snapshot: wire.ExecutionSnapshot{UserID: userID, ProjectID: projectID, ConnectionID: c.ID, TabID: id(), RunID: run, ToolName: "fixture", ConfigurationVersion: c.Version, ToolDefinitionVersion: "v1", Executor: "browser", CredentialSource: "none", RequestJSON: `{"n":0}`, InputSchemaJSON: `{"type":"object","properties":{"n":{"type":"number"}}}`, ResponseJSON: `{"result":{"content":[]}}`, ProtocolJSON: `null`, StartedAt: "2026-10-13T00:00:00Z", FinishedAt: "2026-10-13T00:00:01Z", RunStatus: "succeeded", RemoteOutcome: "known", ResultKind: "success", ResponseRetention: "full", SchemaValid: true, Redactions: []wire.RedactionMarker{}}, Metadata: wire.RecordMetadata{Name: "Fixture", Visibility: visibility, ContentKind: "request-response", Completeness: "complete"}}
-	freezeUpload(t, &input)
-	return input
-}
-
 func TestRecordHistoryFiltersStableCursorAndPrivateIsolation(t *testing.T) {
 	a, mail := testApp(t)
 	s, c := owner(t, a, mail)
@@ -84,16 +76,6 @@ func TestRecordHistoryFiltersStableCursorAndPrivateIsolation(t *testing.T) {
 	configurationData[any](t, configurationRequest(t, a, "GET", base+"/record-operations/"+private.OperationID, nil, viewer, vc, ""), 404)
 	configurationData[any](t, configurationRequest(t, a, "GET", base+"/records?kind=history&limit=1&cursor="+url.QueryEscape(first.NextCursor), nil, viewer, vc, ""), 400)
 }
-func freezeUpload(t *testing.T, input *wire.RecordUploadInput) {
-	t.Helper()
-	b, _ := json.Marshal(input)
-	sum, err := recording.Digest(string(b))
-	if err != nil {
-		t.Fatal(err)
-	}
-	input.FrozenDigest = sum
-}
-
 func TestRecordUploadAtomicReplayScopeAndRedaction(t *testing.T) {
 	a, mail := testApp(t)
 	s, cookie := owner(t, a, mail)

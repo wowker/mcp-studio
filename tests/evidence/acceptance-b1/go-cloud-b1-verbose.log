@@ -1,0 +1,14 @@
+=== RUN   TestB1A01RetryAfterFailureCreatesSingleProject
+--- PASS: TestB1A01RetryAfterFailureCreatesSingleProject (0.88s)
+=== RUN   TestB1A22ViewerCannotExecuteOrReadPrivateDetail
+--- PASS: TestB1A22ViewerCannotExecuteOrReadPrivateDetail (1.28s)
+=== RUN   TestB1A36A58SessionExpiryPausesUploadsAndWrongAuthCannotRestore
+--- PASS: TestB1A36A58SessionExpiryPausesUploadsAndWrongAuthCannotRestore (0.88s)
+=== RUN   TestB1A37TakeoverOwnerStillCannotReadOthersPrivateRecords
+--- PASS: TestB1A37TakeoverOwnerStillCannotReadOthersPrivateRecords (1.55s)
+=== RUN   TestB1A28FailedRemovalRetriesToScopedSuccess
+--- PASS: TestB1A28FailedRemovalRetriesToScopedSuccess (1.09s)
+=== RUN   TestB1A55ProjectScopedUploadIgnoresCurrentScreenRole
+--- PASS: TestB1A55ProjectScopedUploadIgnoresCurrentScreenRole (1.27s)
+PASS
+ok  	mcp-studio/internal/platform	7.532s

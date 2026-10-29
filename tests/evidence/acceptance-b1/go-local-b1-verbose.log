@@ -1,0 +1,6 @@
+=== RUN   TestB1LocalA01ProjectCreationValidationAndRetry
+--- PASS: TestB1LocalA01ProjectCreationValidationAndRetry (0.29s)
+=== RUN   TestB1LocalA02ProjectScopedDataIsolation
+--- PASS: TestB1LocalA02ProjectScopedDataIsolation (0.31s)
+PASS
+ok  	mcp-studio/internal/platform	1.123s

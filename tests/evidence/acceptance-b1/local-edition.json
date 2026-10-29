@@ -1,0 +1,18 @@
+{
+  "batch": "B1",
+  "edition": "local",
+  "binary": ".runtime/local-platform",
+  "items": [
+    "A01",
+    "A02"
+  ],
+  "origin": "http://127.0.0.1:60383",
+  "checks": [
+    "session: local subject 472c675f29a4d6bf9a40d4b44e904890 on team 4f91e24ebf2b1a64e6126a4022d767d7, csrf empty",
+    "A01: empty name -> 400 name_required; duplicate (trim/case) -> 409",
+    "A01: retry after failure -> one maintained project, no duplicates (1 seeded + 2)",
+    "A02: connections/records scoped per project; cross-project reads 404; round trip preserves both",
+    "edition: apps/local binary, embedded PG /Users/wuwei/code/github/mcp-studio/.runtime/pg-cache/darwin/arm64/pgsql/bin, loopback http://127.0.0.1:60383, data mode 700"
+  ],
+  "result": "pass"
+}

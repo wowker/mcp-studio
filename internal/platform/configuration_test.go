@@ -45,9 +45,6 @@ func configurationData[T any](t *testing.T, w *httptest.ResponseRecorder, status
 	}
 	return envelope.Data
 }
-func httpConfiguration(name string) wire.ConnectionInput {
-	return wire.ConnectionInput{Name: name, Transport: "streamable-http", Channel: "browser", Endpoint: "http://localhost:9123/mcp?workspace=demo", Args: []string{}, Headers: []wire.ConfigEntry{}, Env: []wire.ConfigEntry{}, TimeoutMs: 30000, AuthMode: "none", OauthScopes: []string{}}
-}
 func TestConnectionIndependentIdentityConditionalPersistence(t *testing.T) {
 	a, mail := testApp(t)
 	s, c := owner(t, a, mail)

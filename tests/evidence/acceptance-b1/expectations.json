@@ -1,0 +1,138 @@
+{
+  "format": "mcp-studio.acceptance-batch-expectations.v1",
+  "batch": "B1",
+  "batchName": "身份与协作（M1）",
+  "date": "2026-10-29",
+  "baseline": {
+    "commit": "fff4f9b",
+    "evidence": "tests/evidence/acceptance-baseline/",
+    "note": "验收基线为当前 main（含 E00–E10）；E04 认证入口属触及领域，本批全部重验，不引用 V01 旧证据单独构成签收（方法论 D-C）"
+  },
+  "expectationSource": "docs/design-baseline-v2/design-handoff/06-handoff-and-acceptance.md",
+  "items": [
+    {
+      "id": "A01",
+      "line": 70,
+      "scenario": "空名 / 重名创建项目，模拟失败再重试",
+      "formalExpected": "定位错误、保留输入、无重复项目；成功空项目且创建者为维护者",
+      "editions": "两版",
+      "evidenceDuty": ["cloud", "local"],
+      "localEditionNote": "单机版证据来自 apps/local 形态；涉多项目数据显式断言项目归属过滤（方法论 R3/R4）"
+    },
+    {
+      "id": "A02",
+      "line": 71,
+      "scenario": "两项目间切换，切换时旧请求晚返回",
+      "formalExpected": "草稿各自保留，旧结果不污染新项目",
+      "editions": "两版",
+      "evidenceDuty": ["cloud", "local"],
+      "localEditionNote": "同上"
+    },
+    {
+      "id": "A22",
+      "line": 91,
+      "scenario": "查看他人私有记录、猜记录 ID、Viewer 执行",
+      "formalExpected": "列表 / 详情 / API 同时阻止，不靠前端遮罩",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A24",
+      "line": 93,
+      "scenario": "邀请错误邮箱 / 未验证 / 已过期 / 完成前过期",
+      "formalExpected": "不加入；修复身份后仍要明确接受；重复接受幂等",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A25",
+      "line": 94,
+      "scenario": "重发 / 撤销 / 接受旧邀请",
+      "formalExpected": "新 ID 与新期限；旧邀请不可用；已接受不能重发",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A26",
+      "line": 95,
+      "scenario": "Admin 授予 Admin、维护者创建团队项目",
+      "formalExpected": "按团队能力拒绝，不能借项目角色升级",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A27",
+      "line": 96,
+      "scenario": "移除本人 / Owner / 最后一位维护者",
+      "formalExpected": "拒绝；团队移除也不能绕过各项目保护",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A28",
+      "line": 97,
+      "scenario": "正常项目移除与团队移除、取消与失败重试",
+      "formalExpected": "影响范围精确、署名保留、确认明确、取消无副作用",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A36",
+      "line": 105,
+      "scenario": "邀请注册、首次 Owner、未验证邮箱、会话到期",
+      "formalExpected": "公开注册关闭；初始化一次性；邮箱验证不可绕过；8 小时空闲 / 24 小时最长默认生效；到期暂停上传",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A37",
+      "line": 106,
+      "scenario": "Admin 未加入项目、Owner 接管",
+      "formalExpected": "目录可管但内容不可读；Admin 不能自授；Owner 确认后加入并留审计；他人私人数据仍不可读",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A55",
+      "line": 129,
+      "scenario": "项目 A 为 Viewer、B 为 Developer，来回切换且有后台待上传",
+      "formalExpected": "UI 加载目标项目能力，返回不丢草稿；后台按记录所属项目权限校验，不受当前屏幕角色误判",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A56",
+      "line": 130,
+      "scenario": "Owner 在目录接管另一项目",
+      "formalExpected": "必须填原因并确认，审计含目标；仅增加目标项目关系，不改变当前项目角色或私人数据边界",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A57",
+      "line": 131,
+      "scenario": "维护者被移除但成员编辑页仍开着",
+      "formalExpected": "普通成员旧页面、动作及 API 均拒绝继续管理；Admin 目录管理例外不授予内容权限；保护本人 / Owner / 最后维护者规则仍生效",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    },
+    {
+      "id": "A58",
+      "line": 132,
+      "scenario": "会话到期或失去项目访问；尝试深链接内容页",
+      "formalExpected": "不显示服务上下文、流程进度及内容；会话到期暂停上传，错误认证不能恢复；返回入口不绕过权限",
+      "editions": "仅云版",
+      "evidenceDuty": ["cloud"]
+    }
+  ],
+  "counts": {
+    "total": 14,
+    "cloudOnly": 12,
+    "bothEditions": 2
+  },
+  "fixtureRequirements": {
+    "cloud": "真实 PG（MCP_STUDIO_TEST_DATABASE_URL，127.0.0.1:55432）+ 真实邮件夹具 + 浏览器旅程",
+    "local": "apps/local 形态（-tags local），回环 HTTP",
+    "toolchain": "Node 24.x（方法论工具链约束）"
+  }
+}
