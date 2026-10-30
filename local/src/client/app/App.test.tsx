@@ -116,9 +116,9 @@ describe("App", () => {
     render(<App />);
 
     // The workbench is a deliberate lazy boundary. Under the full parallel suite,
-    // module transformation may exceed Testing Library's 1 s default without
+    // module transformation may exceed Testing Library's default without
     // representing a product timeout or requiring a fixed sleep.
-    expect(await screen.findByRole("heading", { name: "Servers", level: 1 }, { timeout: 5_000 })).toBeVisible();
+    expect(await screen.findByRole("heading", { name: "Servers", level: 1 }, { timeout: 15_000 })).toBeVisible();
     expect(screen.queryByText("Supplier Tools")).not.toBeInTheDocument();
     expect(document.querySelector(".project-identity")).not.toBeInTheDocument();
     expect(await screen.findByRole("heading", { name: "连接管理" })).toBeVisible();
@@ -128,5 +128,5 @@ describe("App", () => {
         headers: expect.not.objectContaining({ "X-MCP-Inspector-Session": expect.anything() }),
       }),
     );
-  }, 10_000);
+  }, 25_000);
 });
