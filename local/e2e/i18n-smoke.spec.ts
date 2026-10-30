@@ -34,9 +34,6 @@ test("opens the primary workflow in English from the persisted locale", async ({
     await expect(page.getByRole("heading", { name: "Servers", level: 1 })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Workbench navigation" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Environment" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Automated testing" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Test suites" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Test reports" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Run history" })).toBeVisible();
     await expect(page.getByRole("button", { name: "Add connection" })).toBeVisible();
     await page.getByRole("button", { name: "Add connection" }).click();

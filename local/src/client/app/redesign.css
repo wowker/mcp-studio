@@ -14,7 +14,7 @@
   --ui-border-muted: #ecefec;
   --ui-border-strong: #b3beb7;
   --ui-text: #27312e;
-  --ui-text-muted: #737d78;
+  --ui-text-muted: #6a746f;
   --ui-text-subtle: #8f9a94;
   --ui-accent: #267565;
   --ui-accent-strong: #1c5a4d;
@@ -301,7 +301,8 @@ textarea::placeholder { color: var(--ui-text-subtle); opacity: 1; }
   font-weight: 500;
 }
 
-.workbench-sidebar nav button:hover {
+.workbench-sidebar nav button:hover,
+.workbench-sidebar nav button:focus-visible {
   color: var(--ui-text);
   background: var(--ui-surface-muted);
 }
@@ -2421,6 +2422,8 @@ details[open] > summary > .script-disclosure-icon { transform: rotate(90deg); }
 [data-color-mode="dark"] .dialog-backdrop { background: rgb(1 4 9 / 68%); }
 
 /* Tool-scoped saved requests and responses */
+/* run-result-action text needs --ui-text (not --ui-text-muted) for WCAG AA contrast */
+.run-result-action { color: var(--ui-text); }
 .run-result-actions,
 .saved-item-detail > header > div:last-child,
 .saved-item-actions {
