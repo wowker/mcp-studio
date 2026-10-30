@@ -103,6 +103,8 @@ A51 "invalid dependency / invalid typed reference → repair clears diagnosis"�
 |------|--------|---------------|
 | B10 | Agent 11 包 + backup/credentials | ~50 Go 函数 |
 | B11 | Platform 131 + Playwright 14 + Layout Metrics 37 | 131 Go + 33 E2E |
-| B12 | Frontend runtime 251+ tests + App Shell 27 | 278+ TS tests |
+| B12 | Frontend runtime 251+ tests + App Shell 23（实测修正） | 274+ TS tests |
 | **B13** | **Frontend features 核心 8 pages / 84 tests 逐函数名** | **+84 TS tests** |
-| **总计** | | **Go 181+ / TS 362+ = 543+** |
+| **总计** | | **Go 181+ / TS 358+ / E2E 33 = 572+** |
+
+> 2026-10-29 复核：原记录写「App Shell 27 / TS 362+ / 总计 543+」。实测 `app/` 为 3 files / **23 tests**，且原 543 未计入 E2E，与后续批次口径不一致，现统一为含 E2E 口径。

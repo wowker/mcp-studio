@@ -4,7 +4,7 @@
   "commit": "HEAD",
   "batchType": "deep-dive",
   "previousBatch": "B11",
-  "description": "Frontend runtime 251+ tests 逐函数名全清单 + App Shell 27 tests — 从 module-level 深入到 test-level 覆盖边界",
+  "description": "Frontend runtime 251+ tests 逐函数名全清单 + App Shell 23 tests — 从 module-level 深入到 test-level 覆盖边界",
   "frontendRuntime": {
     "totalFiles": 12,
     "totalTests": "251+",
@@ -24,7 +24,9 @@
     },
     "browserSession": 58,
     "executionIndex": 15,
-    "appShell": 27
+    "appShell": 23,
+    "appShellBreakdown": { "app/App.test.tsx": 19, "app/Shell.test.tsx": 3, "app/v01-shell-footer.test.tsx": 1 },
+    "correction": "2026-10-29 复核：原记录 appShell=27 且标注 file=app/App.test.tsx。实测 App.test.tsx 为 19 tests，app/ 全目录 23 tests（19+3+1），已按实测修正"
   },
   "verify": {
     "cloudGo":  { "packages": 22, "result": "PASS" },

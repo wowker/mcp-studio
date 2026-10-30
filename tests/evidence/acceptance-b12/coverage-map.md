@@ -1,4 +1,4 @@
-# B12 Coverage Map — Frontend Runtime 251+ Tests + App Shell 27
+# B12 Coverage Map — Frontend Runtime 251+ Tests + App Shell 23
 
 ## 首次全清单（B1–B11 都只有 file-level 数量，B12 深入到 test name）
 
@@ -56,7 +56,9 @@ schema/
 | Call Lifecycle | 5 | per-call cancel + late response → no disconnect, no late success; raw JSON-RPC error → safe classification; HTTP 401+403 ahead of SDK closed-connection; transport failure classify as network not RPC |
 | Connection Identity | 3 | checks current connection identity for restoration WITHOUT reading execution env; freezes credential before async authority lookup; malformed SDK result → protocol failure without exposing raw payload; RPC error context private |
 
-### App Shell 27 Tests 核心边界
+### App Shell 23 Tests 核心边界（实测修正原 27）
+
+> 实测分布：`app/App.test.tsx` 19 + `app/Shell.test.tsx` 3 + `app/v01-shell-footer.test.tsx` 1 = 23。下表按行为聚类，为节选摘要（18 条），完整 19 条 App 测试见 `expectations.json#appShell.coverage`。
 
 | 类别 | Tests | 关键 |
 |------|-------|------|
@@ -82,6 +84,6 @@ schema/
 
 | 维度 | B10 | B11 | B12 |
 |------|-----|-----|-----|
-| 范围 | Agent 11 包测试函数名 + credentials/backup | Platform 131 函数名 + Playwright 14 suites + Layout Metrics 37 + Frontend 61 files 结构 | **Frontend runtime 逐函数名 + App Shell 27** |
+| 范围 | Agent 11 包测试函数名 + credentials/backup | Platform 131 函数名 + Playwright 14 suites + Layout Metrics 37 + Frontend 61 files 结构 | **Frontend runtime 逐函数名 + App Shell 23** |
 | 深度 | agent/backup/credentials 断言级别 | platform 分类 + E2E suite-level | **runtime 每个文件 15-74 tests 逐函数名** |
 | 发现 | member-removal cleanup + team FOR UPDATE lock | Playwright 正确 outcome 路径 + layout-metrics 正确 keys | **schema/interpreter 74 tests 是最大单文件 + queueStorage 29 tests 上传冻结 + redaction 36 tests 凭据 echo** |

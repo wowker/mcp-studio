@@ -4,26 +4,42 @@
   "commit": "HEAD",
   "batchType": "deep-dive",
   "previousBatch": "B13",
-  "description": "Frontend Features 剩余模块 12 files / 52 tests — features/ 全部页面组件逐函数名深潜完成",
-  "featuresComplete": {
-    "B13": { "pages": 8, "tests": 84 },
-    "B14": { "modules": 12, "tests": 52 },
-    "total": { "files": 20, "tests": 136 }
+  "description": "Frontend Features 全量补齐 — 首次覆盖剩余 12 模块（其中 2 属 shared/），再补漏 17 个此前遗漏的 features 测试文件，达成 features/ 35 files / 211 tests 逐文件全覆盖",
+  "revision": {
+    "reason": "2026-10-29 复核：原记录「12 modules / 52 tests / features 全部完成」经 vitest JSON 实测发现三处错误（AgentBackupsPanel 实为 4 非 5；表格合计 49 非 52；features 实为 35 files / 211 tests，当时仅覆盖 18 files）。已按实测补漏 17 文件并修正全部数字。",
+    "verifiedBy": "npx vitest run --reporter=json (Node 24.21.0, 61 files / 603 tests, 0 failed)"
+  },
+  "features": {
+    "part1RemainingModules": { "files": 12, "tests": 48, "featuresFiles": 10, "sharedFiles": 2 },
+    "part2Backfill": { "files": 17, "tests": 84 },
+    "total": { "files": 29, "tests": 132, "featuresFiles": 27, "featuresTests": 127, "sharedTests": 5 },
+    "perFeatureFileComplete": {
+      "files": 35,
+      "tests": 211,
+      "breakdown": "B13 8 files / 84 + B14 27 files / 127"
+    }
   },
   "verify": {
-    "cloudGo":  { "packages": 22, "result": "PASS" },
+    "cloudGo":  { "packages": 22, "result": "PASS", "platformDuration": "101.49s" },
     "localGo":  { "packages": 21, "result": "PASS" },
     "vetCloud": "clean",
     "vetLocal": "clean",
-    "frontend": { "files": 61, "tests": 603, "result": "PASS" }
+    "frontend": { "files": 61, "tests": 603, "failed": 0, "result": "PASS" }
+  },
+  "directoryDistribution": {
+    "runtime":  { "files": 19, "tests": 352 },
+    "features": { "files": 35, "tests": 211 },
+    "app":      { "files": 3,  "tests": 23 },
+    "shared":   { "files": 4,  "tests": 17 }
   },
   "methodology": {
     "D_A_latest_real_env": "B13 Playwright Oct 28 baseline + B14 4 gates green = code has not drifted",
     "deepDiveCumulative": {
-      "GoFunctions": "181+",
-      "TSTests": "414+ (B12 278 + B13 84 + B14 52)",
+      "GoFunctions": "181+ (B10 agent ~50 + B11 platform 131)",
+      "TSTests": "490+ (B12 274 + B13 84 + B14 132)",
       "E2ESpecs": "33",
-      "GrandTotal": "628+ traceable boundaries"
+      "GrandTotal": "704+ traceable boundaries",
+      "correction": "B12 原记录 App Shell 27，实测 app/ 为 3 files / 23 tests，已按实测修正为 274+"
     }
   }
 }

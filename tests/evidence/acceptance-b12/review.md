@@ -1,4 +1,4 @@
-# B12 Review — Frontend Runtime 251+ Tests + App Shell 27
+# B12 Review — Frontend Runtime 251+ Tests + App Shell 23
 
 ## Summary
 
@@ -9,7 +9,7 @@ B12 是 **B10/B11 deep-dive 的前端全景补齐**。B11 只知道 "frontend 61
 3. **browser-session 58 tests** = SDK tool listing + credential echo rejection + CSP safe output + call classification + connection credential freeze
 4. **records/queueStorage 29 tests** = 上传冻结核心——frozen body reload + capacity block + stale owner reject + quarantine corrupt
 5. **execution/index 15 tests** = Tab sync lock + local validation blocks Run + credential_rejected vs transport loss
-6. **App Shell 27 tests** = language/theme/sidebar 保持 + session expiry + bootstrap retry + stale identity 忽略
+6. **App Shell 23 tests**（实测修正原 27）= language/theme/sidebar 保持 + session expiry + bootstrap retry + stale identity 忽略
 
 **结论**：所有前端 runtime 核心边界覆盖充分，无 Critical 问题。
 
@@ -66,7 +66,7 @@ JSON Schema 是 MCP Studio Tool Argument 校验的**核心安全边界**。覆�
 - **retry same operation original body**（UI 后续编辑不影响 retry body）
 - **freeze metadata revision + redact reason**（metadata revision 不可变 + reason 脱敏）
 
-### App Shell 27 tests — ✅ Important
+### App Shell 23 tests（实测修正原 27）— ✅ Important
 Shell 全局行为 + session lifecycle + bootstrap：
 - **language/theme/sidebar controls keep page input + focus**（D10 字号/语言切换不丢输入）
 - **session expiry → unmount project context**（不是 signout）
@@ -102,4 +102,4 @@ canonical Unicode/decimal 边界 + snapshot Agent version hash masking。
 |------|--------|-----------|
 | B10 | Agent 11 包测试函数名 + backup/credentials 断言 | ~50 Go 函数 |
 | B11 | Platform 131 函数名 + Playwright 14 suite + Layout Metrics 37 | 131 Go + 33 E2E |
-| B12 | Frontend runtime 251+ tests 逐函数名 + App Shell 27 | **278+ TS tests**（全部 runtime 核心）|
+| B12 | Frontend runtime 251+ tests 逐函数名 + App Shell 23（实测修正原 27） | **274+ TS tests**（全部 runtime 核心）|

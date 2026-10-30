@@ -30,8 +30,10 @@
     "D_A_latest_real_env": "B12 Playwright Oct 28 baseline + B13 4 gates green = code has not drifted",
     "deepDiveCumulative": {
       "GoFunctions": "181+ (B10 agent ~50 + B11 platform 131)",
-      "TSTests": "362+ (B12 runtime 278 + B13 features 84)",
-      "GrandTotal": "543+ traceable boundaries"
+      "TSTests": "358+ (B12 runtime 251+ + app 23 实测 + B13 features 84)",
+      "E2ESpecs": "33",
+      "GrandTotal": "572+ traceable boundaries (Go 181 + TS 358 + E2E 33)",
+      "correction": "2026-10-29 复核：原记录写「B12 App Shell 27 / TS 362+ / 总计 543+」，实测 app/ 为 3 files / 23 tests；且原 543 未计入 E2E，与本仓库后续批次口径不一致，现统一为含 E2E 口径"
     }
   }
 }

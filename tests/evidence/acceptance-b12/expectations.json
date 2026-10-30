@@ -44,8 +44,10 @@
     }
   },
   "appShell": {
-    "file": "app/App.test.tsx",
-    "tests": 27,
+    "file": "app/App.test.tsx + app/Shell.test.tsx + app/v01-shell-footer.test.tsx",
+    "tests": 23,
+    "breakdown": { "app/App.test.tsx": 19, "app/Shell.test.tsx": 3, "app/v01-shell-footer.test.tsx": 1 },
+    "correction": "2026-10-29 复核：原记录 file=app/App.test.tsx, tests=27。实测 App.test.tsx 为 19，app/ 全目录 23",
     "coverage": "language/theme/sidebar keep page input+focus / session expiry unmount project context / stale project response capabilities hidden / forbidden write recheck project capability (no signout) / server idle deadline recheck on activity / mailbox verification enables project loading / team permission refresh on forbidden changes / stale CSRF refresh keep project draft / 401 then different account before scope load / stale personal authorization form hidden / Viewer project keep other tool document / bootstrap failure with retry (no endless loading) / unavailable project scoped return action / session deadline bootstrap refresh fail hide expired content + recovery / late initial 401 after newer identity ignored / late initial success after newer identity ignored / no invitation → canonical invalid invitation path / anonymous sign in when 401 before bootstrap / obsolete refresh 401 does not expire newer check"
   },
   "methodology": {

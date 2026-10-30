@@ -1,55 +1,92 @@
-# B14 Review — Frontend Features 剩余模块 12 Files / 52 Tests
+# B14 Review — Frontend Features 全量深潜（29 files / 132 tests）
 
-## Summary
+## 复核修正（2026-10-29）
 
-B13 完成 features 核心 8 pages 84 tests，B14 补齐剩余 12 modules 52 tests → **features/ 全部页面组件逐函数名深潜完成**。
+原 B14 记录声称「剩余 12 modules / 52 tests」且「features/ 全部完成」。用 `npx vitest run --reporter=json` 实测核对后确认三处错误：
 
-**关键安全边界新发现**：
-1. **DevicesPage: "never approves natively from the web"** — Agent pairing 必须 local approval code，**web 不能直接批准**（核心安全边界）
-2. **IdentityPage: "never accepts automatically"** — registration 后 invitation 必须用户显式接受（防自动 join）
-3. **WorkflowPage: missing personal env → incomplete** — **不使用 shared default**（D07 scope 严格）
-4. **ConnectionsPage: stale async query does not pollute next project** — stale async request rejection（**和 App Shell 的 stale identity rejection 同一模式**）
-5. **WorkflowPage: no current project access → no config requests** — no access → 不发 config API call（不是 UI 空数据）
+| 问题 | 原记录 | 实测 |
+|---|---|---|
+| AgentBackupsPanel 测试数 | 5 | **4**（3 个 `it()`，含一个 `it.each(['backup','restore'])` 展开 2 个） |
+| Part 1 合计 | 52 | **48**（原表格逐项相加也仅 49，本身就不自洽） |
+| features/ 覆盖率 | 「全部完成」 | **35 files / 211 tests，当时仅覆盖 18 files**，遗漏 17 文件 / 84 tests |
+
+另外原记录把 `QueryFeedback.states`、`ui.layout` 计入 features 的「12 modules」，实际二者属 `shared/`。
+
+本次已补做遗漏的 17 个 features 测试文件深潜，并修正全部数字。**features/ 现真正达成 35 files / 211 tests 逐文件全覆盖。**
+
+## 门禁复验（本机实际执行）
+
+| 门 | 实测 |
+|---|---|
+| `go test ./internal/...`（云版，22 包） | 全 ok，platform 101.49s |
+| `go test -tags local ./internal/...`（单机版，21 包） | 全 ok |
+| `go vet` 云版 + 单机版 | clean |
+| `npx vitest run`（Node 24.21.0） | 61 files / **603 tests / 0 failed** |
 
 ## 审阅分级
 
-### DevicesPage (3 tests) — ✅ Critical
-- **requires local approval code + never approves natively from the web** — Agent pairing 安全边界（web 不能绕过 local device approval）
+### Critical — 安全边界
 
-### IdentityPage (3 tests) — ✅ Critical
-- **keeps original invitation after registration + never accepts automatically** — invitation 自动接受防护（防 link 自动 join）
+**DevicesPage (3)** — `requires local approval code + never approves natively from the web`。Agent pairing 必须由本地设备批准，Web 端无法直接批准，防止远程绕过设备确认。
 
-### ConnectionsPage (11 tests) — ✅ Critical
-- stale async query does not populate next project service list — **跨 project stale async rejection**
-- viewer sees config but cannot edit personal auth or connect — 权限边界
-- deleted auth definition identity retained — identity 不被同 name 新 definition 借用
+**IdentityPage (3)** — `keeps original invitation after registration + never accepts automatically`。注册完成后不自动接受邀请，必须用户显式确认，防链接自动加入。
 
-### AgentBackupsPanel (5 tests) — ✅ Important
-- **does not create backup until confirmed** — backup 创建两阶段（confirm → create）
-- metadata deletion independent of local credentials — 凭据隔离
+**records/restore (8)** — 三处安全边界：
+- `redacted tool identity /context / /context/toolName` 在 connection/catalog 请求**之前**即阻断，即使存在字面 masked tool 也不放行
+- stale Developer restore 被实际 `session-access` 端点的 Viewer downgrade 拒绝 → 阻断
+- Agent history 恢复使用**当前 Agent session**，绝不使用 browser runtime
 
-### WorkflowPage (13 tests) — ✅ Important
-- **missing personal applied env → incomplete (不使用 shared default)** — scope 严格性（D07）
-- no current project access → no config requests + all context hidden — **无 access 不发 API**
-- seven-step upload failure explicit → direct retry to owner queue — workflow 七步完整链
+**connections/runtimeStore (7)** — `suspend uploads without cancelling an issued tool result or deleting its frozen queue`。暂停上传、取消 tool result、删除 frozen queue 是三个独立动作，不可混淆。
 
-### AgentQueuePanel (3 tests) — ✅ Important
-- offline Agent records unknown (separate from empty browser queue) — offline / empty 是独立状态
+**tools/AgentToolExecution (4)** — Agent 拥有 execution 与 upload 所有权，仅在显式点击时取消；late results 不能写入 revoked project；shared context redaction 在缓存/复制前应用且不改变 identity。
 
-### 其他 — ✅ Minor
-IdentityStates / AgentOAuthPanel / AgentCredentialsPanel / Projects / QueryFeedback / ui.layout
+### Important — 正确性核心
+
+**workflow/model (15)** — 本次补漏中体量最大。upload 失败后即使已查看详情且存在 saved copy，history/saved 仍为 incomplete；facts 不跨 user/project/connection/Run 合并；无 permission 或 identity suspended 时隐藏全部 progress fact。
+
+**tools/workspace (8)** — duplicate 不继承 result / run identity / pending upload；project revocation 只丢弃目标文档并保留另一 project draft。
+
+**tools/argumentDraft (8)** — 显式 `0/false/null/空数组` 与 skip 独立保留（D08）；remote/advanced ref 用 local JSON 不发起 fetch。
+
+**tools/ToolsPage (9)** — Viewer 或 disconnected runtime 不 fetch upstream tools；root memory revocation 后不 publish late catalog；forbidden connection query 不渲染旧 tool context 且不重试。
+
+**connections/ConnectionsPage (11)** — stale async query 不污染下一 project（与 App Shell 的 stale identity rejection 同一模式）。
+
+**WorkflowPage (13)** — missing personal applied env → incomplete，**不使用 shared default**；无当前 project access 时不发 config 请求。
+
+**RecordsPage (11)** / **OperationsPage (12)** / **RecordEditors (13)** / **SchemaArgumentEditor (13)** / **EnvironmentPage (14)** / **ToolExecution (8)** / **MembersPage (9)** — 见 B13 记录，本次复核数字全部吻合。
+
+**records/viewStore (4)** — root Run invalidation 精准清除匹配 cached copies 与 Tab results，保留其他 Run / project。
+
+**environment/VariableEditor (4)** — personal 允许 credential-shaped 值而 shared definitions 拒绝；拒绝 personal JSON 内嵌 nonfinite，不静默存 null。
+
+### Minor
+
+AgentQueuePanel (3)、IdentityStates (2)、AgentOAuthPanel (1)、AgentCredentialsPanel (1)、Projects (2)、QueryFeedback (3, shared)、ui.layout (2, shared)、RecordStates (3)、session (3)、uploads (3)、protection (3)、ToolDocumentTabs (2)、AgentEnvironmentPanel (1)、SessionUploads (1)、v01-backup-retry (1)、AgentBackupsPanel (4)。
 
 ## Critical Issues
 
-**None.** 所有发现的安全边界都有对应测试。
+**None** — 所有发现的安全边界均有对应测试覆盖。
 
-## Features 全景完成（B13+B14）
+唯一属于文档层面的问题是本轮已修正的统计错误，不涉及实现。
+
+## 累积口径（实测）
 
 ```
-features/ 总计 20 files / 136 tests 逐函数名深潜覆盖
-runtime/   12 files / 251+ tests 逐函数名深潜覆盖
-app/        3 files / 27 tests 逐函数名深潜覆盖
-shared/     4 files （QueryFeedback + ui.layout 已覆盖）
-──────────────────────────────
-TS 侧全部页面 + runtime 逐函数名深潜完成
+Go 侧   agent 11 包 ~50 + platform 131            = 181+ functions
+TS 侧   B12 274+ (runtime 251+ + app 23)
+      + B13 84 + B14 132                          = 490+ tests
+E2E     Playwright 14 suites / 33 specs
+量化     Layout Metrics 37 / pageOverflow 0 / bodySize 14
+──────────────────────────────────────────────
+总计    704+ 可追溯边界
+```
+
+## 全量目录分布（实测 61 files / 603 tests）
+
+```
+runtime/   19 files / 352 tests
+features/  35 files / 211 tests   ← B13+B14 全覆盖
+app/        3 files /  23 tests
+shared/     4 files /  17 tests
 ```

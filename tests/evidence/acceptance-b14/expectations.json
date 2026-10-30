@@ -1,6 +1,6 @@
 {
   "batch": "B14",
-  "title": "Frontend Features 剩余模块逐函数名全清单 — Connections 11 + Workflow 13 + Auth 5 + Devices 6 + Panels 7 + Projects 2 + Shared 5 = 52 tests",
+  "title": "Frontend Features 全量补齐 — Part 1 剩余 12 modules: Connections 11 + Workflow 13 + Auth 5 + Devices 6 + Panels 6 + Projects 2 + Shared 5 = 48 tests；Part 2 补漏 17 文件 = 84 tests；合计 132 tests",
   "createdAt": "2026-10-29",
   "mode": "deep-dive",
   "previousBatch": "B13",
@@ -41,7 +41,7 @@
     },
     {
       "name": "AgentBackupsPanel.test.tsx",
-      "tests": 5,
+      "tests": 4,
       "category": "connections",
       "highlights": [
         "does not create backup until confirmed",
@@ -58,11 +58,29 @@
     { "name": "IdentityStates.test.tsx", "tests": 2, "category": "auth", "highlights": ["unavailable invitation state before sign-in", "retains sign-in inputs while retrying invitation lookup"] },
     { "name": "Projects.test.tsx", "tests": 2, "category": "projects", "highlights": ["explains denied create-project + returns to directory without write", "emits creation evidence only after real scoped success + preserves inputs on failure"] },
     { "name": "QueryFeedback.states.test.tsx", "tests": 3, "category": "shared", "highlights": ["offers return instead of repeating forbidden/not_found lookup", "allows explicit retry of transient error + separate return"] },
-    { "name": "ui.layout.test.tsx", "tests": 2, "category": "shared", "highlights": ["keeps shared button class with caller styles", "adjusts separator by keyboard within bounds + resets without losing draft"] }
+    { "name": "ui.layout.test.tsx", "tests": 2, "category": "shared", "highlights": ["keeps shared button class with caller styles", "adjusts separator by keyboard within bounds + resets without losing draft"] },
+    { "name": "workflow/model.test.ts", "tests": 15, "category": "workflow", "highlights": ["explicit skips + zero-variable environment stays incomplete", "failed or cancelled run does not count as complete", "failed upload stays incomplete even after detail view and saved copy", "facts do not merge across user/project/connection/Run", "missing permission or suspended identity hides every progress fact", "newer failed run replaces successful run", "restore Tab does not create a run", "does not create execution from prior view marker or saved DTO", "retains live operation identity from server-observed record confirmation when upload receipt is missing"] },
+    { "name": "tools/ToolsPage.test.tsx", "tests": 9, "category": "tools", "highlights": ["real session catalog + search + independent document + keyboard navigation", "tab menu owns its own document + Escape returns focus", "list error retry does not create or call a tool", "Viewer or disconnected runtime does not fetch upstream tools", "root memory revocation does not publish a late catalog", "forbidden connection query does not render stale tool context and does not retry the rejected request"] },
+    { "name": "tools/workspace.test.ts", "tests": 8, "category": "tools", "highlights": ["duplicate does not inherit result, run identity or pending upload", "tab identity/selection/ordering/drafts isolated per project and connection", "moves only within pinned group + protects pinned/running from bulk close", "project revocation drops only the target document and keeps another project draft", "duplicate nests argument metadata without sharing mutable state", "retains bounded pane/scroll per document"] },
+    { "name": "tools/argumentDraft.test.ts", "tests": 8, "category": "tools", "highlights": ["every optional level including defaults stays skipped without touching", "explicit 0/false/null/empty array preserved independently from skip", "malformed raw keeps the last parseable semantic value", "remote or advanced reference uses local JSON without fetching", "removing an array item reindexes input/skip/touched/expansion", "overlapping number/integer renders JSON while disjoint discriminator renders", "execution local issues block independently"] },
+    { "name": "records/restore.test.ts", "tests": 8, "category": "records", "highlights": ["builds an independent unexecuted document from the current tool schema", "deleted service is readable but cannot restore or create a document", "redacted tool identity is blocked before connection and catalog requests", "stale Developer restore rejected by the real session-access Viewer downgrade", "unrelated project revocation does not cancel this project restore", "Agent history restores with the current Agent session and never the browser runtime"] },
+    { "name": "connections/runtimeStore.test.ts", "tests": 7, "category": "connections", "highlights": ["expired credential session disconnects even when panel is unmounted", "revoking one project keeps another project session and draft alive", "issued result identity survives revocation but account change fences it", "suspends uploads without cancelling issued result or deleting frozen queue", "memory-only choice remembered per account and never crosses accounts", "stale hydration completion keeps expiry paused"] },
+    { "name": "records/viewStore.test.ts", "tests": 4, "category": "records", "highlights": ["history filters and cursor retained per project and per connection+tool", "additional redaction/metadata forms isolated per project and record, revoking only the target", "closes only copy forms whose cached source was invalidated", "root Run invalidation clears matching copies and Tab results while retaining other Run and project"] },
+    { "name": "environment/VariableEditor.test.tsx", "tests": 4, "category": "environment", "highlights": ["shared number reference expression retained for typed runtime resolution", "conditional version and definition draft survive navigation", "personal allows credential-shaped values while shared definitions reject", "rejects nested nonfinite inside personal JSON instead of storing null silently"] },
+    { "name": "tools/AgentToolExecution.test.tsx", "tests": 4, "category": "tools", "highlights": ["Agent owns execution and upload, cancellation only on explicit click, safe snapshot kept for standalone save", "completed Agent Run re-executes with new identity while browser holds no upload ownership", "late results cannot write into a revoked project", "shared context redaction applied before cache or copy without changing identity"] },
+    { "name": "connections/session.test.ts", "tests": 3, "category": "connections", "highlights": ["drafts retained per project and connection identity including same endpoint", "applies saved disconnected/unblocked state only to the target session", "identity end clears every transient data"] },
+    { "name": "records/RecordStates.test.tsx", "tests": 3, "category": "records", "highlights": ["empty history and empty saved list offer the same tool scope as next step", "no-match offers filter clearing and no create-call action"] },
+    { "name": "workflow/uploads.test.ts", "tests": 3, "category": "workflow", "highlights": ["upload progress merges only from the matching frozen user/project/connection/Run and target identity", "Agent-owned history kept independent from saved copies", "does not invent original history operation when server-observed Run lacks upload identity"] },
+    { "name": "team/protection.test.ts", "tests": 3, "category": "team", "highlights": ["self and Owner protected regardless of management role", "protects the last maintainer from demotion and removal", "Admin cannot modify another Admin"] },
+    { "name": "tools/ToolDocumentTabs.test.tsx", "tests": 2, "category": "tools", "highlights": ["tablist exposes only document tabs with naming actions outside it", "non-current action attaches to its own document and focus return does not change selection"] },
+    { "name": "environment/AgentEnvironmentPanel.test.tsx", "tests": 1, "category": "environment", "highlights": ["previews Agent personal values and revalidates before apply without connecting to MCP"] },
+    { "name": "records/SessionUploads.test.tsx", "tests": 1, "category": "records", "highlights": ["explains paused stale records and retention failure without offering Viewer retry"] },
+    { "name": "connections/v01-backup-retry.test.tsx", "tests": 1, "category": "connections", "highlights": ["retries rejected backup with retained scope and explicit consent, showing only the accepted backup"] }
   ],
-  "totalFeaturesTests": 52,
+  "totalFeaturesTests": { "part1": 48, "part2": 84, "total": 132 },
   "methodology": {
     "D_A_latest_real_env": "B13 Playwright Oct 28 baseline + B14 4 gates green = code has not drifted",
-    "featuresComplete": "B13 8 pages 84 tests + B14 12 modules 52 tests = features/ 全部页面组件逐函数名覆盖"
+    "featuresComplete": "B13 8 pages / 84 tests + B14 features 部分 27 files / 127 tests = features/ 35 files / 211 tests 逐文件全覆盖（实测）",
+    "correction": "2026-10-29 复核：原记录「12 modules / 52 tests」「features 全部完成」有误。实测 AgentBackupsPanel 为 4 非 5、Part 1 合计 48 非 52、features/ 实为 35 files / 211 tests 且当时仅覆盖 18 files。现已补漏 17 文件并修正"
   }
 }
