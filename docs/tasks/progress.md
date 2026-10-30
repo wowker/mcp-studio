@@ -986,8 +986,10 @@ Playwright 基线 Oct 28（results.json + layout-metrics.json mtime）commit 在
 
 ## B12 出口（2026-10-29）
 
-**批次类型**：深度审阅（deep-dive）—— 前端 runtime 12 files / 251+ tests 逐函数名 + App Shell 27 tests
+**批次类型**：深度审阅（deep-dive）—— 前端 runtime 12 files / 251+ tests 逐函数名 + App Shell 23 tests
 **范围**：B11 Frontend 61 files 结构的下沉——从模块级深入到 test-level 覆盖边界
+
+> 2026-10-29 复核：本节原写「App Shell 27 tests」。实测 `app/` 为 3 files / **23 tests**，已在 B13/B14 累积口径中按 23 修正；本节标题与累积表同步更正。
 
 ### 修改
 - `tests/evidence/acceptance-b12/expectations.json` — Frontend runtime 四维 + App Shell
@@ -1038,7 +1040,7 @@ schema/
                        79 tests
 ```
 
-#### App Shell 27 Tests 核心边界
+#### App Shell 23 Tests 核心边界（实测修正原 27）
 - language/theme/sidebar 保持 page input + focus
 - session expiry → unmount project context（不是 signout）
 - **late initial session 401/success after newer identity → ignored**（stale identity 防护核心）
@@ -1053,9 +1055,9 @@ schema/
 |------|--------|----------------|
 | B10 | Agent 11 包 + backup/credentials | ~50 Go 函数 |
 | B11 | Platform 131 + Playwright 14 + Layout Metrics 37 | 131 Go + 33 E2E |
-| B12 | **Frontend runtime 251+ tests + App Shell 27** | **278+ TS tests** |
+| B12 | **Frontend runtime 251+ tests + App Shell 23（实测修正原 27）** | **274+ TS tests** |
 
-**Deep-dive 总产出**：**Go 181+ functions + TS 278+ tests** = **459+ 可追溯边界**。
+**Deep-dive 总产出**：**Go 181+ functions + TS 274+ tests** = **455+ 可追溯边界**。
 
 ### 限制
 - B12 无新增 signed 状态变更——纯 deep-dive，质量保障层
@@ -1107,12 +1109,177 @@ schema/
 |------|--------|---------------|
 | B10 | Agent 11 包 + backup/credentials | ~50 Go 函数 |
 | B11 | Platform 131 + Playwright 14 + Layout Metrics 37 | 131 Go + 33 E2E |
-| B12 | Frontend runtime 251+ tests + App Shell 27 | 278+ TS tests |
+| B12 | Frontend runtime 251+ tests + app 23（实测修正原 27） | 274+ TS tests |
 | **B13** | **Frontend features 核心 8 pages / 84 tests 逐函数名** | **+84 TS tests** |
-| **总计** | | **Go 181+ / TS 362+ = 543+** |
+| **总计** | | **Go 181+ / TS 358+ / E2E 33 = 572+** |
+
+> 2026-10-29 复核：原记录写「App Shell 27 / TS 362+ / 总计 543+」。实测 `app/` 为 3 files / **23 tests**，且原 543 未计入 E2E，与 B14 口径不一致，现统一为含 E2E 口径。
 
 ### 限制
 - B13 无新增 signed 状态变更——纯 deep-dive，质量保障层
 - features/ 剩余页面（connections/credentials/backups/oauth panels、devices、workflow、auth）未逐函数名深潜，但 B11 已确认 exit 0 + 模块级存在
+- **2026-10-29 复核补充**：当时「剩余页面未深潜」的判断低估了缺口——`features/` 实际有 35 个测试文件 / 211 tests，B13+B12 合计仅覆盖 18 个文件，另有 17 个文件（84 tests）未被盘点，已在 B14 补齐
 
 ### 签收：无新增状态（深度审阅）
+
+## B14 出口（2026-10-29）
+
+**批次类型**：深度审阅（deep-dive）—— Frontend Features 全量补齐，29 files / 132 tests
+**范围**：B13 后补齐 features/ 剩余 12 模块（其中 2 属 `shared/`）+ 补漏 17 个此前遗漏的 features 测试文件，达成 features/ **35 files / 211 tests 逐文件全覆盖**
+
+### 修改
+- `tests/evidence/acceptance-b14/expectations.json` — 覆盖条目清单
+- `tests/evidence/acceptance-b14/coverage-map.md` — 29 files / 132 tests 逐函数名 + 边界（Part 1 剩余 12 模块 48 tests + Part 2 补漏 17 文件 84 tests）
+- `tests/evidence/acceptance-b14/review.md` — Critical/Important/Minor 分级
+- `tests/evidence/acceptance-b14/manifest.json` — 完整 JSON 快照
+- `docs/tasks/progress.md` — 本出口节
+
+### 验证（4 道门全绿，2026-10-29 复核实测）
+- Go 云版 `./internal/...`：22 包 exit 0，platform 101.49s
+- Go 单机版 `-tags local ./internal/...`：21 包 exit 0
+- go vet：两版 clean
+- vitest run（Node 24.21.0）：61 files **603 tests、0 failed**
+
+### 复核修正记录
+
+原 B14 记录声称「12 modules / 52 tests」「features/ 全部 20 files / 136 tests 深潜完成」。用 `npx vitest run --reporter=json` 实测核对后发现三处错误：
+
+| 问题 | 原记录 | 实测 |
+|---|---|---|
+| AgentBackupsPanel 测试数 | 5 | **4**（3 个 `it()`，其一 `it.each(['backup','restore'])` 展开 2 个） |
+| Part 1 合计 | 52 | **48**（原表格逐项相加也仅 49，本身不自洽） |
+| features/ 覆盖率 | 全部完成 / 20 files / 136 tests | **35 files / 211 tests，当时仅覆盖 18 files**，遗漏 17 文件 / 84 tests |
+
+另 `QueryFeedback.states`、`ui.layout` 被计入 features 的「12 modules」，实际属 `shared/`。
+
+本次已补做遗漏 17 文件深潜并修正全部数字，**features/ 现真正逐文件全覆盖**。
+
+### B14 独有证据
+
+#### Part 1 — 剩余 12 modules（48 tests）
+| 文件 | Tests | 核心边界 |
+|------|-------|---------|
+| WorkflowPage | **13** | 无 project access → 不发 config 请求 + missing personal env → incomplete（不 fallback shared default） |
+| ConnectionsPage | **11** | viewer 可见配置但不可编辑个人认证 + stale async query 不污染下一 project |
+| AgentBackupsPanel | **4** | confirm 之前不创建 backup + reauth 输入保留 |
+| AgentQueuePanel | 3 | offline Agent 记为 unknown（≠ 空浏览器队列）+ 权限撤销后忽略迟到队列 |
+| DevicesPage | 3 | **requires local approval code + never approves natively from the web** |
+| IdentityPage | 3 | **keeps original invitation + never accepts automatically** |
+| IdentityStates | 2 | 未登录前 invitation unavailable + 重试时保留输入 |
+| AgentOAuthPanel | 1 | 授权与保存分离 + 重试不上重复 OAuth |
+| AgentCredentialsPanel | 1 | backup 默认关闭 + Agent token 独立于浏览器 vault |
+| Projects | 2 | 拒绝创建项目时说明并返回、不写入 |
+| shared/QueryFeedback.states | 3 | forbidden/not_found → 提供返回而非重复；transient → 显式重试 + 独立返回 |
+| shared/ui.layout | 2 | 共享按钮类保留 + keyboard separator 在界内 |
+
+#### Part 2 — 补漏 17 文件（84 tests）
+| 文件 | Tests | 核心边界 |
+|------|-------|---------|
+| workflow/model | **15** | facts 不跨 user/project/connection/Run 合并 + 无 permission 或 identity suspended → 隐藏全部 progress fact + upload 失败后 saved copy 仍 incomplete |
+| tools/ToolsPage | 9 | Viewer/disconnected runtime 不 fetch upstream tools + root memory revocation 后不 publish late catalog |
+| tools/workspace | 8 | duplicate 不继承 result / run identity / pending upload + project revocation 只丢弃目标文档 |
+| tools/argumentDraft | 8 | 显式 0/false/null/空数组与 skip 独立保留 + remote ref 用 local JSON 不 fetch |
+| records/restore | 8 | redacted tool identity 在 connection/catalog 请求**前**阻断 + Agent history 用当前 Agent session 绝不 browser runtime |
+| connections/runtimeStore | 7 | suspend uploads ≠ 取消已签发 result ≠ 删 frozen queue + memory-only 按 account 记住不串账号 |
+| records/viewStore | 4 | root Run invalidation 精准清匹配 copies 与 Tab results，保留其他 Run / project |
+| environment/VariableEditor | 4 | personal 允许 credential-shaped 值而 shared 拒绝 + 拒绝 nested nonfinite 不静默存 null |
+| tools/AgentToolExecution | 4 | Agent 拥有 execution 与 upload + late results 不写入 revoked project |
+| connections/session | 3 | drafts 按 project + connection identity 保留 + identity end 清全部 transient |
+| records/RecordStates | 3 | no-match → 提供清 filter，不给 create-call 动作 |
+| workflow/uploads | 3 | upload progress 只从匹配 frozen user/project/connection/Run 合并 |
+| team/protection | 3 | 保护最后 maintainer + Admin 不能修改另一个 Admin |
+| tools/ToolDocumentTabs | 2 | tablist 仅暴露 document tabs + 返焦不改变选中 |
+| environment/AgentEnvironmentPanel | 1 | apply 前重新校验且不连接 MCP |
+| records/SessionUploads | 1 | 解释 paused/retention failure，不给 Viewer retry |
+| connections/v01-backup-retry | 1 | 保留 scope + 显式 consent 重试被拒 backup |
+
+#### Features 全量分布（实测 35 files / 211 tests）
+```
+records 6/40 · tools 7/52 · workflow 3/31 · environment 4/23
+connections 7/28 · operations 1/12 · team 2/12 · devices 2/6
+auth 2/5 · projects 1/2
+```
+
+#### 关键安全边界新发现
+1. **DevicesPage: "never approves natively from the web"** — Agent pairing 必须 local approval code，Web 端无法直接批准
+2. **IdentityPage: "never accepts automatically"** — 注册完成后不自动接受邀请，必须用户显式确认
+3. **restore: redacted tool identity 请求前阻断** — `/context` `/context/toolName` 在 connection/catalog 请求前即阻断，字面 masked tool 存在也不放行
+4. **runtimeStore: suspend upload 不取消已签发 result** — 暂停上传、取消 result、删 frozen queue 三者独立
+
+### Deep-dive 批次累积（B10→B14，实测口径）
+
+| 批次 | 深入到 | 文件 / 测试（实测） |
+|------|--------|-------------------|
+| B10 | Agent 11 包 + backup/credentials | ~50 Go 函数 |
+| B11 | Platform 131 + Playwright 14 suites + Layout Metrics 37 | 131 Go + 33 E2E |
+| B12 | Frontend runtime 251+ tests + app 23（实测修正原 27） | 274+ TS tests |
+| B13 | Frontend features 核心 8 pages / 84 tests | +84 TS tests |
+| **B14** | **Features 剩余 12 模块 + 补漏 17 文件 + shared 2 文件** | **+132 TS tests** |
+| **总计** | | **Go 181+ / TS 490+ / E2E 33 = 704+** |
+
+**vitest 全量分布（实测 61 files / 603 tests）**
+```
+runtime/   19 files / 352 tests
+features/  35 files / 211 tests   ← B13+B14 全覆盖
+app/        3 files /  23 tests
+shared/     4 files /  17 tests
+```
+
+### 限制
+- B14 无新增 signed 状态变更——纯 deep-dive，质量保障层
+- `shared/` 仍有 2 个文件（12 tests）未逐函数名深潜；`runtime/` 19 files 中 B12 覆盖 12 个，余 7 个仅 vitest exit 0 确认
+- 云版实机部署、邮件、跨 OS 介质验证仍为待验状态
+
+---
+
+## B15 出口（2026-10-30）
+
+**批次类型**: deep-dive — Internal 零测试包深潜
+**前置**: A01–A60 已全签 60/60（B8）；B10–B14 已完成 agent / platform / frontend 全量深潜
+
+### 修改
+- 新增 `internal/jsonnumber/number_test.go`（7 tests）
+- 新增 `internal/wire/wire_contract_test.go`（6 tests）
+- 新增 `internal/agent/wire/agent_contract_test.go`（5 tests）
+- 未修改任何生产代码
+
+### 缺口论证
+
+盘点 `internal/` 后剩余三个零测试包：
+
+| 包 | 类型 | 行数 | 调用方 | 判定 |
+|---|---|---|---|---|
+| `internal/jsonnumber` | **手写** | 79 | recording/redaction、recording/canonical、platform/records、schema/check（5 处） | ✅ 真实缺口 |
+| `internal/wire` | 生成（platform openapi） | 404 | Go + TS 共用字段 | 合同未锁 |
+| `internal/agent/wire` | 生成（agent openapi） | 199 | Agent + platform 握手 | 合同未锁 |
+
+`jsonnumber`（mantissa 128 / exponent ±324 / 非有限拒绝）是 D09「非法 JSON 与 Schema 错误」在数值层面的第一道闸，此前只在调用方间接执行，从未直接断言。
+
+### 验证（4 道门全绿）
+
+| 门 | 结果 |
+|---|---|
+| 云版 `go test ./internal/...` | ✅ 22 包全 ok（platform 117.673s） |
+| 单机版 `go test -tags local ./internal/...` | ✅ 21 包全 ok |
+| `go vet` 两版 | ✅ clean |
+| `npx vitest run`（Node 24.21.0） | ✅ 61 files / 603 tests / 0 failed |
+
+新增包三道 Go 门实际执行（非跳过）：jsonnumber 1.653s/3.300s、wire 4.540s/4.805s、agent/wire 1.224s/2.383s。
+
+### 限制
+- 无新增 signed 状态变更——纯 deep-dive
+- wire 合同测试只锁实际消费的 11 个结构，不覆盖 `platform.gen.go` 全部 40+ 类型（避免变成生成器镜像）
+- denormal 浮点（`1e-323` 等）只断言阈值行为，不断言精确尾部位数
+- 未与 `contracts/*/openapi.json` 做自动 diff（需引入生成校验工具链，超出本批范围）
+
+### 覆盖增量
+
+| 维度 | B14 累计 | B15 增量 | 累计 |
+|---|---|---|---|
+| Go 边界 | 181+ | +18 | **199+** |
+| TS tests | 490+ | — | 490+ |
+| E2E specs | 33 | — | 33 |
+| **总计** | 704+ | **+18** | **722+** |
+
+### 下一批
+B16 — 入口层深潜（`cmd/agent`、`cmd/studio-admin`、`apps/local`、`apps/cloud`）

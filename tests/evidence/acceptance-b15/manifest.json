@@ -1,0 +1,81 @@
+{
+  "batch": "B15",
+  "date": "2026-10-30",
+  "commit": "HEAD",
+  "batchType": "deep-dive",
+  "previousBatch": "B14",
+  "description": "Internal 零测试包深潜 — jsonnumber（手写数值安全边界）+ internal/wire + internal/agent/wire（生成代码合同 JSON tag 校验）",
+  "prerequisite": "A01–A60 已全签 60/60（B8）；B10–B14 已完成 agent / platform / frontend 全量深潜",
+  "gapJustification": {
+    "internal/jsonnumber": "手写 79 行，零测试，被 recording/redaction、recording/canonical、platform/records、schema/check 共 5 处调用；数值上界属 D09 共享安全边界，从未被直接断言",
+    "internal/wire": "生成 404 行（contracts/platform/openapi.json），零测试；字段名被 Go 与 TS 共用",
+    "internal/agent/wire": "生成 199 行（contracts/agent/openapi.json），零测试；配对/Run/队列握手字段"
+  },
+  "addedFiles": [
+    {
+      "path": "internal/jsonnumber/number_test.go",
+      "kind": "hand-written-boundary",
+      "tests": 7,
+      "testFunctions": [
+        "TestNormalizeShortestDecimalSpelling",
+        "TestNormalizeRejectsMantissaOver128Digits",
+        "TestNormalizeRejectsExponentOutOfRange",
+        "TestNormalizeBoundedUnderflowBecomesZero",
+        "TestNormalizeRejectsNonfinite",
+        "TestStringUsesECMAScriptThresholds",
+        "TestStringExponentialCarriesExplicitPositiveSign"
+      ]
+    },
+    {
+      "path": "internal/wire/wire_contract_test.go",
+      "kind": "cross-language-contract",
+      "tests": 6,
+      "testFunctions": [
+        "TestHealthContractJSONTags",
+        "TestBootstrapContractJSONTags",
+        "TestErrorEnvelopeShape",
+        "TestProjectContractJSONTags",
+        "TestSessionNestedContractJSONTags",
+        "TestInvitationContractJSONTags"
+      ]
+    },
+    {
+      "path": "internal/agent/wire/agent_contract_test.go",
+      "kind": "cross-language-contract",
+      "tests": 5,
+      "testFunctions": [
+        "TestAgentStatusContractJSONTags",
+        "TestAgentPairContractJSONTags",
+        "TestAgentConnectInputContractJSONTags",
+        "TestAgentErrorEnvelopeShape",
+        "TestAgentChallengeContractJSONTags"
+      ]
+    }
+  ],
+  "total": { "files": 3, "tests": 18 },
+  "verify": {
+    "cloudGo": { "packages": 22, "result": "PASS", "platformDuration": "117.673s" },
+    "localGo": { "packages": 21, "result": "PASS", "platformDuration": "6.745s" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "failed": 0, "result": "PASS" }
+  },
+  "newPackagesActuallyRan": {
+    "internal/jsonnumber": { "cloud": "1.653s", "local": "3.300s" },
+    "internal/wire": { "cloud": "4.540s", "local": "4.805s" },
+    "internal/agent/wire": { "cloud": "1.224s", "local": "2.383s" }
+  },
+  "reviewLevels": {
+    "critical": 0,
+    "important": 0,
+    "minor": 4
+  },
+  "coverageCumulative": {
+    "goBoundaries": "199+ (B14 181+ 加 B15 18)",
+    "tsTests": "490+",
+    "e2eSpecs": 33,
+    "grandTotal": "722+ traceable boundaries"
+  },
+  "noProductionCodeChanged": true,
+  "nextBatch": "B16 — 入口层（cmd/agent、cmd/studio-admin、apps/local、apps/cloud）"
+}

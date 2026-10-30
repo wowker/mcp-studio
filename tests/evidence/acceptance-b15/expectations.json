@@ -1,0 +1,88 @@
+{
+  "batch": "B15",
+  "title": "Internal 零测试包深潜 — jsonnumber 手写数值边界 + 两个生成 wire 包的合同 JSON tag 校验",
+  "createdAt": "2026-10-30",
+  "mode": "deep-dive",
+  "previousBatch": "B14",
+  "scope": {
+    "reason": "A01–A60 已全签 60/60（B8）。B10–B14 深潜覆盖 agent 11 包、platform 131 函数与前端 runtime/features 全量。剩余唯一确认的真实缺口是三个零测试 Go 包。",
+    "packages": [
+      {
+        "path": "internal/jsonnumber",
+        "kind": "hand-written",
+        "lines": 79,
+        "priorTests": 0,
+        "consumers": [
+          "internal/recording/redaction.go:336-342",
+          "internal/recording/canonical.go:106",
+          "internal/platform/records.go:702",
+          "internal/schema/check.go:229,246,259"
+        ]
+      },
+      {
+        "path": "internal/wire",
+        "kind": "generated",
+        "source": "contracts/platform/openapi.json",
+        "lines": 404,
+        "priorTests": 0
+      },
+      {
+        "path": "internal/agent/wire",
+        "kind": "generated",
+        "source": "contracts/agent/openapi.json",
+        "lines": 199,
+        "priorTests": 0
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "internal/jsonnumber/number_test.go",
+      "tests": 7,
+      "category": "security-boundary",
+      "highlights": [
+        "Normalize 最短十进制拼写（2.0→2、1e3→1000、1e0003→1000、-0→0）",
+        "mantissa 128 位上限：128 位通过、129 位拒绝（numeric mantissa limit）",
+        "exponent 范围 ±324：1e400 / 1e-400 / 1e1234 / 1e325 / 1e-325 全部拒绝",
+        "bounded underflow：1e-324 归一为 0（与注释契约一致）",
+        "非有限拒绝：1e324（+Inf）/ abc / 1e / 空串 / NaN / Infinity",
+        "String ECMAScript 阈值：1e-6→0.000001（含边界）、1e-7→1e-7、1e20 定点、1e21→1e+21",
+        "指数符号：非负指数显式带 +，负指数带 -（保证文本回显匹配）",
+        "真实负零用 math.Copysign(0,-1) 构造，避免 Go 常量 -0.0 退化为 0"
+      ]
+    },
+    {
+      "name": "internal/wire/wire_contract_test.go",
+      "tests": 6,
+      "category": "cross-language-contract",
+      "highlights": [
+        "Health：status / version",
+        "Bootstrap：initialized / mailConfigured",
+        "Error envelope：error.code",
+        "Project：id / teamId / name / description / role / canManage / canTakeover / canRead 全字段",
+        "Session 嵌套：user / teams / csrf / expiresAt + Teams[0].Role 为 TeamRole",
+        "Invitation：teamRole / projectRole 双角色 + expiresAt / delivery"
+      ]
+    },
+    {
+      "name": "internal/agent/wire/agent_contract_test.go",
+      "tests": 5,
+      "category": "cross-language-contract",
+      "highlights": [
+        "AgentStatus：contractVersion / deviceId / vaultAvailable / queueRetention",
+        "AgentPair：pairingId / channelToken / origin / capabilities",
+        "AgentConnectInput：projectId / connectionId / version / environmentId",
+        "AgentError envelope：error.code",
+        "AgentChallenge：challengeId / expiresAt / origin / state / capabilities"
+      ]
+    }
+  ],
+  "total": { "files": 3, "tests": 18 },
+  "verify": {
+    "cloudGo": { "packages": 22, "result": "PASS", "platformDuration": "117.673s" },
+    "localGo": { "packages": 21, "result": "PASS", "platformDuration": "6.745s" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "failed": 0, "result": "PASS" }
+  }
+}

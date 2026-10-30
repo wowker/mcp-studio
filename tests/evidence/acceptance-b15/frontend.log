@@ -1,0 +1,141 @@
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90m/Users/wuwei/code/github/mcp-studio/apps/web[39m
+
+ [32m✓[39m src/features/records/RecordEditors.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 3225[2mms[22m[39m
+   [33m[2m✓[22m[39m freezes a failed metadata revision including its ETag and retries the exact operation after further editing [33m 839[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps additional redaction reasons isolated and retries original pointers and reason without using the edited form [33m 389[2mms[22m[39m
+   [33m[2m✓[22m[39m submits metadata and context redaction pointers without leaking their values in the frozen revision reason [33m 306[2mms[22m[39m
+   [33m[2m✓[22m[39m captures the current connection credential so edited metadata cannot leak it after the request was already redacted [33m 415[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordsPage.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 3301[2mms[22m[39m
+   [33m[2m✓[22m[39m queries the real scoped API and preserves its connection+tool filters through pagination and detail return [33m 927[2mms[22m[39m
+   [33m[2m✓[22m[39m closes the detail copy editor after a successful upload and does not reopen it after returning to the record [33m 681[2mms[22m[39m
+   [33m[2m✓[22m[39m preserves a failed detail copy draft and closes it after its frozen retry succeeds [33m 841[2mms[22m[39m
+ [32m✓[39m src/features/environment/EnvironmentPage.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 3414[2mms[22m[39m
+   [33m[2m✓[22m[39m blocks application for missing personal required value and preserves secret only in memory [33m 303[2mms[22m[39m
+   [33m[2m✓[22m[39m filters effective missing sensitive and overridden values and exposes lower source editing [33m 502[2mms[22m[39m
+   [33m[2m✓[22m[39m follows same-project route changes and back navigation without applying the previous scope or losing scoped drafts [33m 1189[2mms[22m[39m
+ [32m✓[39m src/app/App.test.tsx [2m([22m[2m19 tests[22m[2m)[22m[33m 7180[2mms[22m[39m
+   [33m[2m✓[22m[39m authenticated Shell[2m > [22mkeeps page input and focus through language/theme/sidebar controls [33m 577[2mms[22m[39m
+   [33m[2m✓[22m[39m authenticated Shell[2m > [22mdoes not display content capabilities from a stale project response [33m 340[2mms[22m[39m
+   [33m[2m✓[22m[39m rechecks project capability after a forbidden write without signing out [33m 639[2mms[22m[39m
+   [33m[2m✓[22m[39m loads projects only after mailbox verification enables the session [33m 645[2mms[22m[39m
+   [33m[2m✓[22m[39m refreshes team permissions when forbidden changes leave the project maintainer role intact [33m 544[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps the old project hidden after a 401 and a different account signs in before its scope loads [33m 934[2mms[22m[39m
+   [33m[2m✓[22m[39m hides a stale personal authorization form after content GET permission revocation [33m 1117[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps another project tool document when switching through a Viewer project [33m 1294[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolsPage.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 3219[2mms[22m[39m
+   [33m[2m✓[22m[39m lists the real session catalog, searches it, and opens independent documents with keyboard navigation [33m 865[2mms[22m[39m
+   [33m[2m✓[22m[39m tab menu targets its own document, preserves selected identity, and returns focus on Escape [33m 815[2mms[22m[39m
+   [33m[2m✓[22m[39m closing a focused document returns focus to a surviving tab and the catalog after the last close [33m 472[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps an open saved-result editor attached to its original Tab when switching documents [33m 746[2mms[22m[39m
+ [32m✓[39m src/features/tools/SchemaArgumentEditor.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 4207[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps optional defaults skipped and focus or blur does not emit validation errors [33m 415[2mms[22m[39m
+   [33m[2m✓[22m[39m preserves zero false null empty arrays and explicit nested input with independent optional skipping [33m 690[2mms[22m[39m
+   [33m[2m✓[22m[39m preserves malformed Raw text and blocks Form until valid JSON, then accepts schema errors for correction [33m 316[2mms[22m[39m
+   [33m[2m✓[22m[39m error path navigation opens collapsed ancestors and focuses the nested failing field [33m 549[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps string empty enum values distinct and preserves edits after removing an earlier array item [33m 521[2mms[22m[39m
+   [33m[2m✓[22m[39m edits a disjoint oneOf branch and validates only its explicit canonical parameters [33m 323[2mms[22m[39m
+ [32m✓[39m src/features/team/MembersPage.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 2825[2mms[22m[39m
+   [33m[2m✓[22m[39m retains failed invitation inputs and default 7 day scope [33m 905[2mms[22m[39m
+   [33m[2m✓[22m[39m requires scope confirmation before deleting another project member [33m 347[2mms[22m[39m
+   [33m[2m✓[22m[39m cancelling project removal sends no mutation and retains the member role and scope [33m 312[2mms[22m[39m
+ [32m✓[39m src/features/operations/OperationsPage.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 2436[2mms[22m[39m
+   [33m[2m✓[22m[39m shows only own current-project records, stale and storage failure, and real capacity summary [33m 302[2mms[22m[39m
+   [33m[2m✓[22m[39m requires explicit selected discard and protects uploading records with keyboard-accessible controls [33m 918[2mms[22m[39m
+ [32m✓[39m src/features/auth/IdentityPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 2996[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps original invitation after registration and never accepts automatically [33m 2259[2mms[22m[39m
+   [33m[2m✓[22m[39m retains typed identity when a wrong-password login returns 401 [33m 460[2mms[22m[39m
+ [32m✓[39m src/features/environment/VariableEditor.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1284[2mms[22m[39m
+   [33m[2m✓[22m[39m accepts a shared number reference expression and preserves it for typed runtime resolution [33m 755[2mms[22m[39m
+ [32m✓[39m src/features/connections/ConnectionsPage.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 2669[2mms[22m[39m
+   [33m[2m✓[22m[39m service configuration[2m > [22mpreserves the edited local draft after a version conflict and compares latest remote config [33m 1187[2mms[22m[39m
+   [33m[2m✓[22m[39m service configuration[2m > [22mretains edits when remounted for the same project and refuses connect while draft is unsaved [33m 419[2mms[22m[39m
+   [33m[2m✓[22m[39m lets keyboard input multiple OAuth scopes separated by spaces and has precise select names [33m 311[2mms[22m[39m
+ [32m✓[39m src/features/environment/v01-diagnostics.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 4210[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'missing dependency' diagnosis after repair and returns without connecting (explicit apply=false) [33m 1746[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'missing dependency' diagnosis after repair and returns without connecting (explicit apply=true) [33m 1045[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'invalid typed reference' diagnosis after repair and returns without connecting (explicit apply=false) [33m 677[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'invalid typed reference' diagnosis after repair and returns without connecting (explicit apply=true) [33m 741[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordStates.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 875[2mms[22m[39m
+   [33m[2m✓[22m[39m offers the same tool scope as the next step for an empty history list [33m 654[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentBackupsPanel.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1584[2mms[22m[39m
+   [33m[2m✓[22m[39m does not create a backup until confirmed and keeps metadata deletion independent of local credentials and reauthentication [33m 546[2mms[22m[39m
+   [33m[2m✓[22m[39m restores a chosen backup after explicit reauthentication and clears password from the form [33m 408[2mms[22m[39m
+   [33m[2m✓[22m[39m retains reauthentication input after backup request failure without a success fact [33m 381[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolExecution.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 3110[2mms[22m[39m
+   [33m[2m✓[22m[39m performs one call and retries only the frozen redacted upload despite later draft edits [33m 1823[2mms[22m[39m
+ [32m✓[39m src/features/devices/AgentQueuePanel.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 903[2mms[22m[39m
+   [33m[2m✓[22m[39m retries only the Agent retained upload and requires confirmation before discarding [33m 752[2mms[22m[39m
+ [32m✓[39m src/features/connections/v01-backup-retry.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 1451[2mms[22m[39m
+   [33m[2m✓[22m[39m retries a rejected backup with the retained scope and explicit consent, then shows only the accepted backup [33m 1450[2mms[22m[39m
+ [32m✓[39m src/features/workflow/WorkflowPage.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 2450[2mms[22m[39m
+   [33m[2m✓[22m[39m reads real configuration and makes both optional skips explicit with keyboard actions [33m 947[2mms[22m[39m
+ [32m✓[39m src/features/tools/AgentToolExecution.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1558[2mms[22m[39m
+   [33m[2m✓[22m[39m lets the Agent own execution and upload, cancels only on explicit click, and keeps safe snapshot for a separate save [33m 1145[2mms[22m[39m
+ [32m✓[39m src/features/auth/IdentityStates.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1149[2mms[22m[39m
+   [33m[2m✓[22m[39m shows unavailable invitation state before sign-in and offers sign-in without that invitation [33m 563[2mms[22m[39m
+   [33m[2m✓[22m[39m retains sign-in inputs while retrying the same invitation lookup [33m 585[2mms[22m[39m
+ [32m✓[39m src/runtime/browser-session.test.ts [2m([22m[2m58 tests[22m[2m)[22m[33m 1091[2mms[22m[39m
+   [33m[2m✓[22m[39m uses real pinned SDK handshake only after authoritative scoped access, keeps tokens out of snapshot [33m 467[2mms[22m[39m
+ [32m✓[39m src/features/projects/Projects.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 868[2mms[22m[39m
+   [33m[2m✓[22m[39m explains denied create-project entry and returns to the directory without issuing a write [33m 449[2mms[22m[39m
+   [33m[2m✓[22m[39m emits creation evidence only after a real scoped success and preserves inputs on failure [33m 418[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentCredentialsPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 457[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps backup off by default and saves Agent token independently of browser vault [33m 456[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentOAuthPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 494[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps authorization separate from saving and retries local saving without repeating authorization [33m 493[2mms[22m[39m
+ [32m✓[39m src/features/devices/DevicesPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 594[2mms[22m[39m
+   [33m[2m✓[22m[39m requires local approval code and never approves natively from the web [33m 417[2mms[22m[39m
+ [32m✓[39m src/features/connections/runtimeStore.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 573[2mms[22m[39m
+   [33m[2m✓[22m[39m disconnects an expired credential session while its authorization panel is not mounted [33m 550[2mms[22m[39m
+ [32m✓[39m src/app/Shell.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1116[2mms[22m[39m
+   [33m[2m✓[22m[39m allows skipping the sidebar by keyboard and identifies collapsed navigation controls [33m 676[2mms[22m[39m
+   [33m[2m✓[22m[39m labels the workflow navigation in both locales including collapsed controls [33m 330[2mms[22m[39m
+ [32m✓[39m src/runtime/records/queueStorage.test.ts [2m([22m[2m29 tests[22m[2m)[22m[33m 596[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolDocumentTabs.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 2837[2mms[22m[39m
+   [33m[2m✓[22m[39m exposes only document tabs in the tablist and places named actions outside it [33m 2254[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps noncurrent actions attached to their document and returns focus without changing selection [33m 581[2mms[22m[39m
+ [32m✓[39m src/features/environment/AgentEnvironmentPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 3669[2mms[22m[39m
+   [33m[2m✓[22m[39m previews with Agent personal values and revalidates before applying without connecting MCP [33m 3664[2mms[22m[39m
+ [32m✓[39m src/shared/ui.layout.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 3521[2mms[22m[39m
+   [33m[2m✓[22m[39m layout primitives[2m > [22mkeeps the shared button class with additional caller styles [33m 2067[2mms[22m[39m
+   [33m[2m✓[22m[39m layout primitives[2m > [22madjusts the separator by keyboard within bounds and resets without losing the draft [33m 1448[2mms[22m[39m
+ [32m✓[39m src/runtime/records/operations.test.ts [2m([22m[2m14 tests[22m[2m)[22m[33m 458[2mms[22m[39m
+ [32m✓[39m src/shared/QueryFeedback.states.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1073[2mms[22m[39m
+   [33m[2m✓[22m[39m offers return instead of repeating an unavailable forbidden lookup [33m 659[2mms[22m[39m
+ [32m✓[39m src/runtime/oauth.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 178[2mms[22m[39m
+ [32m✓[39m src/runtime/schema/interpreter.test.ts [2m([22m[2m88 tests[22m[2m)[22m[33m 368[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/index.test.ts [2m([22m[2m15 tests[22m[2m)[22m[33m 504[2mms[22m[39m
+ [32m✓[39m src/features/records/SessionUploads.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/runtime/agent-client.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/shared/api.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/features/records/restore.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/shared/i18n.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/features/tools/workspace.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/runtime/records/snapshot.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/runtime/agent-session.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/app/v01-shell-footer.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 269[2mms[22m[39m
+ [32m✓[39m src/runtime/vault.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/runtime/schema/index.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/runtime/records/canonical.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/runtime/records/redaction.test.ts [2m([22m[2m36 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/features/workflow/uploads.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/runtime/configuration.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/features/workflow/model.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/features/tools/argumentDraft.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/runtime/connection.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/features/records/viewStore.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/features/connections/session.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/runtime/environment.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/protocol.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/features/team/protection.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/fixture.test.ts [2m([22m[2m3 tests[22m[2m)[22m[33m 1065[2mms[22m[39m
+   [33m[2m✓[22m[39m executes actual streamable-http SDK echo and business/protocol errors without retry or platform proxy [33m 888[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/v01-environment-blocking.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 465[2mms[22m[39m
+   [33m[2m✓[22m[39m A09 Browser connect and Run block cycle with zero upstream calls [33m 414[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m61 passed[39m[22m[90m (61)[39m
+[2m      Tests [22m [1m[32m603 passed[39m[22m[90m (603)[39m
+[2m   Start at [22m 10:15:23
+[2m   Duration [22m 110.94s[2m (transform 4.12s, setup 24.47s, collect 170.40s, tests 74.74s, environment 109.73s, prepare 16.53s)[22m
+
