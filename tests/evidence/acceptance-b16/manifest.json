@@ -1,0 +1,80 @@
+{
+  "batch": "B16",
+  "date": "2026-10-30",
+  "commit": "HEAD",
+  "batchType": "deep-dive",
+  "previousBatch": "B15",
+  "description": "入口层深潜 — cmd/agent 的 deviceIdentity 设备身份安全边界 + parseOptions 模式互斥与目录约束；apps/* 采用两版编译可达性验证",
+  "prerequisite": "B15 已完成 internal 零测试包；A01–A60 已全签 60/60",
+  "gapJustification": {
+    "deviceIdentity": "cmd/agent/main.go:111-147 的持久设备身份，零测试。symlink 劫持与身份不匹配是设备冒充风险",
+    "parseOptions-modes": "cmd/agent/options.go:38-73 的模式互斥、绝对 state-dir、字面 loopback 分支从未被断言",
+    "apps": "三个 main() 为纯组装 + os.Exit，无可测分支，用两版编译可达性验证"
+  },
+  "addedFiles": [
+    {
+      "path": "cmd/agent/device_identity_test.go",
+      "kind": "security-boundary",
+      "tests": 7,
+      "testFunctions": [
+        "TestDeviceIdentityCreatesStablePrivateIdentity",
+        "TestDeviceIdentityAcceptsMatchingExplicitRequest",
+        "TestDeviceIdentityRejectsMismatchedExplicitRequest",
+        "TestDeviceIdentityRejectsInvalidStoredIdentity",
+        "TestDeviceIdentityRejectsInvalidExplicitRequest",
+        "TestDeviceIdentityRejectsSymlinkSubstitution",
+        "TestDeviceIdentityRejectsUnreadableEntry"
+      ]
+    },
+    {
+      "path": "cmd/agent/options_modes_test.go",
+      "kind": "argument-gate",
+      "tests": 6,
+      "testFunctions": [
+        "TestAgentModesAreMutuallyExclusive",
+        "TestInstallModesRequireAbsoluteStateDirectory",
+        "TestListenMustBeLiteralLoopbackWithRealPort",
+        "TestOriginRequiresHTTPSUnlessExplicitLoopback",
+        "TestDefaultStateDirectoryIsAbsolute",
+        "TestMemoryOnlyIsRecorded"
+      ]
+    }
+  ],
+  "total": { "files": 2, "tests": 13 },
+  "verify": {
+    "cloudGo": { "packages": 22, "result": "PASS", "platformDuration": "209.490s" },
+    "localGo": { "packages": 21, "result": "PASS", "platformDuration": "5.845s" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "failed": 0, "result": "PASS" },
+    "entryLayer": {
+      "cmdAgentCloud": "ok 0.881s",
+      "cmdAgentLocal": "ok 0.639s",
+      "studioAdminCloud": "ok 1.276s",
+      "studioAdminLocal": "ok 1.030s",
+      "buildCloud": "PASS (cmd/agent, cmd/studio-admin, apps/cloud, apps/local)",
+      "buildLocal": "PASS (apps/local, internal/platform)",
+      "vetEntryLayer": "clean both"
+    }
+  },
+  "reviewLevels": {
+    "critical": 0,
+    "important": 0,
+    "minor": 5
+  },
+  "coverageCumulative": {
+    "goBoundaries": "212+ (B15 199+ 加 B16 13)",
+    "tsTests": "490+",
+    "e2eSpecs": 33,
+    "grandTotal": "735+ traceable boundaries"
+  },
+  "noProductionCodeChanged": true,
+  "securityHighlights": [
+    "symlink 替换设备身份 → unsafe_device_identity",
+    "显式参数不可覆盖已存身份 → device_identity_mismatch",
+    "身份文件权限固定 0600",
+    "--allow-insecure-loopback 只放行 loopback 主机",
+    "Agent 监听必须字面 127.0.0.1 + 非零端口"
+  ],
+  "nextBatch": "无预定义后续批次；入口层为最后未覆盖区域。后续可考虑 contracts/*/openapi.json 自动 diff 工具链或 fuzz 测试作为独立增强。"
+}

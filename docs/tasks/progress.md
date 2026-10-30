@@ -1283,3 +1283,69 @@ shared/     4 files /  17 tests
 
 ### 下一批
 B16 — 入口层深潜（`cmd/agent`、`cmd/studio-admin`、`apps/local`、`apps/cloud`）
+
+---
+
+## B16 出口（2026-10-30）
+
+**批次类型**: deep-dive — 入口层（cmd/apps）
+**前置**: B15 已完成 internal 零测试包
+
+### 修改
+- 新增 `cmd/agent/device_identity_test.go`（7 tests）
+- 新增 `cmd/agent/options_modes_test.go`（6 tests）
+- 未修改任何生产代码
+
+### 缺口论证
+
+| 文件 | 已有测试 | 缺口 |
+|---|---|---|
+| `cmd/agent/main.go:111-147` `deviceIdentity` | 无 | symlink 劫持 / 身份不匹配 / 非法 ID 全未断言 |
+| `cmd/agent/options.go:38-73` | origin / loopback 部分已测 | 模式互斥、绝对 state-dir、字面 loopback 未测 |
+| `cmd/agent/confirmation.go` / `diagnostics.go` | 已测 | 充分 |
+| `cmd/studio-admin/main.go` | `key` / `run` 已测 | 充分 |
+| `apps/local`（两版）、`apps/cloud` | 无 | 纯组装 + `os.Exit`，用编译可达性验证 |
+
+### 验证（4 道门 + 入口层专项）
+
+| 门 | 结果 |
+|---|---|
+| 云版 `go test ./internal/...` | ✅ 22 包全 ok（platform 209.490s） |
+| 单机版 `go test -tags local ./internal/...` | ✅ 21 包全 ok |
+| `go vet` 两版 | ✅ clean |
+| `npx vitest run`（Node 24.21.0） | ✅ 61 files / 603 tests / 0 failed |
+| `go test ./cmd/... ./apps/...` 两版 | ✅ cmd/agent 0.881s/0.639s、studio-admin 1.276s/1.030s |
+| `go vet ./cmd/... ./apps/...` 两版 | ✅ clean |
+| 编译可达性（云版 + 单机版） | ✅ 两版全部可构建 |
+
+### 安全边界（本批最高价值）
+
+1. **symlink 替换设备身份 → `unsafe_device_identity`** — 若接受 symlink，本地攻击者可指向任意文件，Agent 以攻击者控制身份运行
+2. **显式参数不可覆盖已存身份 → `device_identity_mismatch`**
+3. **身份文件权限固定 0600**
+4. **`--allow-insecure-loopback` 只放行 loopback 主机**，不放行任意 http 主机
+5. **Agent 监听必须字面 127.0.0.1 + 非零端口**（`localhost` 名称解析被拒）
+
+### 限制
+- 无新增 signed 状态变更——纯 deep-dive
+- `apps/*` 三个 `main()` 不写进程内测试（`os.Exit` 不可测），用两版编译可达性验证
+- `deviceIdentity` 的 `f.Sync()` 失败路径未注入测试（与已测的目录条目路径同属兜底错误）
+- `parseOptions` 的 `os.UserConfigDir()` 失败分支未测（正常环境不失败）
+
+### 覆盖增量
+
+| 维度 | B15 累计 | B16 增量 | 累计 |
+|---|---|---|---|
+| Go 边界 | 199+ | +13 | **212+** |
+| TS tests | 490+ | — | 490+ |
+| E2E specs | 33 | — | 33 |
+| **总计** | 722+ | **+13** | **735+** |
+
+### 下一批
+无预定义后续批次。入口层为最后未覆盖区域：
+
+- `internal/`：全部包已覆盖（含新补 jsonnumber / 两个 wire）
+- `apps/web/src`：81 源文件 / 61 test 文件（仅 `generated` 2 个生成文件无测试）
+- `cmd/` + `apps/`：入口层已深潜（本批）
+
+后续可作为独立增强（非验收批次）：`contracts/*/openapi.json` 自动 diff 工具链、`jsonnumber` fuzz 测试、云版实机部署与跨 OS 介质验证。

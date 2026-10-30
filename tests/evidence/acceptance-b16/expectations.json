@@ -1,0 +1,75 @@
+{
+  "batch": "B16",
+  "title": "入口层深潜 — deviceIdentity 设备身份安全边界 + parseOptions 模式互斥与目录约束",
+  "createdAt": "2026-10-30",
+  "mode": "deep-dive",
+  "previousBatch": "B15",
+  "scope": {
+    "reason": "B15 完成 internal 零测试包后，入口层（cmd/apps）是最后未深潜的区域。cmd/agent 已有 4 个测试文件覆盖 confirmation/diagnostics/unpair，但 deviceIdentity 与 parseOptions 的模式分支从未被断言。",
+    "inventory": [
+      { "path": "cmd/agent/main.go", "lines": 147, "covered": "run/execute 已测，deviceIdentity 未测" },
+      { "path": "cmd/agent/options.go", "lines": 75, "covered": "origin/loopback/secret-echo 已测，模式互斥与目录约束未测" },
+      { "path": "cmd/agent/confirmation.go", "lines": 60, "covered": "writeConfirmationPrompt 已测" },
+      { "path": "cmd/agent/diagnostics.go", "lines": 67, "covered": "execute 已测" },
+      { "path": "cmd/studio-admin/main.go", "lines": 79, "covered": "key/run 已测" },
+      { "path": "apps/local/main.go", "lines": 17, "covered": "!local 守卫入口，编译可达性验证" },
+      { "path": "apps/local/main_local.go", "lines": 23, "covered": "local 真实入口，编译可达性验证" },
+      { "path": "apps/cloud/main.go", "lines": 21, "covered": "编译可达性验证" }
+    ]
+  },
+  "modules": [
+    {
+      "name": "cmd/agent/device_identity_test.go",
+      "tests": 7,
+      "category": "security-boundary",
+      "highlights": [
+        "首次调用生成随机身份，文件权限必须 0600，二次调用返回同一身份（稳定性）",
+        "显式 requested 匹配已存身份 → 接受并复用",
+        "显式 requested 与已存身份不符 → device_identity_mismatch",
+        "已存身份含非法字符（vault.ValidID 拒绝）→ device_identity_mismatch",
+        "显式 requested 非法字符 → invalid_device_identity 且不落盘",
+        "symlink 替换 → unsafe_device_identity（防设备身份劫持）",
+        "device-id 为目录 → device_identity_unavailable（非 ErrNotExist 路径）"
+      ]
+    },
+    {
+      "name": "cmd/agent/options_modes_test.go",
+      "tests": 6,
+      "category": "argument-gate",
+      "highlights": [
+        "version/diagnose/install/upgrade/uninstall 互斥（one_agent_mode_required）",
+        "install/upgrade/uninstall 必须有绝对 state-dir",
+        "listen 必须是字面 127.0.0.1 + 真实端口（拒绝 :0 / localhost / 0.0.0.0 / 无端口 / 空主机）",
+        "origin 必须 https；--allow-insecure-loopback 只放行 127.0.0.1 / localhost 的 http，不放行任意 http 主机",
+        "默认 state 目录必须绝对路径",
+        "memory-only 正确记录到 options"
+      ]
+    }
+  ],
+  "total": { "files": 2, "tests": 13 },
+  "verify": {
+    "cloudGo": { "packages": 22, "result": "PASS", "platformDuration": "209.490s" },
+    "localGo": { "packages": 21, "result": "PASS", "platformDuration": "5.845s" },
+    "vetCloud": "clean",
+    "vetLocal": "clean",
+    "frontend": { "files": 61, "tests": 603, "failed": 0, "result": "PASS" },
+    "entryLayer": {
+      "cmdAgentCloud": "ok 0.881s",
+      "cmdAgentLocal": "ok 0.639s",
+      "studioAdminCloud": "ok 1.276s",
+      "studioAdminLocal": "ok 1.030s",
+      "buildCloud": "cmd/agent + cmd/studio-admin + apps/cloud + apps/local OK",
+      "buildLocal": "apps/local + internal/platform OK",
+      "vetCloud": "clean",
+      "vetLocal": "clean"
+    }
+  },
+  "coverageCumulative": {
+    "goBoundaries": "212+ (B15 199+ 加 B16 13)",
+    "tsTests": "490+",
+    "e2eSpecs": 33,
+    "grandTotal": "735+ traceable boundaries"
+  },
+  "noProductionCodeChanged": true,
+  "notes": "apps/* 三个 main() 为纯组装入口，无独立逻辑，采用 B9 模式的编译可达性验证而非新增测试代码。"
+}
