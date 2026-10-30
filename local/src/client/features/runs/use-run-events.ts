@@ -1,0 +1,160 @@
+import { useEffect, useState } from "react";
+import { decodeRunEvent, type InspectorApiClient, type RunDetail, type RunEvent } from "../../api/api-client.js";
+import { useTranslation } from "react-i18next";
+
+const terminal = new Set(["succeeded", "failed", "cancelled", "interrupted"]);
+const statuses = new Set(["queued", "connecting", "authorizing", "running", ...terminal]);
+const delays = [250, 500, 1_000, 2_000];
+
+async function wait(milliseconds: number, signal: AbortSignal): Promise<void> {
+  await new Promise<void>((resolve, reject) => {
+    const aborted = () => { clearTimeout(timer); reject(signal.reason); };
+    const timer = setTimeout(() => { signal.removeEventListener("abort", aborted); resolve(); }, milliseconds);
+    signal.addEventListener("abort", aborted, { once: true });
+  });
+}
+
+export async function consumeRunEventStream(response: Response, runId: string, signal: AbortSignal,
+  onEvent: (event: RunEvent) => void): Promise<void> {
+  if (response.body === null) throw new Error("Run event stream has no body");
+  const reader = response.body.getReader(); const decoder = new TextDecoder(); let buffer = "";
+  const normalize = (final = false) => {
+    const trailingCr = !final && buffer.endsWith("\r");
+    const source = trailingCr ? buffer.slice(0, -1) : buffer;
+    buffer = source.replace(/\r\n?/g, "\n") + (trailingCr ? "\r" : "");
+  };
+  const dispatch = () => {
+    let boundary = buffer.indexOf("\n\n");
+    while (boundary >= 0) {
+      const frame = buffer.slice(0, boundary); buffer = buffer.slice(boundary + 2);
+      const data = frame.split("\n").filter((line) => line.startsWith("data:")).map((line) => line.slice(5).replace(/^ /, "")).join("\n");
+      if (data.length > 0) onEvent(decodeRunEvent(JSON.parse(data) as unknown, runId));
+      boundary = buffer.indexOf("\n\n");
+    }
+  };
+  try {
+    while (!signal.aborted) {
+      const chunk = await reader.read();
+      if (chunk.done) { buffer += decoder.decode(); normalize(true); dispatch(); break; }
+      buffer += decoder.decode(chunk.value, { stream: true }); normalize(); dispatch();
+    }
+  } finally { try { await reader.cancel(); } catch { /* already closed */ } }
+}
+
+export interface RunEventState { run: RunDetail | null; error: string | null; observing: boolean }
+
+const statusDelays = [1_000, 2_000, 4_000, 8_000];
+
+export function useRunPolling(api: InspectorApiClient, projectId: string, tabId: string, runId: string | null): RunEventState {
+  const { t } = useTranslation("runs");
+  const [state, setState] = useState<RunEventState>({ run: null, error: null, observing: false });
+  useEffect(() => {
+    const controller = new AbortController(); let current = true;
+    setState({ run: null, error: null, observing: runId !== null });
+    if (runId === null) return () => controller.abort();
+    void (async () => {
+      let attempt = 0;
+      while (current && !controller.signal.aborted) {
+        try {
+          const summary = await api.getRunSummary(projectId, runId, controller.signal);
+          if (!current || controller.signal.aborted) return;
+          if (summary.tabId !== tabId) throw new Error("Invalid Run response");
+          if (terminal.has(summary.status)) {
+            const run = await api.getRun(projectId, runId, controller.signal);
+            if (!current || controller.signal.aborted) return;
+            if (run.tabId !== tabId || !terminal.has(run.status)) throw new Error("Invalid Run response");
+            setState({ run, error: null, observing: false });
+            return;
+          }
+          setState({ run: null, error: null, observing: true });
+          attempt = 0;
+          await wait(statusDelays[0]!, controller.signal);
+        } catch (cause) {
+          if (!current || controller.signal.aborted) return;
+          setState((previous) => ({ ...previous,
+            error: cause instanceof Error ? cause.message : t("errors.loadRun"), observing: true }));
+          await wait(statusDelays[Math.min(attempt, statusDelays.length - 1)]!, controller.signal);
+          attempt += 1;
+        }
+      }
+    })().catch((cause: unknown) => {
+      if (current && !controller.signal.aborted) setState({ run: null,
+        error: cause instanceof Error ? cause.message : t("errors.loadRun"), observing: false });
+    });
+    return () => { current = false; controller.abort(); };
+  }, [api, projectId, runId, tabId]);
+  return state;
+}
+
+export function useRunEvents(api: InspectorApiClient, projectId: string, runId: string | null): RunEventState {
+  const { t } = useTranslation("runs");
+  const [state, setState] = useState<RunEventState>({ run: null, error: null, observing: false });
+  useEffect(() => {
+    const controller = new AbortController(); let current = true;
+    setState({ run: null, error: null, observing: runId !== null });
+    if (runId === null) return () => controller.abort();
+    void (async () => {
+      let cursor = 0; let attempt = 0;
+      try {
+        let authoritative: RunDetail | null = null;
+        while (current && authoritative === null) {
+          try { authoritative = await api.getRun(projectId, runId); }
+          catch (cause) {
+            if (!current || controller.signal.aborted) return;
+            setState({ run: null, error: cause instanceof Error ? cause.message : t("errors.loadRun"), observing: true });
+            await wait(delays[Math.min(attempt, delays.length - 1)]!, controller.signal); attempt += 1;
+          }
+        }
+        if (authoritative === null || !current) return; attempt = 0;
+        cursor = authoritative.events.at(-1)?.sequence ?? 0; setState({ run: authoritative, error: null, observing: !terminal.has(authoritative.status) });
+        while (current && !terminal.has(authoritative.status)) {
+          const streamController = new AbortController();
+          const abortStream = () => streamController.abort(controller.signal.reason);
+          controller.signal.addEventListener("abort", abortStream, { once: true });
+          let terminalSeen = false;
+          try {
+            const response = await api.openRunEventStream(projectId, runId, cursor, streamController.signal);
+            authoritative = await api.getRun(projectId, runId); if (!current) return;
+            cursor = Math.max(cursor, authoritative.events.at(-1)?.sequence ?? 0);
+            setState({ run: authoritative, error: null, observing: !terminal.has(authoritative.status) });
+            if (terminal.has(authoritative.status)) { controller.abort(); return; }
+            await consumeRunEventStream(response, runId, streamController.signal, (event) => {
+              if (!current || event.sequence <= cursor) return; cursor = event.sequence;
+              const payload = typeof event.payload === "object" && event.payload !== null && !Array.isArray(event.payload)
+                ? event.payload as Record<string, unknown> : null;
+              const eventStatus = event.kind === "run-status" && typeof payload?.status === "string" && statuses.has(payload.status)
+                ? payload.status as RunDetail["status"] : null;
+              if (eventStatus !== null && terminal.has(eventStatus)) { terminalSeen = true; streamController.abort(); }
+              setState((previous) => {
+                if (previous.run === null || previous.run.id !== runId) return previous;
+                return { ...previous, run: { ...previous.run, status: eventStatus ?? previous.run.status,
+                  events: [...previous.run.events.filter((item) => item.sequence !== event.sequence), event].sort((a, b) => a.sequence - b.sequence) } };
+              });
+            });
+            if (!current) return;
+            authoritative = await api.getRun(projectId, runId); if (!current) return;
+            cursor = Math.max(cursor, authoritative.events.at(-1)?.sequence ?? 0);
+            setState({ run: authoritative, error: null, observing: !terminal.has(authoritative.status) });
+            if (terminal.has(authoritative.status)) return;
+            throw new Error("Run event stream ended");
+          } catch (cause) {
+            if (!current || controller.signal.aborted) return;
+            if (terminalSeen) {
+              try { authoritative = await api.getRun(projectId, runId); if (!current) return;
+                cursor = Math.max(cursor, authoritative.events.at(-1)?.sequence ?? 0);
+                setState({ run: authoritative, error: null, observing: !terminal.has(authoritative.status) });
+                if (terminal.has(authoritative.status)) return;
+              } catch (terminalCause) { cause = terminalCause; }
+            }
+            setState((previous) => ({ ...previous, error: cause instanceof Error ? cause.message : t("errors.eventInterrupted"), observing: true }));
+            await wait(delays[Math.min(attempt, delays.length - 1)]!, controller.signal); attempt += 1;
+          } finally { controller.signal.removeEventListener("abort", abortStream); streamController.abort(); }
+        }
+      } catch (cause) {
+        if (current && !controller.signal.aborted) setState({ run: null, error: cause instanceof Error ? cause.message : t("errors.loadRun"), observing: false });
+      }
+    })();
+    return () => { current = false; controller.abort(); };
+  }, [api, projectId, runId]);
+  return state;
+}

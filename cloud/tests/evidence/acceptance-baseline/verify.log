@@ -1,0 +1,464 @@
+[verify] Generated contracts are current
+Platform contract v1.4.0: 57 schemas, 47 paths; generated boundaries match.
+[verify] Generated Agent contracts are current
+Agent local contract v1.0.0: 30 schemas, 26 paths; strict boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Controlled interruption regression fixture build
+[verify] Generator, SDK, loopback security and runtime guards
+✔ Agent local API has generated strict Go and TypeScript boundaries distinct from platform and MCP (321.584708ms)
+✔ versioned platform contract generates stable Go and TypeScript boundaries (481.2115ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (435.277167ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (164.94375ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (24.134625ms)
+✔ expired codes and local unpair reject new requests (36.2865ms)
+✔ CORS-denied token endpoint remains a real authenticated MCP service for an explicit native client (98.764833ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (25.664417ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (4.531417ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (8.590334ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (8.716833ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (19.242666ms)
+✔ controlled call failures and barrier do not change handshake or retain payloads in counters (7.372958ms)
+✔ controlled Agent links real protected local API and restarts with guaranteed process cleanup (4903.353333ms)
+[test-runtime] exact leased test schemas removed
+✔ aborted real Go child cleans only its claimed inner schema (1473.050875ms)
+[test-runtime] exact leased test schemas removed
+✔ failed real Go child cleans its inner schema even without t.Cleanup (621.142542ms)
+✔ fixture readiness fails promptly when the child exits without a marker (54.180375ms)
+✔ replaced parent identity is preserved and cleanup fails closed (356.1045ms)
+✔ cleanup failure preserves primary exit 130 and replacement schema (413.78625ms)
+✔ cleanup failure preserves primary exit 7 and replacement schema (408.625417ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent Go fixture leases leave the other run untouched (667.932041ms)
+[test-runtime] exact leased test schemas removed
+✔ late Go schema creation is refused after its run closes (256.384917ms)
+✔ real verifier entrypoint SIGINT returns 130 after exact fixture cleanup (392.568209ms)
+✔ real verifier entrypoint SIGTERM returns 130 after exact fixture cleanup (387.188792ms)
+✔ abort waits through transient existence EPERM after real SIGKILL until the owned group is gone (5442.2195ms)
+✔ persistent existence EPERM fails closed at the original cleanup deadline (10147.205666ms)
+✔ actual escalation permission denial fails closed while the owned descendant remains alive (10124.891083ms)
+[test-runtime] exact leased test schemas removed
+✔ test database schema is created then only its own schema is dropped after failure (730.113125ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent isolated schemas do not remove each other (507.402167ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.637875ms)
+✔ abort waits for TERM-ignoring descendant after its parent exits first (5178.6475ms)
+✔ gate propagates a failing real subprocess exit status (39.901417ms)
+✔ abort waits for real parent and inherited child cleanup before returning (80.945ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (73.338667ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (9.983916ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (9.363541ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26003.976708
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90m/Users/wuwei/code/github/mcp-studio/apps/web[39m
+
+ [32m✓[39m src/features/connections/runtimeStore.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 78[2mms[22m[39m
+ [32m✓[39m src/runtime/records/operations.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 131[2mms[22m[39m
+ [32m✓[39m src/runtime/records/queueStorage.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 193[2mms[22m[39m
+ [32m✓[39m src/runtime/browser-session.test.ts [2m([22m[2m58 tests[22m[2m)[22m[32m 283[2mms[22m[39m
+ [32m✓[39m src/runtime/schema/interpreter.test.ts [2m([22m[2m88 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+ [32m✓[39m src/runtime/oauth.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/index.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/runtime/records/redaction.test.ts [2m([22m[2m36 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/runtime/records/canonical.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/features/workflow/model.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/runtime/connection.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/features/records/restore.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/runtime/agent-client.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/features/workflow/uploads.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/shared/api.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/runtime/configuration.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/runtime/records/snapshot.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/runtime/schema/index.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/runtime/vault.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/protocol.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/runtime/environment.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/features/tools/workspace.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/features/tools/argumentDraft.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/runtime/agent-session.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/features/team/protection.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 1[2mms[22m[39m
+ [32m✓[39m src/features/connections/session.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 1[2mms[22m[39m
+ [32m✓[39m src/features/records/viewStore.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/shared/QueryFeedback.states.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 103[2mms[22m[39m
+ [32m✓[39m src/shared/i18n.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/shared/ui.layout.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 116[2mms[22m[39m
+ [32m✓[39m src/app/v01-shell-footer.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 83[2mms[22m[39m
+ [32m✓[39m src/app/Shell.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 219[2mms[22m[39m
+ [32m✓[39m src/features/auth/IdentityStates.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 226[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentBackupsPanel.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 333[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentCredentialsPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 187[2mms[22m[39m
+ [32m✓[39m src/features/connections/AgentOAuthPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 159[2mms[22m[39m
+ [32m✓[39m src/app/App.test.tsx [2m([22m[2m19 tests[22m[2m)[22m[33m 2518[2mms[22m[39m
+   [33m[2m✓[22m[39m hides a stale personal authorization form after content GET permission revocation [33m 758[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps another project tool document when switching through a Viewer project [33m 507[2mms[22m[39m
+ [32m✓[39m src/features/auth/IdentityPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 780[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps original invitation after registration and never accepts automatically [33m 557[2mms[22m[39m
+ [32m✓[39m src/features/connections/v01-backup-retry.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 360[2mms[22m[39m
+   [33m[2m✓[22m[39m retries a rejected backup with the retained scope and explicit consent, then shows only the accepted backup [33m 359[2mms[22m[39m
+ [32m✓[39m src/features/operations/OperationsPage.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 473[2mms[22m[39m
+ [32m✓[39m src/features/projects/Projects.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 169[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordStates.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 161[2mms[22m[39m
+ [32m✓[39m src/features/connections/ConnectionsPage.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 567[2mms[22m[39m
+ [32m✓[39m src/features/records/SessionUploads.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordEditors.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 1451[2mms[22m[39m
+ [32m✓[39m src/features/environment/AgentEnvironmentPanel.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 97[2mms[22m[39m
+ [32m✓[39m src/features/records/RecordsPage.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 1123[2mms[22m[39m
+   [33m[2m✓[22m[39m closes the detail copy editor after a successful upload and does not reopen it after returning to the record [33m 312[2mms[22m[39m
+ [32m✓[39m src/features/environment/VariableEditor.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 366[2mms[22m[39m
+ [32m✓[39m src/features/team/MembersPage.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1277[2mms[22m[39m
+ [32m✓[39m src/features/devices/AgentQueuePanel.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 235[2mms[22m[39m
+ [32m✓[39m src/features/tools/AgentToolExecution.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 408[2mms[22m[39m
+ [32m✓[39m src/features/environment/EnvironmentPage.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 1279[2mms[22m[39m
+ [32m✓[39m src/features/environment/v01-diagnostics.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1257[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'missing dependency' diagnosis after repair and returns without connecting (explicit apply=false) [33m 435[2mms[22m[39m
+   [33m[2m✓[22m[39m A51 clears the original 'missing dependency' diagnosis after repair and returns without connecting (explicit apply=true) [33m 305[2mms[22m[39m
+ [32m✓[39m src/features/devices/DevicesPage.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 201[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolDocumentTabs.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 152[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolExecution.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 424[2mms[22m[39m
+ [32m✓[39m src/features/tools/SchemaArgumentEditor.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 1332[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/fixture.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 189[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/v01-environment-blocking.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 134[2mms[22m[39m
+ [32m✓[39m src/features/tools/ToolsPage.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 737[2mms[22m[39m
+   [33m[2m✓[22m[39m lists the real session catalog, searches it, and opens independent documents with keyboard navigation [33m 321[2mms[22m[39m
+ [32m✓[39m src/features/workflow/WorkflowPage.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[32m 289[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m61 passed[39m[22m[90m (61)[39m
+[2m      Tests [22m [1m[32m603 passed[39m[22m[90m (603)[39m
+[2m   Start at [22m 13:54:44
+[2m   Duration [22m 22.25s[2m (transform 958ms, setup 3.97s, collect 30.11s, tests 18.35s, environment 18.68s, prepare 2.79s)[22m
+
+[verify] Frontend production build
+[36mvite v7.3.6 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32m✓[39m 4974 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                                   [39m[1m[2m  0.49 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[2massets/[22m[32mworker-rF_BGtny.js                    [39m[1m[2m 71.80 kB[22m[1m[22m
+[2mdist/[22m[2massets/[22m[35mRecordsPage-BcUVVPNl.css              [39m[1m[2m  0.39 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[2mdist/[22m[2massets/[22m[35mWorkflowPage-Dz31IA2x.css             [39m[1m[2m  1.29 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[35mOperationsPage-DPjr8syy.css           [39m[1m[2m  1.59 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-BayCnl0X.css                    [39m[1m[2m 15.51 kB[22m[1m[22m[2m │ gzip:   3.60 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentPersonalValueEditor-B5co6Gvf.js  [39m[1m[2m  2.50 kB[22m[1m[22m[2m │ gzip:   1.12 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentBackupsPanel-OyhmKvgp.js         [39m[1m[2m  3.03 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mPlug.es-DN03T4J5.js                   [39m[1m[2m  3.20 kB[22m[1m[22m[2m │ gzip:   1.06 kB[22m
+[2mdist/[22m[2massets/[22m[36mDevicesPage-CJq-56Nh.js               [39m[1m[2m  3.29 kB[22m[1m[22m[2m │ gzip:   1.30 kB[22m
+[2mdist/[22m[2massets/[22m[36magent-DVG7g-RM.js                     [39m[1m[2m  3.30 kB[22m[1m[22m[2m │ gzip:   0.90 kB[22m
+[2mdist/[22m[2massets/[22m[36magent-session-BwQtjl8b.js             [39m[1m[2m  3.40 kB[22m[1m[22m[2m │ gzip:   1.32 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentEnvironmentPanel-DWzQQHlf.js     [39m[1m[2m  4.12 kB[22m[1m[22m[2m │ gzip:   1.82 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentQueuePanel-Bf1buW8V.js           [39m[1m[2m  4.67 kB[22m[1m[22m[2m │ gzip:   1.65 kB[22m
+[2mdist/[22m[2massets/[22m[36magent-client-C-XsPcN6.js              [39m[1m[2m  5.08 kB[22m[1m[22m[2m │ gzip:   1.90 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentToolExecution-Cr9vXhnT.js        [39m[1m[2m  7.26 kB[22m[1m[22m[2m │ gzip:   2.76 kB[22m
+[2mdist/[22m[2massets/[22m[36mstreamableHttp-D9Hhtbva.js            [39m[1m[2m  7.70 kB[22m[1m[22m[2m │ gzip:   2.57 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentConnectionPanel-BZ-nzb5x.js      [39m[1m[2m  7.76 kB[22m[1m[22m[2m │ gzip:   2.49 kB[22m
+[2mdist/[22m[2massets/[22m[36msse-CLh29-Jp.js                       [39m[1m[2m  8.82 kB[22m[1m[22m[2m │ gzip:   3.26 kB[22m
+[2mdist/[22m[2massets/[22m[36mOperationsPage-DLIX_4Jd.js            [39m[1m[2m 10.22 kB[22m[1m[22m[2m │ gzip:   3.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mAgentFeedback-Qs0gi-tr.js             [39m[1m[2m 13.87 kB[22m[1m[22m[2m │ gzip:   5.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mWorkflowPage-B1sulavK.js              [39m[1m[2m 14.51 kB[22m[1m[22m[2m │ gzip:   4.06 kB[22m
+[2mdist/[22m[2massets/[22m[36mEnvironmentPage-BuPtHBL1.js           [39m[1m[2m 16.26 kB[22m[1m[22m[2m │ gzip:   5.02 kB[22m
+[2mdist/[22m[2massets/[22m[36mConnectionsPage-vrqnhL2_.js           [39m[1m[2m 18.00 kB[22m[1m[22m[2m │ gzip:   5.81 kB[22m
+[2mdist/[22m[2massets/[22m[36mauth-Bo9m1yQp.js                      [39m[1m[2m 21.54 kB[22m[1m[22m[2m │ gzip:   6.76 kB[22m
+[2mdist/[22m[2massets/[22m[36mbrowser-session-3gLf0dve.js           [39m[1m[2m 22.33 kB[22m[1m[22m[2m │ gzip:   7.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mRecordsPage-WWTp5wZz.js               [39m[1m[2m 35.10 kB[22m[1m[22m[2m │ gzip:  10.66 kB[22m
+[2mdist/[22m[2massets/[22m[36mToolsPage-VsGnFpYY.js                 [39m[1m[2m 43.55 kB[22m[1m[22m[2m │ gzip:  13.18 kB[22m
+[2mdist/[22m[2massets/[22m[36mschema-vendor-Hd_RTo2f.js             [39m[1m[2m 70.35 kB[22m[1m[22m[2m │ gzip:  18.89 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-CPaqcjgL.js                     [39m[1m[2m165.22 kB[22m[1m[22m[2m │ gzip:  50.17 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-cIGIZpJT.js                     [39m[1m[2m453.73 kB[22m[1m[22m[2m │ gzip: 139.24 kB[22m
+[32m✓ built in 2.58s[39m
+[verify] Go tests with real isolated PostgreSQL
+?   	mcp-studio/apps/cloud	[no test files]
+?   	mcp-studio/apps/local	[no test files]
+ok  	mcp-studio/cmd/agent	2.578s
+ok  	mcp-studio/cmd/studio-admin	3.388s
+ok  	mcp-studio/internal/agent/lifecycle	2.707s
+ok  	mcp-studio/internal/agent/localapi	2.930s
+ok  	mcp-studio/internal/agent/mcp	4.317s
+ok  	mcp-studio/internal/agent/oauth	0.501s
+ok  	mcp-studio/internal/agent/pairing	0.869s
+ok  	mcp-studio/internal/agent/platformclient	3.784s
+ok  	mcp-studio/internal/agent/process	4.748s
+ok  	mcp-studio/internal/agent/queue	2.331s
+ok  	mcp-studio/internal/agent/sessions	3.266s
+ok  	mcp-studio/internal/agent/vault	1.016s
+?   	mcp-studio/internal/agent/wire	[no test files]
+ok  	mcp-studio/internal/configuration	1.282s
+ok  	mcp-studio/internal/contracts	1.689s
+ok  	mcp-studio/internal/environment	0.517s
+ok  	mcp-studio/internal/infrastructure	2.538s
+?   	mcp-studio/internal/jsonnumber	[no test files]
+ok  	mcp-studio/internal/platform	90.952s
+ok  	mcp-studio/internal/recording	2.097s
+ok  	mcp-studio/internal/schema	3.663s
+ok  	mcp-studio/internal/testsupport	3.990s
+?   	mcp-studio/internal/wire	[no test files]
+ok  	mcp-studio/migrations	4.146s
+?   	mcp-studio/tests/fixtures/m5-agent	[no test files]
+ok  	mcp-studio/tests/fixtures/sdk	3.883s
+?   	mcp-studio/tests/fixtures/verify-abort	[no test files]
+ok  	mcp-studio/tests/integration	4.102s
+[test-runtime] exact leased test schemas removed
+[verify] Go vet
+[verify] Go production platform build
+[verify] Go local edition static build
+[verify] Local edition smoke: initdb, health, permissions, graceful shutdown
+[local-smoke] 4 checks passed in 9197ms (pg: /Users/wuwei/code/github/mcp-studio/.runtime/pg-cache/darwin/arm64/pgsql/bin)
+[verify] Go production Agent build
+[verify] Go offline administration build
+[verify] Controlled Agent integration fixture build
+[verify] Four-target unsigned Agent candidates
+{
+  "output": "/Users/wuwei/code/github/mcp-studio/.runtime/m7-verify-candidate-d36ce57ec533772a",
+  "version": "0.1.0-m7-candidate",
+  "revision": "fff4f9b7122777209f88aa11275b0554c70f54d6",
+  "sourceSHA256": "155db8a121a4a688f6f2d69e03ef1e726269d0f45fbd8835a7e94c81a8cd93a6",
+  "artifacts": [
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64.tar.gz",
+      "sha256": "c57fd3da1a2b4615e1a06d071883f0f66f0836fbc92336626e693a6f9e39a0c5"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-darwin-arm64-unsigned.pkg",
+      "sha256": "dcd03c51362c32c72dd36a720f881d93a530d8f987b314c0d562fed3c6d0e6c2"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-windows-amd64.zip",
+      "sha256": "7cbe15499eb923ba34ba643c210adedc509c346c02ab584f3aff0720d957e97c"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-linux-amd64.tar.gz",
+      "sha256": "720189b2b26d7300aefb1c88f95896ba5f0032992b0a6b46650c5bdf22f68f0a"
+    },
+    {
+      "file": "mcp-studio-agent-0.1.0-m7-candidate-linux-arm64.tar.gz",
+      "sha256": "6a8e986337816568db2d5e9c54f32f6d231637740c26227f3ee174bafc963510"
+    }
+  ]
+}
+[verify] Deployment, recovery, packaging and real candidate lifecycle
+✔ candidate output uses only a fresh absolute directory within real .runtime (5.279959ms)
+✔ production candidate diagnostic, private install, upgrade and uninstall preserve encrypted files (2025.018917ms)
+✔ candidate archives have an exact allowlist without runtime, test or helper entries (82.07325ms)
+✔ compose declares exactly three services: db, platform, tls (no extras, no legacy) (0.685792ms)
+✔ db service has no host port; secrets all _FILE (0.136166ms)
+✔ platform service: non-root, read-only, no host port, cap_drop ALL, no-new-privileges, secrets via _FILE only (0.170459ms)
+✔ tls service: non-root, read-only, host port bound only on loopback, cap_drop ALL, NET_BIND_SERVICE only, no-new-privileges (0.068917ms)
+✔ compose network is private only; platform and tls both attach to it (0.065709ms)
+✔ volumes: postgres-data named volume only; no anonymous bind mounts from host (0.036083ms)
+✔ secrets are all file-backed with STUDIO_SECRETS_DIR interpolation (0.051625ms)
+✔ .dockerignore excludes .runtime so local build state never leaks into platform image (0.357ms)
+✔ Caddyfile terminates TLS with the bundled cert, disables admin/ACME, forwards to platform on private network (0.293875ms)
+✔ managed backup retention refuses >30d and unsafe stores, removes only expired owned archives (10.074291ms)
+✔ provision rejects invalid configuration without writing secrets or overwriting any existing directory (1.697334ms)
+✔ provision accepts a matching DNS certificate and keeps secrets outside compose environment values (64.286792ms)
+✔ restore TOC skips only the preprovisioned app schema and rejects unrelated schema archives (0.296916ms)
+✔ interrupted purge and dump fragments do not block later managed expiration (2.506709ms)
+✔ handoff copies only explicit regular files and refuses escape, links and overwrite (8.40225ms)
+✔ candidate archive contains the allowlist even when macOS source files have extended metadata (352.059875ms)
+✔ candidate archive selection checks each declared hash and rejects traversal (2.68125ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2244.569916
+[verify] Local platform container candidate build
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.01kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.25.5-bookworm@sha256:d9132cce84391efab786495288756d60e1da215b1f94e87860aeefc3d4c45b6d
+#4 DONE 4.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 180B done
+#5 DONE 0.0s
+
+#6 [go  1/10] FROM docker.io/library/golang:1.25.5-bookworm@sha256:d9132cce84391efab786495288756d60e1da215b1f94e87860aeefc3d4c45b6d
+#6 DONE 0.0s
+
+#7 [web 1/7] FROM docker.io/library/node:24.21.0-bookworm-slim@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20
+#7 DONE 0.0s
+
+#8 [stage-2 1/4] FROM docker.io/library/caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+#8 DONE 0.0s
+
+#9 [internal] load build context
+#9 transferring context: 44.01kB 0.0s done
+#9 DONE 0.0s
+
+#10 [go  2/10] WORKDIR /src
+#10 CACHED
+
+#11 [go  3/10] COPY go.mod go.sum ./
+#11 CACHED
+
+#12 [go  5/10] COPY cmd cmd
+#12 CACHED
+
+#13 [go  4/10] RUN go mod download
+#13 CACHED
+
+#14 [web 3/7] COPY package.json package-lock.json ./
+#14 CACHED
+
+#15 [web 2/7] WORKDIR /src
+#15 CACHED
+
+#16 [go  6/10] COPY apps/cloud apps/cloud
+#16 CACHED
+
+#17 [web 4/7] RUN npm ci --no-audit --no-fund
+#17 CACHED
+
+#18 [web 5/7] COPY apps/web apps/web
+#18 DONE 0.1s
+
+#19 [go  7/10] COPY internal internal
+#19 DONE 0.1s
+
+#20 [go  8/10] COPY migrations migrations
+#20 DONE 0.0s
+
+#21 [web 6/7] COPY contracts contracts
+#21 DONE 0.1s
+
+#22 [go  9/10] COPY contracts contracts
+#22 DONE 0.0s
+
+#23 [go 10/10] RUN CGO_ENABLED=0 go build -trimpath -o /out/platform ./apps/cloud && CGO_ENABLED=0 go build -trimpath -o /out/studio-admin ./cmd/studio-admin
+#23 ...
+
+#24 [web 7/7] RUN npm run build
+#24 0.546 
+#24 0.546 > mcp-studio@0.1.0 build
+#24 0.546 > vite build --config apps/web/vite.config.ts
+#24 0.546 
+#24 0.877 vite v7.3.6 building client environment for production...
+#24 1.049 transforming...
+#24 8.096 ✓ 4974 modules transformed.
+#24 8.698 rendering chunks...
+#24 9.216 computing gzip size...
+#24 9.331 dist/index.html                                     0.49 kB │ gzip:   0.31 kB
+#24 9.331 dist/assets/worker-rF_BGtny.js                     71.80 kB
+#24 9.331 dist/assets/RecordsPage-BcUVVPNl.css                0.39 kB │ gzip:   0.24 kB
+#24 9.331 dist/assets/WorkflowPage-Dz31IA2x.css               1.29 kB │ gzip:   0.49 kB
+#24 9.331 dist/assets/OperationsPage-DPjr8syy.css             1.59 kB │ gzip:   0.59 kB
+#24 9.331 dist/assets/index-BayCnl0X.css                     15.51 kB │ gzip:   3.60 kB
+#24 9.331 dist/assets/AgentPersonalValueEditor-B5co6Gvf.js    2.50 kB │ gzip:   1.12 kB
+#24 9.331 dist/assets/AgentBackupsPanel-OyhmKvgp.js           3.03 kB │ gzip:   1.22 kB
+#24 9.331 dist/assets/Plug.es-DN03T4J5.js                     3.20 kB │ gzip:   1.06 kB
+#24 9.331 dist/assets/DevicesPage-CJq-56Nh.js                 3.29 kB │ gzip:   1.30 kB
+#24 9.331 dist/assets/agent-DVG7g-RM.js                       3.30 kB │ gzip:   0.90 kB
+#24 9.331 dist/assets/agent-session-BwQtjl8b.js               3.40 kB │ gzip:   1.32 kB
+#24 9.331 dist/assets/AgentEnvironmentPanel-DWzQQHlf.js       4.12 kB │ gzip:   1.82 kB
+#24 9.331 dist/assets/AgentQueuePanel-Bf1buW8V.js             4.67 kB │ gzip:   1.65 kB
+#24 9.331 dist/assets/agent-client-C-XsPcN6.js                5.08 kB │ gzip:   1.90 kB
+#24 9.331 dist/assets/AgentToolExecution-Cr9vXhnT.js          7.26 kB │ gzip:   2.76 kB
+#24 9.331 dist/assets/streamableHttp-D9Hhtbva.js              7.70 kB │ gzip:   2.57 kB
+#24 9.331 dist/assets/AgentConnectionPanel-BZ-nzb5x.js        7.76 kB │ gzip:   2.49 kB
+#24 9.331 dist/assets/sse-CLh29-Jp.js                         8.82 kB │ gzip:   3.26 kB
+#24 9.331 dist/assets/OperationsPage-DLIX_4Jd.js             10.22 kB │ gzip:   3.42 kB
+#24 9.331 dist/assets/AgentFeedback-Qs0gi-tr.js              13.87 kB │ gzip:   5.45 kB
+#24 9.331 dist/assets/WorkflowPage-B1sulavK.js               14.51 kB │ gzip:   4.06 kB
+#24 9.331 dist/assets/EnvironmentPage-BuPtHBL1.js            16.26 kB │ gzip:   5.02 kB
+#24 9.331 dist/assets/ConnectionsPage-vrqnhL2_.js            18.00 kB │ gzip:   5.81 kB
+#24 9.331 dist/assets/auth-Bo9m1yQp.js                       21.54 kB │ gzip:   6.76 kB
+#24 9.331 dist/assets/browser-session-3gLf0dve.js            22.33 kB │ gzip:   7.53 kB
+#24 9.331 dist/assets/RecordsPage-WWTp5wZz.js                35.10 kB │ gzip:  10.66 kB
+#24 9.331 dist/assets/ToolsPage-VsGnFpYY.js                  43.55 kB │ gzip:  13.18 kB
+#24 9.331 dist/assets/schema-vendor-Hd_RTo2f.js              70.35 kB │ gzip:  18.89 kB
+#24 9.331 dist/assets/index-CPaqcjgL.js                     165.22 kB │ gzip:  50.17 kB
+#24 9.331 dist/assets/index-cIGIZpJT.js                     453.73 kB │ gzip: 139.24 kB
+#24 9.331 ✓ built in 8.38s
+#24 DONE 9.6s
+
+#23 [go 10/10] RUN CGO_ENABLED=0 go build -trimpath -o /out/platform ./apps/cloud && CGO_ENABLED=0 go build -trimpath -o /out/studio-admin ./cmd/studio-admin
+#23 DONE 20.1s
+
+#8 [stage-2 1/4] FROM docker.io/library/caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+#8 CACHED
+
+#25 [stage-2 2/4] COPY --from=go /out/platform /app/platform
+#25 DONE 0.0s
+
+#26 [stage-2 3/4] COPY --from=go /out/studio-admin /app/studio-admin
+#26 DONE 0.1s
+
+#27 [stage-2 4/4] COPY --from=web /src/apps/web/dist /app/web
+#27 DONE 0.0s
+
+#28 exporting to image
+#28 exporting layers 0.0s done
+#28 writing image sha256:cd59840802435ad1e6dd18a46f5284df8314bd3ce87140309269f2984c0d1225 done
+#28 naming to docker.io/library/mcp-studio-platform:m7-candidate done
+#28 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xe9jh2saii4kayg8drelsnr9u
+[verify] Fresh isolated HTTPS deployment, recovery and upgrade
+[deployment] isolated HTTPS, STARTTLS, permissions, backup/restore and upgrade checks passed; fixtures removed
+[test-runtime] production platform + TLS terminator + SMTP + controlled MCP/OAuth fixtures ready
+[verify] Playwright production-entry E2E
+
+Running 33 tests using 1 worker
+
+  ✓   1 [chromium] › tests/e2e/m1.spec.ts:17:1 › 真实平台：初始化、验证、项目、邀请身份修复、成员保护与范围确认 (6.9s)
+  ✓   2 [chromium] › tests/e2e/m1.spec.ts:31:1 › 真实生产入口：英文、亮暗主题、192/80侧栏、断点与深链接拒绝 (1.7s)
+  ✓   3 [chromium] › tests/e2e/m1.spec.ts:38:1 › 真实邮件生命周期：重发替代、撤销、手动密码重设保留邀请来源并撤销旧会话 (2.9s)
+  ✓   4 [chromium] › tests/e2e/m2.spec.ts:25:1 › M2 production: shared configs, private environment apply, HTTP/SSE handshake, cancellation and stdio boundary (3.4s)
+  ✓   5 [chromium] › tests/e2e/m2.spec.ts:45:1 › M2 production: two sessions compare conflict and same URL has separate personal Token credentials (3.8s)
+  ✓   6 [chromium] › tests/e2e/m2.spec.ts:52:1 › M2 production: direct HTTPS OAuth PKCE and resource binding, explicit connect and denial (3.4s)
+  ✓   7 [chromium] › tests/e2e/m3.spec.ts:7:1 › T15 production: real paged catalog, independent documents and protected Tab commands (2.6s)
+  ✓   8 [chromium] › tests/e2e/m3.spec.ts:23:1 › M3 production: frozen execution, upload-only retry, saved revision, linked redaction and unexecuted restoration (5.3s)
+  ✓   9 [chromium] › tests/e2e/m3.spec.ts:42:1 › T16 production: nested skip and explicit values, Raw errors, full composed/recursive validation under CSP (4.3s)
+  ✓  10 [chromium] › tests/e2e/m3.spec.ts:54:1 › M3 production: actual tool/RPC/output errors, cancelled late result, timeout, 401 and offline admission (6.4s)
+  ✓  11 [chromium] › tests/e2e/m3.spec.ts:67:1 › M3 production: credential echo stays redacted and invalid input saves only as an unexecuted private draft (4.9s)
+  ✓  12 [chromium] › tests/e2e/m4.spec.ts:16:1 › M4 production: native redacted queue restores exact operation after reload and lost receipt without repeating the tool (4.4s)
+  ✓  13 [chromium] › tests/e2e/m4.spec.ts:23:1 › M4 production: expiry hides context, same owner resumes queue, and sign out requires explicit pending-record discard (5.3s)
+  ✓  14 [chromium] › tests/e2e/m4.spec.ts:44:1 › M4 production: native queue limit blocks new calls, seven-day rows stay, and damaged snapshots are quarantined (5.5s)
+  ✓  15 [chromium] › tests/e2e/m4.spec.ts:50:1 › M4 production: unavailable device storage requires an explicit memory choice and reports reload-loss risk (4.2s)
+  ✓  16 [chromium] › tests/e2e/m5.spec.ts:20:1 › M5 production UI: pairs locally, executes independent Agent HTTP and real stdio, creates a separate browser saved record (6.4s)
+  ✓  17 [chromium] › tests/e2e/m5.spec.ts:22:1 › M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool (7.4s)
+  ✓  18 [chromium] › tests/e2e/m5.spec.ts:24:1 › M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent (9.0s)
+  ✓  19 [chromium] › tests/e2e/m6-flow.spec.ts:13:1 › T33 production: real invitation, same-Run history and saved copy, reload continuation and unexecuted restoration (8.6s)
+  ✓  20 [chromium] › tests/e2e/m6-flow.spec.ts:27:1 › T31/T33 production: failed upload stays incomplete, retry never calls Tool, unavailable scopes have recovery actions (4.6s)
+  ✓  21 [chromium] › tests/e2e/m6-flow.spec.ts:33:1 › T33 production: a real failed Tool Run remains failed and cannot complete the history/save steps (3.3s)
+  ✓  22 [chromium] › tests/e2e/m6-layout.spec.ts:15:1 › T32a production: bilingual theme/window matrix preserves tool drafts and scrolling (5.5s)
+  ✓  23 [chromium] › tests/e2e/m6-layout.spec.ts:27:1 › T32b production: keyboard navigation, tab/menu focus, split adjustment and nested error location (2.8s)
+  ✓  24 [chromium] › tests/e2e/m6-matrix.spec.ts:19:1 › T32 production P01–P10: identity, account, directory, workflow, access, members and invitation views (31.5s)
+  ✓  25 [chromium] › tests/e2e/m6-matrix.spec.ts:29:1 › T32 production P11–P16 and P26: service authorization, device, environment, variable and personal-value views (15.1s)
+  ✓  26 [chromium] › tests/e2e/m6-matrix.spec.ts:36:1 › T32 production P17–P25: actual Run, scoped records, project records, frozen detail and metadata editor (29.7s)
+  ✓  27 [chromium] › tests/e2e/v01-agent-retry.spec.ts:21:1 › V01 A38 production: foreign Agent operations, wrong upload endpoints and live Viewer downgrade cannot retry or replay the Tool (6.8s)
+  ✓  28 [chromium] › tests/e2e/v01-backup-retry.spec.ts:34:1 › V01 A07 production: failed personal backup preserves saved OAuth authorization and retries only the backup (6.6s)
+  ✓  29 [chromium] › tests/e2e/v01-cors-agent.spec.ts:27:1 › V01 A04 production: same CORS-denied connection switches explicitly to Agent without borrowing credentials (5.8s)
+  ✓  30 [chromium] › tests/e2e/v01-membership.spec.ts:21:2 › V01 A28: cancelling project removal preserves real memberships, invitations and audit without API mutations (1.7s)
+  ✓  31 [chromium] › tests/e2e/v01-membership.spec.ts:21:2 › V01 A28: cancelling team removal preserves real memberships, invitations and audit without API mutations (1.6s)
+  ✓  32 [chromium] › tests/e2e/v01-required-layout.spec.ts:8:1 › V01 A30 production: required panes and bottom bar remain nonzero, unclipped and reachable in the bilingual theme/window matrix (8.0s)
+  ✓  33 [chromium] › tests/e2e/v01-run-preferences.spec.ts:19:1 › V01 A32 production: preference changes retain the in-flight call and completed Run identity, status and result (3.5s)
+
+  33 passed (3.8m)
+[test-runtime] Agent, platform, mail, MCP, OAuth and temporary TLS fixtures stopped
+[test-runtime] exact leased test schemas removed
+[verify] cloud edition gates passed: build, vet, real-PostgreSQL tests, Compose deployment/recovery/upgrade, browser journeys
+[verify] local edition gates passed: tagged build, initdb/health/permission/graceful-shutdown smoke
+[verify] all gates passed

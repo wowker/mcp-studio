@@ -1,11 +1,12 @@
 node_modules/
-apps/web/dist/
+dist/
 .runtime/
-/cloud
-/local
 .env
 .env.*
 *.key
 *.pem
 playwright-report/
 test-results/
+.screenshots/
+.debug/
+local/data/

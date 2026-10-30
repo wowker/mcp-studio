@@ -1,0 +1,43 @@
+export const enUSSkills = {
+  title: "Skills",
+  description: "Manage project-scoped instructions that Agents can discover through Inspector.",
+  help: {
+    trigger: "Learn about Skills",
+    close: "Close Skills help",
+    summary: "Project instruction registry",
+    sections: { purpose: "Purpose", configure: "How to configure", use: "How to use", effect: "Effects" },
+    purpose: { one: "Keep Inspector's standard Skills and project-owned Skills in one registry.", two: "Give Agents read-only discovery of exact, published revisions." },
+    configure: { one: "Standard Skills are maintained by Inspector and cannot be edited or deleted.", two: "User Skills are text-only bundles containing SKILL.md and optional references/**/*.md files." },
+    use: { one: "Save a draft, validate its exact revision, then publish that validated revision.", two: "Agents install discovered Skills using their own runtime and permission model." },
+    effect: { one: "Disabling or deleting a Skill removes it from Agent discovery.", two: "Deleting a registry Skill does not remove copies already installed by an Agent." },
+  },
+  list: {
+    title: "Project Skills", search: "Search Skills", searchAction: "Search", loading: "Loading Skills…",
+    loadFailed: "Failed to load Skills", retry: "Retry", empty: "No Skills match these filters.",
+    allOrigins: "All origins", allStates: "All states", origin: "Origin", state: "State", loadMore: "Load more",
+  },
+  origin: { STANDARD: "Standard", USER: "User" },
+  state: { ACTIVE: "Active", DISABLED: "Disabled", DEPRECATED: "Deprecated", DELETED: "Deleted" },
+  editor: {
+    select: "Select a Skill to inspect its exact revision.", standardReadOnly: "Standard Skills are maintained by Inspector and are read-only.",
+    historicalReadOnly: "Historical revisions are immutable and read-only.", name: "Name", slug: "Slug", description: "Description",
+    revision: "Revision", currentRevision: "Current revision", publishedRevision: "Published revision", version: "Version",
+    digest: "Content digest", created: "Created", updated: "Updated", files: "Files", content: "Content",
+    preview: "Safe text preview", referencePath: "Reference path", addReference: "Add reference", removeReference: "Remove reference",
+    referenceConstraint: "Use references/**/*.md", loadRevision: "Open revision", save: "Save draft", saving: "Saving…",
+    validate: "Validate revision", validating: "Validating…", publish: "Publish revision", enable: "Enable", disable: "Disable",
+    delete: "Delete", restore: "Restore", create: "New Skill", createTitle: "Create a user Skill", createAction: "Create draft",
+    cancel: "Cancel", validationTitle: "Validation", validationValid: "Revision is valid and ready to publish.",
+    validationInvalid: "Revision is not valid.", noValidation: "Validate the saved revision before publishing.", noIssues: "No validation issues.",
+    current: "Current", published: "Published", unpublished: "Not published", dirty: "Unsaved changes",
+  },
+  confirm: {
+    discardTitle: "Discard unsaved changes?", discardDescription: "Your current Skill draft has unsaved changes.", discard: "Discard changes",
+    publishTitle: "Publish this exact revision?", publishDescription: "Publish “{{name}}” revision {{revision}} using its current validation result.", publish: "Publish revision",
+    deleteTitle: "Delete this Skill?", deleteDescription: "Delete “{{name}}” revision {{revision}} from Agent discovery. Agent-installed files are unaffected.", delete: "Delete Skill",
+  },
+  message: {
+    createFailed: "Failed to create the Skill.", actionFailed: "The Skill action failed. Refresh and try again.",
+    referenceInvalid: "Enter a references/**/*.md path that does not already exist.",
+  },
+} as const;

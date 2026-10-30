@@ -1,0 +1,67 @@
+<h2>项目管理应该放在哪里？</h2>
+<p class="subtitle">两种布局都支持项目增删改查、切换、归档与当前项目提示。请选择更符合 MCP-Testpilot 工作台习惯的一种。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:14px;background:#f6f8fa">
+      <div style="border:1px solid #d0d7de;background:white;font:12px system-ui;color:#24292f">
+        <div style="height:38px;border-bottom:1px solid #d8dee4;display:flex;align-items:center;gap:12px;padding:0 10px">
+          <strong>MCP Testpilot</strong>
+          <button class="mock-button" style="padding:4px 8px">DSers MCP · 442326f5 ▾</button>
+          <span style="color:#1a7f37">● 当前项目</span>
+          <span style="margin-left:auto;color:#57606a">dsers-test · 已连接</span>
+        </div>
+        <div style="display:flex;min-height:220px">
+          <div style="width:95px;border-right:1px solid #d8dee4;padding:10px 7px;line-height:2.3">
+            <strong>项目</strong><br>Servers<br>Tools<br>测试套件<br>运行历史
+          </div>
+          <div style="flex:1;padding:14px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div><strong style="font-size:16px">项目管理</strong><br><span style="color:#57606a">2 个活动项目 · 0 个归档项目</span></div>
+              <button class="mock-button">新建项目</button>
+            </div>
+            <div style="margin-top:14px;border:1px solid #d8dee4">
+              <div style="display:grid;grid-template-columns:1.2fr 1fr .7fr .8fr;border-bottom:1px solid #d8dee4;background:#f6f8fa;padding:7px"><b>项目</b><b>标识</b><b>连接</b><b>操作</b></div>
+              <div style="display:grid;grid-template-columns:1.2fr 1fr .7fr .8fr;padding:9px;border-bottom:1px solid #d8dee4"><span><b>DSers MCP</b> <small style="color:#1a7f37">当前</small></span><code>442326f5</code><span>3</span><span>重命名 · 归档</span></div>
+              <div style="display:grid;grid-template-columns:1.2fr 1fr .7fr .8fr;padding:9px"><span><b>dsers（旧）</b></span><code>c3ad4713</code><span>4</span><span>打开 · 归档</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · 顶栏切换器 + 独立管理页（推荐）</h3>
+      <p>当前项目始终可见；点击名称快速切换；完整 CRUD 集中在“项目管理”。符合 IDE 式高密度工作台，也不挤占左侧业务导航。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:14px;background:#f6f8fa">
+      <div style="border:1px solid #d0d7de;background:white;font:12px system-ui;color:#24292f">
+        <div style="height:38px;border-bottom:1px solid #d8dee4;display:flex;align-items:center;padding:0 10px"><strong>MCP Testpilot</strong><span style="margin-left:auto">dsers-test · 已连接</span></div>
+        <div style="display:flex;min-height:220px">
+          <div style="width:170px;border-right:1px solid #d8dee4;padding:10px 8px">
+            <strong>项目</strong><button class="mock-button" style="float:right;padding:2px 6px">＋</button>
+            <div style="margin:10px 0;padding:7px;background:#ddf4ff;border-left:3px solid #0969da"><b>DSers MCP</b><br><code>442326f5</code></div>
+            <div style="margin:7px 0;padding:7px"><b>dsers（旧）</b><br><code>c3ad4713</code></div>
+            <hr style="border:0;border-top:1px solid #d8dee4">
+            <div style="line-height:2.2">Servers<br>Tools<br>测试套件<br>运行历史</div>
+          </div>
+          <div style="flex:1;padding:14px">
+            <strong style="font-size:16px">Servers</strong>
+            <p style="color:#57606a">当前项目：DSers MCP</p>
+            <div class="placeholder" style="height:120px">当前项目工作区</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · 左侧项目树</h3>
+      <p>项目切换非常直接，但项目列表会长期占用工作区宽度；项目多时会与 Servers、Tools 等一级导航竞争空间。</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p><strong>共同安全规则：</strong>同名项目显示短 ID；归档项目不允许运行；永久删除只在“已归档”视图出现；所有 MCP 返回同时携带项目名称和 Project ID。</p>
+</div>

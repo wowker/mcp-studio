@@ -1,0 +1,2373 @@
+{
+  "scope": "Production tools and service composition; screenshots require visual review; does not sign manual acceptance.",
+  "metrics": [
+    {
+      "name": "tools-en-US-light-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        },
+        {
+          "className": "tools-layout",
+          "width": 278,
+          "height": 616
+        },
+        {
+          "className": "tools-workspace",
+          "width": 276,
+          "height": 522
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 244,
+          "height": 1521
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 244,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-light-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 580,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 342,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 302,
+          "height": 1479
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 302,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 876,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-light-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-light-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 1184,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 946,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 471.109375,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 422.890625,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-light-1024-short",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 388
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 386
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 240
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 240
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-dark-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        },
+        {
+          "className": "tools-layout",
+          "width": 278,
+          "height": 616
+        },
+        {
+          "className": "tools-workspace",
+          "width": 276,
+          "height": 522
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 244,
+          "height": 1521
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 244,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-dark-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 580,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 342,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 302,
+          "height": 1479
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 302,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 876,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-dark-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-dark-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 1184,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 946,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 471.109375,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 422.890625,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-en-US-dark-1024-short",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 388
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 386
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 240
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 240
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-light-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        },
+        {
+          "className": "tools-layout",
+          "width": 278,
+          "height": 616
+        },
+        {
+          "className": "tools-workspace",
+          "width": 276,
+          "height": 522
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 244,
+          "height": 1521
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 244,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-light-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 580,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 342,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 302,
+          "height": 1479
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 302,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 876,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-light-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-light-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 1184,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 946,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 471.109375,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 422.890625,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-light-1024-short",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 388
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 386
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 240
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 240
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-dark-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        },
+        {
+          "className": "tools-layout",
+          "width": 278,
+          "height": 616
+        },
+        {
+          "className": "tools-workspace",
+          "width": 276,
+          "height": 522
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 244,
+          "height": 1521
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 244,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-dark-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 580,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 342,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 302,
+          "height": 1479
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 302,
+          "height": 160
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 876,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-dark-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-dark-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 812
+        },
+        {
+          "className": "tools-layout",
+          "width": 1184,
+          "height": 648
+        },
+        {
+          "className": "tools-workspace",
+          "width": 946,
+          "height": 646
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 471.109375,
+          "height": 476
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 422.890625,
+          "height": 476
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 812,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 876,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 900
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "tools-zh-CN-dark-1024-short",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        },
+        {
+          "className": "tools-layout",
+          "width": 768,
+          "height": 388
+        },
+        {
+          "className": "tools-workspace",
+          "width": 530,
+          "height": 386
+        },
+        {
+          "className": "ui-debugger-request",
+          "width": 254.796875,
+          "height": 240
+        },
+        {
+          "className": "ui-debugger-result",
+          "width": 223.203125,
+          "height": 240
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-light-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-light-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 616,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-light-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-light-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-dark-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-dark-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 616,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-dark-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-zh-CN-dark-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-light-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-light-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 616,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-light-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-light-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-dark-390",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-dark-820",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 644,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 644,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 176,
+            "y": 616,
+            "width": 644,
+            "height": 24,
+            "right": 820,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 820,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-dark-1024",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 832,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 832,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 832,
+            "height": 24,
+            "right": 1024,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1024,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "server-en-US-dark-1440",
+      "tables": [],
+      "bodySize": 14,
+      "minimumTextSize": 14,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 1248,
+          "height": 552
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 1248,
+                "height": 552,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 192,
+            "y": 616,
+            "width": 1248,
+            "height": 24,
+            "right": 1440,
+            "bottom": 640
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 640
+        }
+      },
+      "screenshot": "captured"
+    },
+    {
+      "name": "members-scrolled-zh-CN-light-390",
+      "tables": [
+        {
+          "regionWidth": 278,
+          "tableWidth": 640,
+          "keyboardReachable": true
+        }
+      ],
+      "bodySize": 14,
+      "minimumTextSize": 12,
+      "auxiliarySizes": [],
+      "pageOverflow": false,
+      "panes": [
+        {
+          "className": "workbench-content",
+          "width": 310,
+          "height": 756
+        }
+      ],
+      "sensitiveInput": false,
+      "requiredGeometry": {
+        "panes": [
+          {
+            "selector": ".workbench-content",
+            "count": 1,
+            "boxes": [
+              {
+                "width": 310,
+                "height": 756,
+                "display": "block",
+                "visibility": "visible"
+              }
+            ]
+          }
+        ],
+        "footer": {
+          "count": 1,
+          "box": {
+            "x": 80,
+            "y": 820,
+            "width": 310,
+            "height": 24,
+            "right": 390,
+            "bottom": 844
+          },
+          "unobstructed": [
+            true,
+            true,
+            true
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      },
+      "screenshot": "captured"
+    }
+  ],
+  "consoleErrors": []
+}

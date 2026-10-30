@@ -1,0 +1,272 @@
+import type { FetchLike } from "@modelcontextprotocol/client";
+import type { WireObservation } from "./connection-runtime.js";
+import { isSensitiveHeaderName } from "../../shared/custom-headers.js";
+import { sanitizeSensitiveUrl } from "../../shared/sensitive-url.js";
+
+export const OBSERVATION_TEXT_LIMIT = 64 * 1024;
+type Observer = (event: WireObservation) => void;
+
+function emit(observer: Observer, event: WireObservation): void {
+  try { observer(event); } catch { /* Observability must not alter transport behavior. */ }
+}
+
+function headersObject(headers: Headers, redactSensitiveInfo: boolean): Record<string, string> {
+  return Object.fromEntries(Array.from(headers.entries(), ([name, value]) => [
+    name,
+    redactSensitiveInfo && isSensitiveHeaderName(name) ? "[REDACTED]" : value,
+  ]));
+}
+
+export function redactWireObservation(event: WireObservation): WireObservation {
+  if (event.kind !== "http-request" && event.kind !== "http-response") return event;
+  return { ...event,
+    ...(event.kind === "http-request" ? { url: sanitizeSensitiveUrl(event.url) } : {}),
+    headers: Object.fromEntries(Object.entries(event.headers).map(([name, value]) => [
+    name, isSensitiveHeaderName(name) ? "[REDACTED]" : value,
+  ])) };
+}
+
+export function sanitizeWireObservationUrl(event: WireObservation): WireObservation {
+  return event.kind === "http-request" ? { ...event, url: sanitizeSensitiveUrl(event.url) } : event;
+}
+
+function forwardingInit(request: Request): RequestInit {
+  const init: RequestInit & { duplex?: "half" } = {
+    method: request.method,
+    headers: request.headers,
+    credentials: request.credentials,
+    integrity: request.integrity,
+    keepalive: request.keepalive,
+    mode: request.mode,
+    redirect: request.redirect,
+    referrer: request.referrer,
+    referrerPolicy: request.referrerPolicy,
+    signal: request.signal,
+  };
+  if (request.body !== null) {
+    init.body = request.body;
+    init.duplex = "half";
+  }
+  return init;
+}
+
+interface BodyCapture {
+  bytes: Uint8Array;
+  capturedBytes: number;
+  truncated: boolean;
+}
+
+interface TextMetadata {
+  text: string;
+  capturedBytes: number;
+  truncated: boolean;
+}
+
+function textMetadata(capture: BodyCapture): TextMetadata {
+  const decoder = new TextDecoder();
+  return {
+    text: capture.truncated
+      ? decoder.decode(capture.bytes, { stream: true })
+      : decoder.decode(capture.bytes),
+    capturedBytes: capture.capturedBytes,
+    truncated: capture.truncated,
+  };
+}
+
+async function readBodyBounded(
+  body: ReadableStream<Uint8Array> | null,
+  onChunk?: (chunk: Uint8Array, final: boolean) => void,
+): Promise<BodyCapture> {
+  if (body === null) return { bytes: new Uint8Array(), capturedBytes: 0, truncated: false };
+  const reader = body.getReader();
+  const chunks: Uint8Array[] = [];
+  let capturedBytes = 0;
+  let truncated = false;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) {
+        onChunk?.(new Uint8Array(), true);
+        break;
+      }
+      const remaining = OBSERVATION_TEXT_LIMIT - capturedBytes;
+      if (value.byteLength > remaining) {
+        const captured = value.subarray(0, remaining);
+        if (captured.byteLength > 0) {
+          chunks.push(captured);
+          capturedBytes += captured.byteLength;
+          onChunk?.(captured, false);
+        }
+        truncated = true;
+        onChunk?.(new Uint8Array(), true);
+        void reader.cancel().catch(() => undefined);
+        break;
+      }
+      chunks.push(value);
+      capturedBytes += value.byteLength;
+      onChunk?.(value, false);
+      if (capturedBytes === OBSERVATION_TEXT_LIMIT) {
+        truncated = true;
+        void reader.cancel().catch(() => undefined);
+        onChunk?.(new Uint8Array(), true);
+        break;
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  const bytes = new Uint8Array(capturedBytes);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return { bytes, capturedBytes, truncated };
+}
+
+function parseJson(text: string): unknown | undefined {
+  try { return JSON.parse(text) as unknown; } catch { return undefined; }
+}
+
+async function observeRequest(
+  request: Request,
+  observer: Observer,
+  at: string,
+  exchangeId: string,
+  redactSensitiveInfo: boolean,
+): Promise<void> {
+  let body: unknown = null;
+  if (request.body !== null) {
+    try {
+      const capture = await readBodyBounded(request.clone().body);
+      const metadata = textMetadata(capture);
+      body = capture.truncated ? metadata : parseJson(metadata.text) ?? metadata;
+    } catch {
+      body = { text: "[unavailable]", capturedBytes: 0, truncated: false };
+    }
+  }
+  emit(observer, {
+    kind: "http-request",
+    at,
+    exchangeId,
+    method: request.method,
+    url: sanitizeSensitiveUrl(request.url),
+    headers: headersObject(request.headers, redactSensitiveInfo),
+    body,
+  });
+  if (request.headers.get("content-type")?.toLowerCase().includes("application/json") === true) {
+    const message = typeof body === "object" && body !== null && "text" in body ? undefined : body;
+    if (message !== undefined) emit(observer, { kind: "rpc-out", at, message });
+  }
+}
+
+function createSseParser(observer: Observer, now: () => Date) {
+  let buffer = "";
+  let data: string[] = [];
+  const dispatch = () => {
+    if (data.length === 0) return;
+    const message = parseJson(data.join("\n"));
+    if (message !== undefined) {
+      emit(observer, { kind: "rpc-in", at: now().toISOString(), message });
+    }
+    data = [];
+  };
+
+  const acceptLine = (line: string) => {
+    if (line === "") dispatch();
+    else if (line.startsWith("data:")) data.push(line.slice(5).replace(/^ /, ""));
+  };
+
+  return {
+    push(text: string, final = false) {
+      buffer += text;
+      while (true) {
+        const match = /[\r\n]/.exec(buffer);
+        if (match === null) break;
+        const index = match.index;
+        if (!final && buffer[index] === "\r" && index === buffer.length - 1) break;
+        acceptLine(buffer.slice(0, index));
+        const delimiterLength = buffer[index] === "\r" && buffer[index + 1] === "\n" ? 2 : 1;
+        buffer = buffer.slice(index + delimiterLength);
+      }
+      if (final && buffer.length > 0) {
+        acceptLine(buffer);
+        buffer = "";
+      }
+    },
+  };
+}
+
+async function observeSseResponse(
+  response: Response,
+  observer: Observer,
+  now: () => Date,
+): Promise<TextMetadata> {
+  const body = response.clone().body;
+  const decoder = new TextDecoder();
+  const parser = createSseParser(observer, now);
+  const capture = await readBodyBounded(body, (chunk, final) => {
+    parser.push(decoder.decode(chunk, { stream: !final }), final);
+  });
+  return textMetadata(capture);
+}
+
+async function observeResponseBody(
+  response: Response,
+  contentType: string,
+  observer: Observer,
+  now: () => Date,
+): Promise<{ body: unknown; rpc?: unknown }> {
+  try {
+    const capture = await readBodyBounded(response.clone().body);
+    const metadata = textMetadata(capture);
+    const parsed = contentType.includes("application/json") && !capture.truncated
+      ? parseJson(metadata.text)
+      : undefined;
+    if (parsed !== undefined) {
+      return { body: parsed, rpc: parsed };
+    }
+    return { body: metadata };
+  } catch {
+    return { body: { text: "[unavailable]", capturedBytes: 0, truncated: false } };
+  }
+}
+
+export function createObservedFetch(
+  baseFetch: FetchLike,
+  observer: Observer,
+  options: { now?: () => Date; redactSensitiveInfo?: boolean } = {},
+): FetchLike {
+  const now = options.now ?? (() => new Date());
+  const redactSensitiveInfo = options.redactSensitiveInfo ?? true;
+  let nextExchangeId = 0;
+  return async (input, init) => {
+    const exchangeId = String(++nextExchangeId);
+    const request = new Request(input, init);
+    await observeRequest(request, observer, now().toISOString(), exchangeId, redactSensitiveInfo);
+    const response = await baseFetch(request.url, forwardingInit(request));
+    const contentType = response.headers.get("content-type")?.toLowerCase() ?? "";
+    const responseEvent = {
+      kind: "http-response" as const,
+      at: now().toISOString(),
+      exchangeId,
+      status: response.status,
+      headers: headersObject(response.headers, redactSensitiveInfo),
+      body: null as unknown,
+    };
+    if (contentType.includes("text/event-stream")) {
+      emit(observer, {
+        ...responseEvent,
+        body: { stream: true, captureLimitBytes: OBSERVATION_TEXT_LIMIT },
+      });
+      void observeSseResponse(response, observer, now).catch(() => undefined);
+      return response;
+    }
+    const observedBody = await observeResponseBody(response, contentType, observer, now);
+    emit(observer, { ...responseEvent, body: observedBody.body });
+    if (observedBody.rpc !== undefined) {
+      emit(observer, { kind: "rpc-in", at: now().toISOString(), message: observedBody.rpc });
+    }
+    return response;
+  };
+}

@@ -1,0 +1,1802 @@
+[verify] Generated contracts are current
+Platform contract v1.4.0: 57 schemas, 47 paths; generated boundaries match.
+[verify] Generated Agent contracts are current
+Agent local contract v1.0.0: 30 schemas, 26 paths; strict boundaries match.
+[verify] Shared contract semantics
+Contract semantics JS: 64 shared vectors passed
+[verify] Controlled interruption regression fixture build
+[verify] Generator, SDK, loopback security and runtime guards
+✔ Agent local API has generated strict Go and TypeScript boundaries distinct from platform and MCP (177.598583ms)
+✔ versioned platform contract generates stable Go and TypeScript boundaries (190.016417ms)
+✔ local terminal displays exact pending identity and only issues code after explicit confirm (604.249416ms)
+✔ loopback refuses spoofed Host, absent/foreign Origin, and missing authentication (34.183833ms)
+✔ pairing requires local approval, a short-lived one-use code and separately scoped session (15.102584ms)
+✔ expired codes and local unpair reject new requests (7.744167ms)
+✔ CORS-denied token endpoint remains a real authenticated MCP service for an explicit native client (56.360875ms)
+✔ controlled fixture performs actual HTTP and SSE SDK handshakes (11.691958ms)
+✔ OAuth fixture enforces PKCE resource and one-time code redemption (3.117958ms)
+✔ OAuth deny endpoint advertises its own resource and performs real authorization denial (2.968375ms)
+✔ fixture can advertise localhost while binding only loopback, avoiding platform-host Cookie scope (6.488042ms)
+✔ controlled fixture serves actual paginated HTTP and SSE SDK tool catalogs with numeric counters only (17.018583ms)
+✔ controlled call failures and barrier do not change handshake or retain payloads in counters (2.863458ms)
+✔ controlled Agent links real protected local API and restarts with guaranteed process cleanup (13606.253583ms)
+[test-runtime] exact leased test schemas removed
+✔ aborted real Go child cleans only its claimed inner schema (2212.122667ms)
+[test-runtime] exact leased test schemas removed
+✔ failed real Go child cleans its inner schema even without t.Cleanup (627.073958ms)
+✔ fixture readiness fails promptly when the child exits without a marker (80.569125ms)
+✔ replaced parent identity is preserved and cleanup fails closed (376.692458ms)
+✔ cleanup failure preserves primary exit 130 and replacement schema (371.828708ms)
+✔ cleanup failure preserves primary exit 7 and replacement schema (432.719917ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent Go fixture leases leave the other run untouched (740.498083ms)
+[test-runtime] exact leased test schemas removed
+✔ late Go schema creation is refused after its run closes (273.290334ms)
+✔ real verifier entrypoint SIGINT returns 130 after exact fixture cleanup (464.912ms)
+✔ real verifier entrypoint SIGTERM returns 130 after exact fixture cleanup (464.816416ms)
+✔ abort waits through transient existence EPERM after real SIGKILL until the owned group is gone (5554.002583ms)
+✔ persistent existence EPERM fails closed at the original cleanup deadline (10187.529417ms)
+✔ actual escalation permission denial fails closed while the owned descendant remains alive (10201.207041ms)
+[test-runtime] exact leased test schemas removed
+✔ test database schema is created then only its own schema is dropped after failure (1391.190667ms)
+[test-runtime] exact leased test schemas removed
+[test-runtime] exact leased test schemas removed
+✔ concurrent isolated schemas do not remove each other (621.29425ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (1.397709ms)
+✔ abort waits for TERM-ignoring descendant after its parent exits first (5521.836167ms)
+✔ gate propagates a failing real subprocess exit status (65.460583ms)
+✔ abort waits for real parent and inherited child cleanup before returning (76.804292ms)
+✔ loopback SMTP delivers captured recipient-filtered body without bypassing verification (32.513875ms)
+✔ capture API rejects foreign Host and browser Origin without a verification mutation route (15.466625ms)
+✔ pinned TypeScript SDK negotiates and discovers controlled tools (15.817459ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26210.641292
+[verify] Frontend TypeScript
+[verify] Frontend unit and component tests
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90m/Users/wuwei/code/github/mcp-studio/apps/web[39m
+
+(node:75205) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75204) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75203) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75206) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75215) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75216) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75213) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75214) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75221) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75222) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75224) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75223) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75232) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75233) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75234) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75235) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75244) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75242) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75245) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75243) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/browser-session.test.ts [2m([22m[2m58 tests[22m[2m | [22m[31m58 failed[39m[2m)[22m[33m 370[2mms[22m[39m
+[31m   [31m×[31m uses real pinned SDK handshake only after authoritative scoped access, keeps tokens out of snapshot[39m[32m 111[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m blocks stale or foreign authority before any upstream request[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m cancellation during permission lookup prevents late connect[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m sanitizes browser policy failures and refuses automatic Agent selection[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m allows trustworthy loopback HTTP to reach actual browser policy instead of treating it as mixed content[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refuses OAuth token for another resource before sending any target traffic[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m fails streamable-http immediately after a connected server stream breaks and never reconnects[39m[32m 57[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m fails sse immediately after a connected server stream breaks and never reconnects[39m[32m 66[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m redacts nested sensitive JSON leaves echoed in server identity[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m hides whole server identity if collecting known private leaves hits the bound[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves safe upstream 401 diagnosis for actual legacy SSE initialize rejection[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves safe upstream 403 diagnosis for actual legacy SSE initialize rejection[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves safe platform version_conflict diagnosis and never sends MCP traffic[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves safe platform forbidden diagnosis and never sends MCP traffic[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves safe platform unauthenticated diagnosis and never sends MCP traffic[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m lists real SDK validated tools and follows cursors over explicit streamable-http transport[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m lists real SDK validated tools and follows cursors over explicit sse transport[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m requires a connected tools-capable session before catalog network requests[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m returns a real empty tool catalog as an empty array[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects a late catalog from a disconnected generation without exposing its result[39m[32m 9[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects repeated cursor[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects too many tools[39m[32m 6[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects too many pages[39m[32m 14[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects duplicate tool names[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects empty tool identity[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects malformed schema[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects large catalog[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds and safely rejects untrusted protocol error[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m maps catalog HTTP 401 rejection into safe diagnostics without fallback[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m maps catalog HTTP 403 rejection into safe diagnostics without fallback[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects known credential echoed in tool name before returning metadata[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects known credential echoed in tool description before returning metadata[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects known credential echoed in tool schema before returning metadata[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects recognizable secret metadata without including its value in errors (0)[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects recognizable secret metadata without including its value in errors (1)[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects recognizable secret metadata without including its value in errors (2)[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m clears metadata secrets on disconnect and reconnect while retaining protection for sensitive environment leaves[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refuses catalog when known sensitive leaf collection could not finish[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not treat ordinary public header values as catalog secrets[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects authentication-bearing metadata URLs without exposing URL in error (0)[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects authentication-bearing metadata URLs without exposing URL in error (1)[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects authentication-bearing metadata URLs without exposing URL in error (2)[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves public query parameters in tool metadata URLs[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m discovers output schemas over streamable-http without SDK dynamic validator compilation under strict CSP[39m[32m 15[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m discovers output schemas over sse without SDK dynamic validator compilation under strict CSP[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m calls a tool through real streamable-http SDK wire validation without dynamic output compiler[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m calls a tool through real sse SDK wire validation without dynamic output compiler[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refuses changed config and resolved environment values before any call traffic[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps captured connection secret sanitization after current values change or session disconnects[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m per-call cancellation and late response do not disconnect the session or permit late success[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m replaces raw JSON-RPC error messages with a safe call classification[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves actual call HTTP 401 diagnosis ahead of SDK closed-connection errors[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves actual call HTTP 403 diagnosis ahead of SDK closed-connection errors[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m checks current connection identity for restoration without reading an execution environment[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m freezes the actual credential used for connecting before an async authority lookup returns[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m classifies transport failure during a pending call as network error rather than RPC closed-connection error[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m classifies a malformed SDK tool result as a protocol failure without exposing raw payload[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains actual RPC error context privately without serializing SDK message or data on the error[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75266) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75270) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/records/queueStorage.test.ts [2m([22m[2m29 tests[22m[2m | [22m[31m29 failed[39m[2m)[22m[32m 230[2mms[22m[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mreloads the exact frozen body and revision etag without raw sources and retries once[39m[32m 14[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22msuspends without deleting and binds only current identity; explicit logout discards owner[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mshows storage fallback and never claims recorded when receipt persistence fails[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mrejects corrupted hydration and never sends it[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mcapacity blocks new admissions, preserves completed inflight as explicit loss risk, and reminders do not delete[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mrejects stale owner submission and pauses revoked projects without durable deletion[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mruns latest project authorization on retry and never posts when denied[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mmemory retention removes durable payload only by explicit mode choice[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mrecovered revision reuses etag and version from original save[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mtwo queue instances cannot post one operation concurrently and a completed receipt satisfies the other instance[39m[32m 54[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mqueues an already completed run while suspended and resumes project retry only after explicit access restoration[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mexposes mode and read failures even when initialization has no operation[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mconfirmed discard can remove pending frozen payloads and never discards active uploads[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22m100 MiB counts UTF8 bytes and accepts the exact duplicate even at the count limit[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mreceipt extras never persist and an invalid receipt leaves the frozen queue retryable[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mreload preserves failed queues past seven days and a lease abandoned by a crashed tab can expire[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mmemory mode retains completed-over-capacity results with explicit loss risk[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mexplicit logout closes ownership so a delayed completed run cannot recreate discarded cache[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mmemory-only identity logout also rejects late results after explicitly discarding[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22ma recorded revision cannot reuse its original operation ID with a different etag after reload[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mowner-only pending count includes revoked and suspended queues without exposing other users[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mquarantines schema-valid digest-corrupt persisted content without revealing it or deleting its durable row[39m[32m 7[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mexplicit memory choice permits new calls when storage cannot be read or cleared, without claiming old cache removed[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mfailed storage cleanup preserves existing frozen memory queues and counts quarantined rows against memory-mode capacity[39m[32m 8[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mrehydrates persistent storage after explicit memory fallback when storage later recovers[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mfailed explicit logout cleanup does not claim removal or lose the owner pending warning[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22msurfaces safe local retry codes through the platform error boundary instead of a generic unknown[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22ma delayed persistent-mode rebind cannot restore previous account project scope over the new owner[39m[32m 53[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m durable sanitized operation lifecycle[2m > [22mpersistent-mode rehydration preserves new revocations for the same owner while retaining earlier revoked projects[39m[32m 52[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75274) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75276) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75280) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75281) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75284) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75293) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75294) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/records/operations.test.ts [2m([22m[2m14 tests[22m[2m | [22m[31m14 failed[39m[2m)[22m[32m 134[2mms[22m[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mredacts request sources and echoed response together while retaining explicit values and schema property names[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mnew saves have distinct identities, keep original executor attribution, and strip response for request-only saves[39m[32m 6[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mdouble submit joins one upload; retry retains exact body despite later UI edits[39m[32m 55[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mfailed upload retries same operation without an execution callback and binds original project[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mrejects same operation with different digest and suppresses late receipts after clear[39m[32m 53[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mfreezes new metadata revisions, redacts reason, and keeps other project operations on revoke[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22midentity clear during digest computation cannot resurrect an operation[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mdefault source redaction also removes metadata echoes and preserves property names matching annotations[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mproject rules remain active when a transport sanitizer is supplied[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22madditional-redaction reasons and metadata use the targeted source values[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mexplicitly discards only failed operations so a conflict can start a new revision[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22msource secrets cannot echo in free-form provenance fields or schema annotations[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mupload wrapping retains provenance sanitization before source values disappear[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m ephemeral frozen record operations[2m > [22mcaptured credentials remain redacted in newly edited save metadata after request source masking[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75299) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75267) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75301) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75307) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/connections/runtimeStore.test.ts [2m([22m[2m7 tests[22m[2m | [22m[31m7 failed[39m[2m)[22m[32m 108[2mms[22m[39m
+[31m   [31m×[31m disconnects an expired credential session while its authorization panel is not mounted[39m[32m 93[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m revokes one project credentials and documents while another project session and draft survive[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps identity admission for an already issued result across project revocation but fences an account change[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m suspends uploads without cancelling an issued tool result or deleting its frozen queue[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m remembers an explicit memory-only choice for this account across reload without applying it to another account[39m[32m 8[2mms[22m[39m
+[31m     → expected last "setRetention" call to have been called with [ 'memory' ][39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps expiry paused when a stale hydration finishes and resumes on a later authentication[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains workflow evidence through same-account expiry and removes only a revoked project then clears all on logout[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75313) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/schema/interpreter.test.ts [2m([22m[2m88 tests[22m[2m | [22m[31m88 failed[39m[2m)[22m[32m 65[2mms[22m[39m
+[31m   [31m×[31m formal shared vector '2020-unevaluated-properties'[39m[32m 23[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector '2020-unevaluated-allowed'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector '2020-prefix-items'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector '2020-contains-count'[39m[32m 8[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'dependent-required'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'dependent-schema'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'conditional-branch'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'embedded-relative-ref'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'recursive-local-ref'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'dynamic-recursive-ref'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'anchor-local-ref'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'draft07-tuple'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'draft07-dependencies'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'format-annotation'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'unknown-format'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'unknown-keyword'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'remote-reference'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'custom-vocabulary'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'unsupported-dialect'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-lookaround'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-backreference'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-portable'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'required-pointer-escaping'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'anyof-collapse'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'oneof-overlap'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'allof-leaf-errors'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'invalid-schema'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'annotation-not-schema'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'reference-dag-budget'[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'same-instance-ref-cycle'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'structural-recursion-supported'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-pattern-budget'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-cross-engine-escape'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'multipleof-small-false'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'multipleof-decimal-exact'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'multipleof-negative-exact'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'multipleof-epsilon-below'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'multipleof-epsilon-above'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'multipleof-offset-false'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-space-parity'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-dot-parity'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-posix-parity'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'regex-dot-literal'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector '2020-deprecated-annotation'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector '2020-definitions-ref'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'draft07-alias-no-fragment'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'binary64-unsafe-integer-normalized'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'binary64-decimal-normalized'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m formal shared vector 'binary64-bounded-underflow-zero'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-preserve-zero-false-null'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-optional-default-skipped'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-nested-skip'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-required-cannot-skip'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-invalid-json'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-private-incomplete'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-null-not-missing'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-empty-string-min-length'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-empty-array-min-items'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-oneof-exactly-one'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-anyof-at-least-one'[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-allof-every-branch'[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-local-ref'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-remote-ref-no-fetch'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-unsupported-dialect'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-unknown-keyword-block'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m preserves M0 vector 'schema-exact-nested-error'[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m never fetches remote schemas and preserves secret-free errors[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not mutate defaults or original data[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m limits non-finite, deep and oversized data without embedding it in issues[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects patterns outside the shared bounded portable profile (0)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects patterns outside the shared bounded portable profile (1)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects patterns outside the shared bounded portable profile (2)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects patterns outside the shared bounded portable profile (3)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m uses the shared 4096 node cap for request JSON[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not retain a previous embedded resource for the same declared ID across jobs[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects exponential reference DAGs before interpreter evaluation[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects same-instance cyclic references while allowing structural recursive schemas[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m applies exact decimal multipleOf to 5e-8 / 1[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m applies exact decimal multipleOf to 0.3 / 0.1[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m applies exact decimal multipleOf to 1.00000005 / 1[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m applies exact decimal multipleOf to 1.19e-7 / 1[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m applies exact decimal multipleOf to 1.2e-7 / 1[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m applies exact decimal multipleOf to -0.3 / 0.1[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m declares cross-engine regex semantics unsupported (0)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m declares cross-engine regex semantics unsupported (1)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m declares cross-engine regex semantics unsupported (2)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m declares cross-engine regex semantics unsupported (3)[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps escaped literal dot patterns portable[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75317) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/execution/index.test.ts [2m([22m[2m15 tests[22m[2m | [22m[31m15 failed[39m[2m)[22m[32m 60[2mms[22m[39m
+[31m   [31m×[31m locks the Tab synchronously before async schema validation and freezes resolved request/context with three independent IDs[39m[32m 29[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not create a Run or discard the prior response when local/Schema validation blocks an attempt[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m requires current scoped authority and policy before creating a Run or calling upstream[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m cancels local waiting without late success or duplicate callback, while other Tabs may run[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains tool business failures and distinguishes invalid structured output from successful calls[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rechecks request size after environment expansion before any Run or authorization[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refreshes the current upstream definition before validation and rejects removed tools without Run[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m revokes only the owning project even when its entire safe result was omitted[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m classifies an actual RPC rejection as a known protocol result without raw message[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m invalidates only the selected Run safe cache while preserving a newer active attempt[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m omits oversized response retention while still checking its bounded structured output[39m[32m 11[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m clearing identity cancels pending calls and prevents finished callbacks from publishing old context[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains known credential_rejected HTTP rejection while generic transport loss remains unknown[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains known authorization_denied HTTP rejection while generic transport loss remains unknown[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains RPC summary in transient outcome and propagates request-source redaction into its safe state[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75319) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/oauth.test.ts [2m([22m[2m12 tests[22m[2m | [22m[31m12 failed[39m[2m)[22m[32m 42[2mms[22m[39m
+[31m   [31m×[31m discovers authorization server, binds resource and S256 PKCE, validates callback then exchanges once[39m[32m 12[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m discards callback from wrong source or origin and rejects state or issuer mismatch[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects unsafe metadata, resource mismatch, missing PKCE and insecure issuer[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m cancels pending authorization and prevents callbacks from storing token[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m strips callback credentials before delivering only expected fields to same origin opener[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m treats genuine authorization denial with valid state and issuer as denied without redeeming[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m never stores late tokens after cancellation during code exchange[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m clearing account secrets fences a delayed OAuth response even if caller forgets cancellation[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds code exchange timeout and refuses a late token after timed-out exchange[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m honors exact declared issuer including its trailing slash and refuses unknown state[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects finite token lifetimes whose derived expiry overflows safe clock range[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refuses same-platform-hostname authorization navigation even on a different port[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75321) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/agent-client.test.ts [2m([22m[2m8 tests[22m[2m | [22m[31m8 failed[39m[2m)[22m[32m 12[2mms[22m[39m
+[31m   [31m×[31m pairs with a platform proof and native code, keeps channel credentials only in memory[39m[32m 7[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects unsafe Agent address https://remote.test[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects unsafe Agent address http://localhost:1234/path[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects unsafe Agent address http://127.0.0.1:1234?token=x[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects wrong pairing identity and version without browser fallback[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m an offline probe clears channel access and never reconnects an MCP session[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m fences a delayed proof after identity or address changes[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m reports native denial and expiry from the challenge without replaying pairing[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75323) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75325) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75311) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75329) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/records/restore.test.ts [2m([22m[2m8 tests[22m[2m | [22m[31m8 failed[39m[2m)[22m[32m 18[2mms[22m[39m
+[31m   [31m×[31m uses the current tool schema to create a separate unexecuted document retaining explicit values and removing marked top-level fields[39m[32m 12[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps a deleted service readable as a record but cannot restore or create a document[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m blocks a redacted tool identity /context/toolName before any connection or catalog request even if a literal masked tool exists[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m blocks a redacted tool identity /context before any connection or catalog request even if a literal masked tool exists[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m restores using the applied environment and rechecks real session access before creating its tab[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m blocks a stale Developer restore after the actual session-access endpoint denies its Viewer downgrade[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not cancel a restore in project p when an unrelated project is revoked during its read[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m restores Agent history into a new unexecuted document using the current Agent session and never the browser runtime[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75331) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/records/redaction.test.ts [2m([22m[2m36 tests[22m[2m | [22m[31m36 failed[39m[2m)[22m[32m 18[2mms[22m[39m
+[31m   [31m×[31m protects nested source echoes, credentials, email, URLs and keeps explicit falsy values[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m validates escaped pointers and protects schema-free binary data with metadata only[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m restore omits marked top-level parameters and preserves literal marker-looking strings and explicit values[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects inherited JSON pointer paths and safely preserves __proto__ as own data[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction red-default-nested-secrets[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction red-derived-secret-echo[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction red-pointer-escaped[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction red-invalid-pointer[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction red-secret-url[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction red-preserve-falsy[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction binary-metadata-only[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction project-path-does-not-require-unused-fields[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction secret-URL-encoded-key[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction public-query-kept[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction nested-marker-literal[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction proto-own-data[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction inherited-pointer-rejected[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-source-derived-echo[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction project-source-derived-echo[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction structural-marker-not-secret-bool[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction source-numeric-phone-echo[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction source-tainted-false-only[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction source-number-spelling-normalized[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-context-hex-digit-span[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-generic-phone-text[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-short-sk-text[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-key-substring-and-derived-echo[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-query-substring-credential[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction browser-alias-source-protection[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction browser-embedded-signature-url[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-empty-url-userinfo[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-key-boundary-union[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-bearer-whitespace-union[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared redaction default-whole-http-scheme-url[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m collects default and project secret sources before masking derived echoes without tainting existing typed markers[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains pre-existing browser protection for aliases and embedded credential URLs[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75332) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/workflow/uploads.test.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 11[2mms[22m[39m
+[31m   [31m×[31m joins upload progress only from matching frozen user/project/connection/Run and target identity[39m[32m 9[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m reads Agent-owned history state while saved copies remain independent browser operations[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not invent an original history operation when a server-observed Run lacks its upload identity[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75339) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/configuration.test.ts [2m([22m[2m31 tests[22m[2m | [22m[31m31 failed[39m[2m)[22m[32m 10[2mms[22m[39m
+[31m   [31m×[31m shared configuration connection/public-query[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/reference-query[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/fragment[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/userinfo[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/token-query[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/encoded-api-key[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/invalid-protocol[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/raw-auth-header[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/sensitive-header-ref[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/duplicate-headers[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/header-injection[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/forbidden-cookie[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/stdio-agent[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/stdio-browser[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/stdio-relative-cwd[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/stdio-shell-command-string[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration connection/timeout-zero[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/zero[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/false[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/json-null[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/optional-empty[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/sensitive-definition[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/shared-personal-value[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/number-string[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/expression[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/invalid-json[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/nested-recognizable-secret[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared configuration variable/json-nested-overflow[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refuses authority interpolation even when non-sensitive[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects shared HTTP-only fields on stdio and raw secrets mixed into reference headers[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds variable size and accepts nested reference expressions for later typed resolution[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75340) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/vault.test.ts [2m([22m[2m8 tests[22m[2m | [22m[31m8 failed[39m[2m)[22m[32m 8[2mms[22m[39m
+[31m   [31m×[31m isolates credentials by user project and connection and expires without persistence[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'length')[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m revokes project values by definition identity and notifies sessions[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains safe original resource metadata with OAuth credential identity[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m reactively expires without requiring a render read and cleans prior expiry timers[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not synchronously notify subscribers when expiry is observed during rendering[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m emits scoped secret-free invalidations for idle expiry, replacement and removal[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m revokes only matching credential scopes, clears remaining scopes and unsubscribes[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m queues render-observed expiry invalidation without disconnecting a newer replacement[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75341) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/shared/api.test.ts [2m([22m[2m10 tests[22m[2m | [22m[31m10 failed[39m[2m)[22m[32m 12[2mms[22m[39m
+[31m   [31m×[31m platform boundary[2m > [22mrejects extra response fields instead of accepting wire drift[39m[32m 5[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m platform boundary[2m > [22msends Cookie credentials and in-memory CSRF on authenticated writes[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'length')[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m platform boundary[2m > [22mclears session before surfacing a 401 and masks server details[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m platform boundary[2m > [22mrejects invalid outbound requests before a network call[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rechecks scope only for forbidden and refreshes CSRF without clearing protected-member input[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not let delayed errors from an old identity invalidate the new session or permissions[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m still invalidates a current request after refreshing the same session CSRF[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m sends the saved object ETag for conditional writes without altering CSRF[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m refreshes revoked content permission on a current GET without a repeated denial loop[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m identifies the denied object project so a different project run is not revoked[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75343) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/records/snapshot.test.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 8[2mms[22m[39m
+[31m   [31m×[31m matches platform masking of a fixed 64-hex Agent version hash before saving its source Run[39m[32m 8[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75347) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/schema/index.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 9[2mms[22m[39m
+[31m   [31m×[31m fails safely if a browser Worker is unavailable instead of validating on the UI thread[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m runs each job in its own Worker and terminates after its actual response[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m terminates a nonresponding job at the bounded CPU budget and returns no instance data[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m terminates a failed worker without leaking its raw exception[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects oversized jobs before creating a worker[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75348) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/connection.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 13[2mms[22m[39m
+[31m   [31m×[31m accepts public query while rejecting embedded credentials, fragments and known secret query keys[39m[32m 6[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects sensitive derived endpoint and resolves sensitive reference into headers only[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m validates stdio configuration without executing it and requires Agent[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects a fragment inserted by a non-sensitive resolved endpoint reference[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects recognized secrets assembled through public URL references or percent encoding[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75351) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/workflow/model.test.ts [2m([22m[2m15 tests[22m[2m | [22m[31m15 failed[39m[2m)[22m[32m 15[2mms[22m[39m
+[31m   [31m×[31m seven step progress[2m > [22mrequires explicit skips and does not complete a zero-variable environment automatically[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mshows a failed or cancelled actual run without treating debug, history or saved as complete[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mkeeps history and saved incomplete after upload failure even if details were viewed and a saved copy exists[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mcompletes only after the same Run history view and recorded saved copy[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mdoes not join facts across users, projects, connections or selected Runs[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mrequires matching current environment before using a skip and does not skip configured invalid variables[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mhides every progress fact when permission is missing or identity is suspended[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22ma newer failed run replaces a successful run and restoring a Tab does not create a run[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m seven step progress[2m > [22mkeeps only whitelisted identity/status fields and clears a revoked project independently[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m authority observed from successful platform detail GET after reload[2m > [22mrecovers executed and viewed history from its authoritative record without inventing an upload operation[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m authority observed from successful platform detail GET after reload[2m > [22mmarks saving only from a successfully read same-user same-project same-connection saved source Run[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m authority observed from successful platform detail GET after reload[2m > [22mretains server-observed failed and cancelled execution facts without completing history or saving[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m authority observed from successful platform detail GET after reload[2m > [22mdoes not create an execution merely from a prior view marker or a saved DTO observation[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m authority observed from successful platform detail GET after reload[2m > [22muses actual server record confirmation when the original upload receipt was lost while preserving the live operation identity[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m authority observed from successful platform detail GET after reload[2m > [22misolates, whitelists and revokes observed records without keeping their snapshot content[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75350) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/records/canonical.test.ts [2m([22m[2m9 tests[22m[2m | [22m[31m9 failed[39m[2m)[22m[32m 15[2mms[22m[39m
+[31m   [31m×[31m canonicalizes by Unicode code points with exact strings and safe integer-only outer values[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m hashes frozen versioned content without its digest field and preserves decimal JSON text[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest safe-scalars[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest unicode-codepoint-and-no-HTML-escape[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest encoded-decimal-payload[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest outer-decimal-unsupported[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest unsafe-integer[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest duplicate-key[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m shared digest lone-surrogate[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75357) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/agent-session.test.ts [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 5[2mms[22m[39m
+[31m   [31m×[31m binds Agent sessions to user project connection and current configuration[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects mismatched Agent responses and does not connect a browser channel[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75358) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/tools/workspace.test.ts [2m([22m[2m8 tests[22m[2m | [22m[31m8 failed[39m[2m)[22m[32m 6[2mms[22m[39m
+[31m   [31m×[31m connection scoped document commands[2m > [22mreuses an existing tool but explicit new and duplicate create independent unexecuted documents[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m connection scoped document commands[2m > [22mduplicate never inherits a result, run identity or pending upload from the source document[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m connection scoped document commands[2m > [22mkeeps tab identity, selection, ordering and drafts isolated by project and connection[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m connection scoped document commands[2m > [22mmoves only within the pinned group and protects pinned and running tabs from bulk close[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m connection scoped document commands[2m > [22mcommands targeting another tab never replace the selected draft and close selects a surviving neighbour[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m project revocation discards only target documents and preserves another project draft[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m duplicates all nested argument editing metadata without sharing mutable state[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m retains bounded pane and scroll positions per document without copying a previous result layout[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75361) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/environment.test.ts [2m([22m[2m21 tests[22m[2m | [22m[31m21 failed[39m[2m)[22m[32m 7[2mms[22m[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-four-layer-winner[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-delete-highest-fallback[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-high-personal-missing-no-fallback[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-definition-id-personal-isolation[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-overridden-bad-dependency-ignored[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-cycle[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-dependency-missing[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-required-empty-no-fallback[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-zero-false-valid[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-bool-no-coercion[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-nested-sensitive-derivation[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-empty-optional-string[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-direct-required-ref-empty[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22menv-duplicate-same-layer[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22mkeeps tainted actual values private and resolves dependencies only after layer selection[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m production environment contract[2m > [22mselects only matching project, connection and environment in fixed layer order[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m does not let authorization by a deleted or overridden definition borrow a same-name value[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds definition and recursive expansion work without exposing sensitive values[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m builds a sensitive definition with an absent shared value as a personal-only slot[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m rejects nonfinite nested private JSON instead of silently serializing it to null[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps project-only browsing out of connection layers[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75360) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/runtime/execution/protocol.test.ts [2m([22m[2m5 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 9[2mms[22m[39m
+[31m   [31m×[31m keeps RPC code but omits unsafe transient size data before cloning[39m[32m 4[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps RPC code but omits unsafe transient depth data before cloning[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps RPC code but omits unsafe transient nonfinite data before cloning[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m keeps RPC code but omits unsafe transient cycle data before cloning[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m bounds an oversized SDK diagnostic independently while retaining small ordinary summaries[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75365) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/tools/argumentDraft.test.ts [2m([22m[2m8 tests[22m[2m | [22m[31m8 failed[39m[2m)[22m[32m 6[2mms[22m[39m
+[31m   [31m×[31m canonical argument drafts[2m > [22mskips optional fields at every level even with defaults without setting touched[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m canonical argument drafts[2m > [22mpreserves explicit zero false null and empty arrays independently from skip[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m canonical argument drafts[2m > [22mretains malformed Raw text with its last parseable semantic value and allows legal schema errors back to Form[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m canonical argument drafts[2m > [22mpreviews local refs while advanced or remotely referenced shapes use local JSON without fetching[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m skip retains an explicit false for re-enabling and does not mark an untouched field[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m removing an array item reindexes independent input text, skip, touched and expansion metadata[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m uses JSON for overlapping number/integer branches but displays disjoint object discriminators[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m execution local issues block malformed text and numeric spellings independently of the last valid value[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75367) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/connections/session.test.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 3[2mms[22m[39m
+[31m   [31m×[31m session connection drafts[2m > [22mkeeps drafts by project and connection identity, including same endpoint[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m session connection drafts[2m > [22mapplies only to the target session when saved disconnected and unblocked[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m session connection drafts[2m > [22mclears all transient data at identity end[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75366) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/records/viewStore.test.ts [2m([22m[2m4 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 5[2mms[22m[39m
+[31m   [31m×[31m retains project and connection+tool history filters and cursor positions independently[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m isolates additional redaction and metadata forms per project+record and revokes only the target project[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m closes only the copy forms whose cached source was invalidated[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m root Run invalidation clears matching cached copies and Tab results while retaining another Run and another project[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+(node:75372) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31m❯[39m src/features/team/protection.test.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 3[2mms[22m[39m
+[31m   [31m×[31m member action protections[2m > [22mprotects self and Owner regardless of management role[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m member action protections[2m > [22mprotects the last maintainer from project demotion or removal[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+[31m   [31m×[31m member action protections[2m > [22mprevents Admin from changing another Admin[39m[32m 0[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'clear')[39m
+ [32m✓[39m src/runtime/execution/v01-environment-blocking.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 114[2mms[22m[39m
+ [32m✓[39m src/runtime/execution/fixture.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 127[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 32 [49m[22m[31m⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/app/App.test.tsx[2m [ src/app/App.test.tsx ][22m
+[41m[1m FAIL [22m[49m src/features/auth/IdentityPage.test.tsx[2m [ src/features/auth/IdentityPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/app/App.tsx:[2m6:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/app/Shell.test.tsx[2m [ src/app/Shell.test.tsx ][22m
+[41m[1m FAIL [22m[49m src/app/v01-shell-footer.test.tsx[2m [ src/app/v01-shell-footer.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/app/Shell.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/shared/QueryFeedback.states.test.tsx[2m [ src/shared/QueryFeedback.states.test.tsx ][22m
+[41m[1m FAIL [22m[49m src/shared/ui.layout.test.tsx[2m [ src/shared/ui.layout.test.tsx ][22m
+[41m[1m FAIL [22m[49m src/features/projects/Projects.test.tsx[2m [ src/features/projects/Projects.test.tsx ][22m
+[41m[1m FAIL [22m[49m src/features/records/RecordStates.test.tsx[2m [ src/features/records/RecordStates.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/shared/ui.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/shared/i18n.test.ts[2m [ src/shared/i18n.test.ts ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/shared/i18n.test.ts:[2m2:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/auth/IdentityStates.test.tsx[2m [ src/features/auth/IdentityStates.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/auth/translations.ts:[2m1:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/connections/AgentBackupsPanel.test.tsx[2m [ src/features/connections/AgentBackupsPanel.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/connections/AgentBackupsPanel.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/connections/AgentCredentialsPanel.test.tsx[2m [ src/features/connections/AgentCredentialsPanel.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/connections/AgentCredentialsPanel.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/connections/AgentOAuthPanel.test.tsx[2m [ src/features/connections/AgentOAuthPanel.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/connections/AgentOAuthPanel.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/connections/ConnectionsPage.test.tsx[2m [ src/features/connections/ConnectionsPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/connections/ConnectionsPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/connections/v01-backup-retry.test.tsx[2m [ src/features/connections/v01-backup-retry.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/connections/v01-backup-retry.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/operations/OperationsPage.test.tsx[2m [ src/features/operations/OperationsPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/operations/OperationsPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/devices/AgentQueuePanel.test.tsx[2m [ src/features/devices/AgentQueuePanel.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/devices/AgentQueuePanel.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/devices/DevicesPage.test.tsx[2m [ src/features/devices/DevicesPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/devices/DevicesPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/records/RecordEditors.test.tsx[2m [ src/features/records/RecordEditors.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/records/RecordEditors.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/records/RecordsPage.test.tsx[2m [ src/features/records/RecordsPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/records/RecordsPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/records/SessionUploads.test.tsx[2m [ src/features/records/SessionUploads.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/records/SessionUploads.test.tsx:[2m4:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/team/MembersPage.test.tsx[2m [ src/features/team/MembersPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/team/translations.ts:[2m1:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/tools/AgentToolExecution.test.tsx[2m [ src/features/tools/AgentToolExecution.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/tools/AgentToolExecution.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/tools/SchemaArgumentEditor.test.tsx[2m [ src/features/tools/SchemaArgumentEditor.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/tools/SchemaArgumentEditor.test.tsx:[2m6:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/tools/ToolDocumentTabs.test.tsx[2m [ src/features/tools/ToolDocumentTabs.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/tools/ToolDocumentTabs.test.tsx:[2m4:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/tools/ToolExecution.test.tsx[2m [ src/features/tools/ToolExecution.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/tools/ToolExecution.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/tools/ToolsPage.test.tsx[2m [ src/features/tools/ToolsPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/tools/ToolsPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/workflow/WorkflowPage.test.tsx[2m [ src/features/workflow/WorkflowPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/workflow/WorkflowPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/environment/AgentEnvironmentPanel.test.tsx[2m [ src/features/environment/AgentEnvironmentPanel.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/environment/AgentEnvironmentPanel.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/environment/EnvironmentPage.test.tsx[2m [ src/features/environment/EnvironmentPage.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/environment/EnvironmentPage.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/environment/VariableEditor.test.tsx[2m [ src/features/environment/VariableEditor.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/environment/VariableEditor.test.tsx:[2m5:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/environment/v01-diagnostics.test.tsx[2m [ src/features/environment/v01-diagnostics.test.tsx ][22m
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'getItem')[39m
+[36m [2m❯[22m src/shared/i18n.ts:[2m20:132[22m[39m
+
+[90m [2m❯[22m src/features/environment/v01-diagnostics.test.tsx:[2m7:1[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/451]⎯[22m[39m
+
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 416 [49m[22m[31m⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mpairs with a platform proof and native code, keeps channel credentials only in memory
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mrejects unsafe Agent address https://remote.test
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mrejects unsafe Agent address http://localhost:1234/path
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mrejects unsafe Agent address http://127.0.0.1:1234?token=x
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mrejects wrong pairing identity and version without browser fallback
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22man offline probe clears channel access and never reconnects an MCP session
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mfences a delayed proof after identity or address changes
+[41m[1m FAIL [22m[49m src/runtime/agent-client.test.ts[2m > [22mreports native denial and expiry from the challenge without replaying pairing
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22muses real pinned SDK handshake only after authoritative scoped access, keeps tokens out of snapshot
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mblocks stale or foreign authority before any upstream request
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mcancellation during permission lookup prevents late connect
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22msanitizes browser policy failures and refuses automatic Agent selection
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mallows trustworthy loopback HTTP to reach actual browser policy instead of treating it as mixed content
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrefuses OAuth token for another resource before sending any target traffic
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mdiscovers output schemas over streamable-http without SDK dynamic validator compilation under strict CSP
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mdiscovers output schemas over sse without SDK dynamic validator compilation under strict CSP
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mcalls a tool through real streamable-http SDK wire validation without dynamic output compiler
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mcalls a tool through real sse SDK wire validation without dynamic output compiler
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrefuses changed config and resolved environment values before any call traffic
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mkeeps captured connection secret sanitization after current values change or session disconnects
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mrechecks scope only for forbidden and refreshes CSRF without clearing protected-member input
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mdoes not let delayed errors from an old identity invalidate the new session or permissions
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mstill invalidates a current request after refreshing the same session CSRF
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22msends the saved object ETag for conditional writes without altering CSRF
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mrefreshes revoked content permission on a current GET without a repeated denial loop
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22midentifies the denied object project so a different project run is not revoked
+[41m[1m FAIL [22m[49m src/runtime/schema/index.test.ts[2m > [22mfails safely if a browser Worker is unavailable instead of validating on the UI thread
+[41m[1m FAIL [22m[49m src/runtime/schema/index.test.ts[2m > [22mruns each job in its own Worker and terminates after its actual response
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/runtime/agent-session.test.ts[2m > [22mbinds Agent sessions to user project connection and current configuration
+[41m[1m FAIL [22m[49m src/runtime/agent-session.test.ts[2m > [22mrejects mismatched Agent responses and does not connect a browser channel
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/public-query
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/reference-query
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/fragment
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/userinfo
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/token-query
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/encoded-api-key
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/invalid-protocol
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/raw-auth-header
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/sensitive-header-ref
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/duplicate-headers
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/header-injection
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/forbidden-cookie
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/stdio-agent
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/stdio-browser
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/stdio-relative-cwd
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/stdio-shell-command-string
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration connection/timeout-zero
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/zero
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/false
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/json-null
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/optional-empty
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/sensitive-definition
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/shared-personal-value
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/number-string
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/expression
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/invalid-json
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/nested-recognizable-secret
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mshared configuration variable/json-nested-overflow
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mrefuses authority interpolation even when non-sensitive
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mrejects shared HTTP-only fields on stdio and raw secrets mixed into reference headers
+[41m[1m FAIL [22m[49m src/runtime/configuration.test.ts[2m > [22mbounds variable size and accepts nested reference expressions for later typed resolution
+[41m[1m FAIL [22m[49m src/runtime/connection.test.ts[2m > [22maccepts public query while rejecting embedded credentials, fragments and known secret query keys
+[41m[1m FAIL [22m[49m src/runtime/connection.test.ts[2m > [22mrejects sensitive derived endpoint and resolves sensitive reference into headers only
+[41m[1m FAIL [22m[49m src/runtime/connection.test.ts[2m > [22mvalidates stdio configuration without executing it and requires Agent
+[41m[1m FAIL [22m[49m src/runtime/connection.test.ts[2m > [22mrejects a fragment inserted by a non-sensitive resolved endpoint reference
+[41m[1m FAIL [22m[49m src/runtime/connection.test.ts[2m > [22mrejects recognized secrets assembled through public URL references or percent encoding
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mdoes not let authorization by a deleted or overridden definition borrow a same-name value
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mbounds definition and recursive expansion work without exposing sensitive values
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mbuilds a sensitive definition with an absent shared value as a personal-only slot
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mrejects nonfinite nested private JSON instead of silently serializing it to null
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mkeeps project-only browsing out of connection layers
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22misolates credentials by user project and connection and expires without persistence
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22mrevokes project values by definition identity and notifies sessions
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22mretains safe original resource metadata with OAuth credential identity
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22muses the current tool schema to create a separate unexecuted document retaining explicit values and removing marked top-level fields
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mkeeps a deleted service readable as a record but cannot restore or create a document
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mblocks a redacted tool identity /context/toolName before any connection or catalog request even if a literal masked tool exists
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mblocks a redacted tool identity /context before any connection or catalog request even if a literal masked tool exists
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mrestores using the applied environment and rechecks real session access before creating its tab
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mblocks a stale Developer restore after the actual session-access endpoint denies its Viewer downgrade
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mdoes not cancel a restore in project p when an unrelated project is revoked during its read
+[41m[1m FAIL [22m[49m src/features/records/restore.test.ts[2m > [22mrestores Agent history into a new unexecuted document using the current Agent session and never the browser runtime
+[41m[1m FAIL [22m[49m src/features/records/viewStore.test.ts[2m > [22mretains project and connection+tool history filters and cursor positions independently
+[41m[1m FAIL [22m[49m src/features/records/viewStore.test.ts[2m > [22misolates additional redaction and metadata forms per project+record and revokes only the target project
+[41m[1m FAIL [22m[49m src/features/records/viewStore.test.ts[2m > [22mcloses only the copy forms whose cached source was invalidated
+[41m[1m FAIL [22m[49m src/features/records/viewStore.test.ts[2m > [22mroot Run invalidation clears matching cached copies and Tab results while retaining another Run and another project
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mskip retains an explicit false for re-enabling and does not mark an untouched field
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mremoving an array item reindexes independent input text, skip, touched and expansion metadata
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22muses JSON for overlapping number/integer branches but displays disjoint object discriminators
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mexecution local issues block malformed text and numeric spellings independently of the last valid value
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mproject revocation discards only target documents and preserves another project draft
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mduplicates all nested argument editing metadata without sharing mutable state
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mretains bounded pane and scroll positions per document without copying a previous result layout
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mlocks the Tab synchronously before async schema validation and freezes resolved request/context with three independent IDs
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mdoes not create a Run or discard the prior response when local/Schema validation blocks an attempt
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mrequires current scoped authority and policy before creating a Run or calling upstream
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mcancels local waiting without late success or duplicate callback, while other Tabs may run
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mretains tool business failures and distinguishes invalid structured output from successful calls
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mrechecks request size after environment expansion before any Run or authorization
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mrefreshes the current upstream definition before validation and rejects removed tools without Run
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mrevokes only the owning project even when its entire safe result was omitted
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mclassifies an actual RPC rejection as a known protocol result without raw message
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22minvalidates only the selected Run safe cache while preserving a newer active attempt
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22momits oversized response retention while still checking its bounded structured output
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mclearing identity cancels pending calls and prevents finished callbacks from publishing old context
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mretains known credential_rejected HTTP rejection while generic transport loss remains unknown
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mretains known authorization_denied HTTP rejection while generic transport loss remains unknown
+[41m[1m FAIL [22m[49m src/runtime/execution/index.test.ts[2m > [22mretains RPC summary in transient outcome and propagates request-source redaction into its safe state
+[41m[1m FAIL [22m[49m src/runtime/execution/protocol.test.ts[2m > [22mkeeps RPC code but omits unsafe transient size data before cloning
+[41m[1m FAIL [22m[49m src/runtime/execution/protocol.test.ts[2m > [22mkeeps RPC code but omits unsafe transient depth data before cloning
+[41m[1m FAIL [22m[49m src/runtime/execution/protocol.test.ts[2m > [22mkeeps RPC code but omits unsafe transient nonfinite data before cloning
+[41m[1m FAIL [22m[49m src/runtime/execution/protocol.test.ts[2m > [22mkeeps RPC code but omits unsafe transient cycle data before cloning
+[41m[1m FAIL [22m[49m src/runtime/execution/protocol.test.ts[2m > [22mbounds an oversized SDK diagnostic independently while retaining small ordinary summaries
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mcanonicalizes by Unicode code points with exact strings and safe integer-only outer values
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mprotects nested source echoes, credentials, email, URLs and keeps explicit falsy values
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mvalidates escaped pointers and protects schema-free binary data with metadata only
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mrestore omits marked top-level parameters and preserves literal marker-looking strings and explicit values
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mrejects inherited JSON pointer paths and safely preserves __proto__ as own data
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction red-default-nested-secrets
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction red-derived-secret-echo
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction red-pointer-escaped
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction red-invalid-pointer
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction red-secret-url
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction red-preserve-falsy
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction binary-metadata-only
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction project-path-does-not-require-unused-fields
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction secret-URL-encoded-key
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction public-query-kept
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction nested-marker-literal
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction proto-own-data
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction inherited-pointer-rejected
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-source-derived-echo
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction project-source-derived-echo
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction structural-marker-not-secret-bool
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction source-numeric-phone-echo
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction source-tainted-false-only
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction source-number-spelling-normalized
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-context-hex-digit-span
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-generic-phone-text
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-short-sk-text
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-key-substring-and-derived-echo
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-query-substring-credential
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction browser-alias-source-protection
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction browser-embedded-signature-url
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-empty-url-userinfo
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-key-boundary-union
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-bearer-whitespace-union
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mshared redaction default-whole-http-scheme-url
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mcollects default and project secret sources before masking derived echoes without tainting existing typed markers
+[41m[1m FAIL [22m[49m src/runtime/records/redaction.test.ts[2m > [22mretains pre-existing browser protection for aliases and embedded credential URLs
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector '2020-unevaluated-properties'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector '2020-unevaluated-allowed'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector '2020-prefix-items'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector '2020-contains-count'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'dependent-required'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'dependent-schema'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'conditional-branch'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'embedded-relative-ref'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'recursive-local-ref'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'dynamic-recursive-ref'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'anchor-local-ref'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'draft07-tuple'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'draft07-dependencies'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'format-annotation'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'unknown-format'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'unknown-keyword'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'remote-reference'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'custom-vocabulary'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'unsupported-dialect'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-lookaround'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-backreference'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-portable'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'required-pointer-escaping'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'anyof-collapse'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'oneof-overlap'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'allof-leaf-errors'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'invalid-schema'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'annotation-not-schema'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'reference-dag-budget'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'same-instance-ref-cycle'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'structural-recursion-supported'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-pattern-budget'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-cross-engine-escape'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'multipleof-small-false'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'multipleof-decimal-exact'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'multipleof-negative-exact'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'multipleof-epsilon-below'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'multipleof-epsilon-above'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'multipleof-offset-false'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-space-parity'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-dot-parity'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-posix-parity'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'regex-dot-literal'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector '2020-deprecated-annotation'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector '2020-definitions-ref'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'draft07-alias-no-fragment'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'binary64-unsafe-integer-normalized'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'binary64-decimal-normalized'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mformal shared vector 'binary64-bounded-underflow-zero'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-preserve-zero-false-null'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-optional-default-skipped'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-nested-skip'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-required-cannot-skip'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-invalid-json'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-private-incomplete'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-null-not-missing'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-empty-string-min-length'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-empty-array-min-items'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-oneof-exactly-one'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-anyof-at-least-one'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-allof-every-branch'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-local-ref'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-remote-ref-no-fetch'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-unsupported-dialect'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-unknown-keyword-block'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mpreserves M0 vector 'schema-exact-nested-error'
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mnever fetches remote schemas and preserves secret-free errors
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mdoes not mutate defaults or original data
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mlimits non-finite, deep and oversized data without embedding it in issues
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mrejects patterns outside the shared bounded portable profile (0)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mrejects patterns outside the shared bounded portable profile (1)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mrejects patterns outside the shared bounded portable profile (2)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mrejects patterns outside the shared bounded portable profile (3)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22muses the shared 4096 node cap for request JSON
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mdoes not retain a previous embedded resource for the same declared ID across jobs
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mrejects exponential reference DAGs before interpreter evaluation
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mrejects same-instance cyclic references while allowing structural recursive schemas
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mapplies exact decimal multipleOf to 5e-8 / 1
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mapplies exact decimal multipleOf to 0.3 / 0.1
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mapplies exact decimal multipleOf to 1.00000005 / 1
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mapplies exact decimal multipleOf to 1.19e-7 / 1
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mapplies exact decimal multipleOf to 1.2e-7 / 1
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mapplies exact decimal multipleOf to -0.3 / 0.1
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mdeclares cross-engine regex semantics unsupported (0)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mdeclares cross-engine regex semantics unsupported (1)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mdeclares cross-engine regex semantics unsupported (2)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mdeclares cross-engine regex semantics unsupported (3)
+[41m[1m FAIL [22m[49m src/runtime/schema/interpreter.test.ts[2m > [22mkeeps escaped literal dot patterns portable
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mfails streamable-http immediately after a connected server stream breaks and never reconnects
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mfails sse immediately after a connected server stream breaks and never reconnects
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mredacts nested sensitive JSON leaves echoed in server identity
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mhides whole server identity if collecting known private leaves hits the bound
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves safe upstream 401 diagnosis for actual legacy SSE initialize rejection
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves safe upstream 403 diagnosis for actual legacy SSE initialize rejection
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves safe platform version_conflict diagnosis and never sends MCP traffic
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves safe platform forbidden diagnosis and never sends MCP traffic
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves safe platform unauthenticated diagnosis and never sends MCP traffic
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mlists real SDK validated tools and follows cursors over explicit streamable-http transport
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mlists real SDK validated tools and follows cursors over explicit sse transport
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrequires a connected tools-capable session before catalog network requests
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mreturns a real empty tool catalog as an empty array
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects a late catalog from a disconnected generation without exposing its result
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects repeated cursor
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects too many tools
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects too many pages
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects duplicate tool names
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects empty tool identity
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects malformed schema
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects large catalog
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mbounds and safely rejects untrusted protocol error
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mmaps catalog HTTP 401 rejection into safe diagnostics without fallback
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mmaps catalog HTTP 403 rejection into safe diagnostics without fallback
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects known credential echoed in tool name before returning metadata
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects known credential echoed in tool description before returning metadata
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects known credential echoed in tool schema before returning metadata
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects recognizable secret metadata without including its value in errors (0)
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects recognizable secret metadata without including its value in errors (1)
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects recognizable secret metadata without including its value in errors (2)
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mclears metadata secrets on disconnect and reconnect while retaining protection for sensitive environment leaves
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrefuses catalog when known sensitive leaf collection could not finish
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mdoes not treat ordinary public header values as catalog secrets
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects authentication-bearing metadata URLs without exposing URL in error (0)
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects authentication-bearing metadata URLs without exposing URL in error (1)
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mrejects authentication-bearing metadata URLs without exposing URL in error (2)
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves public query parameters in tool metadata URLs
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mper-call cancellation and late response do not disconnect the session or permit late success
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mreplaces raw JSON-RPC error messages with a safe call classification
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves actual call HTTP 401 diagnosis ahead of SDK closed-connection errors
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mpreserves actual call HTTP 403 diagnosis ahead of SDK closed-connection errors
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mchecks current connection identity for restoration without reading an execution environment
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mfreezes the actual credential used for connecting before an async authority lookup returns
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mclassifies transport failure during a pending call as network error rather than RPC closed-connection error
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mclassifies a malformed SDK tool result as a protocol failure without exposing raw payload
+[41m[1m FAIL [22m[49m src/runtime/browser-session.test.ts[2m > [22mretains actual RPC error context privately without serializing SDK message or data on the error
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mdiscovers authorization server, binds resource and S256 PKCE, validates callback then exchanges once
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mdiscards callback from wrong source or origin and rejects state or issuer mismatch
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mrejects unsafe metadata, resource mismatch, missing PKCE and insecure issuer
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mcancels pending authorization and prevents callbacks from storing token
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mstrips callback credentials before delivering only expected fields to same origin opener
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mtreats genuine authorization denial with valid state and issuer as denied without redeeming
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mnever stores late tokens after cancellation during code exchange
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mclearing account secrets fences a delayed OAuth response even if caller forgets cancellation
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mbounds code exchange timeout and refuses a late token after timed-out exchange
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mhonors exact declared issuer including its trailing slash and refuses unknown state
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mrejects finite token lifetimes whose derived expiry overflows safe clock range
+[41m[1m FAIL [22m[49m src/runtime/oauth.test.ts[2m > [22mrefuses same-platform-hostname authorization navigation even on a different port
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mdisconnects an expired credential session while its authorization panel is not mounted
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mrevokes one project credentials and documents while another project session and draft survive
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mkeeps identity admission for an already issued result across project revocation but fences an account change
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22msuspends uploads without cancelling an issued tool result or deleting its frozen queue
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mremembers an explicit memory-only choice for this account across reload without applying it to another account
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mkeeps expiry paused when a stale hydration finishes and resumes on a later authentication
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mretains workflow evidence through same-account expiry and removes only a revoked project then clears all on logout
+[41m[1m FAIL [22m[49m src/runtime/schema/index.test.ts[2m > [22mterminates a nonresponding job at the bounded CPU budget and returns no instance data
+[41m[1m FAIL [22m[49m src/runtime/schema/index.test.ts[2m > [22mterminates a failed worker without leaking its raw exception
+[41m[1m FAIL [22m[49m src/runtime/schema/index.test.ts[2m > [22mrejects oversized jobs before creating a worker
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-four-layer-winner
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-delete-highest-fallback
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-high-personal-missing-no-fallback
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-definition-id-personal-isolation
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-overridden-bad-dependency-ignored
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-cycle
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-dependency-missing
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-required-empty-no-fallback
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-zero-false-valid
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-bool-no-coercion
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-nested-sensitive-derivation
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-empty-optional-string
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-direct-required-ref-empty
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22menv-duplicate-same-layer
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22mkeeps tainted actual values private and resolves dependencies only after layer selection
+[41m[1m FAIL [22m[49m src/runtime/environment.test.ts[2m > [22mproduction environment contract[2m > [22mselects only matching project, connection and environment in fixed layer order
+[41m[1m FAIL [22m[49m src/features/connections/session.test.ts[2m > [22msession connection drafts[2m > [22mkeeps drafts by project and connection identity, including same endpoint
+[41m[1m FAIL [22m[49m src/features/connections/session.test.ts[2m > [22msession connection drafts[2m > [22mapplies only to the target session when saved disconnected and unblocked
+[41m[1m FAIL [22m[49m src/features/connections/session.test.ts[2m > [22msession connection drafts[2m > [22mclears all transient data at identity end
+[41m[1m FAIL [22m[49m src/features/team/protection.test.ts[2m > [22mmember action protections[2m > [22mprotects self and Owner regardless of management role
+[41m[1m FAIL [22m[49m src/features/team/protection.test.ts[2m > [22mmember action protections[2m > [22mprotects the last maintainer from project demotion or removal
+[41m[1m FAIL [22m[49m src/features/team/protection.test.ts[2m > [22mmember action protections[2m > [22mprevents Admin from changing another Admin
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mcanonical argument drafts[2m > [22mskips optional fields at every level even with defaults without setting touched
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mcanonical argument drafts[2m > [22mpreserves explicit zero false null and empty arrays independently from skip
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mcanonical argument drafts[2m > [22mretains malformed Raw text with its last parseable semantic value and allows legal schema errors back to Form
+[41m[1m FAIL [22m[49m src/features/tools/argumentDraft.test.ts[2m > [22mcanonical argument drafts[2m > [22mpreviews local refs while advanced or remotely referenced shapes use local JSON without fetching
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mconnection scoped document commands[2m > [22mreuses an existing tool but explicit new and duplicate create independent unexecuted documents
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mconnection scoped document commands[2m > [22mduplicate never inherits a result, run identity or pending upload from the source document
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mconnection scoped document commands[2m > [22mkeeps tab identity, selection, ordering and drafts isolated by project and connection
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mconnection scoped document commands[2m > [22mmoves only within the pinned group and protects pinned and running tabs from bulk close
+[41m[1m FAIL [22m[49m src/features/tools/workspace.test.ts[2m > [22mconnection scoped document commands[2m > [22mcommands targeting another tab never replace the selected draft and close selects a surviving neighbour
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mrequires explicit skips and does not complete a zero-variable environment automatically
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mshows a failed or cancelled actual run without treating debug, history or saved as complete
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mkeeps history and saved incomplete after upload failure even if details were viewed and a saved copy exists
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mcompletes only after the same Run history view and recorded saved copy
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mdoes not join facts across users, projects, connections or selected Runs
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mrequires matching current environment before using a skip and does not skip configured invalid variables
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mhides every progress fact when permission is missing or identity is suspended
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22ma newer failed run replaces a successful run and restoring a Tab does not create a run
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mseven step progress[2m > [22mkeeps only whitelisted identity/status fields and clears a revoked project independently
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mauthority observed from successful platform detail GET after reload[2m > [22mrecovers executed and viewed history from its authoritative record without inventing an upload operation
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mauthority observed from successful platform detail GET after reload[2m > [22mmarks saving only from a successfully read same-user same-project same-connection saved source Run
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mauthority observed from successful platform detail GET after reload[2m > [22mretains server-observed failed and cancelled execution facts without completing history or saving
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mauthority observed from successful platform detail GET after reload[2m > [22mdoes not create an execution merely from a prior view marker or a saved DTO observation
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mauthority observed from successful platform detail GET after reload[2m > [22muses actual server record confirmation when the original upload receipt was lost while preserving the live operation identity
+[41m[1m FAIL [22m[49m src/features/workflow/model.test.ts[2m > [22mauthority observed from successful platform detail GET after reload[2m > [22misolates, whitelists and revokes observed records without keeping their snapshot content
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mredacts request sources and echoed response together while retaining explicit values and schema property names
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22misolates credentials by user project and connection and expires without persistence
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'length')[39m
+[36m [2m❯[22m src/runtime/vault.test.ts:[2m6:22[22m[39m
+
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22mreactively expires without requiring a render read and cleans prior expiry timers
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22mdoes not synchronously notify subscribers when expiry is observed during rendering
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22memits scoped secret-free invalidations for idle expiry, replacement and removal
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22mrevokes only matching credential scopes, clears remaining scopes and unsubscribes
+[41m[1m FAIL [22m[49m src/runtime/vault.test.ts[2m > [22mqueues render-observed expiry invalidation without disconnecting a newer replacement
+[41m[1m FAIL [22m[49m src/features/workflow/uploads.test.ts[2m > [22mjoins upload progress only from matching frozen user/project/connection/Run and target identity
+[41m[1m FAIL [22m[49m src/features/workflow/uploads.test.ts[2m > [22mreads Agent-owned history state while saved copies remain independent browser operations
+[41m[1m FAIL [22m[49m src/features/workflow/uploads.test.ts[2m > [22mdoes not invent an original history operation when a server-observed Run lacks its upload identity
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mhashes frozen versioned content without its digest field and preserves decimal JSON text
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest safe-scalars
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest unicode-codepoint-and-no-HTML-escape
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest encoded-decimal-payload
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest outer-decimal-unsupported
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest unsafe-integer
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest duplicate-key
+[41m[1m FAIL [22m[49m src/runtime/records/canonical.test.ts[2m > [22mshared digest lone-surrogate
+[41m[1m FAIL [22m[49m src/runtime/records/snapshot.test.ts[2m > [22mmatches platform masking of a fixed 64-hex Agent version hash before saving its source Run
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mplatform boundary[2m > [22mrejects extra response fields instead of accepting wire drift
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mplatform boundary[2m > [22msends Cookie credentials and in-memory CSRF on authenticated writes
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mplatform boundary[2m > [22mclears session before surfacing a 401 and masks server details
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mplatform boundary[2m > [22mrejects invalid outbound requests before a network call
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/shared/api.test.ts[2m > [22mplatform boundary[2m > [22msends Cookie credentials and in-memory CSRF on authenticated writes
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'length')[39m
+[36m [2m❯[22m src/shared/api.test.ts:[2m18:25[22m[39m
+    [90m 16| [39m    [34mexpect[39m(captured[33m?.[39mcredentials)[33m.[39m[34mtoBe[39m([32m'same-origin'[39m)[33m;[39m
+    [90m 17| [39m    expect(new Headers(captured?.headers).get('X-CSRF-Token')).toBe('s…
+    [90m 18| [39m    [34mexpect[39m(localStorage[33m.[39mlength)[33m.[39m[34mtoBe[39m([34m0[39m)[33m;[39m
+    [90m   | [39m                        [31m^[39m
+    [90m 19| [39m  })[33m;[39m
+    [90m 20| [39m  it('clears session before surfacing a 401 and masks server details',…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/features/connections/runtimeStore.test.ts[2m > [22mremembers an explicit memory-only choice for this account across reload without applying it to another account
+[31m[1mAssertionError[22m: expected last "setRetention" call to have been called with [ 'memory' ][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   "memory",[39m
+[31m+   "persistent",[39m
+[2m  ][22m
+
+[36m [2m❯[22m src/features/connections/runtimeStore.test.ts:[2m16:615[22m[39m
+
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/451]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mnew saves have distinct identities, keep original executor attribution, and strip response for request-only saves
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mdouble submit joins one upload; retry retains exact body despite later UI edits
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mfailed upload retries same operation without an execution callback and binds original project
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mrejects same operation with different digest and suppresses late receipts after clear
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mfreezes new metadata revisions, redacts reason, and keeps other project operations on revoke
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22midentity clear during digest computation cannot resurrect an operation
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mdefault source redaction also removes metadata echoes and preserves property names matching annotations
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mproject rules remain active when a transport sanitizer is supplied
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22madditional-redaction reasons and metadata use the targeted source values
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mexplicitly discards only failed operations so a conflict can start a new revision
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22msource secrets cannot echo in free-form provenance fields or schema annotations
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mupload wrapping retains provenance sanitization before source values disappear
+[41m[1m FAIL [22m[49m src/runtime/records/operations.test.ts[2m > [22mephemeral frozen record operations[2m > [22mcaptured credentials remain redacted in newly edited save metadata after request source masking
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mreloads the exact frozen body and revision etag without raw sources and retries once
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22msuspends without deleting and binds only current identity; explicit logout discards owner
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mshows storage fallback and never claims recorded when receipt persistence fails
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mrejects corrupted hydration and never sends it
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mcapacity blocks new admissions, preserves completed inflight as explicit loss risk, and reminders do not delete
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mrejects stale owner submission and pauses revoked projects without durable deletion
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mruns latest project authorization on retry and never posts when denied
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mmemory retention removes durable payload only by explicit mode choice
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mrecovered revision reuses etag and version from original save
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mtwo queue instances cannot post one operation concurrently and a completed receipt satisfies the other instance
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mqueues an already completed run while suspended and resumes project retry only after explicit access restoration
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mexposes mode and read failures even when initialization has no operation
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mconfirmed discard can remove pending frozen payloads and never discards active uploads
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22m100 MiB counts UTF8 bytes and accepts the exact duplicate even at the count limit
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mreceipt extras never persist and an invalid receipt leaves the frozen queue retryable
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mreload preserves failed queues past seven days and a lease abandoned by a crashed tab can expire
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mmemory mode retains completed-over-capacity results with explicit loss risk
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mexplicit logout closes ownership so a delayed completed run cannot recreate discarded cache
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mmemory-only identity logout also rejects late results after explicitly discarding
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22ma recorded revision cannot reuse its original operation ID with a different etag after reload
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mowner-only pending count includes revoked and suspended queues without exposing other users
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mquarantines schema-valid digest-corrupt persisted content without revealing it or deleting its durable row
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mexplicit memory choice permits new calls when storage cannot be read or cleared, without claiming old cache removed
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mfailed storage cleanup preserves existing frozen memory queues and counts quarantined rows against memory-mode capacity
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mrehydrates persistent storage after explicit memory fallback when storage later recovers
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mfailed explicit logout cleanup does not claim removal or lose the owner pending warning
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22msurfaces safe local retry codes through the platform error boundary instead of a generic unknown
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22ma delayed persistent-mode rebind cannot restore previous account project scope over the new owner
+[41m[1m FAIL [22m[49m src/runtime/records/queueStorage.test.ts[2m > [22mdurable sanitized operation lifecycle[2m > [22mpersistent-mode rehydration preserves new revocations for the same owner while retaining earlier revoked projects
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'clear')[39m
+[36m [2m❯[22m tests/setup.ts:[2m3:42[22m[39m
+    [90m  1| [39m[35mimport[39m {afterEach} [35mfrom[39m [32m'vitest'[39m[33m;[39m
+    [90m  2| [39m[35mimport[39m {cleanup} [35mfrom[39m [32m'@testing-library/react'[39m[33m;[39m
+    [90m  3| [39m[34mafterEach[39m(() [33m=>[39m {[34mcleanup[39m()[33m;[39m localStorage[33m.[39m[34mclear[39m()[33m;[39m})[33m;[39m
+    [90m   | [39m                                         [31m^[39m
+    [90m  4| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[37/451]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m59 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (61)[39m
+[2m      Tests [22m [1m[31m416 failed[39m[22m[2m | [22m[1m[32m5 passed[39m[22m[90m (421)[39m
+[2m   Start at [22m 13:49:20
+[2m   Duration [22m 12.57s[2m (transform 780ms, setup 4.34s, collect 1.53s, tests 1.44s, environment 21.21s, prepare 3.29s)[22m
+
+[verify] Frontend unit and component tests: failed with exit 1

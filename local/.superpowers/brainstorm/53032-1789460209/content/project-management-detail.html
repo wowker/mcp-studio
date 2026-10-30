@@ -1,0 +1,66 @@
+<h2>方案 A 细化：切换与管理</h2>
+<p class="subtitle">左侧展示日常快速切换，右侧展示低频项目治理。点击下方“确认此交互”表示认可这一节。</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">日常工作：快速切换项目</div>
+    <div class="mockup-body" style="padding:14px;background:#f6f8fa">
+      <div style="border:1px solid #d0d7de;background:white;font:12px system-ui;color:#24292f;min-height:310px">
+        <div style="height:42px;border-bottom:1px solid #d8dee4;display:flex;align-items:center;gap:12px;padding:0 10px">
+          <strong>MCP Testpilot</strong>
+          <button class="mock-button" style="padding:5px 9px;border-color:#0969da">DSers MCP · 442326f5 ▴</button>
+          <span style="margin-left:auto;color:#57606a">dsers-test · 已连接</span>
+        </div>
+        <div style="position:relative">
+          <div style="position:absolute;left:104px;top:4px;width:290px;border:1px solid #8c959f;background:#fff;padding:8px;box-shadow:0 8px 24px rgba(140,149,159,.2);z-index:2">
+            <input class="mock-input" style="box-sizing:border-box;width:100%;margin-bottom:7px" placeholder="搜索项目名称或 ID">
+            <div style="padding:8px;background:#ddf4ff;border-left:3px solid #0969da">
+              <b>DSers MCP</b> <span style="color:#1a7f37">当前</span><br>
+              <code>442326f5</code> · 3 个连接
+            </div>
+            <div style="padding:8px;border-bottom:1px solid #d8dee4">
+              <b>dsers（旧）</b><br><code>c3ad4713</code> · 4 个连接
+            </div>
+            <div style="padding:8px 6px;color:#0969da"><b>管理所有项目…</b></div>
+          </div>
+          <div style="display:flex;min-height:266px">
+            <div style="width:90px;border-right:1px solid #d8dee4;padding:12px 8px;line-height:2.4">Servers<br>Tools<br>MCP<br>Skills<br>测试套件<br>运行历史</div>
+            <div style="flex:1;padding:16px"><b style="font-size:16px">Servers</b><p style="color:#57606a">当前上下文不会因为切换项目而混用连接。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">项目管理：完整 CRUD 与归档</div>
+    <div class="mockup-body" style="padding:14px;background:#f6f8fa">
+      <div style="border:1px solid #d0d7de;background:white;font:12px system-ui;color:#24292f;min-height:310px;padding:14px;box-sizing:border-box">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div><b style="font-size:17px">项目管理</b><br><span style="color:#57606a">活动项目 2 · 已归档 1</span></div>
+          <button class="mock-button">＋ 新建项目</button>
+        </div>
+        <div style="display:flex;gap:12px;margin:12px 0;border-bottom:1px solid #d8dee4;padding-bottom:7px"><b style="color:#0969da">活动项目</b><span>已归档</span></div>
+        <div style="border:1px solid #d8dee4">
+          <div style="padding:9px;border-bottom:1px solid #d8dee4;background:#f6f8fa;display:flex;align-items:center;gap:8px">
+            <span style="color:#1a7f37">●</span><b>DSers MCP</b><small>当前项目</small><code style="margin-left:auto">442326f5</code>
+          </div>
+          <div style="padding:7px 9px;color:#57606a;border-bottom:1px solid #d8dee4">Key: dsers-mcp · 3 个连接 · 刚刚打开</div>
+          <div style="padding:7px 9px;text-align:right">重命名　查看详情　切换</div>
+        </div>
+        <div style="border:1px solid #d8dee4;margin-top:8px">
+          <div style="padding:9px;border-bottom:1px solid #d8dee4;display:flex;align-items:center"><b>dsers（旧）</b><code style="margin-left:auto">c3ad4713</code></div>
+          <div style="padding:7px 9px;color:#57606a;border-bottom:1px solid #d8dee4">未绑定 Key · 4 个连接 · 25 分钟前打开</div>
+          <div style="padding:7px 9px;text-align:right">重命名　打开　<span style="color:#9a6700">归档</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="confirm-a-detail" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content"><h3>确认此交互</h3><p>顶栏负责快速切换；项目管理页负责新增、重命名、归档、恢复和永久删除。</p></div>
+  </div>
+</div>

@@ -4,7 +4,17 @@
 
 **M6 T31–T33 实现与可执行门禁通过（fc0b161；M6 主实现5a07743）。T32b 人工键盘/读屏及 T02、既有实机/人工/介质联验仍待验；本次未进入 M7。** 已完成全页面状态修补、语言主题窗口矩阵、分栏/焦点回归和真实项目流程衔接。结果逐叶登记于 [执行账本](docs/tasks/progress.md)、[任务登记](docs/tasks/todo.md) 与 [M6审阅](docs/tasks/m6-review.md)；正式 A01–A60 不批量签收。
 
-正式入口为 `apps/web`、`apps/cloud`、`apps/local` 与两版共用的 `cmd/agent`。Agent 重启只恢复冻结上传，不重放 Tool；浏览器保存 Agent 结果是新的 browser operation。原型 HTML / JS / CSS 仍是设计参考，其示例状态不代表生产能力。启动方式见 [本机运行](docs/operations/development.md)。
+正式入口为 `local/`（单机版：Node + SQLite + React）与 `cloud/`（云服务版：Go 平台、Agent、云前端、合同、迁移、部署）。单机版发行形态见 [ADR 013](docs/decisions/013-local-edition-rebuild.md)。Agent 重启只恢复冻结上传，不重放 Tool；浏览器保存 Agent 结果是新的 browser operation。原型 HTML / JS / CSS 仍是设计参考，其示例状态不代表生产能力。
+
+## 目录与启动
+
+| 目录 | 内容 | 启动 |
+| --- | --- | --- |
+| `local/` | 单机版：Hono 服务 + better-sqlite3 + React 前端，默认端口 8500 | `npm --prefix local run dev` |
+| `cloud/` | 云服务版：`cmd/` Go Agent 与管理 CLI、`internal/` 平台领域、`apps/cloud` 与 `apps/web`、`contracts/`、`migrations/`、`tests/`、`scripts/` | `npm --prefix cloud run dev:agent`；门禁 `npm --prefix cloud run verify` |
+| `docs/` | 决策、任务、验收与设计基线，两版共用 | — |
+
+根 `package.json` 只做编排：`npm run dev`（单机版）、`npm run verify`（单机版 typecheck + 测试 + e2e）、`npm run verify:cloud`（云版完整门禁）。
 
 ## 从这里开始
 

@@ -1,0 +1,13 @@
+{
+  "edition": "local",
+  "binary": ".runtime/local-platform",
+  "checks": [
+    "health: GET /api/v1/health 200 {\"status\":\"ok\"}",
+    "initdb: PG_VERSION present in fresh data directory",
+    "permissions: data directory mode 0700",
+    "shutdown: SIGTERM exit 0, no stale postmaster.pid"
+  ],
+  "pgBin": "/Users/wuwei/code/github/mcp-studio/.runtime/pg-cache/darwin/arm64/pgsql/bin",
+  "durationMs": 9197,
+  "result": "pass"
+}

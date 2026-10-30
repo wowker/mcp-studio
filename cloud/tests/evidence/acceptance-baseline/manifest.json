@@ -1,0 +1,36 @@
+{
+  "stage": "acceptance-baseline",
+  "purpose": "A01–A60 两版正式验收的证据基线（替代 b3b6fa3，覆盖 E00–E10 后的当前代码）",
+  "implementationRevision": "fff4f9b7122777209f88aa11275b0554c70f54d6",
+  "workingTree": "含 89 项既有非验收改动（RecordDetail 删除保护、layout-helpers、历史证据等），按 AGENTS.md 保留；本基线绑定实际工作区状态",
+  "completedAt": "2026-10-29T06:03:27Z",
+  "environment": {
+    "os": "macOS 26 arm64",
+    "node": "v24.21.0",
+    "go": "go1.25.5 darwin/arm64",
+    "docker": "29.7.2",
+    "postgresql": "18.6（55432 隔离测试实例）",
+    "constraint": "门禁不适用 Node 26：vitest 3.2.7 jsdom 环境跳过 Node 25+ 原生 localStorage 全局（verify-node26-failed.log，前端 416/421 失败）；Node 26 适配另行决策"
+  },
+  "gates": {
+    "contracts": "passed（生成合同/Agent 合同/语义一致性）",
+    "nodeFixtures": "passed（生成器、SDK、回环安全、运行时守卫、邮件、M2/M5 夹具）",
+    "frontend": {"files": 61, "tests": 603, "failed": 0},
+    "frontendBuild": "passed",
+    "goRealPostgres": {"packagesWithTests": 23, "result": "passed"},
+    "goVet": "passed",
+    "cloudBuild": "passed（apps/cloud）",
+    "localBuild": "passed（apps/local，-tags local）",
+    "localSmoke": "passed（initdb/health/权限/优雅关停）",
+    "agentCandidates": "passed（四目标未签名）",
+    "operations": "passed（部署/恢复/打包/候选生命周期）",
+    "cloudDeployment": "passed（隔离 HTTPS/恢复/升级）",
+    "browserJourneys": {"passed": 33, "failed": 0}
+  },
+  "exitCode": 0,
+  "conclusion": "cloud edition gates passed / local edition gates passed / all gates passed",
+  "artifacts": {"files": 1018, "png": 835, "axe": 159},
+  "priorAttempt": "verify-node26-failed.log（Node v26.11.1 环境失败，非产品回归，保留）",
+  "acceptance": "本基线只是验收证据锚点；A01–A60 全部待验收、0 签收；B1–B7 按 acceptance-batches.md 执行",
+  "publication": "not-authorized"
+}

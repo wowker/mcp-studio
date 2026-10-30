@@ -1,0 +1,10 @@
+{
+  "test": "M5 production UI: encrypted Agent queue survives process restart and retries the frozen upload without replaying the Tool",
+  "state": {
+    "saveForms": [],
+    "alerts": 0,
+    "editorPresent": false,
+    "focusedTag": "BODY"
+  },
+  "scope": "Boolean form validity and control state only; no values, HTML or URLs"
+}

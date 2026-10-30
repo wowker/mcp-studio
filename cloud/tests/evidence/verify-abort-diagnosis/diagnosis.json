@@ -1,0 +1,55 @@
+{
+  "baselineRevision": "9e0b23dd6ed4ed5080e2672fdda86c883fda1fa0",
+  "historicalFailure": "tests/evidence/v01-a38-agent-retry-verify-first-failed/result.json",
+  "naturalReproduction": {
+    "isolated": {
+      "attempts": 4,
+      "passed": 3,
+      "failed": 1
+    },
+    "extended": {
+      "attempts": 2,
+      "passed": 1,
+      "failed": 1
+    }
+  },
+  "rootCause": "After successful SIGKILL of the owned TERM-ignoring descendant group, a real kill(-pgid, 0) briefly returned EPERM. drainGroup immediately converted that to a generic cleanup Error without exitCode, causing the unchanged expected130 assertion to observe undefined.",
+  "observation": "Two baseline native failures recorded matching undefined expected130; extended nativeprobe ESRCH25ms later. Postfix1 explicitly observes native EPERM then ESRCH before promise returns130 and before test finally.",
+  "kernelInternals": "No claim about kernel reaping/UID internals or zombie identity; those were not captured. The application error branch and native errno are directly observed.",
+  "fix": "Continue on existence-query EPERM within original10000ms deadline; confirm disappearance only on ESRCH. Actual signal errors and other query errors remain failures; persistentEPERM fails closed.",
+  "originalTestFileUnchanged": true,
+  "originalTimingsMs": {
+    "test": 20000,
+    "ready": 8000,
+    "escalation": 5000,
+    "drain": 10000,
+    "poll": 25
+  },
+  "regressionRed": {
+    "exitCode": 1,
+    "tests": 3,
+    "passed": 1,
+    "failed": 2
+  },
+  "regressionGreen": {
+    "exitCode": 0,
+    "tests": 7,
+    "passed": 7,
+    "failed": 0
+  },
+  "publication": "none",
+  "formalPassCount": 0,
+  "postFixNatural": {
+    "attempts": 6,
+    "passed": 6,
+    "failed": 0,
+    "trace": "reproduction/post-fix-1.log",
+    "nativeTransition": "SIGKILL sent, existenceEPERM,34ms later ESRCH, then exit130 before test finally"
+  },
+  "review": {
+    "blockingFindings": 0,
+    "minor": "persistent cleanup elapsed upper bound<13000 added; original10000 runtime deadline retained",
+    "testsExecutedByReviewer": false
+  },
+  "originalRuntimeTestSHA256": "1270023a458af02898a6ca6da00d99571b8741dc521aee54ff79f5e93157424e"
+}

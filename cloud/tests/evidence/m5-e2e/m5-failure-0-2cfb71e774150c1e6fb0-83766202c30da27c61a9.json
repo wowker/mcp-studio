@@ -1,0 +1,10 @@
+{
+  "test": "M5 production UI: local credential, session-only replacement, explicit backup restore and OAuth saving stay independent",
+  "state": {
+    "saveForms": [],
+    "alerts": 0,
+    "editorPresent": false,
+    "focusedTag": "BODY"
+  },
+  "scope": "Boolean form validity and control state only; no values, HTML or URLs"
+}

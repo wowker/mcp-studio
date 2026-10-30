@@ -1,0 +1,13 @@
+{"diagnostic":"owned_group_signal","caller":54916,"group":54917,"signal":"SIGTERM","elapsedMs":77.52362500000001,"result":"sent"}
+{"diagnostic":"owned_group_signal","caller":54916,"group":54917,"signal":"SIGKILL","elapsedMs":5077.9165410000005,"result":"sent"}
+{"diagnostic":"owned_group_signal","caller":54916,"group":54917,"signal":0,"elapsedMs":5084.876166,"result":"error","code":"ESRCH"}
+{"diagnostic":"observed_runChecked_error","name":"Error","exitCode":130,"message":"/Users/wuwei/.nvm/versions/node/v24.21.0/bin/node: interrupted after process cleanup","elapsedMs":5062.438584,"ids":{"parent":54917,"child":54918}}
+✔ abort waits for TERM-ignoring descendant after its parent exits first (5064.783583ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5137.8715

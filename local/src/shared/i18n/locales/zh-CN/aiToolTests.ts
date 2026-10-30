@@ -1,0 +1,17 @@
+export const zhCNAiToolTests = {
+  title: "Tool 测试单元", description: "Inspector 保存分析、调用和判断依据；Agent 执行测试并给出结论。",
+  empty: "还没有 Tool 测试单元。请让 Agent 分析 Tool 并保存首个版本。",
+  loading: "正在读取…", error: "无法读取测试记录。请刷新重试，并检查服务是否可用。", refresh: "刷新", next: "下一页", previous: "上一页",
+  version: "版本", versionShort: "版本 {{version}}", round: "执行轮次", units: "测试单元", listed: "本页 {{count}} 项", choose: "请选择", noRounds: "当前版本未测试", noResults: "尚无用例结果", noConclusion: "尚无结论",
+  definition: "定义与分析", cases: "用例", rounds: "轮次与证据", conclusions: "结论", expectation: "期望", actual: "执行结果", comparison: "对比说明",
+  analysis: "分析", goal: "目标", exclusions: "未覆盖范围", setup: "共享准备", cleanup: "清理", guidance: "执行说明", inputSelection: "输入选择", verification: "验证规则",
+  sideEffects: "副作用", onMismatch: "不符合期望时", sources: "分析来源", preconditions: "前置条件", dependencies: "依赖用例", arguments: "参数示例或固定参数",
+  judgment: "Agent 判断", evidence: "证据", missing: "证据已清空或不完整", openRun: "查看 Run", calls: "上下文 Tool 调用", resources: "资源清理状态",
+  scope: "覆盖 {{selected}} / {{total}} 个用例", partial: "部分覆盖", full: "完整覆盖", stale: "结论已过时：后续结果或证据发生变化", limitation: "覆盖范围内未发现缺陷，不代表证明 Tool 没有 Bug。",
+  selectedTool: "当前 Tool", actionsMenu: "操作", copyCommands: "复制命令", maintenance: "维护管理", copyAnalysis: "复制重新分析指令", copyExecute: "复制执行指令", copied: "指令已复制", copyFailed: "复制失败，请检查浏览器剪贴板权限。",
+  analysisPrompt: "请重新分析项目 {{projectId}} 的 Tool 测试单元 {{unitId}}（版本 {{versionId}}），保留可复用分析与描述性期望，生成新的不可变版本，不创建旧 Draft/Test Case/Suite。",
+  executePrompt: "请执行项目 {{projectId}} 的 Tool 测试单元 {{unitId}}，确切版本 {{versionId}}。{{roundHint}}先读取分析和期望，向用户确认执行计划，保存所有上下文调用、期望/实际对比及判断依据，汇总结果；未知写入不得重试。",
+  resumeHint: "请先读取轮次 {{roundId}} 的 checkpoint 再决定接续，不要重复已发送操作。",
+  state: { AWAITING_CONFIRMATION: "等待确认", READY: "准备就绪", RUNNING: "执行中", WAITING_FOR_AGENT: "等待 Agent", PAUSED: "已暂停", COMPLETED: "已完成", CANCELLED: "已取消" },
+  verdict: { PASS: "通过", FAIL: "失败", UNKNOWN: "未知", BLOCKED: "阻塞", SKIPPED: "跳过", PARTIAL: "部分完成", PENDING: "待执行", RUNNING: "执行中" },
+} as const;

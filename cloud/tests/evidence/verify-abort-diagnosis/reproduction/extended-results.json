@@ -1,0 +1,17 @@
+{
+  "limit": 6,
+  "originalAssertionsAndTimeoutsUnchanged": true,
+  "diagnosticCopyOnly": true,
+  "outcomes": [
+    {
+      "attempt": 1,
+      "exitCode": 0,
+      "elapsedMs": 5176
+    },
+    {
+      "attempt": 2,
+      "exitCode": 1,
+      "elapsedMs": 5187
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+export const enUSAiToolTests = {
+  title: "Tool test units", description: "Inspector stores analysis, calls and evidence; Agents execute tests and assess outcomes.",
+  empty: "No Tool test units yet. Ask an Agent to analyze a Tool and save the first version.",
+  loading: "Loading…", error: "Could not read test records. Refresh and check that the service is available.", refresh: "Refresh", next: "Next page", previous: "Previous page",
+  version: "Version", versionShort: "Version {{version}}", round: "Execution round", units: "Test units", listed: "{{count}} on this page", choose: "Select", noRounds: "This version has not been tested", noResults: "No case results yet", noConclusion: "No conclusion yet",
+  definition: "Definition and analysis", cases: "Cases", rounds: "Rounds and evidence", conclusions: "Conclusions", expectation: "Expectation", actual: "Actual result", comparison: "Comparison",
+  analysis: "Analysis", goal: "Goal", exclusions: "Exclusions", setup: "Shared preparation", cleanup: "Cleanup", guidance: "Execution guidance", inputSelection: "Input selection", verification: "Verification rules",
+  sideEffects: "Side effects", onMismatch: "On mismatch", sources: "Analysis sources", preconditions: "Preconditions", dependencies: "Case dependencies", arguments: "Example or fixed arguments",
+  judgment: "Agent judgment", evidence: "Evidence", missing: "Evidence cleared or incomplete", openRun: "View Run", calls: "Context Tool calls", resources: "Resource cleanup status",
+  scope: "Covers {{selected}} / {{total}} cases", partial: "Partial coverage", full: "Full coverage", stale: "Stale conclusion: subsequent results or evidence changed", limitation: "No defect found within coverage does not prove the Tool is bug-free.",
+  selectedTool: "Current Tool", actionsMenu: "Actions", copyCommands: "Copy commands", maintenance: "Maintenance", copyAnalysis: "Copy reanalysis instructions", copyExecute: "Copy execution instructions", copied: "Instructions copied", copyFailed: "Copy failed. Check clipboard permissions.",
+  analysisPrompt: "Reanalyze Tool test unit {{unitId}} in project {{projectId}} (version {{versionId}}). Preserve reusable analysis and descriptive expectations in a new immutable version. Do not create legacy Draft/Test Case/Suite assets.",
+  executePrompt: "Execute Tool test unit {{unitId}} in project {{projectId}}, exact version {{versionId}}. {{roundHint}}Read the analysis and expectations, confirm the execution plan with the user, save all context calls, expectation/actual comparisons and judgment evidence, then summarize. Never retry unknown writes.",
+  resumeHint: "Read the checkpoint for round {{roundId}} before deciding how to resume; do not repeat dispatched operations. ",
+  state: { AWAITING_CONFIRMATION: "Awaiting confirmation", READY: "Ready", RUNNING: "Running", WAITING_FOR_AGENT: "Waiting for Agent", PAUSED: "Paused", COMPLETED: "Completed", CANCELLED: "Cancelled" },
+  verdict: { PASS: "Pass", FAIL: "Fail", UNKNOWN: "Unknown", BLOCKED: "Blocked", SKIPPED: "Skipped", PARTIAL: "Partial", PENDING: "Pending", RUNNING: "Running" },
+} as const;

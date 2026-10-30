@@ -1,0 +1,37 @@
+{
+  "limit": 6,
+  "originalAssertionsAndTimeoutsUnchanged": true,
+  "diagnosticCopyOnly": true,
+  "outcomes": [
+    {
+      "attempt": 1,
+      "exitCode": 0,
+      "elapsedMs": 5274
+    },
+    {
+      "attempt": 2,
+      "exitCode": 0,
+      "elapsedMs": 5355
+    },
+    {
+      "attempt": 3,
+      "exitCode": 0,
+      "elapsedMs": 5329
+    },
+    {
+      "attempt": 4,
+      "exitCode": 0,
+      "elapsedMs": 5191
+    },
+    {
+      "attempt": 5,
+      "exitCode": 0,
+      "elapsedMs": 5185
+    },
+    {
+      "attempt": 6,
+      "exitCode": 0,
+      "elapsedMs": 5150
+    }
+  ]
+}

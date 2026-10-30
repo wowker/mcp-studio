@@ -1,0 +1,37 @@
+import { mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { afterEach, expect, it } from "vitest";
+import { Hono } from "hono";
+import { createProjectService, type ProjectService } from "../../projects/project-service.js";
+import { createHistoryClearService } from "../history-clear-service.js";
+import { createStorageReclaimService } from "../../projects/storage-reclaim-service.js";
+import { createHistoryClearRoutes } from "../history-clear-routes.js";
+import { sessionAuth } from "../../security/session-auth.js";
+
+let projects: ProjectService | undefined;
+let dataRoot: string | undefined;
+afterEach(async () => { projects?.close(); projects = undefined;
+  if (dataRoot !== undefined) rmSync(dataRoot, { recursive: true, force: true }); dataRoot = undefined; });
+it("requires the browser session and same-origin rules for destructive previews and commits", async () => {
+  dataRoot = mkdtempSync(join(tmpdir(), "mcp-inspector-history-routes-"));
+  projects = createProjectService({ dataRoot });
+  const projectId = projects.create("History routes").id;
+  const history = createHistoryClearService({ projects });
+  const storage = createStorageReclaimService({ projects, history });
+  const app = new Hono();
+  app.use("*", sessionAuth({ sessionToken: "browser-session", allowedOrigin: "http://localhost" }));
+  app.route("/api/projects", createHistoryClearRoutes(history, storage));
+  const path = `/api/projects/${projectId}/history-clear/preview`;
+  const body = JSON.stringify({ kind: "RUN_HISTORY", filter: {} });
+  expect((await app.request(path, { method: "POST", body })).status).toBe(401);
+  expect((await app.request(path, { method: "POST", body, headers: { "X-MCP-Inspector-Session": "browser-session", Origin: "https://hostile.test" } })).status).toBe(403);
+  const headers = { "X-MCP-Inspector-Session": "browser-session", "Content-Type": "application/json" };
+  expect((await app.request(path, { method: "POST", body, headers })).status).toBe(200);
+  const invalid = await app.request(path, { method: "POST", body: JSON.stringify({ kind: "UNIT", unitId: "private-value" }), headers });
+  expect(invalid.status).toBe(400); expect(await invalid.text()).not.toContain("private-value");
+  const crossProject = projects.create("Another project").id;
+  const unitId = "00000000-0000-4000-8000-000000009901";
+  expect((await app.request(`/api/projects/${crossProject}/history-clear/preview`, { method: "POST", body: JSON.stringify({ kind: "UNIT", unitId }), headers })).status).toBe(409);
+  await storage.close();
+});

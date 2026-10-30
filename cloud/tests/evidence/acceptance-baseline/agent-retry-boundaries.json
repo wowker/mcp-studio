@@ -1,0 +1,88 @@
+{
+  "scope": "Real platform PG/users + paired protected Go Agent HTTP; controlled native confirmation/MasterStore, T02/T32b/native/manual/media/formal pending",
+  "projectId": "7775425f2955eaebfd20b8eef716850a",
+  "connectionId": "06df6be542fd3eb665b125647bf192ca",
+  "userId": "a1ecd14d5133bbedaabd24990519446c",
+  "otherUserId": "40f3f9bbd64b47bcd27b1eaec26e3c19",
+  "operationId": "bd7ca508-cdbe-44ca-bb70-0c3365eb6d73",
+  "browserOperationId": "2d6646ff-4d09-49df-b659-e508eccf8385",
+  "targetId": "6e21c823-7a45-4350-a65e-1a6dcf1c0785",
+  "frozenDigest": "d09b268c422b82bee3cdc227fd6098e435f9841d1ca8f1fd41e84712d71058ad",
+  "runId": "ae163f66-73ea-4476-bd6b-6e69858b9f18",
+  "observations": [
+    {
+      "case": "foreign_operation",
+      "route": "/v1/queue/bd7ca508-cdbe-44ca-bb70-0c3365eb6d73/retry",
+      "status": 409,
+      "code": "operation_missing"
+    },
+    {
+      "case": "browser_responsibility",
+      "route": "/v1/queue/2d6646ff-4d09-49df-b659-e508eccf8385/retry",
+      "status": 409,
+      "code": "operation_missing"
+    },
+    {
+      "case": "foreign_operation",
+      "route": "/v1/operations/bd7ca508-cdbe-44ca-bb70-0c3365eb6d73/retry",
+      "status": 409,
+      "code": "operation_missing"
+    },
+    {
+      "case": "browser_responsibility",
+      "route": "/v1/operations/2d6646ff-4d09-49df-b659-e508eccf8385/retry",
+      "status": 409,
+      "code": "operation_missing"
+    },
+    {
+      "case": "no_channel",
+      "route": "/v1/queue/bd7ca508-cdbe-44ca-bb70-0c3365eb6d73/retry",
+      "status": 401,
+      "code": "channel_required"
+    },
+    {
+      "case": "agent_upload_via_browser",
+      "route": "platform/record-uploads",
+      "status": 403,
+      "code": "executor_not_authenticated"
+    },
+    {
+      "case": "viewer_retry",
+      "route": "/v1/queue/bd7ca508-cdbe-44ca-bb70-0c3365eb6d73/retry",
+      "status": 409,
+      "code": "project_permission_revoked"
+    },
+    {
+      "case": "viewer_retry",
+      "route": "/v1/operations/bd7ca508-cdbe-44ca-bb70-0c3365eb6d73/retry",
+      "status": 409,
+      "code": "project_permission_revoked"
+    },
+    {
+      "case": "viewer_connect",
+      "route": "/v1/connections",
+      "status": 409,
+      "code": "project_permission_revoked"
+    },
+    {
+      "case": "viewer_run",
+      "route": "/v1/runs",
+      "status": 409,
+      "code": "project_permission_revoked"
+    }
+  ],
+  "roles": [
+    "developer",
+    "viewer",
+    "developer"
+  ],
+  "queuePreservedOnDenial": true,
+  "privateRecordReadOnlyPreserved": true,
+  "noNewToolCalls": true,
+  "uploads": {
+    "before": 6,
+    "after": 7
+  },
+  "apiCallsUseActualPairing": true,
+  "channelSecretsPersisted": false
+}

@@ -1,0 +1,43 @@
+export const zhCNSkills = {
+  title: "Skills",
+  description: "管理 Agent 可通过 Inspector 发现的项目级指令。",
+  help: {
+    trigger: "了解 Skills",
+    close: "关闭Skills说明",
+    summary: "项目指令注册表",
+    sections: { purpose: "模块用途", configure: "如何配置", use: "如何使用", effect: "产生效果" },
+    purpose: { one: "在同一个注册表中管理 Inspector 标准 Skill 和项目自建 Skill。", two: "让 Agent 以只读方式发现精确的已发布修订。" },
+    configure: { one: "标准 Skill 由 Inspector 维护，不允许编辑或删除。", two: "用户 Skill 是只包含 SKILL.md 和可选 references/**/*.md 的文本包。" },
+    use: { one: "先保存草稿，再校验精确修订，最后发布已校验的修订。", two: "Agent 使用自己的运行环境和权限模型安装发现的 Skill。" },
+    effect: { one: "禁用或删除 Skill 后，Agent 将无法再发现它。", two: "删除注册表中的 Skill 不会删除 Agent 已安装的副本。" },
+  },
+  list: {
+    title: "项目 Skills", search: "搜索 Skills", searchAction: "搜索", loading: "正在加载 Skills…",
+    loadFailed: "Skills 加载失败", retry: "重试", empty: "没有符合筛选条件的 Skill。",
+    allOrigins: "全部来源", allStates: "全部状态", origin: "来源", state: "状态", loadMore: "加载更多",
+  },
+  origin: { STANDARD: "标准", USER: "用户" },
+  state: { ACTIVE: "启用", DISABLED: "已禁用", DEPRECATED: "已弃用", DELETED: "已删除" },
+  editor: {
+    select: "选择一个 Skill，查看其精确修订。", standardReadOnly: "标准 Skill 由 Inspector 维护，只允许查看。",
+    historicalReadOnly: "历史修订不可变，只允许查看。", name: "名称", slug: "标识", description: "描述",
+    revision: "修订", currentRevision: "当前修订", publishedRevision: "已发布修订", version: "版本",
+    digest: "内容摘要", created: "创建时间", updated: "更新时间", files: "文件", content: "内容",
+    preview: "安全文本预览", referencePath: "引用文件路径", addReference: "添加引用", removeReference: "删除引用",
+    referenceConstraint: "使用 references/**/*.md", loadRevision: "打开修订", save: "保存草稿", saving: "保存中…",
+    validate: "校验修订", validating: "校验中…", publish: "发布修订", enable: "启用", disable: "禁用",
+    delete: "删除", restore: "恢复", create: "新建 Skill", createTitle: "创建用户 Skill", createAction: "创建草稿",
+    cancel: "取消", validationTitle: "校验结果", validationValid: "该修订校验通过，可以发布。",
+    validationInvalid: "该修订校验未通过。", noValidation: "请先校验已保存的修订，再执行发布。", noIssues: "没有校验问题。",
+    current: "当前", published: "已发布", unpublished: "未发布", dirty: "有未保存修改",
+  },
+  confirm: {
+    discardTitle: "放弃未保存的修改？", discardDescription: "当前 Skill 草稿包含未保存的修改。", discard: "放弃修改",
+    publishTitle: "发布这个精确修订？", publishDescription: "使用当前校验结果发布“{{name}}”的修订 {{revision}}。", publish: "发布修订",
+    deleteTitle: "删除这个 Skill？", deleteDescription: "从 Agent 发现目录中删除“{{name}}”的修订 {{revision}}。Agent 已安装的文件不受影响。", delete: "删除 Skill",
+  },
+  message: {
+    createFailed: "Skill 创建失败。", actionFailed: "Skill 操作失败，请刷新后重试。",
+    referenceInvalid: "请输入尚未存在的 references/**/*.md 路径。",
+  },
+} as const;

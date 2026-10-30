@@ -1,0 +1,132 @@
+// @vitest-environment jsdom
+
+import "@testing-library/jest-dom/vitest";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { App } from "./App.js";
+
+describe("App", () => {
+  const fetchMock = vi.fn();
+
+  beforeEach(() => {
+    sessionStorage.clear();
+    history.replaceState(null, "", "/");
+    fetchMock.mockReset();
+    vi.stubGlobal("fetch", fetchMock);
+  });
+
+  afterEach(() => {
+    cleanup();
+    vi.unstubAllGlobals();
+  });
+
+  test("checks health with the HttpOnly browser session and announces the version", async () => {
+    fetchMock.mockResolvedValue(
+      new Response(JSON.stringify({ ok: true, version: "0.1.0" }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    );
+
+    render(<App />);
+
+    expect(await screen.findByRole("status")).toHaveTextContent(
+      "本地服务已就绪 · v0.1.0",
+    );
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/api/health",
+      expect.objectContaining({
+        credentials: "same-origin",
+      }),
+    );
+    expect(location.search).toBe("");
+  });
+
+  test("shows an accessible alert when the HttpOnly session is absent", async () => {
+    fetchMock.mockResolvedValue(new Response(null, { status: 401 }));
+    render(<App />);
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("本地服务健康检查失败（401）");
+    expect(fetchMock).toHaveBeenCalledOnce();
+  });
+
+  test("announces a non-success health response as an error", async () => {
+    fetchMock.mockResolvedValue(new Response(null, { status: 503 }));
+
+    render(<App />);
+
+    expect(await screen.findByRole("alert")).toHaveTextContent(
+      "本地服务健康检查失败（503）",
+    );
+  });
+
+  test("announces a network failure as an error", async () => {
+    fetchMock.mockRejectedValue(new Error("connection refused"));
+
+    render(<App />);
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("本地服务健康检查失败");
+  });
+
+  test("rejects a malformed success response", async () => {
+    fetchMock.mockResolvedValue(
+      new Response(JSON.stringify({ ok: "yes" }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    );
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(screen.getByRole("alert")).toHaveTextContent("本地服务返回了无效的健康检查结果");
+    });
+  });
+
+  test("shows connection configuration management after a project opens", async () => {
+    const project = {
+      id: "00000000-0000-4000-8000-000000000501",
+      name: "Supplier Tools",
+      createdAt: "2026-08-17T00:00:00.000Z",
+      updatedAt: "2026-08-17T00:00:00.000Z",
+      lastOpenedAt: "2026-08-17T01:00:00.000Z",
+    };
+    fetchMock
+      .mockResolvedValueOnce(new Response(JSON.stringify({ ok: true, version: "0.1.0" }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ projects: [project] }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ project }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ connections: [] }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ tabs: [] }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }));
+
+    render(<App />);
+
+    // The workbench is a deliberate lazy boundary. Under the full parallel suite,
+    // module transformation may exceed Testing Library's 1 s default without
+    // representing a product timeout or requiring a fixed sleep.
+    expect(await screen.findByRole("heading", { name: "Servers", level: 1 }, { timeout: 5_000 })).toBeVisible();
+    expect(screen.queryByText("Supplier Tools")).not.toBeInTheDocument();
+    expect(document.querySelector(".project-identity")).not.toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "连接管理" })).toBeVisible();
+    expect(fetchMock).toHaveBeenCalledWith(
+      `/api/projects/${project.id}/connections`,
+      expect.objectContaining({
+        headers: expect.not.objectContaining({ "X-MCP-Inspector-Session": expect.anything() }),
+      }),
+    );
+  }, 10_000);
+});

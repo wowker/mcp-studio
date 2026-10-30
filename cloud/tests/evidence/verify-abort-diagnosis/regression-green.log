@@ -1,0 +1,15 @@
+✔ abort waits through transient existence EPERM after real SIGKILL until the owned group is gone (5162.8845ms)
+✔ persistent existence EPERM fails closed at the original cleanup deadline (10178.374125ms)
+✔ actual escalation permission denial fails closed while the owned descendant remains alive (10152.161292ms)
+✔ runtime requires explicit loopback test database using the non-superuser test role (0.574458ms)
+✔ abort waits for TERM-ignoring descendant after its parent exits first (5098.8095ms)
+✔ gate propagates a failing real subprocess exit status (82.993417ms)
+✔ abort waits for real parent and inherited child cleanup before returning (105.76675ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25616.799458

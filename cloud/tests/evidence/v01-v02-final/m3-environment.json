@@ -1,0 +1,7 @@
+{
+  "scope": "T15 then M3 controlled production-entry verification",
+  "browser": "147.0.7727.15",
+  "playwright": "1.59.1",
+  "limits": "T02 Chrome/Edge/OS/public HTTPS LNA pending; Agent and M4 queue persistence not tested",
+  "tls": "Isolated synthetic fixture certificate exception only"
+}

@@ -1349,3 +1349,38 @@ B16 — 入口层深潜（`cmd/agent`、`cmd/studio-admin`、`apps/local`、`app
 - `cmd/` + `apps/`：入口层已深潜（本批）
 
 后续可作为独立增强（非验收批次）：`contracts/*/openapi.json` 自动 diff 工具链、`jsonnumber` fuzz 测试、云版实机部署与跨 OS 介质验证。
+
+---
+
+## 2026-10-30 · 发行拆分重构（M8 前置，ADR 013）
+
+按用户确认的方案执行：单机版改用既有 Node 工程重建，仓库根拆为 `local/` 与 `cloud/`。
+
+### 已执行
+
+- 提交既有 B13/B14 改动（`919be2e`），避免被大规模移动覆盖。
+- `local/`：复制 `mcp-inspector` 源码（排除 `node_modules`、构建产物、`service-workbench`、旧文档），包名改为 `mcp-studio-local`，移除 `workbench:*` 脚本，`Makefile` 的 `NPM_PACKAGE` 同步。
+- 删除测试类功能：客户端与服务端的 `testing`（测试单元/套件/压力/报告）、`authoring`、`skills`、`ai-tool-tests` 共 12 个目录、16 个单文件；`InspectorWorkbench` 的类型、导航映射、渲染分支与 4 个 Intent 类型同步收敛。
+- `cloud/`：`apps/{cloud,web}`、`internal`、`cmd`、`agent`、`contracts`、`migrations`、`tests`、`scripts`、`go.mod`、`package.json` 全部 `git mv` 转入；`apps/local/packaging` 的 Agent 构建脚本迁到 `apps/cloud/packaging`。
+- 删除 Go 单机实现（`apps/local`、`internal/platform` 7 个 local 文件与 4 个 local 测试）、单机脚本 5 个、`zonky-pg`、根 `local/` 残留。
+- `cloud/scripts/verify.mjs` 去掉 `-tags local` 构建、单机 smoke、四目标候选中的单机分支；根 `package.json` 改为薄编排。
+
+### 实际验证
+
+| 门禁 | 结果 |
+| --- | --- |
+| 单机版 `typecheck`（两个 tsconfig） | 通过 |
+| 单机版 `build` | 通过 |
+| 单机版 `test:release`（Node 24 串行） | 105 文件 / **796 测试全部通过** |
+| 单机版启动冒烟（8599 端口） | 200，进程已关闭 |
+| 云版 `go build`（`apps/cloud`、`cmd/agent`） | 通过 |
+| 云版 `go vet`（`internal/...`、`apps/cloud`、`cmd/agent`） | 通过 |
+| 云版前端 `tsc -b` | 通过 |
+| 云版前端 `vitest run` | 61 文件 / **603 测试全部通过** |
+
+### 限制与待办
+
+- 云版完整 `verify`（Compose 部署/恢复/升级、真实 PG 契约、Playwright 旅程）未在本轮执行，标记为待验，不作为已通过。
+- 单机版 e2e（Playwright）未执行；`.nvmrc` 要求的 Node 24 与当前默认 Node 26 不一致，运行前需切换。
+- A01–A60 中针对 Go 单机版的断言作废，单机版验收清单须按新工程重建（M8 任务）。
+- `START-DEVELOPMENT.md` 与部分文档中的旧路径（`apps/web`、`apps/local`）待随 M8 更新。

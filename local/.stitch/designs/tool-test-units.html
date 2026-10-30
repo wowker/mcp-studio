@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool 测试单元 - MCP Inspector 2.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'canvas': '#FBFBFA',
+            'surface': '#FFFFFF',
+            'surface-muted': '#F7F6F3',
+            'surface-dim': '#EFECE6',
+            'border-base': '#E7E6E2',
+            'border-muted': '#EFEEEB',
+            'border-strong': '#B8B6AF',
+            'charcoal': '#2F3437',
+            'muted-text': '#6F6E6A',
+            'subtle-text': '#A19F9A',
+            'accent-violet': '#6758B7',
+            'accent-muted': '#F0EDF9',
+            'primary-action': '#222423',
+            'success': '#346538',
+            'success-bg': '#EAF3EB',
+            'warning': '#956400',
+            'warning-bg': '#FAF3E3',
+            'danger': '#9F2F2D',
+            'danger-bg': '#FAECEC',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', '"Noto Sans SC"', 'sans-serif'],
+            mono: ['"SF Mono"', 'ui-monospace', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #D8D6D0;
+      border-radius: 3px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #B8B6AF;
+    }
+    /* disclosure rotation */
+    details[open] > summary .disclosure-arrow {
+      transform: rotate(90deg);
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary {
+      list-style: none;
+    }
+    :focus-visible {
+      outline: 2px solid #6758B7;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="h-full bg-canvas text-charcoal font-sans antialiased overflow-hidden flex flex-col selection:bg-accent-muted selection:text-accent-violet text-[13px] leading-relaxed">
+
+  <!-- TOP LEVEL SHELL: LEFT SIDEBAR + MAIN AREA -->
+  <div class="flex h-full w-full overflow-hidden">
+
+    <!-- GLOBAL COMPACT MODULE SIDEBAR (Unified with MCP Inspector 2.0) -->
+    <aside class="w-[208px] shrink-0 bg-[#F7F6F3] border-r border-border-base flex flex-col justify-between select-none z-20" aria-label="全局模块导航">
+      <div class="flex flex-col">
+        <!-- Brand Header -->
+        <div class="h-12 flex items-center px-4 border-b border-border-base gap-2.5">
+          <div class="w-6 h-6 rounded bg-primary-action text-white flex items-center justify-center font-mono font-bold text-[12px] tracking-tight">M</div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-charcoal text-[13px] tracking-tight leading-none">MCP Inspector</span>
+            <span class="text-[10px] text-muted-text font-mono mt-0.5 leading-none">v2.5.1 devtools</span>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="p-2 space-y-0.5" aria-label="工作台模块">
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">dns</span>
+            <span class="font-normal text-[13px]">服务器</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">build</span>
+            <span class="font-normal text-[13px]">工具</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">tune</span>
+            <span class="font-normal text-[13px]">环境变量</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">play_circle</span>
+            <span class="font-normal text-[13px]">自动化测试</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">folder_special</span>
+            <span class="font-normal text-[13px]">测试套件</span>
+          </a>
+          <!-- ACTIVE ITEM: Tool 测试单元 -->
+          <a href="#" aria-current="page" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded bg-surface text-charcoal font-medium shadow-[0_1px_2px_rgba(0,0,0,0.04)] border-l-2 border-accent-violet">
+            <span class="material-symbols-outlined text-[18px] text-accent-violet">science</span>
+            <span class="text-[13px]">Tool 测试单元</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">speed</span>
+            <span class="font-normal text-[13px]">压测工具</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">assessment</span>
+            <span class="font-normal text-[13px]">测试报告</span>
+          </a>
+          <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded text-muted-text hover:text-charcoal hover:bg-black/[0.03] transition-colors group">
+            <span class="material-symbols-outlined text-[18px] text-muted-text group-hover:text-charcoal">history</span>
+            <span class="font-normal text-[13px]">运行历史</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-border-base bg-surface-muted text-muted-text flex flex-col gap-1 text-[11px]">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-success"></span>
+            <span class="font-mono">本地服务 :5173</span>
+          </div>
+          <span class="text-[10px] font-mono text-subtle-text">OK</span>
+        </div>
+        <div class="flex items-center justify-between text-subtle-text pt-1">
+          <div class="flex items-center gap-1 hover:text-charcoal cursor-pointer">
+            <span class="material-symbols-outlined text-[14px]">language</span>
+            <span>中文</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button title="切换主题" class="hover:text-charcoal transition-colors">
+              <span class="material-symbols-outlined text-[14px]">dark_mode</span>
+            </button>
+            <button title="收起侧边栏" class="hover:text-charcoal transition-colors">
+              <span class="material-symbols-outlined text-[14px]">dock_to_left</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN WORKBENCH SHELL (Header + Top Server Context + Workspace) -->
+    <main class="flex-1 flex flex-col h-full min-w-0 overflow-hidden bg-canvas">
+
+      <!-- TOP SERVER CONTEXT BAR (Unified standard) -->
+      <header class="h-10 shrink-0 bg-surface border-b border-border-base flex items-center justify-between px-4 z-10 select-none">
+        <!-- Active Server Navigation Tabs -->
+        <div class="flex items-center h-full gap-1 overflow-x-auto text-[12px]">
+          <div class="flex items-center gap-2 text-muted-text mr-2 font-mono text-[11px]">
+            <span class="material-symbols-outlined text-[14px]">hub</span>
+            <span>Server:</span>
+          </div>
+          <button class="h-full px-3 flex items-center gap-1.5 border-b-2 border-accent-violet font-medium text-charcoal bg-accent-muted/40 transition-colors">
+            <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+            <span class="font-mono">production-mcp-01</span>
+            <span class="text-[10px] px-1 py-0.2 rounded bg-border-muted text-muted-text ml-1">Streamable HTTP</span>
+          </button>
+          <button class="h-full px-3 flex items-center gap-1.5 border-b-2 border-transparent text-muted-text hover:text-charcoal hover:bg-black/[0.02] transition-colors">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+            <span class="font-mono">staging-auth-server</span>
+          </button>
+          <button class="h-full px-3 flex items-center gap-1.5 border-b-2 border-transparent text-muted-text hover:text-charcoal hover:bg-black/[0.02] transition-colors">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+            <span class="font-mono">local-dev-mock:8080</span>
+          </button>
+        </div>
+
+        <!-- Top Right Utilities -->
+        <div class="flex items-center gap-2 text-[12px]">
+          <div class="flex items-center gap-1 text-[11px] text-muted-text px-2 py-1 bg-surface-muted rounded border border-border-muted">
+            <span class="material-symbols-outlined text-[13px] text-success">lock_open</span>
+            <span>沙箱隔离已生效</span>
+          </div>
+          <div class="h-4 w-px bg-border-base mx-0.5"></div>
+          <button class="px-2 py-1 text-muted-text hover:text-charcoal hover:bg-surface-muted rounded transition-colors flex items-center gap-1 text-[12px]" title="重连当前服务">
+            <span class="material-symbols-outlined text-[15px]">sync</span>
+            <span>重连</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- 1. PAGE HEADER (Title + One-line description + Refresh action) -->
+      <div class="h-11 shrink-0 bg-surface px-4 border-b border-border-base flex items-center justify-between select-none">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px] text-charcoal">science</span>
+            <h1 class="text-[14px] font-semibold text-charcoal tracking-tight">Tool 测试单元</h1>
+          </div>
+          <span class="text-border-strong text-[12px]">|</span>
+          <p class="text-[12px] text-muted-text leading-none">
+            Inspector 保存分析、调用和判断依据；Agent 执行测试并给出结论。
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- External Agent Instruction Notice Tag -->
+          <div class="flex items-center gap-1 text-[11px] text-muted-text px-2 py-0.5 bg-surface-muted rounded border border-border-muted">
+            <span class="material-symbols-outlined text-[13px] text-accent-violet">smart_toy</span>
+            <span>外部 Agent 协作模式</span>
+          </div>
+          <button class="px-2.5 py-1 text-[12px] text-charcoal hover:bg-surface-muted border border-border-base rounded flex items-center gap-1.5 transition-colors shadow-none" title="刷新测试单元数据">
+            <span class="material-symbols-outlined text-[14px] text-muted-text">refresh</span>
+            <span>刷新</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. SPLIT WORKSPACE: UNIT BROWSER (LEFT) + DETAIL WORKSPACE (RIGHT) -->
+      <div class="flex-1 flex overflow-hidden min-h-0">
+
+        <!-- LEFT UNIT BROWSER (Fixed compact column 270px with independent scroll) -->
+        <section class="w-[270px] shrink-0 border-r border-border-base bg-surface flex flex-col justify-between overflow-hidden select-none" aria-label="测试单元列表">
+          
+          <!-- Column Header & Meta -->
+          <div class="p-2.5 border-b border-border-muted bg-surface-muted/60 flex items-center justify-between text-[11px]">
+            <div class="flex items-center gap-1 font-medium text-muted-text">
+              <span>已注册测试单元</span>
+              <span class="px-1.5 py-0.2 rounded-full bg-border-base text-charcoal font-mono text-[10px]">6</span>
+            </div>
+            <span class="text-[10px] text-subtle-text font-mono">按更新排序</span>
+          </div>
+
+          <!-- Unit List (Vertical Scroll) -->
+          <div class="flex-1 overflow-y-auto custom-scroll divide-y divide-border-muted" role="list">
+
+            <!-- UNIT ROW 1 (ACTIVE / SELECTED) -->
+            <div role="listitem" tabindex="0" class="group relative p-3 bg-surface cursor-pointer border-l-2 border-accent-violet transition-colors">
+              <div class="flex items-start justify-between gap-1 mb-1">
+                <span class="font-mono font-semibold text-charcoal text-[12px] truncate tracking-tight" title="create_pre_publish_products">
+                  create_pre_publish_products
+                </span>
+                <span class="shrink-0 px-1.5 py-0.2 rounded bg-accent-muted text-accent-violet font-mono text-[10px] font-medium">
+                  版本 1
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-muted-text mt-1 font-mono">
+                <span class="truncate" title="production-mcp-01">production-mcp-01</span>
+                <span class="text-success text-[10px] flex items-center gap-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-success inline-block"></span>
+                  <span>已得出结论</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 mt-1.5 text-[10px] text-subtle-text">
+                <span>3 用例</span>
+                <span>•</span>
+                <span>2 轮次</span>
+                <span>•</span>
+                <span>12 分钟前</span>
+              </div>
+            </div>
+
+            <!-- UNIT ROW 2 -->
+            <div role="listitem" tabindex="0" class="group p-3 hover:bg-surface-muted/80 cursor-pointer transition-colors border-l-2 border-transparent">
+              <div class="flex items-start justify-between gap-1 mb-1">
+                <span class="font-mono text-charcoal text-[12px] truncate group-hover:text-accent-violet transition-colors" title="catalog_search">
+                  catalog_search
+                </span>
+                <span class="shrink-0 px-1.5 py-0.2 rounded bg-surface-muted text-muted-text font-mono text-[10px]">
+                  版本 3
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-muted-text mt-1 font-mono">
+                <span class="truncate">production-mcp-01</span>
+                <span class="text-success text-[10px] flex items-center gap-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-success inline-block"></span>
+                  <span>已通过</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 mt-1.5 text-[10px] text-subtle-text">
+                <span>5 用例</span>
+                <span>•</span>
+                <span>4 轮次</span>
+                <span>•</span>
+                <span>1 小时前</span>
+              </div>
+            </div>
+
+            <!-- UNIT ROW 3 -->
+            <div role="listitem" tabindex="0" class="group p-3 hover:bg-surface-muted/80 cursor-pointer transition-colors border-l-2 border-transparent">
+              <div class="flex items-start justify-between gap-1 mb-1">
+                <span class="font-mono text-charcoal text-[12px] truncate group-hover:text-accent-violet transition-colors" title="inventory_reserve_stock">
+                  inventory_reserve_stock
+                </span>
+                <span class="shrink-0 px-1.5 py-0.2 rounded bg-surface-muted text-muted-text font-mono text-[10px]">
+                  版本 2
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-muted-text mt-1 font-mono">
+                <span class="truncate">production-mcp-01</span>
+                <span class="text-danger text-[10px] flex items-center gap-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-danger inline-block"></span>
+                  <span>断言失败</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 mt-1.5 text-[10px] text-subtle-text">
+                <span>4 用例</span>
+                <span>•</span>
+                <span>3 轮次</span>
+                <span>•</span>
+                <span>昨天</span>
+              </div>
+            </div>
+
+            <!-- UNIT ROW 4 -->
+            <div role="listitem" tabindex="0" class="group p-3 hover:bg-surface-muted/80 cursor-pointer transition-colors border-l-2 border-transparent">
+              <div class="flex items-start justify-between gap-1 mb-1">
+                <span class="font-mono text-charcoal text-[12px] truncate group-hover:text-accent-violet transition-colors" title="auth_verify_token">
+                  auth_verify_token
+                </span>
+                <span class="shrink-0 px-1.5 py-0.2 rounded bg-surface-muted text-muted-text font-mono text-[10px]">
+                  版本 1
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-muted-text mt-1 font-mono">
+                <span class="truncate">staging-auth-server</span>
+                <span class="text-warning text-[10px] flex items-center gap-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-warning inline-block"></span>
+                  <span>部分覆盖</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 mt-1.5 text-[10px] text-subtle-text">
+                <span>2 用例</span>
+                <span>•</span>
+                <span>1 轮次</span>
+                <span>•</span>
+                <span>2 天前</span>
+              </div>
+            </div>
+
+            <!-- UNIT ROW 5 (Untested State) -->
+            <div role="listitem" tabindex="0" class="group p-3 hover:bg-surface-muted/80 cursor-pointer transition-colors border-l-2 border-transparent">
+              <div class="flex items-start justify-between gap-1 mb-1">
+                <span class="font-mono text-charcoal text-[12px] truncate group-hover:text-accent-violet transition-colors" title="batch_price_updater">
+                  batch_price_updater
+                </span>
+                <span class="shrink-0 px-1.5 py-0.2 rounded bg-surface-muted text-muted-text font-mono text-[10px]">
+                  版本 1
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-muted-text mt-1 font-mono">
+                <span class="truncate">production-mcp-01</span>
+                <span class="text-subtle-text text-[10px] flex items-center gap-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-border-strong inline-block"></span>
+                  <span>未测试版本</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 mt-1.5 text-[10px] text-subtle-text">
+                <span>1 用例</span>
+                <span>•</span>
+                <span>0 轮次</span>
+                <span>•</span>
+                <span>3 天前</span>
+              </div>
+            </div>
+
+            <!-- UNIT ROW 6 -->
+            <div role="listitem" tabindex="0" class="group p-3 hover:bg-surface-muted/80 cursor-pointer transition-colors border-l-2 border-transparent">
+              <div class="flex items-start justify-between gap-1 mb-1">
+                <span class="font-mono text-charcoal text-[12px] truncate group-hover:text-accent-violet transition-colors" title="order_export_sync">
+                  order_export_sync
+                </span>
+                <span class="shrink-0 px-1.5 py-0.2 rounded bg-surface-muted text-muted-text font-mono text-[10px]">
+                  版本 4
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-muted-text mt-1 font-mono">
+                <span class="truncate">local-dev-mock:8080</span>
+                <span class="text-success text-[10px] flex items-center gap-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-success inline-block"></span>
+                  <span>已通过</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 mt-1.5 text-[10px] text-subtle-text">
+                <span>6 用例</span>
+                <span>•</span>
+                <span>5 轮次</span>
+                <span>•</span>
+                <span>5 天前</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Unit Browser Compact Footer Pagination -->
+          <div class="p-2 border-t border-border-base bg-surface-muted/80 flex items-center justify-between text-[11px] text-muted-text">
+            <span class="font-mono">1–6 / 6 项</span>
+            <div class="flex items-center gap-1">
+              <button disabled class="p-1 rounded text-subtle-text bg-transparent hover:bg-black/[0.04] disabled:opacity-40 disabled:hover:bg-transparent cursor-not-allowed" aria-label="上一页">
+                <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+              </button>
+              <span class="px-1.5 font-mono text-[10px] text-charcoal">1</span>
+              <button disabled class="p-1 rounded text-subtle-text bg-transparent hover:bg-black/[0.04] disabled:opacity-40 disabled:hover:bg-transparent cursor-not-allowed" aria-label="下一页">
+                <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT DETAIL WORKSPACE (Own Scroll Container) -->
+        <div class="flex-1 flex flex-col overflow-y-auto custom-scroll min-w-0 bg-canvas">
+
+          <!-- 3. STICKY DETAIL CONTEXT HEADER -->
+          <div class="sticky top-0 z-20 bg-surface border-b border-border-base shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            
+            <!-- First Row: Version selector, Tool identity, and Agent actions -->
+            <div class="px-5 py-3 border-b border-border-muted flex flex-wrap items-center justify-between gap-3">
+              
+              <!-- Left: Identity & Version -->
+              <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1.5 text-[12px] bg-surface-muted px-2 py-1 rounded border border-border-muted">
+                  <label for="version-select" class="text-muted-text font-medium">版本:</label>
+                  <select id="version-select" class="bg-transparent font-mono font-medium text-charcoal text-[12px] focus:outline-none cursor-pointer pr-1">
+                    <option value="1">版本 1 (不可变 · 当前最新)</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <h2 class="text-[16px] font-mono font-bold text-charcoal tracking-tight flex items-center gap-1.5">
+                    create_pre_publish_products
+                  </h2>
+                  <span class="px-2 py-0.5 rounded bg-surface-muted text-muted-text font-mono text-[11px] border border-border-muted">
+                    ID: unit_cpp_91a0
+                  </span>
+                  <span class="px-2 py-0.5 rounded bg-success-bg text-success font-medium text-[11px] flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                    <span>已完成判定 (Passed)</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Right: External Agent Action Buttons (Prominent) -->
+              <div class="flex items-center gap-2">
+                <!-- Secondary Agent action: 复制重新分析指令 -->
+                <button class="px-3 py-1.5 text-[12px] font-medium text-charcoal bg-surface hover:bg-surface-muted border border-border-base rounded flex items-center gap-1.5 transition-colors shadow-none active:translate-y-px" title="生成并复制指令给外部 Agent，重新分析 Tool 边界与测试目标">
+                  <span class="material-symbols-outlined text-[15px] text-muted-text">sync_alt</span>
+                  <span>复制重新分析指令</span>
+                </button>
+
+                <!-- Primary Agent action: 复制执行指令 -->
+                <button class="px-3.5 py-1.5 text-[12px] font-medium text-white bg-primary-action hover:bg-black rounded flex items-center gap-1.5 transition-colors shadow-none active:translate-y-px" title="复制格式化指令交由外部 Agent 调用并校验该测试单元">
+                  <span class="material-symbols-outlined text-[15px] text-white">content_copy</span>
+                  <span>复制执行指令</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Second Row: Maintenance / Destructive Zone (Visually Separated) + Local Tabs -->
+            <div class="px-5 py-2 bg-surface-muted/40 flex flex-wrap items-center justify-between gap-3">
+              
+              <!-- 4. LOCAL VIEW TABS (Tabs with clear active underline) -->
+              <nav class="flex items-center gap-6" role="tablist" aria-label="测试单元视图切换">
+                <button role="tab" aria-selected="true" class="pb-1.5 pt-1 text-[13px] font-medium text-charcoal border-b-2 border-accent-violet flex items-center gap-1.5 transition-colors">
+                  <span class="material-symbols-outlined text-[16px] text-accent-violet">description</span>
+                  <span>定义与分析</span>
+                </button>
+                <button role="tab" aria-selected="false" class="pb-1.5 pt-1 text-[13px] text-muted-text hover:text-charcoal border-b-2 border-transparent hover:border-border-strong flex items-center gap-1.5 transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">rule</span>
+                  <span>用例</span>
+                  <span class="px-1.5 py-0.2 rounded-full bg-border-muted text-muted-text font-mono text-[10px]">3</span>
+                </button>
+                <button role="tab" aria-selected="false" class="pb-1.5 pt-1 text-[13px] text-muted-text hover:text-charcoal border-b-2 border-transparent hover:border-border-strong flex items-center gap-1.5 transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">timeline</span>
+                  <span>轮次与证据</span>
+                  <span class="px-1.5 py-0.2 rounded-full bg-border-muted text-muted-text font-mono text-[10px]">2</span>
+                </button>
+                <button role="tab" aria-selected="false" class="pb-1.5 pt-1 text-[13px] text-muted-text hover:text-charcoal border-b-2 border-transparent hover:border-border-strong flex items-center gap-1.5 transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                  <span>结论</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                </button>
+              </nav>
+
+              <!-- DESTRUCTIVE MAINTENANCE ACTIONS (Visually separated into low-emphasis danger region) -->
+              <div class="flex items-center gap-1.5 text-[11px] border border-border-muted rounded bg-surface px-2 py-0.5">
+                <span class="text-subtle-text mr-1">维护管理:</span>
+                <button class="px-1.5 py-0.5 rounded text-muted-text hover:text-danger hover:bg-danger-bg transition-colors" title="删除测试单元 (保留历史归档)">
+                  删除测试单元
+                </button>
+                <span class="text-border-base">•</span>
+                <button class="px-1.5 py-0.5 rounded text-muted-text hover:text-danger hover:bg-danger-bg transition-colors" title="清空所有轮次的测试历史记录">
+                  清空测试历史
+                </button>
+                <span class="text-border-base">•</span>
+                <button class="px-1.5 py-0.5 rounded text-muted-text hover:text-danger hover:bg-danger-bg transition-colors" title="删除当前不可变版本 (v1)">
+                  删除当前版本
+                </button>
+                <span class="text-border-base">•</span>
+                <button class="px-1.5 py-0.5 rounded text-muted-text hover:text-danger hover:bg-danger-bg transition-colors" title="清空当前版本关联的所有运行回放及证据">
+                  清空当前版本测试历史
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- 5. MAIN CONTENT AREA: STRUCTURED SCAN-FRIENDLY DEFINITION SHEET -->
+          <div class="p-6 max-w-6xl space-y-6">
+
+            <!-- Context Banner: Stale Evidence & Agent Collaboration Clarification -->
+            <div class="p-3 bg-surface border border-border-base rounded flex items-start gap-3 text-[12px]">
+              <span class="material-symbols-outlined text-[18px] text-accent-violet mt-0.5 shrink-0">info</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-charcoal">不可变版本 v1 分析说明</span>
+                  <span class="text-[11px] font-mono text-muted-text">快照生成于 2025-05-14 14:10:02</span>
+                </div>
+                <p class="text-muted-text mt-0.5">
+                  Inspector 仅保存该 Tool 的输入结构、预置条件、断言规则与关联 Run 证据。测试执行与结论判定均由外部 Agent 在接入环境后驱动完成。
+                </p>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <span class="px-2 py-0.5 rounded bg-surface-muted text-muted-text text-[11px] font-mono">
+                  Schema: v2.4.1
+                </span>
+              </div>
+            </div>
+
+            <!-- STRUCTURED SCAN-FRIENDLY DEFINITION SHEET (Avoid nested rounded cards) -->
+            <div class="bg-surface border border-border-base rounded divide-y divide-border-base">
+              
+              <!-- Sheet Header -->
+              <div class="p-4 bg-surface-muted/50 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-charcoal">assignment</span>
+                  <h3 class="font-medium text-charcoal text-[13px]">Tool 测试单元规范定义 (Definition & Analysis Sheet)</h3>
+                </div>
+                <div class="flex items-center gap-2 text-[11px] text-muted-text">
+                  <span>目标关联服务:</span>
+                  <span class="font-mono text-charcoal font-medium">inventory-service / production-mcp-01</span>
+                </div>
+              </div>
+
+              <!-- Section 1: Goal (目标) -->
+              <div class="p-4 grid grid-cols-12 gap-4">
+                <div class="col-span-12 sm:col-span-3 text-[12px] font-medium text-charcoal flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>
+                  <span>测试目标 (Goal)</span>
+                </div>
+                <div class="col-span-12 sm:col-span-9 text-charcoal text-[13px] leading-normal">
+                  验证商品在预发布阶段的批量创建与结构校验能力。确保包含多变体（SKU）、动态属性组（Specifications）及预定库存配额时，能够成功写入预发布临时隔离库，并正确生成不可逆的唯一跟踪批次号（batch_tracking_id）。
+                </div>
+              </div>
+
+              <!-- Section 2: Analysis (分析边界与行为机制) -->
+              <div class="p-4 grid grid-cols-12 gap-4">
+                <div class="col-span-12 sm:col-span-3 text-[12px] font-medium text-charcoal flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>
+                  <span>分析边界 (Analysis)</span>
+                </div>
+                <div class="col-span-12 sm:col-span-9 text-charcoal text-[13px] space-y-2 leading-relaxed">
+                  <p>
+                    <span class="font-medium text-charcoal">核心逻辑：</span>该 Tool 作为异步批处理代理，在入参验证通过后直接向内部 Kafka 事件总线广播 <code class="font-mono text-[12px] bg-surface-muted px-1.5 py-0.5 rounded text-charcoal">product.pre_publish.draft</code> 事件。响应体包含轻量级 ACK 与处理状态，不直接返回最终落库完整实体。
+                  </p>
+                  <p class="text-muted-text">
+                    <span class="font-medium text-charcoal">幂等性契约：</span>当传入相同的 <code class="font-mono text-[12px] bg-surface-muted px-1.5 py-0.5 rounded text-charcoal">client_request_token</code> 时，Tool 必须返回上一次创建批次的引用句柄，杜绝重复写入脏数据。
+                  </p>
+                </div>
+              </div>
+
+              <!-- Section 3: Exclusions (测试排除项) -->
+              <div class="p-4 grid grid-cols-12 gap-4">
+                <div class="col-span-12 sm:col-span-3 text-[12px] font-medium text-charcoal flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                  <span>排除范围 (Exclusions)</span>
+                </div>
+                <div class="col-span-12 sm:col-span-9 text-charcoal text-[13px]">
+                  <ul class="list-disc list-inside space-y-1 text-muted-text">
+                    <li><strong class="text-charcoal font-normal">不执行真实结算或付款：</strong>该单元仅覆盖商品结构入库，不触发财务中台扣费与结算钩子。</li>
+                    <li><strong class="text-charcoal font-normal">不发起外部 CDN 图片物理转码：</strong>图片资源仅校验 HTTPS 协议合规与 URI 可达性格式，不验证文件哈希内容。</li>
+                    <li><strong class="text-charcoal font-normal">跨服务下游通知：</strong>针对 ERP 与搜索索引同步的延迟通知，列为下游自动化测试套件职责，本单元直接 Mock 处理。</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Section 4: Shared Preparation (共享准备环境) -->
+              <div class="p-4 grid grid-cols-12 gap-4">
+                <div class="col-span-12 sm:col-span-3 text-[12px] font-medium text-charcoal flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>
+                  <span>前置准备 (Preparation)</span>
+                </div>
+                <div class="col-span-12 sm:col-span-9 space-y-2 text-[12px]">
+                  <div class="p-2.5 bg-surface-muted rounded border border-border-muted font-mono text-muted-text flex flex-col gap-1">
+                    <div class="flex items-center justify-between text-charcoal font-medium">
+                      <span>#1 确保测试商户租户凭据 (Tenant Fixture)</span>
+                      <span class="text-success text-[10px]">已预置</span>
+                    </div>
+                    <span>ENV_STAGING_KEY 必须具备 `catalog:product:create` 与 `warehouse:pre_allocate` 只读/只写细粒度权限。</span>
+                  </div>
+                  <div class="p-2.5 bg-surface-muted rounded border border-border-muted font-mono text-muted-text flex flex-col gap-1">
+                    <div class="flex items-center justify-between text-charcoal font-medium">
+                      <span>#2 预留测试分类 ID: 10482 (Electronics/Peripherals)</span>
+                      <span class="text-success text-[10px]">已就绪</span>
+                    </div>
+                    <span>关联规则已在当前活跃沙箱环境中预先同步，以确保参数外键约束校验正常通过。</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 5: Cleanup (资源清理策略) -->
+              <div class="p-4 grid grid-cols-12 gap-4">
+                <div class="col-span-12 sm:col-span-3 text-[12px] font-medium text-charcoal flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent-violet"></span>
+                  <span>清理策略 (Cleanup)</span>
+                </div>
+                <div class="col-span-12 sm:col-span-9 text-charcoal text-[13px] leading-relaxed">
+                  测试执行轮次结束后，外部 Agent 应在收到判定信号后，调用下游专用反向补偿接口 <code class="font-mono text-[12px] bg-surface-muted px-1.5 py-0.5 rounded text-charcoal">catalog.purge_test_batch</code> 传入 <code class="font-mono text-[12px] bg-surface-muted px-1.5 py-0.5 rounded text-charcoal">batch_tracking_id</code> 清理临时数据。沙箱环境设有 24 小时兜底 TTL 自动回收机制。
+                </div>
+              </div>
+
+              <!-- Section 6: Raw Tool Definition Disclosure (Full-Width Disclosure Row at End) -->
+              <details class="group bg-surface hover:bg-surface-muted/30 transition-colors">
+                <summary class="p-4 flex items-center justify-between cursor-pointer select-none">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px] text-muted-text disclosure-arrow transition-transform">chevron_right</span>
+                    <span class="font-medium text-charcoal text-[12px] font-mono">原始 Tool 定义与契约架构 (Raw Tool Schema & MCP Definition)</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-[11px] text-muted-text">
+                    <span class="font-mono">JSON-Schema v7</span>
+                    <span class="material-symbols-outlined text-[14px]">code</span>
+                  </div>
+                </summary>
+                <div class="p-4 pt-1 bg-surface-muted/60 border-t border-border-muted font-mono text-[11px] overflow-x-auto custom-scroll">
+                  <pre class="text-charcoal leading-relaxed"><code>{
+  "name": "create_pre_publish_products",
+  "description": "批量提交创建预发布商品草稿，返回异步批次跟踪凭证与校验结果大纲",
+  "inputSchema": {
+    "type": "object",
+    "required": ["tenant_id", "products", "client_request_token"],
+    "properties": {
+      "tenant_id": {
+        "type": "string",
+        "description": "商户实体唯一租户标识"
+      },
+      "client_request_token": {
+        "type": "string",
+        "description": "客户端幂等性校验 Token (UUIDv4)"
+      },
+      "sandbox_mode": {
+        "type": "boolean",
+        "default": true
+      },
+      "products": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 50,
+        "items": {
+          "type": "object",
+          "required": ["title", "category_id", "skus"],
+          "properties": {
+            "title": { "type": "string", "maxLength": 128 },
+            "category_id": { "type": "integer" },
+            "skus": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["sku_code", "price", "initial_quota"],
+                "properties": {
+                  "sku_code": { "type": "string" },
+                  "price": { "type": "number", "minimum": 0.01 },
+                  "initial_quota": { "type": "integer", "minimum": 0 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+                </div>
+              </details>
+
+            </div>
+
+            <!-- SECTION: TEST CASES SUMMARY (用例列表大纲 - 展现 Disclosure 规范与用例覆盖) -->
+            <div class="bg-surface border border-border-base rounded divide-y divide-border-base">
+              
+              <div class="p-4 bg-surface-muted/50 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-charcoal">rule</span>
+                  <h3 class="font-medium text-charcoal text-[13px]">关联用例定义 (Concrete Test Cases - 3 项)</h3>
+                </div>
+                <div class="flex items-center gap-2 text-[11px]">
+                  <span class="text-success font-medium">100% 通过率</span>
+                  <span class="text-border-strong">•</span>
+                  <span class="text-muted-text">包含 1 正常场景 / 2 边界反例</span>
+                </div>
+              </div>
+
+              <!-- Case 1 (Disclosure) -->
+              <details open class="group bg-surface">
+                <summary class="p-3.5 px-4 flex items-center justify-between cursor-pointer select-none hover:bg-surface-muted/40 transition-colors">
+                  <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-[16px] text-muted-text disclosure-arrow transition-transform">chevron_right</span>
+                    <span class="px-1.5 py-0.2 rounded bg-surface-muted text-charcoal font-mono text-[11px] font-medium">CASE #1</span>
+                    <span class="font-medium text-charcoal text-[13px]">标准双变体商品批量创建 (Happy Path)</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[11px]">
+                    <span class="text-muted-text font-mono">预估耗时: 120ms</span>
+                    <span class="px-2 py-0.5 rounded bg-success-bg text-success font-medium flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                      <span>已通过</span>
+                    </span>
+                  </div>
+                </summary>
+                <div class="p-4 pt-1 border-t border-border-muted bg-surface-muted/20 space-y-3 text-[12px]">
+                  <div class="grid grid-cols-12 gap-3">
+                    <div class="col-span-2 text-muted-text font-medium">前置依赖:</div>
+                    <div class="col-span-10 text-charcoal font-mono">Tenant: tnt_staging_4021, Category: 10482</div>
+                    
+                    <div class="col-span-2 text-muted-text font-medium">验证断言:</div>
+                    <div class="col-span-10 text-charcoal space-y-1">
+                      <div class="flex items-center gap-2">
+                        <span class="text-success">✓</span>
+                        <code class="font-mono text-[11px]">response.status === 200</code>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-success">✓</span>
+                        <code class="font-mono text-[11px]">response.batch_tracking_id =~ /^btch_[0-9a-f]{8}/</code>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-success">✓</span>
+                        <code class="font-mono text-[11px]">response.rejected_count === 0</code>
+                      </div>
+                    </div>
+
+                    <div class="col-span-2 text-muted-text font-medium">清理要求:</div>
+                    <div class="col-span-10 text-muted-text">Agent 在执行结论确认后需触发 catalog.purge_test_batch 释放预留 SKU 编码。</div>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Case 2 (Disclosure - Collapsed) -->
+              <details class="group bg-surface">
+                <summary class="p-3.5 px-4 flex items-center justify-between cursor-pointer select-none hover:bg-surface-muted/40 transition-colors">
+                  <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-[16px] text-muted-text disclosure-arrow transition-transform">chevron_right</span>
+                    <span class="px-1.5 py-0.2 rounded bg-surface-muted text-charcoal font-mono text-[11px] font-medium">CASE #2</span>
+                    <span class="font-medium text-charcoal text-[13px]">重复幂等 Token 碰撞防御拦截 (Idempotency Defense)</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[11px]">
+                    <span class="text-muted-text font-mono">预估耗时: 45ms</span>
+                    <span class="px-2 py-0.5 rounded bg-success-bg text-success font-medium flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                      <span>已通过</span>
+                    </span>
+                  </div>
+                </summary>
+                <div class="p-4 pt-1 border-t border-border-muted bg-surface-muted/20 text-[12px] text-muted-text">
+                  验证传入相同 client_request_token 时不生成新批次，返回已有批次号并标识 is_cached_replay: true。
+                </div>
+              </details>
+
+              <!-- Case 3 (Disclosure - Collapsed) -->
+              <details class="group bg-surface">
+                <summary class="p-3.5 px-4 flex items-center justify-between cursor-pointer select-none hover:bg-surface-muted/40 transition-colors">
+                  <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-[16px] text-muted-text disclosure-arrow transition-transform">chevron_right</span>
+                    <span class="px-1.5 py-0.2 rounded bg-surface-muted text-charcoal font-mono text-[11px] font-medium">CASE #3</span>
+                    <span class="font-medium text-charcoal text-[13px]">库存配额负数边界参数校验 (Negative Quota Rejection)</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[11px]">
+                    <span class="text-muted-text font-mono">预估耗时: 38ms</span>
+                    <span class="px-2 py-0.5 rounded bg-success-bg text-success font-medium flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                      <span>已通过</span>
+                    </span>
+                  </div>
+                </summary>
+                <div class="p-4 pt-1 border-t border-border-muted bg-surface-muted/20 text-[12px] text-muted-text">
+                  验证 initial_quota 为负数或价格为零时，严格触发 MCP 协议层 -32602 Invalid params 错误。
+                </div>
+              </details>
+
+            </div>
+
+            <!-- SECTION: EXECUTION ROUNDS & EVIDENCE SUMMARY (轮次与证据汇总) -->
+            <div class="bg-surface border border-border-base rounded divide-y divide-border-base">
+              
+              <div class="p-4 bg-surface-muted/50 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-charcoal">timeline</span>
+                  <h3 class="font-medium text-charcoal text-[13px]">执行轮次与证据记录 (Execution Rounds & Evidence)</h3>
+                </div>
+                <div class="flex items-center gap-2 text-[11px]">
+                  <span class="text-muted-text">总轮次: 2</span>
+                  <span class="text-border-strong">•</span>
+                  <span class="font-mono text-charcoal">最新轮次: R2 (12 分钟前)</span>
+                </div>
+              </div>
+
+              <!-- Round 2 Item -->
+              <div class="p-4 flex flex-col gap-3">
+                <div class="flex items-center justify-between text-[12px]">
+                  <div class="flex items-center gap-2">
+                    <span class="px-1.5 py-0.2 rounded bg-surface-muted text-charcoal font-mono font-bold text-[11px]">ROUND 2</span>
+                    <span class="font-medium text-charcoal">Agent 全量自动化回归执行 (Full Regression)</span>
+                    <span class="text-muted-text font-mono text-[11px]">• Run ID: run_8f2c1a</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-success-bg text-success font-medium text-[11px]">判定结论: 通过 (3/3)</span>
+                    <a href="#" class="text-accent-violet hover:underline text-[11px] font-mono flex items-center gap-0.5">
+                      <span>跳转 Run 追踪</span>
+                      <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Timeline / Call Detail Grid -->
+                <div class="bg-surface-muted/40 rounded border border-border-muted divide-y divide-border-muted text-[11px] font-mono">
+                  <div class="p-2 px-3 flex items-center justify-between text-muted-text">
+                    <span class="w-16">时间戳</span>
+                    <span class="flex-1 px-4">调用目标与状态</span>
+                    <span class="w-24 text-right">耗时</span>
+                    <span class="w-28 text-right">资源清理状态</span>
+                  </div>
+                  <div class="p-2 px-3 flex items-center justify-between text-charcoal">
+                    <span class="w-16 text-muted-text">14:18:22</span>
+                    <span class="flex-1 px-4 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                      <span>tools/call: create_pre_publish_products</span>
+                      <span class="text-muted-text text-[10px]">(Batch #btch_88a291)</span>
+                    </span>
+                    <span class="w-24 text-right text-muted-text">134ms</span>
+                    <span class="w-28 text-right text-success">已隔离并清理</span>
+                  </div>
+                  <div class="p-2 px-3 flex items-center justify-between text-charcoal">
+                    <span class="w-16 text-muted-text">14:18:23</span>
+                    <span class="flex-1 px-4 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success"></span>
+                      <span>tools/call: catalog.purge_test_batch</span>
+                      <span class="text-muted-text text-[10px]">(Post-cleanup hook)</span>
+                    </span>
+                    <span class="w-24 text-right text-muted-text">42ms</span>
+                    <span class="w-28 text-right text-success">回收完成</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- SECTION: CONCLUSIONS TAB SUMMARY (结论与 Agent 判断) -->
+            <div class="bg-surface border border-border-base rounded divide-y divide-border-base">
+              
+              <div class="p-4 bg-surface-muted/50 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-success">verified</span>
+                  <h3 class="font-medium text-charcoal text-[13px]">Agent 评估结论 (Agent Evaluation & Verdict)</h3>
+                </div>
+                <div class="flex items-center gap-2 text-[11px]">
+                  <span class="text-muted-text">判定模型: Claude 3.5 Sonnet / External Runner</span>
+                  <span class="text-border-strong">•</span>
+                  <span class="text-success font-medium">结论有效 (Current)</span>
+                </div>
+              </div>
+
+              <div class="p-5 space-y-4 text-[13px]">
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded bg-success-bg text-success flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                  </div>
+                  <div class="space-y-1.5">
+                    <div class="font-semibold text-charcoal text-[14px]">
+                      判定结果：符合协议定义，准予上线 (Verdict: PASSED)
+                    </div>
+                    <p class="text-charcoal leading-relaxed">
+                      外部 Agent 依照当前测试单元规范对 <code class="font-mono text-[12px] bg-surface-muted px-1.5 py-0.5 rounded text-charcoal">create_pre_publish_products</code>（版本 1）进行了双轮次执行与压力边界回放。在包含 50 项复合变体的高负载边界下，幂等性凭证完全有效，错误参数按预期抛出 RPC 错误，未观察到任何脏数据残留或锁库竞争。
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Structured Recommendation Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                  <div class="p-3 rounded bg-surface-muted border border-border-muted text-[12px]">
+                    <div class="font-medium text-charcoal mb-1 flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[14px] text-accent-violet">tips_and_updates</span>
+                      <span>改进建议 (Recommendation)</span>
+                    </div>
+                    <span class="text-muted-text">建议在后续版本 2 中扩充针对 `special_tax_rate` 特殊税费枚举字段的非法输入校验测试用例。</span>
+                  </div>
+                  <div class="p-3 rounded bg-surface-muted border border-border-muted text-[12px]">
+                    <div class="font-medium text-charcoal mb-1 flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[14px] text-success">cleaning_services</span>
+                      <span>环境清理核验 (Cleanup Status)</span>
+                    </div>
+                    <span class="text-muted-text">所有生成的 2 批临时草稿商品已在 14:18:23 经由反向钩子彻底清除，无遗留配额泄露。</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Workspace Footer Status Line -->
+            <div class="pt-2 pb-6 flex items-center justify-between text-[11px] text-subtle-text font-mono border-t border-border-muted">
+              <div class="flex items-center gap-3">
+                <span>测试单元: unit_cpp_91a0</span>
+                <span>•</span>
+                <span>协议架构: MCP 2024-11-05</span>
+                <span>•</span>
+                <span>环境映射: ENV_STAGING_KEY</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>只读不可变记录</span>
+                <span class="material-symbols-outlined text-[13px]">lock</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
