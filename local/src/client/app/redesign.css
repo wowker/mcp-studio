@@ -2634,6 +2634,50 @@ details[open] > summary > .script-disclosure-icon { transform: rotate(90deg); }
   .validation-summary li { grid-template-columns: 1fr; gap: 2px; }
 }
 
+/* ────────────────────────────────────────────────────────────
+   Responsive breakpoints (consolidated overrides)
+   Single source of truth for mobile/tablet adaptations.
+   Targets: Servers table, connection dialog, workbench sidebar, tools catalog.
+   ──────────────────────────────────────────────────────────── */
+
+/* Tablet (≤1000px): table scrolls, sidebars narrow */
+@media (max-width: 1000px) {
+  .connection-table-wrap { overflow-x: auto; }
+  .connection-table { min-width: 560px; }
+
+  .workbench { grid-template-columns: 156px minmax(0, 1fr); }
+  .tools-catalog { min-width: 180px; max-width: 220px; }
+}
+
+/* Mobile (≤640px): full-width dialogs, stacked forms, collapsed sidebar */
+@media (max-width: 640px) {
+  .dialog-surface { width: calc(100% - 16px); max-height: calc(100dvh - 16px); border-radius: 12px; }
+  .connection-dialog-form,
+  .dialog-header { padding-inline: 14px; }
+
+  .connection-fields { grid-template-columns: 1fr; }
+  .connection-auth,
+  .connection-headers,
+  .connection-fixed-options,
+  .connection-bearer-token { padding: 10px 12px; gap: 8px; }
+
+  .connection-add-button { width: 100%; justify-content: center; }
+
+  .connection-table-wrap { overflow-x: auto; }
+  .connection-table { min-width: 480px; font-size: 0.74rem; }
+  .connection-table th,
+  .connection-table td { padding: 6px 10px; }
+
+  .connection-panel__actions { flex-wrap: wrap; gap: 6px; }
+
+  .workbench { grid-template-columns: 0 minmax(0, 1fr); }
+  .workbench-sidebar { width: 0; overflow: hidden; border-right: 0; }
+
+  .project-empty { padding: 40px 24px; }
+  .project-empty__icon { width: 44px; height: 44px; }
+  .project-empty h2 { font-size: 1.04rem; }
+}
+
 @media (pointer: coarse) {
   button { min-height: 44px; }
   .connection-actions button { min-height: 40px; }
