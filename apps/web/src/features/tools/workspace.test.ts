@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {ToolWorkspace} from './workspace';
+import {ToolWorkspace,type ToolTab} from './workspace';
 const tool={name:'inventory.lookup',description:'Lookup stock',inputSchema:{type:'object' as const,properties:{count:{type:'integer'}}}};
 describe('connection scoped document commands',()=>{
  it('reuses an existing tool but explicit new and duplicate create independent unexecuted documents',()=>{
@@ -7,6 +7,16 @@ describe('connection scoped document commands',()=>{
   scope.updateDraft(first.id,{raw:'{"count":0}',mode:'raw'});scope.setRunning(first.id,true);
   expect(scope.open(tool).id).toBe(first.id);const second=scope.open(tool,true);expect(second.id).not.toBe(first.id);expect(second.draft.raw).toBe('{}');
   const copy=scope.duplicate(first.id)!;expect(copy.id).not.toBe(first.id);expect(copy.draft).toEqual({raw:'{"count":0}',mode:'raw'});expect(copy.running).toBe(false);scope.updateDraft(copy.id,{raw:'{"count":2}',mode:'form'});expect(scope.tabs[0].draft.raw).toBe('{"count":0}');
+ });
+ it('duplicate never inherits a result, run identity or pending upload from the source document',()=>{
+  const workspace=new ToolWorkspace();const scope=workspace.scope('project','connection');const first=scope.open(tool);
+  scope.updateDraft(first.id,{raw:'{"count":1}',mode:'form'});scope.setRunning(first.id,true);scope.pin(first.id,true);
+  const snapshot={runId:'run-1',toolName:'inventory.lookup'} as unknown as NonNullable<ToolTab['lastSnapshot']>;
+  Object.assign(first,{lastSnapshot:snapshot,lastRunId:'run-1',uploadOperationId:'op-1'});
+  const copy=scope.duplicate(first.id)!;
+  expect(copy.id).not.toBe(first.id);expect(copy.draft).toEqual({raw:'{"count":1}',mode:'form'});
+  expect(copy.lastSnapshot).toBeUndefined();expect(copy.lastRunId).toBeUndefined();expect(copy.uploadOperationId).toBeUndefined();
+  expect(copy.running).toBe(false);expect(copy.pinned).toBe(false);
  });
  it('keeps tab identity, selection, ordering and drafts isolated by project and connection',()=>{
   const workspace=new ToolWorkspace();const a=workspace.scope('a','same-url-1'),b=workspace.scope('a','same-url-2'),c=workspace.scope('b','same-url-1');a.open(tool);b.open({...tool,name:'other'});c.open({...tool,name:'third'});expect(workspace.scope('a','same-url-1')).toBe(a);expect(a.tabs.map(tab=>tab.definition.name)).toEqual(['inventory.lookup']);expect(b.selected?.definition.name).toBe('other');workspace.clear();expect(workspace.scope('a','same-url-1').tabs).toEqual([]);

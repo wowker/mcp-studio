@@ -74,6 +74,18 @@ it('observes a scoped owner history once across equivalent scope object rerender
  const mounted=render(ui());await screen.findByText('Request snapshot');await waitFor(()=>expect(observed).toHaveBeenCalledTimes(1));mounted.rerender(ui());await act(async()=>{});expect(observed).toHaveBeenCalledTimes(1);expect(observed.mock.calls[0][0]).toEqual({userId:'u',projectId:'p',connectionId:'c',runId:'run',recordId:'history',status:'succeeded'});mounted.rerender(ui({...session,user:{...session.user,id:'another'}}));await act(async()=>{});expect(observed).toHaveBeenCalledTimes(1);
 });
 
+it('blocks confirming deletion when a protected operation appears after the panel is open',async()=>{
+ const client=new PlatformClient();const user=userEvent.setup();
+ render(<I18nextProvider i18n={i18n}><RecordsPage client={client} project={project} session={session} memory={memory} scopeRevision={0} navigate={vi.fn()}/></I18nextProvider>);
+ await user.click(await screen.findByRole('button',{name:'Open Echo run'}));
+ await user.click(await screen.findByRole('button',{name:'Delete record'}));
+ expect((await screen.findByRole('button',{name:'Confirm record deletion'}) as HTMLButtonElement).disabled).toBe(false);
+ const upload=await makeUpload({userId:'u',targetKind:'history',snapshot,metadata:historyRecord.metadata,targetId:'history'});
+ await act(async()=>{await memory.records.submit(client,upload).catch(()=>{});});
+ await waitFor(()=>expect(screen.queryByRole('button',{name:'Confirm record deletion'})).toBeNull());
+ expect((screen.getByRole('button',{name:'Delete record'}) as HTMLButtonElement).disabled).toBe(true);
+});
+
 it('distinguishes a failed Run from mail delivery failure in both record locales and execution context',async()=>{
  const failed={...historyRecord,snapshot:{...snapshot,runStatus:'failed',resultKind:'tool_error'}};vi.stubGlobal('fetch',async(url:string)=>url.includes('records?')?reply({items:[failed],nextCursor:''}):url.endsWith('/audits')?reply([]):reply(failed));const user=setup();await screen.findByRole('cell',{name:/^Failed$/});expect(screen.queryByText('Email delivery failed')).toBeNull();await act(async()=>{await i18n.changeLanguage('zh-CN');});expect(screen.getByRole('cell',{name:/^调用失败$/})).toBeTruthy();expect(screen.queryByText('邮件发送失败')).toBeNull();await user.click(screen.getByRole('button',{name:'打开 Echo run'}));await user.click(await screen.findByText('执行上下文'));expect(screen.getByText('调用失败 · tool_error · known')).toBeTruthy();
 });
