@@ -14,7 +14,11 @@
   min-height: 42px;
   margin: 0;
   padding: 5px 4px 7px;
+  flex-wrap: wrap;
+  row-gap: 6px;
 }
+
+.run-result__sticky-header > header .run-result-actions { flex-wrap: wrap; }
 
 .run-result-action {
   display: inline-flex;
@@ -30,6 +34,7 @@
   font-size: 0.76rem;
   font-weight: 650;
   line-height: 1;
+  white-space: nowrap;
 }
 .run-result-action > svg { display: block; flex: 0 0 auto; }
 .run-result-actions .run-result-action {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Plus } from "@phosphor-icons/react";
+import { Plugs, Plus } from "@phosphor-icons/react";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import type {
@@ -598,13 +598,12 @@ function ProjectScopedConnectionPanel({
           <h2 id="connection-panel-title">{t("panel.title")}</h2>
           <p>{t("panel.description")}</p>
         </div>
-        <button
+        {connections !== null && connections.length > 0 && <button
           ref={addButton}
           type="button"
           className="connection-add-button"
-          disabled={connections === null}
           onClick={(event) => beginCreate(event.currentTarget)}
-        ><Plus size={16} weight="bold" aria-hidden="true" />{t("panel.add")}</button>
+        ><Plus size={16} weight="bold" aria-hidden="true" />{t("panel.add")}</button>}
       </div>}
 
       {error !== null && formMode === null && pendingDelete === null && (
@@ -625,6 +624,17 @@ function ProjectScopedConnectionPanel({
 
       {mode !== "tools" && (connections === null && error === null ? (
         <p role="status" className="connection-loading">{t("panel.loading")}</p>
+      ) : connections !== null && connections.length === 0 ? (
+        <div className="connection-empty-state">
+          <Plugs size={22} weight="duotone" aria-hidden="true" />
+          <div>
+            <strong>{t("panel.empty")}</strong>
+            <p>{t("panel.emptyHint")}</p>
+          </div>
+          <button type="button" ref={addButton} className="button-secondary" onClick={(event) => beginCreate(event.currentTarget)}>
+            <Plus size={15} weight="bold" aria-hidden="true" />{t("panel.add")}
+          </button>
+        </div>
       ) : (
         <div className="connection-table-wrap">
           <table className="connection-table" aria-label={t("panel.tableAria")}>
@@ -638,14 +648,6 @@ function ProjectScopedConnectionPanel({
               </tr>
             </thead>
             <tbody>
-              {connections?.length === 0 && (
-                <tr>
-                  <td colSpan={5} className="connection-empty">
-                    <span>{t("panel.empty")}</span>
-                    <small>{t("panel.emptyHint")}</small>
-                  </td>
-                </tr>
-              )}
               {connections?.map((connection) => (
                 <tr key={connection.id}>
                   <td data-label={t("panel.columns.name")}>

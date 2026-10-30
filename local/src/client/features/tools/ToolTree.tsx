@@ -326,6 +326,7 @@ export function ToolTree({
       onDragStart={(event) => dragStart(event, tool)}
       onDragEnd={() => { draggedTool.current = null; setDragTarget(undefined); }}>
       <button type="button" className={`tool-item${active ? " tool-item--selected" : ""}`}
+        title={tool.name}
         aria-current={active ? "true" : undefined}
         aria-label={tool.status === "current" ? tool.name : t("catalog.toolAria", { name: tool.name, status: statusLabels[tool.status] })}
         onClick={(event) => select(tool, event)} onDoubleClick={() => open(tool)}>

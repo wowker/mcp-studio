@@ -68,7 +68,7 @@ export function InspectorWorkbench({ api, project, version }: InspectorWorkbench
   const [historyRunId, setHistoryRunId] = useState<string | undefined>();
   const [mountedPersistentPages, setMountedPersistentPages] = useState<ReadonlySet<PersistentWorkbenchPage>>(new Set());
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [catalogWidth, setCatalogWidth] = useState(300);
+  const [catalogWidth, setCatalogWidth] = useState(236);
   const [theme, setTheme] = useState<ThemeMode>(() => applyInitialTheme());
   const compactSidebar = useCompactSidebar();
   const [servers, setServers] = useState<ServerWorkspaceState>({ tabs: [], activeId: null });
@@ -203,7 +203,7 @@ export function InspectorWorkbench({ api, project, version }: InspectorWorkbench
     const layout = event.currentTarget.parentElement;
     if (layout === null) return;
     const bounds = layout.getBoundingClientRect();
-    setCatalogWidth(Math.round(Math.min(380, Math.max(260, event.clientX - bounds.left))));
+    setCatalogWidth(Math.round(Math.min(320, Math.max(204, event.clientX - bounds.left))));
   }
 
   return (
@@ -340,15 +340,15 @@ export function InspectorWorkbench({ api, project, version }: InspectorWorkbench
                     tabIndex={0}
                     aria-label={t("workbench.resizeCatalog")}
                     aria-orientation="vertical"
-                    aria-valuemin={260}
-                    aria-valuemax={380}
+                    aria-valuemin={204}
+                    aria-valuemax={320}
                     aria-valuenow={catalogWidth}
                     onPointerDown={(event) => { event.currentTarget.setPointerCapture(event.pointerId); resizeCatalog(event); }}
                     onPointerMove={(event) => { if (event.currentTarget.hasPointerCapture(event.pointerId)) resizeCatalog(event); }}
                     onKeyDown={(event) => {
                       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
                       event.preventDefault();
-                      setCatalogWidth((current) => Math.min(380, Math.max(260, current + (event.key === "ArrowRight" ? 12 : -12))));
+                      setCatalogWidth((current) => Math.min(320, Math.max(204, current + (event.key === "ArrowRight" ? 12 : -12))));
                     }}
                   ><span aria-hidden="true" /></div>
                   <DebugWorkspace api={api} projectId={project.id} connectionId={servers.activeId}

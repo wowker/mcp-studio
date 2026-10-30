@@ -1384,3 +1384,36 @@ B16 — 入口层深潜（`cmd/agent`、`cmd/studio-admin`、`apps/local`、`app
 - 单机版 e2e（Playwright）未执行；`.nvmrc` 要求的 Node 24 与当前默认 Node 26 不一致，运行前需切换。
 - A01–A60 中针对 Go 单机版的断言作废，单机版验收清单须按新工程重建（M8 任务）。
 - `START-DEVELOPMENT.md` 与部分文档中的旧路径（`apps/web`、`apps/local`）待随 M8 更新。
+
+---
+
+## 2026-10-30 · 单机版 UI 升级第一轮（Servers / 环境变量 / 工作台 / 历史）
+
+目标：先统一视觉语言再铺功能。范围仅 `local/src/client`，云版前端按 ADR 013 冻结。
+
+### 修改
+
+- 语义 token 重定：主色改为青绿（`--ui-accent` / `--ui-accent-strong` / `--ui-accent-muted` / `--ui-accent-border`），补齐 `--ui-info`、`--ui-focus`、`--ui-danger-border`、`--ui-table-head`、`--ui-code-bg/text`、`--ui-shadow-panel`、`--ui-font-sans/mono`；亮暗两套同步。
+- `app.css` 中约 40 处硬编码十六进制色（含 16 类灰阶、紫、蓝、绿、红、橙）全部换成语义 token；`#fff` 按用途拆为 surface / action-text，避免暗色下白底按钮。
+- 主按钮改为主色实心（`--ui-action` 指向 accent），暗色下自动变为浅青绿 + 深色文字；新增 `--ui-table-head` 让表头在两种主题下都与数据行分层。
+- Servers 页：连接面板改为卡片（`--ui-panel-radius` + `--ui-shadow-panel`），表格行高与字号收敛（0.8rem / 11px 内边距），URL 用等宽字体单行省略并保留 `title`；操作列 `width: 1%` + `nowrap` 消除「删除」换行；空连接改为带图标的空状态条并作为唯一「添加连接」入口，避免同页两个同名按钮。
+- 连接弹窗：`dialog-surface` 改为 header + 可滚动表单两行网格，底部操作条 sticky 固定，取消/保存始终可见（此前需滚动）。
+- Tool 目录：默认宽度 300 → 236（可拖拽区间 204–320，键盘步进同步），行高 40 → 32，选中态改为主色左侧条 + `accent-muted` 底色 + 主色文字，收藏星标降权到 hover/focus；长名保留 `title`。
+- 工作台/历史结果区：状态条与操作按钮允许换行（`flex-wrap` + 按钮 `nowrap`），窄视口不再挤压。
+- 环境变量页：两组 Tab 由同一行拆为两行（`__scope` 改块级），统一为分段控件样式；说明里的 `{{VARIABLE_NAME}}` 改为内联代码块；保存按钮不再拉满整列；表单头用 `--ui-table-head`，行高收敛。
+- 导航：侧栏当前项改为 `accent-muted` 底 + 主色文字；工作台二级导航（调试/定义/已保存/脚本/历史）改用主色下划线指示。
+
+### 实际验证
+
+| 门禁 | 结果 |
+| --- | --- |
+| `typecheck`（两个 tsconfig） | 通过 |
+| `test:release`（Node 24 串行） | 105 文件 / **796 测试全部通过**（含按新布局同步的目录宽度断言） |
+| `build` | 通过 |
+| 浏览器人工核对（5173 前端 + 8510 独立数据目录 + 8600 fixture Server） | Servers 亮/暗、连接弹窗、Tools 工作台、运行历史、环境变量均截图复核 |
+
+### 限制与待办
+
+- 截图核对使用临时数据目录（`/tmp/mcp-ui-data`）与 fixture Server，未覆盖真实远程 MCP 与 OAuth 回调路径。
+- 尚未逐页打样的区域：已保存请求、Tool 定义、脚本、Tab 右键菜单、JSON 全屏查看、空项目欢迎页。
+- 本轮只做视觉与布局，不改交互语义；移动端断点（≤760px）仅做了不回归检查，未单独设计。

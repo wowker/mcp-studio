@@ -522,10 +522,10 @@ describe("InspectorWorkbench", () => {
 
     await user.click(await screen.findByRole("tab", { name: "Supplier MCP" }));
     const separator = screen.getByRole("separator", { name: "调整 Tool 目录宽度" });
-    expect(separator).toHaveAttribute("aria-valuenow", "300");
+    expect(separator).toHaveAttribute("aria-valuenow", "236");
     fireEvent.keyDown(separator, { key: "ArrowRight" });
-    expect(separator).toHaveAttribute("aria-valuenow", "312");
-    expect(container.querySelector(".tools-layout")).toHaveStyle("--tool-catalog-width: 312px");
+    expect(separator).toHaveAttribute("aria-valuenow", "248");
+    expect(container.querySelector(".tools-layout")).toHaveStyle("--tool-catalog-width: 248px");
   });
 
   it.each([
