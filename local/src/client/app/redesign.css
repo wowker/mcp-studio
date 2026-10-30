@@ -218,6 +218,35 @@ textarea::placeholder { color: var(--ui-text-subtle); opacity: 1; }
 .health--ready { color: var(--ui-success); background: var(--ui-success-muted); border-color: transparent; }
 .health--error { color: var(--ui-danger); background: var(--ui-danger-muted); border-color: transparent; }
 
+.project-picker h2 { letter-spacing: -0.02em; }
+.project-list li { transition: border-color 120ms ease, box-shadow 120ms ease; }
+.project-list li:hover { border-color: var(--ui-border-strong); }
+
+.project-empty {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 56px 40px;
+  margin-top: 28px;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-panel-radius);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow-panel);
+  text-align: center;
+}
+.project-empty__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  color: var(--ui-accent);
+  background: var(--ui-accent-muted);
+}
+.project-empty h2 { margin: 0; font-size: 1.18rem; letter-spacing: -0.02em; }
+.project-empty p { margin: 0; color: var(--ui-text-muted); font-size: 0.84rem; line-height: 1.5; max-width: 340px; }
+.project-empty .project-create-form { margin-top: 16px; }
+
 .workbench {
   grid-template-columns: 192px minmax(0, 1fr);
   width: 100%;
@@ -735,13 +764,10 @@ textarea::placeholder { color: var(--ui-text-subtle); opacity: 1; }
 .connection-last-error,
 .connection-error { color: var(--ui-danger); }
 
-.connection-bearer-token {
-  gap: 9px;
-  padding: 12px 14px;
-  border: 1px solid var(--ui-border);
-  border-radius: var(--ui-control-radius);
-  background: var(--ui-surface-muted);
-}
+.connection-auth { display: grid; gap: 10px; padding: 12px 14px; border: 1px solid var(--ui-border); border-radius: var(--ui-control-radius); background: var(--ui-surface-muted); }
+.connection-auth__heading h4 { color: var(--ui-text); font-size: 0.8rem; font-weight: 650; letter-spacing: 0.01em; margin: 0; }
+.connection-auth__heading p { color: var(--ui-text-muted); font-size: 0.72rem; line-height: 1.5; margin: 2px 0 0; }
+
 .connection-bearer-token label { font-size: 0.8rem; font-weight: 650; letter-spacing: 0.01em; }
 .connection-bearer-token small { color: var(--ui-text-muted); font-size: 0.72rem; line-height: 1.5; }
 
@@ -836,8 +862,7 @@ textarea::placeholder { color: var(--ui-text-subtle); opacity: 1; }
   padding: 0;
 }
 
-.connection-fields label,
-.connection-bearer-token { color: var(--ui-text-muted); }
+.connection-fields label { color: var(--ui-text-muted); }
 .connection-fields input,
 .connection-fields select { min-height: 36px; color: var(--ui-text); background: var(--ui-surface); }
 .connection-fields small { color: var(--ui-text-muted); }

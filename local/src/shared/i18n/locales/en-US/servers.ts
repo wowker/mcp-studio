@@ -41,6 +41,8 @@ export const enUSServers = {
     auth: { none: "No authentication", bearer: "Bearer Token", oauth: "OAuth automatic authorization" },
     tokenPlaceholder: "Enter Bearer Token", showToken: "Show Bearer Token", hideToken: "Hide Bearer Token",
     tokenHint: "Use a literal value or {{variable}}; the current Server resolves variables before sending the Authorization Header.",
+    authSectionTitle: "Authorization",
+    authSectionDescription: "Authentication method used when connecting to the MCP Server.",
     headersTitle: "Custom Headers",
     headersDescription: "Sent when connecting, refreshing Tools, and calling Tools. Values may be literal or reference an environment variable with {{variable}}.",
     addHeader: "Add Header", noHeaders: "No custom Headers configured", headerName: "Name", headerValue: "Value",

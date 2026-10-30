@@ -5,6 +5,8 @@ export const zhCNProjects = {
   opening: "正在打开 {{name}}…",
   title: "选择项目",
   description: "项目数据保存在本机 SQLite 中。",
+  emptyTitle: "欢迎使用 MCP Studio",
+  emptyDescription: "创建你的第一个项目，开始连接 MCP Server 调试 Tool。",
   listAria: "项目列表",
   open: "打开",
   name: "项目名称",

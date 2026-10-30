@@ -5,6 +5,8 @@ export const enUSProjects = {
   opening: "Opening {{name}}…",
   title: "Select a project",
   description: "Project data is stored in local SQLite.",
+  emptyTitle: "Welcome to MCP Studio",
+  emptyDescription: "Create your first project to start connecting to MCP Servers and debugging Tools.",
   listAria: "Project list",
   open: "Open",
   name: "Project name",

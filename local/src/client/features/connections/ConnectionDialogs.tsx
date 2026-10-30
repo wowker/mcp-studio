@@ -103,6 +103,14 @@ export function ConnectionFormDialog({
               required
             />
           </FormField>
+        </div>
+        <section className="connection-auth" aria-labelledby="connection-auth-title">
+          <div className="connection-auth__heading">
+            <div>
+              <h4 id="connection-auth-title">{t("form.authSectionTitle")}</h4>
+              <p>{t("form.authSectionDescription")}</p>
+            </div>
+          </div>
           <FormField label={t("form.authMode")} htmlFor="connection-auth-mode"
             description={authMode === "oauth" ? t("form.oauthDescription") : undefined}>
             <Select id="connection-auth-mode" value={authMode} onChange={(event) => onAuthModeChange(event.target.value as ConnectionAuthMode)}>
@@ -138,7 +146,7 @@ export function ConnectionFormDialog({
               <small>{t("form.tokenHint", { variable: "{{VARIABLE_NAME}}" })}</small>
             </div>
           )}
-        </div>
+        </section>
         <section className="connection-headers" aria-labelledby="connection-headers-title">
           <div className="connection-headers__heading">
             <div>

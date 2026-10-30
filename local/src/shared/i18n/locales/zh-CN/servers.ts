@@ -41,6 +41,8 @@ export const zhCNServers = {
     auth: { none: "无认证", bearer: "Bearer Token", oauth: "OAuth 自动授权" },
     tokenPlaceholder: "请输入 Bearer Token", showToken: "显示 Bearer Token", hideToken: "隐藏 Bearer Token",
     tokenHint: "支持直接值或 {{variable}}；连接时按当前 Server 解析变量并发送 Authorization Header。",
+    authSectionTitle: "认证",
+    authSectionDescription: "连接 MCP Server 时使用的认证方式。",
     headersTitle: "自定义 Headers",
     headersDescription: "连接、刷新 Tool 和调用 Tool 时都会发送。值支持直接输入或使用 {{variable}} 引用环境变量。",
     addHeader: "添加 Header", noHeaders: "未配置自定义 Header", headerName: "名称", headerValue: "值",

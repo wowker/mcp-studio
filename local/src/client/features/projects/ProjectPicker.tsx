@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import { FolderOpen } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 import type { InspectorApiClient, ProjectSummary } from "../../api/api-client.js";
 
@@ -113,34 +114,58 @@ export function ProjectPicker({ api, onProjectOpened }: ProjectPickerProps) {
 
       {error !== null && <p role="alert" className="project-error">{error}</p>}
 
-      {projects.length > 0 && (
-        <ul className="project-list" aria-label={t("listAria")}>
-          {projects.map((project) => (
-            <li key={project.id}>
-              <span>{project.name}</span>
-              <button type="button" onClick={() => void open(project)}>
-                {t("open")} <span className="sr-only">{project.name}</span>
+      {projects.length === 0 ? (
+        <div className="project-empty">
+          <div className="project-empty__icon" aria-hidden="true">
+            <FolderOpen size={26} />
+          </div>
+          <h2>{t("emptyTitle")}</h2>
+          <p>{t("emptyDescription")}</p>
+          <form onSubmit={(event) => void create(event)} className="project-create-form">
+            <label htmlFor="project-name">{t("name")}</label>
+            <div>
+              <input
+                id="project-name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                maxLength={120}
+                required
+              />
+              <button type="submit" disabled={submitting || name.trim().length === 0}>
+                {submitting ? t("creating") : t("createAndOpen")}
               </button>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <form onSubmit={(event) => void create(event)} className="project-create-form">
-        <label htmlFor="project-name">{t("name")}</label>
-        <div>
-          <input
-            id="project-name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            maxLength={120}
-            required
-          />
-          <button type="submit" disabled={submitting || name.trim().length === 0}>
-            {submitting ? t("creating") : t("createAndOpen")}
-          </button>
+            </div>
+          </form>
         </div>
-      </form>
+      ) : (
+        <>
+          <ul className="project-list" aria-label={t("listAria")}>
+            {projects.map((project) => (
+              <li key={project.id}>
+                <span>{project.name}</span>
+                <button type="button" onClick={() => void open(project)}>
+                  {t("open")} <span className="sr-only">{project.name}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <form onSubmit={(event) => void create(event)} className="project-create-form">
+            <label htmlFor="project-name">{t("name")}</label>
+            <div>
+              <input
+                id="project-name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                maxLength={120}
+                required
+              />
+              <button type="submit" disabled={submitting || name.trim().length === 0}>
+                {submitting ? t("creating") : t("createAndOpen")}
+              </button>
+            </div>
+          </form>
+        </>
+      )}
     </section>
   );
 }
