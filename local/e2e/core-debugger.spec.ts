@@ -54,6 +54,11 @@ test("eight same-Tool Tabs preserve out-of-order calls, traces, and reload state
     await expect(connectionDialog.getByRole("textbox", { name: "Bearer Token" })).toBeVisible();
     expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze()).violations).toEqual([]);
+    // A11y: 连接弹窗 OAuth 模式（托管授权说明 + 无 Token 输入时的表单态）
+    await connectionDialog.getByLabel("认证方式").selectOption("oauth");
+    await expect(connectionDialog).toContainText("首次连接会打开浏览器完成授权");
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
     await connectionDialog.getByLabel("认证方式").selectOption("none");
     await connectionDialog.getByLabel("连接名称").fill("Loopback MCP");
     await connectionDialog.getByLabel("MCP URL").fill(mcp.url);
@@ -237,6 +242,16 @@ test("eight same-Tool Tabs preserve out-of-order calls, traces, and reload state
       for (const other of inputs.filter((_, otherIndex) => otherIndex !== index)) {
         await expect(formattedResult.locator(".json-viewer__row").filter({ hasText: /^total:/ }).locator(".json-viewer__number"))
           .not.toHaveText(String(other.total));
+      }
+      if (index === 0) {
+        // A11y: JSON 全屏查看器（header / 工具栏 / 内容区）
+        await detail.getByRole("button", { name: "放大查看" }).first().click();
+        const jsonDialog = page.getByRole("dialog", { name: "结构化响应" });
+        await expect(jsonDialog).toBeVisible();
+        expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+          .analyze()).violations).toEqual([]);
+        await jsonDialog.getByRole("button", { name: "关闭 JSON 查看器" }).click();
+        await expect(jsonDialog).toBeHidden();
       }
       await detail.getByRole("tab", { name: "调用详情" }).click();
       const runId = await detail.locator(".run-metadata div").filter({ hasText: "Run ID" }).locator("dd").innerText();
@@ -436,6 +451,22 @@ test("eight same-Tool Tabs preserve out-of-order calls, traces, and reload state
     expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze()).violations).toEqual([]);
     await expect(page).toHaveScreenshot("tool-debug-zh-dark.png", { animations: "disabled", stylePath: visualRegressionStyles });
+
+    // A11y: OAuth 连接在 Servers 列表中的呈现（认证方式标签 + 未授权状态）
+    await page.getByRole("button", { name: "Servers" }).click();
+    await expect(page.getByRole("heading", { name: "Servers", level: 1 })).toBeVisible();
+    await page.getByRole("button", { name: "添加连接" }).click();
+    const oauthDialog = page.getByRole("dialog", { name: "添加连接" });
+    await oauthDialog.getByLabel("认证方式").selectOption("oauth");
+    await oauthDialog.getByLabel("连接名称").fill("OAuth 占位连接");
+    await oauthDialog.getByLabel("MCP URL").fill(mcp.url);
+    await oauthDialog.getByRole("button", { name: "保存连接" }).click();
+    await expect(oauthDialog).toBeHidden();
+    const oauthRow = page.locator(".connection-table tbody tr").filter({ hasText: "OAuth 占位连接" });
+    await expect(oauthRow).toContainText("Streamable HTTP · OAuth");
+    await expect(oauthRow).toContainText("未授权");
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
   } catch (error) {
     primaryFailure = error;
   } finally {

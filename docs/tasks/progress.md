@@ -1429,7 +1429,7 @@ B16 — 入口层深潜（`cmd/agent`、`cmd/studio-admin`、`apps/local`、`app
 - 第二至五轮：徽章状态、脚本 phase 卡片与编号徽章、JSON 全屏查看器、弹窗内四组视觉块（基础字段 / 认证 / Headers / 固定传输方式）、空项目欢迎页、响应式断点（平板 1000px / 手机 640px）。
 - 深色：`--ui-accent-muted` `#293f34 → #2f4a3b`，侧栏当前项与默认项恢复可辨差异。
 - 浅色：`--ui-text-muted` `#6a746f → #65706a`、`--ui-text-subtle` `#8f9a94 → #66706b`；并把 3 处承载信息文本从 subtle 归位到 muted（空态提示、运行 ID、表单约束提示），token 定义处新增 AA 约束与豁免边界注释。
-- e2e：清理已裁剪功能的断言，`core-debugger.spec.ts` 在既有引导流程中分两批补 6 处 axe 断言（Servers 空态、连接弹窗 Bearer、表格数据行、运行历史、环境变量、脚本流水线）。
+- e2e：清理已裁剪功能的断言，`core-debugger.spec.ts` 在既有引导流程中分三批补 9 处 axe 断言（Servers 空态、连接弹窗 Bearer/OAuth、表格数据行、JSON 全屏查看器、运行历史、环境变量、脚本流水线、OAuth 连接列表行）。
 - 沉淀项目级 skill `local-ui-polish`。
 
 ### 实际验证
@@ -1446,6 +1446,6 @@ B16 — 入口层深潜（`cmd/agent`、`cmd/studio-admin`、`apps/local`、`app
 
 - 浏览器核对仍在临时数据目录与本地 fixture Server，未覆盖真实远程 MCP 与 OAuth 回调路径。
 - 响应式仅有断点样式，无真机/多设备验证。
-- 已保存请求、Tool 定义、脚本、Tab 右键菜单、JSON 全屏完整流程、空项目欢迎页未逐页打样。
+- 已保存请求、Tool 定义、脚本页、Tab 右键菜单、空项目欢迎页未逐页人工打样。
 - e2e 新增断言已做负向验证：回退 `--ui-text-muted` 触发 `color-contrast 4.46` 失败，恢复后通过。
-- JSON 全屏查看器与 OAuth 流程仍无 axe 断言（缺可达路径）。
+- 独立路由 `/json-viewer`（JsonDocumentPage）与 OAuth 完整授权往返仍无 axe 断言：前者需跨窗口跳转、后者需 OAuth 提供方，均属测试设施缺口而非漏写断言。
