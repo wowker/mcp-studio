@@ -326,6 +326,17 @@ test("eight same-Tool Tabs preserve out-of-order calls, traces, and reload state
     expect(new Set(historyIds)).toEqual(new Set(runIds));
     await openRunButtons.first().click();
     await expect(page.locator(".history-page__detail article.run-result")).toBeVisible();
+    // A11y: 运行历史（列表 + 详情，含 history-run__id 等次级文字）
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
+
+    // A11y: 环境变量页（分段 Tab + 内联代码提示 + 表单填充态）
+    await page.getByRole("button", { name: "环境变量" }).click();
+    await expect(page.getByRole("heading", { name: "环境变量", level: 1 })).toBeVisible();
+    await page.getByLabel("环境变量名称").fill("A11Y_PROBE");
+    await page.getByLabel("环境变量值").fill("probe-value");
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
 
     const projectsResponse = await request.get(`${inspector.address.origin}/api/projects`, { headers: apiHeaders });
     const projects = await projectsResponse.json() as { projects: Array<{ id: string }> };
@@ -397,6 +408,9 @@ test("eight same-Tool Tabs preserve out-of-order calls, traces, and reload state
     expect(mcp.completedTotals).toHaveLength(8);
     mcp.release(1_012);
     await expect(page.getByText("脚本流水线 · succeeded")).toBeVisible();
+    // A11y: 脚本流水线结果（phase 卡片、编号徽章、日志区）
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
     await expect.poll(() => workflowExecutionId).not.toBe("");
     const workflowDetailResponse = await request.get(
       `${inspector.address.origin}/api/projects/${projectId}/workflow-executions/${workflowExecutionId}`,
