@@ -98,7 +98,7 @@
 .ui-form-field__constraint,
 .ui-form-field__error { margin: 0; font-size: .74rem; line-height: 1.45; }
 .ui-form-field__description { color: var(--ui-text-muted); }
-.ui-form-field__constraint { color: var(--ui-text-subtle); font-family: var(--ui-mono); }
+.ui-form-field__constraint { color: var(--ui-text-muted); font-family: var(--ui-mono); }
 .ui-form-field__error { color: var(--ui-danger); }
 
 .module-heading-title { display: flex; min-width: 0; align-items: center; gap: 6px; }

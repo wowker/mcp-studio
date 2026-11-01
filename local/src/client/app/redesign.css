@@ -14,7 +14,10 @@
   --ui-border-muted: #ecefec;
   --ui-border-strong: #b3beb7;
   --ui-text: #27312e;
+  /* muted：次级信息文本，WCAG AA 必须 ≥4.5（所有表面）。 */
   --ui-text-muted: #65706a;
+  /* subtle：装饰/豁免层——仅限禁用态、占位符、图标、边框等非信息文本用途。
+     承载信息的文本不得使用（否则 AA 失守）；如需更浅灰须先确认该用点豁免。 */
   --ui-text-subtle: #66706b;
   --ui-accent: #267565;
   --ui-accent-strong: #1c5a4d;
@@ -445,7 +448,7 @@ textarea::placeholder { color: var(--ui-text-subtle); opacity: 1; }
 }
 .server-tab-menu [role="menuitem"]:hover { background: var(--ui-surface-muted); }
 
-.server-tabs__empty { color: var(--ui-text-subtle); }
+.server-tabs__empty { color: var(--ui-text-muted); }
 
 .server-tabbar__actions { display: flex; align-items: center; gap: 6px; padding: 8px; border-left: 1px solid var(--ui-border); }
 .topbar-action {
@@ -570,7 +573,7 @@ textarea::placeholder { color: var(--ui-text-subtle); opacity: 1; }
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
-.history-page__list .history-run__id { color: var(--ui-text-subtle); font: 500 0.7rem/1.4 var(--ui-mono); }
+.history-page__list .history-run__id { color: var(--ui-text-muted); font: 500 0.7rem/1.4 var(--ui-mono); }
 .history-run__meta { display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: 10px; grid-column: 1 / -1; color: var(--ui-text-muted); font: 500 0.7rem/1.4 var(--ui-mono); }
 .run-history__actions { display: flex; justify-content: flex-end; margin-bottom: 8px; }
 .run-history__actions button {
