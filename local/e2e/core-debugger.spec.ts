@@ -42,15 +42,28 @@ test("eight same-Tool Tabs preserve out-of-order calls, traces, and reload state
     await expect(page.getByRole("heading", { name: "Servers", level: 1 })).toBeVisible();
     await expect(page.getByText("Core E2E")).toHaveCount(0);
 
+    // A11y: Servers 空态（空表格 + server-tabs__empty + 页面副标题）—— token 回归防线
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
+
     await page.getByRole("button", { name: "添加连接" }).click();
     const connectionDialog = page.getByRole("dialog", { name: "添加连接" });
     await expect(connectionDialog).toBeVisible();
+    // A11y: 连接弹窗 Bearer 模式（认证分组 + Bearer Token 区块为弹窗 UI 超集）
+    await connectionDialog.getByLabel("认证方式").selectOption("bearer");
+    await expect(connectionDialog.getByRole("textbox", { name: "Bearer Token" })).toBeVisible();
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
+    await connectionDialog.getByLabel("认证方式").selectOption("none");
     await connectionDialog.getByLabel("连接名称").fill("Loopback MCP");
     await connectionDialog.getByLabel("MCP URL").fill(mcp.url);
     await connectionDialog.getByLabel("请求超时（毫秒）").fill("60000");
     await connectionDialog.getByRole("button", { name: "保存连接" }).click();
     await expect(connectionDialog).toBeHidden();
     await expect(page.getByText(mcp.url)).toBeVisible();
+    // A11y: Servers 表格含数据行（表头 + 操作按钮 + 状态徽章）
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze()).violations).toEqual([]);
     await page.getByRole("button", { name: "连接 Loopback MCP" }).click();
     await expect(page.getByRole("tab", { name: "Loopback MCP" })).toHaveAttribute("aria-selected", "true");
     await expect(page.getByRole("tabpanel", { name: "Loopback MCP" })).toBeVisible();
